@@ -16,6 +16,13 @@ createAddListButton.innerHTML = 'Adicionar';
 createAddListButton.id = 'criar-tarefa';
 getDivInput.appendChild(createAddListButton);
 
+const getDivButtons = document.getElementsByClassName('buttons-container')[0];
+const deleteAllButton = document.createElement('button');
+deleteAllButton.id = 'apaga-tudo';
+deleteAllButton.innerHTML = 'Apagar tudo';
+getDivButtons.appendChild(deleteAllButton);
+
+
 function addNewTask() {
   const getInputField = document.querySelector('#texto-tarefa');
   const getAddInputButton = document.querySelector('#criar-tarefa');
@@ -57,3 +64,13 @@ function markCompletedTasks() {
   });
 }
 markCompletedTasks();
+
+function deleteAllTasks() {
+  const getDeleteButton = document.querySelector('#apaga-tudo');
+
+  getDeleteButton.addEventListener('click', function () {
+    const getOrdenedList = document.querySelector('#lista-tarefas');
+    getOrdenedList.innerHTML = '';
+  });
+}
+deleteAllTasks();
