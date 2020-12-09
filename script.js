@@ -15,13 +15,28 @@ window.onload = function() {
     });
   }
 
-  function changeBackgroundColorTaskItem() {
+  // Mudar cor de fundo ao selecionar elemento e selecionar o item
+  function selectTaskItem() {
     tasksList.addEventListener('click', function(event) {
-      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+      const lastSelected = document.querySelector('.selected');
+      let taskSelect = event.target;
+      if(lastSelected) {
+        lastSelected.classList.remove('selected');
+        taskSelect.classList.add('selected');
+      } else taskSelect.classList.add('selected');
+      // selectTaskItem(taskSelect);
     });
   }
 
+  // function selectTaskItem(task) {
+  //   const lastSelected = document.querySelector('.selected');
+  //   if(lastSelected) {
+  //     lastSelected.classList.remove('selected');
+  //     task.classList.add('selected');
+  //   } else task.classList.add('selected');
+  // }
+
   createNewElementList();
-  changeBackgroundColorTaskItem();
+  selectTaskItem();
 
 }
