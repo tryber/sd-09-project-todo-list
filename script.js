@@ -11,3 +11,10 @@ function addTask() {
   });
 }
 addTask();
+
+function selectItem() {
+  listaTarefas.addEventListener('click', function(event) {
+    event.target.classList.toggle('selected');
+  });
+}
+selectItem();
