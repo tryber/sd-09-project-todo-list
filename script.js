@@ -33,3 +33,15 @@ function backgroundItemlist() {
   }) 
 }
 backgroundItemlist();
+
+function erasedAll() {
+  const eraserButton = document.getElementById('apaga-tudo');
+  eraserButton.addEventListener('click', function () {
+    const listOfItem = document.querySelector('#lista-tarefas');
+    const line = document.querySelectorAll('.item-list');
+    for (let index = 0; index < line.length; index += 1) {
+      listOfItem.removeChild(line[index]);
+    }        
+  })
+}
+erasedAll()
