@@ -6,7 +6,7 @@ resolverErroSelected.className = 'selected';
 getTitle.appendChild(resolverErroSelected);
 
 function coloringBackgroundListItens(event) {
-  let actualColoredItem = event.target;
+  const actualColoredItem = event.target;
   const selectedItem = document.querySelector('.selected');
   selectedItem.style.backgroundColor = 'white';
   selectedItem.classList.remove('selected');
@@ -14,8 +14,25 @@ function coloringBackgroundListItens(event) {
   actualColoredItem.style.backgroundColor = 'rgb(128 , 128 , 128)';
 }
 
+function lineThroughList(event) {
+  const actualLineThroughItem = event.target;
+  for (let index = 0; index < actualLineThroughItem.classList.length; index += 1){
+    if (actualLineThroughItem.classList[index] !== 'completed'){
+      actualLineThroughItem.classList.add('completed');
+      console.log('hello');
+      break;
+    } else {
+      actualLineThroughItem.classList.remove('completed');
+      console.log('world');
+      break
+    }
+  }
+  console.log(actualLineThroughItem.classList.length);
+}
+
 function listReceiveEvent() {
-  let listChildrens = getList.children;
+  const listChildrens = getList.children;
+  listChildrens[indexList].addEventListener('dblclick', lineThroughList);
   listChildrens[indexList].addEventListener('click', coloringBackgroundListItens);
   indexList += 1;
 }
