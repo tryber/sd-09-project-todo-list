@@ -1,3 +1,3 @@
 window.onload = function () {
-  console.log('todo list');
+  document.querySelector('header').classList.add('title');
 };
