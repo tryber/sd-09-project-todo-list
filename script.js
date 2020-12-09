@@ -16,6 +16,10 @@ reciveInputText();
 
 function changeLiBackgroundColor() {
 olList.addEventListener('click', function (event) {
+  const list = document.querySelectorAll('li')
+  for(const item of list) {
+    item.style.background = 'white';
+  }
 event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 })
 }
