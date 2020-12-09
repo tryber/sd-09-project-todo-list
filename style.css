@@ -1,3 +1,7 @@
+.completed {
+  text-decoration: line-through solid rgb(0 , 0 , 0);
+}
+
 .headerContainer {
   background-color: rgb(201 , 228 , 222);
   border-radius: 50px;
@@ -27,11 +31,17 @@ header {
   font-size: 3em;
 }
 
+li {
+  font-size: 1.4em;
+  padding-left: 10px;
+}
+
 ol {
   margin: auto;
-  width: 250px;
+  width: 300px;
 }
 
 .selected {
+  color: red;
   background-color: gray;
 }

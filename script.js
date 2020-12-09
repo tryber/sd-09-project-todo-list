@@ -13,6 +13,10 @@ function clicaTarefa(self) {
   removeTaskMarks();
   self.target.classList.toggle('selected');
 }
+// requisito 9
+function doubleClick(self){
+  self.target.classList.toggle('completed');
+}
 
 // requisito 6
 function criaTarefa() {
@@ -23,6 +27,7 @@ function criaTarefa() {
     const tarefa = document.createElement('li');
     // aqui ja implementa o event listaner de clicar em todas as tarefas
     tarefa.addEventListener('click', clicaTarefa);
+    tarefa.addEventListener('dblclick', doubleClick);
     tarefa.innerText = newTexto;
     document.querySelector('ol').appendChild(tarefa);
     document.querySelector('#texto-tarefa').value = '';
