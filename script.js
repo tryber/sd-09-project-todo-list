@@ -23,7 +23,7 @@ function addNewTask(inputContent) {
   taskList.appendChild(newTask);
 }
 
-function generateTaskButton() {
+function generateAddTaskButton() {
   const container = document.getElementById('inputs');
   const newButton = document.createElement('button');
   newButton.id = 'criar-tarefa';
@@ -34,6 +34,21 @@ function generateTaskButton() {
     const inputContent = document.getElementById('texto-tarefa');
     addNewTask(inputContent.value);
     inputContent.value = '';
+  });
+}
+
+function generateRemoveTaskButton() {
+  const container = document.getElementById('inputs');
+  const newButton = document.createElement('button');
+  newButton.id = 'apaga-tudo';
+  newButton.innerText = 'Delete all tasks';
+
+  container.appendChild(newButton);
+  newButton.addEventListener('click', function () {
+    const taskList = document.querySelectorAll('li');
+    for (let i = 0; i < taskList.length; i += 1) {
+      taskList[i].parentNode.removeChild(taskList[i]);
+    }
   });
 }
 
@@ -64,6 +79,7 @@ function selectListItem() {
 window.onload = function () {
   generateOrderedList();
   generateInput();
-  generateTaskButton();
+  generateAddTaskButton();
+  generateRemoveTaskButton();
   selectListItem();
 };
