@@ -16,3 +16,12 @@ button {
   border-radius: 7px;
   color: white;
 }
+
+button:hover {
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: gray;
+  cursor: pointer;
+}
