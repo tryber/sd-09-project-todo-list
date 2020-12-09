@@ -61,3 +61,19 @@ function deleteTaskList() {
 }
 
 deleteTaskList();
+
+function removeCompletedTask(taskArray) {
+  for (const task of taskArray) {
+    document.querySelector('.completed').remove();
+  }
+}
+
+function deleteCompletedTasks() {
+  const myButton = document.querySelector('#remover-finalizados');
+  myButton.addEventListener('click', () => {
+    const completedTasks = document.querySelectorAll('.completed');
+    removeCompletedTask(completedTasks);
+  });
+}
+
+deleteCompletedTasks();
