@@ -37,6 +37,15 @@ function generateTaskButton() {
   });
 }
 
+function completedListItem(item) {
+  const selectedItem = item.target.style.backgroundColor;
+  if (selectedItem === 'rgb(128, 128, 128)' && item.target.className !== 'completed') {
+    item.target.className = 'completed';
+  } else {
+    item.target.className = '';
+  }
+}
+
 function selectListItem() {
   const listItem = document.getElementById('lista-tarefas');
   const items = document.getElementsByTagName('li');
@@ -46,10 +55,10 @@ function selectListItem() {
         items[i].style.backgroundColor = '';
       }
       selectedItem.target.style.backgroundColor = 'rgb(128, 128, 128)';
-    } else {
-      selectedItem.target.style.backgroundColor = '';
     }
   });
+
+  listItem.addEventListener('dblclick', completedListItem);
 }
 
 window.onload = function () {
