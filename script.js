@@ -44,3 +44,16 @@ function changeBackgroundItemList() {
   });
 }
 changeBackgroundItemList();
+
+function markCompletedTasks() {
+  const getOrdenedList = document.querySelector('#lista-tarefas');
+
+  getOrdenedList.addEventListener('dblclick', function (event) {
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
+    };
+  })
+}
+markCompletedTasks();
