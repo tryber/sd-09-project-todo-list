@@ -1,12 +1,15 @@
 let botao = document.getElementById("lista-tarefas");
-    botao.addEventListener(click,listaTarefas);
+    botao.addEventListener(click,addTarefa);
     function addTarefa(){
         let tarefa = document.querySelector("#lista-tarefas");
        let li = document.createElement("li");
        tarefa.appendChild(li);
        li.innerText = captureInput.value;
        captureInput.value = '';
+       li.addEventListener('click', mudaCor);
+       li.addEventListener('dblclick', confereCompleta);
     }
+    addTarefa();
     function mudaCor(){
         let cor = document.getElementsByTagName("li");
         let lista = document.querySelector("#lista-tarefas");
@@ -19,6 +22,7 @@ let botao = document.getElementById("lista-tarefas");
     }
   })
 };
+mudaCor();
 function confereCompleta(){
     let lista2= document.querySelector("#lista-tarefas");
     lista2.addEventListener("dblclick", function (event) {
@@ -29,6 +33,7 @@ function confereCompleta(){
         }
       });
 }
+confereCompleta();
 
 function apagaTudo() {
     let botaoApaga = document.querySelector('#apaga-tudo');
@@ -37,6 +42,7 @@ function apagaTudo() {
         lista3.innerText = '';
     });
 }
+apagadaTudo();
 
 function removeFinalizados(){
     let lista4= document.getElementsByTagName('ol')[0];
@@ -48,3 +54,4 @@ function removeFinalizados(){
   }
 
 }
+removeFinalizados();
