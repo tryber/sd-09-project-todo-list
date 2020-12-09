@@ -35,3 +35,21 @@ function changebackgroundassignment(event) {
     }
   }
 }
+
+addEventListener('dblclick', completedassignment)
+
+
+function completedassignment(event){
+  let selectedElement = event.target
+
+  if (selectedElement.classList.contains('assignment')) {
+    if (selectedElement.classList.contains('completed')) {
+      selectedElement.classList.remove('completed')
+    }
+    else {
+      selectedElement.classList.add('completed')
+
+    }
+  }
+}
+
