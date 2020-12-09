@@ -1,0 +1,10 @@
+#input-box {
+    display: inline-block;
+    text-align: center;
+}
+
+#criar-tarefa {
+    background-color: silver;
+    margin: 10px;
+    text-align: center;
+}
