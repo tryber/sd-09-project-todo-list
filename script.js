@@ -6,6 +6,7 @@ function addTask () {
     const taskItem = document.createElement('li');
     taskItem.innerText = inputText.value;
     taskList.appendChild(taskItem);
+    taskList.classList.add('task');
     taskItem.addEventListener('click', selectItem);
     taskItem.addEventListener('dblclick', completeItem);
 }
@@ -37,5 +38,13 @@ function completeItem(completedItem){
     else {
         completedTask.classList.add('completed');
         // completedTask.style.textDecoration = 'line-through solid rgb(0,0,0)';
+    }
+}
+const clearButton = document.querySelector('#apaga-tudo');
+clearButton.addEventListener('click', clearAll);
+function clearAll(){
+    const everyTask = document.querySelectorAll('li');
+    for (let index = 0; index < everyTask.length ; index++){
+        everyTask[index].remove()
     }
 }
