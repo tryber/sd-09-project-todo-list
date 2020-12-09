@@ -1,11 +1,10 @@
-window.onload = function (){
+window.onload = function () {
   let button = document.querySelector('#criar-tarefa')
   let input = document.querySelector('#texto-tarefa')
 
   button.addEventListener('click', addnewassignment)
 
-
-  function addnewassignment(event){
+  function addnewassignment() {
     let list = document.querySelector('#lista-tarefas')
     let content = input.value
 
@@ -18,14 +17,21 @@ window.onload = function (){
   }
 }
 
-
 let itemlist = document.querySelectorAll('.assignment')
 
 addEventListener('click', changebackgroundassignment)
 
+function changebackgroundassignment(event) {
+  let oldSelectedElement = document.querySelector('.selected')
+  let selectedElement = event.target
 
-function changebackgroundassignment(event){
-  if(event.target.classList.contains('assignment')){
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  if (selectedElement.classList.contains('assignment')) {
+    if (oldSelectedElement) {
+      oldSelectedElement.classList.remove('selected')
+      selectedElement.classList.add('selected')
+    }
+    else {
+      selectedElement.classList.add('selected')
+    }
   }
 }
