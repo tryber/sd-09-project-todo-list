@@ -37,8 +37,16 @@ function generateTaskButton() {
   });
 }
 
+function selectListItem() {
+  const listItem = document.getElementById('lista-tarefas');
+  listItem.addEventListener('click', function (selectedItem) {
+    selectedItem.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  });
+}
+
 window.onload = function () {
   generateOrderedList();
   generateInput();
   generateTaskButton();
+  selectListItem();
 };
