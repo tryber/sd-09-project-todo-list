@@ -86,7 +86,7 @@ function createTask() {
 
 buttonTask.addEventListener('click', createTask);
 
-createButton('apaga-tudo', 'Lista Lista', '.buttons');
+createButton('apaga-tudo', 'Limpa Lista', '.buttons');
 const buttonClear = document.querySelector('#apaga-tudo');
 
 function clearList() {
@@ -98,3 +98,16 @@ function clearList() {
 }
 
 buttonClear.addEventListener('click', clearList);
+
+createButton('remover-finalizados', 'Limpar Completados', '.buttons');
+const buttonClearCompleted = document.querySelector('#remover-finalizados');
+
+function clearCompletedList() {
+  const listCompleted = document.querySelectorAll('li.completed');
+  for (let index = 0; index < listCompleted.length; index += 1) {
+    const listCompletedRemove = listCompleted[index];
+    listCompletedRemove.remove();
+  }
+}
+
+buttonClearCompleted.addEventListener('click', clearCompletedList);
