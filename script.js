@@ -65,9 +65,24 @@ window.onload = function() {
     });
   }
 
+  // Salvar itens no localStorage
+  function saveItensTaksLocalStorage() {
+    const saveTaskButton = document.querySelector('#salvar-tarefas');
+    
+    saveTaskButton.addEventListener('click', function() {
+      const allTasks = document.querySelectorAll('.task');
+      let allTasksArray = [];
+      for (let task of allTasks) {
+        allTasksArray.push(task.innerText);
+      }
+      localStorage.setItem('tasksList', allTasksArray);
+    });
+  }
+
   createNewElementList();
   selectTaskItem();
   taskComplete();
   clearAllTasks();
   clearCompletedTaskd();
+  saveItensTaksLocalStorage();
 }
