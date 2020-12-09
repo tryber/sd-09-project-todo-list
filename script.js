@@ -21,9 +21,17 @@ function addElement() {
             list[i].style.backgroundColor = 'white'
         }
         event.target.style.backgroundColor = "rgb(128, 128, 128)"
+
     }
 
     getListIten.addEventListener('click', changeBackGroundColor)
 
-    //exerc 8
 
+    function riskComplete(event) {
+        event.target.classList.toggle('completed');
+    }
+
+    function taskRisk() {
+        getListIten.addEventListener('dblclick', riskComplete)
+    }
+    taskRisk()
