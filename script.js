@@ -19,3 +19,12 @@ function insertForm() {
   elementHolder.appendChild(newForm);
 }
 insertForm()
+
+// 4- inserir Lista Ordenada
+function insertTaskOrderedList () {
+    const elementHolder = document.querySelector('.tasks');
+    let newOl = document.createElement('ol');
+    newOl.id = 'lista-tarefas';
+    elementHolder.appendChild(newOl);
+}
+insertTaskOrderedList();
