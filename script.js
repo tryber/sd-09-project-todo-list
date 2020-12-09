@@ -120,6 +120,9 @@ let array = [];
 
 function codificCookie(string) {
   let word = '';
+  if (string === '') {
+    return;
+  }
   for (let index = 0; index < string.length; index += 1) {
     if (string[index] !== ',') {
       word += string[index];
@@ -133,8 +136,9 @@ function codificCookie(string) {
 }
 
 function returnCookie(cookie) {
+  console.log(cookie);
   for (let index = 0; index < cookie.length; index += 1) {
-    let texto = cookie[index]
+    let texto = cookie[index];
     addListTask(texto);
   }
   taskListLoop();
@@ -152,6 +156,16 @@ function salveCookie() {
 }
 
 buttonSaveList.addEventListener('click', salveCookie);
+
+createButton('mover-cima', 'Top', '.buttons');
+const buttonTop = document.querySelector('#mover-cima');
+
+function moveTop() {
+
+}
+
+createButton('mover-baixo', 'Down', '.buttons');
+const buttonDown = document.querySelector('#mover-baixo');
 
 salveCookie();
 codificCookie(myCookie);
