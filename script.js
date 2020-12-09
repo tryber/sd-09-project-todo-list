@@ -21,8 +21,8 @@ function changeLiBackgroundColor() {
   olList.addEventListener('click', function (event) {
     const list = document.querySelectorAll('li');
     for (const item of list) {
-    item.style.background = 'white';
-  }
+      item.style.background = 'white';
+    }
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   });
 }
@@ -36,7 +36,7 @@ function lineThroughList() {
 lineThroughList();
 
 function removeAllListItens() {
-  removeButton.addEventListener ('click', function () {
+  removeButton.addEventListener('click', function () {
     const listItens = document.querySelectorAll('.itensDaLista');
     for (let index = 0; index < listItens.length; index += 1) {
       olList.removeChild(listItens[index]);
