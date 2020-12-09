@@ -41,10 +41,23 @@ function clearTasks() {
   btnClearTasks.addEventListener('click', () => {
     const parentTaskList = document.querySelector('#lista-tarefas');
     const taskList = document.querySelectorAll('#lista-tarefas > li');
-    
+
     for (let index = 0; index < taskList.length; index += 1) {
       parentTaskList.removeChild(taskList[index]);
     }
   });
 }
 clearTasks();
+
+function removeFinishedTasks() {
+  const btnremoveFinishedTasks = document.querySelector('#remover-finalizados');
+  btnremoveFinishedTasks.addEventListener('click', () => {
+    const parentTaskList = document.querySelector('#lista-tarefas');
+    const finishedTaskList = document.querySelectorAll('.completed');
+
+    for (let index = 0; index < finishedTaskList.length; index += 1) {
+      parentTaskList.removeChild(finishedTaskList[index]);
+    }
+  });
+}
+removeFinishedTasks();
