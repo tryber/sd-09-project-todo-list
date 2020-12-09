@@ -17,11 +17,19 @@ function addToDo() {
 addToDo();
 
 function selectToDo() {
-  toDoList = document.querySelector('#lista-tarefas');
+  const toDoList = document.querySelector('#lista-tarefas');
 
   toDoList.addEventListener('click', function (event) {
-    event.target.classList.toggle('selected-todo');
-  })
+    const toDo = document.querySelectorAll('#lista-tarefas li');
+
+    toDo.forEach(function (toDo) {
+      toDo.style.backgroundColor = '';
+    });
+
+    if (event.target !== toDoList) {
+      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    }
+  });
 }
 
 selectToDo();
