@@ -22,6 +22,11 @@ deleteAllButton.id = 'apaga-tudo';
 deleteAllButton.innerHTML = 'Apagar tudo';
 getDivButtons.appendChild(deleteAllButton);
 
+const deleteSelectedButton = document.createElement('button');
+deleteSelectedButton.id = 'remover-finalizados';
+deleteSelectedButton.innerHTML = 'Remove finalizados';
+getDivButtons.appendChild(deleteSelectedButton);
+
 
 function addNewTask() {
   const getInputField = document.querySelector('#texto-tarefa');
@@ -74,3 +79,15 @@ function deleteAllTasks() {
   });
 }
 deleteAllTasks();
+
+function deleteCompletedTasks() {
+  const getCompletedButton = document.querySelector('#remover-finalizados');
+  
+  getCompletedButton.addEventListener('click', function () {
+    const getNodes = document.querySelectorAll('.completed');
+    for (let index = 0; index < getNodes.length; index += 1) {
+     getNodes[index].remove();
+    }
+  });
+}
+deleteCompletedTasks();
