@@ -25,11 +25,8 @@ btnTask.addEventListener('click', addList);
 list.addEventListener('click',graySize);
 //  codigo para apagar todos os itens da lista
 function eraseAll() {
-  console.log(list);
-  console.log(items);
-  for (let i=0; i<items.length; i +=1){
+  for (let i=items.length-1; i>=0; i -=1){
     list.removeChild(items[i]);
   }
-  //element.parentNode.removeChild(li);
 }
 btnErase.addEventListener('click',eraseAll);
