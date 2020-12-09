@@ -7,6 +7,19 @@ function createListItem(inputValue) {
 
 function addTask() {
   const myButton = document.querySelector('button');
+  const inputLine = document.querySelector('input');
+  inputLine.addEventListener('keyup', (event) => {
+    if (event.key === 'Enter') {
+      if (inputLine.value.trim() === '') {
+        return;
+      }
+      const myTaskList = document.querySelector('ol');
+      const li = createListItem(inputLine.value);
+      myTaskList.appendChild(li);
+      inputLine.value = '';
+    }
+  });
+
   myButton.addEventListener('click', () => {
     const myTaskList = document.querySelector('ol');
     const inputLine = document.querySelector('input');
