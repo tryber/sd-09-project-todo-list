@@ -14,6 +14,7 @@ function insertForm() {
   newInput.type = 'text';
   newButton.innerText = 'Adicionar tarefa';
   newButton.id = 'criar-tarefa';
+  newButton.type = 'submit';
   newForm.appendChild(newLabel);
   newForm.appendChild(newInput);
   newForm.appendChild(newButton);
@@ -30,26 +31,22 @@ function insertTaskOrderedList() {
 }
 insertTaskOrderedList();
 
-// 5-
+// busca e povoa a OL com itens do session storage (window-load)
+window.addEventListener('load', function () {
+    const taskList = document.querySelector('#lista-tarefas');
+    for (let index = 1; index < sessionStorage.length; index += 1){
+      let taskItem = document.createElement('li');
+      taskItem.innerText = sessionStorage.getItem(index);
+      taskList.appendChild(taskItem);
+    }
+  });
+
+// 5- botao adiciona valor do (input="texto-tarefa") ao sessionStorage
 function clickAddTask() {
   const form = document.getElementById('input-bar');
-  const taskList = document.querySelector('#lista-tarefas');
   form.addEventListener('submit', function (event) {
-    let taskItem = document.createElement('li');
     const taskRead = event.target.tarefa.value;
-    taskItem.innerText = taskRead;
-    taskList.appendChild(taskItem);
     sessionStorage.setItem(sessionStorage.length, taskRead);
   });
 }
 clickAddTask();
-
-// busca e povoa a OL com itens do session storage (window-load)
-window.addEventListener('load', function () {
-  const taskList = document.querySelector('#lista-tarefas');
-  for (let index = 0; index < sessionStorage.length; index += 1){
-    let taskItem = document.createElement('li');
-    taskItem.innerText = sessionStorage.getItem(index);
-    taskList.appendChild(taskItem);
-  }
-});
