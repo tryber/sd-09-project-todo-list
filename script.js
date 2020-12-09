@@ -8,10 +8,7 @@ function clearInputButton(buttonName) {
   botao.appendChild(newButton);
   }
   clearInputButton('Adicionar');
-
-  
 const bttn = document.getElementById('criar-tarefa');
-
 function bttnCriarTarefa() {
   const input = document.getElementById('texto-tarefa').value;
   const lista = document.getElementById('lista-tarefas');
@@ -20,6 +17,5 @@ function bttnCriarTarefa() {
   lista.appendChild(addLi);
   document.getElementById('texto-tarefa').value = '';
 }
-  
-  bttn.addEventListener('click', bttnCriarTarefa);
+bttn.addEventListener('click', bttnCriarTarefa);
 }
