@@ -35,3 +35,16 @@ function completedTask() {
   });
 }
 completedTask();
+
+function clearTasks() {
+  const btnClearTasks = document.querySelector('#apaga-tudo');
+  btnClearTasks.addEventListener('click', () => {
+    const parentTaskList = document.querySelector('#lista-tarefas');
+    const taskList = document.querySelectorAll('#lista-tarefas > li');
+    
+    for (let index = 0; index < taskList.length; index += 1) {
+      parentTaskList.removeChild(taskList[index]);
+    }
+  });
+}
+clearTasks();
