@@ -17,6 +17,23 @@ function addListTask(task) {
   listOrd.appendChild(list)
 }
 
+
+function changeSelected(origin) {
+  console.log('NM');
+  if (origin.target.className == 'task-list') {
+    origin.target.className += ' selected';
+  } else {
+    origin.target.className = 'task-list';
+  } 
+}
+
+function taskListLoop() {
+  const listTask = document.querySelectorAll('.task-list');
+  for (let index = 0; index < listTask.length; index += 1) {
+    listTask[index].addEventListener('click', changeSelected);
+  }
+}
+
 function createTask() {
   const textInput = document.querySelector('#texto-tarefa');
   if (textInput.value === '') {
@@ -25,6 +42,13 @@ function createTask() {
   texto = textInput.value;
   textInput.value = '';
   addListTask(texto);
+  taskListLoop();
 }
 
 buttonTask.addEventListener('click', createTask);
+
+
+function colorList() {
+  
+}
+

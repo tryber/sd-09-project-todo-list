@@ -1,0 +1,7 @@
+.task-list {
+	background-color: rgb(255, 255, 255);
+}
+
+.task-list.selected {
+	background-color: rgb(128, 128, 128);
+}
