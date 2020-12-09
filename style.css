@@ -1,8 +1,8 @@
 .headerContainer {
-  background-color: #c9e4de;
+  background-color: rgb(201,228,222);
   border-radius: 50px;
-  box-shadow: -5px -5px #6b9080;
-  margin: 50px auto ;
+  box-shadow: -5px -5px rgb(107,144,128);
+  margin: 50px auto;
   padding: 30px;
   text-align: center;
   width: 80%;
@@ -12,18 +12,17 @@
   color: grey;
 }
 
-.headerContainer #texto-tarefa{
+.headerContainer input {
   border-radius: 5px;
-  text-align:center;
+  text-align: center;
   width: 250px;
 }
 
-.headerContainer button{
+.headerContainer button {
   border-radius: 10px;
-  margin-left: 10px
+  margin-left: 10px;
 }
 
 header {
   font-size: 3em;
 }
-
