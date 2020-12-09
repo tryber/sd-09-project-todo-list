@@ -1,16 +1,16 @@
 function createListItem(inputValue) {
   const li = document.createElement('li');
   li.innerText = inputValue;
-  return li
+  return li;
 }
 
 function addTask() {
   const myButton = document.querySelector('button');
   myButton.addEventListener('click', () => {
     const myTaskList = document.querySelector('ol');
-    let inputLine = document.querySelector('input');
-    if(inputLine.value === '') {
-      return
+    const inputLine = document.querySelector('input');
+    if (inputLine.value === '') {
+      return;
     }
     const li = createListItem(inputLine.value);
     myTaskList.appendChild(li);
@@ -20,20 +20,24 @@ function addTask() {
 
 addTask();
 
-function setTaskColor () {
+function setItemWhiteColor(array) {
+  for (const item of array) {
+    item.style.background = 'white';
+  }
+}
+
+function setTaskColor() {
   const orderedList = document.querySelector('ol');
   orderedList.addEventListener('click', (event) => {
     const myList = document.querySelectorAll('li');
-    for (const item of myList) {
-      item.style.background = 'white';
-    }
+    setItemWhiteColor(myList);
     event.target.style.background = 'rgb( 128 , 128 , 128)';
-  })
+  });
 }
 
 setTaskColor();
 
-function setTaskDone () {
+function setTaskDone() {
   const orderedList = document.querySelector('ol');
   orderedList.addEventListener('dblclick', (event) => {
     event.target.classList.toggle('completed');
@@ -42,14 +46,18 @@ function setTaskDone () {
 
 setTaskDone();
 
+function deleteItem(array) {
+  for (const item of array) {
+    item.remove();
+  }
+}
+
 function deleteTaskList() {
   const myButton = document.querySelector('#apaga-tudo');
   myButton.addEventListener('click', () => {
     const itemsList = document.querySelectorAll('li');
-    for (const item of itemsList) {
-      item.remove();
-    }
-  })
+    return deleteItem(itemsList);
+  });
 }
 
 deleteTaskList();
