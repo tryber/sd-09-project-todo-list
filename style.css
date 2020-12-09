@@ -1,6 +1,17 @@
-header {
-  font-size :3em;
-  margin: auto;
-  padding-top: 100px; 
+.headerContainer {
+  background-color: #c9e4de;
+  border-radius: 50px;
+  box-shadow: -5px -5px #6b9080;
+  margin: 50px auto ;
+  padding: 30px;
   text-align: center;
+  width: 80%;
+}
+
+.headerContainer p {
+  color: grey;
+}
+
+header {
+  font-size: 3em;
 }
