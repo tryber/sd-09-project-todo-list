@@ -66,5 +66,13 @@ window.onload = function() {
             })
     }
     clickList();
+
+    function doubleClickList() {
+        let taskList = document.querySelector('#lista-tarefas')
+        taskList.addEventListener('dblclick', function(event) {
+            event.target.classList.toggle('completed')
+        })
+    }
+    doubleClickList()
 }
     
