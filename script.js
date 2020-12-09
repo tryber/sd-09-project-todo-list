@@ -1,12 +1,14 @@
 const listaOrdenada = document.querySelector('#lista-tarefas');
 const inputBox = document.querySelector('#texto-tarefa');
-const button = document.querySelector('#criar-tarefa');
+const addbutton = document.querySelector('#criar-tarefa');
 const olList = document.querySelector('#lista-tarefas')
+const removeButton = document.querySelector('#apaga-tudo');
 
 function reciveInputText() {
-  button.addEventListener('click', function () {
+  addbutton.addEventListener('click', function () {
     let text = inputBox.value;
     const li = document.createElement('li');
+    li.className = 'itensDaLista'
     listaOrdenada.appendChild(li);
     li.innerText = text;
     inputBox.value = '';
@@ -30,4 +32,14 @@ function lineThroughList () {
     event.target.classList.toggle('completed');
   });
 }
-lineThroughList ()
+lineThroughList ();
+
+function removeAllListItens () {
+  removeButton.addEventListener('click', function() {
+    const listItens = document.querySelectorAll('.itensDaLista');
+    for (let index = 0; index < listItens.length; index += 1) {
+      olList.removeChild(listItens[index]);
+    };
+  });
+}
+removeAllListItens();
