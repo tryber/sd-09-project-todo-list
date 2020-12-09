@@ -17,51 +17,62 @@ window.onload = function () {
   }
 
 
-let itemlist = document.querySelectorAll('.assignment')
+  let itemlist = document.querySelectorAll('.assignment')
 
-addEventListener('click', changebackgroundassignment)
+  addEventListener('click', changebackgroundassignment)
 
-function changebackgroundassignment(event) {
-  let oldSelectedElement = document.querySelector('.selected')
-  let selectedElement = event.target
+  function changebackgroundassignment(event) {
+    let oldSelectedElement = document.querySelector('.selected')
+    let selectedElement = event.target
 
-  if (selectedElement.classList.contains('assignment')) {
-    if (oldSelectedElement) {
-      oldSelectedElement.classList.remove('selected')
-      selectedElement.classList.add('selected')
-    }
-    else {
-      selectedElement.classList.add('selected')
-    }
-  }
-}
-
-addEventListener('dblclick', completedassignment)
-
-
-function completedassignment(event) {
-  let selectedElement = event.target
-
-  if (selectedElement.classList.contains('assignment')) {
-    if (selectedElement.classList.contains('completed')) {
-      selectedElement.classList.remove('completed')
-    }
-    else {
-      selectedElement.classList.add('completed')
+    if (selectedElement.classList.contains('assignment')) {
+      if (oldSelectedElement) {
+        oldSelectedElement.classList.remove('selected')
+        selectedElement.classList.add('selected')
+      }
+      else {
+        selectedElement.classList.add('selected')
+      }
     }
   }
-}
 
-let buttonremoveallitems = document.querySelector('#apaga-tudo')
+  addEventListener('dblclick', completedassignment)
 
-buttonremoveallitems.addEventListener('click', removeallassignments)
 
-function removeallassignments() {
-  let list = document.querySelector('#lista-tarefas')
+  function completedassignment(event) {
+    let selectedElement = event.target
 
-  while (list.lastElementChild){
-    list.removeChild(list.lastElementChild)
+    if (selectedElement.classList.contains('assignment')) {
+      if (selectedElement.classList.contains('completed')) {
+        selectedElement.classList.remove('completed')
+      }
+      else {
+        selectedElement.classList.add('completed')
+      }
+    }
   }
-}
 
+  let buttonremoveallitems = document.querySelector('#apaga-tudo')
+
+  buttonremoveallitems.addEventListener('click', removeallassignments)
+
+  function removeallassignments() {
+    let list = document.querySelector('#lista-tarefas')
+
+    while (list.lastElementChild) {
+      list.removeChild(list.lastElementChild)
+    }
+  }
+
+
+  let buttonremoveallitemscompleted = document.querySelector('#remover-finalizados')
+
+  buttonremoveallitemscompleted.addEventListener('click', removeallassignmentscompleteds)
+
+  function removeallassignmentscompleteds() {
+    let completedItems = document.querySelectorAll('.completed')
+    for (var element of completedItems) {
+      element.remove();
+    }
+  }
 }
