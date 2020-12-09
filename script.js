@@ -54,6 +54,6 @@ function markCompletedTasks() {
     } else {
       event.target.classList.add('completed');
     };
-  })
+  });
 }
 markCompletedTasks();
