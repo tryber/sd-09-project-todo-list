@@ -1,6 +1,7 @@
 const btnTask = document.querySelector('#criar-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
 const btnDel = document.querySelector('#apaga-tudo');
+const btnDelComplete = document.querySelector('#remover-finalizados')
 
 function createList() {
   const inputTask = document.querySelector('#texto-tarefa');
@@ -33,10 +34,19 @@ function creatSelectTask() {
 }
 
 function deleteAll() {
-  btnDel.addEventListener('click', function() {
+  btnDel.addEventListener('click', function () {
     const listOfDel = document.querySelectorAll('.task');
     for (let index = 0; index < listOfDel.length; index += 1) {
       taskList.removeChild(listOfDel[index]);
+    }
+  });
+}
+
+function removeCompleted() {
+  btnDelComplete.addEventListener('click', function () {
+    const listOfComplete = document.querySelectorAll('.completed');
+    for (let index = 0; index < listOfComplete.length; index += 1) {
+      taskList.removeChild(listOfComplete[index]);
     }
   })
 }
@@ -44,3 +54,4 @@ function deleteAll() {
 addListButton();
 creatSelectTask();
 deleteAll();
+removeCompleted();
