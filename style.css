@@ -1,0 +1,26 @@
+#funcionamento {
+    color: blue;
+}
+
+#texto-tarefa {
+
+}
+
+#lista-tarefas{
+
+}
+
+#criar-tarefa {
+    width: 200px;
+    height: 40px;
+}
+
+#apaga-tudo {
+    width: 200px;
+    height: 40px;
+}
+
+#remover-finalizados {
+    width: 200px;
+    height: 40px
+}
