@@ -68,7 +68,7 @@ deleteTaskList();
 
 // Requisito 11
 function removeCompletedTask(taskArray) {
-  for (const task of taskArray) {
+  for (let index = 0; index < taskArray.length; index += 1) {
     document.querySelector('.completed').remove();
   }
 }
