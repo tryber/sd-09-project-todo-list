@@ -69,6 +69,26 @@ function generateRemoveCompletedTasksButton() {
   });
 }
 
+function generateSaveTasksButton() {
+  const container = document.getElementById('inputs');
+  const newButton = document.createElement('button');
+  newButton.id = 'salvar-tarefas';
+  newButton.innerText = 'Save tasks';
+
+  container.appendChild(newButton);
+  newButton.addEventListener('click', function () {
+    const taskList = document.getElementsByTagName('li');
+    if (typeof (Storage) !== 'undefined') {
+      const newArray = []; // Array of objects
+
+      for (let i = 0; i < taskList.length; i += 1) {
+        newArray.push({ value: taskList[i].innerHTML, class: taskList[i].className });
+      }
+      localStorage.setItem('tasks', JSON.stringify(newArray));
+    }
+  });
+}
+
 function completedListItem(item) {
   const selectedItem = item.target.style.backgroundColor;
   if (selectedItem === 'rgb(128, 128, 128)' && item.target.className !== 'completed') {
@@ -93,11 +113,31 @@ function selectListItem() {
   listItem.addEventListener('dblclick', completedListItem);
 }
 
+function loadSavedTasks() {
+  const taskList = document.getElementById('lista-tarefas');
+  let savedTasksObj = {
+    class: '',
+    value: '',
+  };
+
+  if (localStorage.length > 0) {
+    savedTasksObj = JSON.parse(localStorage.getItem('tasks')); // Recover saved tasks
+    for (let i = 0; i < savedTasksObj.length; i += 1) {
+      const newTask = document.createElement('li');
+      newTask.innerText = savedTasksObj[i].value;
+      newTask.className = savedTasksObj[i].class;
+      taskList.appendChild(newTask);
+    }
+  }
+}
+
 window.onload = function () {
   generateOrderedList();
   generateInput();
   generateAddTaskButton();
   generateRemoveAllTasksButton();
   generateRemoveCompletedTasksButton();
+  generateSaveTasksButton();
   selectListItem();
+  loadSavedTasks();
 };
