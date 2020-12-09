@@ -35,3 +35,8 @@ function criaTarefa() {
 }
 
 document.querySelector('#criar-tarefa').addEventListener('click', criaTarefa);
+
+// requisito 10
+document.querySelector('#apaga-tudo').addEventListener('click', function() {
+  document.querySelector('ol').innerText = '';
+});
