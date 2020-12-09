@@ -42,7 +42,7 @@ function removeFinalizados(){
     let lista4= document.getElementsByTagName('ol')[0];
     let itens = lista4.querySelectorAll('li');
     let localizaTerminados = itens.getElementsByClassName('completed');
-  for (index=localizaTerminados.length-1; index>=0; index-=1){
+  for (let index=localizaTerminados.length-1; index>=0; index-=1){
     lista4.removeChild(localizaTerminados[index]);
 
   }
