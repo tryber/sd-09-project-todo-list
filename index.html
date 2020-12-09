@@ -27,7 +27,35 @@
     <section class='buttonContainer'>
         <button id ='apaga-tudo'>Apaga Geral</button>
         <button id ='remover-finalizados'>Remover Finalizados</button>
+        <button id ='salvar-tarefas'>Save</button>
     </section>
     <script src='script.js'></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            function stringToTask(string){
+                let newString = string.split('+++');
+                const newLi = document.createElement('li');
+                newLi.innerText = newString[1];
+                if (newString[0] === '1') {
+                    newLi.classList.toggle('completed');
+                }
+                newLi.addEventListener('click', clicaTarefa);
+                newLi.addEventListener('dblclick', doubleClick)
+                document.querySelector('ol').appendChild(newLi);
+            }
+
+            function loadFromStorage() {
+                const totalTasks = localStorage.getItem('totalTasks');
+                if (totalTasks !== null){
+                    for (let index = 0; index < totalTasks; index += 1) {
+                        const newLi = localStorage.getItem(`task${index}`);
+                        stringToTask(newLi);
+                    }
+                }
+            }
+            loadFromStorage();
+        });
+
+    </script>
 </body>
 </html>

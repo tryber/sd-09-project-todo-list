@@ -43,10 +43,31 @@ document.querySelector('#apaga-tudo').addEventListener('click', function () {
 
 // requisito 11
 function removeDone() {
-  const taskDone = document.querySelectorAll('.completed')
+  const taskDone = document.querySelectorAll('.completed');
   for (let index = taskDone.length - 1; index >= 0; index -= 1) {
     taskDone[index].parentElement.removeChild(taskDone[index]);
-    }
+  }
 }
 
 document.querySelector('#remover-finalizados').addEventListener('click', removeDone);
+
+function taskToString(object){
+  const isMarked = object.classList.contains('completed') ? 1 : 0;
+  
+  return `${isMarked}+++${object.innerText}`;
+}
+
+function saveTaskList(){
+  const taskList = document.querySelectorAll('li');
+  if (taskList.length === 0){
+    alert('Não há nada o que salvar')
+  } else {
+    localStorage.setItem('totalTasks', taskList.length);
+    for (let index = 0; index < taskList.length; index += 1) {
+      const myTask = taskToString(taskList[index], index);
+      localStorage.setItem(`task${index}`, myTask);
+    }
+  }
+}
+
+document.querySelector('#salvar-tarefas').addEventListener('click', saveTaskList);
