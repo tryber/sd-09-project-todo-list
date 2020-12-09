@@ -35,7 +35,7 @@ function addListButton() {
 
 function selectTask(event) {
   const listOfTasks = document.querySelector('.selected');
-  if(listOfTasks !== null){
+  if (listOfTasks !== null) {
     listOfTasks.classList.remove('selected');
   }
   event.target.classList.toggle('selected');
@@ -82,21 +82,19 @@ function saveList() {
   btnSave.addEventListener('click', storageList);
 }
 
-function pickIndex(numberOfPos) {
+function pickIndex() {
+  let numb;
+  const numberOfPos = document.querySelectorAll('.task');
   for (let index = 0; index < numberOfPos.length; index += 1) {
     if(numberOfPos[index].classList.contains('selected')) {
-      return index;
+      numb = index;
     }
   }
+  return numb
 }
 
-function upSelected(event) {
-  const liSelected = document.querySelector('.selected');
-  const newPosition = document.createElement('li');
+function changeIndex(newIndex, event, newPosition) {
   const numberOfPos = document.querySelectorAll('.task');
-  newPosition.innerText = liSelected.innerText;
-  newPosition.className = liSelected.className;
-  let newIndex = pickIndex(numberOfPos);
   if(newIndex > 0 && event.target.id === 'mover-cima') {
     taskList.removeChild(numberOfPos[newIndex]);
     taskList.insertBefore(newPosition, numberOfPos[newIndex - 1]);
@@ -104,6 +102,16 @@ function upSelected(event) {
   if(newIndex < numberOfPos.length && event.target.id === 'mover-baixo') {
     taskList.removeChild(numberOfPos[newIndex]);
     taskList.insertBefore(newPosition, numberOfPos[newIndex + 2]);
+  }
+}
+function upSelected(event) {
+  const liSelected = document.querySelector('.selected');
+    if (liSelected !== null) {
+    const newPosition = document.createElement('li');
+    newPosition.innerText = liSelected.innerText;
+    newPosition.className = liSelected.className;
+    let newIndex = pickIndex();
+    changeIndex(newIndex, event, newPosition);
   }
 }
 
