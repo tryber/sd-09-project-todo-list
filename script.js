@@ -14,7 +14,7 @@ function clicaTarefa(self) {
   self.target.classList.toggle('selected');
 }
 // requisito 9
-function doubleClick(self){
+function doubleClick(self) {
   self.target.classList.toggle('completed');
 }
 
