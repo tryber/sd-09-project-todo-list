@@ -41,3 +41,15 @@ function setTaskDone () {
 }
 
 setTaskDone();
+
+function deleteTaskList() {
+  const myButton = document.querySelector('#apaga-tudo');
+  myButton.addEventListener('click', () => {
+    const itemsList = document.querySelectorAll('li');
+    for (const item of itemsList) {
+      item.remove();
+    }
+  })
+}
+
+deleteTaskList();

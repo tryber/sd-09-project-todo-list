@@ -1,5 +1,11 @@
-button {
+#criar-tarefa {
   background-color: blue;
+  border-radius: 10px;
+  color: orange;
+}
+
+#apaga-tudo {
+  background-color: darkred;
   border-radius: 10px;
   color: orange;
 }
