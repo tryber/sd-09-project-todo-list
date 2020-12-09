@@ -3,13 +3,13 @@ const taskList = document.querySelector('#lista-tarefas');
 const btnDel = document.querySelector('#apaga-tudo');
 const btnDelComplete = document.querySelector('#remover-finalizados');
 const btnSave = document.querySelector('#salvar-tarefas');
+const btnUp = document.querySelector('#mover-cima');
+const btnDown = document.querySelector('#mover-baixo');
 
 function presetList() {
-  //let beforeList = localStorage.getItem('Lista');
-  let storage = localStorage.getItem(0);
+  const storage = localStorage.getItem(0);
   if (storage !== null) {
     for (let index = 0; index < localStorage.length; index += 1) {
-      const lista = []
       let atual = localStorage.getItem(index);
       atual = atual.split(',');
       const beforeLi = document.createElement('li');
@@ -34,11 +34,11 @@ function addListButton() {
 }
 
 function selectTask(event) {
-  const listOfTasks = document.querySelectorAll('.task');
-  for (let index = 0; index < listOfTasks.length; index += 1) {
-    listOfTasks[index].style.backgroundColor = 'white';
+  const listOfTasks = document.querySelector('.selected');
+  if(listOfTasks !== null){
+    listOfTasks.classList.remove('selected');
   }
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  event.target.classList.toggle('selected');
 }
 
 function completedTask(event) {
@@ -82,9 +82,40 @@ function saveList() {
   btnSave.addEventListener('click', storageList);
 }
 
+function pickIndex(numberOfPos) {
+  for (let index = 0; index < numberOfPos.length; index += 1) {
+    if(numberOfPos[index].classList.contains('selected')) {
+      return index;
+    }
+  }
+}
+
+function upSelected(event) {
+  const liSelected = document.querySelector('.selected');
+  const newPosition = document.createElement('li');
+  const numberOfPos = document.querySelectorAll('.task');
+  newPosition.innerText = liSelected.innerText;
+  newPosition.className = liSelected.className;
+  let newIndex = pickIndex(numberOfPos);
+  if(newIndex > 0 && event.target.id === 'mover-cima') {
+    taskList.removeChild(numberOfPos[newIndex]);
+    taskList.insertBefore(newPosition, numberOfPos[newIndex - 1]);
+  }
+  if(newIndex < numberOfPos.length && event.target.id === 'mover-baixo') {
+    taskList.removeChild(numberOfPos[newIndex]);
+    taskList.insertBefore(newPosition, numberOfPos[newIndex + 2]);
+  }
+}
+
+function changePosition() {
+  btnUp.addEventListener('click', upSelected);
+  btnDown.addEventListener('click', upSelected);
+}
+
 presetList();
 addListButton();
 creatSelectTask();
 deleteAll();
 removeCompleted();
 saveList();
+changePosition();
