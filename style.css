@@ -1,0 +1,21 @@
+body {
+    background-color: #10ac84;
+    font-family: Montserrat, sans-serif;
+}
+
+h1 {
+    font-size: 22px;
+}
+
+main {
+    background-color: #1dd1a1;
+    border-radius: 5px;
+    color: white;
+    height: 300px;
+    margin: 20px auto 20px auto;
+    padding: 20px;
+    text-align: center;
+    width: 60em;
+    
+    
+}
