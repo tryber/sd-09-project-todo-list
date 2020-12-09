@@ -15,7 +15,7 @@ window.onload = function () {
     input.value = ""
     list.appendChild(newelement)
   }
-}
+
 
 let itemlist = document.querySelectorAll('.assignment')
 
@@ -39,7 +39,7 @@ function changebackgroundassignment(event) {
 addEventListener('dblclick', completedassignment)
 
 
-function completedassignment(event){
+function completedassignment(event) {
   let selectedElement = event.target
 
   if (selectedElement.classList.contains('assignment')) {
@@ -48,8 +48,20 @@ function completedassignment(event){
     }
     else {
       selectedElement.classList.add('completed')
-
     }
   }
 }
 
+let buttonremoveallitems = document.querySelector('#apaga-tudo')
+
+buttonremoveallitems.addEventListener('click', removeallassignments)
+
+function removeallassignments() {
+  let list = document.querySelector('#lista-tarefas')
+
+  while (list.lastElementChild){
+    list.removeChild(list.lastElementChild)
+  }
+}
+
+}
