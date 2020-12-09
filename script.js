@@ -48,3 +48,12 @@ function clearAll(){
         everyTask[index].remove()
     }
 }
+
+const removeCompletedButton = document.querySelector('#remover-finalizados');
+removeCompletedButton.addEventListener('click', removeCompleted);
+function removeCompleted() {
+    const everyCompleted = document.querySelectorAll('.completed');
+    for (let index = 0; index < everyCompleted.length ; index++){
+        everyCompleted[index].remove()
+    }
+}
