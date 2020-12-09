@@ -1,3 +1,4 @@
+// Requisitos 5 & 6
 function createListItem(inputValue) {
   const li = document.createElement('li');
   li.innerText = inputValue;
@@ -20,6 +21,7 @@ function addTask() {
 
 addTask();
 
+// Requisitos 7 & 8
 function setItemWhiteColor(array) {
   for (const item of array) {
     item.style.background = 'white';
@@ -37,6 +39,7 @@ function setTaskColor() {
 
 setTaskColor();
 
+// Requisito 9
 function setTaskDone() {
   const orderedList = document.querySelector('ol');
   orderedList.addEventListener('dblclick', (event) => {
@@ -46,6 +49,7 @@ function setTaskDone() {
 
 setTaskDone();
 
+// Requisito 10
 function deleteItem(array) {
   for (const item of array) {
     item.remove();
@@ -62,6 +66,7 @@ function deleteTaskList() {
 
 deleteTaskList();
 
+// Requisito 11
 function removeCompletedTask(taskArray) {
   for (const task of taskArray) {
     document.querySelector('.completed').remove();
@@ -77,3 +82,5 @@ function deleteCompletedTasks() {
 }
 
 deleteCompletedTasks();
+
+// Bonus
