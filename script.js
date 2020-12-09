@@ -16,7 +16,29 @@ function generateOrderedList() {
   taskContainer.appendChild(newList);
 }
 
+function addNewTask(inputContent) {
+  const taskList = document.getElementById('lista-tarefas');
+  const newTask = document.createElement('li');
+  newTask.innerText = inputContent;
+  taskList.appendChild(newTask);
+}
+
+function generateTaskButton() {
+  const container = document.getElementById('inputs');
+  const newButton = document.createElement('button');
+  newButton.id = 'criar-tarefa';
+  newButton.innerText = 'Create task';
+
+  container.appendChild(newButton);
+  newButton.addEventListener('click', function () {
+    const inputContent = document.getElementById('texto-tarefa');
+    addNewTask(inputContent.value);
+    inputContent.value = '';
+  });
+}
+
 window.onload = function () {
   generateOrderedList();
   generateInput();
+  generateTaskButton();
 };
