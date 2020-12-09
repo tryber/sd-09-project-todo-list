@@ -23,7 +23,7 @@ function addButtonItem() {
   btn.type = 'submit';
   btn.innerText = 'Criar tarefa';
   btn.style.marginLeft = '5px';
-  btn.style.padding = '3px'
+  btn.style.padding = '3px';
   let section1 = document.querySelector('#section1');
   section1.appendChild(btn);
 
@@ -47,8 +47,13 @@ function ChangeColorElementsLi() {
   let taskList = document.querySelector('#lista-tarefas');
 
   taskList.addEventListener('click', function (e) {
-    e.target.style.backgroundColor = 'rgb(128,128,128)';
-    e.target.style.cursor = 'pointer';
+    let currentSelected = document.querySelector('.selected');
+    if (currentSelected) {
+      currentSelected.className = '';
+      currentSelected.style.backgroundColor = '';
+    }
+    e.target.className = 'selected';
+    e.target.style.backgroundColor = 'rgb(128, 128, 128)';
   });
 }
 ChangeColorElementsLi();
