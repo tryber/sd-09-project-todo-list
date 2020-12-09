@@ -37,6 +37,16 @@ function criaTarefa() {
 document.querySelector('#criar-tarefa').addEventListener('click', criaTarefa);
 
 // requisito 10
-document.querySelector('#apaga-tudo').addEventListener('click', function() {
+document.querySelector('#apaga-tudo').addEventListener('click', function () {
   document.querySelector('ol').innerText = '';
 });
+
+// requisito 11
+function removeDone() {
+  const taskDone = document.querySelectorAll('.completed')
+  for (let index = taskDone.length - 1; index >= 0; index -= 1) {
+    taskDone[index].parentElement.removeChild(taskDone[index]);
+    }
+}
+
+document.querySelector('#remover-finalizados').addEventListener('click', removeDone);
