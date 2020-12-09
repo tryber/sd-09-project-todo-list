@@ -9,4 +9,4 @@ let botao = document.getElementById("lista-tarefas");
        li.addEventListener('dblclick', confereCompleta);
     }
     addTarefa();
-    botao.addEventListener(click, addTarefa);
+    botao.addEventListener('click', addTarefa);
