@@ -16,18 +16,15 @@ function coloringBackgroundListItens(event) {
 
 function lineThroughList(event) {
   const actualLineThroughItem = event.target;
-  for (let index = 0; index < actualLineThroughItem.classList.length; index += 1){
-    if (actualLineThroughItem.classList[index] !== 'completed'){
+  for (let index = 0; index < actualLineThroughItem.classList.length; index += 1) {
+    if (actualLineThroughItem.classList[index] !== 'completed') {
       actualLineThroughItem.classList.add('completed');
-      console.log('hello');
       break;
     } else {
       actualLineThroughItem.classList.remove('completed');
-      console.log('world');
-      break
+      break;
     }
   }
-  console.log(actualLineThroughItem.classList.length);
 }
 
 function listReceiveEvent() {
@@ -46,4 +43,5 @@ function botaoCriarTarefa() {
   listReceiveEvent();
 }
 
-const botao = document.querySelector('#criar-tarefa').addEventListener('click', botaoCriarTarefa);
+const botao = document.querySelector('#criar-tarefa');
+botao.addEventListener('click', botaoCriarTarefa);
