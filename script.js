@@ -24,19 +24,24 @@ window.onload = function() {
         lastSelected.classList.remove('selected');
         taskSelect.classList.add('selected');
       } else taskSelect.classList.add('selected');
-      // selectTaskItem(taskSelect);
     });
   }
 
-  // function selectTaskItem(task) {
-  //   const lastSelected = document.querySelector('.selected');
-  //   if(lastSelected) {
-  //     lastSelected.classList.remove('selected');
-  //     task.classList.add('selected');
-  //   } else task.classList.add('selected');
-  // }
+  // Risca task quando clicado 2x
+  function taskComplete() {
+    tasksList.addEventListener('dblclick', function(event) {
+      const taskCompleted = event.target;
+      const lastCompleted = document.querySelector('.completed');
+      if (taskCompleted == lastCompleted) taskCompleted.classList.remove('completed');
+      else if (lastCompleted) {
+        lastCompleted.classList.remove('completed');
+        taskCompleted.classList.add('completed');
+      } else taskCompleted.classList.add('completed');
+    });
+  }
 
   createNewElementList();
   selectTaskItem();
-
+  taskComplete();
+;
 }
