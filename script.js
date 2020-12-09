@@ -10,6 +10,7 @@ function insertForm() {
   newForm.id = 'input-bar';
   newLabel.for = 'data-inserted';
   newInput.id = 'texto-tarefa'
+  newInput.name = 'tarefa'
   newInput.type = 'text';
   newButton.innerText = 'Adicionar tarefa';
   newButton.id = 'criar-tarefa';
@@ -28,3 +29,27 @@ function insertTaskOrderedList () {
     elementHolder.appendChild(newOl);
 }
 insertTaskOrderedList();
+
+// 5-
+function clickAddTask() {
+    const form = document.getElementById('input-bar');
+    const taskList = document.querySelector('#lista-tarefas');
+    form.addEventListener('submit', function (event) {
+        let taskItem = document.createElement('li');
+        const taskRead = event.target.tarefa.value;
+        taskItem.innerText = taskRead;
+        taskList.appendChild(taskItem);
+        sessionStorage.setItem(sessionStorage.length, taskRead);
+    });
+}
+clickAddTask()
+
+// busca e povoa a OL com itens do session storage (window-load)
+window.addEventListener('load', function () {
+    const taskList = document.querySelector('#lista-tarefas');
+    for (let index = 1; index < sessionStorage.length; index += 1){
+        let taskItem = document.createElement('li');
+        taskItem.innerText = sessionStorage.getItem(index);
+        taskList.appendChild(taskItem);
+    }
+});
