@@ -25,6 +25,7 @@ window.onload = function() {
         container.appendChild(button)
         container.appendChild(listOrdened)
         document.body.appendChild(container)
+        container.className = 'container'
     }
     createContainer()
 
@@ -38,6 +39,7 @@ window.onload = function() {
                 let newList = document.createElement('li')
                 newList.innerText = input.value
 
+                newList.className = 'list-items'
                 list.appendChild(newList)
                 input.value = ''
             }
@@ -48,6 +50,7 @@ window.onload = function() {
                 let newList = document.createElement('li')
                 newList.innerText = input.value
 
+                newList.className = 'list-items'
                 list.appendChild(newList)
                 input.value = ''
             }
@@ -74,5 +77,27 @@ window.onload = function() {
         })
     }
     doubleClickList()
+
+    function createButtonClearAllItemList() {
+        let button = document.createElement('button')
+        let container = document.querySelector('.container')
+        button.id = 'apaga-tudo'
+        button.innerText = 'Clear All List'
+        container.appendChild(button)
+    }
+    createButtonClearAllItemList()
+
+    function removeList() {
+        let taskList = document.querySelector('#lista-tarefas')
+        let buttonClearAll = document.querySelector('#apaga-tudo')
+        
+        buttonClearAll.addEventListener('click', function() {
+            let itemsList = document.querySelectorAll('.list-items')
+            for (let index = 0; index < itemsList.length; index += 1) {
+                taskList.removeChild(itemsList[index])
+            }
+        })
+    }
+    removeList()
 }
     
