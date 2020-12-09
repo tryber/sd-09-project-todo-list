@@ -4,6 +4,7 @@ window.onload = function() {
         let title = document.querySelector('.title')
         title.appendChild(operation)
         operation.innerText = 'Clique duas vezes em um item para marcá-lo como completo'
+        operation.id = 'funcionamento'
     }
     titleOperation();
 }
