@@ -44,9 +44,14 @@ window.addEventListener('load', function () {
 // 5- botao adiciona valor do (input="texto-tarefa") ao sessionStorage
 function clickAddTask() {
   const form = document.getElementById('input-bar');
+  const taskList = document.querySelector('#lista-tarefas');
   form.addEventListener('submit', function (event) {
+    let taskItem = document.createElement('li'); //--
     const taskRead = event.target.tarefa.value;
+    taskItem.innerText = taskRead;  //--
     sessionStorage.setItem(sessionStorage.length, taskRead);
   });
 }
 clickAddTask();
+
+
