@@ -11,12 +11,19 @@ function addElement() {
 
     getButton.addEventListener('click', addElement)
 
-    //exerc
+    //exerc 7
 
     let getListIten = document.querySelector('#lista-tarefas');
 
     function changeBackGroundColor(event) {
+        let list = document.querySelectorAll('li')
+        for(i = 0; i < list.length; i += 1) {
+            list[i].style.backgroundColor = 'white'
+        }
         event.target.style.backgroundColor = "rgb(128, 128, 128)"
     }
 
     getListIten.addEventListener('click', changeBackGroundColor)
+
+    //exerc 8
+
