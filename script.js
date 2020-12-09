@@ -11,6 +11,15 @@ function addTask () {
 
 function selectItem(chosenItem) {
     const itemSelected = chosenItem.target;
-    itemSelected.style.backgroundColor = 'rgb(128,128,128';
-    itemSelected.className +='selected'
+    if (document.querySelector('.selected')){
+        const previousSelected = document.querySelector('.selected');
+        previousSelected.classList.remove('selected');
+        previousSelected.style.backgroundColor = null;
+        itemSelected.style.backgroundColor = 'rgb(128,128,128)';
+        itemSelected.className += 'selected'
+    }
+    else{
+        itemSelected.style.backgroundColor = 'rgb(128,128,128)';
+        itemSelected.className +='selected'
+    }
 }
