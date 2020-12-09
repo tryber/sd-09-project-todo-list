@@ -1,0 +1,18 @@
+body {
+  background-color: rgb(0 , 135 , 207);
+}
+
+main {
+  background-color: white;
+  border-radius: 10px;
+  height: 400px;
+  padding-left: 20px;
+  padding-top: 20px;
+  width: 700px;
+}
+
+button {
+  background-color: rgb(64 , 173 , 64);
+  border-radius: 7px;
+  color: white;
+}
