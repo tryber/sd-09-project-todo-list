@@ -17,8 +17,6 @@ window.onload = function () {
   }
 
 
-  let itemlist = document.querySelectorAll('.assignment')
-
   addEventListener('click', changebackgroundassignment)
 
   function changebackgroundassignment(event) {
@@ -73,6 +71,18 @@ window.onload = function () {
     let completedItems = document.querySelectorAll('.completed')
     for (var element of completedItems) {
       element.remove();
+    }
+  }
+
+  let buttonremoveselection = document.querySelector('#remover-selecionado')
+
+  buttonremoveselection.addEventListener('click', removeitemselect)
+
+  function removeitemselect(){
+    let item = document.querySelector('.selected')
+
+    if(item){
+      item.remove()
     }
   }
 }
