@@ -26,3 +26,12 @@
 header {
   font-size: 3em;
 }
+
+ol {
+  margin: auto;
+  width: 250px;
+}
+
+.selected {
+  background-color: rgb(128 , 128 , 128);
+}
