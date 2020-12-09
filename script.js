@@ -15,10 +15,23 @@ function changeTaskColor() {
   const taskList = document.querySelector('#lista-tarefas');
   taskList.addEventListener('click', (event) => {
     for (let index = 0; index < taskList.childElementCount; index += 1) {
-      taskList.children[index].style.backgroundColor = 'white';
+      taskList.children[index].removeAttribute('style');
     }
     const task = event.target;
     task.style.backgroundColor = 'rgb(128 , 128 , 128)';
   });
 }
 changeTaskColor();
+
+function completedTask() {
+  const taskList = document.querySelector('#lista-tarefas');
+  taskList.addEventListener('dblclick', (event) => {
+    const task = event.target;
+    if (task.className !== 'completed') {
+      task.className = 'completed';
+    } else {
+      task.classList.remove('completed');
+    }
+  });
+}
+completedTask();

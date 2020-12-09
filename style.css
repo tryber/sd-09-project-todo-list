@@ -22,6 +22,9 @@ button:hover {
 }
 
 li:hover {
-  background-color: gray;
   cursor: pointer;
+}
+
+.completed {
+  text-decoration: line-through;
 }
