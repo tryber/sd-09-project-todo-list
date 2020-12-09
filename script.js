@@ -7,4 +7,8 @@ window.onload = function() {
         operation.id = 'funcionamento'
     }
     titleOperation();
+
+    function addNewTodo() {
+        
+    }
 }
