@@ -1,5 +1,5 @@
 // funcao que remove a class selected dos outros items da lista
-function removeTaskMarks () {
+function removeTaskMarks() {
   const listItems = document.querySelectorAll('li');
   for (let index = 0; index < listItems.length; index += 1) {
     if (listItems[index].classList.contains('selected')) {
