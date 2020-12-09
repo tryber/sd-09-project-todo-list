@@ -15,3 +15,13 @@ function addToDo() {
 }
 
 addToDo();
+
+function selectToDo() {
+  toDoList = document.querySelector('#lista-tarefas');
+
+  toDoList.addEventListener('click', function (event) {
+    event.target.classList.toggle('selected-todo');
+  })
+}
+
+selectToDo();
