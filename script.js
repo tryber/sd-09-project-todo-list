@@ -29,8 +29,8 @@ function backgroundItemlist() {
     event.target.className += ' selected';
   });
   fullList.addEventListener('dblclick', function (event) {
-    event.target.classList.toggle('completed')
-  }) 
+    event.target.classList.toggle('completed');
+  });
 }
 backgroundItemlist();
 
@@ -41,7 +41,22 @@ function erasedAll() {
     const line = document.querySelectorAll('.item-list');
     for (let index = 0; index < line.length; index += 1) {
       listOfItem.removeChild(line[index]);
-    }        
-  })
+    }
+  });
 }
-erasedAll()
+erasedAll();
+
+function erasedCompleted() {
+    const eraserButton = document.getElementById('remover-finalizados');
+    eraserButton.addEventListener('click', function () {
+      const listOfItem = document.querySelector('#lista-tarefas');  
+      const line = document.querySelectorAll('.item-list');
+      for (let index = 0; index < line.length; index += 1) {
+        if (line[index].classList.contains('completed')) {
+          listOfItem.removeChild(line[index]);
+        }
+      }
+    });
+}
+erasedCompleted();
+
