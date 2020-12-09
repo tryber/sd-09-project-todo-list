@@ -33,15 +33,12 @@ window.onload = function() {
       const taskCompleted = event.target;
       const lastCompleted = document.querySelector('.completed');
       if (taskCompleted == lastCompleted) taskCompleted.classList.remove('completed');
-      else if (lastCompleted) {
-        lastCompleted.classList.remove('completed');
-        taskCompleted.classList.add('completed');
-      } else taskCompleted.classList.add('completed');
+      else taskCompleted.classList.add('completed');
     });
   }
 
   // Apaga todas as tasks
-  function clearAllTaks() {
+  function clearAllTasks() {
     const claerAllButton = document.querySelector('#apaga-tudo');
     
     claerAllButton.addEventListener('click', function() {
@@ -54,9 +51,23 @@ window.onload = function() {
     });
   }
 
+  // Apaga os itens finalizados
+  function clearCompletedTaskd() {
+    const claerCompletedButton = document.querySelector('#remover-finalizados');
+    
+    claerCompletedButton.addEventListener('click', function() {
+      const todoList = document.querySelector('#lista-tarefas');
+      const completedTasks = document.querySelectorAll('.completed');
+      
+      for (let task of completedTasks) {
+        todoList.removeChild(task);
+      }
+    });
+  }
+
   createNewElementList();
   selectTaskItem();
   taskComplete();
-  clearAllTaks();
-;
+  clearAllTasks();
+  clearCompletedTaskd();
 }
