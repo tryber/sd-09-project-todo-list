@@ -1,15 +1,12 @@
-window.onload = function () {
-  actionManagement();
+function clearInput(inputId) {
+  const id = `#${inputId}`;
+  const input = document.querySelector(id);
+  input.value = '';
 }
 
-function actionManagement(element) {
-    buttonAddTask('criar-tarefa');
-}
-
-function buttonAddTask(buttonId) {
-  const id = '#' + buttonId;
-  const button = document.querySelector(id);
-  button.addEventListener('click', addTask);
+function createNewLi() {
+  const li = document.createElement('li');
+  return li;
 }
 
 function addTask() {
@@ -21,13 +18,16 @@ function addTask() {
   ol.appendChild(li);
 }
 
-function createNewLi() {
-  const li = document.createElement('li');
-  return li;
+function buttonAddTask(buttonId) {
+  const id = `#${buttonId}`
+  const button = document.querySelector(id);
+  button.addEventListener('click', addTask);
 }
 
-function clearInput(inputId) {
-  const id = '#' + inputId;
-  const input = document.querySelector(id);
-  input.value = '';
+function actionManagement() {
+  buttonAddTask('criar-tarefa');
+}
+
+window.onload = function () {
+  actionManagement();
 }
