@@ -39,8 +39,16 @@ function generateTaskButton() {
 
 function selectListItem() {
   const listItem = document.getElementById('lista-tarefas');
+  const items = document.getElementsByTagName('li');
   listItem.addEventListener('click', function (selectedItem) {
-    selectedItem.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    if (selectedItem.target.style.backgroundColor !== 'rgb(128, 128, 128)') {
+      for (let i = 0; i < items.length; i += 1) {
+        items[i].style.backgroundColor = '';
+      }
+      selectedItem.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    } else {
+      selectedItem.target.style.backgroundColor = '';
+    }
   });
 }
 
