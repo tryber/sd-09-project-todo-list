@@ -16,7 +16,15 @@ addTask();
 
 function selectItem() {
   listaTarefas.addEventListener('click', function (event) {
-    event.target.classList.toggle('selected');
+    if (event.target.classList.contains('selected')){
+      event.target.classList.remove('selected');
+    } else {
+      let selecionado = document.querySelector('.selected');
+      if (selecionado) {
+        selecionado.classList.remove('selected');
+      }
+      event.target.classList.add('selected');
+    }
   });
 }
 selectItem();
