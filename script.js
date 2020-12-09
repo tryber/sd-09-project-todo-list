@@ -54,4 +54,17 @@ window.onload = function() {
         })
     }
     addNewTodo()
+
+    function clickList() {
+        let task = document.querySelector('#lista-tarefas')
+            task.addEventListener('click', function(event) {
+                let change = document.querySelector('.selected')
+                if (change !== null) {
+                    change.classList.remove('selected')
+                }
+                event.target.classList = 'selected'
+            })
+    }
+    clickList();
 }
+    
