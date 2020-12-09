@@ -3,11 +3,11 @@ const inputBox = document.querySelector('#texto-tarefa');
 const addbutton = document.querySelector('#criar-tarefa');
 const olList = document.querySelector('#lista-tarefas');
 const removeButton = document.querySelector('#apaga-tudo');
-const removeDoneButton = document.querySelector('#remover-finalizados')
+const removeDoneButton = document.querySelector('#remover-finalizados');
 
 function reciveInputText() {
   addbutton.addEventListener('click', function () {
-    let text = inputBox.value;
+    const text = inputBox.value;
     const li = document.createElement('li');
     li.className = 'itensDaLista';
     listaOrdenada.appendChild(li);
@@ -18,38 +18,38 @@ function reciveInputText() {
 reciveInputText();
 
 function changeLiBackgroundColor() {
-olList.addEventListener('click', function (event) {
+  olList.addEventListener('click', function (event) {
   const list = document.querySelectorAll('li');
   for (const item of list) {
     item.style.background = 'white';
   }
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  });
+});
 }
 changeLiBackgroundColor();
 
-function lineThroughList () {
+function lineThroughList() {
   listaOrdenada.addEventListener('dblclick', function (event) {
     event.target.classList.toggle('completed');
   });
 }
-lineThroughList ();
+lineThroughList();
 
-function removeAllListItens () {
-  removeButton.addEventListener('click', function() {
+function removeAllListItens() {
+  removeButton.addEventListener ('click', function() {
     const listItens = document.querySelectorAll('.itensDaLista');
     for (let index = 0; index < listItens.length; index += 1) {
       olList.removeChild(listItens[index]);
-    };
+    }
   });
 }
 removeAllListItens();
 
-function removeDoneListItens () {
+function removeDoneListItens() {
   removeDoneButton.addEventListener('click', function () {
     const doneItens = document.querySelectorAll('.completed');
     for (const item of doneItens)
-    olList.removeChild(item);
-  })
+      olList.removeChild(item);
+  });
 }
-removeDoneListItens ();
+removeDoneListItens();
