@@ -1,5 +1,4 @@
 window.onload = function() {
-  let todoList = document.getElementById('lista-tarefas');
   const tasksList = document.getElementById('lista-tarefas');
 
   //Criar lista de tarefas
@@ -10,6 +9,7 @@ window.onload = function() {
       const taskTextInput = document.getElementById('texto-tarefa');
       const newTask = document.createElement('li');
       newTask.innerText = taskTextInput.value;
+      newTask.classList.add('task');
       tasksList.appendChild(newTask);
       taskTextInput.value = '';
     });
@@ -40,8 +40,23 @@ window.onload = function() {
     });
   }
 
+  // Apaga todas as tasks
+  function clearAllTaks() {
+    const claerAllButton = document.querySelector('#apaga-tudo');
+    
+    claerAllButton.addEventListener('click', function() {
+      const todoList = document.querySelector('#lista-tarefas');
+      const allTasks = document.querySelectorAll('.task');
+      
+      for (let task of allTasks) {
+        todoList.removeChild(task);
+      }
+    });
+  }
+
   createNewElementList();
   selectTaskItem();
   taskComplete();
+  clearAllTaks();
 ;
 }
