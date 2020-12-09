@@ -12,4 +12,8 @@ function addItem (){
         clearInputValue();
     }
     botao.addEventListener('click', recebeItem);
+    function limparTexto(){
+        document.querySelector("#texto-tarefa").value = '';
+    }
 }
+addItem();
