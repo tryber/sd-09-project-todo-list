@@ -20,7 +20,14 @@ olList.addEventListener('click', function (event) {
   for(const item of list) {
     item.style.background = 'white';
   }
-event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-})
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  })
 }
 changeLiBackgroundColor();
+
+function lineThroughList () {
+  listaOrdenada.addEventListener('dblclick', function (event) {
+    event.target.classList.toggle('completed');
+  });
+}
+lineThroughList ()
