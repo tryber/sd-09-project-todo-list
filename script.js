@@ -10,3 +10,13 @@ function addElement() {
 }
 
     getButton.addEventListener('click', addElement)
+
+    //exerc
+
+    let getListIten = document.querySelector('#lista-tarefas');
+
+    function changeBackGroundColor(event) {
+        event.target.style.backgroundColor = "rgb(128, 128, 128)"
+    }
+
+    getListIten.addEventListener('click', changeBackGroundColor)
