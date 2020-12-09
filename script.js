@@ -20,9 +20,9 @@ function selectToDo() {
   const toDoList = document.querySelector('#lista-tarefas');
 
   toDoList.addEventListener('click', function (event) {
-    const toDo = document.querySelectorAll('#lista-tarefas li');
+    const toDos = document.querySelectorAll('#lista-tarefas li');
 
-    toDo.forEach(function (toDo) {
+    toDos.forEach(function (toDo) {
       toDo.style.backgroundColor = '';
     });
 
@@ -33,3 +33,15 @@ function selectToDo() {
 }
 
 selectToDo();
+
+function markToDoAsCompleted() {
+  const toDoList = document.querySelector('#lista-tarefas');
+
+  toDoList.addEventListener('dblclick', function (event) {
+    if (event.target !== toDoList) {
+      event.target.classList.toggle('completed');
+    }
+  });
+}
+
+markToDoAsCompleted();
