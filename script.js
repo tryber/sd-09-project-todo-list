@@ -7,12 +7,51 @@ function createHtmlElements() {
     paragraph.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
     let container = document.createElement('main');
     let body = document.body;
+    let sectionOne = document.createElement('section');
+    let taskInput = document.createElement('input');
+    taskInput.id = 'texto-tarefa';
+    let taskList = document.createElement('ol');
+    taskList.id = 'lista-tarefas';
+    let taskMaker = document.createElement('button');
+    taskMaker.innerText = 'Criar';
+    taskMaker.id = 'criar-tarefa';
+    let userTaskContainer = document.createElement('div');
+    userTaskContainer.id = 'userTask';
+    
+
 
     body.appendChild(container);
     container.appendChild(header);
     header.appendChild(title);
-    container.appendChild(paragraph)
+    container.appendChild(paragraph);
+    container.appendChild(sectionOne);
+    sectionOne.appendChild(taskInput);
+    sectionOne.appendChild(taskMaker);
+    container.appendChild(userTaskContainer)
+    userTaskContainer.appendChild(taskList);
+
 }
 
 
+function addTask() {
+    document.addEventListener('DOMContentLoaded', () => {
+        let userTask = document.querySelector('#texto-tarefa');
+        let getTask = document.querySelector('#criar-tarefa');
+        let taskList = document.querySelector('#lista-tarefas')
+        
+
+        getTask.addEventListener('click', () => {
+            let taskListItems = document.createElement('li');
+            let taskContainer = userTask.value;
+                taskListItems.innerText = taskContainer;
+                taskList.appendChild(taskListItems);
+                userTask.value = '';
+
+        })
+      
+    })
+
+}
+
 createHtmlElements();
+addTask();
