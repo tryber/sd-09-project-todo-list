@@ -1,5 +1,5 @@
 function generateInput() {
-  const container = document.getElementById('main-content');
+  const container = document.getElementById('inputs');
   const newInput = document.createElement('input');
   newInput.type = 'text';
   newInput.id = 'texto-tarefa';
@@ -8,6 +8,15 @@ function generateInput() {
   container.appendChild(newInput);
 }
 
+function generateOrderedList() {
+  const taskContainer = document.getElementById('tasks');
+  const newList = document.createElement('ol');
+  newList.id = 'lista-tarefas';
+
+  taskContainer.appendChild(newList);
+}
+
 window.onload = function () {
+  generateOrderedList();
   generateInput();
 };
