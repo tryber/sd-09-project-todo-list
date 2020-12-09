@@ -85,3 +85,16 @@ function createTask() {
 }
 
 buttonTask.addEventListener('click', createTask);
+
+createButton('apaga-tudo', 'Lista Lista', '.buttons');
+const buttonClear = document.querySelector('#apaga-tudo');
+
+function clearList() {
+  const listTotal = document.querySelectorAll('li');
+  for (let index = 0; index < listTotal.length; index += 1) {
+    const listRemove = listTotal[index];
+    listRemove.remove();
+  }
+}
+
+buttonClear.addEventListener('click', clearList);
