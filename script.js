@@ -111,3 +111,48 @@ function clearCompletedList() {
 }
 
 buttonClearCompleted.addEventListener('click', clearCompletedList);
+
+createButton('salvar-tarefas', 'Salvar Lista', '.buttons');
+const buttonSaveList = document.querySelector('#salvar-tarefas');
+
+let myCookie = '';
+let array = [];
+
+function codificCookie(string) {
+  let word = '';
+  for (let index = 0; index < string.length; index += 1) {
+    if (string[index] !== ',') {
+      word += string[index];
+    } else {
+      array.push(word);
+      word = '';
+    }
+  }
+  array.push(word);
+  return array;
+}
+
+function returnCookie(cookie) {
+  for (let index = 0; index < cookie.length; index += 1) {
+    let texto = cookie[index]
+    addListTask(texto);
+  }
+  taskListLoop();
+}
+
+function salveCookie() {
+  const listTotal = document.querySelectorAll('li');
+  let myCookieList = [];
+  for (let index = 0; index < listTotal.length; index += 1) {
+    myCookieList.push(listTotal[index].innerText)
+  }
+  document.cookie = myCookieList;
+  myCookie = document.cookie;
+  return  myCookie;
+}
+
+buttonSaveList.addEventListener('click', salveCookie);
+
+salveCookie();
+codificCookie(myCookie);
+returnCookie(array);
