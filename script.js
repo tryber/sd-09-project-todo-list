@@ -1,14 +1,15 @@
 const listaOrdenada = document.querySelector('#lista-tarefas');
 const inputBox = document.querySelector('#texto-tarefa');
 const addbutton = document.querySelector('#criar-tarefa');
-const olList = document.querySelector('#lista-tarefas')
+const olList = document.querySelector('#lista-tarefas');
 const removeButton = document.querySelector('#apaga-tudo');
+const removeDoneButton = document.querySelector('#remover-finalizados')
 
 function reciveInputText() {
   addbutton.addEventListener('click', function () {
     let text = inputBox.value;
     const li = document.createElement('li');
-    li.className = 'itensDaLista'
+    li.className = 'itensDaLista';
     listaOrdenada.appendChild(li);
     li.innerText = text;
     inputBox.value = '';
@@ -18,12 +19,12 @@ reciveInputText();
 
 function changeLiBackgroundColor() {
 olList.addEventListener('click', function (event) {
-  const list = document.querySelectorAll('li')
-  for(const item of list) {
+  const list = document.querySelectorAll('li');
+  for (const item of list) {
     item.style.background = 'white';
   }
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  })
+  });
 }
 changeLiBackgroundColor();
 
@@ -43,3 +44,12 @@ function removeAllListItens () {
   });
 }
 removeAllListItens();
+
+function removeDoneListItens () {
+  removeDoneButton.addEventListener('click', function () {
+    const doneItens = document.querySelectorAll('.completed');
+    for (const item of doneItens)
+    olList.removeChild(item);
+  })
+}
+removeDoneListItens ();
