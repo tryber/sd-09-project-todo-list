@@ -37,7 +37,7 @@ function generateAddTaskButton() {
   });
 }
 
-function generateRemoveTaskButton() {
+function generateRemoveAllTasksButton() {
   const container = document.getElementById('inputs');
   const newButton = document.createElement('button');
   newButton.id = 'apaga-tudo';
@@ -48,6 +48,23 @@ function generateRemoveTaskButton() {
     const taskList = document.querySelectorAll('li');
     for (let i = 0; i < taskList.length; i += 1) {
       taskList[i].parentNode.removeChild(taskList[i]);
+    }
+  });
+}
+
+function generateRemoveCompletedTasksButton() {
+  const container = document.getElementById('inputs');
+  const newButton = document.createElement('button');
+  newButton.id = 'remover-finalizados';
+  newButton.innerText = 'Remove completed tasks';
+
+  container.appendChild(newButton);
+  newButton.addEventListener('click', function () {
+    const taskList = document.querySelectorAll('li');
+    for (let i = 0; i < taskList.length; i += 1) {
+      if (taskList[i].className === 'completed') {
+        taskList[i].parentNode.removeChild(taskList[i]);
+      }
     }
   });
 }
@@ -80,6 +97,7 @@ window.onload = function () {
   generateOrderedList();
   generateInput();
   generateAddTaskButton();
-  generateRemoveTaskButton();
+  generateRemoveAllTasksButton();
+  generateRemoveCompletedTasksButton();
   selectListItem();
 };
