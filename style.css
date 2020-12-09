@@ -12,6 +12,18 @@
   color: grey;
 }
 
+.headerContainer #texto-tarefa{
+  border-radius: 5px;
+  text-align:center;
+  width: 250px;
+}
+
+.headerContainer button{
+  border-radius: 10px;
+  margin-left: 10px
+}
+
 header {
   font-size: 3em;
 }
+
