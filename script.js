@@ -91,7 +91,7 @@ function generateSaveTasksButton() {
 
 function moveUp() {
   const currentTask = document.querySelector('#selected');
-  if (currentTask.previousElementSibling !== null) {
+  if (currentTask !== null && currentTask.previousElementSibling !== null) {
     const replacedText = { // Auxiliary object
       innerText: currentTask.previousElementSibling.innerText,
       class: currentTask.previousElementSibling.className,
@@ -115,7 +115,7 @@ function moveUp() {
 
 function moveDown() {
   const currentTask = document.querySelector('#selected');
-  if (currentTask.nextElementSibling !== null) {
+  if (currentTask !== null && currentTask.nextElementSibling !== null) {
     const replacedText = { // Auxiliary object
       innerText: currentTask.nextElementSibling.innerText,
       class: currentTask.nextElementSibling.className,
@@ -123,13 +123,13 @@ function moveDown() {
       id: currentTask.nextElementSibling.id,
     };
 
-    // Replacing upper task info with selected task info
+    // Replacing lower task info with selected task info
     currentTask.nextElementSibling.innerText = currentTask.innerText;
     currentTask.nextElementSibling.style.backgroundColor = 'rgb(128, 128, 128)';
     currentTask.nextElementSibling.className = currentTask.className;
     currentTask.nextElementSibling.id = currentTask.id;
 
-    // Replacing selected task info with upper task info
+    // Replacing selected task info with lower task info
     currentTask.innerText = replacedText.innerText;
     currentTask.style.backgroundColor = replacedText.backgroundColor;
     currentTask.className = replacedText.class;
