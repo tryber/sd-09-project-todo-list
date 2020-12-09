@@ -89,6 +89,71 @@ function generateSaveTasksButton() {
   });
 }
 
+function moveUp() {
+  const currentTask = document.querySelector('#selected');
+  if (currentTask.previousElementSibling !== null) {
+    const replacedText = { // Auxiliary object
+      innerText: currentTask.previousElementSibling.innerText,
+      class: currentTask.previousElementSibling.className,
+      backgroundColor: currentTask.previousElementSibling.style.backgroundColor,
+      id: currentTask.previousElementSibling.id,
+    };
+
+    // Replacing upper task info with selected task info
+    currentTask.previousElementSibling.innerText = currentTask.innerText;
+    currentTask.previousElementSibling.style.backgroundColor = 'rgb(128, 128, 128)';
+    currentTask.previousElementSibling.className = currentTask.className;
+    currentTask.previousElementSibling.id = currentTask.id;
+
+    // Replacing selected task info with upper task info
+    currentTask.innerText = replacedText.innerText;
+    currentTask.style.backgroundColor = replacedText.backgroundColor;
+    currentTask.className = replacedText.class;
+    currentTask.id = replacedText.id;
+  }
+}
+
+function moveDown() {
+  const currentTask = document.querySelector('#selected');
+  if (currentTask.nextElementSibling !== null) {
+    const replacedText = { // Auxiliary object
+      innerText: currentTask.nextElementSibling.innerText,
+      class: currentTask.nextElementSibling.className,
+      backgroundColor: currentTask.nextElementSibling.style.backgroundColor,
+      id: currentTask.nextElementSibling.id,
+    };
+
+    // Replacing upper task info with selected task info
+    currentTask.nextElementSibling.innerText = currentTask.innerText;
+    currentTask.nextElementSibling.style.backgroundColor = 'rgb(128, 128, 128)';
+    currentTask.nextElementSibling.className = currentTask.className;
+    currentTask.nextElementSibling.id = currentTask.id;
+
+    // Replacing selected task info with upper task info
+    currentTask.innerText = replacedText.innerText;
+    currentTask.style.backgroundColor = replacedText.backgroundColor;
+    currentTask.className = replacedText.class;
+    currentTask.id = replacedText.id;
+  }
+}
+
+function generateUpAndDownButtons() {
+  const container = document.getElementById('inputs');
+  const upButton = document.createElement('button');
+  upButton.id = 'mover-cima';
+  upButton.innerText = 'Task Up';
+
+  const downButton = document.createElement('button');
+  downButton.id = 'mover-baixo';
+  downButton.innerText = 'Task Down';
+
+  container.appendChild(upButton);
+  upButton.addEventListener('click', moveUp);
+
+  container.appendChild(downButton);
+  downButton.addEventListener('click', moveDown);
+}
+
 function completedListItem(item) {
   const selectedItem = item.target.style.backgroundColor;
   if (selectedItem === 'rgb(128, 128, 128)' && item.target.className !== 'completed') {
@@ -105,8 +170,10 @@ function selectListItem() {
     if (selectedItem.target.style.backgroundColor !== 'rgb(128, 128, 128)') {
       for (let i = 0; i < items.length; i += 1) {
         items[i].style.backgroundColor = '';
+        items[i].id = '';
       }
       selectedItem.target.style.backgroundColor = 'rgb(128, 128, 128)';
+      selectedItem.target.id = 'selected';
     }
   });
 
@@ -138,6 +205,7 @@ window.onload = function () {
   generateRemoveAllTasksButton();
   generateRemoveCompletedTasksButton();
   generateSaveTasksButton();
+  generateUpAndDownButtons();
   selectListItem();
   loadSavedTasks();
 };
