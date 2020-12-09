@@ -32,3 +32,12 @@ function setTaskColor () {
 }
 
 setTaskColor();
+
+function setTaskDone () {
+  const orderedList = document.querySelector('ol');
+  orderedList.addEventListener('dblclick', (event) => {
+    event.target.classList.toggle('completed');
+  });
+}
+
+setTaskDone();
