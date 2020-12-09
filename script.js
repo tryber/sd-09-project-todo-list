@@ -84,3 +84,18 @@ function deleteCompletedTasks() {
 deleteCompletedTasks();
 
 // Bonus
+
+// Requisito 14
+function deleteTaskSelected() {
+  const myButton = document.querySelector('#remover-selecionado');
+  myButton.addEventListener('click', () => {
+    const taskList = document.querySelectorAll('li');
+    for (const selectedTask of taskList) {
+      if (selectedTask.style.background !== 'white') {
+        selectedTask.remove();
+      }
+    }
+  });
+}
+
+deleteTaskSelected();
