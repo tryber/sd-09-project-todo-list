@@ -1,7 +1,6 @@
 let botao = document.getElementById("lista-tarefas");
-    botao.addEventListener(click,addTarefa);
     function addTarefa(){
-        let tarefa = document.querySelector("#lista-tarefas");
+        let tarefa = document.getElementById("lista-tarefas");
        let li = document.createElement("li");
        tarefa.appendChild(li);
        li.innerText = captureInput.value;
@@ -9,4 +8,5 @@ let botao = document.getElementById("lista-tarefas");
        li.addEventListener('click', mudaCor);
        li.addEventListener('dblclick', confereCompleta);
     }
-    addTarefa(); 
+    addTarefa();
+    botao.addEventListener(click, addTarefa);
