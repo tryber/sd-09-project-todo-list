@@ -1,10 +1,12 @@
 const btnTask = document.querySelector('#criar-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
+const btnDel = document.querySelector('#apaga-tudo');
 
 function createList() {
   const inputTask = document.querySelector('#texto-tarefa');
   const creatLi = document.createElement('li');
   creatLi.innerText = inputTask.value;
+  creatLi.className = 'task';
   taskList.appendChild(creatLi);
   inputTask.value = '';
 }
@@ -14,7 +16,7 @@ function addListButton() {
 }
 
 function selectTask(event) {
-  const listOfTasks = document.querySelectorAll('ol li');
+  const listOfTasks = document.querySelectorAll('.task');
   for (let index = 0; index < listOfTasks.length; index += 1) {
     listOfTasks[index].style.backgroundColor = 'white';
   }
@@ -30,5 +32,15 @@ function creatSelectTask() {
   taskList.addEventListener('dblclick', completedTask);
 }
 
+function deleteAll() {
+  btnDel.addEventListener('click', function() {
+    const listOfDel = document.querySelectorAll('.task');
+    for (let index = 0; index < listOfDel.length; index += 1) {
+      taskList.removeChild(listOfDel[index]);
+    }
+  })
+}
+
 addListButton();
 creatSelectTask();
+deleteAll();
