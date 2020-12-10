@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de tarefas
+    </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Minha Lista de Tarefas</h1>
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    </header>
+    <main>
+        <input id="texto-tarefa" type="text">
+        <ol id="lista-tarefas"></ol>
+    </main>
+    <nav class="botoes">
+        <button name="gerar" id="criar-tarefa" class="buttons">+</button>
+        <button name="remover" id="remover-selecionado" class="buttons">-</button>
+        <button name="rmfinal" id="remover-finalizados" class="buttons">x ---</button>
+        <button name="apagar" id="apaga-tudo" class="buttons">x</button>
+        <button name="salvar" id="salvar-tarefas" class="buttons">Salvar</button>
+    </nav>
+    <footer class='footer'><p>criado com amor por <a href="https://www.linkedin.com/in/luizhenriquepsidev/" target="_blank">Luiz Henrique</a></p></footer>
+    <script src="script.js"></script>
+</body>
+</html>
