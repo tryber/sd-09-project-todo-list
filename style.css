@@ -1,0 +1,28 @@
+body {
+  background-color: rgb(0, 108, 181);
+  font-family: Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  background-color: rgb(1, 95, 159);
+  color: white;
+  padding-bottom: 6px;
+  padding-left: 10px;
+  padding-top: 30px;
+}
+
+.main-title {
+  font-size: 25px;
+  line-height: 0px;
+  margin: 0;
+}
+
+.sub-title {
+  opacity: .8;
+  margin-bottom: 0;
+}
+.icon {
+  margin-right: 10px;
+}
