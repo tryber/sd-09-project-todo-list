@@ -47,14 +47,25 @@ function ChangeColorElementsLi() {
   const taskList = document.querySelector('#lista-tarefas');
 
   taskList.addEventListener('click', function (e) {
-    let currentSelected = document.querySelector('.selected');
+    const currentSelected = document.querySelector('.selected');
     if (currentSelected) {
-      currentSelected.className = '';
+      currentSelected.classList.remove('selected')
       currentSelected.style.backgroundColor = '';
     }
-    e.target.className = 'selected';
+    e.target.className += ' selected';
     e.target.style.backgroundColor = 'rgb(128, 128, 128)';
   });
 }
 ChangeColorElementsLi();
 
+function scratchingItem() {
+  const taskList = document.querySelector('#lista-tarefas');
+
+  taskList.addEventListener('dblclick', function (e) {
+    if (e.target.className !== 'completed') {
+      e.target.classList.toggle('completed');
+      e.target.style.backgroundColor = '';
+    }
+  });
+}
+scratchingItem();

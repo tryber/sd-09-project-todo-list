@@ -1,8 +1,12 @@
 body {
   margin: 0px;
   padding: 30px;
-  background-color: rgb(216 , 252 , 199);
+  background-color: rgb(216, 252, 199);
   font-family: Calibri, 'Trebuchet MS', sans-serif;
   font-size: 1.3em;
   line-height: 1.4em;
+}
+
+.completed {
+  text-decoration: line-through;
 }
