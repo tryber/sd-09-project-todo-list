@@ -116,7 +116,9 @@ createButton('salvar-tarefas', 'Salvar Lista', '.buttons');
 const buttonSaveList = document.querySelector('#salvar-tarefas');
 
 let myCookie = '';
-let array = [];
+let mylocal = '';
+let arrayCookie = [];
+let arrayLocal = [];
 
 function codificCookie(string) {
   let word = '';
@@ -127,32 +129,54 @@ function codificCookie(string) {
     if (string[index] !== ',') {
       word += string[index];
     } else {
-      array.push(word);
+      arrayCookie.push(word);
       word = '';
     }
   }
-  array.push(word);
-  return array;
+  arrayCookie.push(word);
+  return arrayCookie;
 }
 
-function returnCookie(cookie) {
-  console.log(cookie);
-  for (let index = 0; index < cookie.length; index += 1) {
-    let texto = cookie[index];
-    addListTask(texto);
+function codificLocal(string) {
+  if (string === '') {
+    return;
+  }
+  for (let index = 0; index < string.length; index += 1) {
+    arrayLocal.push(localStorage.getItem(index));
+  }
+  
+  return arrayLocal;
+}
+
+function saveListTask(task, classLocal) {
+  const list = document.createElement('li');
+  list.className = classLocal;
+  list.innerText = task;
+  const listOrd = document.querySelector('#lista-tarefas')
+  listOrd.appendChild(list)
+}
+
+function returnTotal(local, cookie) {
+  for (let index = 0; index < local.length; index += 1) {
+    let texto = local[index];
+    let classCookie = cookie[index];
+    saveListTask(texto, classCookie);
   }
   taskListLoop();
 }
 
 function salveCookie() {
   const listTotal = document.querySelectorAll('li');
-  let myCookieList = [];
+  let myCookieList = '';
+  let myCookieClass = [];
   for (let index = 0; index < listTotal.length; index += 1) {
-    myCookieList.push(listTotal[index].innerText)
+    myCookieList = listTotal[index].innerText;
+    myCookieClass.push(listTotal[index].className);
+    localStorage.setItem(index, myCookieList);
   }
-  document.cookie = myCookieList;
+  document.cookie = myCookieClass;
   myCookie = document.cookie;
-  return  myCookie;
+  mylocal = localStorage
 }
 
 buttonSaveList.addEventListener('click', salveCookie);
@@ -168,5 +192,9 @@ createButton('mover-baixo', 'Down', '.buttons');
 const buttonDown = document.querySelector('#mover-baixo');
 
 salveCookie();
+console.log(mylocal)
+codificLocal(mylocal);
 codificCookie(myCookie);
-returnCookie(array);
+console.log(arrayLocal)
+console.log(arrayCookie)
+returnTotal(arrayLocal, arrayCookie);
