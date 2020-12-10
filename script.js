@@ -50,7 +50,7 @@ function ChangeColorElementsLi() {
   taskList.addEventListener('click', function (e) {
     const currentSelected = document.querySelector('.selected');
     if (currentSelected) {
-      currentSelected.classList.remove('selected')
+      currentSelected.classList.remove('selected');
       currentSelected.style.backgroundColor = '';
     }
     e.target.className += ' selected';
@@ -75,14 +75,14 @@ function deleteTaskList() {
   const button = document.createElement('button');
   const divButton = document.querySelector('#buttons');
   divButton.appendChild(button);
-  button.style.padding = '3px'
+  button.style.padding = '3px';
   button.style.marginLeft = '5px';
   button.innerText = 'Remover tudo';
   button.id = 'apaga-tudo';
 
   button.addEventListener('click', function () {
-    document.querySelectorAll('.list-item').forEach(e => e.parentNode.removeChild(e));
-    //https://stackoverflow.com/questions/13125817/how-to-remove-elements-that-were-fetched-using-queryselectorall
+    document.querySelectorAll('.list-item').forEach(e => (e.parentNode.removeChild(e)));
+    // https://stackoverflow.com/questions/13125817/how-to-remove-elements-that-were-fetched-using-queryselectorall
   });
 }
 deleteTaskList();
