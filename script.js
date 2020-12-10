@@ -1,3 +1,18 @@
+window.onload = function () {
+  const toDoList = document.querySelector('#lista-tarefas');
+  const textArray = JSON.parse(localStorage.getItem('lista-texto')) || [];
+  const classArray = JSON.parse(localStorage.getItem('lista-classe')) || [];
+
+  for (let index = 0; index < textArray.length; index += 1) {
+    const toDo = document.createElement('li');
+
+    toDo.innerText = textArray[index];
+    toDo.className = classArray[index];
+
+    toDoList.appendChild(toDo);
+  }
+};
+
 function addToDo() {
   const inputToDo = document.querySelector('#texto-tarefa');
   const addToDobutton = document.querySelector('#criar-tarefa');
@@ -77,3 +92,23 @@ function clearCompletedToDos() {
 }
 
 clearCompletedToDos();
+
+function saveList() {
+  const saveListButton = document.querySelector('#salvar-tarefas');
+
+  saveListButton.addEventListener('click', function () {
+    const toDos = document.querySelectorAll('#lista-tarefas li');
+    const toDoClassArray = [];
+    const toDoTextArray = [];
+
+    toDos.forEach(function (toDo) {
+      toDoClassArray.push(toDo.className);
+      toDoTextArray.push(toDo.innerText);
+    });
+
+    localStorage.setItem('lista-classe', JSON.stringify(toDoClassArray));
+    localStorage.setItem('lista-texto', JSON.stringify(toDoTextArray));
+  });
+}
+
+saveList();
