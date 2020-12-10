@@ -33,12 +33,23 @@ function createNewTask() {
   resetTaskValue();
 }
 
+function highlightTask(event) {
+  if (event.target.className === 'task') {
+    event.target.style.backgroundColor = 'rgb( 128 , 128 , 128)';
+  }
+}
+
 function setCreateTaskEvent() {
   globalElements.createTaskButton.addEventListener('click', createNewTask);
 }
 
+function setTaskListEvent() {
+  globalElements.taskList.addEventListener('click', highlightTask);
+}
+
 function setAllEvents() {
   setCreateTaskEvent();
+  setTaskListEvent();
 }
 
 setAllEvents();
