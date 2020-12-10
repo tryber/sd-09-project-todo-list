@@ -41,6 +41,7 @@ button {
     border-radius: 3px;
     cursor: pointer;
     transition: 0.3s;
+    text-align: center;
 }
 
 
@@ -49,6 +50,7 @@ section {
     margin: auto;
     height: 50px;
     display: flex;
+    justify-content: space-between;
 }
 
 input {
@@ -64,8 +66,13 @@ ol {
 
 .selected {
     background-color: rgb(128, 128, 128);
+    transition: ease 0.5s;
+    border-radius: 3px;
 }
 
+.lineThroughItem {
+    text-decoration: line-through solid rgb(0, 0, 0);
+}
 .task {
     font-size: 17px;
     font-weight: 500;
@@ -90,14 +97,20 @@ button:hover {
     color: white;
 }
 
+#apaga-tudo:hover {
+    background-color: #ff3f34;
+    color: white;
+}
+
 button:active {
     background-color: white;
     color:black;
 }
 
 
-.tasks:hover {
-    background-color: lawngreen;
+.selected:hover {
+    background-color: white;
+    color: black;
 }
 
 

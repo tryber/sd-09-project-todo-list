@@ -19,6 +19,9 @@ function createHtmlElements() {
     taskMaker.id = 'criar-tarefa';
     let userTaskContainer = document.createElement('div');
     userTaskContainer.id = 'userTask';
+    let taskKiller = document.createElement('button');
+    taskKiller.id = 'apaga-tudo';
+    taskKiller.innerText = 'Apaga'
     
 
 
@@ -29,6 +32,7 @@ function createHtmlElements() {
     container.appendChild(sectionOne);
     sectionOne.appendChild(taskInput);
     sectionOne.appendChild(taskMaker);
+    sectionOne.appendChild(taskKiller)
     container.appendChild(userTaskContainer)
     userTaskContainer.appendChild(taskList);
 
@@ -63,8 +67,7 @@ function resetClass() {
     taskOList.addEventListener('click', () => {
         let taskList = document.querySelectorAll('li');
         for(let i = 0; i < taskList.length; i++) {
-            taskList[i].className = 'task'
-            console.log(taskList.className)
+            taskList[i].classList.remove('selected')
         }
 
     })
@@ -83,12 +86,38 @@ function changeTaskBackground() {
             }
         })
 
-       
+}
+
+function lineThroughItem() {
+    let body = document.body;
+
+    body.addEventListener('dblclick', (event) => {
+        let taskList = document.querySelectorAll('li');
+        let target = event.target;
+        console.log(target)
+
+        if (event.target.className == 'task selected') {
+            target.className = 'task selected lineThroughItem'
+        }
+    })
+}
 
 
+function shutdownTask() {
+    let taskKillerBtn = document.querySelector('#apaga-tudo');
+
+    taskKillerBtn.addEventListener('click', () => {
+        let taskList = document.querySelectorAll('li');
+        let taskContainer = document.querySelector('ol');
+        for(let i = 0; i < taskList.length; i++) {
+            taskContainer.removeChild(taskList[i])
+        }
+    })
 }
 
 createHtmlElements();
 addTask();
 changeTaskBackground();
 resetClass();
+lineThroughItem();
+shutdownTask();
