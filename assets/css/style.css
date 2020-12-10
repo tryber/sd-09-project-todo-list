@@ -1,16 +1,9 @@
 body {
-  margin: 0;
-  padding: 0;
-}
-
-button {
-
+  /* margin: 0 10vw; */
+  max-width: 70vw;
+  padding: 0 15vw;
 }
 
 .completed {
   text-decoration: line-through solid rgb(0 , 0 , 0);
 }
-
-/* .apaga-tudo {
-  background-color: ;
-} */
