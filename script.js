@@ -7,11 +7,11 @@ function markCompletedTask(event) {
 function selectedElement(event) {
   const taskElements = document.querySelectorAll('.task');
   taskElements.forEach((task) => {
-    if (task.style.backgroundColor === 'rgb(128, 128, 128)') {
-      task.style.backgroundColor = '';
+    if (task.classList.contains('selected')) {
+      task.classList.remove('selected');
     }
   });
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  event.target.classList.add('selected');;
 }
 
 // Create Task in list

@@ -114,8 +114,8 @@ body {
 }
 
 .completed {
-  text-decoration: line-through solid black;
   color: rgb(165 , 24 , 24);
+  text-decoration: line-through solid black;
 }
 
 .task:hover {
