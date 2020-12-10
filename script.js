@@ -33,7 +33,7 @@ function changeCompleted() {
   for (let index = 0; index < listTask.length; index += 1) {
     if (listTask[index].className === 'task-list completed') {
       listTask[index].className = 'task-list completed';
-    } else if (listTask[index].classList.contains('.completed')) {
+    } else if (listTask[index].classList.contains('completed')) {
       listTask[index].className = 'task-list completed';
     } else {
       listTask[index].className = 'task-list';
