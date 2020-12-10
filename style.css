@@ -1,3 +1,100 @@
+h1 {
+    font-family: 'Dosis', sans-serif;
+    color: White;
+    text-align: center;
+}
+#funcionamento {
+    color: rgb(194, 187, 187);
+    text-align: center;
+}
+li {
+    color: yellow;
+    border: solid lightblue 1px;
+}
+ol {
+    border: solid white 1px;
+}
 .selected {
     background-color: rgb(128, 128, 128);
 }
+#criar-tarefa {
+    box-shadow: -3px 1px 0px -50px #fff6af;
+	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	background-color:#ffec64;
+	border-radius:6px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	cursor:pointer;
+	color:#333333;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:8px 24px;
+	text-decoration:none;
+    text-shadow:0px 0px 0px #ffee66;
+    margin:5px;
+}
+#criar-tarefa:hover {
+    background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+	background-color:#ffab23;
+}
+#apaga-tudo {
+    box-shadow: -3px 1px 0px -50px #fff6af;
+	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
+	background-color:#ffec64;
+	border-radius:6px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	cursor:pointer;
+	color:#333333;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:8px 24px;
+	text-decoration:none;
+	text-shadow:0px 0px 0px #ffee66;
+}
+#apaga-tudo:hover {
+    background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
+	background-color:#ffab23;
+}
+main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center; 
+}
+/*The following background code was reproduced from the original made by Manuel Pinto, with free license. Source:https://1stwebdesigner.com/15-css-background-effects//*/
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 600%;
+	-webkit-animation: gradient 15s ease infinite;
+            animation: gradient 15s ease infinite;
+    font-family: 'Dosis', sans-serif;
+}
+
+@-webkit-keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+/*end of reproduced code*/
