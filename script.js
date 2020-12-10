@@ -120,14 +120,6 @@ buttonClearCompleted.addEventListener('click', clearCompletedList);
 createButton('salvar-tarefas', 'Salvar Lista', '.buttons');
 const buttonSaveList = document.querySelector('#salvar-tarefas');
 
-function saveListTask(task, classLocal) {
-  const list = document.createElement('li');
-  list.className = classLocal;
-  list.innerText = task;
-  const listOrd = document.querySelector('#lista-tarefas')
-  listOrd.appendChild(list)
-}
-
 function returnTotal() {
   const array = JSON.parse(localStorage.getItem('tasks'));
   for (let index = 0; index < array.length; index += 2) {
