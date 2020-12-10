@@ -5,6 +5,7 @@ const btnDelComplete = document.querySelector('#remover-finalizados');
 const btnSave = document.querySelector('#salvar-tarefas');
 const btnUp = document.querySelector('#mover-cima');
 const btnDown = document.querySelector('#mover-baixo');
+const btnDelSelect = document.querySelector('#remover-selecionado')
 
 function presetList() {
   const storage = localStorage.getItem(0);
@@ -86,31 +87,31 @@ function pickIndex() {
   let numb;
   const numberOfPos = document.querySelectorAll('.task');
   for (let index = 0; index < numberOfPos.length; index += 1) {
-    if(numberOfPos[index].classList.contains('selected')) {
+    if (numberOfPos[index].classList.contains('selected')) {
       numb = index;
     }
   }
-  return numb
+  return numb;
 }
 
 function changeIndex(newIndex, event, newPosition) {
   const numberOfPos = document.querySelectorAll('.task');
-  if(newIndex > 0 && event.target.id === 'mover-cima') {
+  if (newIndex > 0 && event.target.id === 'mover-cima') {
     taskList.removeChild(numberOfPos[newIndex]);
     taskList.insertBefore(newPosition, numberOfPos[newIndex - 1]);
   }
-  if(newIndex < numberOfPos.length && event.target.id === 'mover-baixo') {
+  if (newIndex < numberOfPos.length && event.target.id === 'mover-baixo') {
     taskList.removeChild(numberOfPos[newIndex]);
     taskList.insertBefore(newPosition, numberOfPos[newIndex + 2]);
   }
 }
 function upSelected(event) {
   const liSelected = document.querySelector('.selected');
-    if (liSelected !== null) {
+  if (liSelected !== null) {
     const newPosition = document.createElement('li');
     newPosition.innerText = liSelected.innerText;
     newPosition.className = liSelected.className;
-    let newIndex = pickIndex();
+    const newIndex = pickIndex();
     changeIndex(newIndex, event, newPosition);
   }
 }
@@ -120,6 +121,16 @@ function changePosition() {
   btnDown.addEventListener('click', upSelected);
 }
 
+function removeSelected() {
+  btnDelSelect.addEventListener('click', function () {
+    const numberOfPos = document.querySelectorAll('.task');
+    let ind = pickIndex();
+    if (ind !== undefined) {
+      taskList.removeChild(numberOfPos[ind]);
+    }
+  })
+}
+
 presetList();
 addListButton();
 creatSelectTask();
@@ -127,3 +138,4 @@ deleteAll();
 removeCompleted();
 saveList();
 changePosition();
+removeSelected();
