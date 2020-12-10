@@ -1,7 +1,7 @@
 function removeAll() {
   const tasksList = document.querySelector('#lista-tarefas');
   for (let index = tasksList.childElementCount; index >= 0; index -= 1) {
-    tasksList.removeChild(tasksList.childNodes[0])
+    tasksList.removeChild(tasksList.childNodes[0]);
   }
 }
 
@@ -34,9 +34,9 @@ function setNewItemProperties(tasksList, newItem) {
   newItem.addEventListener('click', function () {
     selectTask(newItem);
   });
-  newItem.addEventListener('dblclick', function() {
+  newItem.addEventListener('dblclick', function () {
     completeTask(newItem);
-  })
+  });
 }
 
 // Adicionar nova tarefa
@@ -54,7 +54,6 @@ function createNewTask() {
 window.onload = function () {
   const buttonNewTask = document.querySelector('#criar-tarefa');
   buttonNewTask.addEventListener('click', createNewTask);
-  //const tasksList = document.querySelector('#lista-tarefas');
   const buttonDeleteAll = document.querySelector('#apaga-tudo');
   buttonDeleteAll.addEventListener('click', removeAll);
 };
