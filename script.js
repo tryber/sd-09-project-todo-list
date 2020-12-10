@@ -44,6 +44,32 @@ function selectTaskItem(evt) {
   }
 }
 
+function persistTasksToLocalStorage() {
+  const taskItems = document.getElementsByClassName('task-item');
+  let tasksText = [];
+  for (let index = 0; index < taskItems.length; index += 1) {
+    tasksText[index] = taskItems[index].innerText;
+  }
+  localStorage.setItem('tasks', JSON.stringify(tasksText));
+  setFocusToInputText();
+}
+
+function getTasksFromLocalStorage() {
+  const taskListParent = document.getElementById('lista-tarefas');
+  const tasksRecoveredFromStorage = JSON.parse(localStorage.getItem('tasks'));
+  if (tasksRecoveredFromStorage === []) {
+    setFocusToInputText(); 
+    return null;
+  }
+  for (let index = 0; index < tasksRecoveredFromStorage.length; index += 1) {
+    let taskItem = document.createElement('li');
+    taskItem.classList.add('task-item');
+    taskItem.innerText = tasksRecoveredFromStorage[index];
+    taskListParent.appendChild(taskItem);  
+  }
+  setFocusToInputText();
+}
+
 function removeTask(task) {
   const taskList = document.getElementById('lista-tarefas');
   taskList.removeChild(task);
@@ -69,9 +95,12 @@ function removeAllTasks() {
 
 const createTaskButton = document.getElementById('criar-tarefa');
 const taskOrderedList = document.getElementById('lista-tarefas');
+const saveTasksButton = document.getElementById('salvar-tarefas');
 const removeAllTasksButton = document.getElementById('apaga-tudo');
 const removeCompletedTasksButton = document.getElementById('remover-finalizados');
+getTasksFromLocalStorage();
 createTaskButton.addEventListener('click', createTask);
+saveTasksButton.addEventListener('click', persistTasksToLocalStorage)
 taskOrderedList.addEventListener('click', selectTaskItem);
 taskOrderedList.addEventListener('dblclick', setTaskAsFinished);
 removeCompletedTasksButton.addEventListener('click', removeCompletedTasks);
