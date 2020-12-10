@@ -44,8 +44,20 @@ function selectTaskItem(evt) {
   }
 }
 
+function removeAllTasks() {
+  const taskItems = document.getElementsByClassName('task-item');
+  const taskList = document.getElementById('lista-tarefas');
+  const taskListLength = taskItems.length;
+  for (let index = 0; index < taskListLength; index += 1) {
+    taskList.removeChild(taskItems[0]);
+  }
+  setFocusToInputText();
+}
+
 const createTaskButton = document.getElementById('criar-tarefa');
 const taskOrderedList = document.getElementById('lista-tarefas');
-taskOrderedList.addEventListener('click', selectTaskItem);
-taskOrderedList.addEventListener('dblclick', setTaskAsFinished)
+const removeAllTasksButton = document.getElementById('apaga-tudo');
 createTaskButton.addEventListener('click', createTask);
+taskOrderedList.addEventListener('click', selectTaskItem);
+taskOrderedList.addEventListener('dblclick', setTaskAsFinished);
+removeAllTasksButton.addEventListener('click', removeAllTasks);
