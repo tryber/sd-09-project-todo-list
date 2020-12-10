@@ -154,4 +154,4 @@ function setAllEvents() {
   loadSavedTasks();
 }
 
-window.onload = setAllEvents;
+setAllEvents;
