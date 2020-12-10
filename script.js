@@ -41,7 +41,9 @@ function addList() {
 
 function handleTaskClick(event) {
   const listItem = event.target;
-  listItem.style.backgroundColor = 'rgb(128,128,128)';
+  const selected = document.querySelector('.selected');
+  listItem.classList.add('selected');
+  selected.classList.remove('selected');
 }
 
 function handleAddListItem() {
