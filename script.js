@@ -48,7 +48,6 @@ window.onload = function () {
     });
   }
   lineThrough();
-
   function clearListButton(buttonName) {
     const botao2 = document.getElementById('input-box');
     const newButton = document.createElement('button');
@@ -70,7 +69,6 @@ window.onload = function () {
     }
   }
   bttn2.addEventListener('click', bttnClearList);
-
   function clearFinishedButton(buttonName) {
     const botao3 = document.getElementById('input-box');
     const newButton = document.createElement('button');
