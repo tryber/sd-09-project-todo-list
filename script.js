@@ -86,3 +86,19 @@ function deleteTaskList() {
   });
 }
 deleteTaskList();
+
+function deleteSelectedList() {
+  const button = document.createElement('button');
+  const divButton = document.querySelector('#buttons');
+  divButton.appendChild(button);
+  button.style.padding = '3px';
+  button.style.marginLeft = '5px';
+  button.innerText = 'Remover realizadas';
+  button.id = 'remover-finalizados';
+
+  button.addEventListener('click', function () {
+    document.querySelectorAll('.completed').forEach(e => (e.parentNode.removeChild(e)));
+    // https://stackoverflow.com/questions/13125817/how-to-remove-elements-that-were-fetched-using-queryselectorall
+  });
+}
+deleteSelectedList();
