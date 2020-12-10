@@ -1,30 +1,19 @@
-window.onload = function() {
-  let tasksList = document.getElementById('lista-tarefas');
+window.onload = function () {
+  const tasksList = document.getElementById('lista-tarefas');
 
-  //Criar lista de tarefas
-  // function createNewElementList() {
-  //   const createTaskButton = document.getElementById('criar-tarefa');
-
-  //   createTaskButton.addEventListener('click', function() {
-  //     const taskTextInput = document.getElementById('texto-tarefa');
-  //     const newTask = document.createElement('li');
-  //     newTask.innerText = taskTextInput.value;
-  //     newTask.classList.add('task');
-  //     tasksList.appendChild(newTask);
-  //     taskTextInput.value = '';
-  //   });
-  // }
+  // Cria novo elemento li
   function createNewElementList(content, completed) {
-      const newTask = document.createElement('li');
-      newTask.innerText = content;
-      newTask.classList.add('task');
-      if (completed) newTask.classList.add('completed');
-      tasksList.appendChild(newTask);
+    const newTask = document.createElement('li');
+    newTask.innerText = content;
+    newTask.classList.add('task');
+    if (completed) newTask.classList.add('completed');
+    tasksList.appendChild(newTask);
   }
 
+  // Botão para criar elemento task
   function addTaskButton() {
     const createTaskButton = document.getElementById('criar-tarefa');
-    
+
     createTaskButton.addEventListener('click', function() {
       const taskTextInput = document.getElementById('texto-tarefa');
       const textTask = taskTextInput.value;
@@ -57,11 +46,11 @@ window.onload = function() {
   // Apaga todas as tasks
   function clearAllTasks() {
     const claerAllButton = document.querySelector('#apaga-tudo');
-    
+
     claerAllButton.addEventListener('click', function() {
       const todoList = document.querySelector('#lista-tarefas');
       const allTasks = document.querySelectorAll('.task');
-      
+
       for (let task of allTasks) {
         todoList.removeChild(task);
       }
@@ -71,11 +60,11 @@ window.onload = function() {
   // Apaga os itens finalizados
   function clearCompletedTaskd() {
     const claerCompletedButton = document.querySelector('#remover-finalizados');
-    
+
     claerCompletedButton.addEventListener('click', function() {
       const todoList = document.querySelector('#lista-tarefas');
       const completedTasks = document.querySelectorAll('.completed');
-      
+
       for (let task of completedTasks) {
         todoList.removeChild(task);
       }
@@ -86,7 +75,7 @@ window.onload = function() {
   // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
   function saveItensTaskLocalStorage() {
     const saveTaskButton = document.querySelector('#salvar-tarefas');
-    
+
     saveTaskButton.addEventListener('click', function() {
       const allTasks = document.getElementsByClassName('task');
       let allTasksArray = [];
@@ -120,7 +109,7 @@ window.onload = function() {
   // Remove task selecionada
   function removeSelectedTaskItem() {
     const removeSelectedButton = document.querySelector('#remover-selecionado');
-    
+
     removeSelectedButton.addEventListener('click', function() {
       const selectedTask = document.querySelector('.selected');
       tasksList.removeChild(selectedTask);
@@ -128,6 +117,8 @@ window.onload = function() {
   }
 
   // sobe a task na lista de tarefas
+  // http://devfuria.com.br/javascript/dom-insert-before/
+  // https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
   function upTaskPositionInList() {
     const upButton = document.querySelector('#mover-cima');
     const allTasks = document.getElementsByClassName('task');
@@ -145,6 +136,8 @@ window.onload = function() {
   }
 
   // Desce a task na lista de tarefas
+  // http://devfuria.com.br/javascript/dom-insert-before/
+  // https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
   function downTaskPositionInList() {
     const downButton = document.querySelector('#mover-baixo');
     const allTasks = document.getElementsByClassName('task');
