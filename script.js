@@ -54,10 +54,12 @@ function pushTaskToArray(element) {
 
 function loadSavedTasks() {
   const savedTasks = JSON.parse(localStorage.getItem('tasks'));
-  for (let index = 0; index < savedTasks.length; index += 1) {
-    const task = savedTasks[index];
-    const newTask = createNewElement('li', { className: task.classes, innerText: task.text });
-    addNewTask(newTask);
+  if (savedTasks !== null) {
+    for (let index = 0; index < savedTasks.length; index += 1) {
+      const task = savedTasks[index];
+      const newTask = createNewElement('li', { className: task.classes, innerText: task.text });
+      addNewTask(newTask);
+    }
   }
 }
 
