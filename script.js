@@ -9,7 +9,6 @@ function changeBGSelectedItems() {
     eventT.target.style.backgroundColor = 'rgb(128, 128, 128)';
   });
 }
-changeBGSelectedItems();
 
 // 9- click apply/remove text-decoration
 
@@ -23,7 +22,6 @@ function markupTasks() {
     }
   });
 }
-markupTasks();
 
 // 5- add task to list #lista-tarefas
 
@@ -42,7 +40,7 @@ function clickAddTask() {
     event.target.tarefa.value = '';
   });
 }
-clickAddTask();
+
 
 // 8- buttons
 
@@ -53,12 +51,6 @@ function createButton(nameId, nameButton) {
   newButton.innerText = nameButton;
   buttonSection.appendChild(newButton);
 }
-createButton('apaga-tudo', '❌');
-createButton('mover-cima', '⬆');
-createButton('mover-baixo', '⬇');
-createButton('salvar-tarefas', 'Salvar Tarefas');
-createButton('remover-selecionado', 'Remover Seleção');
-createButton('remover-finalizados', 'Limpar Completos');
 
 // 10- apply function erase all to button (includes local storage clear)
 
@@ -73,7 +65,6 @@ function buttonRemoveAll() {
     localStorage.clear();
   });
 }
-buttonRemoveAll();
 
 // 11- apply function to remove only items with class "completed"
 
@@ -90,7 +81,6 @@ function buttonRemoveCompletedTasks() {
     }
   });
 }
-buttonRemoveCompletedTasks();
 
 // 12- save items on local storage
 function buttonSaveTaskList() {
@@ -98,19 +88,18 @@ function buttonSaveTaskList() {
   button.addEventListener('click', function () {
     const listElements = document.querySelectorAll('ol#lista-tarefas li');
     for (let index = 0; index < listElements.length; index += 1) {
-      let objItem = { content: listElements[index].innerText,
+      const objItem = { content: listElements[index].innerText,
         classContent: listElements[index].className,
-      }
+      };
       localStorage.setItem(index, JSON.stringify(objItem));
     }
   });
 }
-buttonSaveTaskList();
 
 window.addEventListener('load', function () {
   const list = document.querySelector('ol#lista-tarefas');
   for (let index = 0; index < localStorage.length; index += 1) {
-    objItem = JSON.parse(localStorage.getItem(index));
+    const objItem = JSON.parse(localStorage.getItem(index));
     const newElement = document.createElement('li');
     newElement.innerText = objItem.content;
     newElement.className = objItem.classContent;
@@ -130,28 +119,61 @@ function buttonMoveUp() {
         current = listElements[index];
         const previous = current.previousSibling;
         if (previous !== null) {
-          previous.insertAdjacentElement("beforebegin", current);
+          previous.insertAdjacentElement('beforebegin', current);
         }
       }
     }
   });
 }
-buttonMoveUp();
 
 function buttonMoveDown() {
   const buttonDown = document.querySelector('#mover-baixo');
   buttonDown.addEventListener('click', function () {
     const listElements = document.querySelectorAll('ol#lista-tarefas li');
-    let current = ''
+    let current = '';
     for (let index = 0; index < listElements.length; index += 1) {
       if (listElements[index].style.backgroundColor === 'rgb(128, 128, 128)') {
         current = listElements[index];
         const next = current.nextSibling;
         if (next !== null) {
-          current.insertAdjacentElement("beforebegin", next);
+          current.insertAdjacentElement('beforebegin', next);
         }
       }
     }
   });
 }
+
+// 14 - apply remove selected item
+
+function buttonRemoveSelected() {
+  const buttonRemoveSelected = document.querySelector('#remover-selecionado');
+  buttonRemoveSelected.addEventListener('click', function () {
+    const list = document.querySelector('ol#lista-tarefas');
+    const listElements = document.querySelectorAll('ol#lista-tarefas li');
+    for (let index = 0; index < listElements.length; index += 1) {
+      if (listElements[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+        list.removeChild(listElements[index]);
+        localStorage.removeItem(index);
+      }
+    }
+  });
+}
+
+// add tasks to list and behavior of each taskitem in list
+changeBGSelectedItems();
+markupTasks();
+clickAddTask();
+// create all buttons
+createButton('apaga-tudo', '❌');
+createButton('mover-cima', '⬆');
+createButton('mover-baixo', '⬇');
+createButton('salvar-tarefas', 'Salvar Tarefas');
+createButton('remover-selecionado', 'Remover Seleção');
+createButton('remover-finalizados', 'Limpar Completos');
+// apply the functions on buttons
+buttonRemoveAll();
+buttonRemoveCompletedTasks();
+buttonSaveTaskList();
+buttonMoveUp();
 buttonMoveDown();
+buttonRemoveSelected();
