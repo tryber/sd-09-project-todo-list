@@ -79,6 +79,18 @@ function getList() {
   }
 }
 
+function removeSelected() {
+  const tList = document.getElementById('lista-tarefas');
+  const remSelBtn = document.getElementById('remover-selecionado');
+
+  remSelBtn.addEventListener('click', function () {
+    const selectedTasks = document.querySelectorAll('.selected');
+    for (let index = 0; index < selectedTasks.length; index += 1) {
+      tList.removeChild(selectedTasks[index]);
+    }
+  });
+}
+
 window.onload = function () {
   addTask();
   selectTask();
@@ -87,4 +99,5 @@ window.onload = function () {
   clearCompleted();
   saveList();
   getList();
+  removeSelected();
 };
