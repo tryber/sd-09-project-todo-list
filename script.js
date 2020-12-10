@@ -2,10 +2,18 @@
 function highlight(event) {
   const clickedItem = event.target;
   const selectedItemBackgroundColor = 'rgb(128, 128, 128)';
-  if (clickedItem.style.backgroundColor !== selectedItemBackgroundColor) {
+  const selectedTasks = document.querySelectorAll('.selected');
+  if (selectedTasks.length < 1) {
+    clickedItem.className += ' selected';
+    clickedItem.style.backgroundColor = selectedItemBackgroundColor;
+  } else if (selectedTasks[0] !== clickedItem) {
+    selectedTasks[0].className = selectedTasks[0].className.replace(' selected', '');
+    selectedTasks[0].style.backgroundColor = 'transparent';
+    clickedItem.className += ' selected';
     clickedItem.style.backgroundColor = selectedItemBackgroundColor;
   } else {
     clickedItem.style.backgroundColor = 'transparent';
+    clickedItem.className = clickedItem.className.replace(' selected', '');
   }
 }
 
@@ -27,6 +35,7 @@ function addTask() {
     const taskList = document.querySelector('#lista-tarefas');
     const listItem = document.createElement('li');
     listItem.innerText = task;
+    listItem.className = 'task';
     taskList.appendChild(listItem);
     highlightListItemEvent();
     document.querySelector('#texto-tarefa').value = '';
