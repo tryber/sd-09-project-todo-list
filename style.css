@@ -1,0 +1,38 @@
+body {
+  text-align: center;
+  background-color: aquamarine;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+div {
+  border-radius: 30px;
+  background-color: whitesmoke;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  padding: 10px;
+  text-align: left;
+}
+
+button {
+  font-family: 'Gloria Hallelujah', cursive;
+  background-color: blueviolet;
+  color: white;
+  font-weight: bold;
+}
+
+input {
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+header {
+    text-align: center;
+}
+ol {
+  text-align: left;
+}
+
+.selected {
+    background-color: rgb(128,128,128);
+    color: white;
+}
