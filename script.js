@@ -46,28 +46,43 @@ function selectTaskItem(evt) {
 
 function persistTasksToLocalStorage() {
   const taskItems = document.getElementsByClassName('task-item');
-  let tasksText = [];
+  const tasksInfo = [];
   for (let index = 0; index < taskItems.length; index += 1) {
-    tasksText[index] = taskItems[index].innerText;
+    let taskObject = {
+        'taskText': taskItems[index].innerText,
+        'taskClasses': taskItems[index].className,    
+    }
+    tasksInfo[index] = taskObject;
   }
-  localStorage.setItem('tasks', JSON.stringify(tasksText));
+  localStorage.setItem('tasks', JSON.stringify(tasksInfo));
   setFocusToInputText();
+}
+
+function extractStorageInfoObjects(taskObject) {
+    let infoString = '';
+    for (let index = 0; index < taskObject.length; index++) {
+      infoString += taskObject[index];
+    }
+    return infoString;
 }
 
 function getTasksFromLocalStorage() {
   const taskListParent = document.getElementById('lista-tarefas');
   const tasksRecoveredFromStorage = JSON.parse(localStorage.getItem('tasks'));
-  if (tasksRecoveredFromStorage === []) {
-    setFocusToInputText(); 
+  if (tasksRecoveredFromStorage === null) {
+    setFocusToInputText();
     return null;
   }
   for (let index = 0; index < tasksRecoveredFromStorage.length; index += 1) {
-    let taskItem = document.createElement('li');
-    taskItem.classList.add('task-item');
-    taskItem.innerText = tasksRecoveredFromStorage[index];
-    taskListParent.appendChild(taskItem);  
+    let taskClassesArray = tasksRecoveredFromStorage[index].taskClasses;
+    let taskClasses = extractStorageInfoObjects(taskClassesArray);
+    const taskItem = document.createElement('li');
+    taskItem.className = taskClasses;
+    taskItem.innerText = tasksRecoveredFromStorage[index].taskText;
+    taskListParent.appendChild(taskItem);
   }
   setFocusToInputText();
+  return 0;
 }
 
 function removeTask(task) {
@@ -100,7 +115,7 @@ const removeAllTasksButton = document.getElementById('apaga-tudo');
 const removeCompletedTasksButton = document.getElementById('remover-finalizados');
 getTasksFromLocalStorage();
 createTaskButton.addEventListener('click', createTask);
-saveTasksButton.addEventListener('click', persistTasksToLocalStorage)
+saveTasksButton.addEventListener('click', persistTasksToLocalStorage);
 taskOrderedList.addEventListener('click', selectTaskItem);
 taskOrderedList.addEventListener('dblclick', setTaskAsFinished);
 removeCompletedTasksButton.addEventListener('click', removeCompletedTasks);
