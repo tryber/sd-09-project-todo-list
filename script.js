@@ -7,4 +7,8 @@ function setCreateTaskEvent() {
   globalElements.createTaskButton.addEventListener('click', createTask);
 }
 
-setCreateTaskEvent();
+function setAllEvents() {
+  setCreateTaskEvent();
+}
+
+setAllEvents();
