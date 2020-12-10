@@ -44,12 +44,25 @@ function selectTaskItem(evt) {
   }
 }
 
+function removeTask(task) {
+  const taskList = document.getElementById('lista-tarefas');
+  taskList.removeChild(task);
+}
+
+function removeCompletedTasks() {
+  const completedTasks = document.getElementsByClassName('completed');
+  const completedTasksLength = completedTasks.length;
+  for (let index = 0; index < completedTasksLength; index += 1) {
+    removeTask(completedTasks[0]);
+  }
+  setFocusToInputText();
+}
+
 function removeAllTasks() {
   const taskItems = document.getElementsByClassName('task-item');
-  const taskList = document.getElementById('lista-tarefas');
   const taskListLength = taskItems.length;
   for (let index = 0; index < taskListLength; index += 1) {
-    taskList.removeChild(taskItems[0]);
+    removeTask(taskItems[0]);
   }
   setFocusToInputText();
 }
@@ -57,7 +70,9 @@ function removeAllTasks() {
 const createTaskButton = document.getElementById('criar-tarefa');
 const taskOrderedList = document.getElementById('lista-tarefas');
 const removeAllTasksButton = document.getElementById('apaga-tudo');
+const removeCompletedTasksButton = document.getElementById('remover-finalizados');
 createTaskButton.addEventListener('click', createTask);
 taskOrderedList.addEventListener('click', selectTaskItem);
 taskOrderedList.addEventListener('dblclick', setTaskAsFinished);
+removeCompletedTasksButton.addEventListener('click', removeCompletedTasks);
 removeAllTasksButton.addEventListener('click', removeAllTasks);
