@@ -156,4 +156,4 @@ function setAllEvents() {
 
 window.onload = function () {
   setAllEvents();
-}
+};
