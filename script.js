@@ -9,12 +9,14 @@ window.onload = function() {
             return alert('Insira uma tarefa');
         }
         let taskToList = document.createElement('li');
-        taskToList.addEventListener('click', highlight)
+        taskToList.addEventListener('click', highlight);
+        taskToList.addEventListener('dblclick', taskComplete);
         taskToList.className = 'item-list';
         taskToList.innerText = taskToAdd;
         list.appendChild(taskToList);
         clearInput();        
     }
+}
     
     function clearInput() {
         if(document.getElementById('texto-tarefa').value !== 0) {
@@ -26,8 +28,19 @@ window.onload = function() {
         let previousSelectedItem = document.querySelector('.selected');
         if(listItemToHighlight.classList.contains('selected') !== true) {
             listItemToHighlight.classList.add('selected');
-            previousSelectedItem.classList.remove('selected');
+            if(previousSelectedItem) {
+                previousSelectedItem.classList.remove('selected');
+            }
         }
-
+        
     }
-}
+    
+    function taskComplete(event) {
+        let completedItem = event.target;
+        if(completedItem.classList.contains('completed') !== true) {
+            completedItem.classList.add('completed');
+        } else {
+            completedItem.classList.remove('completed');
+        }
+        
+    }
