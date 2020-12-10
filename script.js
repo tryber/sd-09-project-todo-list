@@ -68,7 +68,7 @@ function saveList() {
       const obj = {
         text: tasks[index].innerText,
         class: tasks[index].className,
-      }
+      };
       localStorage.setItem(index, JSON.stringify(obj));
     }
   });
@@ -110,13 +110,13 @@ function moveUp() {
       const sib = {
         text: previousSib.innerText,
         class: previousSib.className,
-      }
+      };
       previousSib.innerText = selectedTask.innerText;
       previousSib.className = selectedTask.className;
       selectedTask.innerText = sib.text;
       selectedTask.className = sib.class;
     }
-  })
+  });
 }
 
 function moveDown() {
@@ -131,13 +131,13 @@ function moveDown() {
       const nsib = {
         text: nextSib.innerText,
         class: nextSib.className,
-      }
+      };
       nextSib.innerText = selectedTask.innerText;
       nextSib.className = selectedTask.className;
       selectedTask.innerText = nsib.text;
       selectedTask.className = nsib.class;
     }
-  })
+  });
 }
 
 
