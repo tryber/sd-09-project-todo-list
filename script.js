@@ -46,11 +46,10 @@ window.onload = function() {
   }
 
   // Risca task quando clicado 2x
-  function taskComplete() {
+  function taskCompleteCheckAndDescheck() {
     tasksList.addEventListener('dblclick', function(event) {
       const taskCompleted = event.target;
-      const lastCompleted = document.querySelector('.completed');
-      if (taskCompleted == lastCompleted) taskCompleted.classList.remove('completed');
+      if (taskCompleted.classList.contains('completed')) taskCompleted.classList.remove('completed');
       else taskCompleted.classList.add('completed');
     });
   }
@@ -92,7 +91,7 @@ window.onload = function() {
       let allTasksArray = [];
       for (let index = 0; index < allTasks.length; index +=1) {
         const task = allTasks[index].innerText;
-        const completed = checkIfCompleted(allTasks[index].className);
+        const completed = allTasks[index].classList.contains('completed');
         const nameTask = {
           task,
           completed,
@@ -102,12 +101,6 @@ window.onload = function() {
       let allTasksString = JSON.stringify(allTasksArray);
       localStorage.setItem('taskList', allTasksString);
     });
-  }
-
-  function checkIfCompleted(className) {
-    className = className.search('completed');
-    if (className > 0) return true;
-    return false;
   }
 
   // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
@@ -124,7 +117,7 @@ window.onload = function() {
 
   addTaskButton();
   selectTaskItem();
-  taskComplete();
+  taskCompleteCheckAndDescheck();
   clearAllTasks();
   clearCompletedTaskd();
   saveItensTaskLocalStorage();
