@@ -1,6 +1,25 @@
 let liSelected;
 const completedTasks = [];
 
+function clearDonedTasks() {
+  const listOfLi = document.querySelectorAll('#lista-tarefas li');
+  const ol = document.querySelector('#lista-tarefas');
+  for (let index in listOfLi) {
+    if (listOfLi[index].className === 'completed') {
+      ol.removeChild(listOfLi[index]);
+    }
+  }
+}
+
+function clearTasks() {
+  const listOfLi = document.querySelector('#lista-tarefas').children;
+  const size = listOfLi.length;
+  const ol = document.querySelector('#lista-tarefas');
+  for (let index = 0; index < size; index+=1) {
+    ol.firstElementChild.remove();
+  }
+}
+
 function markAsDone(event) {
   if (completedTasks.includes(event.target)) {
     const index = completedTasks.indexOf(event.target);
@@ -56,14 +75,17 @@ function addTask() {
   ol.appendChild(li);
 }
 
-function buttonAddTask(buttonId) {
-  const id = `#${buttonId}`;
-  const button = document.querySelector(id);
-  button.addEventListener('click', addTask);
+function buttons() {
+  const buttonCreateTask = document.querySelector('#criar-tarefa');
+  buttonCreateTask.addEventListener('click', addTask);
+  const buttonClearTasks = document.querySelector('#apaga-tudo');
+  buttonClearTasks.addEventListener('click', clearTasks);
+  const buttonClearDonedTasks = document.querySelector('#remover-finalizados');
+  buttonClearDonedTasks.addEventListener('click', clearDonedTasks);
 }
 
 function actionManagement() {
-  buttonAddTask('criar-tarefa');
+  buttons();
   listSelector('lista-tarefas');
 }
 
