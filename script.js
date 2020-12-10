@@ -115,7 +115,7 @@ function myTaskObject() {
   const taskList = document.querySelectorAll('li');
   const taskObject = {};
   for (let indexElement = 0; indexElement < taskList.length; indexElement += 1) {
-    taskObject[indexElement] = taskList[indexElement].innerText + '.' +taskList[indexElement].classList;
+    taskObject[indexElement] = `${taskList[indexElement].innerText}.${taskList[indexElement].classList}`;
   }
   localStorage.clear();
   for(const key in taskObject) {
