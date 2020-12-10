@@ -1,6 +1,7 @@
 const globalElements = {
   createTaskButton: document.querySelector('#criar-tarefa'),
-  newTaskInput: document.querySelector('#texto-tarefa'),
+  newTaskInput:     document.querySelector('#texto-tarefa'),
+  taskList:         document.querySelector('#lista-tarefas'),
 }
 
 function setPropertiesToNewElement(element, propertiesObject) {
@@ -17,13 +18,23 @@ function createNewElement(tag, propertiesObject) {
   return newElement;
 }
 
-// function createNewTask() {
-//   const newTaskText = globalElements.newTaskInput.value;
-//   // newTaskText.de;
-// }
+function addNewTask(newTask) {
+  globalElements.taskList.appendChild(newTask);
+}
+
+function resetTaskValue(newTask) {
+  globalElements.newTaskInput.value = '';
+}
+
+function createNewTask() {
+  const newTaskText = globalElements.newTaskInput.value;
+  const newTask = createNewElement('li', { className: 'task', innerText: newTaskText });
+  addNewTask(newTask);
+  resetTaskValue();
+}
 
 function setCreateTaskEvent() {
-  // globalElements.createTaskButton.addEventListener('click', createNewTask);
+  globalElements.createTaskButton.addEventListener('click', createNewTask);
 }
 
 function setAllEvents() {
