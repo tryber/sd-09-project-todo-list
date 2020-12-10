@@ -2,6 +2,7 @@ const globalElements = {
   createTaskButton: document.querySelector('#criar-tarefa'),
   newTaskInput: document.querySelector('#texto-tarefa'),
   taskList: document.querySelector('#lista-tarefas'),
+  
 };
 
 function setPropertiesToNewElement(element, propertiesObject) {
@@ -33,9 +34,16 @@ function createNewTask() {
   resetTaskValue();
 }
 
+function resetHighlightedTask() {
+  const highlightedTask = document.querySelector('.highlighted');
+  if (highlightedTask !== null) {
+    highlightedTask.classList.remove('highlighted');
+  }
+}
 function highlightTask(event) {
   if (event.target.className === 'task') {
-    event.target.style.backgroundColor = 'rgb( 128 , 128 , 128)';
+    resetHighlightedTask();
+    event.target.classList.add('highlighted');
   }
 }
 
