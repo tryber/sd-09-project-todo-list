@@ -58,6 +58,7 @@ function loadSavedTasks() {
     for (let index = 0; index < savedTasks.length; index += 1) {
       const task = savedTasks[index];
       const newTask = createNewElement('li', { className: task.classes, innerText: task.text });
+      newTask.classList.remove('selected');
       addNewTask(newTask);
     }
   }
