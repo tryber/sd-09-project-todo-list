@@ -51,12 +51,12 @@ function createButton(nameId, nameButton) {
   newButton.innerText = nameButton;
   buttonSection.appendChild(newButton);
 }
-createButton('apaga-tudo','❌');
-createButton('mover-cima','⬆');
-createButton('mover-baixo','⬇');
+createButton('apaga-tudo', '❌');
+createButton('mover-cima', '⬆');
+createButton('mover-baixo', '⬇');
 createButton('salvar-tarefas', 'Salvar Tarefas');
-createButton('remover-selecionado','Remover Seleção');
-createButton('remover-finalizados','Limpar Completos');
+createButton('remover-selecionado', 'Remover Seleção');
+createButton('remover-finalizados', 'Limpar Completos');
 
 // 10- implementa função button apagar tudo;
 
@@ -71,3 +71,17 @@ function buttonRemoveAll() {
   });
 }
 buttonRemoveAll();
+
+function buttonRemoveCompletedTasks() {
+  const button = document.querySelector('#remover-selecionado');
+  button.addEventListener('click', function () {
+    const list = document.querySelector('ol#lista-tarefas');
+    const listElements = document.querySelectorAll('ol#lista-tarefas li');
+    for (let index = 0; index < listElements.length; index += 1) {
+      if (listElements[index].className === 'completed') {
+        list.removeChild(listElements[index]);
+      }
+    }
+  });
+}
+buttonRemoveCompletedTasks();
