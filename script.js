@@ -79,3 +79,20 @@ function clearAll() {
 }
 
 clearAll();
+
+// Botão de remover finalizados #remover-finalizados
+
+function clearDoneItems() {
+  const removeDoneButton = document.querySelector('#remover-finalizados');
+  removeDoneButton.addEventListener('click', function() {
+    const taskList = document.querySelector('#lista-tarefas');
+    const task = document.querySelectorAll('.task');
+    for (let index = 0; index < task.length; index += 1) {
+      if (task[index].className.includes('completed')) {
+        taskList.removeChild(task[index]);
+      }
+    }
+  })
+}
+
+clearDoneItems();
