@@ -1,0 +1,12 @@
+.titulo {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.botCriar {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+.completed {
+    text-decoration: line-through;
+}
