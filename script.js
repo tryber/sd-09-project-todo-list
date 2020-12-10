@@ -1,23 +1,21 @@
-const taskListHeader = document.createElement('header');
-taskListHeader.innerText = 'Minha Lista de Tarefas';
-taskListHeader.id = 'task-header'
-document.body.appendChild(taskListHeader);
+const buttonAddTask = document.querySelector('#criar-tarefa');
 
-const createParagraph = document.createElement('p');
-createParagraph.id = 'funcionamento';
-createParagraph.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
-document.getElementById('task-header').appendChild(createParagraph);
 
-const createInput = document.createElement('input');
-createInput.id = 'texto-tarefa';
-createInput.placeholder = 'Tarefas';
-document.querySelector('#funcionamento').after(createInput);
+function addTask() {
 
-const taskList = document.createElement('ol');
-taskList.id = 'lista-tarefas';
-document.querySelector('#task-header').append(taskList);
+  const inputPlace = document.querySelector('#texto-tarefa');
+  const inputValue = document.querySelector('#texto-tarefa').value;
+  const innerTaskList = document.querySelector('#lista-tarefas');
+  const createLi = document.createElement('li');
+  if (inputValue) {
+    createLi.innerText = inputValue;
+    createLi.classList.add('taskItem');
+    innerTaskList.appendChild(createLi);
+    inputPlace.value = '';
+  };
 
-const taskButtonList = document.createElement('button');
-taskButtonList.id = 'criar-tarefa';
-taskButtonList.innerText = 'Adicionar tarefa'
-document.getElementById('texto-tarefa').after(taskButtonList);
+
+
+};
+
+buttonAddTask.addEventListener('click', addTask);
