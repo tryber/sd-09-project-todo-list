@@ -134,9 +134,10 @@ function returnTotal() {
   taskListLoop();
 }
 
-// Referencia JSON
+// Referencia JSON e classList.contains
 // https://app.betrybe.com/course/fundamentals/javascript/dom-manipulation/js-part-8/conteudos/local-e-session-storage?use_case=side_bar
 // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+// https://www.w3schools.com/jsref/prop_element_classlist.asp
 function salveTasks() {
   const listTotal = document.querySelectorAll('li');
   const array = [];
@@ -156,10 +157,42 @@ buttonSaveList.addEventListener('click', salveTasks);
 createButton('mover-cima', 'Top', '.buttons');
 const buttonTop = document.querySelector('#mover-cima');
 
-function moveTop() {
-
+function positionList() {
+  const list = document.querySelectorAll('li');
+  if (list === null) {
+    return;
+  }
+  for (let index = 0; index < list.length; index += 1) {
+    if (list[index].classList.contains('selected')) {
+      return index;
+    }
+  }
 }
 
+// Referencia  insertBefore
+// https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
+function moveTop() {
+  const selected = document.querySelector('.selected');
+  const verific = positionList();
+  if (verific > 0) {
+    selected.parentNode.insertBefore(selected, selected.previousSibling);
+  }
+}
+buttonTop.addEventListener('click', moveTop);
+
 createButton('mover-baixo', 'Down', '.buttons');
+const buttonDown = document.querySelector('#mover-baixo');
+
+function moveDown() {
+  const lastList = document.querySelectorAll('li')
+  const selected = document.querySelector('.selected');
+  const verific = positionList();
+  console.log(verific);
+  if (verific < (lastList.length - 1)) {
+    selected.parentNode.insertBefore(selected, selected.nextSibling.nextSibling);
+  }
+}
+
+buttonDown.addEventListener('click', moveDown);
 
 returnTotal();
