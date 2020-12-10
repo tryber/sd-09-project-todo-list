@@ -28,7 +28,7 @@ window.onload = function() {
     createTaskButton.addEventListener('click', function() {
       const taskTextInput = document.getElementById('texto-tarefa');
       const textTask = taskTextInput.value;
-      if (textTask) createNewElementList(textTask);
+      if (textTask) createNewElementList(textTask, '');
       taskTextInput.value = '';
     });
   }
@@ -82,6 +82,7 @@ window.onload = function() {
     });
   }
 
+  // Salva tasks no localStorage com completed
   // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
   function saveItensTaskLocalStorage() {
     const saveTaskButton = document.querySelector('#salvar-tarefas');
@@ -103,16 +104,27 @@ window.onload = function() {
     });
   }
 
+  // Restaura tasks do localStorage
   // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
   function restoreItensTaskToList() {
     let savededLocalStorage = localStorage.getItem('taskList');
     savededLocalStorage =  JSON.parse(savededLocalStorage);
 
-    if (savededLocalStorage.length > 0) {
+    if (savededLocalStorage) {
       for (let item of savededLocalStorage) {
         createNewElementList(item.task, item.completed);
       }
     }
+  }
+
+  // Remove task selecionada
+  function removeSelectedTaskItem() {
+    const removeSelectedButton = document.querySelector('#remover-selecionado');
+    
+    removeSelectedButton.addEventListener('click', function() {
+      const selectedTask = document.querySelector('.selected');
+      tasksList.removeChild(selectedTask);
+    });
   }
 
   addTaskButton();
@@ -122,4 +134,5 @@ window.onload = function() {
   clearCompletedTaskd();
   saveItensTaskLocalStorage();
   restoreItensTaskToList();
+  removeSelectedTaskItem();
 }
