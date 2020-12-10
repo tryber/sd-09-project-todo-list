@@ -16,7 +16,7 @@ function taskCompleted() {
     listItem[index].addEventListener('dblclick', function (event) {
       if (event.target.className === '') {
         event.target.className = 'completed';
-      } else {
+      } else if (event.target.className === 'completed') {
         event.target.className = '';
       }
     });
@@ -27,8 +27,8 @@ function clearList() {
   const taskList = document.querySelector('#lista-tarefas');
   const btnClear = document.querySelector('#apaga-tudo');
   btnClear.addEventListener('click', function () {
-    while (taskList.hasChildNodes) {
-      taskList.removeChild(taskList.firstChild);
+    while (taskList.hasChildNodes()) {
+      taskList.removeChild(taskList.lastChild);
     }
   });
 }
