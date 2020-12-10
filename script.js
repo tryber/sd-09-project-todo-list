@@ -4,31 +4,28 @@ window.onload = function () {
   const createTaskButton = document.querySelector('#criar-tarefa');
   createTaskButton.addEventListener('click', insertNewTask);
   const taskList = document.querySelector('#lista-tarefas');
-  taskList.addEventListener('click', selectListItem);
+  taskList.addEventListener('click', selectListItemControl);
+  taskList.addEventListener('dblclick', completeListItemControl);
 }
 
-function selectListItem(event) {
-
+function completeListItemControl(event) {
   const item = event.target;
   classes = item.className.split(' ');
-  if (classes.includes('selected')) {
-    removeSelectedClass(item); 
+  if (classes.includes('completed')) {
+    item.classList.remove('completed');
   } else {
-    const listItens = document.querySelectorAll('#lista-tarefas li');
-    for(const element of listItens){
-        removeSelectedClass(element);
-    }
-    item.className += ' selected';
+    item.classList.add('completed');
   }
 }
 
-function removeSelectedClass(item) {
-    const classes = item.className.split(' ');
-    const index = classes.indexOf('selected');
-    classes.splice(index, 1);
-    classes.join(' ');
-    item.className = classes;
-    return item;
+function selectListItemControl(event) {
+  const item = event.target;
+  classes = item.className.split(' ');
+  const listItens = document.querySelectorAll('#lista-tarefas li');
+  for (const element of listItens) {
+    element.classList.remove('selected');
+  }
+  item.classList.add('selected');
 }
 
 function insertNewTask() {
