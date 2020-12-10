@@ -20,7 +20,7 @@ window.onload = function () {
   bttn.addEventListener('click', bttnCriarTarefa);
   function listBgColor() {
     const list = document.getElementById('lista-tarefas');
-    list.addEventListener ('click', function(event) {
+    list.addEventListener('click', function (event) {
       const liList = document.querySelectorAll('li');
       const color1 = 'rgb(255, 255, 255)';
       const color2 = 'rgb(128, 128, 128)';
