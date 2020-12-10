@@ -39,13 +39,18 @@ function addList() {
   container.appendChild(createList);
 }
 
+function handleTaskClick(event) {
+  const listItem = event.target;
+  listItem.style.backgroundColor = 'rgb(128,128,128)';
+}
+
 function handleAddListItem() {
   const createListItem = document.createElement('li');
   const inputText = document.getElementById('texto-tarefa');
   const list = document.getElementById('lista-tarefas');
-  console.log(list);
   const task = inputText.value;
   createListItem.innerText = task;
+  createListItem.addEventListener('click', handleTaskClick);
   list.appendChild(createListItem);
   inputText.value = '';
 }
