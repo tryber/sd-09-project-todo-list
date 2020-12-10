@@ -1,7 +1,7 @@
-const body = document.querySelector('body');
+const container = document.querySelector('#container');
 function addHeader() {
   const createHeader = document.createElement('header');
-  body.appendChild(createHeader);
+  container.appendChild(createHeader);
   // addHeader();
 }
 
@@ -16,14 +16,20 @@ function addParagraph() {
   const createParagraph = document.createElement('p');
   createParagraph.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
   createParagraph.id = 'funcionamento';
-  body.appendChild(createParagraph);
+  container.appendChild(createParagraph);
 }
 
 function addInput() {
   const createInput = document.createElement('input');
   createInput.id = 'texto-tarefa';
   createInput.setAttribute('placeholder', 'Task');
-  body.appendChild(createInput);
+  container.appendChild(createInput);
+}
+
+function addList() {
+  const createList = document.createElement('ol');
+  createList.id = 'lista-tarefas';
+  container.appendChild(createList)
 }
 
 window.onload = function () {
@@ -31,4 +37,5 @@ window.onload = function () {
   addTitle();
   addParagraph();
   addInput();
+  addList();
 };

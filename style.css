@@ -5,7 +5,7 @@
 #texto-tarefa {
   width: 100%;
   padding: 12px 20px;
-  border: 1px solid rgb(204, 204, 204);
+  border: 1px solid rgb(204 , 204 , 204);
   border-radius: 4px;
   box-sizing: border-box;
 }
