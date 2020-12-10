@@ -1,10 +1,32 @@
-// window.onload = function () {
-//   const list = document.querySelector('#lista-tarefas');
-//   const newli = document.createElement('li');
-//   let arquivos = localStorage.getItem(tarefas);
-//   newli.innerHTML = arquivos
-//   list.appendChild(newli)
-// }
+function onloadPge() {
+  const numberOfTask = parseInt(localStorage.getItem('numero de tarefas'));
+  const list = document.querySelector('#lista-tarefas');
+  for (let index = 0; index < numberOfTask; index+= 1) {
+    const mt = localStorage.getItem(`tarefas${index}`);
+    const newli = document.createElement('li')
+    newli.innerHTML = mt
+    newli.className = 'item-list'
+    list.appendChild(newli);
+  }
+}
+onloadPge();
+
+function saveStorage() {
+  let storage = [];
+  const line = document.querySelectorAll('.item-list');
+  for (let index = 0; index < line.length; index += 1) {
+    localStorage.setItem(`tarefas${index}`, line[index].innerHTML);
+    if ()
+  }
+  localStorage.setItem('numero de tarefas', (line.length));
+  localStorage.setItem('tarefas', (storage));
+}
+
+function saveAll() {
+  const saveButton = document.querySelector('#salvar-tarefas');
+  saveButton.addEventListener('click', saveStorage);
+}
+saveAll();
 
 function newTask() {
   const list = document.querySelector('#lista-tarefas');
@@ -19,6 +41,12 @@ function newTask() {
 function makeTask() {
   const button = document.getElementById('criar-tarefa');
   button.addEventListener('click', newTask);
+  const inputText = document.getElementById('texto-tarefa');
+  inputText.addEventListener('keyup', function () {
+    if (event.keyCode === 13) {
+      newTask()
+    }
+  })
 }
 makeTask();
 
@@ -68,20 +96,6 @@ function erasedCompleted() {
 }
 erasedCompleted();
 
-// function saveStorage() {
-//   let storage = [];
-//   const line = document.querySelectorAll('.item-list');
-//   for (let index = 0; index < line.length; index += 1) {
-//     storage.push(line[index]);
-//   }
-//   localStorage.setItem('tarefas', (storage));
-// }
-
-// function saveAll() {
-//   const saveButton = document.querySelector('#salvar-tarefas');
-//   saveButton.addEventListener('click', saveStorage);
-// }
-// saveAll();
 
 function buttonMoveTop() {
   const buttonMoveTop = document.getElementById('mover-cima');
