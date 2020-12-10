@@ -132,6 +132,8 @@ function saveTheData() {
 
 saveTheData();
 
+// Requisito 13
+
 // Requisito 14
 function deleteTaskSelected() {
   const myButton = document.querySelector('#remover-selecionado');

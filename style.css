@@ -1,25 +1,33 @@
+button {
+  outline: none;
+  cursor: pointer;
+  border: 1px solid;
+  color: orange;
+  border-radius: 10px;
+}
+
 #criar-tarefa , #remover-finalizados {
   background-color: blue;
-  border-radius: 10px;
-  color: orange;
 }
 
 #apaga-tudo {
   background-color: darkred;
-  border-radius: 10px;
-  color: orange;
+}
+
+#mover-baixo {
+  background-color: firebrick;
+}
+
+#mover-cima {
+  background-color: mediumblue;
 }
 
 #salvar-tarefas {
   background-color: green;
-  border-radius: 10px;
-  color: orange;
 }
 
 #remover-selecionado {
   background-color: darkred;
-  border-radius: 10px;
-  color: orange;
 }
 
 .completed {
