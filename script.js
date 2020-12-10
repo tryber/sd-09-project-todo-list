@@ -1,3 +1,8 @@
+function setFocusToInputText() {
+  inputText = document.getElementById('texto-tarefa');
+  inputText.focus();
+}
+
 function createTask() {
   const inputTextOfTask = document.getElementById('texto-tarefa');
   const taskTextTyped = inputTextOfTask.value;
@@ -5,14 +10,14 @@ function createTask() {
   const newTaskElement = document.createElement('li');
   if (taskTextTyped === '') {
     alert('Please type some text to describe your task!');
-    setFocusToInputText()
+    setFocusToInputText();
     return null;
   }
   newTaskElement.classList.add('task-item');
   newTaskElement.innerText = taskTextTyped;
   taskList.appendChild(newTaskElement);
   inputTextOfTask.value = '';
-  setFocusToInputText()
+  setFocusToInputText();
   return 0;
 }
 
@@ -27,13 +32,8 @@ function selectTaskItem(evt) {
   if (evt.target.className) {
     unselectTaskItem();
     evt.target.classList.add('selected-task');
-    setFocusToInputText()
+    setFocusToInputText();
   }
-}
-
-function setFocusToInputText() {
-  inputText = document.getElementById('texto-tarefa');
-  inputText.focus();
 }
 
 const createTaskButton = document.getElementById('criar-tarefa');
