@@ -82,26 +82,47 @@ window.onload = function() {
     });
   }
 
-  // Salvar itens no localStorage
+  //sSalvar itens no localStorage
+  // function saveItensTaskLocalStorage() {
+  //   const saveTaskButton = document.querySelector('#salvar-tarefas');
+    
+  //   saveTaskButton.addEventListener('click', function() {
+  //     const allTasks = document.querySelectorAll('.task');
+  //     let allTasksArray = [];
+  //     for (let task of allTasks) {
+  //       allTasksArray.push(task.innerText);
+  //     }
+  //     localStorage.setItem('tasksList', allTasksArray);
+  //   });
+  // }
+
   function saveItensTaskLocalStorage() {
     const saveTaskButton = document.querySelector('#salvar-tarefas');
     
     saveTaskButton.addEventListener('click', function() {
-      const allTasks = document.querySelectorAll('.task');
+      const allTasks = document.getElementsByClassName('task');
       let allTasksArray = [];
-      for (let task of allTasks) {
-        allTasksArray.push(task.innerText);
+      for (let index = 0; index < allTasks.length; index +=1) {
+        const task = allTasks[index].innerText;
+        const nameTask = {
+          task,
+          completed: true,
+        };
+        allTasksArray[index] = nameTask;
       }
-      localStorage.setItem('tasksList', allTasksArray);
+      let aux = JSON.stringify(allTasksArray);
+      localStorage.setItem('tasklist', aux);
     });
   }
 
   // Restaura lista salva
   function restoreItensTaskToList() {
     const savededLocalStorage = localStorage.getItem('tasksList');
-    let tasksRestoredArray = savededLocalStorage.split(',');
-    for (let task of tasksRestoredArray) {
-      createNewElementList(task);
+    if (savededLocalStorage) {
+      let tasksRestoredArray = savededLocalStorage.split(',');
+      for (let task of tasksRestoredArray) {
+        createNewElementList(task);
+      }
     }
   }
 
