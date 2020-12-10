@@ -1,4 +1,4 @@
-function addTask () {
+function addTask() {
   const button = document.getElementById('criar-tarefa');
   const input = document.getElementById('texto-tarefa');
   const list = document.getElementById('lista-tarefas');
@@ -12,7 +12,7 @@ function addTask () {
   });
 }
 
-function changeColorListItem (event){
+function changeColorListItem(event) {
   const selectedItem = document.querySelector('.selected');
 
   if (!selectedItem) {
@@ -23,7 +23,16 @@ function changeColorListItem (event){
   }
 }
 
-function selectTask () {
+function dbClicktem (event) {
+  const taskList = document.getElementById('lista-tarefas');
+  taskList.addEventListener('dblclick', function(event) {
+    event.target.classList.toggle('completed')
+  });
+}
+
+// sobre toggle: https://www.w3schools.com/howto/howto_js_toggle_class.asp
+
+function selectTask() {
   const taskList = document.getElementById('lista-tarefas');
   taskList.addEventListener('click', changeColorListItem);
 }
@@ -31,4 +40,5 @@ function selectTask () {
 window.onload = function () {
   addTask();
   selectTask();
+  dbClicktem();
 }
