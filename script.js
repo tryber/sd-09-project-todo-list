@@ -17,14 +17,17 @@ window.onload = function () {
   }
   criarTarefas.addEventListener('click', criouTarefa);
 
-  let paiDaLi = document.querySelector('#lista-tarefas')
+  const paiDaLi = document.querySelector('#lista-tarefas')
   paiDaLi.addEventListener('click', function (event) {
-      let itemLista = event.target
-      if (itemLista.style.backgroundColor === ''){
-        itemLista.style.backgroundColor = 'rgb(128, 128, 128)'
-      }else{
-        itemLista.style.backgroundColor = ''
-      }
+      let itemLista = event.target       
+        if (itemLista.style.backgroundColor === ''){
+            itemLista.style.backgroundColor = 'rgb(128, 128, 128)'
+        }    
+        let todas = document.querySelectorAll('.listItem')
+        for (let index = 0; index < todas.length; index += 1){
+            todas[index].style.backgroundColor = ''
+        }
+        event.target.style.backgroundColor = 'rgb(128, 128, 128)'
     })
 }
 
