@@ -14,14 +14,20 @@ function changeSelectedTask(event) {
   event.target.classList.add('selected');
 }
 
-function addTask() {
-  const taskName = document.querySelector('#texto-tarefa');
+function addTask(event, taskName, className) {
   const taskList = document.querySelector('#lista-tarefas');
   const listItem = document.createElement('li');
-  listItem.innerText = taskName.value;
+  if (!taskName) {
+    let task = document.querySelector('#texto-tarefa');
+    taskName = task.value;
+    task.value = '';
+  }
+  if (className) {
+    listItem.className = className;
+  }
+  listItem.innerText = taskName;
   listItem.addEventListener('click', changeSelectedTask);
   listItem.addEventListener('dblclick', changeCompletedTask);
-  taskName.value = '';
   taskList.appendChild(listItem);
 }
 
@@ -40,15 +46,35 @@ function removeCompleted() {
   }
 }
 
+function saveTasks() {
+  const taskList = document.querySelector('#lista-tarefas');
+  const tasks = taskList.children;
+  localStorage.clear();
+  for (let index = 0; index < tasks.length; index += 1) {
+    const taskProperties = JSON.stringify([tasks[index].innerText, tasks[index].className])
+    localStorage.setItem(index, taskProperties);
+  }
+}
+
 function addCreateButtonsListeners() {
   const createTaskButton = document.querySelector('#criar-tarefa');
   const clearTasksButton = document.querySelector('#apaga-tudo');
   const removeCompletedButton = document.querySelector('#remover-finalizados');
+  const saveTasksButton = document.querySelector('#salvar-tarefas');
   createTaskButton.addEventListener('click', addTask);
   clearTasksButton.addEventListener('click', clearTasks);
   removeCompletedButton.addEventListener('click', removeCompleted);
+  saveTasksButton.addEventListener('click', saveTasks);
+}
+
+function loadTasks() {
+  for (let index = 0; index < localStorage.length; index += 1) {
+    const taskProperties = JSON.parse(localStorage.getItem(index));
+    addTask(null, taskProperties[0], taskProperties[1]);
+  }
 }
 
 window.onload = function () {
   addCreateButtonsListeners();
+  loadTasks();
 };
