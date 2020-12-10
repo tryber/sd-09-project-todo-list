@@ -1,3 +1,14 @@
+// Remover os itens selecionados
+function removeSelected() {
+  const tasksList = document.querySelector('#lista-tarefas');
+  for (let taskIndex = tasksList.childElementCount - 1; taskIndex >= 0; taskIndex -= 1) {
+    if (tasksList.children[taskIndex].classList.contains('completed')) {
+      tasksList.removeChild(tasksList.children[taskIndex]);
+    }
+  }
+}
+
+// Remover todos os itens da lista
 function removeAll() {
   const tasksList = document.querySelector('#lista-tarefas');
   for (let index = tasksList.childElementCount; index >= 0; index -= 1) {
@@ -46,6 +57,7 @@ function createNewTask() {
   const newTask = document.querySelector('#texto-tarefa');
   newItem.setAttribute('class', 'task');
   newItem.classList.add('mdl-list__item');
+  console.log(newTask.value);
   tasksList.appendChild(newItem).innerText = newTask.value;
   setNewItemProperties(tasksList.childElementCount, newItem);
   newTask.value = '';
@@ -56,4 +68,6 @@ window.onload = function () {
   buttonNewTask.addEventListener('click', createNewTask);
   const buttonDeleteAll = document.querySelector('#apaga-tudo');
   buttonDeleteAll.addEventListener('click', removeAll);
+  const buttonDeleteSelected = document.querySelector('#remover-finalizados');
+  buttonDeleteSelected.addEventListener('click', removeSelected);
 };
