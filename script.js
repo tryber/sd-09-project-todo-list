@@ -85,6 +85,8 @@ window.onload = function getTasks () {
             listHead.appendChild(newElement);
             newElement.className = taskObjs[index].taskClassList;
             newElement.innerText = taskObjs[index].contentText; 
+            newElement.addEventListener('click', selectItem);
+            newElement.addEventListener('dblclick', completeItem);
         }
     }
     console.log('ok')
