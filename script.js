@@ -1,5 +1,6 @@
 const globalElements = {
   createTaskButton: document.querySelector('#criar-tarefa'),
+  clearTasksButton: document.querySelector('#apaga-tudo'),
   newTaskInput: document.querySelector('#texto-tarefa'),
   taskList: document.querySelector('#lista-tarefas'),
 };
@@ -60,7 +61,11 @@ function toggleClass(element, className) {
 }
 
 function toggleTaskAsCompleted(event) {
-  toggleClass(event.target, 'completed');
+  const element = event.target;
+  const className = 'completed';
+  if (elementHasClass(element, className)) {
+    toggleClass(element, className);
+  }
 }
 
 function setCreateTaskEvent() {
