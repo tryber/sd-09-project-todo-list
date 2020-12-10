@@ -1,6 +1,11 @@
 let liSelected;
 const completedTasks = [];
 
+function createNewLi() {
+  const li = document.createElement('li');
+  return li;
+}
+
 function setTasks(itensList) {
   const ol = document.querySelector('#lista-tarefas');
   for (let index = 0; index < itensList.length; index += 1) {
@@ -24,8 +29,8 @@ function saveTasks() {
   for (let index = 0; index < elements.length; index += 1) {
     objs.push({
       value: elements[index].innerText,
-      class: elements[index].className
-    })
+      class: elements[index].className,
+    });
   }
   localStorage.setItem('tasks', JSON.stringify(objs));
 }
@@ -38,6 +43,7 @@ function clearDonedTasks() {
       ol.removeChild(listOfLi[index]);
     }
   }
+  saveTasks();
 }
 
 function clearTasks() {
@@ -47,6 +53,7 @@ function clearTasks() {
   for (let index = 0; index < size; index += 1) {
     ol.firstElementChild.remove();
   }
+  saveTasks();
 }
 
 function markAsDone(event) {
@@ -58,6 +65,7 @@ function markAsDone(event) {
     completedTasks.push(event.target);
     event.target.className = 'completed';
   }
+  saveTasks();
 }
 
 function changeBackground(event) {
@@ -90,11 +98,6 @@ function clearInput(inputId) {
   input.value = '';
 }
 
-function createNewLi() {
-  const li = document.createElement('li');
-  return li;
-}
-
 function addTask() {
   const ol = document.querySelector('#lista-tarefas');
   const input = document.querySelector('#texto-tarefa');
@@ -102,6 +105,7 @@ function addTask() {
   li.innerText = input.value;
   clearInput(input.id);
   ol.appendChild(li);
+  saveTasks();
 }
 
 function buttons() {
