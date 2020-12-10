@@ -45,3 +45,18 @@ function markToDoAsCompleted() {
 }
 
 markToDoAsCompleted();
+
+function clearToDoList() {
+  const clearButton = document.querySelector('#apaga-tudo');
+
+  clearButton.addEventListener('click', function () {
+    const toDoList = document.querySelector('#lista-tarefas');
+    const toDos = document.querySelectorAll('#lista-tarefas li');
+
+    toDos.forEach(function (toDo) {
+      toDoList.removeChild(toDo);
+    });
+  });
+}
+
+clearToDoList();
