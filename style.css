@@ -1,0 +1,105 @@
+body {
+  background-attachment: fixed;
+  background-color: darkslategrey;
+  background-image: url('background.jpg');
+  background-size: cover;
+  font-family: Goldman, sans-serif;
+}
+
+h1 {
+  color: lightskyblue;
+  font-size: 60px;
+  text-align: center;
+  text-shadow: 2px 2px 7px black;
+}
+
+.description {
+  color: white;
+  font-size: 25px;
+  text-align: center;
+  text-shadow: 1px 1px 5px black;
+}
+
+button {
+  background-color: lightskyblue;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px black;
+  display: inline-block;
+  font-family: Goldman, sans-serif;
+  margin: 2px;
+}
+
+button:hover {
+  background-color: rgb(6 , 106 , 128);
+  color: white;
+}
+
+button:active {
+  background-color: darkblue;
+  border-color: white;
+}
+
+input {
+  border: 1px solid black;
+  border-radius: 5px;
+  display: block;
+  height: 30px;
+  margin: 10px auto;
+  padding-left: 10px;
+  width: 500px;
+}
+
+li {
+  border-radius: 5px;
+  color: lightskyblue;
+  font-size: 30px;
+  padding: 1px 15px;
+  text-align: left;
+  text-shadow: 1px 1px 2px black;
+}
+
+.main-content {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tasks {
+  background-color: whitesmoke;
+  border: 8px solid lightskyblue;
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px;
+  margin: 15px auto;
+  padding: 15px;
+  width: fit-content;
+}
+
+.inputs {
+  text-align: center;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+.footer {
+  background-color: rgb(37 , 36 , 34);
+  border-top: 5px solid lightskyblue;
+  bottom: 0;
+  box-shadow: 0 1px 15px black;
+  color: rgb(204 , 197 , 185);
+  display: inline-block;
+  font-style: italic;
+  font-weight: 800;
+  left: 0;
+  margin-top: 75px;
+  position: fixed;
+  text-indent: 15px;
+  text-shadow: 1px 1px 2px black;
+  width: 100%;
+}
+
+.word {
+  color: lightskyblue;
+  font-weight: 800;
+}
