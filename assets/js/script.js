@@ -1,4 +1,12 @@
 // Remover os itens selecionados
+function removeSelected() {
+  const tasksList = document.querySelector('#lista-tarefas');
+  for (let taskIndex = tasksList.childElementCount - 1; taskIndex >= 0; taskIndex -= 1) {
+    if (tasksList.children[taskIndex].classList.contains('selected')) {
+      tasksList.removeChild(tasksList.children[taskIndex]);
+    }
+  }
+}
 function removeFinished() {
   const tasksList = document.querySelector('#lista-tarefas');
   for (let taskIndex = tasksList.childElementCount - 1; taskIndex >= 0; taskIndex -= 1) {
@@ -30,6 +38,7 @@ function clearSelected() {
   const tasksList = document.querySelector('#lista-tarefas');
   for (let index = 0; index < tasksList.childElementCount; index += 1) {
     tasksList.children[index].style.backgroundColor = null;
+    tasksList.children[index].classList.remove('selected');
   }
 }
 
@@ -37,6 +46,7 @@ function clearSelected() {
 function selectTask(task) {
   clearSelected();
   task.style.backgroundColor = 'rgb(128 , 128 , 128)';
+  task.classList.add('selected');
 }
 
 // Atribuindo propriedades para o novo item
@@ -85,7 +95,9 @@ window.onload = function () {
   buttonNewTask.addEventListener('click', createNewTask);
   const buttonDeleteAll = document.querySelector('#apaga-tudo');
   buttonDeleteAll.addEventListener('click', removeAll);
-  const buttonDeleteSelected = document.querySelector('#remover-finalizados');
-  buttonDeleteSelected.addEventListener('click', removeFinished);
+  const buttonDeleteFinished = document.querySelector('#remover-finalizados');
+  buttonDeleteFinished.addEventListener('click', removeFinished);
+  const buttonDeleteSelected = document.querySelector('#remover-selecionado');
+  buttonDeleteSelected.addEventListener('click', removeSelected);
   clickOutsideList();  
 };
