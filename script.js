@@ -15,7 +15,7 @@ function removeElement(element) {
   element.remove();
 }
 
-function resetHighlightedTask(element) {
+function resetSelectedTask(element) {
   element.classList.toggle('selected');
 }
 
@@ -77,10 +77,10 @@ function createNewTask() {
   resetTaskValue();
 }
 
-function highlightTask(event) {
+function selectTask(event) {
   if (event.target.classList.contains('task')) {
     if (!(event.target.classList.contains('selected'))) {
-      callAllBySelector(resetHighlightedTask, '.selected');
+      callAllBySelector(resetSelectedTask, '.selected');
     }
     event.target.classList.toggle('selected');
   }
@@ -112,7 +112,7 @@ function setCreateTaskEvent() {
 }
 
 function setTaskListEvent() {
-  globalElements.taskList.addEventListener('click', highlightTask);
+  globalElements.taskList.addEventListener('click', selectTask);
   globalElements.taskList.addEventListener('dblclick', toggleTaskAsCompleted);
 }
 
@@ -154,4 +154,4 @@ function setAllEvents() {
   loadSavedTasks();
 }
 
-setAllEvents();
+window.onload = setAllEvents;
