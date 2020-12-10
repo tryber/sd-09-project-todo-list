@@ -50,8 +50,6 @@ function changeSelected(origin) {
   } else if (origin.target.className == 'task-list completed') {
     changeCompleted();
     origin.target.className += ' selected';
-  } else { 
-    changeCompleted();
   }
 }
 
