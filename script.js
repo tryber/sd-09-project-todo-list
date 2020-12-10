@@ -84,7 +84,7 @@ clearAll();
 
 function clearDoneItems() {
   const removeDoneButton = document.querySelector('#remover-finalizados');
-  removeDoneButton.addEventListener('click', function() {
+  removeDoneButton.addEventListener('click', function () {
     const taskList = document.querySelector('#lista-tarefas');
     const task = document.querySelectorAll('.task');
     for (let index = 0; index < task.length; index += 1) {
@@ -92,7 +92,24 @@ function clearDoneItems() {
         taskList.removeChild(task[index]);
       }
     }
-  })
+  });
 }
 
 clearDoneItems();
+
+// Botão de remover tarefa selecionada #remover-selecionado
+
+function clearselectedItems() {
+  const removeSelectedButton = document.querySelector('#remover-selecionado');
+  removeSelectedButton.addEventListener('click', function () {
+    const taskList = document.querySelector('#lista-tarefas');
+    const task = document.querySelectorAll('.task');
+    for (let index = 0; index < task.length; index += 1) {
+      if (task[index].className.includes('selected')) {
+        taskList.removeChild(task[index]);
+      }
+    }
+  });
+}
+
+clearselectedItems()
