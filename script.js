@@ -169,7 +169,11 @@ function saveList() {
   saveBtn.addEventListener('click', function () {
     const tasks = document.getElementsByClassName('task');
     for (let index = 0; index < tasks.length; index += 1) {
-      localStorage.setItem(index, tasks[index].innerText);
+      const obj = {
+        text: tasks[index].innerText,
+        class: tasks[index].className,
+      }
+      localStorage.setItem(index, JSON.stringify(obj));
     }
   });
 }
@@ -178,8 +182,10 @@ function getList() {
   const tasks = document.getElementById('lista-tarefas');
   for (let index = 0; index < localStorage.length; index += 1) {
     const recListItem = document.createElement('li');
-    recListItem.innerText = localStorage.getItem(index);
-    recListItem.className = 'task';
+    const recoveredObj = JSON.parse(localStorage.getItem(index));
+    recListItem.innerText = recoveredObj.text;
+    recListItem.className = recoveredObj.class;
+    recListItem.classList.remove('selected');
     tasks.appendChild(recListItem);
   }
 }
