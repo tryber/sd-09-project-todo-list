@@ -1,6 +1,6 @@
 // Remove Background dos Itens
 function removeBackgroundItems(arrayTasks) {
-  for (let task of arrayTasks) {
+  for (const task of arrayTasks) {
     if (task.style.backgroundColor !== '') {
       task.removeAttribute('style');
     }
@@ -27,6 +27,6 @@ document.querySelector('#lista-tarefas').addEventListener('click', function (eve
     const itensTarefa = listaTarefas.parentNode.children;
     // console.log(listaTarefas);
     removeBackgroundItems(itensTarefa);
-    listaTarefas.style.backgroundColor = 'rgb(128,128,128)';
+    listaTarefas.style.backgroundColor = '"rgb(128, 128, 128)"';
   }
 });
