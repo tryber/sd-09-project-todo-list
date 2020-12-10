@@ -40,11 +40,27 @@ function resetHighlightedTask() {
   }
 }
 
+function elementHasClass(element, className) {
+  return element.className.includes(className);
+}
+
 function highlightTask(event) {
-  if (event.target.className === 'task') {
+  if (elementHasClass(event.target, 'task')) {
     resetHighlightedTask();
     event.target.classList.add('highlighted');
   }
+}
+
+function toggleClass(element, className) {
+  if (elementHasClass(element, className)) {
+    element.classList.remove(className);
+  } else {
+    element.classList.add(className);
+  }
+}
+
+function toggleTaskAsCompleted(event) {
+  toggleClass(event.target, 'completed');
 }
 
 function setCreateTaskEvent() {
@@ -53,6 +69,7 @@ function setCreateTaskEvent() {
 
 function setTaskListEvent() {
   globalElements.taskList.addEventListener('click', highlightTask);
+  globalElements.taskList.addEventListener('dblclick', toggleTaskAsCompleted);
 }
 
 function setAllEvents() {
