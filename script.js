@@ -18,7 +18,7 @@ function highlight(event) {
 }
 
 function highlightListItemEvent() {
-  const listItems = document.querySelectorAll('li');
+  const listItems = document.querySelectorAll('.task');
   for (let index = 0; index < listItems.length; index += 1) {
     listItems[index].removeEventListener('click', highlight);
     listItems[index].addEventListener('click', highlight);
@@ -38,8 +38,29 @@ function addTask() {
     listItem.className = 'task';
     taskList.appendChild(listItem);
     highlightListItemEvent();
+    crossTask();
     document.querySelector('#texto-tarefa').value = '';
   });
 }
 
 addTask();
+
+// Risca tarefas já completadas
+function crossOrUncross(event) {
+  const task = event.target;
+  if (task.className.includes('completed')) {
+    console.log('xablau')
+    task.className = task.className.replace(' completed', '');
+  } else {
+    task.className += ' completed';
+  }
+}
+
+function crossTask() {
+  const tasks = document.querySelectorAll('.task');
+  for (let index = 0; index < tasks.length; index += 1) {
+    tasks[index].addEventListener('dblclick', crossOrUncross)
+  }
+}
+
+crossTask();
