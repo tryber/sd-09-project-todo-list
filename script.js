@@ -23,6 +23,16 @@ function taskCompleted() {
   }
 }
 
+function clearList() {
+  const taskList = document.querySelector('#lista-tarefas');
+  const btnClear = document.querySelector('#apaga-tudo');
+  btnClear.addEventListener('click', function () {
+    while (taskList.hasChildNodes) {
+      taskList.removeChild(taskList.firstChild);
+    }
+  });
+}
+
 function btnAdd() {
   const btn = document.querySelector('#criar-tarefa');
   btn.addEventListener('click', function () {
@@ -34,6 +44,7 @@ function btnAdd() {
     input.value = '';
     backgroundcolorItem();
     taskCompleted();
+    clearList();
   });
 }
 
