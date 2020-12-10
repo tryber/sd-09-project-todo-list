@@ -154,7 +154,7 @@ function movingDown() {
 
   getDownButton.addEventListener('click', function () {
     const getSelectedTask = document.querySelector('.selected');
-    if (getSelectedTask !== undefined && getSelectedTask.nextElementSibling !== undefined) {
+    if (getSelectedTask !== null && getSelectedTask.nextElementSibling !== null && getSelectedTask !== undefined && getSelectedTask.nextElementSibling !== undefined) {
       getSelectedTask.parentElement.insertBefore(getSelectedTask.nextElementSibling, getSelectedTask);
     }
   });
