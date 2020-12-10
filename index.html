@@ -22,13 +22,19 @@
 
     <section class='listContainer'>
         <!-- Requisito 4 -->
+        <div>
         <ol id='lista-tarefas'></ol>
+        </div>
+        <div class='updown'>
+            <button id='mover-cima'><i class="arrow up"></i></button>
+            <button id='mover-baixo'><i class="arrow down"></i></button>
+        </div>
     </section>
     <section class='buttonContainer'>
-        <button id ='apaga-tudo'>Apaga Geral</button>
-        <button id ='remover-finalizados'>Remover Finalizados</button>
-        <button id ='salvar-tarefas'>Save</button>
-        <button id ='remover-selecionado'>Boot Me</button>
+        <button class='save-btn' id='salvar-tarefas'>Salva Lista</button>
+        <button class='rm-btn' id='remover-selecionado'>Remove Selecionado</button>
+        <button class='rm-done-btn' id='remover-finalizados'>Remover Finalizados</button>
+        <button class='erase-btn' id='apaga-tudo'>Apaga TUDO</button>
     </section>
     <script src='script.js'></script>
     <script>

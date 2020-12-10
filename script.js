@@ -39,6 +39,7 @@ document.querySelector('#criar-tarefa').addEventListener('click', criaTarefa);
 // requisito 10
 document.querySelector('#apaga-tudo').addEventListener('click', function () {
   document.querySelector('ol').innerText = '';
+  localStorage.clear();
 });
 
 // requisito 11
@@ -77,7 +78,7 @@ function arrayToStorage() {
 
 document.querySelector('#salvar-tarefas').addEventListener('click', arrayToStorage);
 
-document.querySelector('#remover-selecionado').addEventListener('click', function() {
+document.querySelector('#remover-selecionado').addEventListener('click', function () {
   const selectedTask = document.querySelector('.selected');
   selectedTask.parentNode.removeChild(selectedTask);
-})
+});
