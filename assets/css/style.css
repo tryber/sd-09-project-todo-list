@@ -1,0 +1,17 @@
+body {
+  max-width: 70vw;
+  padding: 0 15vw;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0 , 0 , 0);
+}
+
+.delete-buttons {
+  padding: 15px;
+}
+
+.tasks-controls {
+  display: flex;
+  justify-content: space-evenly;
+}
