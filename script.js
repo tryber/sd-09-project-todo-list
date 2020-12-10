@@ -92,6 +92,7 @@ function buttonRemoveCompletedTasks() {
 }
 buttonRemoveCompletedTasks();
 
+// 12- save items on local storage
 function buttonSaveTaskList() {
   const button = document.querySelector('#salvar-tarefas');
   button.addEventListener('click', function () {
@@ -113,7 +114,26 @@ window.addEventListener('load', function () {
     const newElement = document.createElement('li');
     newElement.innerText = objItem.content;
     newElement.className = objItem.classContent;
-    console.log(newElement.innerText);
     list.appendChild(newElement);
   }
 });
+
+// 13- apply function to move up/down buttons
+
+function buttonMoveUpDown() {
+  const buttonUp = document.querySelector('#mover-cima');
+  buttonUp.addEventListener('click', function () {
+    const listElements = document.querySelectorAll('ol#lista-tarefas li');
+    let current = '';
+    for (let index = 0; index < listElements.length; index += 1) {
+      if (listElements[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+        current = listElements[index];
+        const previous = current.previousSibling;
+        if (previous !== null) {
+          previous.insertAdjacentElement("beforebegin", current);
+        }
+      }
+    }
+  });
+}
+buttonMoveUpDown();
