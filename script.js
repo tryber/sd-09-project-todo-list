@@ -5,25 +5,24 @@ function clearTextInput() {
   document.querySelector('#texto-tarefa').value = '';
 }
 
-// Função responsável por adicionar uma nova tarefa
-function createTask() {
-  const input = document.querySelector('#texto-tarefa').value;
-  const listTask = document.createElement('li');
-  listTask.className = 'tasks'
-  listTask.innerText = input;
-  document.querySelector('#lista-tarefas').appendChild(listTask);
-  listTask.addEventListener('click', clickItemList)
-  clearTextInput();
-}
-
-btnAddTask.addEventListener('click', createTask);
-
-const itemsList = document.querySelectorAll('.tasks');
-
+// Função responsável por colorir BgColor do item selecionado
 function clickItemList(event) {
   const li = document.querySelectorAll('li');
-  li.forEach(item => {
+  li.forEach((item) => {
     item.style.backgroundColor = '';
   });
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
+
+// Função responsável por adicionar uma nova tarefa
+function createTask() {
+  const input = document.querySelector('#texto-tarefa').value;
+  const listTask = document.createElement('li');
+  listTask.className = 'tasks';
+  listTask.innerText = input;
+  document.querySelector('#lista-tarefas').appendChild(listTask);
+  listTask.addEventListener('click', clickItemList);
+  clearTextInput();
+}
+
+btnAddTask.addEventListener('click', createTask);
