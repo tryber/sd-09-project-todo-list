@@ -1,3 +1,9 @@
+.buttonContainer{
+  margin: auto;
+  padding-top: 30px;
+  text-align: center;
+}
+
 .completed {
   text-decoration: line-through solid black;
 }
@@ -40,7 +46,7 @@ ol {
   background-color: rgb(255 , 255 , 153);
   box-shadow: -8px 8px rgb(255 , 195 , 0);
   margin: auto;
-  width: 300px;
+  width: 400px;
 }
 
 .selected {

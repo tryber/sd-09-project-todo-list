@@ -51,23 +51,28 @@ function removeDone() {
 
 document.querySelector('#remover-finalizados').addEventListener('click', removeDone);
 
-function taskToString(object){
-  const isMarked = object.classList.contains('completed') ? 1 : 0;
-  
-  return `${isMarked}+++${object.innerText}`;
-}
-
-function saveTaskList(){
-  const taskList = document.querySelectorAll('li');
-  if (taskList.length === 0){
-    alert('Não há nada o que salvar')
-  } else {
-    localStorage.setItem('totalTasks', taskList.length);
-    for (let index = 0; index < taskList.length; index += 1) {
-      const myTask = taskToString(taskList[index], index);
-      localStorage.setItem(`task${index}`, myTask);
+// salvando usando JSON
+  function allTasksToArray(nodeList){
+    let myArray = [];
+    for (let index = 0; index < nodeList.length; index += 1) {
+      if (nodeList[index].classList.contains('completed')) {
+        myArray.push('completed');
+      } else {
+        myArray.push('')
+      }
+      myArray.push(nodeList[index].innerText);
     }
+    return myArray;
+  }
+
+function arrayToStorage() {
+  const myTasks = document.querySelectorAll('li');
+  if (myTasks.length === 0) {
+    alert ('No tasks to save');
+  } else {
+    const myArray = allTasksToArray(myTasks);
+    localStorage.setItem('myTasks', JSON.stringify(myArray));
   }
 }
 
-document.querySelector('#salvar-tarefas').addEventListener('click', saveTaskList);
+document.querySelector('#salvar-tarefas').addEventListener('click', arrayToStorage);
