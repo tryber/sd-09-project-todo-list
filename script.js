@@ -1,6 +1,32 @@
 let liSelected;
 const completedTasks = [];
 
+function setTasks(itensList) {
+  const ol = document.querySelector('#lista-tarefas');
+  for (let index = 0; index < itensList.length; index += 1) {
+    const li = createNewLi();
+    li.innerHTML = itensList[index];
+    ol.appendChild(li);
+  }
+}
+
+function loadTasks() {
+  const elements = localStorage.getItem('tasks');
+  if (elements !== null) {
+    const allItens = JSON.parse(elements);
+    setTasks(allItens);
+  }
+}
+
+function saveTasks() {
+  const elements = document.querySelectorAll('#lista-tarefas li');
+  const allItens = [];
+  for (let index = 0; index < elements.length; index += 1) {
+    allItens.push(elements[index].innerText);
+  }
+  localStorage.setItem('tasks', JSON.stringify(allItens));
+}
+
 function clearDonedTasks() {
   const listOfLi = document.querySelectorAll('#lista-tarefas li');
   const ol = document.querySelector('#lista-tarefas');
@@ -15,7 +41,7 @@ function clearTasks() {
   const listOfLi = document.querySelector('#lista-tarefas').children;
   const size = listOfLi.length;
   const ol = document.querySelector('#lista-tarefas');
-  for (let index = 0; index < size; index+=1) {
+  for (let index = 0; index < size; index += 1) {
     ol.firstElementChild.remove();
   }
 }
@@ -34,10 +60,10 @@ function markAsDone(event) {
 function changeBackground(event) {
   if (liSelected !== event.target && liSelected !== undefined) {
     liSelected.style.backgroundColor = '';
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    event.target.style.backgroundColor = 'rgb(128 , 128 , 128)';
     liSelected = event.target;
   } else {
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    event.target.style.backgroundColor = 'rgb(128 , 128 , 128)';
     liSelected = event.target;
   }
 }
@@ -82,6 +108,8 @@ function buttons() {
   buttonClearTasks.addEventListener('click', clearTasks);
   const buttonClearDonedTasks = document.querySelector('#remover-finalizados');
   buttonClearDonedTasks.addEventListener('click', clearDonedTasks);
+  const buttonSaveTasks = document.querySelector('#salvar-tarefas');
+  buttonSaveTasks.addEventListener('click', saveTasks);
 }
 
 function actionManagement() {
@@ -91,4 +119,5 @@ function actionManagement() {
 
 window.onload = function () {
   actionManagement();
+  loadTasks();
 };
