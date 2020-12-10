@@ -1,3 +1,11 @@
+// window.onload = function () {
+//   const list = document.querySelector('#lista-tarefas');
+//   const newli = document.createElement('li');
+//   let arquivos = localStorage.getItem(tarefas);
+//   newli.innerHTML = arquivos
+//   list.appendChild(newli)
+// }
+
 function newTask() {
   const list = document.querySelector('#lista-tarefas');
   const mt = document.querySelector('#texto-tarefa');
@@ -47,16 +55,76 @@ function erasedAll() {
 erasedAll();
 
 function erasedCompleted() {
-    const eraserButton = document.getElementById('remover-finalizados');
-    eraserButton.addEventListener('click', function () {
-      const listOfItem = document.querySelector('#lista-tarefas');  
-      const line = document.querySelectorAll('.item-list');
-      for (let index = 0; index < line.length; index += 1) {
-        if (line[index].classList.contains('completed')) {
+  const eraserButton = document.getElementById('remover-finalizados');
+  eraserButton.addEventListener('click', function () {
+    const listOfItem = document.querySelector('#lista-tarefas');
+    const line = document.querySelectorAll('.item-list');
+    for (let index = 0; index < line.length; index += 1) {
+      if (line[index].classList.contains('completed')) {
           listOfItem.removeChild(line[index]);
-        }
       }
-    });
+    }
+  });
 }
 erasedCompleted();
 
+// function saveStorage() {
+//   let storage = [];
+//   const line = document.querySelectorAll('.item-list');
+//   for (let index = 0; index < line.length; index += 1) {
+//     storage.push(line[index]);
+//   }
+//   localStorage.setItem('tarefas', (storage));
+// }
+
+// function saveAll() {
+//   const saveButton = document.querySelector('#salvar-tarefas');
+//   saveButton.addEventListener('click', saveStorage);
+// }
+// saveAll();
+
+function buttonMoveTop() {
+  const buttonMoveTop = document.getElementById('mover-cima');
+  buttonMoveTop.addEventListener('click', function () {
+    const ol = document.querySelector('#lista-tarefas');
+    const listOfItem = document.querySelectorAll('.item-list');
+    for (let index = 0; index < listOfItem.length; index += 1) {
+      if (listOfItem[index].classList.contains('selected')) {
+        let aux = listOfItem[index - 1];
+        ol.replaceChild(listOfItem[index], listOfItem[index - 1]);
+        listOfItem[index].after(aux)
+      }
+    }
+  })
+}
+buttonMoveTop();
+
+function buttonMoveDown() {
+  const buttonMoveDown = document.getElementById('mover-baixo');
+  buttonMoveDown.addEventListener('click', function () {
+    const ol = document.querySelector('#lista-tarefas');
+    const listOfItem = document.querySelectorAll('.item-list');
+    for (let index = 0; index < listOfItem.length; index += 1) {
+      if (listOfItem[index].classList.contains('selected')) {
+        let aux = listOfItem[index + 1]
+        ol.replaceChild(listOfItem[index], listOfItem[index + 1]);
+        listOfItem[index].before(aux)
+      }
+    }
+  });
+}
+buttonMoveDown();
+
+function removerSelected() {
+  const buttonRemove = document.getElementById('remover-selecionado');
+  buttonRemove.addEventListener('click', function () {
+    const ol = document.querySelector('#lista-tarefas');
+    const listOfItem = document.querySelectorAll('.item-list');
+    for (let index = 0; index < listOfItem.length; index += 1) {
+      if (listOfItem[index].classList.contains('selected')) {
+        ol.removeChild(listOfItem[index])
+      }
+    }
+  })
+}
+removerSelected();
