@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto TodoList</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>Minha lista de tarefas</h1>
+            <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+            <input type="text" id="texto-tarefa"><input type="button" id="criar-tarefa" class="button" value="Adicionar">
+        </header>
+        <section id="tarefas">
+            <ol id="lista-tarefas">
+                <li>Git</li>
+                <li>HTML</li>
+                <li>JavaScript</li>
+                <li>CSS</li>
+            </ol>
+        </section>
+        <footer>
+            <input type="button" id="apaga-tudo" class="button" value="X">
+            <input type="button" id="mover-cima" class="button" value="&downarrow;">
+            <input type="button" id="mover-baixo" class="button" value="&uparrow;">
+            <input type="button" id="remover-selecionado" class="button" value="Limpar Completos">
+            <input type="button" id="remover-finalizados" class="button" value="Limpar Lista">
+            <input type="button" id="salvar-tarefas" class="button" value="Salvar Lista">
+        </footer>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>

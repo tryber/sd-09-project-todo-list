@@ -1,0 +1,62 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#funcionamento {
+    color: gray;
+    font-weight: lighter;
+    font-style: italic;
+    font-size: 16px;
+}
+
+body {
+    background-color: green;
+}
+
+main {
+    background-color: honeydew;
+    border-radius: 30px;
+    margin: 50px 0;
+    padding: 30px
+}
+
+.button {
+    border: none;
+    border-radius: 50px;
+    color: white;
+    margin: 0 10px;
+    padding: 5px 15px;
+}
+
+#remover-selecionado {background-color: blue;}
+#mover-cima {background-color: orangered;}
+#mover-baixo {background-color: orangered;}
+#apaga-tudo {background-color: maroon;}
+#remover-finalizados {background-color: maroon;}
+#salvar-tarefas {background-color: green}
+#criar-tarefa {background-color: blue;}
+
+#criar-tarefa:hover,
+#remover-selecionado:hover {
+    background-color: lightblue;
+}
+
+#apaga-tudo:hover,
+#remover-finalizados:hover {
+    background-color: lightsalmon;
+}
+
+#mover-cima:hover,
+#mover-baixo:hover {
+    background-color: orange;
+}
+
+#salvar-tarefas:hover {
+    background-color: lightgreen
+}
+
+.completed {
+    /* background-color: rgb(128, 128, 128); */
+    text-decoration: line-through;
+
+}
