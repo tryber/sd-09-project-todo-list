@@ -169,6 +169,7 @@ function salveCookie() {
   const listTotal = document.querySelectorAll('li');
   let myCookieList = '';
   let myCookieClass = [];
+  localStorage.clear()
   for (let index = 0; index < listTotal.length; index += 1) {
     myCookieList = listTotal[index].innerText;
     myCookieClass.push(listTotal[index].className);
