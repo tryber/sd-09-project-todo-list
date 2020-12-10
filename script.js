@@ -1,5 +1,8 @@
-let botao = document.getElementById("lista-tarefas");
-    botao.addEventListener('click', addTarefa);
+let botao = document.getElementById("criar-tarefa");
+    function criaBotao() {
+        botao.addEventListener("click", addTarefa);
+    }
+    criaBotao();
     function addTarefa(){
         let texto = document.querySelector('#texto-tarefa');
         let tarefa = document.querySelector("#lista-tarefas");
