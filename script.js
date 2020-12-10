@@ -187,12 +187,21 @@ function moveDown() {
   const lastList = document.querySelectorAll('li')
   const selected = document.querySelector('.selected');
   const verific = positionList();
-  console.log(verific);
   if (verific < (lastList.length - 1)) {
     selected.parentNode.insertBefore(selected, selected.nextSibling.nextSibling);
   }
 }
 
 buttonDown.addEventListener('click', moveDown);
+
+createButton('remover-selecionado', 'Remove Tarefa', '.buttons');
+const buttonRemover = document.querySelector('#remover-selecionado');
+
+function removerSelected() {
+  const selecte = document.querySelector('.selected');
+  selecte.remove();
+}
+
+buttonRemover.addEventListener('click', removerSelected);
 
 returnTotal();
