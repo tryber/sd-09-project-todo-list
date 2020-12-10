@@ -1,18 +1,21 @@
 // 9- click change bgcolor to gray
-function changeBGSelectedItems(elementHtml) {
-  const taskLiItems = document.querySelector('#lista-tarefas').children;
-  elementHtml.addEventListener('click', function (eventT) {
-    for (let index = 0; index < taskLiItems.length; index += 1) {
-      taskLiItems[index].style.backgroundColor = '';
+function changeBGSelectedItems() {
+  const list = document.querySelector('ol#lista-tarefas');
+  list.addEventListener('click', function (eventT) {
+    const listElements = document.querySelectorAll('ol#lista-tarefas li');
+    for (let index = 0; index < listElements.length; index += 1) {
+      listElements[index].style.backgroundColor = '';
     }
     eventT.target.style.backgroundColor = 'rgb(128, 128, 128)';
   });
 }
+changeBGSelectedItems();
 
 // 9- click apply/remove text-decoration
 
-function markupTasks(elementHtml) {
-  elementHtml.addEventListener('dblclick', function (event) {
+function markupTasks() {
+  const list = document.querySelector('ol#lista-tarefas');
+  list.addEventListener('dblclick', function (event) {
     if (event.target.className === '') {
       event.target.className = 'completed';
     } else {
@@ -20,8 +23,9 @@ function markupTasks(elementHtml) {
     }
   });
 }
+markupTasks();
 
-// 5
+// 5- add task to list #lista-tarefas
 
 function clickAddTask() {
   const form = document.getElementById('input-bar');
@@ -36,8 +40,6 @@ function clickAddTask() {
     }
     taskOlList.appendChild(taskItem);
     event.target.tarefa.value = '';
-    changeBGSelectedItems(taskItem); // add the eventlistener click change bgcolor to gray
-    markupTasks(taskItem); // add eventlistener click apply/remove text-decoration
   });
 }
 clickAddTask();
@@ -58,7 +60,7 @@ createButton('salvar-tarefas', 'Salvar Tarefas');
 createButton('remover-selecionado', 'Remover Seleção');
 createButton('remover-finalizados', 'Limpar Completos');
 
-// 10- implementa função button apagar tudo;
+// 10- apply function erase all to button (includes local storage clear)
 
 function buttonRemoveAll() {
   const button = document.querySelector('#apaga-tudo');
@@ -67,11 +69,13 @@ function buttonRemoveAll() {
     const listElements = document.querySelectorAll('ol#lista-tarefas li');
     for (let index = 0; index < listElements.length; index += 1) {
       list.removeChild(listElements[index]);
-      localStorage.removeItem(index);
     }
+    localStorage.clear();
   });
 }
 buttonRemoveAll();
+
+// 11- apply function to remove only items with class "completed"
 
 function buttonRemoveCompletedTasks() {
   const button = document.querySelector('#remover-finalizados');
@@ -81,28 +85,35 @@ function buttonRemoveCompletedTasks() {
     for (let index = 0; index < listElements.length; index += 1) {
       if (listElements[index].className === 'completed') {
         list.removeChild(listElements[index]);
+        localStorage.removeItem(index);
       }
     }
   });
 }
 buttonRemoveCompletedTasks();
 
-function buttonSaveTaskList () {
+function buttonSaveTaskList() {
   const button = document.querySelector('#salvar-tarefas');
   button.addEventListener('click', function () {
-    const listElements = document.querySelectorAll("ol#lista-tarefas li");
+    const listElements = document.querySelectorAll('ol#lista-tarefas li');
     for (let index = 0; index < listElements.length; index += 1) {
-      localStorage.setItem(index, listElements[index].innerText)
+      let objItem = { content: listElements[index].innerText,
+        classContent: listElements[index].className,
+      }
+      localStorage.setItem(index, JSON.stringify(objItem));
     }
   });
 }
-buttonSaveTaskList ();
+buttonSaveTaskList();
 
 window.addEventListener('load', function () {
   const list = document.querySelector('ol#lista-tarefas');
   for (let index = 0; index < localStorage.length; index += 1) {
+    objItem = JSON.parse(localStorage.getItem(index));
     const newElement = document.createElement('li');
-    newElement.innerText = localStorage.getItem(index);
+    newElement.innerText = objItem.content;
+    newElement.className = objItem.classContent;
+    console.log(newElement.innerText);
     list.appendChild(newElement);
   }
 });
