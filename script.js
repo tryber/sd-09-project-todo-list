@@ -33,9 +33,7 @@ function changeCompleted() {
   for (let index = 0; index < listTask.length; index += 1) {
     if (listTask[index].className === 'task-list completed') {
       listTask[index].className = 'task-list completed';
-    } else if (listTask[index].className === 'task-list completed selected') {
-      listTask[index].className = 'task-list completed';
-    } else if (listTask[index].className === 'task-list selected completed') {
+    } else if (listTask[index].classList.contains('.completed')) {
       listTask[index].className = 'task-list completed';
     } else {
       listTask[index].className = 'task-list';
@@ -45,7 +43,7 @@ function changeCompleted() {
 
 function changeSelected(origin) {
   if (origin.target.className === 'task-list') {
-    changeCompleted()
+    changeCompleted();
     origin.target.className += ' selected';
   } else if (origin.target.className === 'task-list completed') {
     changeCompleted();
@@ -80,7 +78,7 @@ function createTask() {
   if (textInput.value === '') {
     return;
   }
-  let texto = textInput.value;
+  const texto = textInput.value;
   textInput.value = '';
   const clss = '';
   addListTask(texto, clss);
@@ -156,16 +154,17 @@ createButton('mover-cima', 'Top', '.buttons');
 const buttonTop = document.querySelector('#mover-cima');
 
 function positionList() {
+  const resultIndex = 0;
   const list = document.querySelectorAll('li');
   if (list === null) {
     return;
   }
   for (let index = 0; index < list.length; index += 1) {
     if (list[index].classList.contains('selected')) {
-      return index;
+      resultIndex = index;
     }
   }
-  return;
+  return resultIndex;
 }
 
 // Referencia  insertBefore
@@ -183,7 +182,7 @@ createButton('mover-baixo', 'Down', '.buttons');
 const buttonDown = document.querySelector('#mover-baixo');
 
 function moveDown() {
-  const lastList = document.querySelectorAll('li')
+  const lastList = document.querySelectorAll('li');
   const verific = positionList();
   if (verific < (lastList.length - 1)) {
     const selected = document.querySelector('.selected');
