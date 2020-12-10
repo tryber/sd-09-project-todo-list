@@ -62,6 +62,8 @@ input {
 
 ol {
     list-style-position: inside;
+    width: 300px;
+    display: block;
 }
 
 .selected {
@@ -102,15 +104,5 @@ button:hover {
     color: white;
 }
 
-button:active {
-    background-color: white;
-    color:black;
-}
-
-
-.selected:hover {
-    background-color: white;
-    color: black;
-}
 
 
