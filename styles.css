@@ -1,0 +1,24 @@
+body {
+  margin: 0;
+}
+h2 {
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  flex-direction: column;
+  margin: 10vh 2vw;
+  border-radius: 20px;
+
+
+}
+  @media screen and (min-width: 780px) {
+    .container {
+      margin: 10vh 20vw;
+
+    }
+}
