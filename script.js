@@ -14,10 +14,11 @@ window.onload = function() {
   //     taskTextInput.value = '';
   //   });
   // }
-  function createNewElementList(content) {    
+  function createNewElementList(content, completed) {    
       const newTask = document.createElement('li');
       newTask.innerText = content;
       newTask.classList.add('task');
+      if (completed) newTask.classList.add('completed');
       tasksList.appendChild(newTask);
   }
 
@@ -82,20 +83,7 @@ window.onload = function() {
     });
   }
 
-  //sSalvar itens no localStorage
-  // function saveItensTaskLocalStorage() {
-  //   const saveTaskButton = document.querySelector('#salvar-tarefas');
-    
-  //   saveTaskButton.addEventListener('click', function() {
-  //     const allTasks = document.querySelectorAll('.task');
-  //     let allTasksArray = [];
-  //     for (let task of allTasks) {
-  //       allTasksArray.push(task.innerText);
-  //     }
-  //     localStorage.setItem('tasksList', allTasksArray);
-  //   });
-  // }
-
+  // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
   function saveItensTaskLocalStorage() {
     const saveTaskButton = document.querySelector('#salvar-tarefas');
     
@@ -104,24 +92,32 @@ window.onload = function() {
       let allTasksArray = [];
       for (let index = 0; index < allTasks.length; index +=1) {
         const task = allTasks[index].innerText;
+        const completed = checkIfCompleted(allTasks[index].className);
         const nameTask = {
           task,
-          completed: true,
+          completed,
         };
         allTasksArray[index] = nameTask;
       }
-      let aux = JSON.stringify(allTasksArray);
-      localStorage.setItem('tasklist', aux);
+      let allTasksString = JSON.stringify(allTasksArray);
+      localStorage.setItem('taskList', allTasksString);
     });
   }
 
-  // Restaura lista salva
+  function checkIfCompleted(className) {
+    className = className.search('completed');
+    if (className > 0) return true;
+    return false;
+  }
+
+  // https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
   function restoreItensTaskToList() {
-    const savededLocalStorage = localStorage.getItem('tasksList');
-    if (savededLocalStorage) {
-      let tasksRestoredArray = savededLocalStorage.split(',');
-      for (let task of tasksRestoredArray) {
-        createNewElementList(task);
+    let savededLocalStorage = localStorage.getItem('taskList');
+    savededLocalStorage =  JSON.parse(savededLocalStorage);
+
+    if (savededLocalStorage.length > 0) {
+      for (let item of savededLocalStorage) {
+        createNewElementList(item.task, item.completed);
       }
     }
   }
