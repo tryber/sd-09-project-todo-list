@@ -115,7 +115,7 @@ body {
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0 , 0 , 0);
+  text-decoration: line-through solid black;
   color: rgb(165 , 24 , 24);
 }
 
@@ -160,6 +160,4 @@ body {
 
 .block-text-selected {
   user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
 }
