@@ -1,9 +1,9 @@
 button {
-  outline: none;
-  cursor: pointer;
   border: 1px solid;
-  color: orange;
   border-radius: 10px;
+  color: orange;
+  cursor: pointer;
+  outline: none;
 }
 
 #criar-tarefa , #remover-finalizados {

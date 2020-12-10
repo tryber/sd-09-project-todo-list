@@ -118,7 +118,7 @@ function myTaskObject() {
     taskObject[indexElement] = `${taskList[indexElement].innerText}.${taskList[indexElement].classList}`;
   }
   localStorage.clear();
-  for(const key in taskObject) {
+  for (const key in taskObject) {
     localStorage.setItem(key, taskObject[key]);
   }
 }
@@ -171,7 +171,7 @@ function moveSelectedTask() {
     if (selectedTask) {
       moveTaskDown(selectedTask, myList);
     }
-  })
+  });
 }
 
 moveSelectedTask();
