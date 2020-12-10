@@ -8,6 +8,8 @@ window.onload = function () {
   taskList.addEventListener('dblclick', completeListItemControl);
   const clearTaskListButton = document.querySelector('#apaga-tudo');
   clearTaskListButton.addEventListener('click', clearTaskList);
+  const removeFinishedButton = document.querySelector('#remover-finalizados');
+  removeFinishedButton.addEventListener('click', removeAllFinished);
 }
 
 function clearTaskList(){
@@ -16,24 +18,35 @@ function clearTaskList(){
         element.remove();
     }
 }
+
+function removeAllFinished(){
+    const finishedListItens = document.querySelectorAll('#lista-tarefas .completed');
+    for(const element of finishedListItens){
+        element.remove();
+    }
+}
 function completeListItemControl(event) {
-  const item = event.target;
-  classes = item.className.split(' ');
-  if (classes.includes('completed')) {
-    item.classList.remove('completed');
-  } else {
-    item.classList.add('completed');
-  }
+    if(event.target.tagName === 'LI'){
+        const item = event.target;
+        classes = item.className.split(' ');
+        if (classes.includes('completed')) {
+          item.classList.remove('completed');
+        } else {
+          item.classList.add('completed');
+        }
+    }
 }
 
 function selectListItemControl(event) {
-  const item = event.target;
-  classes = item.className.split(' ');
-  const listItens = document.querySelectorAll('#lista-tarefas li');
-  for (const element of listItens) {
-    element.classList.remove('selected');
-  }
-  item.classList.add('selected');
+    if(event.target.tagName === 'LI'){
+        const item = event.target;
+        classes = item.className.split(' ');
+        const listItens = document.querySelectorAll('#lista-tarefas li');
+        for (const element of listItens) {
+          element.classList.remove('selected');
+        }
+        item.classList.add('selected');
+    }
 }
 
 function insertNewTask() {
@@ -50,8 +63,8 @@ function insertNewTask() {
 
 function createControls() {
   const controlsContainer = document.querySelector('#controls-container');
-  const controlButtonIds = ['criar-tarefa', 'apaga-tudo'];
-  const controlButtonText = ['Criar Tarefa', 'Apagar Itens' ];
+  const controlButtonIds = ['criar-tarefa', 'apaga-tudo', 'remover-finalizados'];
+  const controlButtonText = ['Criar Tarefa', 'Apagar Itens', 'Remover Finalizados'];
   const controlIputIds = ['texto-tarefa'];
 
   for (const element of controlIputIds) {
