@@ -122,7 +122,7 @@ const buttonSaveList = document.querySelector('#salvar-tarefas');
 
 function returnTotal() {
   const array = JSON.parse(localStorage.getItem('tasks'));
-  if (array === []) {
+  if (array === null) {
     return;
   }
   for (let index = 0; index < array.length; index += 2) {
