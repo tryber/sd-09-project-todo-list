@@ -1,29 +1,12 @@
 const globalElements = {
   createTaskButton: document.querySelector('#criar-tarefa'),
   clearTasksButton: document.querySelector('#apaga-tudo'),
+  saveTasksButton: document.querySelector('#salvar-tarefas'),
   removeCompletedButton: document.querySelector('#remover-finalizados'),
   newTaskInput: document.querySelector('#texto-tarefa'),
   taskList: document.querySelector('#lista-tarefas'),
   tasksArray: [],
 };
-
-// storage.setItem("trybe", JSON.stringify(organization))
-// let org = JSON.parse(storage.getItem("trybe"))
-// console.log(org) // { name: "trybe", since: 2019 }
-
-// function pushTaskToArray(element) {
-//   const taskObject = {
-    
-//   }
-// }
-
-// function saveTasks() {
-  
-// }
-
-// function loadTasks() {
-
-// }
 
 function removeElement(element) {
   element.remove();
@@ -56,6 +39,28 @@ function createNewElement(tag, propertiesObject) {
 
 function addNewTask(newTask) {
   globalElements.taskList.appendChild(newTask);
+}
+
+function pushTaskToArray(element) {
+  const taskObject = {
+    text: element.textContent,
+    classes: element.className,
+  };
+  globalElements.tasksArray.push(taskObject);
+}
+
+function loadSavedTasks() {
+  const savedTasks = JSON.parse(localStorage.getItem('tasks'));
+  for (let index = 0; index < savedTasks.length; index += 1) {
+    const task = savedTasks[index];
+    const newTask = createNewElement('li', { className: task.classes, innerText: task.text });
+    addNewTask(newTask);
+  }
+}
+
+function saveTasks() {
+  callAllBySelector(pushTaskToArray, '.task');
+  localStorage.setItem('tasks', JSON.stringify(globalElements.tasksArray));
 }
 
 function resetTaskValue() {
@@ -97,6 +102,10 @@ function setClearTasksEvent() {
   });
 }
 
+function setSaveTasksEvent() {
+  globalElements.saveTasksButton.addEventListener('click', saveTasks);
+}
+
 function setRemoveCompletedEvent() {
   globalElements.removeCompletedButton.addEventListener('click', function () {
     callAllBySelector(removeElement, '.completed');
@@ -108,6 +117,8 @@ function setAllEvents() {
   setTaskListEvent();
   setClearTasksEvent();
   setRemoveCompletedEvent();
+  setSaveTasksEvent();
+  loadSavedTasks();
 }
 
-setAllEvents();
+window.onload = setAllEvents;
