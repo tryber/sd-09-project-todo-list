@@ -26,3 +26,18 @@ function selectTask() {
 }
 
 selectTask();
+
+function changeTaskStatus(){
+    let list = document.getElementById('lista-tarefas');
+    list.addEventListener('dblclick', function(event){
+        if (event.target.className === ''){
+            event.target.className = 'completed';
+            event.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+        } else {
+            event.target.className = '';
+            event.target.style.textDecoration = '';
+        }        
+    });
+};
+
+changeTaskStatus();
