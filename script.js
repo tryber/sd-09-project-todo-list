@@ -12,7 +12,7 @@ function addToDo() {
     createTask.innerText = inputElement.value;
     listElement.appendChild(createTask);
 
-    createTask.addEventListener('dblclick', completedTask);
+    createTask.addEventListener('dblclick', toggleCompletedTask);
     createTask.addEventListener('click', colorTask);
     inputElement.value = '';
   })
