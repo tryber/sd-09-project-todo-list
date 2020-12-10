@@ -15,8 +15,11 @@ function backgroundcolorItem() {
   const listItem = document.querySelectorAll('li');
   console.log(listItem);
   for (let index = 0; index < listItem.length; index += 1) {
-    listItem[index].addEventListener('click', function () {
-      listItem[index].style.backgroundColor = 'rgb(128,128,128)';
+    listItem[index].addEventListener('click', function (event) {
+      for (item = 0; item < listItem.length; item += 1) {
+          listItem[item].style.backgroundColor = '';
+      }
+      event.target.style.backgroundColor = 'rgb(128,128,128)';
     });
   }
 }
