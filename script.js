@@ -9,9 +9,21 @@ function clearTextInput() {
 function createTask() {
   const input = document.querySelector('#texto-tarefa').value;
   const listTask = document.createElement('li');
+  listTask.className = 'tasks'
   listTask.innerText = input;
   document.querySelector('#lista-tarefas').appendChild(listTask);
+  listTask.addEventListener('click', clickItemList)
   clearTextInput();
 }
 
 btnAddTask.addEventListener('click', createTask);
+
+const itemsList = document.querySelectorAll('.tasks');
+
+function clickItemList(event) {
+  const li = document.querySelectorAll('li');
+  li.forEach(item => {
+    item.style.backgroundColor = '';
+  });
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+}
