@@ -27,6 +27,26 @@ function highlightListItemEvent() {
 
 highlightListItemEvent();
 
+// Risca tarefas já completadas
+function crossOrUncross(event) {
+  const task = event.target;
+  if (task.className.includes('completed')) {
+    task.className = task.className.replace(' completed', '');
+  } else {
+    task.className += ' completed';
+  }
+}
+
+function crossTask() {
+  const tasks = document.querySelectorAll('.task');
+  for (let index = 0; index < tasks.length; index += 1) {
+    tasks[index].removeEventListener('dblclick', crossOrUncross);
+    tasks[index].addEventListener('dblclick', crossOrUncross);
+  }
+}
+
+crossTask();
+
 // Adicionar tarefas a lista ordenada #lista-tarefas
 function addTask() {
   const addButton = document.querySelector('#criar-tarefa');
@@ -45,22 +65,17 @@ function addTask() {
 
 addTask();
 
-// Risca tarefas já completadas
-function crossOrUncross(event) {
-  const task = event.target;
-  if (task.className.includes('completed')) {
-    console.log('xablau')
-    task.className = task.className.replace(' completed', '');
-  } else {
-    task.className += ' completed';
-  }
+// Botão de limpar lista #apaga-tudo
+
+function clearAll() {
+  const clearButton = document.querySelector('#apaga-tudo');
+  clearButton.addEventListener('click', function () {
+    const taskList = document.querySelector('#lista-tarefas');
+    const task = document.querySelectorAll('.task');
+    for (let index = 0; index < task.length; index += 1) {
+      taskList.removeChild(task[index]);
+    }
+  });
 }
 
-function crossTask() {
-  const tasks = document.querySelectorAll('.task');
-  for (let index = 0; index < tasks.length; index += 1) {
-    tasks[index].addEventListener('dblclick', crossOrUncross)
-  }
-}
-
-crossTask();
+clearAll();
