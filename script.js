@@ -8,16 +8,15 @@ function cresteListItem (task) {
 }
 
 // Clear text in input field
-function clearInput(form) {
-    const taskInput = document.querySelector("#texto-tarefa");
-    taskInput.value = null;
+function clearInput(inputValue) {
+    inputValue.value = null;
 }
 
 // Create Task
 function addTask () {
-    const taskForm = document.querySelector("#formulario-tarefa");
-    cresteListItem(taskForm.value);
-    clearInput();
+    const taskInput = document.querySelector("#texto-tarefa");
+    cresteListItem(taskInput.value);
+    clearInput(taskInput);
 }
 
 // Prevent submit of a input in form
