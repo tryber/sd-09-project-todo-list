@@ -5,7 +5,7 @@ const btnDelComplete = document.querySelector('#remover-finalizados');
 const btnSave = document.querySelector('#salvar-tarefas');
 const btnUp = document.querySelector('#mover-cima');
 const btnDown = document.querySelector('#mover-baixo');
-const btnDelSelect = document.querySelector('#remover-selecionado')
+const btnDelSelect = document.querySelector('#remover-selecionado');
 
 function presetList() {
   const storage = localStorage.getItem(0);
@@ -124,11 +124,11 @@ function changePosition() {
 function removeSelected() {
   btnDelSelect.addEventListener('click', function () {
     const numberOfPos = document.querySelectorAll('.task');
-    let ind = pickIndex();
+    const ind = pickIndex();
     if (ind !== undefined) {
       taskList.removeChild(numberOfPos[ind]);
     }
-  })
+  });
 }
 
 presetList();
