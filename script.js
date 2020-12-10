@@ -23,10 +23,10 @@ function changeColorListItem(event) {
   }
 }
 
-function dbClicktem (event) {
+function dbClicktem() {
   const taskList = document.getElementById('lista-tarefas');
-  taskList.addEventListener('dblclick', function(event) {
-    event.target.classList.toggle('completed')
+  taskList.addEventListener('dblclick', function (event) {
+    event.target.classList.toggle('completed');
   });
 }
 
@@ -37,8 +37,20 @@ function selectTask() {
   taskList.addEventListener('click', changeColorListItem);
 }
 
+function clearAll() {
+  const clearBtn = document.getElementById('apaga-tudo');
+  clearBtn.addEventListener('click', function() {
+    const taskList = document.getElementById('lista-tarefas')
+    const listItems = document.querySelectorAll('.task')
+    for (let index = 0; index < listItems.length; index += 1) {
+      taskList.removeChild(taskList.lastChild);
+    }
+  })
+}
+
 window.onload = function () {
   addTask();
   selectTask();
   dbClicktem();
-}
+  clearAll();
+};
