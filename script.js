@@ -1,6 +1,43 @@
 let liSelected;
 const completedTasks = [];
 
+function recoveryPosition(listElements) {
+  if (liSelected !== undefined) {
+    for (let index = 0; index < listElements.length; index += 1) {
+      if (listElements[index] === liSelected) {
+        return index;
+      }
+    }
+    return -1;
+  }else {
+    alert('Escolha uma tarefa para mover!');
+  }
+}
+
+function moveToUpper() {
+  const listElements = document.querySelectorAll('#lista-tarefas li');
+  const ol = document.querySelector('#lista-tarefas');
+  const index = recoveryPosition(listElements);
+  if (index > 0) {
+    let valueToBeReplaced = listElements[index - 1];
+    ol.replaceChild(liSelected, valueToBeReplaced);
+    ol.insertBefore(valueToBeReplaced, listElements[index + 1]);
+    listElements[index - 1] = liSelected;
+    listElements[index] = valueToBeReplaced;
+  }
+}
+
+function moveToDown() {
+  const listElements = document.querySelectorAll('#lista-tarefas li');
+  const ol = document.querySelector('#lista-tarefas');
+  const index = recoveryPosition(listElements);
+  if (index < listElements.length) {
+    let valueToBeReplaced = listElements[index + 1];
+    ol.replaceChild(liSelected, valueToBeReplaced);
+    ol.insertBefore(valueToBeReplaced, listElements[index]);
+  }
+}
+
 function createNewLi() {
   const li = document.createElement('li');
   return li;
@@ -117,6 +154,10 @@ function buttons() {
   buttonClearDonedTasks.addEventListener('click', clearDonedTasks);
   const buttonSaveTasks = document.querySelector('#salvar-tarefas');
   buttonSaveTasks.addEventListener('click', saveTasks);
+  const buttonMoveDown = document.querySelector('#mover-baixo');
+  buttonMoveDown.addEventListener('click', moveToDown);
+  const buttonMoveUpper = document.querySelector('#mover-cima');
+  buttonMoveUpper.addEventListener('click', moveToUpper);
 }
 
 function actionManagement() {
