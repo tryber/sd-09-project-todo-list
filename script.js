@@ -9,9 +9,13 @@ function createButton(idC, name, father) {
 createButton('criar-tarefa', 'Adicionar', '.create-task');
 const buttonTask = document.querySelector('#criar-tarefa');
 
-function addListTask(task) {
+function addListTask(task, clss) {
   const list = document.createElement('li');
-  list.className = 'task-list';
+  if (clss === 'completed') {
+    list.className = 'task-list completed'
+  } else if (clss === '') {
+    list.className = 'task-list';
+  }
   list.innerText = task;
   const listOrd = document.querySelector('#lista-tarefas')
   listOrd.appendChild(list)
@@ -66,7 +70,7 @@ function completedTask(origin) {
 }
 
 function taskListLoop() {
-  const listTask = document.querySelectorAll('.task-list');
+  const listTask = document.querySelectorAll('li');
   for (let index = 0; index < listTask.length; index += 1) {
     listTask[index].addEventListener('click', changeSelected);
     listTask[index].addEventListener('dblclick', completedTask)
@@ -80,7 +84,8 @@ function createTask() {
   }
   texto = textInput.value;
   textInput.value = '';
-  addListTask(texto);
+  let clss = '';
+  addListTask(texto, clss);
   taskListLoop();
 }
 
@@ -115,39 +120,6 @@ buttonClearCompleted.addEventListener('click', clearCompletedList);
 createButton('salvar-tarefas', 'Salvar Lista', '.buttons');
 const buttonSaveList = document.querySelector('#salvar-tarefas');
 
-let myCookie = '';
-let mylocal = '';
-let arrayCookie = [];
-let arrayLocal = [];
-
-function codificCookie(string) {
-  let word = '';
-  if (string === '') {
-    return;
-  }
-  for (let index = 0; index < string.length; index += 1) {
-    if (string[index] !== ',') {
-      word += string[index];
-    } else {
-      arrayCookie.push(word);
-      word = '';
-    }
-  }
-  arrayCookie.push(word);
-  return arrayCookie;
-}
-
-function codificLocal(string) {
-  if (string === '') {
-    return;
-  }
-  for (let index = 0; index < string.length; index += 1) {
-    arrayLocal.push(localStorage.getItem(index));
-  }
-  
-  return arrayLocal;
-}
-
 function saveListTask(task, classLocal) {
   const list = document.createElement('li');
   list.className = classLocal;
@@ -156,31 +128,35 @@ function saveListTask(task, classLocal) {
   listOrd.appendChild(list)
 }
 
-function returnTotal(local, cookie) {
-  for (let index = 0; index < local.length; index += 1) {
-    let texto = local[index];
-    let classCookie = cookie[index];
-    saveListTask(texto, classCookie);
+function returnTotal() {
+  const array = JSON.parse(localStorage.getItem('tasks'));
+  for (let index = 0; index < array.length; index += 2) {
+    let classLocal = array[index];
+    let texto = array[index+1];
+    addListTask(texto, classLocal);
   }
+
   taskListLoop();
 }
 
-function salveCookie() {
+// Referencia JSON
+// https://app.betrybe.com/course/fundamentals/javascript/dom-manipulation/js-part-8/conteudos/local-e-session-storage?use_case=side_bar
+// https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
+function salveTasks() {
   const listTotal = document.querySelectorAll('li');
-  let myCookieList = '';
-  let myCookieClass = [];
-  localStorage.clear()
+  const array = [];
   for (let index = 0; index < listTotal.length; index += 1) {
-    myCookieList = listTotal[index].innerText;
-    myCookieClass.push(listTotal[index].className);
-    localStorage.setItem(index, myCookieList);
+    if (listTotal[index].classList.contains('completed')) {
+      array.push('completed');
+    } else {
+      array.push('');
+    }
+    array.push(listTotal[index].innerText);
   }
-  document.cookie = myCookieClass;
-  myCookie = document.cookie;
-  mylocal = localStorage
+  localStorage.setItem('tasks', JSON.stringify(array));
 }
 
-buttonSaveList.addEventListener('click', salveCookie);
+buttonSaveList.addEventListener('click', salveTasks);
 
 createButton('mover-cima', 'Top', '.buttons');
 const buttonTop = document.querySelector('#mover-cima');
@@ -191,11 +167,4 @@ function moveTop() {
 
 createButton('mover-baixo', 'Down', '.buttons');
 const buttonDown = document.querySelector('#mover-baixo');
-
-salveCookie();
-console.log(mylocal)
-codificLocal(mylocal);
-codificCookie(myCookie);
-console.log(arrayLocal)
-console.log(arrayCookie)
-returnTotal(arrayLocal, arrayCookie);
+returnTotal();
