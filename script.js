@@ -74,15 +74,22 @@ function saveTasks(){
         })
     }
     localStorage.setItem('itemsArray', JSON.stringify(infoTasks));
-    
-    //duvida storage
-    console.log(infoTasks)
 }
 
-function getTasks () {
-    const objRecovered = JSON.parse()
-    const taskObjs = JSON.parse(localStorage.getItem(index));
+window.onload = function getTasks () {
+    if (JSON.parse(localStorage.getItem('itemsArray'))){
+        const taskObjs = JSON.parse(localStorage.getItem('itemsArray'));
+        for (let index = 0; index<taskObjs.length; index++ ){
+            const listHead = document.querySelector('ol');
+            const newElement = document.createElement('li');
+            listHead.appendChild(newElement);
+            newElement.className = taskObjs[index].taskClassList;
+            newElement.innerText = taskObjs[index].contentText; 
+        }
+    }
+    console.log('ok')
 }
+
 // duvida o item acima e o selecionado são invertidos ou todos os itens andam uma casa para cima?
 const moveUPButton = document.querySelector('#mover-cima');
 moveUPButton.addEventListener('click', moveUp);
