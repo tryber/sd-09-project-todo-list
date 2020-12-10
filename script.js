@@ -18,7 +18,6 @@ function graySize() {
   for (i in items) {
     items[i].className = '';
   }
-  console.log(items);
   sltdLi.classList = 'selected';
 }
 btnTask.addEventListener('click', addList);
@@ -30,3 +29,9 @@ function eraseAll() {
   }
 }
 btnErase.addEventListener('click',eraseAll);
+// codigo a seguir confere linha riscada em cada tarefa
+function lineT() {
+  let doneTask = event.target;
+  doneTask.classList = 'completed';
+}
+list.addEventListener('dblclick',lineT);

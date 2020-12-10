@@ -3,20 +3,33 @@ h1 {
     color: White;
     text-align: center;
 }
+
 #funcionamento {
     color: rgb(194, 187, 187);
     text-align: center;
 }
+
 li {
     color: yellow;
     border: solid lightblue 1px;
 }
+
 ol {
     border: solid white 1px;
 }
+
+.completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
+}
+
 .selected {
     background-color: rgb(128, 128, 128);
 }
+
+.botoes {
+	text-align: center;
+}
+
 #criar-tarefa {
     box-shadow: -3px 1px 0px -50px #fff6af;
 	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
@@ -27,17 +40,19 @@ ol {
 	cursor:pointer;
 	color:#333333;
 	font-family:Arial;
-	font-size:15px;
+	font-size:10px;
 	font-weight:bold;
-	padding:8px 24px;
+	padding:2px 24px;
 	text-decoration:none;
     text-shadow:0px 0px 0px #ffee66;
     margin:5px;
 }
+
 #criar-tarefa:hover {
     background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
 	background-color:#ffab23;
 }
+
 #apaga-tudo {
     box-shadow: -3px 1px 0px -50px #fff6af;
 	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
@@ -48,16 +63,18 @@ ol {
 	cursor:pointer;
 	color:#333333;
 	font-family:Arial;
-	font-size:15px;
+	font-size:10px;
 	font-weight:bold;
-	padding:8px 24px;
+	padding:2px 24px;
 	text-decoration:none;
 	text-shadow:0px 0px 0px #ffee66;
 }
+
 #apaga-tudo:hover {
     background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
 	background-color:#ffab23;
 }
+
 main {
     display: flex;
     flex-wrap: wrap;
