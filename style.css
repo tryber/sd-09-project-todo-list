@@ -1,15 +1,27 @@
+html {
+    height: 100%;
+    background-image: linear-gradient(to top, #00c6fb 0%, #005bea 100%);
+    background-size: cover;
+}
+
 body {
-    background-color: #10ac84;
+
     font-family: Montserrat, sans-serif;
     user-select: none;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1 {
-    font-size: 22px;
+    font-size: 28px;
+}
+
+p {
+    font-size: 15px;
+    font-weight: 700;
 }
 
 main {
-    background-color: #1dd1a1;
     border-radius: 5px;
     color: white;
     height: 300px;
@@ -28,7 +40,7 @@ button {
     outline: none;
     border-radius: 3px;
     cursor: pointer;
-    transition: 0.1s;
+    transition: 0.3s;
 }
 
 
@@ -50,14 +62,42 @@ ol {
     list-style-position: inside;
 }
 
+.selected {
+    background-color: rgb(128, 128, 128);
+}
+
+.task {
+    font-size: 17px;
+    font-weight: 500;
+    padding: 5px;
+    text-align: justify;
+    cursor: pointer;
+    width: 200px;
+}
+
+#userTask {
+    width: 200px;
+    margin: auto;
+}
+
 
 input:focus{
     outline: none;
 }
 
-button:active {
-    background-color: tomato;
+button:hover {
+    background-color: #00c6fb;
     color: white;
+}
+
+button:active {
+    background-color: white;
+    color:black;
+}
+
+
+.tasks:hover {
+    background-color: lawngreen;
 }
 
 

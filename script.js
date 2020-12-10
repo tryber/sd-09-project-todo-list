@@ -1,3 +1,5 @@
+
+
 function createHtmlElements() {
     let header = document.createElement('header');
     let title = document.createElement('h1');
@@ -43,15 +45,50 @@ function addTask() {
         getTask.addEventListener('click', () => {
             let taskListItems = document.createElement('li');
             let taskContainer = userTask.value;
+                taskListItems.className = 'task';
                 taskListItems.innerText = taskContainer;
                 taskList.appendChild(taskListItems);
                 userTask.value = '';
 
         })
+
       
     })
 
 }
 
+function resetClass() {
+    let taskOList = document.querySelector('ol');
+
+    taskOList.addEventListener('click', () => {
+        let taskList = document.querySelectorAll('li');
+        for(let i = 0; i < taskList.length; i++) {
+            taskList[i].className = 'task'
+            console.log(taskList.className)
+        }
+
+    })
+
+}
+
+function changeTaskBackground() {
+    let body = document.body;
+
+        body.addEventListener('click', (event) => {
+            let taskList = document.querySelectorAll('li');
+            let target = event.target;
+            
+            if(event.target.className === 'task') {
+                target.className='task selected'
+            }
+        })
+
+       
+
+
+}
+
 createHtmlElements();
 addTask();
+changeTaskBackground();
+resetClass();
