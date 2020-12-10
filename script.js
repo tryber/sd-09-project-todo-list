@@ -1,9 +1,19 @@
-const liSelected = '';
+let liSelected;
+
+function changeBackground(event) {
+  if (liSelected !== event.target && liSelected !== undefined) {
+    liSelected.style.backgroundColor = '';
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    liSelected = event.target;
+  }else {
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    liSelected = event.target;
+  }
+}
 
 function selectedItem(event) {
   if (event.target.localName === 'li') {
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-    event.target.style.color = 'white';
+    changeBackground(event);
   }
 }
 
