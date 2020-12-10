@@ -48,4 +48,27 @@ window.onload = function () {
     });
   }
   lineThrough();
+
+  function clearListButton(buttonName) {
+    const botao2 = document.getElementById('input-box');
+    const newButton = document.createElement('button');
+    const newButtonID = 'apaga-tudo';
+    newButton.innerHTML = buttonName;
+    newButton.id = newButtonID;
+    botao2.appendChild(newButton);
+  }
+  clearListButton('Limpar Lista');
+  const bttn2 = document.getElementById('apaga-tudo');
+  console.log(bttn2);
+  bttn2.classList.add('apaga-tudo');
+  function bttnClearList() {
+    const lista = document.getElementById('lista-tarefas');
+    const listLi = document.querySelectorAll('li');
+    for (let index = 0; index < listLi.length; index +=1) {
+      if (listLi.length !== 0) {
+        lista.removeChild(listLi[index]);
+      }
+    }
+  }
+  bttn2.addEventListener('click', bttnClearList);
 };
