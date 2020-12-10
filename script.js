@@ -52,23 +52,23 @@ function removeDone() {
 document.querySelector('#remover-finalizados').addEventListener('click', removeDone);
 
 // salvando usando JSON
-  function allTasksToArray(nodeList){
-    let myArray = [];
-    for (let index = 0; index < nodeList.length; index += 1) {
-      if (nodeList[index].classList.contains('completed')) {
-        myArray.push('completed');
-      } else {
-        myArray.push('')
-      }
-      myArray.push(nodeList[index].innerText);
+function allTasksToArray(nodeList) {
+  const myArray = [];
+  for (let index = 0; index < nodeList.length; index += 1) {
+    if (nodeList[index].classList.contains('completed')) {
+      myArray.push('completed');
+    } else {
+      myArray.push('');
     }
-    return myArray;
+    myArray.push(nodeList[index].innerText);
   }
+  return myArray;
+}
 
 function arrayToStorage() {
   const myTasks = document.querySelectorAll('li');
   if (myTasks.length === 0) {
-    alert ('No tasks to save');
+    alert('No tasks to save');
   } else {
     const myArray = allTasksToArray(myTasks);
     localStorage.setItem('myTasks', JSON.stringify(myArray));
@@ -76,3 +76,8 @@ function arrayToStorage() {
 }
 
 document.querySelector('#salvar-tarefas').addEventListener('click', arrayToStorage);
+
+document.querySelector('#remover-selecionado').addEventListener('click', function() {
+  const selectedTask = document.querySelector('.selected');
+  selectedTask.parentNode.removeChild(selectedTask);
+})
