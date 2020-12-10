@@ -7,22 +7,21 @@ const moverBaixo = document.getElementById('mover-baixo');
 const apagaTudo = document.getElementById('apaga-tudo');
 const removerFinalizados = document.getElementById('remover-finalizados');
 const salvarTarefas = document.getElementById('salvar-tarefas');
-const itemsLista = listaTarefas.children;
-const nomeItem = document.createElement('li');
-const qntItems = 0;
-let tamanhoLista = listaTarefas.children.length;
+let itemsLista = listaTarefas.children;
+let qntItemsLista = 0;
 
 criarTarefa.addEventListener('click', () => {
+  const nomeItem = document.createElement('li');
   if (textoTarefa.value !== '') {
     nomeItem.innerHTML = textoTarefa.value;
     listaTarefas.appendChild(nomeItem);
     textoTarefa.value = '';
-    tamanhoLista += 1;
+    qntItemsLista += 1;
   }
 });
 
 listaTarefas.addEventListener('click', (event) => {
-  for (let i = 0; i < tamanhoLista; i += 1) {
+  for (let i = 0; i < qntItemsLista; i += 1) {
     itemsLista[i].style.backgroundColor = '';
     if (itemsLista[i] === event.target) {
       itemsLista[i].style.backgroundColor = 'rgb(128, 128, 128)';
@@ -31,7 +30,7 @@ listaTarefas.addEventListener('click', (event) => {
 });
 
 listaTarefas.addEventListener('dblclick', (event) => {
-  for (let i = 0; i <= tamanhoLista; i += 1) {
+  for (let i = 0; i <= qntItemsLista; i += 1) {
     if (itemsLista[i] === event.target) {
       if (itemsLista[i].classList[0] === undefined) {
         itemsLista[i].classList.add('completed');
@@ -43,28 +42,32 @@ listaTarefas.addEventListener('dblclick', (event) => {
 });
 
 apagaTudo.addEventListener('click', () => {
+  let qntItems = 0;
   while (qntItems < listaTarefas.children.length) {
     listaTarefas.removeChild(listaTarefas.childNodes[0]);
   }
+  if (listaTarefas.children.length === 0) {
+    qntItemsLista = 0;
+  }
 });
 
-removerSelecionado.addEventListener('click', (event) => {
+removerSelecionado.addEventListener('click', () => {
   // console.log(event.target)
   // console.log(lista.children)
 });
 
-moverCima.addEventListener('click', (event) => {
+moverCima.addEventListener('click', () => {
   // console.log(event.target)
   // console.log(lista.children)
 });
 
-moverBaixo.addEventListener('click', (event) => {
+moverBaixo.addEventListener('click', () => {
   // console.log(event.target)
   // console.log(lista.children)
 });
 
-removerFinalizados.addEventListener('click', (event) => {
+removerFinalizados.addEventListener('click', () => {
 });
 
-salvarTarefas.addEventListener('click', (event) => {
+salvarTarefas.addEventListener('click', () => {
 });

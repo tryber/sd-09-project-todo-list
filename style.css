@@ -1,62 +1,77 @@
 * {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #funcionamento {
-    color: gray;
-    font-size: 16px;
-    font-style: italic;
-    font-weight: lighter;
+  color: gray;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 200;
 }
 
 body {
-    background-color: green;
+  background-color: green;
 }
 
 main {
-    background-color: honeydew;
-    border-radius: 30px;
-    margin: 50px 0;
-    padding: 30px
+  background-color: honeydew;
+  border-radius: 30px;
+  margin: 50px 0;
+  padding: 30px;
 }
 
 .button {
-    border: none;
-    border-radius: 50px;
-    color: white;
-    margin: 0 10px;
-    padding: 5px 15px;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  margin: 0 10px;
+  padding: 5px 15px;
 }
 
-#remover-selecionado {background-color: blue;}
-#mover-cima {background-color: orangered;}
-#mover-baixo {background-color: orangered;}
-#apaga-tudo {background-color: maroon;}
-#remover-finalizados {background-color: maroon;}
-#salvar-tarefas {background-color: green}
-#criar-tarefa {background-color: blue;}
-
-#criar-tarefa:hover,
-#remover-selecionado:hover {
-    background-color: lightblue;
+#remover-selecionado {
+  background-color: blue;
 }
 
-#apaga-tudo:hover,
-#remover-finalizados:hover {
-    background-color: lightsalmon;
+#mover-cima {
+  background-color: orangered;
 }
 
-#mover-cima:hover,
-#mover-baixo:hover {
-    background-color: orange;
+#mover-baixo {
+  background-color: orangered;
+}
+
+#apaga-tudo {
+  background-color: maroon;
+}
+
+#remover-finalizados {
+  background-color: maroon;
+}
+
+#salvar-tarefas {
+  background-color: green;
+}
+
+#criar-tarefa {
+  background-color: blue;
+}
+
+#criar-tarefa:hover, #remover-selecionado:hover {
+  background-color: lightblue;
+}
+
+#apaga-tudo:hover, #remover-finalizados:hover {
+  background-color: lightsalmon;
+}
+
+#mover-cima:hover, #mover-baixo:hover {
+  background-color: orange;
 }
 
 #salvar-tarefas:hover {
-    background-color: lightgreen
+  background-color: lightgreen;
 }
 
 .completed {
-    /* background-color: rgb(128, 128, 128); */
-    text-decoration: line-through;
-
+  text-decoration: line-through; /* background-color: rgb(128, 128, 128); */
 }
