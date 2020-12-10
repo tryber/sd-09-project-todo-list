@@ -2,10 +2,10 @@ function backgroundcolorItem() {
   const listItem = document.querySelectorAll('li');
   for (let index = 0; index < listItem.length; index += 1) {
     listItem[index].addEventListener('click', function (event) {
-      for (item = 0; item < listItem.length; item += 1) {
+      for (let item = 0; item < listItem.length; item += 1) {
         listItem[item].style.backgroundColor = '';
       }
-    event.target.style.backgroundColor = 'rgb(128,128,128)';
+      event.target.style.backgroundColor = 'rgb(128,128,128)';
     });
   }
 }
@@ -14,8 +14,7 @@ function taskCompleted() {
   const listItem = document.querySelectorAll('li');
   for (let index = 0; index < listItem.length; index += 1) {
     listItem[index].addEventListener('dblclick', function (event) {
-        console.log(event.target.className);
-      if (event.target.className == '') {
+      if (event.target.className === '') {
         event.target.className = 'completed';
       } else {
         event.target.className = '';
