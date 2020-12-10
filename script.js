@@ -3,10 +3,10 @@ const inputElement = document.querySelector('#texto-tarefa');
 const buttonCreateTask = document.querySelector('#criar-tarefa');
 
 function colorTask(event) {
-  let tasks = document.querySelectorAll('#lista-tarefas li');
-  tasks.forEach(task => {
+  const tasks = document.querySelectorAll('#lista-tarefas li');
+  tasks.forEach((task) => {
     task.style.backgroundColor = '';
-  })
+  });
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
