@@ -5,26 +5,29 @@ function setTasks(itensList) {
   const ol = document.querySelector('#lista-tarefas');
   for (let index = 0; index < itensList.length; index += 1) {
     const li = createNewLi();
-    li.innerHTML = itensList[index];
+    li.innerText = itensList[index].value;
+    li.className = itensList[index].class;
     ol.appendChild(li);
   }
 }
 
 function loadTasks() {
-  const elements = localStorage.getItem('tasks');
+  const elements = JSON.parse(localStorage.getItem('tasks'));
   if (elements !== null) {
-    const allItens = JSON.parse(elements);
-    setTasks(allItens);
+    setTasks(elements);
   }
 }
 
 function saveTasks() {
   const elements = document.querySelectorAll('#lista-tarefas li');
-  const allItens = [];
+  const objs = [];
   for (let index = 0; index < elements.length; index += 1) {
-    allItens.push(elements[index].innerText);
+    objs.push({
+      value: elements[index].innerText,
+      class: elements[index].className
+    })
   }
-  localStorage.setItem('tasks', JSON.stringify(allItens));
+  localStorage.setItem('tasks', JSON.stringify(objs));
 }
 
 function clearDonedTasks() {
