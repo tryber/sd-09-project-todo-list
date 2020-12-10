@@ -1,0 +1,14 @@
+body {
+  height: 768px;
+  width: 1366px;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+.principal {
+  background-color: whitesmoke;
+  height: 768px;
+  width: 1366px;
+}
