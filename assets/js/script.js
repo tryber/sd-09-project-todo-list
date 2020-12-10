@@ -2,14 +2,15 @@
 function createNewTask() {
   const tasksList = document.querySelector('#lista-tarefas');
   const newItem = document.createElement('li');
-  let newTask = document.querySelector('#texto-tarefa');
+  const newTask = document.querySelector('#texto-tarefa');
   newItem.setAttribute('class', 'task');
   tasksList.appendChild(newItem).innerText = newTask.value;
-  setNewItemID(tasksList.childElementCount, newItem);
+  setNewItemProperties(tasksList.childElementCount, newItem);
   newTask.value = '';
 }
 
-function setNewItemID(tasksList, newItem) {
+// Atribuindo propriedades para o novo item
+function setNewItemProperties(tasksList, newItem) {
     newItem.setAttribute(`id`, `item${tasksList}`);
     newItem.addEventListener('click', function() {
       selectTask(newItem);
@@ -25,5 +26,4 @@ window.onload = function() {
   const buttonNewTask = document.querySelector('#criar-tarefa');
   buttonNewTask.addEventListener('click', createNewTask);
   const tasksList = document.querySelector('#lista-tarefas');
-  //tasksList.addEventListener('click', selectTask);
 }
