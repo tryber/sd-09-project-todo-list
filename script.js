@@ -18,7 +18,7 @@ function addTask(event, taskName, className) {
   const taskList = document.querySelector('#lista-tarefas');
   const listItem = document.createElement('li');
   if (!taskName) {
-    let task = document.querySelector('#texto-tarefa');
+    const task = document.querySelector('#texto-tarefa');
     taskName = task.value;
     task.value = '';
   }
@@ -51,7 +51,7 @@ function saveTasks() {
   const tasks = taskList.children;
   localStorage.clear();
   for (let index = 0; index < tasks.length; index += 1) {
-    const taskProperties = JSON.stringify([tasks[index].innerText, tasks[index].className])
+    const taskProperties = JSON.stringify([tasks[index].innerText, tasks[index].className]);
     localStorage.setItem(index, taskProperties);
   }
 }
