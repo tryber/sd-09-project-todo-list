@@ -1,5 +1,5 @@
 .completed {
   text-decoration: line-through;
-  text-decoration-color: 'rgb(0 ,0 ,0)';
+  text-decoration-color: rgb(0 ,0 ,0);
   text-decoration-style: solid;
 }
