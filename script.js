@@ -5,6 +5,7 @@ const globalElements = {
   moveUpButton: document.querySelector('#mover-cima'),
   moveDownButton: document.querySelector('#mover-baixo'),
   removeCompletedButton: document.querySelector('#remover-finalizados'),
+  removeSelectedButton: document.querySelector('#remover-selecionado'),
   newTaskInput: document.querySelector('#texto-tarefa'),
   taskList: document.querySelector('#lista-tarefas'),
   tasksArray: [],
@@ -91,6 +92,21 @@ function toggleTaskAsCompleted(event) {
   }
 }
 
+function moveSelected(direction) {
+  const selectedTask = document.querySelector('.selected');
+  const isFirstTask = (globalElements.taskList.firstElementChild === selectedTask);
+  const isLastTask = (globalElements.taskList.lastElementChild === selectedTask);
+  let relatedTask;
+  if ((direction === 'up') && !(isFirstTask)) {
+    relatedTask = selectedTask.previousElementSibling;
+    globalElements.taskList.insertBefore(selectedTask, relatedTask);
+  }
+  if ((direction === 'down') && !(isLastTask)) {
+    relatedTask = selectedTask.nextElementSibling;
+    globalElements.taskList.insertBefore(relatedTask, selectedTask);
+  }
+}
+
 function setCreateTaskEvent() {
   globalElements.createTaskButton.addEventListener('click', createNewTask);
 }
@@ -116,24 +132,15 @@ function setRemoveCompletedEvent() {
   });
 }
 
-function moveSelected(direction) {
-  const selectedTask = document.querySelector('.selected');
-  const isFirstTask = (globalElements.taskList.firstElementChild === selectedTask);
-  const isLastTask = (globalElements.taskList.lastElementChild === selectedTask);
-  let relatedTask;
-  if ((direction === 'up') && !(isFirstTask)) {
-    relatedTask = selectedTask.previousElementSibling;
-    globalElements.taskList.insertBefore(selectedTask, relatedTask);
-  }
-  if ((direction === 'down') && !(isLastTask)) {
-    relatedTask = selectedTask.nextElementSibling;
-    globalElements.taskList.insertBefore(relatedTask, selectedTask);
-  }
-}
-
 function setMovesEvent() {
   globalElements.moveUpButton.addEventListener('click', function () { moveSelected('up'); });
   globalElements.moveDownButton.addEventListener('click', function () { moveSelected('down'); });
+}
+
+function setRemoveSelectedEvent() {
+  globalElements.removeSelectedButton.addEventListener('click', function () {
+    callAllBySelector(removeElement, '.selected');
+  });
 }
 
 function setAllEvents() {
@@ -141,6 +148,7 @@ function setAllEvents() {
   setTaskListEvent();
   setClearTasksEvent();
   setRemoveCompletedEvent();
+  setRemoveSelectedEvent();
   setSaveTasksEvent();
   setMovesEvent();
   loadSavedTasks();
