@@ -1,22 +1,18 @@
+function addTodo(){
+    const inputTodo = document.querySelector("#texto-tarefa");
+    const addTodo = document.querySelector("#criar-tarefa");
+    const todoList = document.querySelector("#lista-tarefas");
 
-let tarefa = document.getElementById("lista-tarefas");
-tarefa.innerHTML = localStorage.getItem("item");
+    addTodo.addEventListener('click', function (){
+        const todoText = inputTodo.value;
+        const todo = document.createElement('li');
+        todo.innerText = todoText;
 
-let botao = document.getElementById("criar-tarefa");
-    function criaBotao() {
-        botao.addEventListener("click", addTarefa);
-    }
-    criaBotao();
-    function addTarefa(){
-        let texto = document.getElementById('texto-tarefa');
-       let li = document.createElement("li");
-       tarefa.appendChild(li);
-       li.innerText = texto.value;
-       texto.value = '';
-       li.addEventListener('click', mudaCor);
-       li.addEventListener('dblclick', confereCompleta);
-    }
-    addTarefa();
+        todoList.appendChild(todo);
+        inputTodo.value = '';
+    });
+}
+addTodo();
     function mudaCor(){
         let cor = document.getElementsByTagName("li");
         let lista = document.querySelector("#lista-tarefas");
@@ -51,12 +47,3 @@ function apagaTudo() {
     });
 }
 apagaTudo();
-let finalizado = document.getElementById("remover-finalizados");
-finalizado.addEventListener("click", criaFinalizado());
-function criaFinalizado() {
-    let completo = document.querySelectorAll(".completed");
-    for(let index = 0; index < completo.length; index += 1) {
-        let removeFinalizado = completo[index];
-        tarefa.removeChild(removeFinalizado);
-    }
-}
