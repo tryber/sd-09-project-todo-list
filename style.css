@@ -1,3 +1,7 @@
 body {
     margin: 0;
 }
+
+.selected {
+    background-color: rgb(128, 128, 128);
+}
