@@ -1,4 +1,8 @@
-window.onload = window.onload = function () {};
+window.onload = function () {
+  const recoverTaskList = localStorage.getItem('taskList');
+  const getOl = document.querySelector('#lista-tarefas');
+  getOl.innerHTML = recoverTaskList;
+};
 
 const getDivInput = document.getElementsByClassName('input-container')[0];
 const createInput = document.createElement('input');
@@ -27,6 +31,11 @@ deleteSelectedButton.id = 'remover-finalizados';
 deleteSelectedButton.innerHTML = 'Remove finalizados';
 getDivButtons.appendChild(deleteSelectedButton);
 
+const saveTasksButton = document.createElement('button');
+saveTasksButton.id = 'salvar-tarefas';
+saveTasksButton.innerHTML = 'Salvar Lista';
+getDivButtons.appendChild(saveTasksButton);
+
 
 function addNewTask() {
   const getInputField = document.querySelector('#texto-tarefa');
@@ -43,19 +52,22 @@ function addNewTask() {
 }
 addNewTask();
 
-function changeBackgroundItemList() {
+function selectItemOnList() {
   const getOrdenedList = document.querySelector('#lista-tarefas');
 
   getOrdenedList.addEventListener('click', function (event) {
     const getSelectedTask = document.querySelector('.selected');
-    if (getSelectedTask !== undefined && getSelectedTask !== null) {
-      getSelectedTask.classList.remove('selected');
+    if (event.target.classList.contains('selected')) {
+      event.target.classList.remove('selected');
+    } else {
+      if (getSelectedTask) {
+        getSelectedTask.classList.remove('selected');
+      }
       event.target.classList.add('selected');
-    };
-    event.target.classList.add('selected');
+    }
   });
 }
-changeBackgroundItemList();
+selectItemOnList();
 
 function markCompletedTasks() {
   const getOrdenedList = document.querySelector('#lista-tarefas');
@@ -91,3 +103,12 @@ function deleteCompletedTasks() {
   });
 }
 deleteCompletedTasks();
+
+function saveTaskList() {
+  const getOl = document.querySelector('#lista-tarefas');
+  const saveButton = document.querySelector('#salvar-tarefas');
+  saveButton.addEventListener('click', function () {
+    localStorage.setItem('taskList', getOl.innerHTML);
+  });
+}
+saveTaskList();
