@@ -50,7 +50,6 @@ addTask();
 function setItemWhiteColor(array) {
   for (const item of array) {
     item.style.background = 'white';
-    item.className = '';
   }
 }
 
@@ -60,7 +59,6 @@ function setTaskColor() {
     const myList = document.querySelectorAll('li');
     setItemWhiteColor(myList);
     event.target.style.background = 'rgb(128 , 128 , 128)';
-    event.target.className = 'selected';
   });
 }
 
@@ -147,17 +145,27 @@ function moveTaskDown(selectedTask, myList) {
   }
 }
 
+function verifySelectedTask(selectedTask) {
+  const taskArray = document.querySelectorAll('li');
+  for (const element of taskArray) {
+    if (element.style.background === 'rgb(128, 128, 128)') {
+      selectedTask = element;
+    }
+  }
+  return selectedTask
+}
+
 function moveSelectedTask() {
   const upButton = document.querySelector('#mover-cima');
   const downButton = document.querySelector('#mover-baixo');
   upButton.addEventListener('click', () => {
     const myList = document.querySelector('ol');
-    const selectedTask = document.querySelector('.selected');
+    const selectedTask = verifySelectedTask();
     moveTaskUp(selectedTask, myList);
   });
   downButton.addEventListener('click', () => {
     const myList = document.querySelector('ol');
-    const selectedTask = document.querySelector('.selected');
+    const selectedTask = verifySelectedTask();
     moveTaskDown(selectedTask, myList);
   })
 }
