@@ -34,7 +34,7 @@ insertTaskOrderedList();
 // busca e povoa a OL com itens do session storage (window-load)
 window.addEventListener('load', function () {
     const taskList = document.querySelector('#lista-tarefas');
-    for (let index = 1; index < sessionStorage.length; index += 1){
+    for (let index = 0; index < sessionStorage.length; index += 1){
       let taskItem = document.createElement('li');
       taskItem.innerText = sessionStorage.getItem(index);
       taskList.appendChild(taskItem);
