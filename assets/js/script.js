@@ -1,5 +1,14 @@
+// Desmarca a tarefa selecionada anteriormente
+function clearSelected() {
+  const tasksList = document.querySelector('#lista-tarefas');
+  for (let index = 0; index < tasksList.childElementCount; index += 1) {
+    tasksList.children[index].style.backgroundColor = null;
+  }
+}
+
 // Selecionar uma tarefa da lista
 function selectTask(task) {
+  clearSelected();
   task.style.backgroundColor = 'rgb(128 , 128 , 128)';
 }
 
