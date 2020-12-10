@@ -39,25 +39,44 @@ function selectTask() {
 
 function clearAll() {
   const clearBtn = document.getElementById('apaga-tudo');
-  clearBtn.addEventListener('click', function() {
-    const taskList = document.getElementById('lista-tarefas')
-    const listItems = document.querySelectorAll('.task')
+  clearBtn.addEventListener('click', function () {
+    const taskList = document.getElementById('lista-tarefas');
+    const listItems = document.querySelectorAll('.task');
     for (let index = 0; index < listItems.length; index += 1) {
       taskList.removeChild(taskList.lastChild);
     }
-  })
+  });
 }
 
 function clearCompleted() {
   const clearComp = document.getElementById('remover-finalizados');
-  const tasks = document.getElementById('lista-tarefas');
+  const tasklist = document.getElementById('lista-tarefas');
 
-  clearComp.addEventListener('click', function() {
+  clearComp.addEventListener('click', function () {
     const completed = document.querySelectorAll('.completed');
     for (let index = 0; index < completed.length; index += 1) {
-      tasks.removeChild(completed[index]);
+      tasklist.removeChild(completed[index]);
     }
   });
+}
+
+function saveList() {
+  const saveBtn = document.getElementById('salvar-tarefas');
+  saveBtn.addEventListener('click', function () {
+    const tasks = document.getElementsByClassName('task');
+    for (let index = 0; index < tasks.length; index += 1) {
+      localStorage.setItem(index, tasks[index].innerText);
+    }
+  });
+}
+
+function getList() {
+  const tasks = document.getElementById('lista-tarefas');
+  for (index = 0; index < localStorage.length; index += 1) {
+    const recListItem = document.createElement('li');
+    recListItem.innerText = localStorage.getItem(index);
+    tasks.appendChild(recListItem);
+  }
 }
 
 window.onload = function () {
@@ -66,4 +85,6 @@ window.onload = function () {
   dbClicktem();
   clearAll();
   clearCompleted();
+  saveList();
+  getList();
 };
