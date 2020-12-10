@@ -17,8 +17,20 @@ const globalElements = {
 //   }
 // }
 
+// function saveTasks() {
+  
+// }
+
+// function loadTasks() {
+
+// }
+
 function removeElement(element) {
   element.remove();
+}
+
+function resetHighlightedTask(element) {
+  element.classList.remove('highlighted');
 }
 
 function callAllBySelector(calledFunction, selector) {
@@ -27,14 +39,6 @@ function callAllBySelector(calledFunction, selector) {
     calledFunction(nodeList[index]);
   }
 }
-
-// function saveTasks() {
-  
-// }
-
-// function loadTasks() {
-
-// }
 
 function setPropertiesToNewElement(element, propertiesObject) {
   const propertiesKeys = Object.keys(propertiesObject);
@@ -65,16 +69,9 @@ function createNewTask() {
   resetTaskValue();
 }
 
-function resetHighlightedTask() {
-  const highlightedTask = document.querySelector('.highlighted');
-  if (highlightedTask !== null) {
-    highlightedTask.classList.remove('highlighted');
-  }
-}
-
 function highlightTask(event) {
   if (event.target.classList.contains('task')) {
-    resetHighlightedTask();
+    callAllBySelector(resetHighlightedTask, '.highlighted');
     event.target.classList.add('highlighted');
   }
 }
