@@ -1,6 +1,7 @@
 const globalElements = {
   createTaskButton: document.querySelector('#criar-tarefa'),
   clearTasksButton: document.querySelector('#apaga-tudo'),
+  removeCompletedButton: document.querySelector('#remover-finalizados'),
   newTaskInput: document.querySelector('#texto-tarefa'),
   taskList: document.querySelector('#lista-tarefas'),
 };
@@ -73,10 +74,6 @@ function removeAllBySelector(selector) {
   }
 }
 
-function clearAllTasks() {
-  removeAllBySelector('.task');
-}
-
 function setCreateTaskEvent() {
   globalElements.createTaskButton.addEventListener('click', createNewTask);
 }
@@ -87,13 +84,22 @@ function setTaskListEvent() {
 }
 
 function setClearTasksEvent() {
-  globalElements.clearTasksButton.addEventListener('click', clearAllTasks);
+  globalElements.clearTasksButton.addEventListener('click', function () {
+    removeAllBySelector('.task');
+  });
+}
+
+function setRemoveCompletedEvent() {
+  globalElements.removeCompletedButton.addEventListener('click', function () {
+    removeAllBySelector('.completed');
+  });
 }
 
 function setAllEvents() {
   setCreateTaskEvent();
   setTaskListEvent();
   setClearTasksEvent();
+  setRemoveCompletedEvent();
 }
 
 setAllEvents();
