@@ -2,7 +2,6 @@ const globalElements = {
   createTaskButton: document.querySelector('#criar-tarefa'),
   newTaskInput: document.querySelector('#texto-tarefa'),
   taskList: document.querySelector('#lista-tarefas'),
-  
 };
 
 function setPropertiesToNewElement(element, propertiesObject) {
@@ -40,6 +39,7 @@ function resetHighlightedTask() {
     highlightedTask.classList.remove('highlighted');
   }
 }
+
 function highlightTask(event) {
   if (event.target.className === 'task') {
     resetHighlightedTask();
