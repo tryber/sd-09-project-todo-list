@@ -1,5 +1,5 @@
 // Remover os itens selecionados
-function removeSelected() {
+function removeFinished() {
   const tasksList = document.querySelector('#lista-tarefas');
   for (let taskIndex = tasksList.childElementCount - 1; taskIndex >= 0; taskIndex -= 1) {
     if (tasksList.children[taskIndex].classList.contains('completed')) {
@@ -57,10 +57,27 @@ function createNewTask() {
   const newTask = document.querySelector('#texto-tarefa');
   newItem.setAttribute('class', 'task');
   newItem.classList.add('mdl-list__item');
-  console.log(newTask.value);
   tasksList.appendChild(newItem).innerText = newTask.value;
   setNewItemProperties(tasksList.childElementCount, newItem);
   newTask.value = '';
+}
+
+/**
+ * Essa função limpa o elemento selecionado caso seja realizado click fora da lista
+ * Código adaptado de https://www.blustemy.io/detecting-a-click-outside-an-element-in-javascript/
+ * */
+function clickOutsideList() {
+  document.addEventListener("click", (evt) => {
+    const checkClick = document.getElementById("lista-tarefas");
+    let targetElement = evt.target;
+    do {
+        if (targetElement == checkClick) {
+            return;
+        }
+        targetElement = targetElement.parentNode;
+    } while (targetElement);
+    clearSelected();
+  });
 }
 
 window.onload = function () {
@@ -69,5 +86,6 @@ window.onload = function () {
   const buttonDeleteAll = document.querySelector('#apaga-tudo');
   buttonDeleteAll.addEventListener('click', removeAll);
   const buttonDeleteSelected = document.querySelector('#remover-finalizados');
-  buttonDeleteSelected.addEventListener('click', removeSelected);
+  buttonDeleteSelected.addEventListener('click', removeFinished);
+  clickOutsideList();  
 };
