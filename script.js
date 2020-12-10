@@ -22,7 +22,6 @@ function addTask() {
 
   myButton.addEventListener('click', () => {
     const myTaskList = document.querySelector('ol');
-    const inputLine = document.querySelector('input');
     if (inputLine.value === '') {
       return;
     }
@@ -46,7 +45,7 @@ function setTaskColor() {
   orderedList.addEventListener('click', (event) => {
     const myList = document.querySelectorAll('li');
     setItemWhiteColor(myList);
-    event.target.style.background = 'rgb( 128 , 128 , 128)';
+    event.target.style.background = 'rgb(128 , 128 , 128)';
   });
 }
 
@@ -104,7 +103,7 @@ function deleteTaskSelected() {
   myButton.addEventListener('click', () => {
     const taskList = document.querySelectorAll('li');
     for (const selectedTask of taskList) {
-      if (selectedTask.style.background !== 'white') {
+      if (selectedTask.style.backgroundColor === 'rgb(128, 128, 128)') {
         selectedTask.remove();
       }
     }
