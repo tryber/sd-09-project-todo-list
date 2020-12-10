@@ -1,28 +1,60 @@
 body {
-  background-color: rgb(0, 108, 181);
+  background-color: rgb(220 , 220 , 220);
   font-family: Roboto, sans-serif;
   margin: 0;
   padding: 0;
 }
 
 .header {
-  background-color: rgb(1, 95, 159);
-  color: white;
+  background-color: white;
   padding-bottom: 6px;
   padding-left: 10px;
   padding-top: 30px;
+  text-align: center;
 }
 
 .main-title {
+  color: rgb(1 , 95 , 159);
   font-size: 25px;
-  line-height: 0px;
+  line-height: 0;
   margin: 0;
 }
 
 .sub-title {
-  opacity: .8;
   margin-bottom: 0;
+  opacity: 0.6;
 }
+
 .icon {
   margin-right: 10px;
+}
+
+.section-list {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+}
+
+.box-input {
+  display: flex;
+}
+
+.input {
+  border: none;
+  border-radius: 5px 0 0 5px;
+  padding: 10px;
+}
+
+.btn-add {
+  background-color: rgb(1 , 95 , 159);
+  border: none;
+  border-radius: 0 5px 5px 0;
+  color: white;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.btn-add:hover {
+  background-color: rgb(0 , 62 , 104);
 }
