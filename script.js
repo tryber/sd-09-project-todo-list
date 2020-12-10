@@ -20,10 +20,7 @@ createTaskList();
 function addButtonItem() {
   const btn = document.createElement('button');
   btn.id = 'criar-tarefa';
-  btn.type = 'submit';
   btn.innerText = 'Criar tarefa';
-  btn.style.marginLeft = '5px';
-  btn.style.padding = '3px';
   const inputArea = document.querySelector('#input-area');
   inputArea.appendChild(btn);
 
@@ -75,8 +72,6 @@ function deleteTaskList() {
   const button = document.createElement('button');
   const divButton = document.querySelector('#buttons');
   divButton.appendChild(button);
-  button.style.padding = '3px';
-  button.style.marginLeft = '5px';
   button.innerText = 'Remover tudo';
   button.id = 'apaga-tudo';
 
@@ -91,8 +86,6 @@ function deleteSelectedList() {
   const button = document.createElement('button');
   const divButton = document.querySelector('#buttons');
   divButton.appendChild(button);
-  button.style.padding = '3px';
-  button.style.marginLeft = '5px';
   button.innerText = 'Remover realizadas';
   button.id = 'remover-finalizados';
 
@@ -102,3 +95,46 @@ function deleteSelectedList() {
   });
 }
 deleteSelectedList();
+
+function setLocalStorage() {
+  const btnSave = document.createElement('button');
+  const divPaiBtn = document.querySelector('#save');
+  btnSave.id = 'salvar-tarefas';
+  btnSave.innerText = 'Salvar tarefas';
+  btnSave.style.marginBottom = '10px'
+  divPaiBtn.appendChild(btnSave);
+
+  btnSave.addEventListener('click', function (e) {
+    const taskList = document.querySelectorAll('.list-item');
+    let objList = [];
+    for (let item = 0; item < taskList.length; item += 1) {
+      const obj = {
+        key: item,
+        value: taskList[item].innerText,
+        class: taskList[item].className,
+      };
+      objList.push(obj);
+    }
+    localStorage.setItem('item', JSON.stringify(objList));
+  });
+}
+setLocalStorage();
+
+function getLocalStorage() {
+  if (localStorage.getItem('item') !== null) {
+    const json = localStorage.getItem('item');
+    let obj = JSON.parse(json);
+
+    for (let i = 0; i < obj.length; i += 1) {
+      const li = document.createElement('li');
+      const ul = document.querySelector('#lista-tarefas');
+
+      li.innerText = obj[i].value;
+      li.className = obj[i].class;
+      
+      ul.appendChild(li);
+      console.log(li);
+    }
+  }
+}
+getLocalStorage();

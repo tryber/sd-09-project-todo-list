@@ -10,3 +10,8 @@ body {
 .completed {
   text-decoration: line-through;
 }
+
+button {
+  margin-left: 5px;
+  padding: 3px;
+}
