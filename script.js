@@ -1,11 +1,14 @@
+
+let tarefa = document.getElementById("lista-tarefas");
+tarefa.innerHTML = localStorage.getItem("item");
+
 let botao = document.getElementById("criar-tarefa");
     function criaBotao() {
         botao.addEventListener("click", addTarefa);
     }
     criaBotao();
     function addTarefa(){
-        let texto = document.querySelector('#texto-tarefa');
-        let tarefa = document.querySelector("#lista-tarefas");
+        let texto = document.getElementById('texto-tarefa');
        let li = document.createElement("li");
        tarefa.appendChild(li);
        li.innerText = texto.value;
@@ -48,3 +51,12 @@ function apagaTudo() {
     });
 }
 apagaTudo();
+let finalizado = document.getElementById("remover-finalizados");
+finalizado.addEventListener("click", criaFinalizado());
+function criaFinalizado() {
+    let completo = document.querySelectorAll(".completed");
+    for(let index = 0; index < completo.length; index += 1) {
+        let removeFinalizado = completo[index];
+        tarefa.removeChild(removeFinalizado);
+    }
+}
