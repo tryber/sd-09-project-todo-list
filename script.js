@@ -22,20 +22,20 @@ function addTaskButton() {
   });
 }
 
-// Click no item desejado
-function selectTaskItem() {
-  const tasksList = document.getElementById('lista-tarefas'); //ol
-  tasksList.addEventListener('click', addClassSelected);
-}
-
 // Mudar cor de fundo ao selecionar elemento e selecionar o item
-function addClassSelected (event) {
+function addClassSelected(event) {
   const lastSelected = document.querySelector('.selected');
   const taskSelect = event.target;
   if (lastSelected) {
     lastSelected.classList.remove('selected');
     taskSelect.classList.add('selected');
   } else taskSelect.classList.add('selected');
+}
+
+// Click no item desejado
+function selectTaskItem() {
+  const tasksList = document.getElementById('lista-tarefas');
+  tasksList.addEventListener('click', addClassSelected);
 }
 
 // Risca task quando clicado 2x
