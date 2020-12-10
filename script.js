@@ -6,6 +6,7 @@ function addTask(){
         let listItem = document.createElement('li');
         listItem.innerText = task;
         list.appendChild(listItem);
+        document.getElementById('texto-tarefa').value = '';
     });
 }
 
@@ -15,6 +16,7 @@ function selectTask() {
     let list = document.getElementById('lista-tarefas');
     list.addEventListener('click', function(event){
         let paintWhite = document.getElementsByTagName('li');
+        
         for (let index = 0; index < paintWhite.length; index += 1) {
             paintWhite[index].style.backgroundColor = 'white';
         }
