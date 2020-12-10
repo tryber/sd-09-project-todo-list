@@ -10,7 +10,8 @@ function createTask() {
   newTaskElement.innerText = taskTextTyped;
   taskList.appendChild(newTaskElement);
   inputTextOfTask.value = '';
+  return 0;
 }
 
-let createTaskButton = document.getElementById('criar-tarefa');
+const createTaskButton = document.getElementById('criar-tarefa');
 createTaskButton.addEventListener('click', createTask);
