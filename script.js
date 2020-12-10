@@ -82,7 +82,7 @@ function selectTask(event) {
     if (!(event.target.classList.contains('selected'))) {
       callAllBySelector(resetSelectedTask, '.selected');
     }
-    event.target.classList.toggle('selected');
+    event.target.classList.add('selected');
   }
 }
 
