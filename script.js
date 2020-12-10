@@ -146,8 +146,8 @@ function buttonMoveDown() {
 // 14 - apply remove selected item
 
 function buttonRemoveSelected() {
-  const buttonRemoveSelected = document.querySelector('#remover-selecionado');
-  buttonRemoveSelected.addEventListener('click', function () {
+  const buttonRemove = document.querySelector('#remover-selecionado');
+  buttonRemove.addEventListener('click', function () {
     const list = document.querySelector('ol#lista-tarefas');
     const listElements = document.querySelectorAll('ol#lista-tarefas li');
     for (let index = 0; index < listElements.length; index += 1) {
