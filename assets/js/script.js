@@ -1,3 +1,16 @@
+// Selecionar uma tarefa da lista
+function selectTask(task) {
+  task.style.backgroundColor = 'rgb(128 , 128 , 128)';
+}
+
+// Atribuindo propriedades para o novo item
+function setNewItemProperties(tasksList, newItem) {
+  newItem.setAttribute('id', `item${tasksList}`);
+  newItem.addEventListener('click', function () {
+    selectTask(newItem);
+  });
+}
+
 // Adicionar nova tarefa
 function createNewTask() {
   const tasksList = document.querySelector('#lista-tarefas');
@@ -9,21 +22,8 @@ function createNewTask() {
   newTask.value = '';
 }
 
-// Atribuindo propriedades para o novo item
-function setNewItemProperties(tasksList, newItem) {
-    newItem.setAttribute(`id`, `item${tasksList}`);
-    newItem.addEventListener('click', function() {
-      selectTask(newItem);
-    });
-}
-
-// Selecionar uma tarefa da lista
-function selectTask(task) {
-  task.style.backgroundColor = 'rgb(128 , 128 , 128)';
-}
-
-window.onload = function() {
+window.onload = function () {
   const buttonNewTask = document.querySelector('#criar-tarefa');
   buttonNewTask.addEventListener('click', createNewTask);
   const tasksList = document.querySelector('#lista-tarefas');
-}
+};
