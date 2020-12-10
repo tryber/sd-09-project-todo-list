@@ -1,5 +1,5 @@
 function generateInput() {
-  const container = document.getElementById('inputs');
+  const container = document.querySelector('.inputs');
   const newInput = document.createElement('input');
   newInput.type = 'text';
   newInput.id = 'texto-tarefa';
@@ -9,7 +9,7 @@ function generateInput() {
 }
 
 function generateOrderedList() {
-  const taskContainer = document.getElementById('tasks');
+  const taskContainer = document.querySelector('.tasks');
   const newList = document.createElement('ol');
   newList.id = 'lista-tarefas';
 
@@ -24,7 +24,7 @@ function addNewTask(inputContent) {
 }
 
 function generateAddTaskButton() {
-  const container = document.getElementById('inputs');
+  const container = document.querySelector('.inputs');
   const newButton = document.createElement('button');
   newButton.id = 'criar-tarefa';
   newButton.innerText = 'Create task';
@@ -38,7 +38,7 @@ function generateAddTaskButton() {
 }
 
 function generateRemoveAllTasksButton() {
-  const container = document.getElementById('inputs');
+  const container = document.querySelector('.inputs');
   const newButton = document.createElement('button');
   newButton.id = 'apaga-tudo';
   newButton.innerText = 'Delete all tasks';
@@ -53,7 +53,7 @@ function generateRemoveAllTasksButton() {
 }
 
 function generateRemoveCompletedTasksButton() {
-  const container = document.getElementById('inputs');
+  const container = document.querySelector('.inputs');
   const newButton = document.createElement('button');
   newButton.id = 'remover-finalizados';
   newButton.innerText = 'Delete completed tasks';
@@ -70,7 +70,7 @@ function generateRemoveCompletedTasksButton() {
 }
 
 function generateSaveTasksButton() {
-  const container = document.getElementById('inputs');
+  const container = document.querySelector('.inputs');
   const newButton = document.createElement('button');
   newButton.id = 'salvar-tarefas';
   newButton.innerText = 'Save tasks';
@@ -138,7 +138,7 @@ function moveDown() {
 }
 
 function generateUpAndDownButtons() {
-  const container = document.getElementById('inputs');
+  const container = document.querySelector('.inputs');
   const upButton = document.createElement('button');
   upButton.id = 'mover-cima';
   upButton.innerText = 'Task Up';
@@ -155,7 +155,7 @@ function generateUpAndDownButtons() {
 }
 
 function generateSelectedTaskButton() {
-  const container = document.getElementById('inputs');
+  const container = document.querySelector('.inputs');
   const selectedButton = document.createElement('button');
   selectedButton.id = 'remover-selecionado';
   selectedButton.innerText = 'Delete selected task';
@@ -215,11 +215,11 @@ window.onload = function () {
   generateOrderedList();
   generateInput();
   generateAddTaskButton();
+  generateSaveTasksButton();
+  generateSelectedTaskButton();
   generateRemoveAllTasksButton();
   generateRemoveCompletedTasksButton();
-  generateSaveTasksButton();
   generateUpAndDownButtons();
-  generateSelectedTaskButton();
   selectListItem();
   loadSavedTasks();
 };
