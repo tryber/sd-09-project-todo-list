@@ -1,0 +1,27 @@
+.input-box {
+  display: inline-block;
+  text-align: center;
+}
+
+.criar-tarefa {
+  background-color: silver;
+  margin: 10px;
+  text-align: center;
+}
+
+.completed {
+  text-decoration: line-through;
+  text-decoration-color: black;
+}
+
+.apaga-tudo {
+  background-color: silver;
+  margin: 10px;
+  text-align: center;
+}
+
+.limparLista {
+  background-color: silver;
+  margin: 10px;
+  text-align: center;
+}
