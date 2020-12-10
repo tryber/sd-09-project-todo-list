@@ -6,8 +6,16 @@ window.onload = function () {
   const taskList = document.querySelector('#lista-tarefas');
   taskList.addEventListener('click', selectListItemControl);
   taskList.addEventListener('dblclick', completeListItemControl);
+  const clearTaskListButton = document.querySelector('#apaga-tudo');
+  clearTaskListButton.addEventListener('click', clearTaskList);
 }
 
+function clearTaskList(){
+    const listItens = document.querySelectorAll('#lista-tarefas li');
+    for(const element of listItens){
+        element.remove();
+    }
+}
 function completeListItemControl(event) {
   const item = event.target;
   classes = item.className.split(' ');
@@ -42,8 +50,8 @@ function insertNewTask() {
 
 function createControls() {
   const controlsContainer = document.querySelector('#controls-container');
-  const controlButtonIds = ['criar-tarefa'];
-  const controlButtonText = ['Criar Tarefa'];
+  const controlButtonIds = ['criar-tarefa', 'apaga-tudo'];
+  const controlButtonText = ['Criar Tarefa', 'Apagar Itens' ];
   const controlIputIds = ['texto-tarefa'];
 
   for (const element of controlIputIds) {
