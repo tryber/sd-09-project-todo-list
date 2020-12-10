@@ -72,19 +72,15 @@ function resetHighlightedTask() {
   }
 }
 
-function elementHasClass(element, className) {
-  return element.className.includes(className);
-}
-
 function highlightTask(event) {
-  if (elementHasClass(event.target, 'task')) {
+  if (event.target.classList.contains('task')) {
     resetHighlightedTask();
     event.target.classList.add('highlighted');
   }
 }
 
 function toggleTaskAsCompleted(event) {
-  if (elementHasClass(event.target, 'task')) {
+  if (event.target.classList.contains('task')) {
     event.target.classList.toggle('completed');
   }
 }
