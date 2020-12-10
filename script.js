@@ -19,8 +19,16 @@ function addParagraph() {
   body.appendChild(createParagraph);
 }
 
+function addInput() {
+  const createInput = document.createElement('input');
+  createInput.id = 'texto-tarefa';
+  createInput.setAttribute('placeholder', 'Task');
+  body.appendChild(createInput);
+}
+
 window.onload = function () {
   addHeader();
   addTitle();
   addParagraph();
+  addInput();
 };

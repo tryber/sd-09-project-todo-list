@@ -1,3 +1,11 @@
 #funcionamento {
-  color: rgb(117, 117, 117);
+  color: rgb(117 , 117 , 117);
+}
+
+#texto-tarefa {
+  width: 100%;
+  padding: 12px 20px;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 4px;
+  box-sizing: border-box;
 }
