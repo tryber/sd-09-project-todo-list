@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='pt-br'>
+<head>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" href="style.css">
+    <title>Projeto 4 -  To do List - Tiago Minoru Yoneda</title>
+</head>
+<body>
+    <section class='headerContainer'>
+    <!-- Requisito 1 -->
+    <header>Minha Lista de Tarefas</header>
+
+    <!-- Requisito 2 -->
+    <p id='funcionamento'>Clique duas vezes em um item para marcá-lo como completo</p>
+
+    <!-- Requisito 3 -->
+    <input id='texto-tarefa' placeholder='digite a nova tarefa'>
+
+    <!-- Requisito 5 -->
+    <button id='criar-tarefa'>add</button>
+    </section>
+
+    <section class='listContainer'>
+        <!-- Requisito 4 -->
+        <div>
+        <ol id='lista-tarefas'></ol>
+        </div>
+        <div class='updown'>
+            <!-- Requisito 13 -->
+            <button id='mover-cima'>&#x25B2</button>
+            <button id='mover-baixo'>&#x25BC</button>
+        </div>
+    </section>
+    <section class='buttonContainer'>
+        <!-- Requisito 12 -->
+        <button class='save-btn' id='salvar-tarefas'>Salva Lista</button>
+        <!-- Requisito 14 -->
+        <button class='rm-btn' id='remover-selecionado'>Remove Selecionado</button>
+        <button class='rm-done-btn' id='remover-finalizados'>Remover Finalizados</button>
+        <button class='erase-btn' id='apaga-tudo'>Apaga TUDO</button>
+    </section>
+    <script src='script.js'></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            function storageToTaskList() {
+                const myArray = JSON.parse(localStorage.getItem('myTasks'));
+                if (myArray !== null){
+                    for (let index = 0; index < myArray.length; index +=2 ){
+                        const oldTask = document.createElement('li');
+                        oldTask.className = myArray[index];
+                        oldTask.innerText = myArray[index+1];
+                        oldTask.addEventListener('click', clicaTarefa);
+                        oldTask.addEventListener('dblclick', doubleClick);
+                        document.querySelector('ol').appendChild(oldTask);
+                    }
+                }
+            };
+        storageToTaskList();
+        });
+    </script>
+</body>
+</html>
