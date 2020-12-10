@@ -72,14 +72,11 @@ function selectItemOnList() {
 
   getOrdenedList.addEventListener('click', function (event) {
     const getSelectedTask = document.querySelector('.selected');
-    if (event.target.classList.contains('selected')) {
-      event.target.classList.remove('selected');
-    } else {
-      if (getSelectedTask) {
-        getSelectedTask.classList.remove('selected');
-      }
+    if (getSelectedTask !== undefined && getSelectedTask !== null) {
+      getSelectedTask.classList.remove('selected');
       event.target.classList.add('selected');
-    }
+    };
+    event.target.classList.add('selected');
   });
 }
 selectItemOnList();
@@ -160,4 +157,3 @@ function movingDown() {
   });
 }
 movingDown();
-
