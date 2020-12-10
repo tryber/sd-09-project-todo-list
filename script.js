@@ -3,11 +3,24 @@ window.onload = function () {
   createTaskList();
   const createTaskButton = document.querySelector('#criar-tarefa');
   createTaskButton.addEventListener('click', insertNewTask);
+  const taskList = document.querySelector('#lista-tarefas');
+  taskList.addEventListener('click', selectListItem);
 }
 
+function selectListItem(event){
+    const item = event.target;
+    if(item.className === 'selected'){
+        item.className = '';
+    }else{
+        item.className = 'selected';
+    }
+    
+
+    
+}
 function insertNewTask() {
   const inputTask = document.querySelector('#texto-tarefa');
-  
+
   if (inputTask.value != '') {
     const taskList = document.querySelector('#lista-tarefas');
     const task = document.createElement('li');
@@ -47,3 +60,5 @@ function createTaskList() {
     tasksContainer.appendChild(Orderedlist);
   }
 }
+
+
