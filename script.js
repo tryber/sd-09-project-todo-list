@@ -35,6 +35,10 @@ btnErase.addEventListener('click',eraseAll);
 // codigo a seguir confere linha riscada em cada tarefa
 function lineT() {
   let doneTask = event.target;
-  doneTask.classList = 'completed';
+  if (doneTask.className.includes('completed')){
+    doneTask.classList.remove('completed');
+  } else {
+    doneTask.classList.add('completed');
+  }
 }
 list.addEventListener('dblclick',lineT);
