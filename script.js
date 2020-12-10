@@ -48,9 +48,22 @@ function clearAll() {
   })
 }
 
+function clearCompleted() {
+  const clearComp = document.getElementById('remover-finalizados');
+  const tasks = document.getElementById('lista-tarefas');
+
+  clearComp.addEventListener('click', function() {
+    const completed = document.querySelectorAll('.completed');
+    for (let index = 0; index < completed.length; index += 1) {
+      tasks.removeChild(completed[index]);
+    }
+  });
+}
+
 window.onload = function () {
   addTask();
   selectTask();
   dbClicktem();
   clearAll();
+  clearCompleted();
 };
