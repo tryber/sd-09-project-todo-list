@@ -3,6 +3,8 @@ const btnTask = document.getElementById('criar-tarefa');
 const list = document.getElementById('lista-tarefas');
 const items = document.getElementsByTagName('li');
 const btnErase = document.getElementById('apaga-tudo');
+const slcItem = document.getElementsByClassName('selected');
+const btnRm = document.getElementById('remover-selecionado');
 
 //  codigo abaixo gera novo item na lista atraves de click e enter
 function addList() {
@@ -31,6 +33,14 @@ function graySize() {
   sltdLi.classList.add('selected');
 }
 list.addEventListener('click', graySize);
+
+//  codigo para remover item selecionado da lista
+function remover() {
+  while(slcItem.length > 0){
+    slcItem[0].parentNode.removeChild(slcItem[0]);
+  }
+}
+btnRm.addEventListener('click', remover);
 
 //  codigo para apagar todos os itens da lista
 function eraseAll() {
