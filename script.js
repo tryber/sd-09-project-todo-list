@@ -53,3 +53,18 @@ function clearList(){
 };
 
 clearList();
+
+function removeCompletedTasks(){
+    let clearBtn = document.getElementById('remover-finalizados');
+    clearBtn.addEventListener('click', function(){
+        let listToClear = document.querySelectorAll('li');
+        
+        for (let index = 0; index < listToClear.length; index += 1) {
+            if (listToClear[index].className === 'completed') {
+                listToClear[index].parentNode.removeChild(listToClear[index]);
+            }            
+        }
+    });
+};
+
+removeCompletedTasks();
