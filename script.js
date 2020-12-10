@@ -70,4 +70,26 @@ window.onload = function () {
     }
   }
   bttn2.addEventListener('click', bttnClearList);
+
+  function clearFinishedButton(buttonName) {
+    const botao3 = document.getElementById('input-box');
+    const newButton = document.createElement('button');
+    const newButtonID = 'remover-finalizados';
+    newButton.innerHTML = buttonName;
+    newButton.id = newButtonID;
+    botao3.appendChild(newButton);
+  }
+  clearFinishedButton('Limpar Lista');
+  const bttn3 = document.getElementById('remover-finalizados');
+  bttn3.classList.add('limparLista');
+  function bttnClearALLList() {
+    const lista = document.getElementById('lista-tarefas');
+    const listSelected = document.querySelectorAll('.completed');
+    for (let index = 0; index < listSelected.length; index += 1) {
+      if (listSelected.length !== 0) {
+        lista.removeChild(listSelected[index]);
+      }
+    }
+  }
+  bttn3.addEventListener('click', bttnClearALLList);
 };
