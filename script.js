@@ -1,15 +1,3 @@
-window.onload = function () {
-  addTaskButton();
-  selectTaskItem();
-  taskCompleteCheckAndDescheck();
-  clearAllTasks();
-  clearCompletedTaskd();
-  saveItensTaskLocalStorage();
-  restoreItensTaskToList();
-  removeSelectedTaskItem();
-  upTaskPositionInList();
-  downTaskPositionInList();
-};
 
 // Cria novo elemento li
 function createNewElementList(content, completed) {
@@ -34,17 +22,20 @@ function addTaskButton() {
   });
 }
 
-// Mudar cor de fundo ao selecionar elemento e selecionar o item
+// Click no item desejado
 function selectTaskItem() {
-  const tasksList = document.getElementById('lista-tarefas');
-  tasksList.addEventListener('click', function (event) {
-    const lastSelected = document.querySelector('.selected');
-    const taskSelect = event.target;
-    if (lastSelected) {
-      lastSelected.classList.remove('selected');
-      taskSelect.classList.add('selected');
-    } else taskSelect.classList.add('selected');
-  });
+  const tasksList = document.getElementById('lista-tarefas'); //ol
+  tasksList.addEventListener('click', addClassSelected);
+}
+
+// Mudar cor de fundo ao selecionar elemento e selecionar o item
+function addClassSelected (event) {
+  const lastSelected = document.querySelector('.selected');
+  const taskSelect = event.target;
+  if (lastSelected) {
+    lastSelected.classList.remove('selected');
+    taskSelect.classList.add('selected');
+  } else taskSelect.classList.add('selected');
 }
 
 // Risca task quando clicado 2x
@@ -156,7 +147,7 @@ function upTaskPositionInList() {
 function downTaskPositionInList() {
   const downButton = document.querySelector('#mover-baixo');
   const allTasks = document.getElementsByClassName('task');
-const tasksList = document.getElementById('lista-tarefas');
+  const tasksList = document.getElementById('lista-tarefas');
 
 
   downButton.addEventListener('click', function () {
@@ -172,3 +163,16 @@ const tasksList = document.getElementById('lista-tarefas');
     }
   });
 }
+
+window.onload = function () {
+  addTaskButton();
+  selectTaskItem();
+  taskCompleteCheckAndDescheck();
+  clearAllTasks();
+  clearCompletedTaskd();
+  saveItensTaskLocalStorage();
+  restoreItensTaskToList();
+  removeSelectedTaskItem();
+  upTaskPositionInList();
+  downTaskPositionInList();
+};
