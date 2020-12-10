@@ -8,3 +8,8 @@
   margin: 10px;
   text-align: center;
 }
+
+.completed {
+  text-decoration: line-through ;
+  text-decoration-color: black;
+}

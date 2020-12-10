@@ -34,4 +34,18 @@ window.onload = function () {
     });
   }
   listBgColor();
+  function lineThrough (){
+    const list2 = document.getElementById('lista-tarefas');
+    list2.addEventListener('dblclick', function (event) {
+      const liList2 = document.querySelectorAll('li');
+      if (liList2.length !==0) {
+        if (event.target.classList.contains ('completed')) {
+          event.target.classList.remove('completed');
+        } else {
+          event.target.classList.add('completed');
+        }
+      }
+    });
+  }
+  lineThrough();
 };
