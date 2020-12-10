@@ -1,6 +1,6 @@
 h1 {
+	color: White;
     font-family: 'Dosis', sans-serif;
-    color: White;
     text-align: center;
 }
 
@@ -10,8 +10,8 @@ h1 {
 }
 
 li {
+	border: solid lightblue 1px;
     color: yellow;
-    border: solid lightblue 1px;
 }
 
 ol {
@@ -31,21 +31,21 @@ ol {
 }
 
 #criar-tarefa {
-    box-shadow: -3px 1px 0px -50px #fff6af;
+    box-shadow: -3px 1px 0 -50px #fff6af;
 	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
 	background-color:#ffec64;
 	border-radius:6px;
 	border:1px solid #ffaa22;
-	display:inline-block;
 	cursor:pointer;
 	color:#333333;
+	display:inline-block;
 	font-family:Arial;
 	font-size:10px;
 	font-weight:bold;
+	margin:5px;
 	padding:2px 24px;
 	text-decoration:none;
-    text-shadow:0px 0px 0px #ffee66;
-    margin:5px;
+    text-shadow:0 0 0 #ffee66;
 }
 
 #criar-tarefa:hover {
@@ -54,20 +54,20 @@ ol {
 }
 
 #apaga-tudo {
-    box-shadow: -3px 1px 0px -50px #fff6af;
+    box-shadow: -3px 1px 0 -50px #fff6af;
 	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
 	background-color:#ffec64;
 	border-radius:6px;
 	border:1px solid #ffaa22;
-	display:inline-block;
 	cursor:pointer;
 	color:#333333;
+	display:inline-block;
 	font-family:Arial;
 	font-size:10px;
 	font-weight:bold;
 	padding:2px 24px;
 	text-decoration:none;
-	text-shadow:0px 0px 0px #ffee66;
+	text-shadow:0 0 0 #ffee66;
 }
 
 #apaga-tudo:hover {
@@ -76,19 +76,19 @@ ol {
 }
 
 main {
+	align-items: center; 
     display: flex;
     flex-wrap: wrap;
     flex-flow: column wrap;
     justify-content: center;
-    align-items: center; 
 }
-/*The following background code was reproduced from the original made by Manuel Pinto, with free license. Source:https://1stwebdesigner.com/15-css-background-effects//*/
+/* The following background code was reproduced from the original made by Manuel Pinto, with free license. Source:https://1stwebdesigner.com/15-css-background-effects// */
 body {
 	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 600%;
+	font-family: 'Dosis', sans-serif;
 	-webkit-animation: gradient 15s ease infinite;
             animation: gradient 15s ease infinite;
-    font-family: 'Dosis', sans-serif;
 }
 
 @-webkit-keyframes gradient {
@@ -105,13 +105,13 @@ body {
 
 @keyframes gradient {
 	0% {
-		background-position: 0% 50%;
+		background-position: 0 50%;
 	}
 	50% {
 		background-position: 100% 50%;
 	}
 	100% {
-		background-position: 0% 50%;
+		background-position: 0 50%;
 	}
 }
-/*end of reproduced code*/
+/* end of reproduced code */
