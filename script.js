@@ -1,6 +1,6 @@
 function changeCompletedTask(event) {
   if (event.target.className === 'completed selected') {
-    event.target.className = 'selected';
+    event.target.classList.remove('completed');
   } else {
     event.target.classList.add('completed');
   }
@@ -25,11 +25,20 @@ function addTask() {
   taskList.appendChild(listItem);
 }
 
-function addCreateTaskListener() {
+function clearTasks() {
+  const taskList = document.querySelector('#lista-tarefas');
+  while (taskList.firstElementChild) {
+    taskList.removeChild(taskList.firstElementChild);
+  }
+}
+
+function addCreateButtonsListeners() {
   const createTaskButton = document.querySelector('#criar-tarefa');
+  const clearTasksButton = document.querySelector('#apaga-tudo');
   createTaskButton.addEventListener('click', addTask);
+  clearTasksButton.addEventListener('click', clearTasks);
 }
 
 window.onload = function () {
-  addCreateTaskListener();
+  addCreateButtonsListeners();
 };
