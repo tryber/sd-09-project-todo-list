@@ -34,26 +34,30 @@ function moveToUpper() {
   const listElements = document.querySelectorAll('#lista-tarefas li');
   const ol = document.querySelector('#lista-tarefas');
   const index = recoveryPosition(listElements);
-  if (index > 0) {
-    const valueToBeReplaced = listElements[index - 1];
-    ol.replaceChild(liSelected, valueToBeReplaced);
-    ol.insertBefore(valueToBeReplaced, listElements[index + 1]);
-    listElements[index - 1] = liSelected;
-    listElements[index] = valueToBeReplaced;
+  if (liSelected !== undefined && listElements.length !== 1) {
+    if (index > 0) {
+      const valueToBeReplaced = listElements[index - 1];
+      ol.replaceChild(liSelected, valueToBeReplaced);
+      ol.insertBefore(valueToBeReplaced, listElements[index + 1]);
+      listElements[index - 1] = liSelected;
+      listElements[index] = valueToBeReplaced;
+    }
+    saveTasks();
   }
-  saveTasks();
 }
 
 function moveToDown() {
   const listElements = document.querySelectorAll('#lista-tarefas li');
   const ol = document.querySelector('#lista-tarefas');
   const index = recoveryPosition(listElements);
-  if (index < listElements.length) {
-    const valueToBeReplaced = listElements[index + 1];
-    ol.replaceChild(liSelected, valueToBeReplaced);
-    ol.insertBefore(valueToBeReplaced, listElements[index]);
+  if (liSelected !== undefined && listElements.length !== 1) {
+    if (index < listElements.length && index < listElements.length - 1) {
+      const valueToBeReplaced = listElements[index + 1];
+      ol.replaceChild(liSelected, valueToBeReplaced);
+      ol.insertBefore(valueToBeReplaced, listElements[index]);
+    }
+    saveTasks();
   }
-  saveTasks();
 }
 
 function createNewLi() {
