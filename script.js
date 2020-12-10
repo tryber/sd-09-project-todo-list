@@ -120,7 +120,7 @@ window.addEventListener('load', function () {
 
 // 13- apply function to move up/down buttons
 
-function buttonMoveUpDown() {
+function buttonMoveUp() {
   const buttonUp = document.querySelector('#mover-cima');
   buttonUp.addEventListener('click', function () {
     const listElements = document.querySelectorAll('ol#lista-tarefas li');
@@ -136,4 +136,22 @@ function buttonMoveUpDown() {
     }
   });
 }
-buttonMoveUpDown();
+buttonMoveUp();
+
+function buttonMoveDown() {
+  const buttonDown = document.querySelector('#mover-baixo');
+  buttonDown.addEventListener('click', function () {
+    const listElements = document.querySelectorAll('ol#lista-tarefas li');
+    let current = ''
+    for (let index = 0; index < listElements.length; index += 1) {
+      if (listElements[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+        current = listElements[index];
+        const next = current.nextSibling;
+        if (next !== null) {
+          current.insertAdjacentElement("beforebegin", next);
+        }
+      }
+    }
+  });
+}
+buttonMoveDown();
