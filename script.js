@@ -85,37 +85,37 @@ document.querySelector('#remover-selecionado').addEventListener('click', functio
 
 // requisito 13
 // funcao criada exclusivamente para uso no botao de up e down
-function returnClassIndex(){
-  const nodeList = document.querySelectorAll('li')
-  for (let index = 0; index < nodeList.length; index +=1 ){
-    if (nodeList[index].classList.contains('selected')){
+function returnClassIndex() {
+  const nodeList = document.querySelectorAll('li');
+  for (let index = 0; index < nodeList.length; index += 1) {
+    if (nodeList[index].classList.contains('selected')) {
       return index;
-    } 
+    }
   }
-  alert ('Nenhum elemento selecionado');
+  alert('Nenhum elemento selecionado');
 }
 
 function moveParaCima() {
-  let index = returnClassIndex();
-  if (index > 0){
-    let myNode = document.querySelector('.selected');
+  const index = returnClassIndex();
+  if (index > 0) {
+    const myNode = document.querySelector('.selected');
     myNode.parentNode.insertBefore(myNode, myNode.previousSibling);
-  } else if (index === 0){
-    alert ('O elemento já está no topo da lista');
+  } else if (index === 0) {
+    alert('O elemento já está no topo da lista');
   }
 }
 
 // não existe uma função insertAfter T-T.
 function moveParaBaixo() {
-  let listSize = document.querySelectorAll('li').length - 1;
-  let index = returnClassIndex();
+  const listSize = document.querySelectorAll('li').length - 1;
+  const index = returnClassIndex();
   if (index < listSize) {
-    let myNode = document.querySelector('.selected');
+    const myNode = document.querySelector('.selected');
     myNode.parentNode.insertBefore(myNode, myNode.nextSibling.nextSibling);
   } else if (index === listSize) {
-    alert ('O elemento já está no fim da lista');
+    alert('O elemento já está no fim da lista');
   }
 }
 
-document.querySelector('#mover-cima').addEventListener('click',moveParaCima);
-document.querySelector('#mover-baixo').addEventListener('click',moveParaBaixo);
+document.querySelector('#mover-cima').addEventListener('click', moveParaCima);
+document.querySelector('#mover-baixo').addEventListener('click', moveParaBaixo);

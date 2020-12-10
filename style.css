@@ -1,5 +1,5 @@
 body {
-  background-color:rgb(153 , 193 , 222);
+  background-color: rgb(153 , 193 , 222);
 }
 
 button {
@@ -69,7 +69,7 @@ header {
 
 li {
   font-size: 1.2em;
-  padding-left: 10px;
+  text-align:center;
 }
 
 ol {
