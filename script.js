@@ -5,6 +5,19 @@ function createListItem(inputValue) {
   return li;
 }
 
+function getDataFromStorage() {
+  const myOrderedList = document.querySelector('ol');
+  for (let key = 0; key < localStorage.length; key += 1) {
+    const li = createListItem(localStorage[key].split('.')[0]);
+    if (localStorage[key].split('.')[1] === 'completed') {
+      li.className = 'completed';
+    }
+    myOrderedList.appendChild(li);
+  }
+}
+
+getDataFromStorage();
+
 function addTask() {
   const myButton = document.querySelector('button');
   const inputLine = document.querySelector('input');
@@ -96,6 +109,28 @@ function deleteCompletedTasks() {
 deleteCompletedTasks();
 
 // Bonus
+
+// Requisito 12
+function myTaskObject() {
+  const taskList = document.querySelectorAll('li');
+  const taskObject = {};
+  for (let indexElement = 0; indexElement < taskList.length; indexElement += 1) {
+    taskObject[indexElement] = taskList[indexElement].innerText + '.' +taskList[indexElement].classList;
+  }
+  localStorage.clear();
+  for(const key in taskObject) {
+    localStorage.setItem(key, taskObject[key]);
+  }
+}
+
+function saveTheData() {
+  const myButton = document.querySelector('#salvar-tarefas');
+  myButton.addEventListener('click', () => {
+    myTaskObject();
+  });
+}
+
+saveTheData();
 
 // Requisito 14
 function deleteTaskSelected() {
