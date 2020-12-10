@@ -135,13 +135,13 @@ saveTheData();
 // Requisito 13
 function moveTaskUp(selectedTask, myList) {
   if (selectedTask.previousElementSibling) {
-    myList.insertBefore(selectedTask, selectedTask.previousElementSibling);
+    return myList.insertBefore(selectedTask, selectedTask.previousElementSibling);
   }
 }
 
 function moveTaskDown(selectedTask, myList) {
   if (selectedTask.nextElementSibling) {
-    myList.insertBefore(selectedTask, selectedTask.nextElementSibling.nextElementSibling);
+    return myList.insertBefore(selectedTask, selectedTask.nextElementSibling.nextElementSibling);
   }
 }
 
@@ -161,12 +161,16 @@ function moveSelectedTask() {
   upButton.addEventListener('click', () => {
     const myList = document.querySelector('ol');
     const selectedTask = verifySelectedTask();
-    moveTaskUp(selectedTask, myList);
+    if (selectedTask) {
+      moveTaskUp(selectedTask, myList);
+    }
   });
   downButton.addEventListener('click', () => {
     const myList = document.querySelector('ol');
     const selectedTask = verifySelectedTask();
-    moveTaskDown(selectedTask, myList);
+    if (selectedTask) {
+      moveTaskDown(selectedTask, myList);
+    }
   })
 }
 
