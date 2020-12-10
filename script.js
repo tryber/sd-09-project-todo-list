@@ -41,6 +41,16 @@ deleteSelectedButton.id = 'remover-selecionado';
 deleteSelectedButton.innerHTML = 'X';
 getDivButtons.appendChild(deleteSelectedButton);
 
+const UpTaskButton = document.createElement('button');
+UpTaskButton.id = 'mover-cima';
+UpTaskButton.innerHTML = 'Up';
+getDivButtons.appendChild(UpTaskButton);
+
+const DownTaskButton = document.createElement('button');
+DownTaskButton.id = 'mover-baixo';
+DownTaskButton.innerHTML = 'Down';
+getDivButtons.appendChild(DownTaskButton);
+
 
 function addNewTask() {
   const getInputField = document.querySelector('#texto-tarefa');
@@ -127,3 +137,28 @@ function deleteSelectedTask() {
   })
 }
 deleteSelectedTask();
+
+function movingUp() {
+  const getUpButton = document.querySelector('#mover-cima');
+
+  getUpButton.addEventListener('click', function () {
+    const getSelectedTask = document.querySelector('.selected');
+    //const getOrdenedList = document.querySelector('ol');
+    if (getSelectedTask !== null && getSelectedTask.previousElementSibling !== null) {
+      getSelectedTask.parentElement.insertBefore(getSelectedTask, getSelectedTask.previousElementSibling);
+    }
+  });
+}
+movingUp();
+
+function movingDown() {
+  const getDownButton = document.querySelector('#mover-baixo');
+
+  getDownButton.addEventListener('click', function () {
+    const getSelectedTask = document.querySelector('.selected');
+    if (getSelectedTask !== null && getSelectedTask.nextElementSibling !== null) {
+      getSelectedTask.parentElement.insertBefore(getSelectedTask.nextElementSibling, getSelectedTask);
+    }
+  });
+}
+movingDown();
