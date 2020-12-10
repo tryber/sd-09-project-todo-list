@@ -142,7 +142,7 @@ function movingUp() {
 
   getUpButton.addEventListener('click', function () {
     const getSelectedTask = document.querySelector('.selected');
-    if (getSelectedTask !== null && getSelectedTask.previousElementSibling !== null && getSelectedTask !== undefined && getSelectedTask.previousElementSibling !== undefined) {
+    if (getSelectedTask !== null && getSelectedTask.previousElementSibling !== null) {
       getSelectedTask.parentElement.insertBefore(getSelectedTask, getSelectedTask.previousElementSibling);
     }
   });
