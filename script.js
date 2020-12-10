@@ -13,6 +13,7 @@ function addTodo(){
     });
 }
 addTodo();
+//requisito 5 feito com ajuda do Thiago Granville da turma 9
     function mudaCor(){
         let cor = document.getElementsByTagName("li");
         let lista = document.querySelector("#lista-tarefas");
