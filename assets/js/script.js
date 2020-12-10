@@ -5,20 +5,20 @@ function createNewTask() {
   let newTask = document.querySelector('#texto-tarefa');
   newItem.setAttribute('class', 'task');
   tasksList.appendChild(newItem).innerText = newTask.value;
+  setNewItemID(tasksList.childElementCount, newItem);
   newTask.value = '';
 }
 
+function setNewItemID(tasksList, newItem) {
+    newItem.setAttribute(`id`, `item${tasksList}`);
+    newItem.addEventListener('click', function() {
+      selectTask(newItem);
+    });
+}
+
 // Selecionar uma tarefa da lista
-function selectTask() {
-  const tasksList = document.querySelector('#lista-tarefas');
-  for (let index = 0; index < tasksList.childElementCount; index += 1) {
-    tasksList.children[index].onclick
-    /* tasksList.children[index].addEventListener('click', function() {
-      if (tasksList.children[index]) {
-        console.log(tasksList.children[index].innerText);
-      }
-    }) */
-  }
+function selectTask(task) {
+  task.style.backgroundColor = 'rgb(128 , 128 , 128)';
 }
 
 window.onload = function() {
