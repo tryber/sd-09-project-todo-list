@@ -154,4 +154,4 @@ function setAllEvents() {
   loadSavedTasks();
 }
 
-setAllEvents;
+setAllEvents();
