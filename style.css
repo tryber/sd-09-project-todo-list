@@ -1,5 +1,5 @@
 * {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
 }
 
 #funcionamento {
@@ -56,15 +56,15 @@ main {
   background-color: blue;
 }
 
-#criar-tarefa:hover, #remover-selecionado:hover {
+#criar-tarefa:hover , #remover-selecionado:hover {
   background-color: lightblue;
 }
 
-#apaga-tudo:hover, #remover-finalizados:hover {
+#apaga-tudo:hover , #remover-finalizados:hover {
   background-color: lightsalmon;
 }
 
-#mover-cima:hover, #mover-baixo:hover {
+#mover-cima:hover , #mover-baixo:hover {
   background-color: orange;
 }
 
