@@ -7,17 +7,30 @@ window.onload = function () {
   taskList.addEventListener('click', selectListItem);
 }
 
-function selectListItem(event){
-    const item = event.target;
-    if(item.className === 'selected'){
-        item.className = '';
-    }else{
-        item.className = 'selected';
-    }
-    
+function selectListItem(event) {
 
-    
+  const item = event.target;
+  classes = item.className.split(' ');
+  if (classes.includes('selected')) {
+    removeSelectedClass(item); 
+  } else {
+    const listItens = document.querySelectorAll('#lista-tarefas li');
+    for(const element of listItens){
+        removeSelectedClass(element);
+    }
+    item.className += ' selected';
+  }
 }
+
+function removeSelectedClass(item) {
+    const classes = item.className.split(' ');
+    const index = classes.indexOf('selected');
+    classes.splice(index, 1);
+    classes.join(' ');
+    item.className = classes;
+    return item;
+}
+
 function insertNewTask() {
   const inputTask = document.querySelector('#texto-tarefa');
 
@@ -60,5 +73,3 @@ function createTaskList() {
     tasksContainer.appendChild(Orderedlist);
   }
 }
-
-
