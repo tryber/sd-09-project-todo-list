@@ -13,17 +13,27 @@ function criouTarefa() {
         textoTarefas.focus();
     } 
 }
-function clear () {
+function clear() {
     const itens = document.querySelector('#lista-tarefas');
-    let lista = document.querySelectorAll('.listItem')
+    let lista = document.querySelectorAll('.listItem');
     for (let index = 0; index < lista.length; index += 1){
         itens.removeChild(lista[index])
+    }
+}
+function removeCompleted(){
+    const olPai = document.querySelector('#lista-tarefas');
+    let listaDeItens = document.querySelectorAll('.listItem');
+    for (let index = 0; index < listaDeItens.length; index += 1){
+        if (listaDeItens[index].className === 'listItem completed'){
+            olPai.removeChild(listaDeItens[index])
+        }
     }
 }
 window.onload = function () {
   const criarTarefas = document.querySelector('#criar-tarefa');
   const paiDaLi = document.querySelector('#lista-tarefas');
   const apaga = document.querySelector('#apaga-tudo')
+  const botRemoveCompleted = document.querySelector('#remover-finalizados')
   paiDaLi.addEventListener('click', function (event) {
       const itemLista = event.target;
       const todas = document.querySelectorAll('.listItem');
@@ -36,5 +46,6 @@ window.onload = function () {
     event.target.classList.toggle('completed');
   }) 
   criarTarefas.addEventListener('click', criouTarefa);
-  apaga.addEventListener('click', clear)
+  apaga.addEventListener('click', clear);
+  botRemoveCompleted.addEventListener('click', removeCompleted)
 }
