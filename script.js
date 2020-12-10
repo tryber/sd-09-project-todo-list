@@ -33,12 +33,7 @@ function Tasks() {
       const valueTask = myTagInputerTask.value
       const myTagOlListTasks = factory.MyTagOlListTasks
 
-    myTagOlListTasks.innerHTML += `<li>${valueTask}<li>`
-
-    const indexTheLast = myTagOlListTasks.childNodes.length - 1
-
-    const removeTheLast = myTagOlListTasks.childNodes[indexTheLast]
-    myTagOlListTasks.removeChild(removeTheLast)
+      myTagOlListTasks.innerHTML += `<li>${valueTask}</li>`
 
     // clean the input after click
     myTagInputerTask.value = null
