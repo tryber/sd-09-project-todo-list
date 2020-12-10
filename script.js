@@ -56,7 +56,7 @@ function generateRemoveCompletedTasksButton() {
   const container = document.getElementById('inputs');
   const newButton = document.createElement('button');
   newButton.id = 'remover-finalizados';
-  newButton.innerText = 'Remove completed tasks';
+  newButton.innerText = 'Delete completed tasks';
 
   container.appendChild(newButton);
   newButton.addEventListener('click', function () {
@@ -154,6 +154,19 @@ function generateUpAndDownButtons() {
   downButton.addEventListener('click', moveDown);
 }
 
+function generateSelectedTaskButton() {
+  const container = document.getElementById('inputs');
+  const selectedButton = document.createElement('button');
+  selectedButton.id = 'remover-selecionado';
+  selectedButton.innerText = 'Delete selected task';
+
+  container.appendChild(selectedButton);
+  selectedButton.addEventListener('click', function () {
+    const target = document.querySelector('#selected');
+    target.parentNode.removeChild(target);
+  });
+}
+
 function completedListItem(item) {
   const selectedItem = item.target.style.backgroundColor;
   if (selectedItem === 'rgb(128, 128, 128)' && item.target.className !== 'completed') {
@@ -206,6 +219,7 @@ window.onload = function () {
   generateRemoveCompletedTasksButton();
   generateSaveTasksButton();
   generateUpAndDownButtons();
+  generateSelectedTaskButton();
   selectListItem();
   loadSavedTasks();
 };
