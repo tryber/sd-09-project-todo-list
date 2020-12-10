@@ -60,3 +60,20 @@ function clearToDoList() {
 }
 
 clearToDoList();
+
+function clearCompletedToDos() {
+  const clearCompletedButton = document.querySelector('#remover-finalizados');
+
+  clearCompletedButton.addEventListener('click', function () {
+    const toDoList = document.querySelector('#lista-tarefas');
+    const toDos = document.querySelectorAll('#lista-tarefas li');
+
+    toDos.forEach(function (toDo) {
+      if (toDo.className === 'completed') {
+        toDoList.removeChild(toDo);
+      }
+    });
+  });
+}
+
+clearCompletedToDos();
