@@ -4,14 +4,23 @@ const list = document.getElementById('lista-tarefas');
 const items = document.getElementsByTagName('li');
 const btnErase = document.getElementById('apaga-tudo');
 
-//  codigo abaixo gera novo item na lista
+//  codigo abaixo gera novo item na lista atraves de click e enter
 function addList() {
   const clipboard = taskTxt.value;
   const itemList = document.createElement('li');
-  itemList.innerText = clipboard;
+  itemList.innerText = clipboard; 
   list.appendChild(itemList);
   taskTxt.value = '';
 }
+
+taskTxt.addEventListener('keyup', function(event) {
+  event.preventDefault();
+  if (event.keyCode === 13) {
+      document.getElementById("criar-tarefa").click();
+  }
+});
+
+btnTask.addEventListener('click', addList);
 
 //  codigo para tornar o item da lista cinza quando clicado
 function graySize() {
@@ -21,7 +30,6 @@ function graySize() {
   }
   sltdLi.classList.add('selected');
 }
-btnTask.addEventListener('click', addList);
 list.addEventListener('click', graySize);
 
 //  codigo para apagar todos os itens da lista
