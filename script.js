@@ -67,13 +67,14 @@ function buttonRemoveAll() {
     const listElements = document.querySelectorAll('ol#lista-tarefas li');
     for (let index = 0; index < listElements.length; index += 1) {
       list.removeChild(listElements[index]);
+      localStorage.removeItem(index);
     }
   });
 }
 buttonRemoveAll();
 
 function buttonRemoveCompletedTasks() {
-  const button = document.querySelector('#remover-selecionado');
+  const button = document.querySelector('#remover-finalizados');
   button.addEventListener('click', function () {
     const list = document.querySelector('ol#lista-tarefas');
     const listElements = document.querySelectorAll('ol#lista-tarefas li');
@@ -85,3 +86,23 @@ function buttonRemoveCompletedTasks() {
   });
 }
 buttonRemoveCompletedTasks();
+
+function buttonSaveTaskList () {
+  const button = document.querySelector('#salvar-tarefas');
+  button.addEventListener('click', function () {
+    const listElements = document.querySelectorAll("ol#lista-tarefas li");
+    for (let index = 0; index < listElements.length; index += 1) {
+      localStorage.setItem(index, listElements[index].innerText)
+    }
+  });
+}
+buttonSaveTaskList ();
+
+window.addEventListener('load', function () {
+  const list = document.querySelector('ol#lista-tarefas');
+  for (let index = 0; index < localStorage.length; index += 1) {
+    const newElement = document.createElement('li');
+    newElement.innerText = localStorage.getItem(index);
+    list.appendChild(newElement);
+  }
+});
