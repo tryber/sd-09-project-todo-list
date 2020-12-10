@@ -1,3 +1,12 @@
+// Marcar ou desmarcar a tarefa como completa
+function completeTask(task) {
+  if (task.classList.contains('completed')) {
+    task.classList.remove('completed');
+  } else {
+    task.classList.add('completed');
+  }
+}
+
 // Desmarca a tarefa selecionada anteriormente
 function clearSelected() {
   const tasksList = document.querySelector('#lista-tarefas');
@@ -18,6 +27,9 @@ function setNewItemProperties(tasksList, newItem) {
   newItem.addEventListener('click', function () {
     selectTask(newItem);
   });
+  newItem.addEventListener('dblclick', function() {
+    completeTask(newItem);
+  })
 }
 
 // Adicionar nova tarefa
