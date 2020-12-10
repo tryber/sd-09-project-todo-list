@@ -68,11 +68,9 @@ ol {
 
 .selected {
     background-color: rgb(128, 128, 128);
-    transition: ease 0.5s;
-    border-radius: 3px;
 }
 
-.lineThroughItem {
+.completed {
     text-decoration: line-through solid rgb(0, 0, 0);
 }
 .task {

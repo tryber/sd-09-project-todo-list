@@ -97,7 +97,7 @@ function lineThroughItem() {
         console.log(target)
 
         if (event.target.className == 'task selected') {
-            target.className = 'task selected lineThroughItem'
+            target.className = 'task selected completed'
         }
     })
 }
