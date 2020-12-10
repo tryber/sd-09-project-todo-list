@@ -86,13 +86,14 @@ document.querySelector('#remover-selecionado').addEventListener('click', functio
 // requisito 13
 // funcao criada exclusivamente para uso no botao de up e down
 function returnClassIndex() {
+  let selectedIndex;
   const nodeList = document.querySelectorAll('li');
   for (let index = 0; index < nodeList.length; index += 1) {
     if (nodeList[index].classList.contains('selected')) {
-      return index;
+      selectedIndex = index;
     }
   }
-  return alert('There is nothing selected')
+  return selectedIndex;
 }
 
 function moveParaCima() {
