@@ -21,19 +21,19 @@ function createTask() {
   return 0;
 }
 
-function setTaskAsFinished(evt) {
-    if (evt.target.className) {
-      unselectTaskItem();
-      evt.target.classList.toggle('completed');
-    }
-    setFocusToInputText();
-  }
-
 function unselectTaskItem() {
   const taskItems = document.querySelectorAll('.task-item');
   for (let index = 0; index < taskItems.length; index += 1) {
     taskItems[index].classList.remove('selected-task');
   }
+}
+
+function setTaskAsFinished(evt) {
+  if (evt.target.className) {
+    unselectTaskItem();
+    evt.target.classList.toggle('completed');
+  }
+  setFocusToInputText();
 }
 
 function selectTaskItem(evt) {
