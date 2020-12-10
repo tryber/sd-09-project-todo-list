@@ -3,13 +3,13 @@ function addTask() {
   const taskList = document.querySelector('#lista-tarefas');
   const listItem = document.createElement('li');
   listItem.innerText = taskName.value;
-  listItem.addEventListener('click', changeTaskBgcolor);
+  listItem.addEventListener('click', changeSelectedTask);
   taskName.value = '';
   taskList.appendChild(listItem);
 }
 
 function changeSelectedTask(event) {
-  const selectedTask = document.querySelector('.selected')
+  const selectedTask = document.querySelector('.selected');
   if (selectedTask) {
     selectedTask.classList.remove('selected');
   }
