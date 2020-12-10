@@ -58,3 +58,41 @@ function removeCompleted() {
         everyCompleted[index].remove()
     }
 }
+
+const saveTasksButton = document.querySelector("#salvar-tarefas");
+saveTasksButton.addEventListener('click', saveTasks);
+let saveState = false;
+function saveTasks(){
+    saveState = true;
+    const taskArray = document.querySelectorAll('li');
+    let infoTasks = [];
+    for (let index = 0; index < taskArray.length; index++){
+        infoTasks.push({
+            'contentText': taskArray[index].innerText,
+            'taskClassList': taskArray[index].classList,
+        })
+    }
+    //duvida storage
+    console.log(infoTasks)
+}
+// duvida o item acima e o selecionado são invertidos ou todos os itens andam uma casa para cima?
+// const moveUpButton = document.querySelectorAll('#mover-cima');
+// moveUpButton.addEventListener('click', moveUp);
+// function moveUp(){
+//     const taskArray = document.querySelectorAll('li')
+//     if (document.querySelector('.selected')){
+//         const itemSelected = document.querySelector('.selected');
+//         const taskTextInfo = itemSelected.innerText;
+//         const taskClassList = itemSelected.classList;
+
+
+//     } else {
+//     }
+// }
+
+const removeSelectedButton = document.querySelector('#remover-selecionado');
+removeSelectedButton.addEventListener('click', removeSelected);
+function removeSelected() {
+    const itemSelected = document.querySelector('.selected');
+    itemSelected.remove()
+}
