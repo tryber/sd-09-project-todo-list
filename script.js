@@ -172,9 +172,9 @@ function positionList() {
 // Referencia  insertBefore
 // https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
 function moveTop() {
-  const selected = document.querySelector('.selected');
   const verific = positionList();
   if (verific > 0) {
+    const selected = document.querySelector('.selected');
     selected.parentNode.insertBefore(selected, selected.previousSibling);
   }
 }
@@ -185,9 +185,9 @@ const buttonDown = document.querySelector('#mover-baixo');
 
 function moveDown() {
   const lastList = document.querySelectorAll('li')
-  const selected = document.querySelector('.selected');
   const verific = positionList();
   if (verific < (lastList.length - 1)) {
+    const selected = document.querySelector('.selected');
     selected.parentNode.insertBefore(selected, selected.nextSibling.nextSibling);
   }
 }
