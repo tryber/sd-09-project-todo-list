@@ -92,6 +92,7 @@ function returnClassIndex() {
       return index;
     }
   }
+  return alert('There is nothing selected')
 }
 
 function moveParaCima() {
