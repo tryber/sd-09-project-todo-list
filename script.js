@@ -4,7 +4,37 @@ const globalElements = {
   removeCompletedButton: document.querySelector('#remover-finalizados'),
   newTaskInput: document.querySelector('#texto-tarefa'),
   taskList: document.querySelector('#lista-tarefas'),
+  tasksArray: [],
 };
+
+// storage.setItem("trybe", JSON.stringify(organization))
+// let org = JSON.parse(storage.getItem("trybe"))
+// console.log(org) // { name: "trybe", since: 2019 }
+
+// function pushTaskToArray(element) {
+//   const taskObject = {
+    
+//   }
+// }
+
+function removeElement(element) {
+  element.remove();
+}
+
+function callAllBySelector(calledFunction, selector) {
+  const nodeList = document.querySelectorAll(selector);
+  for (let index = 0; index < nodeList.length; index += 1) {
+    calledFunction(nodeList[index]);
+  }
+}
+
+// function saveTasks() {
+  
+// }
+
+// function loadTasks() {
+
+// }
 
 function setPropertiesToNewElement(element, propertiesObject) {
   const propertiesKeys = Object.keys(propertiesObject);
@@ -53,24 +83,9 @@ function highlightTask(event) {
   }
 }
 
-function toggleClass(element, className) {
-  if (elementHasClass(element, className)) {
-    element.classList.remove(className);
-  } else {
-    element.classList.add(className);
-  }
-}
-
 function toggleTaskAsCompleted(event) {
   if (elementHasClass(event.target, 'task')) {
-    toggleClass(event.target, 'completed');
-  }
-}
-
-function removeAllBySelector(selector) {
-  const nodeList = document.querySelectorAll(selector);
-  for (let index = 0; index < nodeList.length; index += 1) {
-    nodeList[index].remove();
+    event.target.classList.toggle('completed');
   }
 }
 
@@ -85,13 +100,13 @@ function setTaskListEvent() {
 
 function setClearTasksEvent() {
   globalElements.clearTasksButton.addEventListener('click', function () {
-    removeAllBySelector('.task');
+    callAllBySelector(removeElement, '.task');
   });
 }
 
 function setRemoveCompletedEvent() {
   globalElements.removeCompletedButton.addEventListener('click', function () {
-    removeAllBySelector('.completed');
+    callAllBySelector(removeElement, '.completed');
   });
 }
 
