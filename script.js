@@ -1,5 +1,5 @@
+const body = document.querySelector('body');
 function addHeader() {
-  const body = document.querySelector('body');
   const createHeader = document.createElement('header');
   body.appendChild(createHeader);
   // addHeader();
@@ -12,7 +12,15 @@ function addTitle() {
   header.appendChild(createTitle);
 }
 
-window.onload = function() {
+function addParagraph() {
+  const createParagraph = document.createElement('p');
+  createParagraph.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
+  createParagraph.id = 'funcionamento';
+  body.appendChild(createParagraph);
+}
+
+window.onload = function () {
   addHeader();
   addTitle();
-}
+  addParagraph();
+};
