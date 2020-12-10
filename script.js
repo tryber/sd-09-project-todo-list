@@ -154,7 +154,7 @@ createButton('mover-cima', 'Top', '.buttons');
 const buttonTop = document.querySelector('#mover-cima');
 
 function positionList() {
-  const resultIndex = 0;
+  let resultIndex = 0;
   const list = document.querySelectorAll('li');
   if (list === null) {
     return;
