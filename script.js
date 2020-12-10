@@ -1,3 +1,15 @@
+function backgroundcolorItem() {
+  const listItem = document.querySelectorAll('li');
+  for (let index = 0; index < listItem.length; index += 1) {
+    listItem[index].addEventListener('click', function (event) {
+      for (item = 0; item < listItem.length; item += 1) {
+        listItem[item].style.backgroundColor = '';
+      }
+    event.target.style.backgroundColor = 'rgb(128,128,128)';
+    });
+  }
+}
+
 function btnAdd() {
   const btn = document.querySelector('#criar-tarefa');
   btn.addEventListener('click', function () {
@@ -9,19 +21,6 @@ function btnAdd() {
     input.value = '';
     backgroundcolorItem();
   });
-}
-
-function backgroundcolorItem() {
-  const listItem = document.querySelectorAll('li');
-  console.log(listItem);
-  for (let index = 0; index < listItem.length; index += 1) {
-    listItem[index].addEventListener('click', function (event) {
-      for (item = 0; item < listItem.length; item += 1) {
-          listItem[item].style.backgroundColor = '';
-      }
-      event.target.style.backgroundColor = 'rgb(128,128,128)';
-    });
-  }
 }
 
 window.onload = function () {
