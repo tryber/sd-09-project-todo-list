@@ -5,6 +5,7 @@ function addTask () {
     const taskList = document.querySelector('#lista-tarefas');
     const taskItem = document.createElement('li');
     taskItem.innerText = inputText.value;
+    inputText.value = null;
     taskList.appendChild(taskItem);
     taskList.classList.add('task');
     taskItem.addEventListener('click', selectItem);
