@@ -1,4 +1,4 @@
 function setCreateTaskEvent() {
-    const createBtn = document.querySelector('#criar-tarefa');
-    createBtn.addEventListener('click', createTask);
+  const createBtn = document.querySelector('#criar-tarefa');
+  createBtn.addEventListener('click', createTask);
 }
