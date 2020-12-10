@@ -92,7 +92,7 @@ function markCompletedTasks() {
       event.target.classList.remove('completed');
     } else {
       event.target.classList.add('completed');
-    };
+    }
   });
 }
 markCompletedTasks();
@@ -109,7 +109,6 @@ deleteAllTasks();
 
 function deleteCompletedTasks() {
   const getCompletedButton = document.querySelector('#remover-finalizados');
-  
   getCompletedButton.addEventListener('click', function () {
     const getCompletedTasks = document.querySelectorAll('.completed');
     for (let index = 0; index < getCompletedTasks.length; index += 1) {
@@ -134,7 +133,7 @@ function deleteSelectedTask() {
   getDeleteSelectedButton.addEventListener('click', function () {
     const getSelectedTask = document.querySelector('.selected');
     getSelectedTask.remove();
-  })
+  });
 }
 deleteSelectedTask();
 
