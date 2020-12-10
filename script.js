@@ -7,6 +7,12 @@ const slcItem = document.getElementsByClassName('selected');
 const btnRm = document.getElementById('remover-selecionado');
 const btnFin = document.getElementById('remover-finalizados');
 const finalized = document.getElementsByClassName('completed');
+const btnSave = document.getElementById('salvar-tarefas');
+let saved = localStorage.getItem('savedTasks');
+
+if (saved) {
+  list.innerHTML = saved;
+}
 
 //  codigo abaixo gera novo item na lista atraves de click e enter
 function addList() {
@@ -27,7 +33,7 @@ taskTxt.addEventListener('keyup', function(event) {
 btnTask.addEventListener('click', addList);
 
 //  codigo para tornar o item da lista cinza quando clicado
-function graySize() {
+function graySize(event) {
   const sltdLi = event.target;
   for (let i = 0; i < items.length; i += 1) {
     items[i].classList.remove('selected');
@@ -53,7 +59,7 @@ function eraseAll() {
 btnErase.addEventListener('click', eraseAll);
 
 // codigo a seguir confere linha riscada em cada tarefa
-function lineT() {
+function lineT(event) {
   const doneTask = event.target;
   if (doneTask.className.includes('completed')) {
     doneTask.classList.remove('completed');
@@ -70,3 +76,11 @@ function remFin() {
   }
 }
 btnFin.addEventListener('click', remFin);
+
+//  codigo salva alteracoes
+function save(event) {
+  event.preventDefault();
+	if (list.length < 1) return;
+	localStorage.setItem('savedTasks', list.innerHTML);
+}
+btnSave.addEventListener('click', save);

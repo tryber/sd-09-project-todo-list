@@ -46,8 +46,8 @@ ol {
 	font-family:Arial;
 	font-size:10px;
 	font-weight:bold;
-	margin:5px;
-	padding:2px 24px;
+	margin:2px;
+	padding:2px 14px;
 	text-decoration:none;
     text-shadow:0 0 0 #ffee66;
 }
@@ -64,6 +64,18 @@ main {
     flex-flow: column wrap;
     justify-content: center;
 }
+
+.footer {
+	color: white;
+	text-align: center;
+	margin-bottom: 0;
+	margin-top: 2em;
+}
+
+a {
+	color: white;
+}
+
 /* The following background code was reproduced from the original made by Manuel Pinto, with free license. Source:https://1stwebdesigner.com/15-css-background-effects// */
 body {
 	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
