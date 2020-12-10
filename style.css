@@ -3,8 +3,8 @@
 }
 
 .button {
-  height: 30px;
   border-radius: 10px;
+  height: 30px;
 }
 
 .completed {
@@ -12,7 +12,7 @@
 }
 
 .green {
-  background-color: rgb(111, 194, 111);
+  background-color: rgb(111 , 194 , 111);
 }
 
 .input {
@@ -20,7 +20,7 @@
 }
 
 .red {
-  background-color: rgb(250, 51, 51);
+  background-color: rgb(250 , 51 , 51);
 }
 
 .selected {
@@ -28,6 +28,5 @@
 }
 
 .yellow {
-  background-color: rgb(243, 243, 83);
+  background-color: rgb(243 , 243 , 83);
 }
-

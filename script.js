@@ -72,7 +72,7 @@ function saveList() {
 
 function getList() {
   const tasks = document.getElementById('lista-tarefas');
-  for (index = 0; index < localStorage.length; index += 1) {
+  for (let index = 0; index < localStorage.length; index += 1) {
     const recListItem = document.createElement('li');
     recListItem.innerText = localStorage.getItem(index);
     tasks.appendChild(recListItem);
