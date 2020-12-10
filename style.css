@@ -106,7 +106,6 @@ body {
   cursor: pointer;
   margin-top: 9px;
   padding: 10px;
-  transition: 0.5s;
 }
 
 .selected {
