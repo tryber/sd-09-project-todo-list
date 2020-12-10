@@ -1,6 +1,21 @@
 window.onload = function () {
   const criarTarefas = document.querySelector('#criar-tarefa');
-  function criouTarefa() {
+  criarTarefas.addEventListener('click', criouTarefa);
+  const paiDaLi = document.querySelector('#lista-tarefas');
+  paiDaLi.addEventListener('click', function (event) {
+      let itemLista = event.target  
+        let todas = document.querySelectorAll('.listItem')
+        for (let index = 0; index < todas.length; index += 1){
+            todas[index].style.backgroundColor = ''
+        };
+        itemLista.style.backgroundColor = 'rgb(128, 128, 128)';
+        itemLista.addEventListener('dblclick', function () {
+           itemLista.classList.toggle('completed');
+           alert('WTF');
+        })
+    })
+}
+function criouTarefa() {
     const textoTarefas = document.querySelector('#texto-tarefa');
     const listItem = document.createElement('li');
     const orderList = document.querySelector('#lista-tarefas');
@@ -15,19 +30,3 @@ window.onload = function () {
         textoTarefas.focus();
     } 
   }
-  criarTarefas.addEventListener('click', criouTarefa);
-
-  const paiDaLi = document.querySelector('#lista-tarefas')
-  paiDaLi.addEventListener('click', function (event) {
-      let itemLista = event.target       
-        if (itemLista.style.backgroundColor === ''){
-            itemLista.style.backgroundColor = 'rgb(128, 128, 128)'
-        }    
-        let todas = document.querySelectorAll('.listItem')
-        for (let index = 0; index < todas.length; index += 1){
-            todas[index].style.backgroundColor = ''
-        }
-        event.target.style.backgroundColor = 'rgb(128, 128, 128)'
-    })
-}
-

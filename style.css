@@ -6,3 +6,7 @@
     font-weight: 700;
     font-size: 18px;    
 }
+
+.completed {
+    text-decoration: line-through;
+}
