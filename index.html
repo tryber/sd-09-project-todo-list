@@ -11,8 +11,18 @@
         <header>Minha Lista de Tarefas
             <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
         </header>
-        <div class="input-session"></div>
-        <div class="tasks"></div>
+        <div class="input-session">
+            <form id="input-bar">
+                <label for="data-inserted"></label>
+                <input id="texto-tarefa" type="text" name="tarefa">
+                <button id="criar-tarefa" type="submit">Adicionar tarefa</button>
+            </form>
+        </div>
+        <div class="tasks">
+            <ol id='lista-tarefas'></ol>
+        </div>
+        <div class="tools">
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
