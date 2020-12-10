@@ -1,5 +1,5 @@
 function setFocusToInputText() {
-  inputText = document.getElementById('texto-tarefa');
+  const inputText = document.getElementById('texto-tarefa');
   inputText.focus();
 }
 
@@ -40,4 +40,3 @@ const createTaskButton = document.getElementById('criar-tarefa');
 const taskOrderedList = document.getElementById('lista-tarefas');
 taskOrderedList.addEventListener('click', selectTaskItem);
 createTaskButton.addEventListener('click', createTask);
-
