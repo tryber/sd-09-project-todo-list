@@ -1,8 +1,8 @@
 const globalElements = {
   createTaskButton: document.querySelector('#criar-tarefa'),
-  newTaskInput:     document.querySelector('#texto-tarefa'),
-  taskList:         document.querySelector('#lista-tarefas'),
-}
+  newTaskInput: document.querySelector('#texto-tarefa'),
+  taskList: document.querySelector('#lista-tarefas'),
+};
 
 function setPropertiesToNewElement(element, propertiesObject) {
   const propertiesKeys = Object.keys(propertiesObject);
@@ -22,7 +22,7 @@ function addNewTask(newTask) {
   globalElements.taskList.appendChild(newTask);
 }
 
-function resetTaskValue(newTask) {
+function resetTaskValue() {
   globalElements.newTaskInput.value = '';
 }
 
