@@ -95,8 +95,7 @@ function toggleTaskAsCompleted(event) {
   }
 }
 
-function moveSelected(direction) {
-  const selectedTask = document.querySelector('.selected');
+function moveSelected(selectedTask, direction) {
   const isFirstTask = (globalElements.taskList.firstElementChild === selectedTask);
   const isLastTask = (globalElements.taskList.lastElementChild === selectedTask);
   let relatedTask;
@@ -107,6 +106,13 @@ function moveSelected(direction) {
   if ((direction === 'down') && !(isLastTask)) {
     relatedTask = selectedTask.nextElementSibling;
     globalElements.taskList.insertBefore(relatedTask, selectedTask);
+  }
+}
+
+function getAndMmoveSelected(direction) {
+  const selectedTask = document.querySelector('.selected');
+  if (selectedTask) {
+    moveSelected(selectedTask, direction);
   }
 }
 
@@ -136,8 +142,8 @@ function setRemoveCompletedEvent() {
 }
 
 function setMovesEvent() {
-  globalElements.moveUpButton.addEventListener('click', function () { moveSelected('up'); });
-  globalElements.moveDownButton.addEventListener('click', function () { moveSelected('down'); });
+  globalElements.moveUpButton.addEventListener('click', function () { getAndMmoveSelected('up'); });
+  globalElements.moveDownButton.addEventListener('click', function () { getAndMmoveSelected('down'); });
 }
 
 function setRemoveSelectedEvent() {
