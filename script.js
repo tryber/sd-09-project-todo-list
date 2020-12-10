@@ -10,6 +10,20 @@ function backgroundcolorItem() {
   }
 }
 
+function taskCompleted() {
+  const listItem = document.querySelectorAll('li');
+  for (let index = 0; index < listItem.length; index += 1) {
+    listItem[index].addEventListener('dblclick', function (event) {
+        console.log(event.target.className);
+      if (event.target.className == '') {
+        event.target.className = 'completed';
+      } else {
+        event.target.className = '';
+      }
+    });
+  }
+}
+
 function btnAdd() {
   const btn = document.querySelector('#criar-tarefa');
   btn.addEventListener('click', function () {
@@ -20,6 +34,7 @@ function btnAdd() {
     listTask.appendChild(li);
     input.value = '';
     backgroundcolorItem();
+    taskCompleted();
   });
 }
 
