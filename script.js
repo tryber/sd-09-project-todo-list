@@ -1,8 +1,8 @@
 // Remove Background dos Itens
 function removeBackgroundItems(arrayTasks) {
-  for (const task of arrayTasks) {
-    if (task.style.backgroundColor !== '') {
-      task.removeAttribute('style');
+  for (let task = 0; task < arrayTasks.length; task += 1) {
+    if (task[index].style.backgroundColor !== '') {
+      task[index].removeAttribute('style');
     }
   }
 }
