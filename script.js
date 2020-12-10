@@ -61,11 +61,20 @@ function toggleClass(element, className) {
 }
 
 function toggleTaskAsCompleted(event) {
-  const element = event.target;
-  const className = 'completed';
-  if (elementHasClass(element, className)) {
-    toggleClass(element, className);
+  if (elementHasClass(event.target, 'task')) {
+    toggleClass(event.target, 'completed');
   }
+}
+
+function removeAllBySelector(selector) {
+  const nodeList = document.querySelectorAll(selector);
+  for (let index = 0; index < nodeList.length; index += 1) {
+    nodeList[index].remove();
+  }
+}
+
+function clearAllTasks() {
+  removeAllBySelector('.task');
 }
 
 function setCreateTaskEvent() {
@@ -77,9 +86,14 @@ function setTaskListEvent() {
   globalElements.taskList.addEventListener('dblclick', toggleTaskAsCompleted);
 }
 
+function setClearTasksEvent() {
+  globalElements.clearTasksButton.addEventListener('click', clearAllTasks);
+}
+
 function setAllEvents() {
   setCreateTaskEvent();
   setTaskListEvent();
+  setClearTasksEvent();
 }
 
 setAllEvents();
