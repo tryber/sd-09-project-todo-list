@@ -122,6 +122,9 @@ const buttonSaveList = document.querySelector('#salvar-tarefas');
 
 function returnTotal() {
   const array = JSON.parse(localStorage.getItem('tasks'));
+  if (array === []) {
+    return;
+  }
   for (let index = 0; index < array.length; index += 2) {
     let classLocal = array[index];
     let texto = array[index+1];
@@ -158,5 +161,5 @@ function moveTop() {
 }
 
 createButton('mover-baixo', 'Down', '.buttons');
-const buttonDown = document.querySelector('#mover-baixo');
+
 returnTotal();
