@@ -1,5 +1,5 @@
 window.onload = function() {
-  const tasksList = document.getElementById('lista-tarefas');
+  let tasksList = document.getElementById('lista-tarefas');
 
   //Criar lista de tarefas
   // function createNewElementList() {
@@ -14,7 +14,7 @@ window.onload = function() {
   //     taskTextInput.value = '';
   //   });
   // }
-  function createNewElementList(content, completed) {    
+  function createNewElementList(content, completed) {
       const newTask = document.createElement('li');
       newTask.innerText = content;
       newTask.classList.add('task');
@@ -127,6 +127,43 @@ window.onload = function() {
     });
   }
 
+  // sobe a task na lista de tarefas
+  function upTaskPositionInList() {
+    const upButton = document.querySelector('#mover-cima');
+    const allTasks = document.getElementsByClassName('task');
+
+    upButton.addEventListener('click', function() {
+      let selectedTask = document.querySelector('.selected');
+      let position;
+      for (let index = 0; index < allTasks.length; index += 1) {
+        if (allTasks[index] === selectedTask) position = index - 1;
+      }
+      if (selectedTask && selectedTask.previousSibling) {
+        tasksList.insertBefore(selectedTask, allTasks[position]);
+      }
+    });
+  }
+
+  // Desce a task na lista de tarefas
+  function downTaskPositionInList() {
+    const downButton = document.querySelector('#mover-baixo');
+    const allTasks = document.getElementsByClassName('task');
+
+    downButton.addEventListener('click', function() {
+      let selectedTask = document.querySelector('.selected');
+      let position;
+      for (let index = 0; index < allTasks.length; index += 1) {
+        if (allTasks[index] == selectedTask) {
+          position = index + 1;
+        } 
+      }
+      if (selectedTask && selectedTask.nextSibling) {
+        console.log('passou')
+        tasksList.insertBefore(selectedTask, allTasks[position].nextSibling);
+      }
+    });
+  }
+
   addTaskButton();
   selectTaskItem();
   taskCompleteCheckAndDescheck();
@@ -135,4 +172,6 @@ window.onload = function() {
   saveItensTaskLocalStorage();
   restoreItensTaskToList();
   removeSelectedTaskItem();
+  upTaskPositionInList();
+  downTaskPositionInList();
 }
