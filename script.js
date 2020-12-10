@@ -89,10 +89,12 @@ function buttonMoveTop() {
     const ol = document.querySelector('#lista-tarefas');
     const listOfItem = document.querySelectorAll('.item-list');
     for (let index = 0; index < listOfItem.length; index += 1) {
-      if (listOfItem[index].classList.contains('selected')) {
-        let aux = listOfItem[index - 1];
-        ol.replaceChild(listOfItem[index], listOfItem[index - 1]);
-        listOfItem[index].after(aux)
+      if (index !== 0) {
+        if (listOfItem[index].classList.contains('selected')) {
+          let aux = listOfItem[index - 1];
+          ol.replaceChild(listOfItem[index], listOfItem[index - 1]);
+          listOfItem[index].after(aux)
+        }
       }
     }
   })
@@ -105,10 +107,12 @@ function buttonMoveDown() {
     const ol = document.querySelector('#lista-tarefas');
     const listOfItem = document.querySelectorAll('.item-list');
     for (let index = 0; index < listOfItem.length; index += 1) {
-      if (listOfItem[index].classList.contains('selected')) {
-        let aux = listOfItem[index + 1]
-        ol.replaceChild(listOfItem[index], listOfItem[index + 1]);
-        listOfItem[index].before(aux)
+      if (index !== (listOfItem.length -1)) {
+        if (listOfItem[index].classList.contains('selected')) {
+          let aux = listOfItem[index + 1]
+          ol.replaceChild(listOfItem[index], listOfItem[index + 1]);
+          listOfItem[index].before(aux)
+        }
       }
     }
   });
