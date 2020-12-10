@@ -88,11 +88,10 @@ document.querySelector('#remover-selecionado').addEventListener('click', functio
 function returnClassIndex() {
   const nodeList = document.querySelectorAll('li');
   for (let index = 0; index < nodeList.length; index += 1) {
-      if (nodeList[index].classList.contains('selected')) {
+    if (nodeList[index].classList.contains('selected')) {
       return index;
-      }
+    }
   }
-  return alert('Nenhum elemento selecionado');
 }
 
 function moveParaCima() {
