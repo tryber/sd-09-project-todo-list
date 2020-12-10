@@ -50,6 +50,7 @@ addTask();
 function setItemWhiteColor(array) {
   for (const item of array) {
     item.style.background = 'white';
+    item.className = '';
   }
 }
 
@@ -59,6 +60,7 @@ function setTaskColor() {
     const myList = document.querySelectorAll('li');
     setItemWhiteColor(myList);
     event.target.style.background = 'rgb(128 , 128 , 128)';
+    event.target.className = 'selected';
   });
 }
 
@@ -133,6 +135,34 @@ function saveTheData() {
 saveTheData();
 
 // Requisito 13
+function moveTaskUp(selectedTask, myList) {
+  if (selectedTask.previousElementSibling) {
+    myList.insertBefore(selectedTask, selectedTask.previousElementSibling);
+  }
+}
+
+function moveTaskDown(selectedTask, myList) {
+  if (selectedTask.nextElementSibling) {
+    myList.insertBefore(selectedTask, selectedTask.nextElementSibling.nextElementSibling);
+  }
+}
+
+function moveSelectedTask() {
+  const upButton = document.querySelector('#mover-cima');
+  const downButton = document.querySelector('#mover-baixo');
+  upButton.addEventListener('click', () => {
+    const myList = document.querySelector('ol');
+    const selectedTask = document.querySelector('.selected');
+    moveTaskUp(selectedTask, myList);
+  });
+  downButton.addEventListener('click', () => {
+    const myList = document.querySelector('ol');
+    const selectedTask = document.querySelector('.selected');
+    moveTaskDown(selectedTask, myList);
+  })
+}
+
+moveSelectedTask();
 
 // Requisito 14
 function deleteTaskSelected() {
