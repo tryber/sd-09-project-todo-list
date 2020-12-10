@@ -2,15 +2,32 @@ window.onload = function() {
   const tasksList = document.getElementById('lista-tarefas');
 
   //Criar lista de tarefas
-  function createNewElementList() {
-    const createTaskButton = document.getElementById('criar-tarefa');
+  // function createNewElementList() {
+  //   const createTaskButton = document.getElementById('criar-tarefa');
 
-    createTaskButton.addEventListener('click', function() {
-      const taskTextInput = document.getElementById('texto-tarefa');
+  //   createTaskButton.addEventListener('click', function() {
+  //     const taskTextInput = document.getElementById('texto-tarefa');
+  //     const newTask = document.createElement('li');
+  //     newTask.innerText = taskTextInput.value;
+  //     newTask.classList.add('task');
+  //     tasksList.appendChild(newTask);
+  //     taskTextInput.value = '';
+  //   });
+  // }
+  function createNewElementList(content) {    
       const newTask = document.createElement('li');
-      newTask.innerText = taskTextInput.value;
+      newTask.innerText = content;
       newTask.classList.add('task');
       tasksList.appendChild(newTask);
+  }
+
+  function addTaskButton() {
+    const createTaskButton = document.getElementById('criar-tarefa');
+    
+    createTaskButton.addEventListener('click', function() {
+      const taskTextInput = document.getElementById('texto-tarefa');
+      const textTask = taskTextInput.value;
+      if (textTask) createNewElementList(textTask);
       taskTextInput.value = '';
     });
   }
@@ -66,7 +83,7 @@ window.onload = function() {
   }
 
   // Salvar itens no localStorage
-  function saveItensTaksLocalStorage() {
+  function saveItensTaskLocalStorage() {
     const saveTaskButton = document.querySelector('#salvar-tarefas');
     
     saveTaskButton.addEventListener('click', function() {
@@ -79,10 +96,20 @@ window.onload = function() {
     });
   }
 
-  createNewElementList();
+  // Restaura lista salva
+  function restoreItensTaskToList() {
+    const savededLocalStorage = localStorage.getItem('tasksList');
+    let tasksRestoredArray = savededLocalStorage.split(',');
+    for (let task of tasksRestoredArray) {
+      createNewElementList(task);
+    }
+  }
+
+  addTaskButton();
   selectTaskItem();
   taskComplete();
   clearAllTasks();
   clearCompletedTaskd();
-  saveItensTaksLocalStorage();
+  saveItensTaskLocalStorage();
+  restoreItensTaskToList();
 }
