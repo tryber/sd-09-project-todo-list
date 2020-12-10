@@ -143,7 +143,6 @@ function movingUp() {
 
   getUpButton.addEventListener('click', function () {
     const getSelectedTask = document.querySelector('.selected');
-    //const getOrdenedList = document.querySelector('ol');
     if (getSelectedTask !== null && getSelectedTask.previousElementSibling !== null) {
       getSelectedTask.parentElement.insertBefore(getSelectedTask, getSelectedTask.previousElementSibling);
     }
