@@ -1,9 +1,9 @@
-#input-box {
+.input-box {
   display: inline-block;
   text-align: center;
 }
 
-#criar-tarefa {
+.criar-tarefa {
   background-color: silver;
   margin: 10px;
   text-align: center;

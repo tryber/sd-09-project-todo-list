@@ -9,6 +9,7 @@ window.onload = function () {
   }
   clearInputButton('Adicionar');
   const bttn = document.getElementById('criar-tarefa');
+  bttn.classList.add('criar-tarefa');
   function bttnCriarTarefa() {
     const input = document.getElementById('texto-tarefa').value;
     const lista = document.getElementById('lista-tarefas');
