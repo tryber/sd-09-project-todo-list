@@ -12,30 +12,30 @@ const buttonTask = document.querySelector('#criar-tarefa');
 function addListTask(task, clss) {
   const list = document.createElement('li');
   if (clss === 'completed') {
-    list.className = 'task-list completed'
+    list.className = 'task-list completed';
   } else if (clss === '') {
     list.className = 'task-list';
   }
   list.innerText = task;
-  const listOrd = document.querySelector('#lista-tarefas')
-  listOrd.appendChild(list)
+  const listOrd = document.querySelector('#lista-tarefas');
+  listOrd.appendChild(list);
 }
 
-function changeNotSelected() {
-  const listTask = document.querySelectorAll('.task-list');
-  for (let index = 0; index < listTask.length; index += 1) {
-    listTask[index].className = 'task-list';
-  }
-}
+// function changeNotSelected() {
+//   const listTask = document.querySelectorAll('.task-list');
+//   for (let index = 0; index < listTask.length; index += 1) {
+//     listTask[index].className = 'task-list';
+//   }
+// }
 
 function changeCompleted() {
   const listTask = document.querySelectorAll('.task-list');
   for (let index = 0; index < listTask.length; index += 1) {
-    if (listTask[index].className == 'task-list completed') {
+    if (listTask[index].className === 'task-list completed') {
       listTask[index].className = 'task-list completed';
-    } else if (listTask[index].className == 'task-list completed selected') {
+    } else if (listTask[index].className === 'task-list completed selected') {
       listTask[index].className = 'task-list completed';
-    } else if (listTask[index].className == 'task-list selected completed') {
+    } else if (listTask[index].className === 'task-list selected completed') {
       listTask[index].className = 'task-list completed';
     } else {
       listTask[index].className = 'task-list';
@@ -44,25 +44,25 @@ function changeCompleted() {
 }
 
 function changeSelected(origin) {
-  if (origin.target.className == 'task-list') {
+  if (origin.target.className === 'task-list') {
     changeCompleted()
     origin.target.className += ' selected';
-  } else if (origin.target.className == 'task-list completed') {
+  } else if (origin.target.className === 'task-list completed') {
     changeCompleted();
     origin.target.className += ' selected';
   }
 }
 
 function completedTask(origin) {
-  if (origin.target.className == 'task-list') {
+  if (origin.target.className === 'task-list') {
     origin.target.className += ' completed';
-  } else if (origin.target.className == 'task-list selected') {
+  } else if (origin.target.className === 'task-list selected') {
     origin.target.className += ' completed';
-  } else if (origin.target.className == 'task-list selected completed') {
+  } else if (origin.target.className === 'task-list selected completed') {
     origin.target.className = 'task-list selected';
-  } else if (origin.target.className == 'task-list completed selected') {
+  } else if (origin.target.className === 'task-list completed selected') {
     origin.target.className = 'task-list selected';
-  } else if (origin.target.className == 'task-list completed') {
+  } else if (origin.target.className === 'task-list completed') {
     origin.target.className = 'task-list';
   }
 }
@@ -71,7 +71,7 @@ function taskListLoop() {
   const listTask = document.querySelectorAll('li');
   for (let index = 0; index < listTask.length; index += 1) {
     listTask[index].addEventListener('click', changeSelected);
-    listTask[index].addEventListener('dblclick', completedTask)
+    listTask[index].addEventListener('dblclick', completedTask);
   }
 }
 
@@ -80,9 +80,9 @@ function createTask() {
   if (textInput.value === '') {
     return;
   }
-  texto = textInput.value;
+  let texto = textInput.value;
   textInput.value = '';
-  let clss = '';
+  const clss = '';
   addListTask(texto, clss);
   taskListLoop();
 }
@@ -124,8 +124,8 @@ function returnTotal() {
     return;
   }
   for (let index = 0; index < array.length; index += 2) {
-    let classLocal = array[index];
-    let texto = array[index+1];
+    const classLocal = array[index];
+    const texto = array[index + 1];
     addListTask(texto, classLocal);
   }
 
@@ -165,6 +165,7 @@ function positionList() {
       return index;
     }
   }
+  return;
 }
 
 // Referencia  insertBefore
