@@ -1,6 +1,18 @@
 let liSelected;
 const completedTasks = [];
 
+function saveTasks() {
+  const elements = document.querySelectorAll('#lista-tarefas li');
+  const objs = [];
+  for (let index = 0; index < elements.length; index += 1) {
+    objs.push({
+      value: elements[index].innerText,
+      class: elements[index].className,
+    });
+  }
+  localStorage.setItem('tasks', JSON.stringify(objs));
+}
+
 function removeSelected() {
   const ol = document.querySelector('#lista-tarefas');
   ol.removeChild(liSelected);
@@ -15,7 +27,7 @@ function recoveryPosition(listElements) {
     }
     return -1;
   }
-  return -1
+  return -1;
 }
 
 function moveToUpper() {
@@ -66,22 +78,10 @@ function loadTasks() {
   }
 }
 
-function saveTasks() {
-  const elements = document.querySelectorAll('#lista-tarefas li');
-  const objs = [];
-  for (let index = 0; index < elements.length; index += 1) {
-    objs.push({
-      value: elements[index].innerText,
-      class: elements[index].className,
-    });
-  }
-  localStorage.setItem('tasks', JSON.stringify(objs));
-}
-
 function clearDonedTasks() {
   const listOfLi = document.querySelectorAll('#lista-tarefas li');
   const ol = document.querySelector('#lista-tarefas');
-  for (let index in listOfLi) {
+  for (const index in listOfLi) {
     if (listOfLi[index].className === 'completed') {
       ol.removeChild(listOfLi[index]);
     }
