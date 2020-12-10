@@ -34,5 +34,5 @@ function createNewTask() {
 window.onload = function () {
   const buttonNewTask = document.querySelector('#criar-tarefa');
   buttonNewTask.addEventListener('click', createNewTask);
-  const tasksList = document.querySelector('#lista-tarefas');
+  //const tasksList = document.querySelector('#lista-tarefas');
 };
