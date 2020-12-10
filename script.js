@@ -4,8 +4,8 @@ function createInput() {
   input.type = 'text';
   input.placeholder = 'digite o item';
 
-  const section1 = document.querySelector('#section1');
-  section1.appendChild(input);
+  const inputArea = document.querySelector('#input-area');
+  inputArea.appendChild(input);
 }
 createInput();
 
@@ -24,8 +24,8 @@ function addButtonItem() {
   btn.innerText = 'Criar tarefa';
   btn.style.marginLeft = '5px';
   btn.style.padding = '3px';
-  const section1 = document.querySelector('#section1');
-  section1.appendChild(btn);
+  const inputArea = document.querySelector('#input-area');
+  inputArea.appendChild(btn);
 
   btn.addEventListener('click', function (e) {
     e.preventDefault();
@@ -35,6 +35,7 @@ function addButtonItem() {
     if (input.value.length > 0) {
       const newLi = document.createElement('li');
       newLi.innerText = input.value;
+      newLi.className = 'list-item';
       taskList.appendChild(newLi);
 
       input.value = '';
@@ -69,3 +70,19 @@ function scratchingItem() {
   });
 }
 scratchingItem();
+
+function deleteTaskList() {
+  const button = document.createElement('button');
+  const divButton = document.querySelector('#buttons');
+  divButton.appendChild(button);
+  button.style.padding = '3px'
+  button.style.marginLeft = '5px';
+  button.innerText = 'Remover tudo';
+  button.id = 'apaga-tudo';
+
+  button.addEventListener('click', function () {
+    document.querySelectorAll('.list-item').forEach(e => e.parentNode.removeChild(e));
+    //https://stackoverflow.com/questions/13125817/how-to-remove-elements-that-were-fetched-using-queryselectorall
+  });
+}
+deleteTaskList();
