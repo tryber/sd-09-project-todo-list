@@ -11,11 +11,15 @@ h1 {
 
 li {
 	border: solid lightblue 1px;
-    color: yellow;
+	color: yellow;
+	width: auto;
+	padding: 5px;
 }
 
 ol {
-    border: solid white 1px;
+	border: solid white 1px;
+	width: 200px;
+	min-height: 50px;
 }
 
 .completed {
@@ -30,7 +34,7 @@ ol {
 	text-align: center;
 }
 
-#criar-tarefa {
+.buttons {
     box-shadow: -3px 1px 0 -50px #fff6af;
 	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
 	background-color:#ffec64;
@@ -48,52 +52,8 @@ ol {
     text-shadow:0 0 0 #ffee66;
 }
 
-#criar-tarefa:hover {
+.buttons:hover {
     background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
-	background-color:#ffab23;
-}
-
-#apaga-tudo {
-    box-shadow: -3px 1px 0 -50px #fff6af;
-	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
-	background-color:#ffec64;
-	border-radius:6px;
-	border:1px solid #ffaa22;
-	cursor:pointer;
-	color:#333333;
-	display:inline-block;
-	font-family:Arial;
-	font-size:10px;
-	font-weight:bold;
-	padding:2px 24px;
-	text-decoration:none;
-	text-shadow:0 0 0 #ffee66;
-}
-
-#apaga-tudo:hover {
-    background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
-	background-color:#ffab23;
-}
-
-#remover-selecionado {
-	box-shadow: -3px 1px 0 -50px #fff6af;
-	background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
-	background-color:#ffec64;
-	border-radius:6px;
-	border:1px solid #ffaa22;
-	cursor:pointer;
-	color:#333333;
-	display:inline-block;
-	font-family:Arial;
-	font-size:10px;
-	font-weight:bold;
-	padding:2px 24px;
-	text-decoration:none;
-	text-shadow:0 0 0 #ffee66;
-}
-
-#remover-selecionado:hover {
-	background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
 	background-color:#ffab23;
 }
 

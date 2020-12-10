@@ -5,6 +5,8 @@ const items = document.getElementsByTagName('li');
 const btnErase = document.getElementById('apaga-tudo');
 const slcItem = document.getElementsByClassName('selected');
 const btnRm = document.getElementById('remover-selecionado');
+const btnFin = document.getElementById('remover-finalizados');
+const finalized = document.getElementsByClassName('completed');
 
 //  codigo abaixo gera novo item na lista atraves de click e enter
 function addList() {
@@ -60,3 +62,11 @@ function lineT() {
   }
 }
 list.addEventListener('dblclick', lineT);
+
+//  codigo remove finalizados
+function remFin() {
+  while (finalized.length > 0) {
+    finalized[0].parentNode.removeChild(finalized[0]);
+  }
+}
+btnFin.addEventListener('click', remFin);
