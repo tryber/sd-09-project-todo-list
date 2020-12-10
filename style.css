@@ -4,9 +4,9 @@
 
 #funcionamento {
     color: gray;
-    font-weight: lighter;
-    font-style: italic;
     font-size: 16px;
+    font-style: italic;
+    font-weight: lighter;
 }
 
 body {
