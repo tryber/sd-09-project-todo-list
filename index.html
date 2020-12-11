@@ -3,29 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+        integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/style.css">
     <title>lista de tarefas</title>
 </head>
 <body>
-    <header>
-        <h1>Minha Lista de Tarefas</h1>
-        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    </header>
-    <section>
-        <input id="texto-tarefa" type="text" placeholder="Digite sua tarefa">
-        <button id="criar-tarefa">Adicionar</button>
+    <section class="main-content">
+        <header class="header-style">
+            <h1>Minha Lista de Tarefas</h1><i class="fas fa-tasks"></i>
+            <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+        </header>
+        <section class="hub-input-text">
+            <input id="texto-tarefa" type="text" placeholder="Digite sua tarefa">
+            <button id="criar-tarefa"><i class="fas fa-plus"></i></button>
+        </section>
+        <section class="hub-list">
+            <ol id="lista-tarefas"></ol>
+            <button id="mover-baixo"><i class="fas fa-angle-down"></i></button>
+            <button id="mover-cima"><i class="fas fa-angle-up"></i></button>
+            <button id="remover-selecionado"><i class="fas fa-eraser"></i></button>
+        </section>
+        <footer class="footer-style">
+            <button id="apaga-tudo"><i class="fas fa-trash-alt"></i></button>
+            <button id="remover-finalizados"><i class="fas fa-calendar-times"></i></button>
+            <button id="salvar-tarefas"><i class="far fa-save"></i></button>
+        </footer>
+        <script src="/script.js"></script>
     </section>
-    <section>
-        <ol id="lista-tarefas"></ol>
-        <button id="mover-baixo">Para baixo</button>
-        <button id="mover-cima">Para cima</button>
-        <button id="remover-selecionado">Remover</button>
-    </section>
-    <section>
-        <button id="apaga-tudo">Limpar lista</button>
-        <button id="remover-finalizados">Remover finalizados</button>
-        <button id="salvar-tarefas">Salvar</button>
-    </section>
-    <script src="/script.js"></script>
 </body>
 </html>
