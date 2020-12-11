@@ -38,11 +38,11 @@ function selectToDo() {
     const toDos = document.querySelectorAll('#lista-tarefas li');
 
     toDos.forEach(function (toDo) {
-      toDo.style.backgroundColor = '';
+      toDo.classList.remove('selected');
     });
 
     if (event.target !== toDoList) {
-      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+      event.target.classList.add('selected');
     }
   });
 }
@@ -112,3 +112,41 @@ function saveList() {
 }
 
 saveList();
+
+function moverParaCima() {
+  const upButton = document.querySelector('#mover-cima');
+
+  upButton.addEventListener('click', function () {
+    const selectedToDo = document.querySelector('.selected');
+    const selectedText = selectedToDo.innerText;
+
+    if (selectedToDo !== selectedToDo.parentNode.firstChild) {
+      selectedToDo.innerText = selectedToDo.previousElementSibling.innerText;
+      selectedToDo.previousElementSibling.innerText = selectedText;
+
+      selectedToDo.classList.remove('selected');
+      selectedToDo.previousElementSibling.classList.add('selected');
+    }
+  });
+}
+
+moverParaCima();
+
+function moverParaBaixo() {
+  const downButton = document.querySelector('#mover-baixo');
+
+  downButton.addEventListener('click', function () {
+    const selectedToDo = document.querySelector('.selected');
+    const selectedText = selectedToDo.innerText;
+
+    if (selectedToDo !== selectedToDo.parentNode.lastChild) {
+      selectedToDo.innerText = selectedToDo.nextElementSibling.innerText;
+      selectedToDo.nextElementSibling.innerText = selectedText;
+
+      selectedToDo.classList.remove('selected');
+      selectedToDo.nextElementSibling.classList.add('selected');
+    }
+  });
+}
+
+moverParaBaixo();
