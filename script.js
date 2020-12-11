@@ -58,7 +58,7 @@ function saveTasks() {
 
 function moveTaskUp() {
   if (document.querySelector('.selected')) {
-    taskSelected = document.querySelector('.selected');
+    const taskSelected = document.querySelector('.selected');
     if (taskSelected.previousElementSibling) {
       const taskUp = taskSelected.previousElementSibling;
       const taskName = taskSelected.innerText;
@@ -73,7 +73,7 @@ function moveTaskUp() {
 
 function moveTaskDown() {
   if (document.querySelector('.selected')) {
-    taskSelected = document.querySelector('.selected');
+    const taskSelected = document.querySelector('.selected');
     if (taskSelected.nextElementSibling) {
       const taskDown = taskSelected.nextElementSibling;
       const taskName = taskSelected.innerText;
