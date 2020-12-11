@@ -154,3 +154,16 @@ function moverParaBaixo() {
 }
 
 moverParaBaixo();
+
+function clearSelected() {
+  const clearSelectedButton = document.querySelector('#remover-selecionado');
+
+  clearSelectedButton.addEventListener('click', function () {
+    const toDoList = document.querySelector('#lista-tarefas');
+    const selectedToDo = document.querySelector('.selected');
+
+    toDoList.removeChild(selectedToDo);
+  });
+}
+
+clearSelected();
