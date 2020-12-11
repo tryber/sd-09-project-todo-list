@@ -81,12 +81,10 @@ function clearCompletedToDos() {
 
   clearCompletedButton.addEventListener('click', function () {
     const toDoList = document.querySelector('#lista-tarefas');
-    const toDos = document.querySelectorAll('#lista-tarefas li');
+    const markedToDos = document.querySelectorAll('.completed');
 
-    toDos.forEach(function (toDo) {
-      if (toDo.className === 'completed') {
-        toDoList.removeChild(toDo);
-      }
+    markedToDos.forEach(function (toDo) {
+      toDoList.removeChild(toDo);
     });
   });
 }
@@ -118,9 +116,12 @@ function moverParaCima() {
 
   upButton.addEventListener('click', function () {
     const selectedToDo = document.querySelector('.selected');
-    const selectedText = selectedToDo.innerText;
 
-    if (selectedToDo !== selectedToDo.parentNode.firstChild) {
+    if (
+      selectedToDo !== null &&
+      selectedToDo !== selectedToDo.parentNode.firstChild
+    ) {
+      const selectedText = selectedToDo.innerText;
       selectedToDo.innerText = selectedToDo.previousElementSibling.innerText;
       selectedToDo.previousElementSibling.innerText = selectedText;
 
@@ -137,9 +138,12 @@ function moverParaBaixo() {
 
   downButton.addEventListener('click', function () {
     const selectedToDo = document.querySelector('.selected');
-    const selectedText = selectedToDo.innerText;
 
-    if (selectedToDo !== selectedToDo.parentNode.lastChild) {
+    if (
+      selectedToDo !== null &&
+      selectedToDo !== selectedToDo.parentNode.lastChild
+    ) {
+      const selectedText = selectedToDo.innerText;
       selectedToDo.innerText = selectedToDo.nextElementSibling.innerText;
       selectedToDo.nextElementSibling.innerText = selectedText;
 
