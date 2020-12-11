@@ -12,7 +12,7 @@ let qntItemsLista = 0;
 let qntNumLocalstorage = 0;
 
 document.onload = () => {
- // localStorage.setItem('',``)
+  // localStorage.setItem('',``)
 }
 
 criarTarefa.addEventListener('click', () => {
@@ -22,10 +22,9 @@ criarTarefa.addEventListener('click', () => {
     nomeItem.innerHTML = textoTarefa.value;
     listaTarefas.appendChild(nomeItem);
     textoTarefa.value = '';
-    qntItemsLista += 1;
+    // qntItemsLista += 1;
 
-  //  localStorage.setItem(`${qntNumLocalstorage += 1}`,`${listaTarefas.children[0].innerText}`)
-
+    localStorage.setItem(`${qntItemsLista += 1}` , `${listaTarefas.children[0].innerText}`)
   }
 });
 

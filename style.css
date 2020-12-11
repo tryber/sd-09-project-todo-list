@@ -1,8 +1,9 @@
-* {
+
+ol , p , h1 {
   font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
 }
 
-#funcionamento {
+h1 ~ p {
   color: gray;
   font-size: 16px;
   font-style: italic;
@@ -28,47 +29,35 @@ main {
   padding: 5px 15px;
 }
 
-#remover-selecionado {
+.blue {
   background-color: blue;
 }
 
-#mover-cima {
+.orangered {
   background-color: orangered;
 }
 
-#mover-baixo {
-  background-color: orangered;
-}
-
-#apaga-tudo {
+.marron {
   background-color: maroon;
 }
 
-#remover-finalizados {
-  background-color: maroon;
-}
-
-#salvar-tarefas {
+.green {
   background-color: green;
 }
 
-#criar-tarefa {
-  background-color: blue;
-}
-
-#criar-tarefa:hover , #remover-selecionado:hover {
+.blue:hover {
   background-color: lightblue;
 }
 
-#apaga-tudo:hover , #remover-finalizados:hover {
+.marron:hover {
   background-color: lightsalmon;
 }
 
-#mover-cima:hover , #mover-baixo:hover {
+.orangered:hover {
   background-color: orange;
 }
 
-#salvar-tarefas:hover {
+.green:hover {
   background-color: lightgreen;
 }
 
