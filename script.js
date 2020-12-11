@@ -5,7 +5,7 @@ function onloadPge() {
     const mt = localStorage.getItem(`tarefas${index}`);
     const newli = document.createElement('li');
     newli.innerHTML = mt;
-    newli.className = localStorage.getItem(`addClass${index}`)
+    newli.className = localStorage.getItem(`addClass${index}`);
     list.appendChild(newli);
   }
 }
@@ -16,7 +16,7 @@ function saveStorage() {
   const line = document.querySelectorAll('.item-list');
   for (let index = 0; index < line.length; index += 1) {
     localStorage.setItem(`tarefas${index}`, line[index].innerHTML);
-    localStorage.setItem(`addClass${index}`, line[index].className)
+    localStorage.setItem(`addClass${index}`, line[index].className);
   }
   localStorage.setItem('numero de tarefas', (line.length));
   localStorage.setItem('tarefas', (storage));
@@ -140,9 +140,9 @@ function removerSelected() {
     const listOfItem = document.querySelectorAll('.item-list');
     for (let index = 0; index < listOfItem.length; index += 1) {
       if (listOfItem[index].classList.contains('selected')) {
-        ol.removeChild(listOfItem[index])
+        ol.removeChild(listOfItem[index]);
       }
     }
-  })
+  });
 }
 removerSelected();
