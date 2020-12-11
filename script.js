@@ -112,4 +112,20 @@ function clearselectedItems() {
   });
 }
 
-clearselectedItems()
+clearselectedItems();
+
+// Botão de mover tarefa para a posição acima
+
+function moveUp() {
+  const moveUpButton = document.querySelector('#mover-cima');
+  moveUpButton.addEventListener('click', function () {
+    const task = document.querySelectorAll('.task');
+    for (let index = 0; index < task.length; index += 1) {
+      if (task[index].className.includes('selected') && task[index].previousSibling !== null) {
+        task[index].parentNode.insertBefore(task[index], task[index - 1]);
+      }
+    }
+  });
+}
+
+moveUp();
