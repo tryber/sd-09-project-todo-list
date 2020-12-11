@@ -1,19 +1,26 @@
 // Remove Background dos Itens
-function removeBackgroundItems(task) {
+function isStyleAttribute() {
+  if (arrayTasks[indexTask].hasAttribute('style')) {
+    arrayTasks[indexTask].removeAttribute('style');
+  }
+}
+
+function isClassAttribute() {
+  if (arrayTasks[indexTask].getAttribute('class') !== 'completed') {
+    arrayTasks[indexTask].removeAttribute('class');
+  }
+}
+
+function removeAttributeTag(task) {
   const arrayTasks = task.parentNode.children;
 
   for (let indexTask = 0; indexTask < arrayTasks.length; indexTask += 1) {
-    if (arrayTasks[indexTask].style.backgroundColor !== '') {
-      arrayTasks[indexTask].removeAttribute('style');
+    // if (arrayTasks[indexTask].style.backgroundColor !== '') {
+    //   arrayTasks[indexTask].removeAttribute('style');
+    // }
 
-      if (arrayTasks[indexTask].hasAttribute('style')) {
-        arrayTasks[indexTask].removeAttribute('style');
-      }
-
-      if (arrayTasks[indexTask].getAttribute('class') !== 'completed') {
-        arrayTasks[indexTask].removeAttribute('class');
-      }
-    }
+    isStyleAttribute();
+    isClassAttribute();
   }
 }
 
@@ -32,7 +39,7 @@ document.querySelector('#criar-tarefa').addEventListener('click', function () {
 // Clique Tarefa
 document.querySelector('#lista-tarefas').addEventListener('click', function (event) {
   if (event.target.id === '') {
-    removeBackgroundItems(event.target);
+    removeAttributeTag(event.target);
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 });
@@ -41,6 +48,6 @@ document.querySelector('#lista-tarefas').addEventListener('click', function (eve
 document.querySelector('#lista-tarefas').addEventListener('dblclick', function (event) {
   if (event.target.id === '') {
     event.target.classList.toggle('completed');
-    removeBackgroundItems(event.target);
+    removeAttributeTag(event.target);
   }
 });
