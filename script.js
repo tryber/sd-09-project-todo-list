@@ -169,8 +169,9 @@ function clearSelected() {
   clearSelectedButton.addEventListener('click', function () {
     const toDoList = document.querySelector('#lista-tarefas');
     const selectedToDo = document.querySelector('.selected');
-
-    toDoList.removeChild(selectedToDo);
+    if (selectedToDo !== null) {
+      toDoList.removeChild(selectedToDo);
+    }
   });
 }
 
