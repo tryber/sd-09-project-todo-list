@@ -40,7 +40,7 @@ btnAddTask.addEventListener('click', createTask);
 // Requisito [10] - Função responsável por apagar todas as tasks
 function deleteTasks() {
   const li = document.querySelectorAll('li');
-  for (task of li) {
+  for (const task of li) {
     task.remove();
   }
 }
