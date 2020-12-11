@@ -3,6 +3,11 @@ const criarTarefa = document.querySelector('#criar-tarefa');
 const textoTarefa = document.querySelector('#texto-tarefa');
 const apagaTudo = document.querySelector('#apaga-tudo');
 const apagaFinalizados = document.querySelector('#remover-finalizados');
+const salvaLista = document.querySelector('#salvar-tarefas');
+
+window.onload = function () {
+  listaTarefas.innerHTML = localStorage.toDoList;
+}
 
 function addTask() {
   criarTarefa.addEventListener('click', function () {
@@ -19,7 +24,7 @@ function selectItem() {
     if (event.target.classList.contains('selected')){
       event.target.classList.remove('selected');
     } else {
-      let selecionado = document.querySelector('.selected');
+      const selecionado = document.querySelector('.selected');
       if (selecionado) {
         selecionado.classList.remove('selected');
       }
@@ -55,3 +60,10 @@ function deleteCompleted() {
   });
 }
 deleteCompleted();
+
+function saveList() {
+  salvaLista.addEventListener('click', function () {
+    localStorage.toDoList = listaTarefas.innerHTML;
+  });
+}
+saveList();
