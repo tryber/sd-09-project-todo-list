@@ -16,7 +16,6 @@ function saveStorage() {
   const line = document.querySelectorAll('.item-list');
   for (let index = 0; index < line.length; index += 1) {
     localStorage.setItem(`tarefas${index}`, line[index].innerHTML);
-    if ()
   }
   localStorage.setItem('numero de tarefas', (line.length));
   localStorage.setItem('tarefas', (storage));
