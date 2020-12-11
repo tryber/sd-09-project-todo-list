@@ -1,11 +1,11 @@
 /* Tag styles */
 body {
   background-attachment: fixed;
-  background-image: url(pics/bg-img.jpg);
+  background-image: url('pics/bg-img.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100vw 100vh;
-  font-family: 'Caveat', cursive;
+  font-family: Caveat, cursive;
 }
 
 /* Class Styles */
@@ -14,7 +14,7 @@ body {
 }
 
 .selected {
-  background-color: rgb(128 , 128 , 128);
+  background-color: gray;
 }
 
 .tasks-container {
@@ -28,12 +28,35 @@ body {
   width: 37vw;
 }
 
+.main-title {
+  font-size: 70px;
+  margin: 0;
+  text-align: center;
+  border:1px solid aqua;
+}
+
+.instruction {
+  font-size: 25px;
+  margin: 0;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid red;
+}
+
 .btns-container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+  border: 1px solid blue;
 }
 
-.task-list {
+.tasks-list {
   overflow-y: auto;
+  border: 1px solid green;
+}
+
+.task {
+  font-size: 35px;
 }

@@ -13,14 +13,18 @@
 <body>
   <div class="tasks-container">
     <header>
-      <h1>Minha Lista de Tarefas</h1>
+      <h1 class="main-title">Minha Lista de Tarefas</h1>
     </header>
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    <p id="funcionamento" class="instruction">Clique duas vezes em um item para marcá-lo como completo</p>
     <div class="btns-container">
-      <input type="text" id="texto-tarefa" placeholder="Digite sua tarefa aqui">
-      <button id="criar-tarefa">Adicionar</button>
-      <button id="mover-cima">/\</button>
-      <button id="mover-baixo">\/</button>
+      <div class="add-task-container">
+        <input type="text" id="texto-tarefa" placeholder="Digite sua tarefa aqui">
+        <button id="criar-tarefa">Adicionar</button>
+      </div>
+      <div class="move-container">
+        <button id="mover-cima">/\</button>
+        <button id="mover-baixo">\/</button>
+      </div>
     </div>
     <ol id="lista-tarefas" class="tasks-list"></ol>
   </div>
