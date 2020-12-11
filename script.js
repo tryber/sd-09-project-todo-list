@@ -129,3 +129,19 @@ function moveUp() {
 }
 
 moveUp();
+
+// Botão de mover tarefa para posição abaixo
+
+function moveDown() {
+  const moveDownButton = document.querySelector('#mover-baixo');
+  moveDownButton.addEventListener('click', function () {
+    const task = document.querySelectorAll('.task');
+    for(let index = 0; index < task.length; index += 1) {
+      if (task[index].className.includes('selected') && task[index].nextSibling !== null) {
+        task[index].parentNode.insertBefore(task[index + 1], task[index]);
+      }
+    }
+  });
+}
+
+moveDown();
