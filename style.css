@@ -1,0 +1,16 @@
+body {
+  font-size: 20px;
+}
+
+button {
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.item-list {
+  width: 100px;
+}
+
+.completed {
+  text-decoration: line-through;
+}
