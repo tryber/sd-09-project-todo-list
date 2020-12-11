@@ -29,3 +29,15 @@ getTaskList.addEventListener('click', function(itemOrigin){
     } 
 })
 
+getTaskList.addEventListener('dblclick', function(itemOrigin){
+    let itemClickedClassName = itemOrigin.target.className
+    let itemClickedClassNameString = String(itemClickedClassName)
+
+    if (itemClickedClassNameString.includes('completed')){
+        let newClass = itemClickedClassNameString.replace('completed', '')
+        itemOrigin.target.className = newClass
+    } else {
+        itemOrigin.target.className += ' completed'
+    }
+    
+})

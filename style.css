@@ -79,3 +79,8 @@ li {
     margin-bottom: 40px;
     height: 65px;
 }
+
+.completed {
+    text-decoration: line-through;
+    background-color: hotpink;
+}
