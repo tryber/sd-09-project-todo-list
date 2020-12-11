@@ -46,6 +46,12 @@ function removeCompleted() {
   }
 }
 
+function removeSelected() {
+  const taskList = document.querySelector('#lista-tarefas');
+  const taskSelected = document.querySelector('.selected');
+  taskList.removeChild(taskSelected);
+}
+
 function saveTasks() {
   const taskList = document.querySelector('#lista-tarefas');
   const tasks = taskList.children;
@@ -90,12 +96,14 @@ function addCreateButtonsListeners() {
   const createTaskButton = document.querySelector('#criar-tarefa');
   const clearTasksButton = document.querySelector('#apaga-tudo');
   const removeCompletedButton = document.querySelector('#remover-finalizados');
+  const removeSelectedButton = document.querySelector('#remover-selecionado');
   const saveTasksButton = document.querySelector('#salvar-tarefas');
   const taskUpButton = document.querySelector('#mover-cima');
   const taskDownButton = document.querySelector('#mover-baixo');
   createTaskButton.addEventListener('click', addTask);
   clearTasksButton.addEventListener('click', clearTasks);
   removeCompletedButton.addEventListener('click', removeCompleted);
+  removeSelectedButton.addEventListener('click', removeSelected);
   saveTasksButton.addEventListener('click', saveTasks);
   taskUpButton.addEventListener('click', moveTaskUp);
   taskDownButton.addEventListener('click', moveTaskDown);
