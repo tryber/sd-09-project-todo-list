@@ -57,28 +57,32 @@ function saveTasks() {
 }
 
 function moveTaskUp() {
-  const taskSelected = document.querySelector('.selected');
-  if (taskSelected.previousElementSibling) {
-    const taskUp = taskSelected.previousElementSibling;
-    const taskName = taskSelected.innerText;
-    const taskClass = taskSelected.className;
-    taskSelected.innerText = taskUp.innerText;
-    taskSelected.className = taskUp.className;
-    taskUp.innerText = taskName;
-    taskUp.className = taskClass;
+  if (document.querySelector('.selected')) {
+    taskSelected = document.querySelector('.selected');
+    if (taskSelected.previousElementSibling) {
+      const taskUp = taskSelected.previousElementSibling;
+      const taskName = taskSelected.innerText;
+      const taskClass = taskSelected.className;
+      taskSelected.innerText = taskUp.innerText;
+      taskSelected.className = taskUp.className;
+      taskUp.innerText = taskName;
+      taskUp.className = taskClass;
+    }
   }
 }
 
 function moveTaskDown() {
-  const taskSelected = document.querySelector('.selected');
-  if (taskSelected.nextElementSibling) {
-    const taskDown = taskSelected.nextElementSibling;
-    const taskName = taskSelected.innerText;
-    const taskClass = taskSelected.className;
-    taskSelected.innerText = taskDown.innerText;
-    taskSelected.className = taskDown.className;
-    taskDown.innerText = taskName;
-    taskDown.className = taskClass;
+  if (document.querySelector('.selected')) {
+    taskSelected = document.querySelector('.selected');
+    if (taskSelected.nextElementSibling) {
+      const taskDown = taskSelected.nextElementSibling;
+      const taskName = taskSelected.innerText;
+      const taskClass = taskSelected.className;
+      taskSelected.innerText = taskDown.innerText;
+      taskSelected.className = taskDown.className;
+      taskDown.innerText = taskName;
+      taskDown.className = taskClass;
+    }
   }
 }
 
