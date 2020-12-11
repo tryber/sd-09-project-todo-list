@@ -56,15 +56,45 @@ function saveTasks() {
   }
 }
 
+function moveTaskUp() {
+  const taskSelected = document.querySelector('.selected');
+  if (taskSelected.previousElementSibling) {
+    const taskUp = taskSelected.previousElementSibling;
+    const taskName = taskSelected.innerText;
+    const taskClass = taskSelected.className;
+    taskSelected.innerText = taskUp.innerText;
+    taskSelected.className = taskUp.className;
+    taskUp.innerText = taskName;
+    taskUp.className = taskClass;
+  }
+}
+
+function moveTaskDown() {
+  const taskSelected = document.querySelector('.selected');
+  if (taskSelected.nextElementSibling) {
+    const taskDown = taskSelected.nextElementSibling;
+    const taskName = taskSelected.innerText;
+    const taskClass = taskSelected.className;
+    taskSelected.innerText = taskDown.innerText;
+    taskSelected.className = taskDown.className;
+    taskDown.innerText = taskName;
+    taskDown.className = taskClass;
+  }
+}
+
 function addCreateButtonsListeners() {
   const createTaskButton = document.querySelector('#criar-tarefa');
   const clearTasksButton = document.querySelector('#apaga-tudo');
   const removeCompletedButton = document.querySelector('#remover-finalizados');
   const saveTasksButton = document.querySelector('#salvar-tarefas');
+  const taskUpButton = document.querySelector('#mover-cima');
+  const taskDownButton = document.querySelector('#mover-baixo');
   createTaskButton.addEventListener('click', addTask);
   clearTasksButton.addEventListener('click', clearTasks);
   removeCompletedButton.addEventListener('click', removeCompleted);
   saveTasksButton.addEventListener('click', saveTasks);
+  taskUpButton.addEventListener('click', moveTaskUp);
+  taskDownButton.addEventListener('click', moveTaskDown);
 }
 
 function loadTasks() {
