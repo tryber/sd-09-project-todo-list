@@ -24,8 +24,10 @@ function addToDo() {
     const toDo = document.createElement('li');
     toDo.innerText = toDoText;
 
-    toDoList.appendChild(toDo);
-    inputToDo.value = '';
+    if (inputToDo.value !== '') {
+      toDoList.appendChild(toDo);
+      inputToDo.value = '';
+    }
   });
 }
 
@@ -122,11 +124,14 @@ function moverParaCima() {
       selectedToDo !== selectedToDo.parentNode.firstChild
     ) {
       const selectedText = selectedToDo.innerText;
+      const selectedClass = selectedToDo.classList.value;
+
       selectedToDo.innerText = selectedToDo.previousElementSibling.innerText;
       selectedToDo.previousElementSibling.innerText = selectedText;
 
-      selectedToDo.classList.remove('selected');
-      selectedToDo.previousElementSibling.classList.add('selected');
+      selectedToDo.classList.value =
+        selectedToDo.previousElementSibling.classList.value;
+      selectedToDo.previousElementSibling.classList = selectedClass;
     }
   });
 }
@@ -144,11 +149,14 @@ function moverParaBaixo() {
       selectedToDo !== selectedToDo.parentNode.lastChild
     ) {
       const selectedText = selectedToDo.innerText;
+      const selectedClass = selectedToDo.classList.value;
+
       selectedToDo.innerText = selectedToDo.nextElementSibling.innerText;
       selectedToDo.nextElementSibling.innerText = selectedText;
 
-      selectedToDo.classList.remove('selected');
-      selectedToDo.nextElementSibling.classList.add('selected');
+      selectedToDo.classList.value =
+        selectedToDo.nextElementSibling.classList.value;
+      selectedToDo.nextElementSibling.classList.value = selectedClass;
     }
   });
 }
