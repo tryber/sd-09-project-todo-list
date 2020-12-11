@@ -5,6 +5,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100vw 100vh;
+  font-family: 'Caveat', cursive;
 }
 
 /* Class Styles */
@@ -14,4 +15,25 @@ body {
 
 .selected {
   background-color: rgb(128 , 128 , 128);
+}
+
+.tasks-container {
+  background-color: rgb(193 , 191 , 202);
+  bottom: 5vh;
+  display: flex;
+  flex-direction: column;
+  height: 67vh;
+  position: fixed;
+  right: 14vw;
+  width: 37vw;
+}
+
+.btns-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.task-list {
+  overflow-y: auto;
 }
