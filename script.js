@@ -1,13 +1,13 @@
 // Remove Background dos Itens
-function isStyleAttribute() {
-  if (arrayTasks[indexTask].hasAttribute('style')) {
-    arrayTasks[indexTask].removeAttribute('style');
+function isStyleAttribute(element) {
+  if (element.hasAttribute('style')) {
+    element.removeAttribute('style');
   }
 }
 
-function isClassAttribute() {
-  if (arrayTasks[indexTask].getAttribute('class') !== 'completed') {
-    arrayTasks[indexTask].removeAttribute('class');
+function isClassAttribute(element) {
+  if (element.getAttribute('class') !== 'completed') {
+    element.removeAttribute('class');
   }
 }
 
@@ -15,12 +15,8 @@ function removeAttributeTag(task) {
   const arrayTasks = task.parentNode.children;
 
   for (let indexTask = 0; indexTask < arrayTasks.length; indexTask += 1) {
-    // if (arrayTasks[indexTask].style.backgroundColor !== '') {
-    //   arrayTasks[indexTask].removeAttribute('style');
-    // }
-
-    isStyleAttribute();
-    isClassAttribute();
+    isStyleAttribute(arrayTasks[indexTask]);
+    isClassAttribute(arrayTasks[indexTask]);
   }
 }
 
