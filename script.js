@@ -32,12 +32,12 @@ function clickColor() {
     let element = event.target;
     let listItemLocal = document.querySelectorAll('.list-item')
     for (let count = 0; count < listItemLocal.length; count += 1){
-      if (listItemLocal[count].style.color === "rgb(128, 128, 128)"){
-        listItemLocal[count].style.color = 'black'
+      if (listItemLocal[count].style.backgroundColor === "rgb(128, 128, 128)"){
+        listItemLocal[count].style.backgroundColor = 'white'
       }
     }
     if (element.className === "list-item") {
-      element.style.color = "rgb(128, 128, 128)";
+      element.style.backgroundColor = "rgb(128, 128, 128)";
     }
   });
 }
