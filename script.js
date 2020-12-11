@@ -7,7 +7,17 @@ window.onload = function () {
 
   */
 
-
+  if (localStorage.length > 0) {
+    const taskArray = JSON.parse(localStorage.getItem('taskListNames'))
+    const classArray = JSON.parse(localStorage.getItem('taskListClasses'));
+    const taskList = document.querySelector('#lista-tarefas');
+    for (let index = 0; index < taskArray.length; index += 1) {
+      const task = document.createElement('li');
+      task.innerText = taskArray[index];
+      task.className = classArray[index];
+      taskList.appendChild(task);
+    }
+  }
 }
 
 // Altera cor de fundo do item da lista selecionado
@@ -87,6 +97,10 @@ function clearAll() {
     for (let index = 0; index < task.length; index += 1) {
       taskList.removeChild(task[index]);
     }
+    // Garante que, ao limpar a lista, ela não seja carregada novamente em uma nova sessão.
+    if (localStorage.length > 0) {
+      localStorage.clear();
+    }
   });
 }
 
@@ -163,7 +177,6 @@ moveDown();
 function saveTasks() {
   const saveTasksButton = document.querySelector('#salvar-tarefas');
   saveTasksButton.addEventListener('click', function () {
-    console.log('click')
     const task = document.querySelectorAll('.task');
     let taskArray = [];
     let classArray = [];
@@ -171,11 +184,8 @@ function saveTasks() {
       taskArray.push(task[index].innerText);
       classArray.push(task[index].className);
     }
-    console.log(taskArray)
-    console.log(classArray)
     localStorage.setItem('taskListNames', JSON.stringify(taskArray));
     localStorage.setItem('taskListClasses', JSON.stringify(classArray));
-    console.log('saved')
   });
 }
 
