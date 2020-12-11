@@ -47,9 +47,11 @@ function removeCompleted() {
 }
 
 function removeSelected() {
-  const taskList = document.querySelector('#lista-tarefas');
-  const taskSelected = document.querySelector('.selected');
-  taskList.removeChild(taskSelected);
+  if (document.querySelector('.selected')) {
+    const taskList = document.querySelector('#lista-tarefas');
+    const taskSelected = document.querySelector('.selected');
+    taskList.removeChild(taskSelected);
+  }
 }
 
 function saveTasks() {
