@@ -157,7 +157,7 @@ function positionList() {
   let resultIndex = 0;
   const list = document.querySelectorAll('li');
   if (list === null) {
-    return;
+    alert('Lista vazia');
   }
   for (let index = 0; index < list.length; index += 1) {
     if (list[index].classList.contains('selected')) {
