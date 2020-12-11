@@ -22,7 +22,7 @@ criarTarefa.addEventListener('click', () => {
 
 listaTarefas.addEventListener('click', (event) => {
   for (let i = 0; i < qntItemsLista; i += 1) {
-    itemsLista[i].removeAttribute('style')
+    itemsLista[i].removeAttribute('style');
     if (itemsLista[i] === event.target) {
       itemsLista[i].style.backgroundColor = 'rgb(128, 128, 128)';
     }
