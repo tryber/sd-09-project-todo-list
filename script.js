@@ -1,26 +1,22 @@
-function backgroundcolorItem() {
-  const listItem = document.querySelectorAll('li');
-  for (let index = 0; index < listItem.length; index += 1) {
-    listItem[index].addEventListener('click', function (event) {
-      for (let item = 0; item < listItem.length; item += 1) {
-        listItem[item].style.backgroundColor = '';
-      }
-      event.target.style.backgroundColor = 'rgb(128,128,128)';
-    });
-  }
+function backgroundcolorItem(elementLi) {
+  elementLi.addEventListener('click', function (event) {
+    const listItem = document.querySelectorAll('li');
+    for (let item = 0; item < listItem.length; item += 1) {
+      listItem[item].style.backgroundColor = '';
+    }
+    event.target.style.backgroundColor = 'rgb(128,128,128)';
+    console.log(listItem.length);
+  });
 }
 
-function taskCompleted() {
-  const listItem = document.querySelectorAll('li');
-  for (let index = 0; index < listItem.length; index += 1) {
-    listItem[index].addEventListener('dblclick', function (event) {
-      if (event.target.className === '') {
-        event.target.className = 'completed';
-      } else if (event.target.className === 'completed') {
-        event.target.className = '';
-      }
-    });
-  }
+function taskCompleted(elementLi) {
+  elementLi.addEventListener('dblclick', function () {
+    if (elementLi.className === '') {
+      elementLi.className = 'completed';
+    } else {
+      elementLi.className = '';
+    }
+  });
 }
 
 function clearList() {
@@ -42,8 +38,8 @@ function btnAdd() {
     li.innerText = input.value;
     listTask.appendChild(li);
     input.value = '';
-    backgroundcolorItem();
-    taskCompleted();
+    backgroundcolorItem(li);
+    taskCompleted(li);
     clearList();
   });
 }
