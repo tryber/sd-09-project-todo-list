@@ -1,14 +1,12 @@
 window.onload = function () {
   /*
-  
   Irá verificar se existe algo no localStorage.
   Se houver, ir criar a lista.
   Senão segue o baile.
-
   */
 
   if (localStorage.length > 0) {
-    const taskArray = JSON.parse(localStorage.getItem('taskListNames'))
+    const taskArray = JSON.parse(localStorage.getItem('taskListNames'));
     const classArray = JSON.parse(localStorage.getItem('taskListClasses'));
     const taskList = document.querySelector('#lista-tarefas');
     for (let index = 0; index < taskArray.length; index += 1) {
@@ -18,24 +16,19 @@ window.onload = function () {
       taskList.appendChild(task);
     }
   }
-}
+};
 
 // Altera cor de fundo do item da lista selecionado
 function highlight(event) {
   const clickedItem = event.target;
-  const selectedItemBackgroundColor = 'rgb(128, 128, 128)';
   const selectedTasks = document.querySelectorAll('.selected');
   if (selectedTasks.length < 1) {
     clickedItem.className += ' selected';
-    clickedItem.style.backgroundColor = selectedItemBackgroundColor;
   } else if (selectedTasks[0] !== clickedItem) {
     selectedTasks[0].className = selectedTasks[0].className.replace(' selected', '');
-    selectedTasks[0].style.backgroundColor = 'transparent';
     clickedItem.className += ' selected';
-    clickedItem.style.backgroundColor = selectedItemBackgroundColor;
   } else {
-    clickedItem.style.backgroundColor = 'transparent';
-    // clickedItem.className = clickedItem.className.replace(' selected', '');
+    clickedItem.className = clickedItem.className.replace(' selected', '');
   }
 }
 
@@ -178,8 +171,8 @@ function saveTasks() {
   const saveTasksButton = document.querySelector('#salvar-tarefas');
   saveTasksButton.addEventListener('click', function () {
     const task = document.querySelectorAll('.task');
-    let taskArray = [];
-    let classArray = [];
+    const taskArray = [];
+    const classArray = [];
     for (let index = 0; index < task.length; index += 1) {
       taskArray.push(task[index].innerText);
       classArray.push(task[index].className);

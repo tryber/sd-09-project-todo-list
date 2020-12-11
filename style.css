@@ -1,4 +1,17 @@
+/* Tag styles */
+body {
+  background-attachment: fixed;
+  background-image: url(pics/bg-img.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+}
+
 /* Class Styles */
 .completed {
   text-decoration: line-through solid black;
+}
+
+.selected {
+  background-color: rgb(128 , 128 , 128);
 }
