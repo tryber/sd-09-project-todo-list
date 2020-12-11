@@ -1,3 +1,15 @@
+window.onload = function () {
+  /*
+  
+  Irá verificar se existe algo no localStorage.
+  Se houver, ir criar a lista.
+  Senão segue o baile.
+
+  */
+
+
+}
+
 // Altera cor de fundo do item da lista selecionado
 function highlight(event) {
   const clickedItem = event.target;
@@ -13,7 +25,7 @@ function highlight(event) {
     clickedItem.style.backgroundColor = selectedItemBackgroundColor;
   } else {
     clickedItem.style.backgroundColor = 'transparent';
-    clickedItem.className = clickedItem.className.replace(' selected', '');
+    // clickedItem.className = clickedItem.className.replace(' selected', '');
   }
 }
 
@@ -145,3 +157,26 @@ function moveDown() {
 }
 
 moveDown();
+
+// Botão de salvar tarefas
+
+function saveTasks() {
+  const saveTasksButton = document.querySelector('#salvar-tarefas');
+  saveTasksButton.addEventListener('click', function () {
+    console.log('click')
+    const task = document.querySelectorAll('.task');
+    let taskArray = [];
+    let classArray = [];
+    for (let index = 0; index < task.length; index += 1) {
+      taskArray.push(task[index].innerText);
+      classArray.push(task[index].className);
+    }
+    console.log(taskArray)
+    console.log(classArray)
+    localStorage.setItem('taskListNames', JSON.stringify(taskArray));
+    localStorage.setItem('taskListClasses', JSON.stringify(classArray));
+    console.log('saved')
+  });
+}
+
+saveTasks();
