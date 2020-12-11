@@ -47,3 +47,14 @@ function deleteTasks() {
 
 const btnDeleteTasks = document.querySelector('#apaga-tudo');
 btnDeleteTasks.addEventListener('click', deleteTasks);
+
+// Requisito [11] - Função responsável por apagar tarefas finalizadas
+function deleteCompletedTask() {
+  const completedTask = document.querySelectorAll('.completed');
+  for (let index = 0; index < completedTask.length; index += 1) {
+    completedTask[index].remove();
+  }
+}
+
+const btnDeleteCompletedTasks = document.querySelector('#remover-finalizados');
+btnDeleteCompletedTasks.addEventListener('click', deleteCompletedTask);
