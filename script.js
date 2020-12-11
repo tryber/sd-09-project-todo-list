@@ -14,7 +14,7 @@ function clickItemList(event) {
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
-// Requisito [9] - Função responsável pelo o double click no item 
+// Requisito [9] - Função responsável pelo o double click no item
 function doubleClickItem() {
   const ol = document.querySelector('ol');
   ol.addEventListener('dblclick', function (event) {
