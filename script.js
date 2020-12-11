@@ -58,3 +58,50 @@ function deleteCompletedTask() {
 
 const btnDeleteCompletedTasks = document.querySelector('#remover-finalizados');
 btnDeleteCompletedTasks.addEventListener('click', deleteCompletedTask);
+
+// Requisito [12] - Função responsável por salvar as tarefas
+// localStorage
+function saveTasks() {
+  const btnSaveTasks = document.querySelector('#salvar-tarefas');
+
+  btnSaveTasks.addEventListener('click', function () {
+    const tasks = document.querySelectorAll('li');
+    const tasksArr = [];
+    for (let index = 0; index < tasks.length; index += 1) {
+      const task = tasks[index].innerText;
+      const completed = tasks[index].classList.contains('completed');
+      const taskName = {
+        task,
+        completed,
+      };
+      tasksArr[index] = taskName;
+    }
+    const tasksString = JSON.stringify(tasksArr);
+    localStorage.setItem('taskItem', tasksString);
+  });
+}
+saveTasks();
+
+// Função para criar tasks a partir dos dados salvos no storage
+function createTasksSaved(task, completed) {
+  const ol = document.querySelector('ol');
+  const newTask = document.createElement('li');
+  newTask.innerText = task;
+  newTask.classList.add('task');
+  if (completed) {
+    newTask.classList.add('completed');
+  }
+  ol.appendChild(newTask);
+}
+
+// Requisito [13] - Função responsável por resgatar tasks salvas
+function getTasks() {
+  let getLocalStorage = localStorage.getItem('taskItem');
+  getLocalStorage = JSON.parse(getLocalStorage);
+  if (getLocalStorage) {
+    for (let index = 0; index < getLocalStorage.length; index += 1) {
+      createTasksSaved(getLocalStorage[index].task, getLocalStorage[index].completed);
+    }
+  }
+}
+getTasks();
