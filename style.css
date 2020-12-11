@@ -1,0 +1,11 @@
+.task-list {
+  background-color: white;
+}
+
+.selected {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
