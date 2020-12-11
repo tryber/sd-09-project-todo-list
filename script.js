@@ -2,7 +2,6 @@ const btnCreateLi = document.querySelector('#criar-tarefa');
 const captureOl = document.querySelector('#lista-tarefas');
 const newTaskText = document.querySelector('#texto-tarefa');
 
-
 function makeLi(content) {
   const li = document.createElement('li');
   li.innerText = content;
@@ -33,12 +32,9 @@ function getSelector() {
 
 getSelector();
 
-
 function mkLineTrough(event) {
-  const completed = document.querySelector('.completed');
   const lineTarget = event.target;
   lineTarget.classList.toggle('completed');
 }
-
 
 captureOl.addEventListener('dblclick', mkLineTrough);
