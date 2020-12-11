@@ -88,6 +88,8 @@ body {
 
 .btn-delete-list {
   cursor: pointer;
+  border: none;
+  background-color: none;
 }
 
 .btn-delete-list:hover {
@@ -109,7 +111,7 @@ body {
 }
 
 .selected {
-  background-color: rgb(128 , 128 , 128);
+  background-color: gray;
   color: white;
 }
 
@@ -131,12 +133,14 @@ body {
   margin-top: 10px;
 }
 
-.action-icon {
+.action-btn {
+  border: none;
   cursor: pointer;
-  margin: 10px;
+  margin: 0;
+  overflow: hidden;
 }
 
-.action-icon:hover {
+.action-btn:hover {
   opacity: 0.8;
 }
 

@@ -11,7 +11,7 @@ function selectedElement(event) {
       task.classList.remove('selected');
     }
   });
-  event.target.classList.add('selected');;
+  event.target.classList.add('selected');
 }
 
 // Create Task in list
@@ -36,8 +36,21 @@ function addTaskInlist(button, inputText) {
   });
 }
 
+// Delete All Tasks 
+function deleteAllTasks() {
+  const btnDeleteAll = document.querySelector('#apaga-tudo');
+  const taskList = document.querySelector('#lista-tarefas');
+  const task = document.querySelectorAll('.task');
+  btnDeleteAll.addEventListener('click', function () {
+    while (taskList.firstChild) {
+      taskList.removeChild(taskList.firstChild);
+    }
+  });
+}
+
 window.onload = function () {
   const textTaskInput = document.querySelector('#texto-tarefa');
   const buttonAddTask = document.querySelector('#criar-tarefa');
   addTaskInlist(buttonAddTask, textTaskInput);
+  deleteAllTasks();
 };
