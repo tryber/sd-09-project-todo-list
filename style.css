@@ -1,0 +1,137 @@
+.completed {
+  text-decoration: line-through solid rgb(0 , 0 , 0);
+}
+
+.header-style {
+  font-weight: 700;
+  margin: auto;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.header-style h1 {
+  display: inline;
+  margin-right: 20px;
+}
+
+.header-style i {
+  font-size: 30px;
+}
+
+.hub-input-text {
+  margin: auto;
+  text-align: end;
+  width: 50vh;
+}
+
+.hub-list {
+  margin: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  text-align: center;
+  width: 50vh;
+}
+
+.hub-list ol {
+  background-color: rgb(36 , 36 , 35);
+  border-radius: 10px;
+  list-style: none;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-right: 40px;
+  text-align: start;
+  margin-bottom: 50px;
+}
+
+.hub-list ol li {
+  border-radius: 10px;
+  font-weight: 700;
+  margin: 10px;
+}
+
+.hub-list ol li:hover {
+  cursor: pointer;
+}
+
+.hub-list button {
+  background-color: rgb(36 , 36 , 35);
+  border: 0;
+  border-radius: 100px;
+  font-size: 20px;
+  height: 50px;
+  margin-left: 10px;
+  text-align: center;
+  width: 50px;
+}
+
+.hub-list button:hover {
+  transition: 1s;
+  background-color: rgb(245 , 203 , 92);
+  cursor: pointer;
+}
+
+.footer-style {
+  background-color: rgb(36 , 36 , 35);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  width: auto;
+}
+
+.footer-style button {
+  background-color: rgb(51 , 53 , 51);
+  border: 0;
+  border-radius: 100px;
+  color: rgb(232 , 237 , 223);
+  height: 40px;
+  margin-left: 10px;
+  text-align: center;
+  transition: 1s;
+  width: 40px;
+}
+
+.footer-style button:hover {
+  background-color: rgb(245 , 203 , 92);
+  cursor: pointer;
+}
+
+.hub-input-text input {
+  border: 1px solid rgb(36 , 36 , 35);
+  border-radius: 10px;
+  height: 30px;
+  margin-right: 10px;
+  padding: 5px;
+  width: 200px;
+}
+
+.hub-input-text button {
+  background-color: rgb(36 , 36 , 35);
+  border: 0;
+  border-radius: 100px;
+  height: 30px;
+  transition: 1s;
+  width: 30px;
+}
+
+.hub-input-text button:hover {
+  transition: 1s;
+  background-color: rgb(245 , 203 , 92);
+  cursor: pointer;
+}
+
+.main-content {
+  background-color: rgb(51 , 53 , 51);
+  border-radius: 10px;
+  margin: auto;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  padding: 30px;
+  width: 70%;
+}
+
+body {
+  background-color: rgb(245 , 203 , 92);
+  color: rgb(232 , 237 , 223);
+  font-family: Mukta, sans-serif;
+}
