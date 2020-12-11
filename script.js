@@ -48,10 +48,10 @@ function persistTasksToLocalStorage() {
   const taskItems = document.getElementsByClassName('task-item');
   const tasksInfo = [];
   for (let index = 0; index < taskItems.length; index += 1) {
-    let taskObject = {
-        'taskText': taskItems[index].innerText,
-        'taskClasses': taskItems[index].className,    
-    }
+    const taskObject = {
+      taskText: taskItems[index].innerText,
+      taskClasses: taskItems[index].className,
+    };
     tasksInfo[index] = taskObject;
   }
   localStorage.setItem('tasks', JSON.stringify(tasksInfo));
@@ -59,11 +59,11 @@ function persistTasksToLocalStorage() {
 }
 
 function extractStorageInfoObjects(taskObject) {
-    let infoString = '';
-    for (let index = 0; index < taskObject.length; index++) {
-      infoString += taskObject[index];
-    }
-    return infoString;
+  let infoString = '';
+  for (let index = 0; index < taskObject.length; index += 1) {
+    infoString += taskObject[index];
+  }
+  return infoString;
 }
 
 function getTasksFromLocalStorage() {
@@ -74,8 +74,8 @@ function getTasksFromLocalStorage() {
     return null;
   }
   for (let index = 0; index < tasksRecoveredFromStorage.length; index += 1) {
-    let taskClassesArray = tasksRecoveredFromStorage[index].taskClasses;
-    let taskClasses = extractStorageInfoObjects(taskClassesArray);
+    const taskClassesArray = tasksRecoveredFromStorage[index].taskClasses;
+    const taskClasses = extractStorageInfoObjects(taskClassesArray);
     const taskItem = document.createElement('li');
     taskItem.className = taskClasses;
     taskItem.innerText = tasksRecoveredFromStorage[index].taskText;
@@ -88,6 +88,13 @@ function getTasksFromLocalStorage() {
 function removeTask(task) {
   const taskList = document.getElementById('lista-tarefas');
   taskList.removeChild(task);
+}
+
+function removeSelectedTask() {
+  const selectedTask = document.querySelector('.selected-task');
+  if (selectedTask !== null) {
+    removeTask(selectedTask);
+  }
 }
 
 function removeCompletedTasks() {
@@ -113,10 +120,12 @@ const taskOrderedList = document.getElementById('lista-tarefas');
 const saveTasksButton = document.getElementById('salvar-tarefas');
 const removeAllTasksButton = document.getElementById('apaga-tudo');
 const removeCompletedTasksButton = document.getElementById('remover-finalizados');
+const removeSelectedTaskButton = document.getElementById('remover-selecionado');
 getTasksFromLocalStorage();
 createTaskButton.addEventListener('click', createTask);
 saveTasksButton.addEventListener('click', persistTasksToLocalStorage);
 taskOrderedList.addEventListener('click', selectTaskItem);
 taskOrderedList.addEventListener('dblclick', setTaskAsFinished);
+removeSelectedTaskButton.addEventListener('click', removeSelectedTask);
 removeCompletedTasksButton.addEventListener('click', removeCompletedTasks);
 removeAllTasksButton.addEventListener('click', removeAllTasks);
