@@ -41,3 +41,18 @@ getTaskList.addEventListener('dblclick', function(itemOrigin){
     }
     
 })
+
+let getRemoveAllButton = document.getElementById('apaga-tudo');
+getRemoveAllButton.addEventListener('click', function(){
+    getTaskList.innerHTML = '';
+})
+
+let getRemoveFinishedButton = document.getElementById('remover-finalizados');
+getRemoveFinishedButton.addEventListener('click', function(){
+
+    getTaskFinished = document.querySelectorAll('.completed')
+    for (let index = 0; index < getTaskFinished.length; index += 1){
+        let element = getTaskFinished[index]
+        getTaskList.removeChild(element)
+    }
+})
