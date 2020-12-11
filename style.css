@@ -13,4 +13,7 @@
   background-color: rgb(67, 135, 194);
   border-radius: 10px;
 }
+.task-item.selected {
+  background-color: rgb(128,128,128);
+}
 
