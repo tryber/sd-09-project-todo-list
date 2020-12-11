@@ -186,7 +186,9 @@ function moveDown() {
   const verific = positionList();
   if (verific < (lastList.length - 1)) {
     const selected = document.querySelector('.selected');
-    selected.parentNode.insertBefore(selected, selected.nextSibling.nextSibling);
+    if (selected !== null) {
+      selected.parentNode.insertBefore(selected, selected.nextSibling.nextSibling);
+    }
   }
 }
 
