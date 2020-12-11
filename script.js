@@ -11,14 +11,6 @@ const globalElements = {
   tasksArray: [],
 };
 
-function removeElement(element) {
-  element.remove();
-}
-
-function resetSelectedTask(element) {
-  element.classList.toggle('selected');
-}
-
 function callAllBySelector(calledFunction, selector) {
   const nodeList = document.querySelectorAll(selector);
   for (let index = 0; index < nodeList.length; index += 1) {
@@ -80,9 +72,15 @@ function createNewTask() {
   resetTaskValue();
 }
 
+function resetSelectedTask(element) {
+  element.classList.remove('selected');
+}
+
 function selectTask(event) {
-  if (event.target.classList.contains('task')) {
-    if (!(event.target.classList.contains('selected'))) {
+  const hasTaskClass = (event.target.classList.contains('task'));
+  const notHasSelectedClass = !(event.target.classList.contains('selected'));
+  if (hasTaskClass) {
+    if (notHasSelectedClass) {
       callAllBySelector(resetSelectedTask, '.selected');
     }
     event.target.classList.add('selected');
@@ -90,20 +88,19 @@ function selectTask(event) {
 }
 
 function toggleTaskAsCompleted(event) {
-  if (event.target.classList.contains('task')) {
-    event.target.classList.toggle('completed');
-  }
+  const hasTaskClass = (event.target.classList.contains('task'));
+  event.target.classList.toggle('completed', hasTaskClass);
 }
 
 function moveSelected(selectedTask, direction) {
-  const isFirstTask = (globalElements.taskList.firstElementChild === selectedTask);
-  const isLastTask = (globalElements.taskList.lastElementChild === selectedTask);
+  const notFirstTask = (globalElements.taskList.firstElementChild !== selectedTask);
+  const notLastTask = (globalElements.taskList.lastElementChild !== selectedTask);
   let relatedTask;
-  if ((direction === 'up') && !(isFirstTask)) {
+  if ((direction === 'up') && (notFirstTask)) {
     relatedTask = selectedTask.previousElementSibling;
     globalElements.taskList.insertBefore(selectedTask, relatedTask);
   }
-  if ((direction === 'down') && !(isLastTask)) {
+  if ((direction === 'down') && (notLastTask)) {
     relatedTask = selectedTask.nextElementSibling;
     globalElements.taskList.insertBefore(relatedTask, selectedTask);
   }
@@ -123,6 +120,10 @@ function setCreateTaskEvent() {
 function setTaskListEvent() {
   globalElements.taskList.addEventListener('click', selectTask);
   globalElements.taskList.addEventListener('dblclick', toggleTaskAsCompleted);
+}
+
+function removeElement(element) {
+  element.remove();
 }
 
 function setClearTasksEvent() {
@@ -163,6 +164,4 @@ function setAllEvents() {
   loadSavedTasks();
 }
 
-window.onload = function () {
-  setAllEvents();
-};
+window.onload = setAllEvents;
