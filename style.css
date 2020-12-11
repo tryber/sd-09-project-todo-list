@@ -25,6 +25,17 @@ li {
 
 #main-content {
     display: block;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    font-size: 16px;
+    height: fit-content;
+    width: fit-content;
+    margin-left: 30%;
+    padding: 40px;
+    border: 1px black solid;
+    border-radius: 50px;
+    box-shadow: 3px 3px 4px grey;
 }
 
 #menu {
@@ -46,11 +57,6 @@ li {
     margin-right: 10px;
     margin-top: 5px;
     margin-bottom: 20px;
-}
-
-#menu-left {
-
-
 }
 
 #menu-right {
