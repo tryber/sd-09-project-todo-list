@@ -14,6 +14,8 @@ window.onload = function () {
       task.innerText = taskArray[index];
       task.className = classArray[index];
       taskList.appendChild(task);
+      highlightListItemEvent();
+      crossTask();
     }
   }
 };
@@ -40,8 +42,6 @@ function highlightListItemEvent() {
   }
 }
 
-highlightListItemEvent();
-
 // Risca tarefas já completadas
 function crossOrUncross(event) {
   const task = event.target;
@@ -59,8 +59,6 @@ function crossTask() {
     tasks[index].addEventListener('dblclick', crossOrUncross);
   }
 }
-
-crossTask();
 
 // Adicionar tarefas a lista ordenada #lista-tarefas
 function transferText(task) {
@@ -193,6 +191,7 @@ function saveTasks() {
     }
     localStorage.setItem('taskListNames', JSON.stringify(taskArray));
     localStorage.setItem('taskListClasses', JSON.stringify(classArray));
+    alert('Lista salva com sucesso!');
   });
 }
 

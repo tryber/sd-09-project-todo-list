@@ -38,8 +38,8 @@ body {
 .instruction {
   font-size: 3.5vh;
   margin: 0;
-  text-align: center;
   padding: 10px;
+  text-align: center;
 }
 
 .btns-container {
@@ -105,15 +105,55 @@ body {
   bottom: 5vh;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
   height: 40vh;
+  justify-content: space-around;
   left: 14vw;
   position: fixed;
   width: 25vw;
 }
 
 .action {
-  display: block;
+  align-items: center;
+  background-color: rgb(193 , 191 , 202);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: rgb(75 , 72 , 79);
   font-size: 2.5vh;
-  height: 50px;
+  height: 5vh;
+  width: 20vw;
+}
+
+.footer-content {
+  bottom: 12vh;
+  display: flex;
+  flex-flow: column wrap;
+  left: 6vw;
+  position: fixed;
+}
+
+.footer-btn {
+  background-color: transparent;
+  border: none;
+  color: rgb(193 , 191 , 202);
+  font-size: 7.5vh;
+}
+
+/* Inherit Styles */
+
+button em {
+  margin: 15px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+a:link {
+  color: rgb(193 , 191 , 202);
+}
+
+a:visited {
+  color: rgb(193 , 191 , 202);
 }
