@@ -86,10 +86,10 @@ function getTasksFromLocalStorage() {
 }
 
 function changeTaskPlaceUP(taskToMoveUp, taskToMoveDown) {
-  let taskList = document.getElementsByClassName('task-item');
-  let previousTaskText = taskToMoveDown.innerText;
-  let previousTaskClasses = taskToMoveDown.classList.value;
-  for (let index = 0; index < taskList.length; index++) {
+  const taskList = document.getElementsByClassName('task-item');
+  const previousTaskText = taskToMoveDown.innerText;
+  const previousTaskClasses = taskToMoveDown.classList.value;
+  for (let index = 0; index < taskList.length; index += 1) {
     if (taskList[index].className === taskToMoveUp.className) {
       taskList[index].previousElementSibling.innerText = taskToMoveUp.innerText;
       taskList[index].previousElementSibling.classList.value = taskToMoveUp.classList.value;
@@ -98,13 +98,14 @@ function changeTaskPlaceUP(taskToMoveUp, taskToMoveDown) {
       return 0;
     }
   }
+  return null;
 }
 
 function changeTaskPlaceDown(taskToMoveDown, taskToMoveUP) {
-  let taskList = document.getElementsByClassName('task-item');
-  let nextTaskText = taskToMoveUP.innerText;
-  let nextTaskClasses = taskToMoveUP.classList.value;
-  for (let index = 0; index < taskList.length; index++) {
+  const taskList = document.getElementsByClassName('task-item');
+  const nextTaskText = taskToMoveUP.innerText;
+  const nextTaskClasses = taskToMoveUP.classList.value;
+  for (let index = 0; index < taskList.length; index += 1) {
     if (taskList[index].className === taskToMoveDown.className) {
       taskList[index].nextElementSibling.innerText = taskToMoveDown.innerText;
       taskList[index].nextElementSibling.classList.value = taskToMoveDown.classList.value;
@@ -113,33 +114,35 @@ function changeTaskPlaceDown(taskToMoveDown, taskToMoveUP) {
       return 0;
     }
   }
+  return null;
 }
 
 function moveUp() {
-  let selectedTask = document.querySelector('.selected-task');
+  const selectedTask = document.querySelector('.selected-task');
   if (selectedTask === null) {
     alert('A task must be selected first.');
   }
-  let previousTask = selectedTask.previousElementSibling;
+  const previousTask = selectedTask.previousElementSibling;
   if (previousTask === null) {
-    alert('The selected task is already the first one.')
+    alert('The selected task is already the first one.');
     return null;
   }
   changeTaskPlaceUP(selectedTask, previousTask);
-
+  return 0;
 }
 
 function moveDown() {
-  let selectedTask = document.querySelector('.selected-task');
+  const selectedTask = document.querySelector('.selected-task');
   if (selectedTask === null) {
     alert('A task must be selected first.');
   }
-  let nextTask = selectedTask.nextElementSibling;
+  const nextTask = selectedTask.nextElementSibling;
   if (nextTask === null) {
-    alert('The selected task is already the last one.')
+    alert('The selected task is already the last one.');
     return null;
   }
   changeTaskPlaceDown(selectedTask, nextTask);
+  return 0;
 }
 
 function removeTask(task) {
