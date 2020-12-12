@@ -63,10 +63,10 @@ function crossTask() {
 crossTask();
 
 // Adicionar tarefas a lista ordenada #lista-tarefas
-function addTask() {
-  const addButton = document.querySelector('#criar-tarefa');
-  addButton.addEventListener('click', function () {
-    const task = document.querySelector('#texto-tarefa').value;
+function transferText(task) {
+  if (task === '') {
+    alert('Campo vazio!');
+  } else {
     const taskList = document.querySelector('#lista-tarefas');
     const listItem = document.createElement('li');
     listItem.innerText = task;
@@ -75,6 +75,20 @@ function addTask() {
     highlightListItemEvent();
     crossTask();
     document.querySelector('#texto-tarefa').value = '';
+  }
+}
+function addTask() {
+  // Adicionar com clique
+  const addButton = document.querySelector('#criar-tarefa');
+  const inputBox = document.querySelector('#texto-tarefa');
+  addButton.addEventListener('click', function () {
+    transferText(inputBox.value);
+  });
+  // Adicionar com enter
+  inputBox.addEventListener('keydown', function (event) {
+    if (event.keyCode === 13) {
+      transferText(inputBox.value);
+    }
   });
 }
 
