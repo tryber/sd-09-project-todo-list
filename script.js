@@ -73,17 +73,19 @@ saveList();
 function moveUp() {
   moveCima.addEventListener('click', function () {
     const selecionado = document.querySelector('.selected');
-    if (selecionado) {
+    if (selecionado && selecionado !== selecionado.parentNode.firstChild) {
+      const selecionadoVText = selecionado.innerText;
       const selecionadoClass = selecionado.classList.value;
       const previous = selecionado.previousSibling;
       if (previous) {
-        const previousValue = previous.innerText;
+        const previousText = previous.innerText;
         const previousClass = previous.classList.value;
-        previous.innerText = selecionado.innerText;
-        previous.classList.value = selecionadoClass;
-        selecionado.innerText = previousValue;
+
+        selecionado.innerText = previousText;
+        previous.innerText = selecionadoText;
+
         selecionado.classList.value = previousClass;
-        
+        previous.classList.value = selecionadoClass;
       }
     }
   });
@@ -93,19 +95,21 @@ moveUp();
 function moveDown() {
   moveBaixo.addEventListener('click', function () {
     const selecionado = document.querySelector('.selected');
-    if (selecionado) {
+    if (selecionado && selecionado !== selecionado.parentNode.lastChild) {
+      const selecionadoText = selecionado.innerText;
       const selecionadoClass = selecionado.classList.value;
       const next = selecionado.nextSibling;
       if (next) {
-        const nextValue = next.innerText;
+        const nextText = next.innerText;
         const nextClass = next.classList.value;
-        next.innerText = selecionado.innerText;
-        next.classList.value = selecionadoClass;
-        selecionado.innerText = nextValue;
+
+        selecionado.innerText = nextText;
+        next.innerText = selecionadoText;
+
         selecionado.classList.value = nextClass;
+        next.classList.value = selecionadoClass;
       }
     }
   });
 }
 moveDown();
-
