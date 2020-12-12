@@ -85,8 +85,65 @@ function getTasksFromLocalStorage() {
   return 0;
 }
 
+function changeTaskPlaceUP(taskToMoveUp, taskToMoveDown) {
+  let taskList = document.getElementsByClassName('task-item');
+  let previousTaskText = taskToMoveDown.innerText;
+  let previousTaskClasses = taskToMoveDown.classList.value;
+  for (let index = 0; index < taskList.length; index++) {
+    if (taskList[index].className === taskToMoveUp.className) {
+      taskList[index].previousElementSibling.innerText = taskToMoveUp.innerText;
+      taskList[index].previousElementSibling.classList.value = taskToMoveUp.classList.value;
+      taskList[index].innerText = previousTaskText;
+      taskList[index].classList.value = previousTaskClasses;
+      return 0;
+    }
+  }
+}
+
+function changeTaskPlaceDown(taskToMoveDown, taskToMoveUP) {
+  let taskList = document.getElementsByClassName('task-item');
+  let nextTaskText = taskToMoveUP.innerText;
+  let nextTaskClasses = taskToMoveUP.classList.value;
+  for (let index = 0; index < taskList.length; index++) {
+    if (taskList[index].className === taskToMoveDown.className) {
+      taskList[index].nextElementSibling.innerText = taskToMoveDown.innerText;
+      taskList[index].nextElementSibling.classList.value = taskToMoveDown.classList.value;
+      taskList[index].innerText = nextTaskText;
+      taskList[index].classList.value = nextTaskClasses;
+      return 0;
+    }
+  }
+}
+
+function moveUp() {
+  let selectedTask = document.querySelector('.selected-task');
+  if (selectedTask === null) {
+    alert('A task must be selected first.');
+  }
+  let previousTask = selectedTask.previousElementSibling;
+  if (previousTask === null) {
+    alert('The selected task is already the first one.')
+    return null;
+  }
+  changeTaskPlaceUP(selectedTask, previousTask);
+
+}
+
+function moveDown() {
+  let selectedTask = document.querySelector('.selected-task');
+  if (selectedTask === null) {
+    alert('A task must be selected first.');
+  }
+  let nextTask = selectedTask.nextElementSibling;
+  if (nextTask === null) {
+    alert('The selected task is already the last one.')
+    return null;
+  }
+  changeTaskPlaceDown(selectedTask, nextTask);
+}
+
 function removeTask(task) {
-  const taskList = document.getElementById('lista-tarefas');
+  const taskList = document.querySelector('#lista-tarefas');
   taskList.removeChild(task);
 }
 
@@ -121,11 +178,15 @@ const saveTasksButton = document.getElementById('salvar-tarefas');
 const removeAllTasksButton = document.getElementById('apaga-tudo');
 const removeCompletedTasksButton = document.getElementById('remover-finalizados');
 const removeSelectedTaskButton = document.getElementById('remover-selecionado');
+const moveUpButton = document.getElementById('mover-cima');
+const moveDownButton = document.getElementById('mover-baixo');
 getTasksFromLocalStorage();
 createTaskButton.addEventListener('click', createTask);
 saveTasksButton.addEventListener('click', persistTasksToLocalStorage);
 taskOrderedList.addEventListener('click', selectTaskItem);
 taskOrderedList.addEventListener('dblclick', setTaskAsFinished);
+moveUpButton.addEventListener('click', moveUp);
+moveDownButton.addEventListener('click', moveDown);
 removeSelectedTaskButton.addEventListener('click', removeSelectedTask);
 removeCompletedTasksButton.addEventListener('click', removeCompletedTasks);
 removeAllTasksButton.addEventListener('click', removeAllTasks);
