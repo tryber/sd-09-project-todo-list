@@ -1,25 +1,3 @@
-window.onload = function () {
-  /*
-  Irá verificar se existe algo no localStorage.
-  Se houver, ir criar a lista.
-  Senão segue o baile.
-  */
-
-  if (localStorage.length > 0) {
-    const taskArray = JSON.parse(localStorage.getItem('taskListNames'));
-    const classArray = JSON.parse(localStorage.getItem('taskListClasses'));
-    const taskList = document.querySelector('#lista-tarefas');
-    for (let index = 0; index < taskArray.length; index += 1) {
-      const task = document.createElement('li');
-      task.innerText = taskArray[index];
-      task.className = classArray[index];
-      taskList.appendChild(task);
-      highlightListItemEvent();
-      crossTask();
-    }
-  }
-};
-
 // Altera cor de fundo do item da lista selecionado
 function highlight(event) {
   const clickedItem = event.target;
@@ -59,6 +37,28 @@ function crossTask() {
     tasks[index].addEventListener('dblclick', crossOrUncross);
   }
 }
+
+window.onload = function () {
+  /*
+  Irá verificar se existe algo no localStorage.
+  Se houver, ir criar a lista.
+  Senão segue o baile.
+  */
+
+  if (localStorage.length > 0) {
+    const taskArray = JSON.parse(localStorage.getItem('taskListNames'));
+    const classArray = JSON.parse(localStorage.getItem('taskListClasses'));
+    const taskList = document.querySelector('#lista-tarefas');
+    for (let index = 0; index < taskArray.length; index += 1) {
+      const task = document.createElement('li');
+      task.innerText = taskArray[index];
+      task.className = classArray[index];
+      taskList.appendChild(task);
+      highlightListItemEvent();
+      crossTask();
+    }
+  }
+};
 
 // Adicionar tarefas a lista ordenada #lista-tarefas
 function transferText(task) {
