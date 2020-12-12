@@ -73,15 +73,17 @@ saveList();
 function moveUp() {
   moveCima.addEventListener('click', function () {
     const selecionado = document.querySelector('.selected');
+    const selecionadoClass = selecionado.classList.value;
     if (selecionado) {
       const previous = selecionado.previousSibling;
-      const selecionadoClass = selecionado.classList;
       if (previous) {
         const previousValue = previous.innerText;
+        const previousClass = previous.classList.value;
         previous.innerText = selecionado.innerText;
-        previous.classList.add(selecionadoClass[0], selecionadoClass[1]);
+        previous.classList.value = selecionadoClass;
         selecionado.innerText = previousValue;
-        selecionado.classList.remove(selecionadoClass[0], selecionadoClass[1]);
+        selecionado.classList.value = previousClass;
+        
       }
     }
   });
@@ -91,17 +93,19 @@ moveUp();
 function moveDown() {
   moveBaixo.addEventListener('click', function () {
     const selecionado = document.querySelector('.selected');
+    const selecionadoClass = selecionado.classList.value;
     if (selecionado) {
       const next = selecionado.nextSibling;
-      const selecionadoClass = selecionado.classList;
       if (next) {
         const nextValue = next.innerText;
+        const nextClass = next.classList.value;
         next.innerText = selecionado.innerText;
-        next.classList.add(selecionadoClass[0], selecionadoClass[1]);
+        next.classList.value = selecionadoClass;
         selecionado.innerText = nextValue;
-        selecionado.classList.remove(selecionadoClass[0], selecionadoClass[1]);
+        selecionado.classList.value = nextClass;
       }
-    } 
+    }
   });
 }
 moveDown();
+
