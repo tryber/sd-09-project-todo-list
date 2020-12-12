@@ -8,16 +8,20 @@ const removeTasks = document.createElement('button');
 removeTasks.id = 'apaga-tudo';
 removeTasks.innerHTML = 'Excluir Tudo';
 buttonsSection.appendChild(removeTasks);
+const removeChecked = document.createElement('button');
+removeChecked.id = "remover-finalizados";
+removeChecked.innerHTML = 'Remover Concluídos';
+buttonsSection.appendChild(removeChecked)
 
 function addTask() {
   button.addEventListener('click', function () {
-    if(text.value === '') {
+    if (text.value === '') {
       alert('[ERRO!] - Digite algum valor!');
     } else {
-      const list = document.createElement('li');
-      list.className = 'todo-list';
-      orderedList.appendChild(list);
-      list.innerText = text.value;
+      const lists = document.createElement('li');
+      lists.className = 'todo-list';
+      orderedList.appendChild(lists);
+      lists.innerText = text.value;
       text.value = '';
     }
   });
@@ -27,7 +31,7 @@ function chamgeBackgroudColorOfList() {
   orderedList.addEventListener('click', function (event) {
     if (event.target.className === 'lista-de-tarefas') {
       event.target.style.backgroundColor = false;
-    }else if(list.classList.contains('todo-list')) {
+    } else if (list.classList.contains('todo-list')) {
       event.target.style.backgroundColor = 'rgb(128, 128, 128)';
     }
   });
@@ -43,19 +47,32 @@ function todoCompleted() {
   });
 }
 
-function removeCheckedTasks() {
+function removeAllTasks() {
   removeTasks.addEventListener('click', function () {
-    const orderedList = document.querySelectorAll('#lista-tarefas>li');
-    for (let index = 0; index < orderedList.length; index += 1) {
-      let listTask = orderedList[index];
+    const ulList = document.querySelectorAll('#lista-tarefas>li');
+    for (let index = 0; index < ulList.length; index += 1) {
+      const listTask = ulList[index];
       listTask.parentNode.removeChild(listTask);
     }
   });
+}
+
+function removeCheckedTasks() {
+  removeChecked.addEventListener('click', function () {
+    const listUl = document.querySelectorAll('#lista-tarefas>li');
+    for ( let index = 0; index < listUl.length; index += 1) {
+      const checked =  listUl[index];
+      if (checked.className === 'todo-list completed') {
+        checked.parentNode.removeChild(checked);
+      }
+    }
+  })
 }
 
 window.onload = function () {
   addTask();
   chamgeBackgroudColorOfList();
   todoCompleted();
+  removeAllTasks();
   removeCheckedTasks()
-}
+};

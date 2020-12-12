@@ -1,7 +1,7 @@
 body {
-  background-color: rgb(228, 250, 228);
+  background-color: rgb(228 , 250 , 228);
 }
 
 .completed {
-  text-decoration: line-through rgb(0, 0, 0);
+  text-decoration: line-through black;
 }
