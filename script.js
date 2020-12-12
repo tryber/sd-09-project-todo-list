@@ -78,11 +78,80 @@ window.onload = function () {
 
   buttonremoveselection.addEventListener('click', removeitemselect)
 
-  function removeitemselect(){
+  function removeitemselect() {
     let item = document.querySelector('.selected')
 
-    if(item){
+    if (item) {
       item.remove()
+    }
+  }
+
+  let buttoncima = document.querySelector('#mover-cima')
+
+  buttoncima.addEventListener('click', moveelementup)
+
+  function moveelementup() {
+    let elemets = document.querySelectorAll('.assignment')
+    let selectedelement = document.querySelector('.selected')
+
+    for (let index = 0; index < elemets.length; index += 1) {
+      let cima = index - 1
+      let atual = index
+      let elementCima
+      let elementbaixo
+      let elementCimaClass
+      let elementBaixoClass
+
+
+      if(cima >= 0){
+        if (elemets[index] == selectedelement) {
+          elementCima = elemets[cima].textContent
+          elementbaixo = elemets[atual].textContent
+          elementCimaClass = elemets[cima].classList.value
+          elementBaixoClass = elemets[atual].classList.value
+
+          elemets[cima].className = elementBaixoClass
+          elemets[atual].className = elementCimaClass
+          elemets[atual].innerText = elementCima
+          elemets[cima].innerText = elementbaixo
+        }
+      }
+    }
+  }
+
+  let buttonbaixo = document.querySelector('#mover-baixo')
+
+  buttonbaixo.addEventListener('click', moveelementdown)
+
+  function moveelementdown() {
+    let elements = document.querySelectorAll('.assignment')
+    let selectedelement = document.querySelector('.selected')
+
+    for (let index = 0; index < elements.length; index += 1) {
+      let baixo = index + 1
+      let atual = index
+      let elementTextAtual
+      let elementTextBaixo
+      let elementclassAtual
+      let elementclassbaixo
+
+
+      if(baixo < elements.length){
+        if (elements[index] == selectedelement) {
+          elementTextAtual = elements[baixo].textContent
+          elementTextBaixo = elements[atual].textContent
+
+          elements[atual].innerText = elementTextAtual
+          elements[baixo].innerText = elementTextBaixo
+
+
+          elementclassAtual = elements[atual].classList.value
+          elementclassbaixo = elements[baixo].classList.value
+
+          elements[atual].className = elementclassbaixo
+          elements[baixo].className = elementclassAtual
+        }
+      }
     }
   }
 }
