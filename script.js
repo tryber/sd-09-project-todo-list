@@ -76,14 +76,11 @@ function moveUp() {
     const selecionado = document.querySelector('.selected');
     if (selecionado !== null && selecionado !== selecionado.parentNode.firstChild) {
       const selecionadoText = selecionado.innerText;
-      const selecionadoClass = selecionado.classList.value;
-      const previous = selecionado.previousElementSibling;
-      const previousText = previous.innerText;
-      const previousClass = previous.classList.value;
-      selecionado.innerText = previousText;
-      selecionado.classList.value = previousClass;
-      previous.innerText = selecionadoText;
-      previous.classList.value = selecionadoClass;
+      const selecionadoClass = selecionado.className;
+      selecionado.innerText = selecionado.previousElementSibling.innerText;
+      selecionado.previousElementSibling.innerText = selecionadoText;
+      selecionado.className = selecionado.previousElementSibling.className;
+      selecionado.previousElementSibling.className = selecionadoClass;
     }
   });
 }
@@ -94,14 +91,11 @@ function moveDown() {
     const selecionado = document.querySelector('.selected');
     if (selecionado !== null && selecionado !== selecionado.parentNode.lastChild) {
       const selecionadoText = selecionado.innerText;
-      const selecionadoClass = selecionado.classList.value;
-      const next = selecionado.nextElementSibling;
-      const nextText = next.innerText;
-      const nextClass = next.classList.value;
-      selecionado.innerText = nextText;
-      selecionado.classList.value = nextClass;
-      next.innerText = selecionadoText;
-      next.classList.value = selecionadoClass;
+      const SelecionadoClass = selecionado.className;
+      selecionado.innerText = selecionado.nextElementSibling.innerText;
+      selecionado.nextElementSibling.innerText = selecionadoText;
+      selecionado.className =selecionado.nextElementSibling.className;
+      selecionado.nextElementSibling.className = SelecionadoClass;
     }
   });
 }
