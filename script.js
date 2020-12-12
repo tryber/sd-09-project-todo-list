@@ -94,7 +94,7 @@ function moveDown() {
       const SelecionadoClass = selecionado.className;
       selecionado.innerText = selecionado.nextElementSibling.innerText;
       selecionado.nextElementSibling.innerText = selecionadoText;
-      selecionado.className =selecionado.nextElementSibling.className;
+      selecionado.className = selecionado.nextElementSibling.className;
       selecionado.nextElementSibling.className = SelecionadoClass;
     }
   });
