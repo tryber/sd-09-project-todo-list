@@ -17,7 +17,6 @@ function addTask() {
     }
   });
 }
-addTask();
 
 function chamgeBackgroudColorOfList() {
   orderedList.addEventListener('click', function (event) {
@@ -28,4 +27,19 @@ function chamgeBackgroudColorOfList() {
     }
   });
 }
-chamgeBackgroudColorOfList();
+
+function todoCompleted() {
+  orderedList.addEventListener('dblclick', function (event) {
+    if (event.target.className === 'todo-list') {
+      event.target.className = 'todo-list completed';
+    } else if (event.target.className === 'todo-list completed') {
+      event.target.className = 'todo-list';
+    }
+  });
+}
+
+window.onload = function () {
+  addTask();
+  chamgeBackgroudColorOfList();
+todoCompleted();
+}
