@@ -6,6 +6,7 @@ const apagaFinalizados = document.querySelector('#remover-finalizados');
 const salvaLista = document.querySelector('#salvar-tarefas');
 const moveCima = document.querySelector('#mover-cima');
 const moveBaixo = document.querySelector('#mover-baixo');
+const apagaSelecionado = document.querySelector('#remover-selecionado');
 
 window.onload = function () {
   listaTarefas.innerHTML = localStorage.toDoList;
@@ -113,3 +114,13 @@ function moveDown() {
   });
 }
 moveDown();
+
+function removeSelected () {
+  const selecionado = document.getElementsByClassName('selected');
+  apagaSelecionado.addEventListener('click', function () {
+    for (let index = 0; index < selecionado.length; index += 1) {
+      selecionado[index].remove();
+    }
+  });
+}
+removeSelected();
