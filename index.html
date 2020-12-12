@@ -18,20 +18,22 @@
     <p id="funcionamento" class="instruction">Clique duas vezes em um item para marcá-lo como completo</p>
     <div class="btns-container">
       <div class="add-task-container">
-        <input type="text" id="texto-tarefa" placeholder="Digite sua tarefa aqui">
-        <button id="criar-tarefa">Adicionar</button>
+        <input type="text" id="texto-tarefa" class="input-box" placeholder="Digite sua tarefa aqui">
+        <button id="criar-tarefa" class="input-btn"></button>
       </div>
       <div class="move-container">
-        <button id="mover-cima">/\</button>
-        <button id="mover-baixo">\/</button>
+        <button id="mover-cima" class="move-up"></button>
+        <button id="mover-baixo" class="move-down"></button>
       </div>
     </div>
     <ol id="lista-tarefas" class="tasks-list"></ol>
   </div>
-  <button id="salvar-tarefas">Salvar tarefas</button>
-  <button id="apaga-tudo">Limpar lista</button>
-  <button id="remover-finalizados">Remover finalizados</button>
-  <button id="remover-selecionado">Remover item selecionado</button>
+  <aside class="actions-container">
+    <button id="salvar-tarefas" class="action">Salvar tarefas</button>
+    <button id="apaga-tudo" class="action">Limpar lista</button>
+    <button id="remover-finalizados" class="action">Remover finalizados</button>
+    <button id="remover-selecionado" class="action">Remover item selecionado</button>
+  </aside>
   <script src="script.js"></script>
 </body>
 </html>

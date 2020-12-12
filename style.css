@@ -23,40 +23,97 @@ body {
   display: flex;
   flex-direction: column;
   height: 67vh;
+  overflow-y: auto;
   position: fixed;
   right: 14vw;
   width: 37vw;
 }
 
 .main-title {
-  font-size: 70px;
+  font-size: 8vh;
   margin: 0;
   text-align: center;
-  border:1px solid aqua;
 }
 
 .instruction {
-  font-size: 25px;
+  font-size: 3.5vh;
   margin: 0;
   text-align: center;
   padding: 10px;
-  border: 1px solid red;
 }
 
 .btns-container {
+  align-items: center;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   justify-content: space-around;
   padding: 10px;
-  border: 1px solid blue;
+}
+
+.add-task-container {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.input-box {
+  font-family: Caveat, cursive;
+  font-size: 3.5vh;
+}
+
+.input-btn {
+  background-color: transparent;
+  background-image: url('pics/plus-icon.png');
+  background-size: cover;
+  border: none;
+  height: 35px;
+  margin: 10px;
+  width: 35px;
+}
+
+.move-up {
+  background-color: transparent;
+  background-image: url('pics/up-arrow-icon.png');
+  background-size: cover;
+  border: none;
+  height: 35px;
+  margin: 10px;
+  width: 35px;
+}
+
+.move-down {
+  background-color: transparent;
+  background-image: url('pics/down-arrow-icon.png');
+  background-size: cover;
+  border: none;
+  height: 35px;
+  margin: 10px;
+  width: 35px;
 }
 
 .tasks-list {
   overflow-y: auto;
-  border: 1px solid green;
 }
 
 .task {
-  font-size: 35px;
+  font-size: 3.5vh;
+}
+
+.actions-container {
+  align-items: center;
+  bottom: 5vh;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  height: 40vh;
+  left: 14vw;
+  position: fixed;
+  width: 25vw;
+}
+
+.action {
+  display: block;
+  font-size: 2.5vh;
+  height: 50px;
 }
