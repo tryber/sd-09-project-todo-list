@@ -39,8 +39,9 @@ function clearAll() {
   const taskList = document.getElementById('lista-tarefas');
   clear.addEventListener('click', function() {
     const listArray = document.getElementsByTagName('li');
-    for (i = 0; i < listArray.length; i += 1) {
-      taskList.removeChild(listArray[i]);
+    const total = listArray.length;
+    for (i = total; i > 0; i -= 1) {
+      taskList.removeChild(listArray[i-1]);
     }
   });
 }
