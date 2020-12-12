@@ -68,3 +68,18 @@ function removeCompletedTasks(){
 
 removeCompletedTasks();
 
+function removeSelectedTask(){
+    let removeSelectedBtn = document.getElementById('remover-selecionado');
+    removeSelectedBtn.addEventListener('click', function(){
+        let liList = document.querySelectorAll('li');
+
+        for (let index = 0; index < liList.length; index += 1){
+            let bkColor = liList[index].style.backgroundColor;
+            if ( bkColor === 'rgb(128, 128, 128)'){
+                liList[index].parentNode.removeChild(liList[index]);
+            }
+        }
+    });
+};
+
+removeSelectedTask();
