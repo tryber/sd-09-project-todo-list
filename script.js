@@ -4,10 +4,12 @@ const textoTarefa = document.querySelector('#texto-tarefa');
 const apagaTudo = document.querySelector('#apaga-tudo');
 const apagaFinalizados = document.querySelector('#remover-finalizados');
 const salvaLista = document.querySelector('#salvar-tarefas');
+const moveCima = document.querySelector('#mover-cima');
+const moveBaixo = document.querySelector('#mover-baixo');
 
 window.onload = function () {
   listaTarefas.innerHTML = localStorage.toDoList;
-}
+};
 
 function addTask() {
   criarTarefa.addEventListener('click', function () {
@@ -21,7 +23,7 @@ addTask();
 
 function selectItem() {
   listaTarefas.addEventListener('click', function (event) {
-    if (event.target.classList.contains('selected')){
+    if (event.target.classList.contains('selected')) {
       event.target.classList.remove('selected');
     } else {
       const selecionado = document.querySelector('.selected');
@@ -67,3 +69,37 @@ function saveList() {
   });
 }
 saveList();
+
+function moveUp() {
+  moveCima.addEventListener('click', function () {
+    const selecionado = document.querySelector('.selected');
+    const selecionadoClass = selecionado.classList;
+    const previous = selecionado.previousSibling;
+    const previousValue = previous.innerText;
+    if (previous) {
+      previous.innerText = selecionado.innerText;
+      previous.classList.add(selecionadoClass[0], selecionadoClass[1]);
+      selecionado.innerText = previousValue;
+      selecionado.classList.remove(selecionadoClass[0], selecionadoClass[1]);
+    } else {
+
+    }
+  });
+}
+moveUp();
+
+function moveDown() {
+  moveBaixo.addEventListener('click', function () {
+    const selecionado = document.querySelector('.selected');
+    const selecionadoClass = selecionado.classList;
+    const next = selecionado.nextSibling;
+    const nextValue = next.innerText;
+    if (next) {
+      next.innerText = selecionado.innerText;
+      next.classList.add(selecionadoClass[0], selecionadoClass[1]);
+      selecionado.innerText = nextValue;
+      selecionado.classList.remove(selecionadoClass[0], selecionadoClass[1]);
+    }
+  });
+}
+moveDown();
