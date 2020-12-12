@@ -1,5 +1,3 @@
-
-
 function addTask() {
   const text = document.querySelector('#texto-tarefa');
   const button = document.querySelector('#criar-tarefa');
@@ -10,6 +8,7 @@ function addTask() {
       alert('[ERRO!] - Digite algum valor!');
     } else {
       const list = document.createElement('li');
+      list.className = 'todo-list'
       orderedList.appendChild(list);
       list.innerText = text.value;
       text.value = '';
@@ -17,3 +16,11 @@ function addTask() {
   });
 }
 addTask();
+
+function chamgeBackgroudColorOfList() {
+  const list = document.querySelector('#lista-tarefas')
+  list.addEventListener('click', function (event) {
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+  });
+}
+chamgeBackgroudColorOfList();
