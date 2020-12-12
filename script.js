@@ -15,12 +15,12 @@ addTask();
 function selectTask() {
     let list = document.getElementById('lista-tarefas');
     list.addEventListener('click', function(event){
-        let paintWhite = document.getElementsByTagName('li');
-        
+        let paintWhite = document.getElementsByTagName('li');        
+
         for (let index = 0; index < paintWhite.length; index += 1) {
             paintWhite[index].style.backgroundColor = 'white';
         }
-
+        event.target.className = 'selected';
         event.target.style.backgroundColor = 'rgb(128, 128, 128)';
     })
 }
@@ -30,7 +30,7 @@ selectTask();
 function changeTaskStatus(){
     let list = document.getElementById('lista-tarefas');
     list.addEventListener('dblclick', function(event){
-        if (event.target.className === ''){
+        if (event.target.className === 'selected'){
             event.target.className = 'completed';
             event.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
         } else {
@@ -68,3 +68,4 @@ function removeCompletedTasks(){
 };
 
 removeCompletedTasks();
+
