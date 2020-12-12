@@ -121,6 +121,7 @@ function moveUp() {
   const selectedTask = document.querySelector('.selected-task');
   if (selectedTask === null) {
     alert('A task must be selected first.');
+    return null;
   }
   const previousTask = selectedTask.previousElementSibling;
   if (previousTask === null) {
@@ -135,6 +136,7 @@ function moveDown() {
   const selectedTask = document.querySelector('.selected-task');
   if (selectedTask === null) {
     alert('A task must be selected first.');
+    return null;
   }
   const nextTask = selectedTask.nextElementSibling;
   if (nextTask === null) {
