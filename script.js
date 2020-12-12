@@ -74,11 +74,11 @@ saveList();
 function moveUp() {
   moveCima.addEventListener('click', function () {
     const selecionado = document.querySelector('.selected');
-    if (selecionado !== null && selecionado !== selecionado.parentNode.firstChild) {
+    if (selecionado && selecionado !== selecionado.parentNode.firstChild) {
       const selecionadoText = selecionado.innerText;
       const selecionadoClass = selecionado.classList.value;
       const previous = selecionado.previousElementSibling;
-      if (previous !== undefined) {
+      if (previous) {
         const previousText = previous.innerText;
         const previousClass = previous.classList.value;
 
@@ -96,7 +96,7 @@ moveUp();
 function moveDown() {
   moveBaixo.addEventListener('click', function () {
     const selecionado = document.querySelector('.selected');
-    if (selecionado !== null && selecionado !== selecionado.parentNode.lastChild) {
+    if (selecionado && selecionado !== selecionado.parentNode.lastChild) {
       const selecionadoText = selecionado.innerText;
       const selecionadoClass = selecionado.classList.value;
       const next = selecionado.nextElementSibling;
@@ -115,7 +115,7 @@ function moveDown() {
 }
 moveDown();
 
-function removeSelected () {
+function removeSelected() {
   const selecionado = document.getElementsByClassName('selected');
   apagaSelecionado.addEventListener('click', function () {
     for (let index = 0; index < selecionado.length; index += 1) {
