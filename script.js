@@ -92,15 +92,8 @@ function moveUp(){
         for (let index = 0; index < liList.length; index += 1){
             if (index > 0){
                 let bkColor = liList[index].style.backgroundColor;
-                if ( bkColor === 'rgb(128, 128, 128)'){
-                    let goUp = liList[index].innerText;
-                    let goDown = liList[index - 1].innerText;
-
-                    document.getElementsByTagName('li')[index].innerText = goDown;
-                    document.getElementsByTagName('li')[index - 1].innerText = goUp;
-
-                    document.getElementsByTagName('li')[index].style.backgroundColor = 'rgb(255, 255, 255)';
-                    document.getElementsByTagName('li')[index -1].style.backgroundColor = 'rgb(128, 128, 128)';
+                if ( bkColor === 'rgb(128, 128, 128)' && liList[index].previousSibling !== null){
+                    liList[index].parentNode.insertBefore(liList[index], liList[index - 1]);
                 }
             }
         }        
@@ -117,16 +110,8 @@ function moveDown(){
         for (let index = 0; index < liList.length; index += 1){
             if (index < liList.length){
                 let bkColor = liList[index].style.backgroundColor;
-                if ( bkColor === 'rgb(128, 128, 128)'){
-                    let goDown = liList[index].innerText;
-                    let goUp = liList[index + 1].innerText;
-
-                    document.getElementsByTagName('li')[index].innerText = goUp;
-                    document.getElementsByTagName('li')[index + 1].innerText = goDown;
-
-                    document.getElementsByTagName('li')[index].style.backgroundColor = 'rgb(255, 255, 255)';
-                    document.getElementsByTagName('li')[index + 1].style.backgroundColor = 'rgb(128, 128, 128)';
-                    break;
+                if ( bkColor === 'rgb(128, 128, 128)' && liList[index].nextSibling !== null){
+                    liList[index].parentNode.insertBefore(liList[index + 1], liList[index]);
                 }
             }
         }        
