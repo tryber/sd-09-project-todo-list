@@ -18,7 +18,7 @@ function selectTask() {
         let paintWhite = document.getElementsByTagName('li');        
 
         for (let index = 0; index < paintWhite.length; index += 1) {
-            paintWhite[index].style.backgroundColor = 'white';
+            paintWhite[index].style.backgroundColor = 'rgb(255, 255, 255)';
         }
         event.target.style.backgroundColor = 'rgb(128, 128, 128)';
     })
@@ -83,3 +83,54 @@ function removeSelectedTask(){
 };
 
 removeSelectedTask();
+
+function moveUp(){
+    let upBtn = document.getElementById('mover-cima');
+    upBtn.addEventListener('click', function(){
+        let liList = document.querySelectorAll('li');
+
+        for (let index = 0; index < liList.length; index += 1){
+            if (index > 0){
+                let bkColor = liList[index].style.backgroundColor;
+                if ( bkColor === 'rgb(128, 128, 128)'){
+                    let goUp = liList[index].innerText;
+                    let goDown = liList[index - 1].innerText;
+
+                    document.getElementsByTagName('li')[index].innerText = goDown;
+                    document.getElementsByTagName('li')[index - 1].innerText = goUp;
+
+                    document.getElementsByTagName('li')[index].style.backgroundColor = 'rgb(255, 255, 255)';
+                    document.getElementsByTagName('li')[index -1].style.backgroundColor = 'rgb(128, 128, 128)';
+                }
+            }
+        }        
+    });
+};
+
+moveUp();
+
+function moveDown(){
+    let upBtn = document.getElementById('mover-baixo');
+    upBtn.addEventListener('click', function(){
+        let liList = document.querySelectorAll('li');
+
+        for (let index = 0; index < liList.length; index += 1){
+            if (index < liList.length){
+                let bkColor = liList[index].style.backgroundColor;
+                if ( bkColor === 'rgb(128, 128, 128)'){
+                    let goDown = liList[index].innerText;
+                    let goUp = liList[index + 1].innerText;
+
+                    document.getElementsByTagName('li')[index].innerText = goUp;
+                    document.getElementsByTagName('li')[index + 1].innerText = goDown;
+
+                    document.getElementsByTagName('li')[index].style.backgroundColor = 'rgb(255, 255, 255)';
+                    document.getElementsByTagName('li')[index + 1].style.backgroundColor = 'rgb(128, 128, 128)';
+                    break;
+                }
+            }
+        }        
+    });
+};
+
+moveDown();
