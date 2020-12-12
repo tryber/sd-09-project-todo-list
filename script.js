@@ -39,9 +39,9 @@ function clearAll() {
   const taskList = document.getElementById('lista-tarefas');
   clear.addEventListener('click', function() {
     const listArray = document.getElementsByTagName('li');
-    const total = listArray.length;
-    for (i = total; i > 0; i -= 1) {
-      taskList.removeChild(listArray[i-1]);
+    for (let i = 0; i < listArray.length; i += 1) {
+      taskList.removeChild(listArray[i]);
+      i -= 1;
     }
   });
 }
@@ -54,8 +54,9 @@ function clearComplete() {
   const taskList = document.getElementById('lista-tarefas');
   clear.addEventListener('click', function() {
     for (let i = 0; i < listArray.length; i += 1) {
-      if (listArray[i].classList.contains('completed') == true) {
+      if (listArray[i].classList.contains('completed') === true) {
         taskList.removeChild(listArray[i]);
+        i -= 1;
       }
     }
   });
