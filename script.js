@@ -39,10 +39,25 @@ function clearAll() {
   const taskList = document.getElementById('lista-tarefas');
   clear.addEventListener('click', function() {
     const listArray = document.getElementsByTagName('li');
-    for (let i = 0; i < listArray.length; i += 1) {
+    for (i = 0; i < listArray.length; i += 1) {
       taskList.removeChild(listArray[i]);
     }
   });
 }
 
 clearAll();
+
+function clearComplete() {
+  const clear = document.getElementById('remover-finalizados');
+  const listArray = document.getElementsByTagName('li');
+  const taskList = document.getElementById('lista-tarefas');
+  clear.addEventListener('click', function() {
+    for (let i = 0; i < listArray.length; i += 1) {
+      if (listArray[i].classList.contains('completed') == true) {
+        taskList.removeChild(listArray[i]);
+      }
+    }
+  });
+}
+
+clearComplete();
