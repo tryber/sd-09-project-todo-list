@@ -21,9 +21,9 @@ function paintItem() {
 
 paintItem();
 
-function completeTask () {
-  let taskList2 = document.getElementById('lista-tarefas');
-  taskList2.addEventListener('dblclick', function(event) {
+function completeTask() {
+  let taskList = document.getElementById('lista-tarefas');
+  taskList.addEventListener('dblclick', function(event) {
     if ( event.target.classList.contains('completed') === true ) {
       event.target.classList.remove('completed');
      } else {
@@ -33,3 +33,16 @@ function completeTask () {
 }
 
 completeTask();
+
+function clearAll() {
+  const clear = document.getElementById('apaga-tudo');
+  const taskList = document.getElementById('lista-tarefas');
+  clear.addEventListener('click', function() {
+    const listArray = document.getElementsByTagName('li');
+    for (let i = 0; i < listArray.length; i += 1) {
+      taskList.removeChild(listArray[i]);
+    }
+  });
+}
+
+clearAll();
