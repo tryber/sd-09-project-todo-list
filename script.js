@@ -74,13 +74,18 @@ saveList();
 function moveUp() {
   moveCima.addEventListener('click', function () {
     const selecionado = document.querySelector('.selected');
-    if (selecionado !== null && selecionado !== selecionado.parentNode.firstChild) {
+    if (selecionado) {
       const selecionadoText = selecionado.innerText;
-      const selecionadoClass = selecionado.className;
-      selecionado.innerText = selecionado.previousElementSibling.innerText;
-      selecionado.previousElementSibling.innerText = selecionadoText;
-      selecionado.className = selecionado.previousElementSibling.className;
-      selecionado.previousElementSibling.className = selecionadoClass;
+      const selecionadoClass = selecionado.classList.value;
+      const previous = selecionado.previousElementSibling;
+      if (previous) {
+        const previousText = previous.innerText;
+        const previousClass = previous.classList.value;
+        previous.innerText = selecionadoText;
+        previous.classList.value = selecionadoClass;
+        selecionado.innerText = previousText;
+        selecionado.classList.value = previousClass;
+      }
     }
   });
 }
@@ -89,13 +94,18 @@ moveUp();
 function moveDown() {
   moveBaixo.addEventListener('click', function () {
     const selecionado = document.querySelector('.selected');
-    if (selecionado !== null && selecionado !== selecionado.parentNode.lastChild) {
+    if (selecionado) {
       const selecionadoText = selecionado.innerText;
-      const SelecionadoClass = selecionado.className;
-      selecionado.innerText = selecionado.nextElementSibling.innerText;
-      selecionado.nextElementSibling.innerText = selecionadoText;
-      selecionado.className = selecionado.nextElementSibling.className;
-      selecionado.nextElementSibling.className = SelecionadoClass;
+      const selecionadoClass = selecionado.classList.value;
+      const next = selecionado.nextElementSibling;
+      if (next) {
+        const nextText = next.innerText;
+        const nextClass = next.classList.value;
+        next.innerText = selecionadoText;
+        next.classList.value = selecionadoClass;
+        selecionado.innerText = nextText;
+        selecionado.classList.value = nextClass;
+      }
     }
   });
 }
