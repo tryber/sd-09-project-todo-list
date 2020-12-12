@@ -73,11 +73,11 @@ saveList();
 function moveUp() {
   moveCima.addEventListener('click', function () {
     const selecionado = document.querySelector('.selected');
-    if (selecionado && selecionado !== selecionado.parentNode.firstChild) {
+    if (selecionado !== null && selecionado !== selecionado.parentNode.firstChild) {
       const selecionadoText = selecionado.innerText;
       const selecionadoClass = selecionado.classList.value;
-      const previous = selecionado.previousSibling;
-      if (previous) {
+      const previous = selecionado.previousElementSibling;
+      if (previous !== undefined) {
         const previousText = previous.innerText;
         const previousClass = previous.classList.value;
 
@@ -95,10 +95,10 @@ moveUp();
 function moveDown() {
   moveBaixo.addEventListener('click', function () {
     const selecionado = document.querySelector('.selected');
-    if (selecionado && selecionado !== selecionado.parentNode.lastChild) {
+    if (selecionado !== null && selecionado !== selecionado.parentNode.lastChild) {
       const selecionadoText = selecionado.innerText;
       const selecionadoClass = selecionado.classList.value;
-      const next = selecionado.nextSibling;
+      const next = selecionado.nextElementSibling;
       if (next) {
         const nextText = next.innerText;
         const nextClass = next.classList.value;
