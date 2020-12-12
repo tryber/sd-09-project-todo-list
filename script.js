@@ -73,14 +73,16 @@ saveList();
 function moveUp() {
   moveCima.addEventListener('click', function () {
     const selecionado = document.querySelector('.selected');
-    const previous = selecionado.previousSibling;
-    if (selecionado && previous) {
+    if (selecionado) {
+      const previous = selecionado.previousSibling;
       const selecionadoClass = selecionado.classList;
-      const previousValue = previous.innerText;
-      previous.innerText = selecionado.innerText;
-      previous.classList.add(selecionadoClass[0], selecionadoClass[1]);
-      selecionado.innerText = previousValue;
-      selecionado.classList.remove(selecionadoClass[0], selecionadoClass[1]);
+      if (previous) {
+        const previousValue = previous.innerText;
+        previous.innerText = selecionado.innerText;
+        previous.classList.add(selecionadoClass[0], selecionadoClass[1]);
+        selecionado.innerText = previousValue;
+        selecionado.classList.remove(selecionadoClass[0], selecionadoClass[1]);
+      }
     }
   });
 }
@@ -89,14 +91,16 @@ moveUp();
 function moveDown() {
   moveBaixo.addEventListener('click', function () {
     const selecionado = document.querySelector('.selected');
-    const next = selecionado.nextSibling;
-    if (next && selecionado) {
+    if (selecionado) {
+      const next = selecionado.nextSibling;
       const selecionadoClass = selecionado.classList;
-      const nextValue = next.innerText;
-      next.innerText = selecionado.innerText;
-      next.classList.add(selecionadoClass[0], selecionadoClass[1]);
-      selecionado.innerText = nextValue;
-      selecionado.classList.remove(selecionadoClass[0], selecionadoClass[1]);
+      if (next) {
+        const nextValue = next.innerText;
+        next.innerText = selecionado.innerText;
+        next.classList.add(selecionadoClass[0], selecionadoClass[1]);
+        selecionado.innerText = nextValue;
+        selecionado.classList.remove(selecionadoClass[0], selecionadoClass[1]);
+      }
     } 
   });
 }
