@@ -74,7 +74,7 @@ function moveUp() {
   moveCima.addEventListener('click', function () {
     const selecionado = document.querySelector('.selected');
     if (selecionado && selecionado !== selecionado.parentNode.firstChild) {
-      const selecionadoVText = selecionado.innerText;
+      const selecionadoText = selecionado.innerText;
       const selecionadoClass = selecionado.classList.value;
       const previous = selecionado.previousSibling;
       if (previous) {
