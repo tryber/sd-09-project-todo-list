@@ -1,0 +1,158 @@
+/* Tag styles */
+body {
+  background-attachment: fixed;
+  background-image: url('pics/bg-img.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100vw 100vh;
+  font-family: Caveat, cursive;
+}
+
+/* Class Styles */
+.completed {
+  text-decoration: line-through solid black;
+}
+
+.selected {
+  background-color: gray;
+}
+
+.tasks-container {
+  background-color: rgb(193 , 191 , 202);
+  bottom: 5vh;
+  display: flex;
+  flex-direction: column;
+  height: 67vh;
+  overflow-y: auto;
+  position: fixed;
+  right: 14vw;
+  width: 37vw;
+}
+
+.main-title {
+  font-size: 8vh;
+  margin: 0;
+  text-align: center;
+}
+
+.instruction {
+  font-size: 3.5vh;
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+}
+
+.btns-container {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+.add-task-container {
+  align-items: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.input-box {
+  font-family: Caveat, cursive;
+  font-size: 3.5vh;
+}
+
+.input-btn {
+  background-color: transparent;
+  background-image: url('pics/plus-icon.png');
+  background-size: cover;
+  border: none;
+  height: 35px;
+  margin: 10px;
+  width: 35px;
+}
+
+.move-up {
+  background-color: transparent;
+  background-image: url('pics/up-arrow-icon.png');
+  background-size: cover;
+  border: none;
+  height: 35px;
+  margin: 10px;
+  width: 35px;
+}
+
+.move-down {
+  background-color: transparent;
+  background-image: url('pics/down-arrow-icon.png');
+  background-size: cover;
+  border: none;
+  height: 35px;
+  margin: 10px;
+  width: 35px;
+}
+
+.tasks-list {
+  overflow-y: auto;
+}
+
+.task {
+  font-size: 3.5vh;
+}
+
+.actions-container {
+  align-items: center;
+  bottom: 5vh;
+  display: flex;
+  flex-flow: row wrap;
+  height: 40vh;
+  justify-content: space-around;
+  left: 14vw;
+  position: fixed;
+  width: 25vw;
+}
+
+.action {
+  align-items: center;
+  background-color: rgb(193 , 191 , 202);
+  border-radius: 10px;
+  color: rgb(75 , 72 , 79);
+  display: flex;
+  flex-direction: row;
+  font-size: 2.5vh;
+  height: 5vh;
+  justify-content: center;
+  width: 20vw;
+}
+
+.footer-content {
+  bottom: 12vh;
+  display: flex;
+  flex-flow: column wrap;
+  left: 6vw;
+  position: fixed;
+}
+
+.footer-btn {
+  background-color: transparent;
+  border: none;
+  color: rgb(193 , 191 , 202);
+  font-size: 7.5vh;
+}
+
+/* Inherit Styles */
+button em {
+  margin: 15px;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+a:link {
+  color: rgb(193 , 191 , 202);
+}
+
+a:visited {
+  color: rgb(193 , 191 , 202);
+}

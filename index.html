@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Do List</title>
+  <!-- Font link -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Icons link -->
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+  <!-- CSS link -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="tasks-container">
+    <header>
+      <h1 class="main-title">Minha Lista de Tarefas</h1>
+    </header>
+    <p id="funcionamento" class="instruction">Clique duas vezes em um item para marcá-lo como completo</p>
+    <div class="btns-container">
+      <div class="add-task-container">
+        <input type="text" id="texto-tarefa" class="input-box" placeholder="Digite sua tarefa aqui">
+        <button id="criar-tarefa" class="input-btn"></button>
+      </div>
+      <div class="move-container">
+        <button id="mover-cima" class="move-up"></button>
+        <button id="mover-baixo" class="move-down"></button>
+      </div>
+    </div>
+    <ol id="lista-tarefas" class="tasks-list"></ol>
+  </div>
+  <aside class="actions-container">
+    <button id="salvar-tarefas" class="action"><em class='fas fa-save'></em>Salvar tarefas</button>
+    <button id="apaga-tudo" class="action"><em class='fas fa-trash-alt'></em>Limpar lista</button>
+    <button id="remover-finalizados" class="action"><em class="fas fa-tasks"></em>Remover finalizados</button>
+    <button id="remover-selecionado" class="action"><em class="fas fa-stream"></em>Remover selecionado</button>
+  </aside>
+  <footer class="footer-content">
+    <button class="footer-btn"><a href="https://github.com/rach-vp" target="_blank"><em class="fab fa-github"></em></a></button>
+    <button class="footer-btn"><a href="https://www.linkedin.com/in/raquel-pican%C3%A7o-384736107/" target="_blank"><em class="fab fa-linkedin"></em></a></button>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
