@@ -89,18 +89,22 @@ function selectTask(event) {
 
 function toggleTaskAsCompleted(event) {
   const hasTaskClass = (event.target.classList.contains('task'));
-  event.target.classList.toggle('completed', hasTaskClass);
+  if (hasTaskClass) {
+    event.target.classList.toggle('completed');
+  }
 }
 
 function moveSelected(selectedTask, direction) {
   const notFirstTask = (globalElements.taskList.firstElementChild !== selectedTask);
   const notLastTask = (globalElements.taskList.lastElementChild !== selectedTask);
+  const taskCanMoveUp = ((direction === 'up') && (notFirstTask));
+  const taskCanMoveDown = ((direction === 'down') && (notLastTask));
   let relatedTask;
-  if ((direction === 'up') && (notFirstTask)) {
+  if (taskCanMoveUp) {
     relatedTask = selectedTask.previousElementSibling;
     globalElements.taskList.insertBefore(selectedTask, relatedTask);
   }
-  if ((direction === 'down') && (notLastTask)) {
+  if (taskCanMoveDown) {
     relatedTask = selectedTask.nextElementSibling;
     globalElements.taskList.insertBefore(relatedTask, selectedTask);
   }
