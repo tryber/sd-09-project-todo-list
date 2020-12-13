@@ -1,0 +1,16 @@
+body {
+  max-width: 1366px;
+  font-family: sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+.tarefas {
+  text-align: center;
+}
