@@ -20,12 +20,18 @@ function selectText(event) {
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
-function concludedItem(event) {
-  event.target.style.textDecoration = 'line-through';
+function concludedOrNot(event) {
+  if (event.target.className !== 'line completed') {
+    event.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+    event.target.className = 'line completed';
+  } else {
+    event.target.style.textDecoration = '';
+    event.target.className = 'line';
+  }
 }
 
 window.onload = function init() {
   button.addEventListener('click', addItemInList);
   orderList.addEventListener('click', selectText);
-  orderList.addEventListener('dblclick', concludedItem);
+  orderList.addEventListener('dblclick', concludedOrNot);
 };
