@@ -48,3 +48,14 @@ document.querySelector('#apaga-tudo').addEventListener('click', function () {
     document.querySelector('#lista-tarefas').removeChild(tarefasItens[index]);
   }
 });
+
+// Botão Remover Finalizados
+document.querySelector('#remover-finalizados').addEventListener('click', function () {
+  const tarefasItens = document.querySelectorAll('.lista-tarefas-item');
+
+  for (let index = 0; index < tarefasItens.length; index += 1) {
+    if (tarefasItens[index].classList.contains('completed')) {
+      document.querySelector('#lista-tarefas').removeChild(tarefasItens[index]);
+    }
+  }
+});
