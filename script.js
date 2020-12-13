@@ -79,7 +79,7 @@ document.querySelector('#remover-selecionado').addEventListener('click', functio
   const tarefasItens = document.querySelectorAll('.lista-tarefas-item');
 
   for (let index = 0; index < tarefasItens.length; index += 1) {
-    if ((tarefasItens[index].classList.contains('completed')) && (tarefasItens[index].hasAttribute('style'))) {
+    if (tarefasItens[index].hasAttribute('style')) {
       document.querySelector('#lista-tarefas').removeChild(tarefasItens[index]);
     }
   }
@@ -92,7 +92,7 @@ document.querySelector('#salvar-tarefas').addEventListener('click', function () 
   localStorage.clear();
 
   for (let index = 0; index < tarefasItens.length; index += 1) {
-    let arrayItem = {
+    const arrayItem = {
       text: tarefasItens[index].innerText,
       completed: false,
     };
