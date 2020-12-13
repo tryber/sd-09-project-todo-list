@@ -3,6 +3,7 @@ window.onload = functionsLoaded();
 function functionsLoaded() {
   newItemList();
   doubleClick();
+  eraseAll();
 }
 
 function clearInput() {
@@ -49,6 +50,16 @@ function doubleClick() {
       event.target.classList.add("completed");
     } else if (event.target.classList[1] === "completed") {
       event.target.classList.remove("completed");
+    }
+  });
+}
+
+function eraseAll() {
+  let eraseButtonLocal = document.querySelector("#apaga-tudo");
+  eraseButtonLocal.addEventListener("click", function () {
+    let listItemLocal = document.querySelectorAll(".list-item");
+    for (let index = 0; index < listItemLocal.length; index += 1) {
+      listItemLocal[index].remove();
     }
   });
 }
