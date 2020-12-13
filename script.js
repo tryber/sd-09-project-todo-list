@@ -41,9 +41,25 @@ function addList() {
 
 function handleTaskClick(event) {
   const listItem = event.target;
-  const selected = document.querySelector('.selected');
+  const selectedItems = document.getElementsByTagName('li');
+  for (let index = 0; index < selectedItems.length; index += 1) {
+    console.log(selectedItems[index]);
+    let isSelected = selectedItems[index].classList.contains('selected');
+    if (isSelected) {
+      selectedItems[index].classList.remove('selected');
+    }
+  }
   listItem.classList.add('selected');
-  selected.classList.remove('selected');
+}
+
+function handleTaskCompleted(event) {
+  const task = event.target;
+  const checkTaskCompleted = task.classList.contains('task-completed');
+  if (checkTaskCompleted) {
+    task.classList.remove('task-completed');
+  } else {
+    task.classList.add('task-completed');
+  }
 }
 
 function handleAddListItem() {
@@ -52,7 +68,9 @@ function handleAddListItem() {
   const list = document.getElementById('lista-tarefas');
   const task = inputText.value;
   createListItem.innerText = task;
+  //createListItem.className = '';
   createListItem.addEventListener('click', handleTaskClick);
+  createListItem.addEventListener('dblclick', handleTaskCompleted);
   list.appendChild(createListItem);
   inputText.value = '';
 }
@@ -66,6 +84,16 @@ function addButton() {
   containerTask.appendChild(createButton);
 }
 
+
+
+/* function checkTaskSolved() {
+  const listItems = document.getElementsByTagName('li');
+  console.log(listItems);
+  for (let index = 0; index < listItems.length; index += 1) {
+    listItems[index].addEventListener('dblclick', handleTaskCompleted);
+  }
+} */
+
 window.onload = function () {
   addHeader();
   addTitle();
@@ -74,4 +102,6 @@ window.onload = function () {
   addInput();
   addList();
   addButton();
+  // handleTaskCompleted();
 };
+// checkTaskSolved();
