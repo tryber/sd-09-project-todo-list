@@ -2,6 +2,7 @@ window.onload = functionsLoaded();
 
 function functionsLoaded() {
   newItemList();
+  doubleClick();
 }
 
 function clearInput() {
@@ -28,16 +29,26 @@ function newItemList() {
 }
 
 function clickColor() {
-  window.addEventListener("click", function (event) {
+  document.addEventListener("click", function (event) {
     let element = event.target;
-    let listItemLocal = document.querySelectorAll('.list-item')
-    for (let count = 0; count < listItemLocal.length; count += 1){
-      if (listItemLocal[count].style.backgroundColor === "rgb(128, 128, 128)"){
-        listItemLocal[count].style.backgroundColor = 'white'
+    let listItemLocal = document.querySelectorAll(".list-item");
+    for (let count = 0; count < listItemLocal.length; count += 1) {
+      if (listItemLocal[count].style.backgroundColor === "rgb(128, 128, 128)") {
+        listItemLocal[count].style.backgroundColor = "white";
       }
     }
     if (element.className === "list-item") {
       element.style.backgroundColor = "rgb(128, 128, 128)";
+    }
+  });
+}
+
+function doubleClick() {
+  document.addEventListener("dblclick", function (event) {
+    if (event.target.className === "list-item") {
+      event.target.classList.add("completed");
+    } else if (event.target.classList[1] === "completed") {
+      event.target.classList.remove("completed");
     }
   });
 }
