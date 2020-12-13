@@ -11,14 +11,24 @@ function removeAttributeTag(task) {
   }
 }
 
+// Criando e Adicionando os itens a lista
+function addItemList(text, classCompleted) {
+  const elementHTML = document.createElement('li');
+  elementHTML.innerText = text;
+  elementHTML.classList.add('lista-tarefas-item');
+
+  if (classCompleted) {
+    elementHTML.classList.add('completed');
+  }
+
+  document.querySelector('#lista-tarefas').appendChild(elementHTML);
+}
+
 // Botão Adicionar
 document.querySelector('#criar-tarefa').addEventListener('click', function () {
   const tarefa = document.querySelector('#texto-tarefa');
 
-  const elementHTML = document.createElement('li');
-  elementHTML.innerText = tarefa.value;
-  elementHTML.classList.add('lista-tarefas-item');
-  document.querySelector('#lista-tarefas').appendChild(elementHTML);
+  addItemList(tarefa.value, false);
 
   tarefa.value = '';
   tarefa.focus();
@@ -59,3 +69,29 @@ document.querySelector('#remover-finalizados').addEventListener('click', functio
     }
   }
 });
+
+// Botão Salvar
+document.querySelector('#salvar-tarefas').addEventListener('click', function () {
+  const tarefasItens = document.querySelectorAll('.lista-tarefas-item');
+
+  for (let index = 0; index < tarefasItens.length; index += 1) {
+    let arrayItem = {
+      text: tarefasItens[index].innerText,
+      completed: false,
+    };
+
+    if (tarefasItens[index].classList.contains('completed')) {
+      arrayItem.completed = true;
+    }
+
+    localStorage.setItem(`lista-tarefas-item-${index}`, JSON.stringify(arrayItem));
+  }
+});
+
+window.onload = function () {
+  for (let index = 0; index < localStorage.length; index += 1) {
+    const localItem = JSON.parse(localStorage.getItem(`lista-tarefas-item-${index}`));
+    // console.log(`${localItem.text} - ${localItem.completed}`);
+    addItemList(localItem.text, localItem.completed);
+  }
+};
