@@ -1,8 +1,10 @@
 const contentInput = document.getElementById('texto-tarefa');
 const orderList = document.getElementById('lista-tarefas');
+const buttonRemoveSelected = document.getElementById('remover-finalizados');
 const buttonAdd = document.getElementById('criar-tarefa');
 const buttonClear = document.getElementById('apaga-tudo');
 const line = document.getElementsByClassName('line');
+const completed = document.getElementsByClassName('completed');
 
 function addItemInList() {
   if (contentInput.value !== '' && contentInput.value.length <= 30) {
@@ -31,6 +33,12 @@ function concludedOrNot(event) {
   }
 }
 
+function removeSelected() {
+  for (let index = 0; index < completed.length;) {
+    orderList.removeChild(completed[completed.length - 1]);
+  }
+}
+
 function clearAll() {
   for (let index = 0; index < line.length;) {
     orderList.removeChild(line[line.length - 1]);
@@ -42,4 +50,5 @@ window.onload = function init() {
   orderList.addEventListener('click', selectText);
   orderList.addEventListener('dblclick', concludedOrNot);
   buttonClear.addEventListener('click', clearAll);
+  buttonRemoveSelected.addEventListener('click', removeSelected)
 };
