@@ -24,15 +24,11 @@ addTask();
 
 function selectItem() {
   listaTarefas.addEventListener('click', function (event) {
-    if (event.target.classList.contains('selected')) {
-      event.target.classList.remove('selected');
-    } else {
-      const selecionado = document.querySelector('.selected');
-      if (selecionado) {
-        selecionado.classList.remove('selected');
-      }
-      event.target.classList.add('selected');
+    const selecionado = document.querySelector('.selected');
+    if (selecionado) {
+      selecionado.classList.remove('selected');
     }
+    event.target.classList.add('selected');
   });
 }
 selectItem();
