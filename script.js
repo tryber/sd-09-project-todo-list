@@ -6,11 +6,12 @@ function addEventsListener() {
 
 function addTaskOnList() {
   console.log(`Executando função addTaskOnList`)
-  const taskText = document.querySelector('#texto-tarefa').value;
+  const taskText = document.querySelector('#texto-tarefa');
   const taskList = document.querySelector('#lista-tarefas');
   let task = document.createElement('li');
-  task.textContent = taskText;
+  task.textContent = taskText.value;
   taskList.appendChild(task);
+  taskText.value = '';
 }
 
 window.onload = addEventsListener();
