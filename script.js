@@ -1,16 +1,17 @@
 const contentInput = document.getElementById('texto-tarefa');
 const orderList = document.getElementById('lista-tarefas');
-const button = document.getElementById('criar-tarefa');
+const buttonAdd = document.getElementById('criar-tarefa');
+const buttonClear = document.getElementById('apaga-tudo');
 const line = document.getElementsByClassName('line');
 
 function addItemInList() {
-  while (contentInput.value !== '') {
+  if (contentInput.value !== '' && contentInput.value.length <= 30) {
     const newline = document.createElement('li');
     newline.className = 'line';
     newline.innerText = contentInput.value;
     orderList.appendChild(newline);
-    contentInput.value = '';
   }
+  contentInput.value = '';
 }
 
 function selectText(event) {
@@ -30,8 +31,15 @@ function concludedOrNot(event) {
   }
 }
 
+function clearAll() {
+  for (let index = 0; index < line.length;) {
+    orderList.removeChild(line[line.length - 1]);
+  }
+}
+
 window.onload = function init() {
-  button.addEventListener('click', addItemInList);
+  buttonAdd.addEventListener('click', addItemInList);
   orderList.addEventListener('click', selectText);
   orderList.addEventListener('dblclick', concludedOrNot);
+  buttonClear.addEventListener('click', clearAll);
 };
