@@ -5,22 +5,27 @@ const line = document.getElementsByClassName('line');
 
 function addItemInList() {
   while (contentInput.value !== '') {
-    const line = document.createElement('li');
-    line.className = 'line';
-    line.innerText = contentInput.value;
-    orderList.appendChild(line);
+    const newline = document.createElement('li');
+    newline.className = 'line';
+    newline.innerText = contentInput.value;
+    orderList.appendChild(newline);
     contentInput.value = '';
-  };
+  }
 }
 
 function selectText(event) {
   for (let index = 0; index < line.length; index += 1) {
-    line[index].removeAttribute('style');
+    line[index].style.backgroundColor = '';
   }
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
+function concludedItem(event) {
+  event.target.style.textDecoration = 'line-through';
+}
+
 window.onload = function init() {
   button.addEventListener('click', addItemInList);
-  orderList.addEventListener('dblclick', selectText);
+  orderList.addEventListener('click', selectText);
+  orderList.addEventListener('dblclick', concludedItem);
 };
