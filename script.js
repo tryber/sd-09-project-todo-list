@@ -91,7 +91,30 @@ document.querySelector('#salvar-tarefas').addEventListener('click', function () 
 window.onload = function () {
   for (let index = 0; index < localStorage.length; index += 1) {
     const localItem = JSON.parse(localStorage.getItem(`lista-tarefas-item-${index}`));
-    // console.log(`${localItem.text} - ${localItem.completed}`);
     addItemList(localItem.text, localItem.completed);
   }
 };
+
+// Botão Mover para Cima
+document.querySelector('#mover-cima').addEventListener('click', function () {
+  const tarefasItens = document.querySelectorAll('.lista-tarefas-item');
+
+  for (let index = 0; index < tarefasItens.length; index += 1) {
+    if (tarefasItens[index].hasAttribute('style') && index > 0) {
+      document.querySelector('#lista-tarefas').insertBefore(tarefasItens[index], tarefasItens[index].previousSibling);
+      break;
+    }
+  }
+});
+
+// Botão Mover para Baixo
+document.querySelector('#mover-baixo').addEventListener('click', function () {
+  const tarefasItens = document.querySelectorAll('.lista-tarefas-item');
+
+  for (let index = 0; index < tarefasItens.length; index += 1) {
+    if (tarefasItens[index].hasAttribute('style') && index < tarefasItens.length - 1) {
+      document.querySelector('#lista-tarefas').insertBefore(tarefasItens[index].nextSibling, tarefasItens[index]);
+      break;
+    }
+  }
+});
