@@ -1,22 +1,13 @@
 // Remove Background dos Itens
-function isStyleAttribute(element) {
-  if (element.hasAttribute('style')) {
-    element.removeAttribute('style');
-  }
-}
-
-function isClassAttribute(element) {
-  if (element.getAttribute('class') !== 'completed') {
-    element.removeAttribute('class');
-  }
-}
-
 function removeAttributeTag(task) {
   const arrayTasks = task.parentNode.children;
 
   for (let indexTask = 0; indexTask < arrayTasks.length; indexTask += 1) {
-    isStyleAttribute(arrayTasks[indexTask]);
-    isClassAttribute(arrayTasks[indexTask]);
+    element = arrayTasks[indexTask];
+
+    if (element.hasAttribute('style')) {
+      element.removeAttribute('style');
+    }
   }
 }
 
@@ -26,6 +17,7 @@ document.querySelector('#criar-tarefa').addEventListener('click', function () {
 
   const elementHTML = document.createElement('li');
   elementHTML.innerText = tarefa.value;
+  elementHTML.classList.add('lista-tarefas-item');
   document.querySelector('#lista-tarefas').appendChild(elementHTML);
 
   tarefa.value = '';
@@ -45,5 +37,14 @@ document.querySelector('#lista-tarefas').addEventListener('dblclick', function (
   if (event.target.id === '') {
     event.target.classList.toggle('completed');
     removeAttributeTag(event.target);
+  }
+});
+
+// Botão Apaga Lista
+document.querySelector('#apaga-tudo').addEventListener('click', function () {
+  const tarefasItens = document.querySelectorAll('.lista-tarefas-item');
+
+  for (let index = 0; index < tarefasItens.length; index += 1) {
+    document.querySelector('#lista-tarefas').removeChild(tarefasItens[index]);
   }
 });
