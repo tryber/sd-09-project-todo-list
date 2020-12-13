@@ -4,6 +4,7 @@ function functionsLoaded() {
   newItemList();
   doubleClick();
   eraseAll();
+  eraseFinished();
 }
 
 function clearInput() {
@@ -62,4 +63,14 @@ function eraseAll() {
       listItemLocal[index].remove();
     }
   });
+}
+
+function eraseFinished() {
+  let eraseFinishedButtonLocal = document.querySelector("#remover-finalizados");
+  eraseFinishedButtonLocal.addEventListener("click", function() {
+    let listFinishedLocal = document.querySelectorAll(".completed")
+    for (let indice = 0; indice < listFinishedLocal.length; indice += 1){
+      listFinishedLocal[indice].remove()
+    }
+  })
 }
