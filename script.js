@@ -3,7 +3,7 @@ function removeAttributeTag(task) {
   const arrayTasks = task.parentNode.children;
 
   for (let indexTask = 0; indexTask < arrayTasks.length; indexTask += 1) {
-    element = arrayTasks[indexTask];
+    const element = arrayTasks[indexTask];
 
     if (element.hasAttribute('style')) {
       element.removeAttribute('style');
