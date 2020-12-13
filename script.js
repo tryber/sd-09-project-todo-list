@@ -57,6 +57,10 @@ document.querySelector('#apaga-tudo').addEventListener('click', function () {
   for (let index = 0; index < tarefasItens.length; index += 1) {
     document.querySelector('#lista-tarefas').removeChild(tarefasItens[index]);
   }
+
+  if (localStorage.length > 0) {
+    localStorage.clear();
+  }
 });
 
 // Botão Remover Finalizados
@@ -70,9 +74,22 @@ document.querySelector('#remover-finalizados').addEventListener('click', functio
   }
 });
 
+// Botão Remover Finalizado
+document.querySelector('#remover-selecionado').addEventListener('click', function () {
+  const tarefasItens = document.querySelectorAll('.lista-tarefas-item');
+
+  for (let index = 0; index < tarefasItens.length; index += 1) {
+    if ((tarefasItens[index].classList.contains('completed')) && (tarefasItens[index].hasAttribute('style'))) {
+      document.querySelector('#lista-tarefas').removeChild(tarefasItens[index]);
+    }
+  }
+});
+
 // Botão Salvar
 document.querySelector('#salvar-tarefas').addEventListener('click', function () {
   const tarefasItens = document.querySelectorAll('.lista-tarefas-item');
+
+  localStorage.clear();
 
   for (let index = 0; index < tarefasItens.length; index += 1) {
     let arrayItem = {
