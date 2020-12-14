@@ -1,4 +1,4 @@
-function backgroundcolorItem(elementLi) {
+function selectedItem(elementLi) {
   elementLi.addEventListener('click', function (event) {
     const listItem = document.querySelectorAll('li');
     for (let item = 0; item < listItem.length; item += 1) {
@@ -32,7 +32,7 @@ function taskAdd() {
   li.innerText = input.value;
   listTask.appendChild(li);
   input.value = '';
-  backgroundcolorItem(li);
+  selectedItem(li);
   taskCompleted(li);
 }
 
@@ -47,10 +47,44 @@ function removeElementSelected() {
 }
 
 function removeElementsCompleted() {
-  const taskCompleted = document.querySelectorAll('.completed');
+  const taskListCompleted = document.querySelectorAll('.completed');
   const taskList = document.querySelector('#lista-tarefas');
-  for (let index = 0; index < taskCompleted.length; index += 1) {
-    taskList.removeChild(taskCompleted[index]);
+  for (let index = 0; index < taskListCompleted.length; index += 1) {
+    taskList.removeChild(taskListCompleted[index]);
+  }
+}
+
+function upTaskSelected() {
+  const taskList = document.querySelector('#lista-tarefas');
+  const elementsLi = document.querySelectorAll('li');
+  for (let index = 0; index < elementsLi.length; index += 1) {
+    if ((elementsLi[index].style.backgroundColor === 'rgb(128, 128, 128)') && (elementsLi[index] !== taskList.firstChild)) {
+      let liAux = {text: elementsLi[index].previousElementSibling.innerText, class: elementsLi[index].previousElementSibling.className}
+      elementsLi[index].previousElementSibling.innerText = elementsLi[index].innerText;
+      elementsLi[index].previousElementSibling.className = elementsLi[index].className;
+      elementsLi[index].innerText = liAux.text;
+      elementsLi[index].className = liAux.class;
+      elementsLi[index].previousElementSibling.style.backgroundColor = 'rgb(128, 128, 128)';
+      elementsLi[index].style.backgroundColor = '';
+      break;
+    }
+  }
+}
+
+function downTaskSelected() {
+  const taskList = document.querySelector('#lista-tarefas');
+  const elementsLi = document.querySelectorAll('li');
+  for (let index = 0; index < elementsLi.length; index += 1) {
+    if ((elementsLi[index].style.backgroundColor === 'rgb(128, 128, 128)') && (elementsLi[index] !== taskList.lastChild)) {
+      let liAux = {text: elementsLi[index].nextElementSibling.innerText, class: elementsLi[index].nextElementSibling.className}
+      elementsLi[index].nextElementSibling.innerText = elementsLi[index].innerText;
+      elementsLi[index].nextElementSibling.className = elementsLi[index].className;
+      elementsLi[index].innerText = liAux.text;
+      elementsLi[index].className = liAux.class;
+      elementsLi[index].nextElementSibling.style.backgroundColor = 'rgb(128, 128, 128)';
+      elementsLi[index].style.backgroundColor = '';
+      break;
+    }
   }
 }
 
@@ -63,6 +97,10 @@ window.onload = function () {
   btnAdd.addEventListener('click', taskAdd);
   const btnRemoveSelected = document.querySelector('#remover-selecionado');
   btnRemoveSelected.addEventListener('click', removeElementSelected);
+  const btnUp = document.querySelector('#mover-cima');
+  btnUp.addEventListener('click', upTaskSelected);
+  const btnDown = document.querySelector('#mover-baixo');
+  btnDown.addEventListener('click', downTaskSelected);
   const btnClearCompleted = document.querySelector('#remover-finalizados');
   btnClearCompleted.addEventListener('click', removeElementsCompleted);
   const btnClear = document.querySelector('#apaga-tudo');
