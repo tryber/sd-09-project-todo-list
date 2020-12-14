@@ -46,11 +46,25 @@ function removeElementoSelected() {
   }
 }
 
+function removeElementosCompleted() {
+  const taskCompleted = document.querySelectorAll('.completed');
+  const taskList = document.querySelector('#lista-tarefas');
+  for (let index = 0; index < taskCompleted.length; index += 1) {
+    taskList.removeChild(taskCompleted[index]);
+  }
+}
+
+function salveList() {
+
+}
+
 window.onload = function () {
   const btnAdd = document.querySelector('#criar-tarefa');
   btnAdd.addEventListener('click', taskAdd);
   const btnClear = document.querySelector('#apaga-tudo');
   btnClear.addEventListener('click', clearList);
   const btnRemove = document.querySelector('#remover-finalizados');
-  btnRemove.addEventListener('click', removeElementoSelected);
+  btnRemove.addEventListener('click', removeElementosCompleted);
+  const btnSalvar = document.querySelector('#salvar-tarefas');
+  btnSalvar.addEventListener('click', salveList);
 };
