@@ -15,16 +15,16 @@ function checkText(task) {
 function addTask() {
   const addButton = document.querySelector('#criar-tarefa');
   const inputBox = document.querySelector('#texto-tarefa');
-    addButton.addEventListener('click', function () {
-        checkText(inputBox.value);
-    });
-    inputBox.addEventListener('keydown', function (event) {
-      if (event.keyCode === 13) {
+  addButton.addEventListener('click', function () {
       checkText(inputBox.value);
+  });
+  inputBox.addEventListener('keydown', function (event) {
+  if (event.keyCode === 13) {
+    checkText(inputBox.value);
     }
   });
 }
-  
+
 addTask();
 
 function changeBackgroundColor() {
@@ -38,7 +38,7 @@ function changeBackgroundColor() {
     });
 }
 
-changeBackgroundColor()
+changeBackgroundColor();
 
 function clearAll() {
   const clearButton = document.querySelector('#apaga-tudo');
@@ -53,5 +53,5 @@ function clearAll() {
   });
 }
 
-changeBackgroundColor()
+changeBackgroundColor();
 clearAll();
