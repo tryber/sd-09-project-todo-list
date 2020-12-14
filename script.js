@@ -52,11 +52,11 @@ function handleTaskClick(event) {
 
 function handleTaskCompleted(event) {
   const task = event.target;
-  const checkTaskCompleted = task.classList.contains('task-completed');
+  const checkTaskCompleted = task.classList.contains('completed');
   if (checkTaskCompleted) {
-    task.classList.remove('task-completed');
+    task.classList.remove('completed');
   } else {
-    task.classList.add('task-completed');
+    task.classList.add('completed');
   }
 }
 
@@ -89,15 +89,13 @@ function generateContainerButtons() {
 }
 
 function handleRemoveList() {
-  // const list = document.getElementById('lista-tarefas');
   const listItems = document.querySelectorAll ('li');
   console.log(listItems);
   for (let index = 0; index < listItems.length; index += 1) {
-    console.log(listItems[index]);
     listItems[index].parentNode.removeChild(listItems[index]);
-    // listItems[index].remove();
   }
 }
+
 
 function generateButtonRemove() {
   const containerButtons = document.getElementById('container-buttons');
@@ -106,6 +104,25 @@ function generateButtonRemove() {
   createButton.className = 'btn';
   createButton.innerText = 'LIMPAR LISTA';
   createButton.addEventListener('click', handleRemoveList);
+  containerButtons.appendChild(createButton);
+}
+
+function handleRemoveListCompleted() {
+  const taskCompleted = document.querySelectorAll('.completed');
+  console.log(taskCompleted);
+  for (let index = 0; index < taskCompleted.length; index += 1) {
+    // console.log(listItems[index]);
+    taskCompleted[index].parentNode.removeChild(taskCompleted[index]);
+  }
+}
+
+function generateButtonRemoveTasksCompleted() {
+  const containerButtons = document.getElementById('container-buttons');
+  const createButton = document.createElement('button');
+  createButton.innerText = 'REMOVER COMPLETOS';
+  createButton.id = 'remover-finalizados';
+  createButton.className = 'btn';
+  createButton.addEventListener('click', handleRemoveListCompleted);
   containerButtons.appendChild(createButton);
 }
 
@@ -119,4 +136,5 @@ window.onload = function () {
   addButton();
   generateContainerButtons();
   generateButtonRemove();
+  generateButtonRemoveTasksCompleted();
 };

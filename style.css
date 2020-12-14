@@ -26,6 +26,7 @@
   height: 48px;
   border: none;
   padding: 10px;
+  margin: 0 5px;
   text-align: center;
   font-size: 14px;
   cursor: pointer;
@@ -36,6 +37,6 @@
   background-color: rgb(128 , 128 , 128);
 }
 
-.task-completed {
+.completed {
   text-decoration: line-through;
 }
