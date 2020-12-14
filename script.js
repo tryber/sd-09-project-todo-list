@@ -1,14 +1,55 @@
+function changeTaskStatus(){
+    let list = document.getElementById('lista-tarefas');
+    list.addEventListener('dblclick', function(event){
+        if (event.target.className === ''){
+            event.target.className = 'completed';
+            event.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+        } else {
+            event.target.className = '';
+            event.target.style.textDecoration = '';
+        }        
+    });
+};
+
+changeTaskStatus();
+
+window.onload = function(){
+    let ordenedList = document.getElementById('lista-tarefas');
+    let liText = JSON.parse(localStorage.getItem('taskText'));
+    let liClass = JSON.parse(localStorage.getItem('classes'));
+    for(let index = 0; index < liText.length; index += 1){
+        let liElement = document.createElement('li');
+        liElement.innerText = liText[index];
+        liElement.className = liClass[index];
+        ordenedList.appendChild(liElement);
+    };
+
+    let lis = document.getElementsByTagName('li');
+    for(index = 0; index < lis.length; index += 1){
+        if(lis[index].className === 'completed'){
+            lis[index].style.textDecoration = 'line-through solid rgb(0, 0, 0)';
+        }
+    }
+};
+
+
 function addTask(){
     let btn = document.getElementById('criar-tarefa');
     btn.addEventListener('click', function(){
         let task = document.getElementById('texto-tarefa').value;
-        let list = document.getElementById('lista-tarefas');
-        let listItem = document.createElement('li');
-        listItem.innerText = task;
-        list.appendChild(listItem);
-        document.getElementById('texto-tarefa').value = '';
+        
+        if (task === ''){
+            alert('Campo vazio!')
+        } else {
+            let list = document.getElementById('lista-tarefas');
+            let listItem = document.createElement('li');
+            listItem.innerText = task;
+            list.appendChild(listItem);
+            document.getElementById('texto-tarefa').value = '';
+        }        
     });
-}
+};
+
 
 addTask();
 
@@ -26,20 +67,6 @@ function selectTask() {
 
 selectTask();
 
-function changeTaskStatus(){
-    let list = document.getElementById('lista-tarefas');
-    list.addEventListener('dblclick', function(event){
-        if (event.target.className === ''){
-            event.target.className = 'completed';
-            event.target.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
-        } else {
-            event.target.className = '';
-            event.target.style.textDecoration = '';
-        }        
-    });
-};
-
-changeTaskStatus();
 
 function clearList(){
     let clearBtn = document.getElementById('apaga-tudo');
@@ -119,3 +146,21 @@ function moveDown(){
 };
 
 moveDown();
+
+
+function saveTasks(){
+    let saveBtn = document.getElementById('salvar-tarefas');
+    saveBtn.addEventListener('click', function(){
+        let textArray = [];
+        let classArray = [];
+        let listToSave = document.getElementsByTagName('li');
+        for (let index = 0; index < listToSave.length; index += 1){
+            textArray.push(listToSave[index].innerText);
+            classArray.push(listToSave[index].className);
+        }
+        localStorage.setItem('taskText', JSON.stringify(textArray));
+        localStorage.setItem('classes', JSON.stringify(classArray));
+    });
+};
+
+saveTasks();
