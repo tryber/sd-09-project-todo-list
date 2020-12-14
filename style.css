@@ -1,0 +1,54 @@
+body {
+    background-color: #01c4c5;
+    font-family: Courier New, Courier, monospace;
+    margin: 1px;
+}
+
+header {
+    background-color: #002a32;
+    color: #01c4c5;
+    height: 80px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+main {
+    background-color: silver;
+    border-radius: 10px;
+    color: #002a32;
+    height: 400px;
+    margin-top: 1px;
+    margin-left: 29%;
+    margin-right: 29%;
+    padding-top: 20px;
+    text-align: center;
+}
+ .task {
+    margin-left: 29%;
+    margin-right: 29%;
+ }
+
+  button {
+  height: 35px;
+}
+
+  footer {
+  background-color: #002a32;
+  border-top: 6px solid #01c4c5;
+  color: #01c4c5;
+  height: 120px;
+  padding-top: 20px;
+  padding-left: 20px;
+}
+
+  #gitlogo {
+  max-width: 10%;
+  margin-bottom: 25px;
+  margin-left: 30px;
+}
+
+  #linkedinlogo {
+  max-width: 10%;
+  margin-bottom: 17px;
+  margin-left: 30px;
+}
