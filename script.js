@@ -9,7 +9,7 @@ function createTask() {
   const inputTask = document.querySelector('#texto-tarefa');
   if (inputTask.value === '') {
     return;
-  };
+  }
   const createLi = document.createElement('li');
   createLi.innerText = inputTask.value;
   createLi.className = 'task';
