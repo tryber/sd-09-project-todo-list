@@ -2,6 +2,7 @@ const btnCreateLi = document.querySelector('#criar-tarefa');
 const captureOl = document.querySelector('#lista-tarefas');
 const newTaskText = document.querySelector('#texto-tarefa');
 const deleteAll = document.querySelector('#apaga-tudo');
+const deleteCompleted = document.querySelector('#remover-finalizados');
 
 function makeLi(content) {
   const li = document.createElement('li');
@@ -47,3 +48,12 @@ function removeAllChild() {
 }
 
 deleteAll.addEventListener('click', removeAllChild);
+
+function deleteAllCompleted() {
+  const completed = document.querySelectorAll('.completed');
+  for (let index = 0; index < completed.length; index += 1) {
+    completed[index].remove();
+  }
+}
+
+deleteCompleted.addEventListener('click', deleteAllCompleted);
