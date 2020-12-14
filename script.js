@@ -36,10 +36,14 @@ function taskAdd() {
   taskCompleted(li);
 }
 
-function removeElementoFinished() {
-  const elementCompleted = document.querySelector('.completed');
-  const taskList = document.querySelector('#lista-tarefas');
-  taskList.removeChild(elementCompleted);
+function removeElementoSelected() {
+  const elementsLi= document.querySelectorAll('li');
+  taskList = document.querySelector('#lista-tarefas');
+  for (let index = 0; index < elementsLi.length; index += 1) {
+    if (elementsLi[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+      taskList.removeChild(elementsLi[index]);
+    }
+  }
 }
 
 window.onload = function () {
@@ -48,5 +52,5 @@ window.onload = function () {
   const btnClear = document.querySelector('#apaga-tudo');
   btnClear.addEventListener('click', clearList);
   const btnRemove = document.querySelector('#remover-finalizados');
-  btnRemove.addEventListener('click', removeElementoFinished);
+  btnRemove.addEventListener('click', removeElementoSelected);
 };
