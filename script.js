@@ -4,7 +4,7 @@ function backgroundcolorItem(elementLi) {
     for (let item = 0; item < listItem.length; item += 1) {
       listItem[item].style.backgroundColor = '';
     }
-    event.target.style.backgroundColor = 'rgb(128,128,128)';
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   });
 }
 
@@ -37,8 +37,8 @@ function taskAdd() {
 }
 
 function removeElementoSelected() {
-  const elementsLi= document.querySelectorAll('li');
-  taskList = document.querySelector('#lista-tarefas');
+  const elementsLi = document.querySelectorAll('li');
+  const taskList = document.querySelector('#lista-tarefas');
   for (let index = 0; index < elementsLi.length; index += 1) {
     if (elementsLi[index].style.backgroundColor === 'rgb(128, 128, 128)') {
       taskList.removeChild(elementsLi[index]);
