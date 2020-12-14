@@ -27,6 +27,19 @@ function addTask() {
   
 addTask();
 
+function changeBackgroundColor() {
+    const list = document.querySelector('ol#lista-tarefas');
+    list.addEventListener('click', function (eventT) {
+      const listElements = document.querySelectorAll('ol#lista-tarefas li');
+      for (let index = 0; index < listElements.length; index += 1) {
+        listElements[index].style.backgroundColor = '';
+      }
+      eventT.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    });
+}
+
+changeBackgroundColor()
+
 function clearAll() {
   const clearButton = document.querySelector('#apaga-tudo');
 
@@ -39,4 +52,6 @@ function clearAll() {
     }
   });
 }
+
+changeBackgroundColor()
 clearAll();

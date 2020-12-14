@@ -23,6 +23,10 @@ main {
     padding-top: 20px;
     text-align: center;
 }
+ .task {
+    margin-left: 29%;
+    margin-right: 29%;
+ }
 
   button {
   height: 35px;
