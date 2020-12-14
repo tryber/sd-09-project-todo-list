@@ -1,6 +1,7 @@
 const btnCreateLi = document.querySelector('#criar-tarefa');
 const captureOl = document.querySelector('#lista-tarefas');
 const newTaskText = document.querySelector('#texto-tarefa');
+const deleteAll = document.querySelector('#apaga-tudo');
 
 function makeLi(content) {
   const li = document.createElement('li');
@@ -38,3 +39,11 @@ function mkLineTrough(event) {
 }
 
 captureOl.addEventListener('dblclick', mkLineTrough);
+
+function removeAllChild() {
+  while (captureOl.firstChild) {
+    captureOl.removeChild(captureOl.firstChild);
+  }
+}
+
+deleteAll.addEventListener('click', removeAllChild);
