@@ -104,7 +104,7 @@ function setLocalStorage() {
   btnSave.style.marginBottom = '10px'
   divPaiBtn.appendChild(btnSave);
 
-  btnSave.addEventListener('click', function (e) {
+  btnSave.addEventListener('click', function () {
     const taskList = document.querySelectorAll('.list-item');
     let objList = [];
     for (let item = 0; item < taskList.length; item += 1) {
@@ -131,10 +131,50 @@ function getLocalStorage() {
 
       li.innerText = obj[i].value;
       li.className = obj[i].class;
-      
+
       ul.appendChild(li);
-      console.log(li);
     }
   }
 }
 getLocalStorage();
+
+function upListButton() {
+  const button = document.createElement('button');
+  button.id = "mover-cima";
+  button.className = 'btn-up';
+  button.innerText = 'up';
+  const divbutton = document.querySelector('#save');
+  divbutton.appendChild(button);
+
+  button.addEventListener('click', function () {
+    const itemSelected = document.querySelector('.selected');
+    const taskList = document.querySelectorAll('#task-list');
+    const tasks = document.querySelector('#lista-tarefas');
+
+    if (itemSelected && itemSelected.previousElementSibling) {
+      tasks.insertBefore(itemSelected, itemSelected.previousElementSibling);
+    }
+  });
+}
+upListButton();
+
+function downListButton() {
+  const button = document.createElement('button');
+  button.id = "mover-baixo";
+  button.className = 'btn-up';
+  button.innerText = 'down';
+  const divbutton = document.querySelector('#save');
+  divbutton.appendChild(button);
+
+  button.addEventListener('click', function () {
+    const itemSelected = document.querySelector('.selected');
+    const taskList = document.querySelectorAll('#task-list');
+    const tasks = document.querySelector('#lista-tarefas');
+
+    if (itemSelected && itemSelected.nextSibling) {
+      console.log('baixo');
+      tasks.insertBefore(itemSelected.nextSibling, itemSelected);
+    }
+  });
+}
+downListButton();
