@@ -80,7 +80,6 @@ function deleteTaskList() {
     document.querySelectorAll('.list-item').forEach(function (e) {
       return (e.parentNode.removeChild(e));
     });
-
   });
 }
 deleteTaskList();
