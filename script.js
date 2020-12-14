@@ -62,7 +62,7 @@ function upTaskSelected() {
       const liAux = {
         text: elementsLi[index].previousElementSibling.innerText,
         class: elementsLi[index].previousElementSibling.className,
-      }
+      };
       elementsLi[index].previousElementSibling.innerText = elementsLi[index].innerText;
       elementsLi[index].previousElementSibling.className = elementsLi[index].className;
       elementsLi[index].innerText = liAux.text;
@@ -82,7 +82,7 @@ function downTaskSelected() {
       const liAux = {
         text: elementsLi[index].nextElementSibling.innerText,
         class: elementsLi[index].nextElementSibling.className,
-      }
+      };
       elementsLi[index].nextElementSibling.innerText = elementsLi[index].innerText;
       elementsLi[index].nextElementSibling.className = elementsLi[index].className;
       elementsLi[index].innerText = liAux.text;
