@@ -22,34 +22,40 @@ function addTask() {
 
 // Change background-color of elements with class selected
 function updateBackgroundColor() {
-	const listItems = document.querySelectorAll('li');
-	for (let index = 0; index < listItems.length; index += 1 ) {
-		if (listItems[index].classList.contains('selected')) {
-			listItems[index].style.backgroundColor = 'rgb(128, 128, 128)';
+	const tasks = document.querySelectorAll('li');
+	for (let index = 0; index < tasks.length; index += 1 ) {
+		if (tasks[index].classList.contains('selected')) {
+			tasks[index].style.backgroundColor = 'rgb(128, 128, 128)';
 		} else {
-			listItems[index].style.backgroundColor = null;
+			tasks[index].style.backgroundColor = null;
 		}
 	}
 }
 
 // Update text-decoration line-through of item
 function updateLineThrough(item) {
-  const listItems = document.querySelectorAll('li');
-  if (item.style.textDecoration === 'line-through') {
+  const tasks = document.querySelectorAll('li');
+  if (item.style.textDecoration === 'line-through solid rgb(0, 0, 0)') {
     item.style.textDecoration = null;
-    updateClassList();
+    removeClassCompleted();
 	} else if (item.classList.contains('completed')) {
-    item.style.textDecoration = 'line-through';
+    item.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
   }
 }
 
-// Update the class of list itms(li) to only 'tarefa'
-function updateClassList() {
-	const listItems = document.querySelectorAll('li');
-	for (let index = 0; index < listItems.length; index += 1) {
-		if ((listItems[index].classList.contains('selected')) || (listItems[index].classList.contains('completed'))) {
-			listItems[index].className = 'tarefa';
-		}
+// Remove the class 'selected' form li elements
+function removeClassSelected() {
+	const tasksSelected = document.querySelectorAll('.selected');
+	for (let index = 0; index < tasksSelected.length; index += 1) {
+    tasksSelected[index].classList.remove('selected');
+  }
+}
+
+// Remove the class 'completed' form li elements
+function removeClassCompleted() {
+  const tasksCompleted = document.querySelectorAll('.completed');
+	for (let index = 0; index < tasksCompleted.length; index += 1) {
+    tasksCompleted[index].classList.remove('completed');
   }
 }
 
@@ -57,7 +63,7 @@ function updateClassList() {
 function updateTaskColor(event) {
 	const selectedItem = event.target;
 	if( selectedItem.classList.contains('tarefa')) {
-    updateClassList();
+    removeClassSelected();
     selectedItem.className += ' selected';
 	}
 	updateBackgroundColor();
@@ -66,10 +72,29 @@ function updateTaskColor(event) {
 // Add class completed and call the function that update text-decoration line-through of item
 function updateTaskCompleted(event) {
 	const completedItem = event.target;
-  if( completedItem.classList.contains('tarefa')) {
+  if(completedItem.classList.contains('tarefa')) {
     completedItem.className += ' completed';
   }
   updateLineThrough(completedItem);
+}
+
+// Delete all elements li
+function deleteAllTasks() {
+  const list = document.querySelector('#lista-tarefas');
+  while (list.firstChild) {
+    list.removeChild(list.lastChild);
+  }
+}
+
+// Delete all elements li with class 'completed'
+function concludeTask() {
+  const list = document.querySelector('#lista-tarefas');
+  const tasks = document.querySelectorAll('.tarefa');
+  for(let index = 0; index < tasks.length; index += 1) {
+    if (tasks[index].classList.contains('completed')) {
+      list.removeChild(tasks[index]);
+    }
+  }
 }
 
 // Prevent submit of a input in form
@@ -80,9 +105,14 @@ function preventSubmit(event) {
 window.onload = function () {
 	const buttonTask = document.querySelector('#criar-tarefa');
 	const taskForm = document.querySelector('#formulario-tarefa');
-	const taskList = document.querySelector('#lista-tarefas');
+  const taskList = document.querySelector('#lista-tarefas');
+  const buttonDelete = document.querySelector('#apaga-tudo');
+  const buttonConclude = document.querySelector('#remover-finalizados');
+  
 	buttonTask.addEventListener('click', addTask);
 	taskForm.addEventListener('submit', preventSubmit);
 	taskList.addEventListener('click', updateTaskColor);
-	taskList.addEventListener('dblclick', updateTaskCompleted);
+  taskList.addEventListener('dblclick', updateTaskCompleted);
+  buttonDelete.addEventListener('click', deleteAllTasks);
+	buttonConclude.addEventListener('click', concludeTask);
 };
