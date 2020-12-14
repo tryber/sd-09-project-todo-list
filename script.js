@@ -24,11 +24,12 @@ function taskList() {
 }
 
 function paintTask() {
-  const li = document.querySelectorAll('li');
-
   list.addEventListener('click', (event) => {
+    const li = document.querySelectorAll('li');
+    for (let i = 0; i < li.length; i++) {
+      li[i].classList.remove('selected');
+    }
     event.target.classList.add('selected');
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   });
 }
 
