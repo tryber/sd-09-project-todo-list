@@ -9,6 +9,7 @@ function addItemButton() {
     listTask.innerHTML = '';
     taskListItem();
     textInBox = document.querySelector('#texto-tarefa').value = '';  
+    paintElementLi()
   });
 }
 
@@ -20,8 +21,21 @@ function taskListItem() {
    listTask.appendChild(item);
    }
 }
+function paintElementLi () {
+    let backgroundColorTask = document.getElementsByTagName('li')
+    for (let indexElement = 0; indexElement < taskList.length; indexElement +=1 ){
+        backgroundColorTask[indexElement].addEventListener('click', function(event){
+           backgroundColorTask[indexElement].style.background = 'rgb(128, 128, 128)'
+        })
+    }
+    
+}
+
+
+  
 
 window.onload = function() {
     addItemButton();
     taskListItem();
+    
 };
