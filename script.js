@@ -5,7 +5,6 @@ function backgroundcolorItem(elementLi) {
       listItem[item].style.backgroundColor = '';
     }
     event.target.style.backgroundColor = 'rgb(128,128,128)';
-    console.log(listItem.length);
   });
 }
 
@@ -21,29 +20,33 @@ function taskCompleted(elementLi) {
 
 function clearList() {
   const taskList = document.querySelector('#lista-tarefas');
-  const btnClear = document.querySelector('#apaga-tudo');
-  btnClear.addEventListener('click', function () {
-    while (taskList.hasChildNodes()) {
-      taskList.removeChild(taskList.lastChild);
-    }
-  });
+  while (taskList.hasChildNodes()) {
+    taskList.removeChild(taskList.lastChild);
+  }
 }
 
-function btnAdd() {
-  const btn = document.querySelector('#criar-tarefa');
-  btn.addEventListener('click', function () {
-    const listTask = document.querySelector('#lista-tarefas');
-    const input = document.querySelector('#texto-tarefa');
-    const li = document.createElement('li');
-    li.innerText = input.value;
-    listTask.appendChild(li);
-    input.value = '';
-    backgroundcolorItem(li);
-    taskCompleted(li);
-    clearList();
-  });
+function taskAdd() {
+  const listTask = document.querySelector('#lista-tarefas');
+  const input = document.querySelector('#texto-tarefa');
+  const li = document.createElement('li');
+  li.innerText = input.value;
+  listTask.appendChild(li);
+  input.value = '';
+  backgroundcolorItem(li);
+  taskCompleted(li);
+}
+
+function removeElementoFinished() {
+  const elementCompleted = document.querySelector('.completed');
+  const taskList = document.querySelector('#lista-tarefas');
+  taskList.removeChild(elementCompleted);
 }
 
 window.onload = function () {
-  btnAdd();
+  const btnAdd = document.querySelector('#criar-tarefa');
+  btnAdd.addEventListener('click', taskAdd);
+  const btnClear = document.querySelector('#apaga-tudo');
+  btnClear.addEventListener('click', clearList);
+  const btnRemove = document.querySelector('#remover-finalizados');
+  btnRemove.addEventListener('click', removeElementoFinished);
 };
