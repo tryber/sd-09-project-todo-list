@@ -76,8 +76,11 @@ function deleteTaskList() {
   button.id = 'apaga-tudo';
 
   button.addEventListener('click', function () {
-    document.querySelectorAll('.list-item').forEach(e => (e.parentNode.removeChild(e)));
     // https://stackoverflow.com/questions/13125817/how-to-remove-elements-that-were-fetched-using-queryselectorall
+    document.querySelectorAll('.list-item').forEach(function (e) {
+      return (e.parentNode.removeChild(e));
+    });
+
   });
 }
 deleteTaskList();
@@ -90,8 +93,10 @@ function deleteSelectedList() {
   button.id = 'remover-finalizados';
 
   button.addEventListener('click', function () {
-    document.querySelectorAll('.completed').forEach(e => (e.parentNode.removeChild(e)));
     // https://stackoverflow.com/questions/13125817/how-to-remove-elements-that-were-fetched-using-queryselectorall
+    document.querySelectorAll('.completed').forEach(function (e) {
+      return (e.parentNode.removeChild(e));
+    });
   });
 }
 deleteSelectedList();
@@ -101,12 +106,12 @@ function setLocalStorage() {
   const divPaiBtn = document.querySelector('#save');
   btnSave.id = 'salvar-tarefas';
   btnSave.innerText = 'Salvar tarefas';
-  btnSave.style.marginBottom = '10px'
+  btnSave.style.marginBottom = '10px';
   divPaiBtn.appendChild(btnSave);
 
   btnSave.addEventListener('click', function () {
     const taskList = document.querySelectorAll('.list-item');
-    let objList = [];
+    const objList = [];
     for (let item = 0; item < taskList.length; item += 1) {
       const obj = {
         key: item,
@@ -123,7 +128,7 @@ setLocalStorage();
 function getLocalStorage() {
   if (localStorage.getItem('item') !== null) {
     const json = localStorage.getItem('item');
-    let obj = JSON.parse(json);
+    const obj = JSON.parse(json);
 
     for (let i = 0; i < obj.length; i += 1) {
       const li = document.createElement('li');
@@ -140,7 +145,7 @@ getLocalStorage();
 
 function upListButton() {
   const button = document.createElement('button');
-  button.id = "mover-cima";
+  button.id = 'mover-cima';
   button.className = 'btn-up';
   button.innerText = 'Subir tarefa';
   const divbutton = document.querySelector('#save');
@@ -159,7 +164,7 @@ upListButton();
 
 function downListButton() {
   const button = document.createElement('button');
-  button.id = "mover-baixo";
+  button.id = 'mover-baixo';
   button.className = 'btn-up';
   button.innerText = 'Descer tarefa';
   const divbutton = document.querySelector('#save');
@@ -170,7 +175,6 @@ function downListButton() {
     const tasks = document.querySelector('#lista-tarefas');
 
     if (taskSelected && taskSelected.nextSibling) {
-      console.log('baixo');
       tasks.insertBefore(taskSelected.nextSibling, taskSelected);
     }
   });
@@ -184,9 +188,9 @@ function deleteSelectedItem() {
   const divPai = document.querySelector('#buttons');
   divPai.appendChild(button);
 
-  button.addEventListener('click', function() {
-    document.querySelectorAll('.selected').forEach(e => (e.parentNode.removeChild(e)));
+  button.addEventListener('click', function () {
+    document.querySelectorAll('.selected').forEach((e) => (e.parentNode.removeChild(e)));
     // https://stackoverflow.com/questions/13125817/how-to-remove-elements-that-were-fetched-using-queryselectorall
-  })
+  });
 }
 deleteSelectedItem();
