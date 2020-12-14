@@ -33,7 +33,21 @@ function paintTask() {
   });
 }
 
+function crossTaskCompleted() {
+  const taskC = document.querySelector('ol');
+
+  taskC.addEventListener('dblclick', (event) => {
+    if (event.target === 'completed') {
+      console.log(event.target.classList);
+      event.target.classList.remove('completed');
+    }else{
+      event.target.classList.add('completed');
+    }
+  });
+}
+
 window.onload = function () {
   taskList();
   paintTask();
+  crossTaskCompleted();
 };
