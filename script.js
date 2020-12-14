@@ -3,7 +3,7 @@ const buttonTask = document.querySelector('.criar-tarefa');
 buttonTask.textContent = 'Salvar Tarefa';
 buttonTask.style.height = '20px';
 
-const list = document.querySelector('ul');
+const list = document.querySelector('ol');
 document.body.appendChild(list);
 
 // Create a list via the button
@@ -13,23 +13,22 @@ function taskList() {
     if (!inputText.value) {
       alert('Lista vazia, digite sua tarefa!');
     } else {
-      const ol = document.createElement('ol')
-      list.appendChild(ol);
-      ol.textContent = inputText.value;
-      ol.id = 'lista-tarefa'
-      ol.className = 'lista-tarefas'
+      const li = document.createElement('li');
+      list.appendChild(li);
+      li.textContent = inputText.value;
+      li.id = 'lista-tarefa';
+      li.className = 'lista-tarefas';
       inputText.value = '';
     }
   });
 }
 
 function paintTask() {
+  const li = document.querySelectorAll('li');
+
   list.addEventListener('click', (event) => {
-    if (event.target) {
-      event.target.style.backgroundColor = 'gray';
-    } else {
-      event.target.style.backgroundColor = null;
-    }
+    event.target.classList.add('selected');
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   });
 }
 
