@@ -1,6 +1,7 @@
 const buttonAddTasks = document.querySelector('#criar-tarefa');
 const listTask = document.querySelector('#lista-tarefas');
 
+
 function createTask() {
   const inputTask = document.querySelector('#texto-tarefa');
   if (inputTask.value === '') {
@@ -11,10 +12,16 @@ function createTask() {
   createLi.className = 'task';
   listTask.appendChild(createLi);
   inputTask.value = '';
+  createLi.addEventListener('click', bgTaskColorChange);
 }
 
-function buttonAddTaskList() {
+function bgTaskColorChange(event) {
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+}
+
+function eventsListenersAll() {
   buttonAddTasks.addEventListener('click', createTask);
+
 }
 
-buttonAddTaskList();
+eventsListenersAll();
