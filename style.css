@@ -1,0 +1,16 @@
+
+
+#criar-tarefa {
+  padding: 5px;
+  border: 1px solid black;
+  background-color: rgb(67, 135, 194);
+  border-radius: 10px;
+}
+.task-item.selected {
+  background-color: rgb(128,128,128);
+}
+
+.completed {
+text-decoration: line-through rgb(0,0,0);
+}
+
