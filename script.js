@@ -86,7 +86,7 @@ function deleteSelectedList() {
   const button = document.createElement('button');
   const divButton = document.querySelector('#buttons');
   divButton.appendChild(button);
-  button.innerText = 'Remover realizadas';
+  button.innerText = 'Remover riscada';
   button.id = 'remover-finalizados';
 
   button.addEventListener('click', function () {
@@ -142,17 +142,16 @@ function upListButton() {
   const button = document.createElement('button');
   button.id = "mover-cima";
   button.className = 'btn-up';
-  button.innerText = 'up';
+  button.innerText = 'Subir tarefa';
   const divbutton = document.querySelector('#save');
   divbutton.appendChild(button);
 
   button.addEventListener('click', function () {
-    const itemSelected = document.querySelector('.selected');
-    const taskList = document.querySelectorAll('#task-list');
+    const taskSelected = document.querySelector('.selected');
     const tasks = document.querySelector('#lista-tarefas');
 
-    if (itemSelected && itemSelected.previousElementSibling) {
-      tasks.insertBefore(itemSelected, itemSelected.previousElementSibling);
+    if (taskSelected && taskSelected.previousElementSibling) {
+      tasks.insertBefore(taskSelected, taskSelected.previousElementSibling);
     }
   });
 }
@@ -162,19 +161,32 @@ function downListButton() {
   const button = document.createElement('button');
   button.id = "mover-baixo";
   button.className = 'btn-up';
-  button.innerText = 'down';
+  button.innerText = 'Descer tarefa';
   const divbutton = document.querySelector('#save');
   divbutton.appendChild(button);
 
   button.addEventListener('click', function () {
-    const itemSelected = document.querySelector('.selected');
-    const taskList = document.querySelectorAll('#task-list');
+    const taskSelected = document.querySelector('.selected');
     const tasks = document.querySelector('#lista-tarefas');
 
-    if (itemSelected && itemSelected.nextSibling) {
+    if (taskSelected && taskSelected.nextSibling) {
       console.log('baixo');
-      tasks.insertBefore(itemSelected.nextSibling, itemSelected);
+      tasks.insertBefore(taskSelected.nextSibling, taskSelected);
     }
   });
 }
 downListButton();
+
+function deleteSelectedItem() {
+  const button = document.createElement('button');
+  button.id = 'remover-selecionado';
+  button.innerText = 'Remover selecionado';
+  const divPai = document.querySelector('#buttons');
+  divPai.appendChild(button);
+
+  button.addEventListener('click', function() {
+    document.querySelectorAll('.selected').forEach(e => (e.parentNode.removeChild(e)));
+    // https://stackoverflow.com/questions/13125817/how-to-remove-elements-that-were-fetched-using-queryselectorall
+  })
+}
+deleteSelectedItem();
