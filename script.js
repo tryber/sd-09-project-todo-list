@@ -14,7 +14,7 @@ function createList() {
 function setTask() {
   createList();
   const item = document.createElement('li');
-  item.className = 'olItem lineColor';
+  item.className = 'olItem';
   item.innerText = list[list.length - 1];
   olList.appendChild(item);
 }
@@ -27,7 +27,7 @@ btnCreateTask.addEventListener('click', () => {
 
 function removeClassLineColor() {
   for (let item = 0; item < itemsList.length; item += 1) {
-    if (itemsList[item].className === 'olItem lineColor') {
+    if (itemsList[item].classList.contains('lineColor')) {
       itemsList[item].classList.remove('lineColor');
     }
   }
@@ -36,6 +36,14 @@ function removeClassLineColor() {
 olList.addEventListener('click', function (event) {
   removeClassLineColor();
   event.target.classList.toggle('lineColor');
+});
+
+olList.addEventListener('dblclick', function(event) {
+  if (event.target.classList.contains('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+    event.target.classList.toggle('completed');
+  }
 })
 
 textoTarefa.addEventListener('keypress', function (tecla) {
@@ -44,4 +52,4 @@ textoTarefa.addEventListener('keypress', function (tecla) {
     textoTarefa.value = '';
     textoTarefa.focus();
   }
-})
+});
