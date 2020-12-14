@@ -38,9 +38,8 @@ function crossTaskCompleted() {
 
   taskC.addEventListener('dblclick', (event) => {
     if (event.target === 'completed') {
-      console.log(event.target.classList);
       event.target.classList.remove('completed');
-    }else{
+    } else {
       event.target.classList.add('completed');
     }
   });
