@@ -1,31 +1,63 @@
 const btnAdd = document.querySelector('#criar-tarefa');
-const olList = document.getElementById('lista-tarefas');
-let selected = false;
+const olList = document.querySelector('#lista-tarefas');
+
 
 function createLi() {
-  const liList = document.createElement('li');
-  const inputAdd = document.querySelector('#texto-tarefa');
-  liList.innerText = inputAdd.value;
-  olList.appendChild(liList);
-  inputAdd.value = '';
+  const liItem = document.createElement('li');
+  const inputValue = document.querySelector('#texto-tarefa');
+  liItem.textContent = inputValue.value;
+  olList.appendChild(liItem);
+  inputValue.value = '';
 }
 
-function selectItem(event) {
-  let item = event.target;
-  item.style.backgroundColor = 'rgb(128 , 128 , 128)';
-  if (selected === true) {
-    let selectedItem = document.querySelector('.selected');
-    // let selectedItem = document.getElementsByClassName('selected');
-    selectedItem.className = '';
-    selectedItem.style.backgroundColor = 'white';
-    console.log(typeof(selectedItem))
+// console.log(inputValue.value);
+
+function oneClick(event) {
+  const liItem = event.target;
+  const selected = document.querySelector('.selected');
+  if (selected && liItem.className === 'selected completed') {
+    console.log('selected and completed');
+  } else if (selected && selected.className === 'selected completed') {
+    selected.className = 'completed';
+    if (liItem.className === 'completed') {
+      liItem.className = 'selected completed';
+    } else {
+      liItem.className = 'selected';
+    }
+  } else if (selected) {
+    selected.className = '';
+    if (liItem.className === 'completed') {
+      liItem.className = 'selected completed';
+    } else {
+      liItem.className = 'selected';
+    }
+  } else if (liItem.className === 'completed') {
+    liItem.className = 'selected completed';
+  } else {
+    liItem.className = 'selected';
   }
-  selected = true;
-  item.className = 'selected';
-  console.log(item);
 }
+
+function dbClick(event) {
+  const liItem = event.target;
+  if (liItem.className === 'selected completed') {
+    liItem.className = 'selected';
+    console.log('selected and completed');
+  } else if (liItem.className === 'completed') {
+    liItem.className = '';
+  } else {
+    liItem.className = 'completed';
+  }
+}
+
+
 
 window.onload = function() {
+
   btnAdd.addEventListener('click', createLi);
-  olList.addEventListener('click', selectItem);
+  olList.addEventListener('click', oneClick);
+  olList.addEventListener('dblclick', dbClick);
+
+
+
 }
