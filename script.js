@@ -26,7 +26,7 @@ function taskList() {
 function paintTask() {
   list.addEventListener('click', (event) => {
     const li = document.querySelectorAll('li');
-    for (let i = 0; i < li.length; i++) {
+    for (let i = 0; i < li.length; i += 1) {
       li[i].classList.remove('selected');
     }
     event.target.classList.add('selected');
