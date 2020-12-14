@@ -2,7 +2,6 @@ const container = document.querySelector('#container');
 function addHeader() {
   const createHeader = document.createElement('header');
   container.appendChild(createHeader);
-  // addHeader();
 }
 
 function addTitle() {
@@ -43,7 +42,6 @@ function handleTaskClick(event) {
   const listItem = event.target;
   const selectedItems = document.getElementsByTagName('li');
   for (let index = 0; index < selectedItems.length; index += 1) {
-    console.log(selectedItems[index]);
     let isSelected = selectedItems[index].classList.contains('selected');
     if (isSelected) {
       selectedItems[index].classList.remove('selected');
@@ -68,7 +66,6 @@ function handleAddListItem() {
   const list = document.getElementById('lista-tarefas');
   const task = inputText.value;
   createListItem.innerText = task;
-  //createListItem.className = '';
   createListItem.addEventListener('click', handleTaskClick);
   createListItem.addEventListener('dblclick', handleTaskCompleted);
   list.appendChild(createListItem);
@@ -79,20 +76,38 @@ function addButton() {
   const containerTask = document.getElementById('container-task');
   const createButton = document.createElement('button');
   createButton.id = 'criar-tarefa';
-  createButton.innerText = 'Adicionar';
+  createButton.className = 'btn';
+  createButton.innerText = 'ADICIONAR';
   createButton.addEventListener('click', handleAddListItem);
   containerTask.appendChild(createButton);
 }
 
+function generateContainerButtons() {
+  const containerButtons = document.createElement('div');
+  containerButtons.id = 'container-buttons';
+  container.appendChild(containerButtons);
+}
 
-
-/* function checkTaskSolved() {
-  const listItems = document.getElementsByTagName('li');
+function handleRemoveList() {
+  // const list = document.getElementById('lista-tarefas');
+  const listItems = document.querySelectorAll ('li');
   console.log(listItems);
   for (let index = 0; index < listItems.length; index += 1) {
-    listItems[index].addEventListener('dblclick', handleTaskCompleted);
+    console.log(listItems[index]);
+    listItems[index].parentNode.removeChild(listItems[index]);
+    // listItems[index].remove();
   }
-} */
+}
+
+function generateButtonRemove() {
+  const containerButtons = document.getElementById('container-buttons');
+  const createButton = document.createElement('button');
+  createButton.id = 'apaga-tudo';
+  createButton.className = 'btn';
+  createButton.innerText = 'LIMPAR LISTA';
+  createButton.addEventListener('click', handleRemoveList);
+  containerButtons.appendChild(createButton);
+}
 
 window.onload = function () {
   addHeader();
@@ -102,6 +117,6 @@ window.onload = function () {
   addInput();
   addList();
   addButton();
-  // handleTaskCompleted();
+  generateContainerButtons();
+  generateButtonRemove();
 };
-// checkTaskSolved();
