@@ -36,7 +36,7 @@ function taskAdd() {
   taskCompleted(li);
 }
 
-function removeElementoSelected() {
+function removeElementSelected() {
   const elementsLi = document.querySelectorAll('li');
   const taskList = document.querySelector('#lista-tarefas');
   for (let index = 0; index < elementsLi.length; index += 1) {
@@ -46,7 +46,7 @@ function removeElementoSelected() {
   }
 }
 
-function removeElementosCompleted() {
+function removeElementsCompleted() {
   const taskCompleted = document.querySelectorAll('.completed');
   const taskList = document.querySelector('#lista-tarefas');
   for (let index = 0; index < taskCompleted.length; index += 1) {
@@ -61,10 +61,12 @@ function salveList() {
 window.onload = function () {
   const btnAdd = document.querySelector('#criar-tarefa');
   btnAdd.addEventListener('click', taskAdd);
+  const btnRemoveSelected = document.querySelector('#remover-selecionado');
+  btnRemoveSelected.addEventListener('click', removeElementSelected);
+  const btnClearCompleted = document.querySelector('#remover-finalizados');
+  btnClearCompleted.addEventListener('click', removeElementsCompleted);
   const btnClear = document.querySelector('#apaga-tudo');
   btnClear.addEventListener('click', clearList);
-  const btnRemove = document.querySelector('#remover-finalizados');
-  btnRemove.addEventListener('click', removeElementosCompleted);
   const btnSalvar = document.querySelector('#salvar-tarefas');
   btnSalvar.addEventListener('click', salveList);
 };
