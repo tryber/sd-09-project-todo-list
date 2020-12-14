@@ -2,7 +2,8 @@ const textoTarefa = document.querySelector('#texto-tarefa');
 const btnCreateTask = document.querySelector('#criar-tarefa');
 const olList = document.querySelector('#lista-tarefas');
 const apagaTudo = document.querySelector('#apaga-tudo');
-const itemsList = document.getElementsByClassName('olItem');
+const removerFinalizadas = document.querySelector('#remover-finalizadas');
+const ilList = document.getElementsByClassName('line-color');
 
 // Recupera o valor do input e salva em um array
 const list = [];
@@ -27,28 +28,17 @@ btnCreateTask.addEventListener('click', () => {
   textoTarefa.focus();
 });
 
-// Função que remove a classe que colori a linha selecionada
-function removeClassLineColor() {
-  for (let item = 0; item < itemsList.length; item += 1) {
-    if (itemsList[item].classList.contains('lineColor')) {
-      itemsList[item].classList.remove('lineColor');
-    }
-  }
-}
-
 // Evento para colocar ou remover a cor da linha selecionada
 olList.addEventListener('click', function (event) {
-  removeClassLineColor();
-  event.target.classList.toggle('lineColor');
+  for (let item = 0; item < ilList.length; item += 1) {
+    ilList[item].classList.remove('line-color');
+  }
+  event.target.classList.toggle('line-color');
 });
 
 // Evento que risca a linha sobre a qual acontece o double click
 olList.addEventListener('dblclick', function (event) {
-  if (event.target.classList.contains('completed')) {
-    event.target.classList.remove('completed');
-  } else {
-    event.target.classList.toggle('completed');
-  }
+  event.target.classList.toggle('completed');
 });
 
 // Adiciona tarefas utilizando a tecla enter
@@ -69,3 +59,13 @@ apagaTudo.addEventListener('click', () => {
     }
   }
 });
+
+// Evento para apagar as tarefas finalizadas
+removerFinalizadas.addEventListener('click', () => {
+  const completedItem = document.querySelectorAll('.completed');
+  for (let item = 0; item < completedItem.length; item += 1) {
+    if (completedItem[item].parentNode) {
+      completedItem[item].parentNode.removeChild(completedItem[item]);
+    }
+  }
+})
