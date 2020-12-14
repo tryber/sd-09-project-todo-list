@@ -27,12 +27,7 @@ function selectTaskItem(event) {
   for (let index = 0; index < selectedTask.length; index++) {
     selectedTask[index].classList.remove('selected')
   }
-  if (event.target.className !== 'task-item selected') {
-    event.target.classList.add('selected')
-  } else if (event.target.className === 'task-item selected') {
-    event.target.classList.remove('selected')
-  }
-
+  event.target.classList.toggle('selected')
 }
 
 const selectedItem = document.querySelectorAll('#lista-tarefas');
@@ -40,4 +35,13 @@ for (let index = 0; index < selectedItem.length; index++) {
   selectedItem[index].addEventListener('click', selectTaskItem);
 }
 
+
+function selectCompletedTask(event) {
+  event.target.classList.toggle('completed');
+}
+
+const itemToComplete = document.querySelectorAll('.task-item.completed');
+for (let index = 0; index < selectedItem.length; index++) {
+  selectedItem[index].addEventListener('dblclick', selectCompletedTask);
+}
 
