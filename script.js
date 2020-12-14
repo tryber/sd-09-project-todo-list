@@ -59,7 +59,10 @@ function upTaskSelected() {
   const elementsLi = document.querySelectorAll('li');
   for (let index = 0; index < elementsLi.length; index += 1) {
     if ((elementsLi[index].style.backgroundColor === 'rgb(128, 128, 128)') && (elementsLi[index] !== taskList.firstChild)) {
-      let liAux = {text: elementsLi[index].previousElementSibling.innerText, class: elementsLi[index].previousElementSibling.className}
+      let liAux = { 
+        text: elementsLi[index].previousElementSibling.innerText, 
+        class: elementsLi[index].previousElementSibling.className,
+      }
       elementsLi[index].previousElementSibling.innerText = elementsLi[index].innerText;
       elementsLi[index].previousElementSibling.className = elementsLi[index].className;
       elementsLi[index].innerText = liAux.text;
@@ -76,7 +79,10 @@ function downTaskSelected() {
   const elementsLi = document.querySelectorAll('li');
   for (let index = 0; index < elementsLi.length; index += 1) {
     if ((elementsLi[index].style.backgroundColor === 'rgb(128, 128, 128)') && (elementsLi[index] !== taskList.lastChild)) {
-      let liAux = {text: elementsLi[index].nextElementSibling.innerText, class: elementsLi[index].nextElementSibling.className}
+      let liAux = {
+        text: elementsLi[index].nextElementSibling.innerText, 
+        class: elementsLi[index].nextElementSibling.className,
+      }
       elementsLi[index].nextElementSibling.innerText = elementsLi[index].innerText;
       elementsLi[index].nextElementSibling.className = elementsLi[index].className;
       elementsLi[index].innerText = liAux.text;
