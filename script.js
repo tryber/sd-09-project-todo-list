@@ -1,20 +1,20 @@
 window.onload = function () {
-	function titleOperation() {
-		let operation = document.createElement('h5')
-		let title = document.querySelector('.title')
-		title.appendChild(operation)
-		operation.innerText = 'Clique duas vezes em um item para marcá-lo como completo'
-		operation.id = 'funcionamento'
-	}
-	titleOperation();
+  function titleOperation() {
+    let operation = document.createElement('h5');
+    let title = document.querySelector('.title');
+    title.appendChild(operation);
+    operation.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
+    operation.id = 'funcionamento';
+  }
+  titleOperation();
 
 	function createButton() {
-		let button = document.createElement('button')
-		button.id = 'criar-tarefa'
-		button.innerHTML = 'Adicionar Tarefa'
-		document.body.appendChild(button)
-	}
-	createButton()
+	  let button = document.createElement('button');
+	  button.id = 'criar-tarefa';
+	  button.innerHTML = 'Adicionar Tarefa';
+	  document.body.appendChild(button);
+  }
+  createButton();
 
 	function createContainer() {
 		let container = document.createElement('div')
