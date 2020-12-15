@@ -93,7 +93,7 @@ function removeTask(event) {
   if (target === 'remover-finalizados') {
     className = 'completed';
   } else if (target === 'remover-selecionado') {
-    className = 'selected'; 
+    className = 'selected';
   }
   const list = document.querySelector('#lista-tarefas');
   const tasks = document.querySelectorAll('.tarefa');
