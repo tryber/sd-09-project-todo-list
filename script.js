@@ -26,7 +26,7 @@ window.onload = function () {
     container.appendChild(listOrdened);
     document.body.appendChild(container);
     container.className = 'container';
-	}
+  }
   createContainer();
 
   function addNewTodo() {
@@ -35,19 +35,19 @@ window.onload = function () {
     const list = document.querySelector('#lista-tarefas');
 
     button.addEventListener('click', function () {
-  	  if (input.value.length > 0) {
-  		  let newList = document.createElement('li');
-  		  newList.innerText = input.value;
+      if (input.value.length > 0) {
+        const newList = document.createElement('li');
+        newList.innerText = input.value;
 
-        newList.className = 'list-items';
-        list.appendChild(newList);
-        input.value = '';
-      }
+      newList.className = 'list-items';
+      list.appendChild(newList);
+      input.value = '';
+    }
     });
 
     input.addEventListener('keyup', function (event) {
       if (event.keyCode === 13 && input.value.length > 0) {
-        let newList = document.createElement('li');
+        const newList = document.createElement('li');
         newList.innerText = input.value;
 
         newList.className = 'list-items';
@@ -59,16 +59,15 @@ window.onload = function () {
   addNewTodo();
 
   function doubleClickList() {
-	  let taskList = document.querySelector('#lista-tarefas');
-	  taskList.addEventListener('dblclick', function (event) {
-
-		  event.target.classList.toggle('completed');
-	  });
+    const taskList = document.querySelector('#lista-tarefas');
+    taskList.addEventListener('dblclick', function (event) {
+      event.target.classList.toggle('completed');
+    });
   }
   doubleClickList();
 
   function clickList() {
-    let task = document.querySelector('#lista-tarefas');
+    const task = document.querySelector('#lista-tarefas');
     task.addEventListener('click', function (event) {
       let list = document.querySelectorAll('li');
       for (let index = 0; index < list.length; index += 1) {
@@ -97,7 +96,7 @@ window.onload = function () {
       for (let index = 0; index < itemsList.length; index += 1) {
         taskList.removeChild(itemsList[index]);
       }
-    });
+    })
   }
 	removeList();
 
@@ -116,10 +115,10 @@ window.onload = function () {
 
       buttonClearSelected.addEventListener('click', function () {
       let itemsList = document.querySelectorAll('.completed');
-      for (let index = 0; index < itemsList.length; index += 1);
+      for (let index = 0; index < itemsList.length; index += 1) {
       taskList.removeChild(itemsList[index]);
-
-    });
-  }
+      }
+      })
+    }
   removeItemSelected();
 };
