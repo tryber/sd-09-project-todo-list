@@ -95,7 +95,7 @@ function downTaskSelected() {
 }
 
 function itemList(text, classe, color, pos) {
-  let item = {};
+  const item = {};
   item.innerText = text;
   item.class = classe;
   item.backgroundColor = color;
@@ -107,17 +107,21 @@ function salveList() {
   const vectorList = [];
   const taskList = document.querySelectorAll('li');
   for (let index = 0; index < taskList.length; index += 1) {
-    vectorList.push(itemList(taskList[index].innerText, taskList[index].className, taskList[index].style.backgroundColor, index))
+    vectorList.push(itemList(
+      taskList[index].innerText,
+      taskList[index].className,
+      taskList[index].style.backgroundColor,
+      index));
   }
   localStorage.setItem('myList', JSON.stringify(vectorList));
 }
 
 function loadList() {
-  const vectorList = JSON.parse(localStorage.getItem('myList'))
+  const vectorList = JSON.parse(localStorage.getItem('myList'));
   const taskList = document.querySelector('#lista-tarefas');
   if (vectorList !== null) {
     for (let index = 0; index < vectorList.length; index += 1) {
-      let li = document.createElement('li');
+      const li = document.createElement('li');
       li.innerText = vectorList[index].innerText;
       li.className = vectorList[index].class;
       li.style.backgroundColor = vectorList[index].backgroundColor;
