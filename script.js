@@ -12,6 +12,10 @@ let clearButton = document.createElement('button');
 clearButton.id = 'apaga-tudo';
 clearButton.innerHTML = 'Limpar lista'
 body.appendChild(clearButton);
+let finishedButton = document.createElement('button');
+finishedButton.id = 'remover-finalizados';
+finishedButton.innerHTML = 'Remover finalizados';
+body.appendChild(finishedButton);
 window.onload = function() {
     button.addEventListener('click', function() {
         let itens = document.createElement('li');
@@ -40,6 +44,14 @@ clearButton.addEventListener('click', function() {
     itens = document.querySelectorAll('li');
     for (let index = 0; index < itens.length; index += 1) {
         itens[index].remove();
+    }
+ });
+ finishedButton.addEventListener('click', function() {
+    itens = document.querySelectorAll('li');
+    for (let index = 0; index < itens.length; index += 1) {
+        if (itens[index].className === 'completed'){
+            itens[index].remove();
+        }
     }
  });
 }

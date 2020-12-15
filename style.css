@@ -2,8 +2,11 @@
     text-decoration: line-through solid rgb(0, 0, 0);
     background-color: white;
 }
-
 #apaga-tudo {
+    margin-left: 20px;
+
+}
+#remover-finalizados{
     margin-left: 20px;
 
 }
