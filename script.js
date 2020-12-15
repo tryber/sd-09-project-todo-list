@@ -13,13 +13,15 @@ function Factory(){
   const TagButtonAddTask = document.getElementById("criar-tarefa")
   const TagOlListTasks = document.getElementById("lista-tarefas")
   const TagInputerTask = document.getElementById("texto-tarefa")
+  const TagButtonRemoveTask = document.getElementById("remover-finalizados")
   const TagLiItemTasks = document.getElementsByClassName("item-list")
 
   return {
     MyTagButtonAddTask: TagButtonAddTask,
     MyTagOlListTasks: TagOlListTasks,
     MyTagInputerTask: TagInputerTask,
-    MyTagLiItemTasks: TagLiItemTasks
+    MyTagLiItemTasks: TagLiItemTasks,
+    MyTagButtonRemoveTask: TagButtonRemoveTask
   }
 }
 
@@ -45,6 +47,7 @@ function Tasks() {
       console.log(factory.MyTagLiItemTasks)
       selectTask()
       completedTask()
+      removeCompletedTask()
     // clean the input after click
     myTagInputerTask.value = null
     })
@@ -69,6 +72,7 @@ function Tasks() {
   function completedTask() {
     for(let i = 0; i < myTagLiItemTasks.length; i++) {
       myTagLiItemTasks[i].addEventListener('dblclick', function(){
+        console.log(myTagLiItemTasks[i].classList[1])
         if(myTagLiItemTasks[i].classList[1]){
           myTagLiItemTasks[i].classList.remove("completed")
         } else {
@@ -78,13 +82,25 @@ function Tasks() {
     }
   }
 
+  function removeCompletedTask () {
+     const myTagButtonRemoveTask = factory.MyTagButtonRemoveTask
+     const myTagOlListTasks = factory.MyTagOlListTasks
+     myTagButtonRemoveTask.addEventListener("click", function() {
+        for(let i = 0; i < myTagLiItemTasks.length; i++) {
+          if (myTagLiItemTasks[i].classList[1]) {
+           myTagOlListTasks.removeChild(myTagLiItemTasks[i]);
+          }
+        }
+     })
+  }
 
 
     console.log("createTask working")
   return {
     selectTask: selectTask,
     createTask: createTask,
-    completedTask: completedTask
+    completedTask: completedTask,
+    removeCompletedTask: removeCompletedTask
   }
 }
 
