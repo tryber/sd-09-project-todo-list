@@ -1,10 +1,11 @@
 const contentInput = document.getElementById('texto-tarefa');
 const orderList = document.getElementById('lista-tarefas');
-const buttonRemoveSelected = document.getElementById('remover-finalizados');
+const buttonRemoveCompleted = document.getElementById('remover-finalizados');
+const buttonRemoveSelected = document.getElementById('remover-selecionado');
 const buttonAdd = document.getElementById('criar-tarefa');
 const buttonClear = document.getElementById('apaga-tudo');
 const line = document.getElementsByClassName('line');
-const selected = document.querySelector('.selected');
+const selected = document.getElementsByClassName('selected');
 const completed = document.getElementsByClassName('completed');
 const moveToUp = document.getElementById('mover-cima');
 const moveToDown = document.getElementById('mover-baixo');
@@ -39,7 +40,7 @@ function selectText(event) {
       line[index].className = 'line';
     }
   }
-  reselecting(event)
+  reselecting(event);
 }
 
 function concludedOrNot(event) {
@@ -56,6 +57,10 @@ function removeCompleted() {
   for (let index = 0; index < completed.length;) {
     orderList.removeChild(completed[completed.length - 1]);
   }
+}
+
+function removeSelected() {
+  orderList.removeChild(selected[0]);
 }
 
 function clearAll() {
@@ -103,7 +108,8 @@ window.onload = function init() {
   orderList.addEventListener('click', selectText);
   orderList.addEventListener('dblclick', concludedOrNot);
   buttonClear.addEventListener('click', clearAll);
-  buttonRemoveSelected.addEventListener('click', removeCompleted);
+  buttonRemoveCompleted.addEventListener('click', removeCompleted);
   moveToUp.addEventListener('click', moveUp);
   moveToDown.addEventListener('click', moveDown);
+  buttonRemoveSelected.addEventListener('click', removeSelected);
 };
