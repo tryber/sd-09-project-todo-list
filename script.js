@@ -10,8 +10,6 @@ function createLi() {
   inputValue.value = '';
 }
 
-// console.log(inputValue.value);
-
 function oneClick(event) {
   const liItem = event.target;
   const selected = document.querySelector('.selected');
@@ -50,6 +48,16 @@ function dbClick(event) {
   }
 }
 
+function eraseAll() {
+  const olItem = document.querySelector('#lista-tarefas');
+  const liItem = olItem.children;
+  console.log(liItem.length);
+  for (let i = 0; i < liItem.length; i += 1) {
+    console.log('erase')
+    liItem[i].remove();
+    i--;
+  }
+}
 
 
 window.onload = function() {
@@ -57,7 +65,7 @@ window.onload = function() {
   btnAdd.addEventListener('click', createLi);
   olList.addEventListener('click', oneClick);
   olList.addEventListener('dblclick', dbClick);
-
-
+  const inputEraseAll = document.getElementById('apaga-tudo');
+  inputEraseAll.addEventListener('click', eraseAll);
 
 }
