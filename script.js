@@ -20,6 +20,22 @@ function addTask() {
   clearInput(taskInput);
 }
 
+// Remove the class 'selected' form li elements
+function removeClassSelected() {
+  const tasksSelected = document.querySelectorAll('.selected');
+  for (let index = 0; index < tasksSelected.length; index += 1) {
+    tasksSelected[index].classList.remove('selected');
+  }
+}
+
+// Remove the class 'completed' form li elements
+function removeClassCompleted() {
+  const tasksCompleted = document.querySelectorAll('.completed');
+  for (let index = 0; index < tasksCompleted.length; index += 1) {
+    tasksCompleted[index].classList.remove('completed');
+  }
+}
+
 // Change background-color of elements with class selected
 function updateBackgroundColor() {
   const tasks = document.querySelectorAll('li');
@@ -37,24 +53,8 @@ function updateLineThrough(item) {
   if (item.style.textDecoration === 'line-through solid rgb(0, 0, 0)') {
     item.style.textDecoration = null;
     removeClassCompleted();
-	} else if (item.classList.contains('completed')) {
+  } else if (item.classList.contains('completed')) {
     item.style.textDecoration = 'line-through solid rgb(0, 0, 0)';
-  }
-}
-
-// Remove the class 'selected' form li elements
-function removeClassSelected() {
-  const tasksSelected = document.querySelectorAll('.selected');
-  for (let index = 0; index < tasksSelected.length; index += 1) {
-    tasksSelected[index].classList.remove('selected');
-  }
-}
-
-// Remove the class 'completed' form li elements
-function removeClassCompleted() {
-  const tasksCompleted = document.querySelectorAll('.completed');
-  for (let index = 0; index < tasksCompleted.length; index += 1) {
-    tasksCompleted[index].classList.remove('completed');
   }
 }
 
@@ -115,7 +115,7 @@ function saveTasks() {
   const tasks = document.querySelectorAll('.tarefa');
   if (typeof(Storage) !== 'undefined') {
     for (let index = 0; index < tasks.length; index += 1) {
-      let tasksArray = [tasks[index].innerHTML, tasks[index].className];
+      const tasksArray = [tasks[index].innerHTML, tasks[index].className];
       localStorage.setItem(`task ${index}`, tasksArray);
     }
   } else {
