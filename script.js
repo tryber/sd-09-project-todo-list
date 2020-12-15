@@ -116,9 +116,9 @@ window.onload = function () {
 		let buttonClearSelected = document.querySelector('#remover-finalizados')
 
 		buttonClearSelected.addEventListener('click', function () {
-			let itemsList = document.querySelector('.selected')
-
-			taskList.removeChild(itemsList)
+			let itemsList = document.querySelectorAll('.completed')
+			for (let index = 0; index < itemsList.length; index += 1)
+			taskList.removeChild(itemsList[index])
 
 		})
 	}
