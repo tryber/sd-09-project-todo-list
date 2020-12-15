@@ -11,7 +11,7 @@ const moveToUp = document.getElementById('mover-cima');
 const moveToDown = document.getElementById('mover-baixo');
 
 function addItemInList() {
-  if (contentInput.value !== '' && contentInput.value.length <= 30) {
+  if (contentInput.value !== '' && contentInput.value.length <= 40) {
     const newline = document.createElement('li');
     newline.className = 'line';
     newline.innerText = contentInput.value;
