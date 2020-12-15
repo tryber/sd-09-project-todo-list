@@ -58,4 +58,5 @@ window.onload = function() {
   btnAdd.addEventListener('click', createLi);
   olList.addEventListener('click', oneClick);
   olList.addEventListener('dblclick', dbClick);
+
 }
