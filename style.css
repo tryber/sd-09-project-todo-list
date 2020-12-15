@@ -1,14 +1,42 @@
 body {
-  max-width: 1366px;
   font-family: sans-serif;
+  max-width: 1366px;
+  min-width: 500px;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
   text-align: center;
 }
 
+li {
+  list-style-type: decimal-leading-zero;
+  margin-left: 0;
+  padding-left: 5px;
+}
+
+li.selecionado::marker {
+  color: black;
+}
+
+main {
+  margin: auto;
+  width: 500px;
+}
+
 p {
   text-align: center;
+}
+
+.selecionado {
+  background-color: rgb(128, 128, 128);
+  color: white;
+  text-decoration: blanchedalmond;
+  width: 98%;
 }
 
 .tarefas {
