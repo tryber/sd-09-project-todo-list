@@ -25,5 +25,5 @@ function createInput() {
 window.onload = function () {
   createTitle();
   createParagraph();
-  input();
+  createInput();
 };
