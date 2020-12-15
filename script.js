@@ -10,8 +10,10 @@ function clickItemList(event) {
   const li = document.querySelectorAll('li');
   li.forEach((item) => {
     item.style.backgroundColor = '';
+    item.className = 'tasks';
   });
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  event.target.classList.add('selected');
 }
 
 // Requisito [9] - Função responsável pelo o double click no item
@@ -19,9 +21,9 @@ function doubleClickItem() {
   const ol = document.querySelector('ol');
   ol.addEventListener('dblclick', function (event) {
     event.target.classList.toggle('completed');
+    event.target.style.backgroundColor = '';
   });
 }
-
 doubleClickItem();
 
 // Requisito [5] - Função responsável por adicionar uma nova tarefa
@@ -34,7 +36,6 @@ function createTask() {
   listTask.addEventListener('click', clickItemList);
   clearTextInput();
 }
-
 btnAddTask.addEventListener('click', createTask);
 
 // Requisito [10] - Função responsável por apagar todas as tasks
@@ -43,8 +44,10 @@ function deleteTasks() {
   for (let index = 0; index < li.length; index += 1) {
     li[index].remove();
   }
+  if (localStorage.length > 0) {
+    localStorage.clear();
+  }
 }
-
 const btnDeleteTasks = document.querySelector('#apaga-tudo');
 btnDeleteTasks.addEventListener('click', deleteTasks);
 
@@ -55,9 +58,23 @@ function deleteCompletedTask() {
     completedTask[index].remove();
   }
 }
-
 const btnDeleteCompletedTasks = document.querySelector('#remover-finalizados');
 btnDeleteCompletedTasks.addEventListener('click', deleteCompletedTask);
+
+// Requisito [14] - Função responsável por remover task selecionada;
+function deleteSelected() {
+  const buttom = document.getElementById('remover-selecionado');
+  buttom.addEventListener('click', function () {
+    const list = document.querySelector('#lista-tarefas');
+    const tasks = document.querySelectorAll('.tasks');
+    for (let index = 0; index < tasks.length; index += 1) {
+      if (tasks[index].className.includes('selected')) {
+        list.removeChild(tasks[index]);
+      }
+    }
+  });
+}
+deleteSelected();
 
 // Requisito [12] - Função responsável por salvar as tarefas
 // localStorage
@@ -92,6 +109,7 @@ function createTasksSaved(task, completed) {
     newTask.classList.add('completed');
   }
   ol.appendChild(newTask);
+  newTask.addEventListener('click', clickItemList);
 }
 
 // Requisito [13] - Função responsável por resgatar tasks salvas
