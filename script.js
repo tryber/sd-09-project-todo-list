@@ -10,6 +10,7 @@ function clickItemList(event) {
   const li = document.querySelectorAll('li');
   li.forEach((item) => {
     item.style.backgroundColor = '';
+    item.classList.remove('selected');
   });
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   event.target.classList.add('selected');
@@ -43,6 +44,9 @@ function deleteTasks() {
   const li = document.querySelectorAll('li');
   for (let index = 0; index < li.length; index += 1) {
     li[index].remove();
+  }
+  if (localStorage.length > 0) {
+    localStorage.clear();
   }
 }
 
@@ -88,11 +92,13 @@ function createTasksSaved(task, completed) {
   const ol = document.querySelector('ol');
   const newTask = document.createElement('li');
   newTask.innerText = task;
-  newTask.classList.add('task');
+  newTask.classList.add('tasks');
   if (completed) {
     newTask.classList.add('completed');
   }
   ol.appendChild(newTask);
+  newTask.addEventListener('click', clickItemList);
+  clearTextInput();
 }
 
 // Requisito [12] - Função responsável por resgatar tasks salvas
@@ -121,3 +127,31 @@ function deleteSelected() {
   });
 }
 deleteSelected();
+
+// Requisito [13] - Função responsável por mover task para cima
+function moveUp() {
+  const btnMoveUp = document.querySelector('#mover-cima');  
+  btnMoveUp.addEventListener('click', function () {
+    const tasks = document.querySelectorAll('.tasks');
+    for (let index = 0; index < tasks.length; index += 1) {
+      if (tasks[index].className.includes('selected') && tasks[index].previousSibling !== null) {
+        tasks[index].parentNode.insertBefore(tasks[index], tasks[index - 1]);
+      }
+    }
+  });
+}
+moveUp();
+
+// Requisito [13] - Função responsável por mover task para baixo
+function moveDown() {
+  const btnMoveDown = document.querySelector('#mover-baixo');
+  btnMoveDown.addEventListener('click', function () {
+    const tasks = document.querySelectorAll('.tasks');
+    for (let index = 0; index < tasks.length; index += 1) {
+      if (tasks[index].className.includes('selected') && tasks[index].nextSibling !== null) {
+        tasks[index].parentNode.insertBefore(tasks[index + 1], tasks[index]);
+      }
+    }
+  });
+}
+moveDown();
