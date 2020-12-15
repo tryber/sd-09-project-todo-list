@@ -174,7 +174,7 @@ window.onload = function () {
 	taskList.addEventListener('click', updateTaskColor);
   taskList.addEventListener('dblclick', updateTaskCompleted);
   buttonDelete.addEventListener('click', deleteAllTasks);
-  buttonConclude.addEventListener('click', concludeTask);
+  buttonConclude.addEventListener('click', removeTask);
   buttonSaveTasks.addEventListener('click', saveTasks);
   buttonMoveUp.addEventListener('click', moveUp);
   buttonMoveDown.addEventListener('click', moveDown);
