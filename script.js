@@ -20,10 +20,14 @@ function bgTaskColorChange(event) {
   }
   event.target.classList.add('selected');
 }
+function dbClickCompleted(event) {
+  event.target.classList.toggle('completed');
+}
 
 function eventsListenersAll() {
   buttonAddTasks.addEventListener('click', createTask);
   listTask.addEventListener('click', bgTaskColorChange);
+  listTask.addEventListener('dblclick', dbClickCompleted);
 }
 
 eventsListenersAll();
