@@ -23,7 +23,7 @@ function addTask() {
 // Change background-color of elements with class selected
 function updateBackgroundColor() {
   const tasks = document.querySelectorAll('li');
-  for (let index = 0; index < tasks.length; index += 1 ) {
+  for (let index = 0; index < tasks.length; index += 1) {
     if (tasks[index].classList.contains('selected')) {
       tasks[index].style.backgroundColor = 'rgb(128, 128, 128)';
     } else {
@@ -34,7 +34,6 @@ function updateBackgroundColor() {
 
 // Update text-decoration line-through of item
 function updateLineThrough(item) {
-  const tasks = document.querySelectorAll('li');
   if (item.style.textDecoration === 'line-through solid rgb(0, 0, 0)') {
     item.style.textDecoration = null;
     removeClassCompleted();
@@ -62,7 +61,7 @@ function removeClassCompleted() {
 // Add class selected and call the function that update background-color of selected itens
 function updateTaskColor(event) {
   const selectedItem = event.target;
-  if( selectedItem.classList.contains('tarefa')) {
+  if (selectedItem.classList.contains('tarefa')) {
     removeClassSelected();
     selectedItem.className += ' selected';
   }
@@ -72,7 +71,7 @@ function updateTaskColor(event) {
 // Add class completed and call the function that update text-decoration line-through of item
 function updateTaskCompleted(event) {
   const completedItem = event.target;
-  if(completedItem.classList.contains('tarefa')) {
+  if (completedItem.classList.contains('tarefa')) {
     completedItem.className += ' completed';
   }
   updateLineThrough(completedItem);
@@ -89,23 +88,23 @@ function deleteAllTasks() {
 
 // Delete all elements li with class 'completed' or with class 'selected'
 function removeTask(event) {
-  let target = event.target.id;
+  const target = event.target.id;
   let className = '';
-  if(target === 'remover-finalizados') {
+  if (target === 'remover-finalizados') {
     className = 'completed';
   } else if (target === 'remover-selecionado') {
     className = 'selected'; 
   }
   const list = document.querySelector('#lista-tarefas');
   const tasks = document.querySelectorAll('.tarefa');
-  for(let index = 0; index < tasks.length; index += 1) {
+  for (let index = 0; index < tasks.length; index += 1) {
     if (tasks[index].classList.contains(className)) {
       list.removeChild(tasks[index]);
     }
   }
   for (let index2 = 0; localStorage.getItem(`task ${index2}`); index2 += 1) {
-    let taskInStorage = localStorage.getItem(`task ${index2}`);
-    if(taskInStorage.includes(className)) {
+    const taskInStorage = localStorage.getItem(`task ${index2}`);
+    if (taskInStorage.includes(className)) {
       localStorage.removeItem(`task ${index2}`);
     }
   }
@@ -114,8 +113,8 @@ function removeTask(event) {
 // Verify if browser support web storage and save li elements in local storage
 function saveTasks() {
   const tasks = document.querySelectorAll('.tarefa');
-  if (typeof(Storage) !== "undefined") {
-    for(let index = 0; index < tasks.length; index += 1) {
+  if (typeof(Storage) !== 'undefined') {
+    for (let index = 0; index < tasks.length; index += 1) {
       let tasksArray = [tasks[index].innerHTML, tasks[index].className];
       localStorage.setItem(`task ${index}`, tasksArray);
     }
@@ -127,8 +126,8 @@ function saveTasks() {
 // Load elements li saved in local storage
 function loadTaks() {
   for (let index = 0; localStorage.getItem(`task ${index}`); index += 1) {
-    let tasksArray = (localStorage.getItem(`task ${index}`)).split(',');
-    let loadedTask =  cresteListItem(tasksArray[0]);
+    const tasksArray = (localStorage.getItem(`task ${index}`)).split(',');
+    const loadedTask = cresteListItem(tasksArray[0]);
     loadedTask.className = tasksArray[1];
     updateBackgroundColor(loadedTask);
     updateLineThrough(loadedTask);
@@ -137,27 +136,27 @@ function loadTaks() {
 
 // Move up the li elements
 function moveUp() {
-  if( document.querySelector('.selected') !== null ) {
+  if (document.querySelector('.selected') !== null) {
     const taskUp = document.querySelector('.selected');
     const list = document.querySelector('#lista-tarefas');
     if (taskUp.previousElementSibling !== null) {
       list.insertBefore(taskUp, taskUp.previousElementSibling);
     }
   } else {
-    alert('Erro! Nenhuma tarefa selecionada!')
+    alert('Erro! Nenhuma tarefa selecionada!');
   }
 }
 
 // Move down the li elements
 function moveDown() {
-  if( document.querySelector('.selected') !== null ) {
+  if (document.querySelector('.selected') !== null) {
     const taskDown = document.querySelector('.selected');
     const list = document.querySelector('#lista-tarefas');
     if (taskDown.nextElementSibling !== null) {
       list.insertBefore(taskDown.nextElementSibling, taskDown);
     }
   } else {
-    alert('Erro! Nenhuma tarefa selecionada!')
+    alert('Erro! Nenhuma tarefa selecionada!');
   }
 }
 
