@@ -123,8 +123,26 @@ function loadTaks() {
     let tasksArray = (localStorage.getItem(`task ${index}`)).split(',');
     let loadedTask =  cresteListItem(tasksArray[0]);
     loadedTask.className = tasksArray[1];
-    updateBackgroundColor();
+    updateBackgroundColor(loadedTask);
     updateLineThrough(loadedTask);
+  }
+}
+
+// Move up the li elements
+function moveUp() {
+  const taskUp = document.querySelector('.selected');
+  const list = document.querySelector('#lista-tarefas');
+  if (taskUp.previousElementSibling !== null) {
+    list.insertBefore(taskUp, taskUp.previousElementSibling);
+  }
+}
+
+// Move down the li elements
+function moveDown() {
+  const taskDown = document.querySelector('.selected');
+  const list = document.querySelector('#lista-tarefas');
+  if (taskDown.nextElementSibling !== null) {
+    list.insertBefore(taskDown.nextElementSibling, taskDown);
   }
 }
 
@@ -133,6 +151,7 @@ function preventSubmit(event) {
 	event.preventDefault();
 }
 
+// Load function and event listeners at the window load
 window.onload = function () {
 	const buttonTask = document.querySelector('#criar-tarefa');
 	const taskForm = document.querySelector('#formulario-tarefa');
@@ -140,6 +159,8 @@ window.onload = function () {
   const buttonDelete = document.querySelector('#apaga-tudo');
   const buttonConclude = document.querySelector('#remover-finalizados');
   const buttonSaveTasks = document.querySelector('#salvar-tarefas');
+  const buttonMoveUp = document.querySelector('#mover-cima');
+  const buttonMoveDown = document.querySelector('#mover-baixo');
 	buttonTask.addEventListener('click', addTask);
 	taskForm.addEventListener('submit', preventSubmit);
 	taskList.addEventListener('click', updateTaskColor);
@@ -147,5 +168,7 @@ window.onload = function () {
   buttonDelete.addEventListener('click', deleteAllTasks);
   buttonConclude.addEventListener('click', concludeTask);
   buttonSaveTasks.addEventListener('click', saveTasks);
+  buttonMoveUp.addEventListener('click', moveUp);
+  buttonMoveDown.addEventListener('click', moveDown);
   loadTaks();
 };
