@@ -22,8 +22,16 @@ function createInput() {
   input.placeholder = 'Digite o item que deseja adicionar à lista';
 }
 
+function createList() {
+  const main = document.querySelector('main');
+  const list = document.createElement('ol');
+  main.appendChild(list);
+  list.id = 'lista-tarefas';
+}
+
 window.onload = function () {
   createTitle();
   createParagraph();
   createInput();
+  createList();
 };
