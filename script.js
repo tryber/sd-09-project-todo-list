@@ -108,3 +108,16 @@ function getTasks() {
 getTasks();
 
 // Requisito [14] - Função responsável por remover itens selecionados
+function deleteSelected() {
+  const buttom = document.getElementById('remover-selecionado');
+  buttom.addEventListener('click', function () {
+    const list = document.querySelector('#lista-tarefas');
+    const tasks = document.querySelectorAll('.tasks');
+    for (let index = 0; index < tasks.length; index += 1) {
+      if (tasks[index].className.includes('selected')) {
+        list.removeChild(tasks[index]);
+      }
+    }
+  });
+}
+deleteSelected();
