@@ -31,8 +31,10 @@ function selectText(event) {
   }
   if (event.target.className === 'line completed') {
     event.target.className = 'line selected completed';
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   } else {
     event.target.className = 'line selected'
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 }
 
