@@ -100,25 +100,47 @@ window.onload = function () {
   }
 	removeList();
 
-  function createButtonClearItemSelected() {
+  function createButtonClearItemFinalized() {
     let button = document.createElement('button');
     let container = document.querySelector('.container');
     button.id = 'remover-finalizados';
-    button.innerText = 'Clear Item Selected';
+    button.innerText = 'Clear Itens Finalized';
     container.appendChild(button);
   }
-  createButtonClearItemSelected();
+  createButtonClearItemFinalized();
 
-  function removeItemSelected() {
+  function removeItemFinalized() {
     let taskList = document.querySelector('#lista-tarefas');
-    let buttonClearSelected = document.querySelector('#remover-finalizados');
+    let buttonClearFinalized = document.querySelector('#remover-finalizados');
 
-      buttonClearSelected.addEventListener('click', function () {
+      buttonClearFinalized.addEventListener('click', function () {
       let itemsList = document.querySelectorAll('.completed');
       for (let index = 0; index < itemsList.length; index += 1) {
       taskList.removeChild(itemsList[index]);
       }
       })
     }
-  removeItemSelected();
+    removeItemFinalized();
+
+  function createButtonClearItemSelected() {
+      let button = document.createElement('button');
+      let container = document.querySelector('.container');
+      button.id = 'remover-selecionado';
+      button.innerText = 'Clear Item Selected';
+      container.appendChild(button);
+    }
+    createButtonClearItemSelected();
+  
+    function removeItemSelected() {
+      let taskList = document.querySelector('#lista-tarefas');
+      let buttonClearSelected = document.querySelector('#remover-selecionado');
+  
+        buttonClearSelected.addEventListener('click', function () {
+        let itemsList = document.querySelectorAll('.selected');
+        for (let index = 0; index < itemsList.length; index += 1) {
+        taskList.removeChild(itemsList[index]);
+        }
+        })
+      }
+      removeItemSelected();
 };
