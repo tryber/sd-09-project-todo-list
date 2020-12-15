@@ -31,16 +31,39 @@ function createInput() {
   main.appendChild(input);
 }
 
+function createButton() {
+  const main = document.querySelector('main');
+  const button = document.createElement('button');
+	button.id = 'criar-tarefa';
+	button.innerText = 'Criar tarefa'
+  main.appendChild(button);
+}
+
 function createOrderedList() {
-	const main = document.querySelector('main');
-	const orderedList = document.createElement('ol');
-	orderedList.id = 'lista-tarefas';
-	main.appendChild(orderedList);
+  const main = document.querySelector('main');
+  const orderedList = document.createElement('ol');
+  orderedList.id = 'lista-tarefas';
+  main.appendChild(orderedList);
+}
+
+function submitButton() {
+	const orderedList = document.querySelector('#lista-tarefas');
+	const button = document.querySelector('#criar-tarefa');
+	button.addEventListener('click', function() {
+		const input = document.querySelector('#texto-tarefa');
+		const inputValue = document.querySelector('#texto-tarefa').value;
+		const listItem = document.createElement('li');
+		listItem.innerText = inputValue;
+		orderedList.appendChild(listItem);
+		input.value = '';
+	})
 }
 
 window.onload = function () {
   createTitle();
   createParagraph();
-	createInput();
-	createOrderedList()
+  createInput();
+  createOrderedList();
+	createButton();
+	submitButton();
 };
