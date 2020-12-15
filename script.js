@@ -2,9 +2,9 @@
 const buttonTask = document.querySelector('.criar-tarefa');
 buttonTask.textContent = 'Salvar Tarefa';
 buttonTask.style.height = '20px';
-
+const ul = document.querySelector('ul');
 const list = document.querySelector('ol');
-document.body.appendChild(list);
+ul.appendChild(list);
 
 // Create a list via the button
 function taskList() {
@@ -37,10 +37,15 @@ function crossTaskCompleted() {
   const taskC = document.querySelector('ol');
 
   taskC.addEventListener('dblclick', (event) => {
-    if (event.target === 'completed') {
-      event.target.classList.remove('completed');
-    } else {
-      event.target.classList.add('completed');
+    event.target.classList.add('completed');
+  });
+}
+
+function deleteCompleted() {
+  const buttonClearList = document.querySelector('.limpar-lista');
+  buttonClearList.addEventListener('click', () => {
+    while (list.hasChildNodes()) {
+      list.removeChild(list.firstChild);
     }
   });
 }
@@ -49,4 +54,5 @@ window.onload = function () {
   taskList();
   paintTask();
   crossTaskCompleted();
+  deleteCompleted();
 };
