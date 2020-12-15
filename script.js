@@ -37,16 +37,26 @@ function createButton() {
   button.innerText = 'Criar tarefa';
 }
 
+function clickItem() {
+  const listItem = document.querySelectorAll('li');
+  for (let index = 0; index < listItem.length; index += 1) {
+    listItem[index].addEventListener('dblclick', function () {
+      this.style.backgroundColor = 'rgb(128, 128, 128)';
+    })
+  }
+}
+
 function clickButton() {
   const button = document.querySelector('#criar-tarefa');
   const list = document.querySelector('#lista-tarefas');
   button.addEventListener('click', function () {
     const input = document.querySelector('#texto-tarefa');
     const inputValue = document.querySelector('#texto-tarefa').value;
-    const elementList = document.createElement('li');
-    list.appendChild(elementList);
-    elementList.innerText = inputValue;
+    const listItem = document.createElement('li');
+    list.appendChild(listItem);
+    listItem.innerText = inputValue;
     input.value = '';
+    clickItem();
   });
 }
 
