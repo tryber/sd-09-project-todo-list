@@ -1,7 +1,7 @@
 window.onload = function () {
   createOrganizedList();
-  const taskList = document.querySelector('#lista-tarefas');
-  taskList.addEventListener('click', updateTaskColor);
+  /*const taskList = document.querySelector('#lista-tarefas');
+  taskList.addEventListener('click', updateTaskColor);*/
 }
 
 function createOrganizedList() {
@@ -18,6 +18,7 @@ function createOrganizedList() {
   });
 }
 
+/*
 function removeClassSelected() {
   const tasksSelected = document.querySelectorAll('.selected');
   for (let index = 0; index < tasksSelected.length; index += 1) {
@@ -44,6 +45,8 @@ function updateTaskColor(event) {
   }
   updateBackgroundColor();
 }
+
+*/
 
 /*
 function changeItemBackgroundColor() {
