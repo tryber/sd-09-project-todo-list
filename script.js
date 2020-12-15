@@ -86,15 +86,18 @@ function deleteAllTasks() {
   localStorage.clear();
 }
 
-// Delete all elements li with class 'completed' or with class 'selected'
-function removeTask(event) {
-  const target = event.target.id;
-  let className = '';
-  if (target === 'remover-finalizados') {
-    className = 'completed';
-  } else if (target === 'remover-selecionado') {
-    className = 'selected';
+// Delete elements li with class 'completed' or 'selected' in localStorage
+function removeLocalStorage(className) {
+  for (let index = 0; localStorage.getItem(`task ${index}`); index += 1) {
+    const taskInStorage = localStorage.getItem(`task ${index}`);
+    if (taskInStorage.includes(className)) {
+      localStorage.removeItem(`task ${index}`);
+    }
   }
+}
+
+// Delete elements li with class 'completed' or 'selected'
+function removeListElement(className) {
   const list = document.querySelector('#lista-tarefas');
   const tasks = document.querySelectorAll('.tarefa');
   for (let index = 0; index < tasks.length; index += 1) {
@@ -102,12 +105,19 @@ function removeTask(event) {
       list.removeChild(tasks[index]);
     }
   }
-  for (let index2 = 0; localStorage.getItem(`task ${index2}`); index2 += 1) {
-    const taskInStorage = localStorage.getItem(`task ${index2}`);
-    if (taskInStorage.includes(className)) {
-      localStorage.removeItem(`task ${index2}`);
-    }
+}
+
+// Verify class of li element to be removed
+function verifyListItemClass(event) {
+  const target = event.target.id;
+  let className = '';
+  if (target === 'remover-finalizados') {
+    className = 'completed';
+  } else if (target === 'remover-selecionado') {
+    className = 'selected';
   }
+  removeListElement(className);
+  removeLocalStorage(className);
 }
 
 // Verify if browser support web storage and save li elements in local storage
@@ -181,10 +191,10 @@ window.onload = function () {
   taskList.addEventListener('click', updateTaskColor);
   taskList.addEventListener('dblclick', updateTaskCompleted);
   buttonDelete.addEventListener('click', deleteAllTasks);
-  buttonConclude.addEventListener('click', removeTask);
+  buttonConclude.addEventListener('click', verifyListItemClass);
   buttonSaveTasks.addEventListener('click', saveTasks);
   buttonMoveUp.addEventListener('click', moveUp);
   buttonMoveDown.addEventListener('click', moveDown);
-  buttonRemoveSelected.addEventListener('click', removeTask);
+  buttonRemoveSelected.addEventListener('click', verifyListItemClass);
   loadTaks();
 };
