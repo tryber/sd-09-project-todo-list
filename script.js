@@ -31,8 +31,16 @@ function createInput() {
   main.appendChild(input);
 }
 
+function createOrderedList() {
+	const main = document.querySelector('main');
+	const orderedList = document.createElement('ol');
+	orderedList.id = 'lista-tarefas';
+	main.appendChild(orderedList);
+}
+
 window.onload = function () {
   createTitle();
   createParagraph();
-  createInput();
+	createInput();
+	createOrderedList()
 };
