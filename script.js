@@ -27,14 +27,14 @@ function dbClickCompleted(event) {
   event.target.classList.toggle('completed');
 }
 
-function deleteTask() {
+function deleteAllTasks() {
   const tasksCreated = document.querySelectorAll('.task');
   for (let index = 0; index < tasksCreated.length; index += 1) {
     listTask.removeChild(tasksCreated[index]);
   }
 }
 
-function removeFinished() {
+function removeTasksFinished() {
   const tasksSelected = document.querySelectorAll('.completed');
   for (let index = 0; index < tasksSelected.length; index += 1) {
     listTask.removeChild(tasksSelected[index]);
@@ -45,8 +45,8 @@ function eventsListenersAll() {
   buttonAddTasks.addEventListener('click', createTask);
   listTask.addEventListener('click', bgTaskColorChange);
   listTask.addEventListener('dblclick', dbClickCompleted);
-  buttonDelete.addEventListener('click', deleteTask);
-  buttonRemoveFinished.addEventListener('click', removeFinished);
+  buttonDelete.addEventListener('click', deleteAllTasks);
+  buttonRemoveFinished.addEventListener('click', removeTasksFinished);
 }
 
 eventsListenersAll();
