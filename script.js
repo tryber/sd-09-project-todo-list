@@ -13,7 +13,7 @@ function createParagraph() {
   paragraph.id = 'funcionamento';
 }
 
-function input() {
+function createInput() {
   const main = document.querySelector('main');
   const input = document.createElement('input');
   main.appendChild(input);
