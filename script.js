@@ -24,4 +24,12 @@ window.onload = function() {
         }
          event.target.style.backgroundColor = 'rgb(128,128,128)';
     });
+
+    orderedList.addEventListener('dblclick', function(event) {
+        if( event.target.className === 'completed') {
+            event.target.className = '';
+        } else {
+            event.target.className = 'completed';
+        }
+    });
 }
