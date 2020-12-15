@@ -16,7 +16,6 @@ function taskList() {
       const li = document.createElement('li');
       list.appendChild(li);
       li.textContent = inputText.value;
-      li.id = 'lista-tarefa';
       li.className = 'lista-tarefas';
       inputText.value = '';
     }
@@ -34,10 +33,14 @@ function paintTask() {
 }
 
 function crossTaskCompleted() {
-  const taskC = document.querySelector('ol');
+  const taskC = document.querySelector('#lista-tarefas');
 
   taskC.addEventListener('dblclick', (event) => {
-    event.target.classList.add('completed');
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
+    }
   });
 }
 
@@ -50,9 +53,20 @@ function deleteCompleted() {
   });
 }
 
+function deleteFinaleTask() {
+  const buttonClearFinale = document.querySelector('#remover-finalizados');
+  const listTask = document.querySelector('#lista-tarefas');
+
+  buttonClearFinale.addEventListener('click', () => {
+    const deleteTask = document.querySelector('.completed');
+    deleteTask.remove();
+  });
+}
+
 window.onload = function () {
   taskList();
   paintTask();
   crossTaskCompleted();
   deleteCompleted();
-};
+  deleteFinaleTask()
+}

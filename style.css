@@ -5,3 +5,15 @@
 .selected {
   background-color: grey;
 }
+
+.criar-tarefa {
+  margin: 10px;
+}
+
+.limpar-lista {
+  margin: 10px;
+}
+
+.limpar-completados {
+  margin: 10px;
+}
