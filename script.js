@@ -130,7 +130,7 @@ deleteSelected();
 
 // Requisito [13] - Função responsável por mover task para cima
 function moveUp() {
-  const btnMoveUp = document.querySelector('#mover-cima');  
+  const btnMoveUp = document.querySelector('#mover-cima');
   btnMoveUp.addEventListener('click', function () {
     const tasks = document.querySelectorAll('.tasks');
     for (let index = 0; index < tasks.length; index += 1) {
