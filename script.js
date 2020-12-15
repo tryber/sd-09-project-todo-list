@@ -113,7 +113,7 @@ function removeTask(event) {
 // Verify if browser support web storage and save li elements in local storage
 function saveTasks() {
   const tasks = document.querySelectorAll('.tarefa');
-  if (typeof(Storage) !== 'undefined') {
+  if (typeof (Storage) !== 'undefined') {
     for (let index = 0; index < tasks.length; index += 1) {
       const tasksArray = [tasks[index].innerHTML, tasks[index].className];
       localStorage.setItem(`task ${index}`, tasksArray);
