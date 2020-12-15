@@ -55,11 +55,12 @@ function deleteCompleted() {
 
 function deleteFinaleTask() {
   const buttonClearFinale = document.querySelector('#remover-finalizados');
-  const listTask = document.querySelector('#lista-tarefas');
 
   buttonClearFinale.addEventListener('click', () => {
-    const deleteTask = document.querySelector('.completed');
-    deleteTask.remove();
+    const deleteTask = document.querySelectorAll('.completed');
+    for (let index = 0; index < deleteTask.length; index += 1) {
+      deleteTask[index].remove();
+    }
   });
 }
 
@@ -68,5 +69,5 @@ window.onload = function () {
   paintTask();
   crossTaskCompleted();
   deleteCompleted();
-  deleteFinaleTask()
-}
+  deleteFinaleTask();
+};
