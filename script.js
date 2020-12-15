@@ -71,40 +71,48 @@ function clearAll() {
   }
 }
 
+function moveUpCondition(index) {
+  if (line[index].className === 'line selected' || line[index].className === 'line selected completed') {
+    const storeLine = line[index - 1].innerHTML;
+    const storeClassUp = line[index - 1].className;
+    const storeClassDown = line[index].className;
+    line[index - 1].innerHTML = line[index].innerHTML;
+    line[index].innerHTML = storeLine;
+    line[index].className = storeClassUp;
+    line[index].style.backgroundColor = '';
+    line[index - 1].className = storeClassDown;
+    line[index - 1].style.backgroundColor = 'rgb(128, 128, 128)';
+    break;
+  }
+}
+
 function moveUp() {
   for (let index = 0; index < line.length; index += 1) {
     if (line[index - 1]) {
-      if (line[index].className === 'line selected' || line[index].className === 'line selected completed') {
-        const storeLine = line[index - 1].innerHTML;
-        const storeClassUp = line[index - 1].className;
-        const storeClassDown = line[index].className;
-        line[index - 1].innerHTML = line[index].innerHTML;
-        line[index].innerHTML = storeLine;
-        line[index].className = storeClassUp;
-        line[index].style.backgroundColor = '';
-        line[index - 1].className = storeClassDown;
-        line[index - 1].style.backgroundColor = 'rgb(128, 128, 128)';
-        break;
-      }
+      moveUpCondition(index);
     }
+  }
+}
+
+function moveDownCondition(index) {
+  if (line[index].className === 'line selected' || line[index].className === 'line selected completed') {
+    const storeLine = line[index].innerHTML;
+    const storeClassUp = line[index + 1].className;
+    const storeClassDown = line[index].className;
+    line[index].innerHTML = line[index + 1].innerHTML;
+    line[index].className = storeClassUp;
+    line[index].style.backgroundColor = '';
+    line[index + 1].style.backgroundColor = 'rgb(128, 128, 128)';
+    line[index + 1].innerHTML = storeLine;
+    line[index + 1].className = storeClassDown;
+    break;
   }
 }
 
 function moveDown() {
   for (let index = 0; index < line.length; index += 1) {
     if (line[index + 1]) {
-      if (line[index].className === 'line selected' || line[index].className === 'line selected completed') {
-        const storeLine = line[index].innerHTML;
-        const storeClassUp = line[index + 1].className;
-        const storeClassDown = line[index].className;
-        line[index].innerHTML = line[index + 1].innerHTML;
-        line[index].className = storeClassUp;
-        line[index].style.backgroundColor = '';
-        line[index + 1].style.backgroundColor = 'rgb(128, 128, 128)';
-        line[index + 1].innerHTML = storeLine;
-        line[index + 1].className = storeClassDown;
-        break;
-      }
+      moveDownCondition(index);
     }
   }
 }
