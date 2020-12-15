@@ -6,14 +6,24 @@ function createTitle() {
 }
 
 function createParagraph() {
-  const header = document.querySelector('main');
+  const main = document.querySelector('main');
   const paragraph = document.createElement('p');
-  header.appendChild(paragraph);
+  main.appendChild(paragraph);
   paragraph.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
   paragraph.id = 'funcionamento';
 }
 
-window.onload = function() {
+function input() {
+  const main = document.querySelector('main');
+  const input = document.createElement('input');
+  main.appendChild(input);
+  input.id = 'texto-tarefa';
+  input.type = 'text';
+  input.placeholder = 'Digite o item que deseja adicionar à lista';
+}
+
+window.onload = function () {
   createTitle();
   createParagraph();
-}
+  input();
+};
