@@ -70,7 +70,7 @@ window.onload = function () {
 	function clickList() {
 		let task = document.querySelector('#lista-tarefas')
 		task.addEventListener('click', function (event) {
-			list = document.querySelectorAll('li')
+			let list = document.querySelectorAll('li')
 			for (let index = 0; index < list.length; index += 1) {
 				list[index].classList.remove('selected')
 			}
@@ -101,4 +101,26 @@ window.onload = function () {
 		})
 	}
 	removeList()
+
+	function createButtonClearItemSelected() {
+		let button = document.createElement('button')
+		let container = document.querySelector('.container')
+		button.id = 'remover-finalizados'
+		button.innerText = 'Clear Item Selected'
+		container.appendChild(button)
+	}
+	createButtonClearItemSelected()
+
+	function removeItemSelected() {
+		let taskList = document.querySelector('#lista-tarefas')
+		let buttonClearSelected = document.querySelector('#remover-finalizados')
+
+		buttonClearSelected.addEventListener('click', function () {
+			let itemsList = document.querySelector('.selected')
+
+			taskList.removeChild(itemsList)
+
+		})
+	}
+	removeItemSelected()
 }
