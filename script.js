@@ -55,10 +55,17 @@ function eraseAll() {
   for (let i = 0; i < liItem.length; i += 1) {
     console.log('erase')
     liItem[i].remove();
-    i--;
+    i -= 1;
   }
 }
 
+function removeFinished() {
+  const completed = document.getElementsByClassName('completed');
+  for (let i = 0; i < completed.length; i += 1) {
+    completed[i].remove();
+    i -= 1;
+  }
+}
 
 window.onload = function() {
 
@@ -67,5 +74,6 @@ window.onload = function() {
   olList.addEventListener('dblclick', dbClick);
   const inputEraseAll = document.getElementById('apaga-tudo');
   inputEraseAll.addEventListener('click', eraseAll);
-
+  const btnEraseFinished = document.querySelector('#remover-finalizados');
+  btnEraseFinished.addEventListener('click', removeFinished);
 }
