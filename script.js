@@ -3,6 +3,7 @@ const btnCreateTask = document.querySelector('#criar-tarefa');
 const olList = document.querySelector('#lista-tarefas');
 const apagaTudo = document.querySelector('#apaga-tudo');
 const removerFinalizados = document.querySelector('#remover-finalizados');
+const removerSelecionado = document.querySelector('#remover-selecionado');
 const salvarTarefas = document.querySelector('#salvar-tarefas');
 const ilList = document.getElementsByTagName('li');
 
@@ -79,6 +80,16 @@ removerFinalizados.addEventListener('click', () => {
   for (let item = 0; item < completedItem.length; item += 1) {
     if (completedItem[item].parentNode) {
       completedItem[item].parentNode.removeChild(completedItem[item]);
+    }
+  }
+});
+
+// Evento para apagar as tarefas selecionada
+removerSelecionado.addEventListener('click', () => {
+  const selectedItem = document.querySelectorAll('.line-color');
+  for (let item = 0; item < selectedItem.length; item += 1) {
+    if (selectedItem[item].parentNode) {
+      selectedItem[item].parentNode.removeChild(selectedItem[item]);
     }
   }
 });
