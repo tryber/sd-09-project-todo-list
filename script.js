@@ -35,7 +35,7 @@ function deleteTask() {
 }
 
 function removeFinished() {
-  const tasksSelected = document.querySelectorAll('.selected');
+  const tasksSelected = document.querySelectorAll('.completed');
   for (let index = 0; index < tasksSelected.length; index += 1) {
     listTask.removeChild(tasksSelected[index]);
   }
