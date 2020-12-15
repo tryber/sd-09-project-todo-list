@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
     function titleOperation() {
         let operation = document.createElement('h5')
         let title = document.querySelector('.title')
@@ -34,7 +34,7 @@ window.onload = function() {
         let input = document.querySelector('#texto-tarefa')
         let list = document.querySelector('#lista-tarefas')
 
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             if (input.value.length > 0) {
                 let newList = document.createElement('li')
                 newList.innerText = input.value
@@ -45,7 +45,7 @@ window.onload = function() {
             }
         })
 
-        input.addEventListener('keyup', function(event) {
+        input.addEventListener('keyup', function (event) {
             if (event.keyCode === 13 && input.value.length > 0) {
                 let newList = document.createElement('li')
                 newList.innerText = input.value
@@ -60,19 +60,19 @@ window.onload = function() {
 
     function clickList() {
         let task = document.querySelector('#lista-tarefas')
-            task.addEventListener('click', function(event) {
-                let change = document.querySelector('.selected')
-                if (change !== null) {
-                    change.classList.remove('selected')
-                }
-                event.target.classList = 'selected'
-            })
+        task.addEventListener('click', function (event) {
+            let change = document.querySelector('.selected')
+            if (change !== null) {
+                change.classList.remove('selected')
+            }
+            event.target.classList = 'selected'
+        })
     }
     clickList();
 
     function doubleClickList() {
         let taskList = document.querySelector('#lista-tarefas')
-        taskList.addEventListener('dblclick', function(event) {
+        taskList.addEventListener('dblclick', function (event) {
             event.target.classList.toggle('completed')
         })
     }
@@ -90,9 +90,9 @@ window.onload = function() {
     function removeList() {
         let taskList = document.querySelector('#lista-tarefas')
         let buttonClearAll = document.querySelector('#apaga-tudo')
-        
-        buttonClearAll.addEventListener('click', function() {
-            let itemsList = document.querySelectorAll('.list-items')
+
+        buttonClearAll.addEventListener('click', function () {
+            let itemsList = document.querySelectorAll('li')
             for (let index = 0; index < itemsList.length; index += 1) {
                 taskList.removeChild(itemsList[index])
             }
@@ -100,4 +100,3 @@ window.onload = function() {
     }
     removeList()
 }
-    
