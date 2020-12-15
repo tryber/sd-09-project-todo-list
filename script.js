@@ -29,9 +29,32 @@ function createList() {
   list.id = 'lista-tarefas';
 }
 
+function createButton() {
+  const main = document.querySelector('main');
+  const button = document.createElement('button');
+  main.appendChild(button);
+  button.id = 'criar-tarefa';
+  button.innerText = 'Criar tarefa';
+}
+
+function clickButton() {
+  const button = document.querySelector('#criar-tarefa');
+  const list = document.querySelector('#lista-tarefas');
+  button.addEventListener('click', function () {
+    const input = document.querySelector('#texto-tarefa');
+    const inputValue = document.querySelector('#texto-tarefa').value;
+    const elementList = document.createElement('li');
+    list.appendChild(elementList);
+    elementList.innerText = inputValue;
+    input.value = '';
+  });
+}
+
 window.onload = function () {
   createTitle();
   createParagraph();
   createInput();
   createList();
+  createButton();
+  clickButton();
 };
