@@ -1,3 +1,14 @@
+function handleSelectTaskItem(event) {
+  if (event.target.localName !== 'li') return;
+
+  const listItemSelected = event.target
+  const listItems = event.target.parentElement.children;
+  for(const item of listItems) {
+    item.classList.remove('selected');
+  }
+  listItemSelected.classList.add('selected');
+}
+
 /**
  * @param {HTMLInputElement} inputElement
  * @param {HTMLOListElement} taskListElement
@@ -28,4 +39,5 @@ window.onload = () => {
       handleAddTask(inputTask, taskList)();
     }
   });
+  taskList.addEventListener('click', handleSelectTaskItem);
 };
