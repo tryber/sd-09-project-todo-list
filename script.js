@@ -37,15 +37,19 @@ function Tasks() {
       const myTagInputerTask = factory.MyTagInputerTask
       const valueTask = myTagInputerTask.value
       const myTagOlListTasks = factory.MyTagOlListTasks
-
+      if(!valueTask){
+        return
+      }
       myTagOlListTasks.innerHTML += `<li class="item-list">${valueTask}</li>`
       myTagLiItemTasks = factory.MyTagLiItemTasks
       console.log(factory.MyTagLiItemTasks)
       selectTask()
+      completedTask()
     // clean the input after click
     myTagInputerTask.value = null
     })
   }
+
  function selectTask () {
 
     for(let i = 0; i < myTagLiItemTasks.length; i++) {
@@ -62,10 +66,25 @@ function Tasks() {
     }
     }
 
+  function completedTask() {
+    for(let i = 0; i < myTagLiItemTasks.length; i++) {
+      myTagLiItemTasks[i].addEventListener('dblclick', function(){
+        if(myTagLiItemTasks[i].classList[1]){
+          myTagLiItemTasks[i].classList.remove("completed")
+        } else {
+          myTagLiItemTasks[i].classList.add("completed")
+        }
+      })
+    }
+  }
+
+
+
     console.log("createTask working")
   return {
     selectTask: selectTask,
-    createTask: createTask
+    createTask: createTask,
+    completedTask: completedTask
   }
 }
 
