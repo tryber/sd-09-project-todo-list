@@ -8,6 +8,10 @@ button.innerHTML = 'Criar tarefa';
 body.appendChild(button);
 textBar = document.querySelector('input');
 let elementsOfList = [];
+let clearButton = document.createElement('button');
+clearButton.id = 'apaga-tudo';
+clearButton.innerHTML = 'Limpar lista'
+body.appendChild(clearButton);
 window.onload = function() {
     button.addEventListener('click', function() {
         let itens = document.createElement('li');
@@ -27,9 +31,15 @@ window.onload = function() {
 
     orderedList.addEventListener('dblclick', function(event) {
         if( event.target.className === 'completed') {
-            event.target.className = '';
+            event.target.classList.remove('completed');
         } else {
             event.target.className = 'completed';
         }
     });
+clearButton.addEventListener('click', function() {
+    itens = document.querySelectorAll('li');
+    for (let index = 0; index < itens.length; index += 1) {
+        itens[index].remove();
+    }
+ });
 }
