@@ -137,19 +137,27 @@ function loadTaks() {
 
 // Move up the li elements
 function moveUp() {
-  const taskUp = document.querySelector('.selected');
-  const list = document.querySelector('#lista-tarefas');
-  if (taskUp.previousElementSibling !== null) {
-    list.insertBefore(taskUp, taskUp.previousElementSibling);
+  if( document.querySelector('.selected') !== null ) {
+    const taskUp = document.querySelector('.selected');
+    const list = document.querySelector('#lista-tarefas');
+    if (taskUp.previousElementSibling !== null) {
+      list.insertBefore(taskUp, taskUp.previousElementSibling);
+    }
+  } else {
+    alert('Erro! Nenhuma tarefa selecionada!')
   }
 }
 
 // Move down the li elements
 function moveDown() {
-  const taskDown = document.querySelector('.selected');
-  const list = document.querySelector('#lista-tarefas');
-  if (taskDown.nextElementSibling !== null) {
-    list.insertBefore(taskDown.nextElementSibling, taskDown);
+  if( document.querySelector('.selected') !== null ) {
+    const taskDown = document.querySelector('.selected');
+    const list = document.querySelector('#lista-tarefas');
+    if (taskDown.nextElementSibling !== null) {
+      list.insertBefore(taskDown.nextElementSibling, taskDown);
+    }
+  } else {
+    alert('Erro! Nenhuma tarefa selecionada!')
   }
 }
 
