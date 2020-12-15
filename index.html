@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='por'>
+<head>
+  <meta charset="UTF-8">
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <link rel="stylesheet" href="style.css">
+  <title>To Do List</title>
+</head>
+<body>
+  <div class='top-container'>
+  <header>
+    <h1>Minha Lista de Tarefas</h1>
+    <p id='funcionamento'>
+      Clique duas vezes em um item para marcá-lo como completo
+    </p>
+  </header>
+  <main>
+    <section class='search-bar'>
+      <input type='text' maxlength="40" id='texto-tarefa'>
+      <samp class='search-commands'>
+        <button id='criar-tarefa'>Criar Tarefa</button>
+        <button id='apaga-tudo'>Limpar lista</button>
+      </samp>
+  </div>
+    </section>
+    <samp>
+      <section class='container-list'>
+        <h3>Lista de afazeres:</h3>
+        <ol id='lista-tarefas'>
+        </ol>
+      </section>
+      <div class="container-buttons">
+        <button id='remover-finalizados'>Remover <br> finalizados</button>
+        <button id='remover-selecionado'>Remover <br> selecionado</button>
+        <button id='mover-cima'>Mover item <br> pra cima</button>
+        <button id='mover-baixo'>Mover item <br> pra baixo</button>
+      </div>
+    </samp>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
+<!-- aoba -->
