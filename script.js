@@ -87,18 +87,25 @@ function deleteAllTasks() {
   localStorage.clear();
 }
 
-// Delete all elements li with class 'completed'
-function concludeTask() {
+// Delete all elements li with class 'completed' or with class 'selected'
+function removeTask(event) {
+  let target = event.target.id;
+  let className = '';
+  if(target === 'remover-finalizados') {
+    className = 'completed';
+  } else if (target === 'remover-selecionado') {
+    className = 'selected'; 
+  }
   const list = document.querySelector('#lista-tarefas');
   const tasks = document.querySelectorAll('.tarefa');
   for(let index = 0; index < tasks.length; index += 1) {
-    if (tasks[index].classList.contains('completed')) {
+    if (tasks[index].classList.contains(className)) {
       list.removeChild(tasks[index]);
     }
   }
   for (let index2 = 0; localStorage.getItem(`task ${index2}`); index2 += 1) {
     let taskInStorage = localStorage.getItem(`task ${index2}`);
-    if(taskInStorage.includes('completed')) {
+    if(taskInStorage.includes(className)) {
       localStorage.removeItem(`task ${index2}`);
     }
   }
@@ -161,6 +168,7 @@ window.onload = function () {
   const buttonSaveTasks = document.querySelector('#salvar-tarefas');
   const buttonMoveUp = document.querySelector('#mover-cima');
   const buttonMoveDown = document.querySelector('#mover-baixo');
+  const buttonRemoveSelected = document.querySelector('#remover-selecionado');
 	buttonTask.addEventListener('click', addTask);
 	taskForm.addEventListener('submit', preventSubmit);
 	taskList.addEventListener('click', updateTaskColor);
@@ -170,5 +178,6 @@ window.onload = function () {
   buttonSaveTasks.addEventListener('click', saveTasks);
   buttonMoveUp.addEventListener('click', moveUp);
   buttonMoveDown.addEventListener('click', moveDown);
+  buttonRemoveSelected.addEventListener('click', removeTask);
   loadTaks();
 };
