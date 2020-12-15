@@ -2,8 +2,21 @@ const textoTarefa = document.querySelector('#texto-tarefa');
 const btnCreateTask = document.querySelector('#criar-tarefa');
 const olList = document.querySelector('#lista-tarefas');
 const apagaTudo = document.querySelector('#apaga-tudo');
-const removerFinalizadas = document.querySelector('#remover-finalizadas');
-const ilList = document.getElementsByClassName('line-color');
+const removerFinalizados = document.querySelector('#remover-finalizados');
+const salvarTarefas = document.querySelector('#salvar-tarefas');
+const ilList = document.getElementsByTagName('li');
+
+// Recupera dados salvos localmente
+if (localStorage.getItem('savedClasses')) {
+  const tasks = localStorage.getItem('savedItems').split(';');
+  const classes = localStorage.getItem('savedClasses').split(';');
+  for (let i = 0; i < tasks.length - 1; i += 1) {
+    const item = document.createElement('li');
+    item.className = classes[i];
+    item.innerText = tasks[i];
+    olList.appendChild(item);
+  }
+}
 
 // Recupera o valor do input e salva em um array
 const list = [];
@@ -61,11 +74,24 @@ apagaTudo.addEventListener('click', () => {
 });
 
 // Evento para apagar as tarefas finalizadas
-removerFinalizadas.addEventListener('click', () => {
+removerFinalizados.addEventListener('click', () => {
   const completedItem = document.querySelectorAll('.completed');
   for (let item = 0; item < completedItem.length; item += 1) {
     if (completedItem[item].parentNode) {
       completedItem[item].parentNode.removeChild(completedItem[item]);
     }
   }
-})
+});
+
+function saveLocal() {
+  let savedItems = '';
+  let savedClasses = '';
+
+  for (let item = 0; item < ilList.length; item += 1) {
+    savedItems += `${ilList[item].innerText};`;
+    savedClasses += `${ilList[item].className};`;
+  }
+  localStorage.setItem('savedItems', savedItems);
+  localStorage.setItem('savedClasses', savedClasses);
+}
+salvarTarefas.addEventListener('click', saveLocal);
