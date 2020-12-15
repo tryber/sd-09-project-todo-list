@@ -73,7 +73,7 @@ window.onload = function () {
     function doubleClickList() {
         let taskList = document.querySelector('#lista-tarefas')
         taskList.addEventListener('dblclick', function (event) {
-            event.target.classList.toggle('completed')
+            event.target.classList.add('completed')
         })
     }
     doubleClickList()
