@@ -84,6 +84,7 @@ function deleteAllTasks() {
   while (list.firstChild) {
     list.removeChild(list.lastChild);
   }
+  localStorage.clear();
 }
 
 // Delete all elements li with class 'completed'
@@ -95,12 +96,42 @@ function concludeTask() {
       list.removeChild(tasks[index]);
     }
   }
+  for (let index2 = 0; localStorage.getItem(`task ${index2}`); index2 += 1) {
+    let taskInStorage = localStorage.getItem(`task ${index2}`);
+    if(taskInStorage.includes('completed')) {
+      localStorage.removeItem(`task ${index2}`);
+    }
+  }
+}
+
+// Verify if browser support web storage and save li elements in local storage
+function saveTasks() {
+  const tasks = document.querySelectorAll('.tarefa');
+  if (typeof(Storage) !== "undefined") {
+    for(let index = 0; index < tasks.length; index += 1) {
+      let tasksArray = [tasks[index].innerHTML, tasks[index].className];
+      localStorage.setItem(`task ${index}`, tasksArray);
+    }
+  } else {
+    alert('Browser dont support Web Storage!');
+  }
+}
+
+// Load elements li saved in local storage
+function loadTaks() {
+  for (let index = 0; localStorage.getItem(`task ${index}`); index += 1) {
+    let tasksArray = (localStorage.getItem(`task ${index}`)).split(',');
+    let loadedTask =  cresteListItem(tasksArray[0]);
+    loadedTask.className = tasksArray[1];
+    updateBackgroundColor();
+    updateLineThrough(loadedTask);
+  }
 }
 
 // Prevent submit of a input in form
 function preventSubmit(event) {
 	event.preventDefault();
-  }
+}
 
 window.onload = function () {
 	const buttonTask = document.querySelector('#criar-tarefa');
@@ -108,11 +139,13 @@ window.onload = function () {
   const taskList = document.querySelector('#lista-tarefas');
   const buttonDelete = document.querySelector('#apaga-tudo');
   const buttonConclude = document.querySelector('#remover-finalizados');
-  
+  const buttonSaveTasks = document.querySelector('#salvar-tarefas');
 	buttonTask.addEventListener('click', addTask);
 	taskForm.addEventListener('submit', preventSubmit);
 	taskList.addEventListener('click', updateTaskColor);
   taskList.addEventListener('dblclick', updateTaskCompleted);
   buttonDelete.addEventListener('click', deleteAllTasks);
-	buttonConclude.addEventListener('click', concludeTask);
+  buttonConclude.addEventListener('click', concludeTask);
+  buttonSaveTasks.addEventListener('click', saveTasks);
+  loadTaks();
 };
