@@ -82,7 +82,6 @@ function moveUpCondition(index) {
     line[index].style.backgroundColor = '';
     line[index - 1].className = storeClassDown;
     line[index - 1].style.backgroundColor = 'rgb(128, 128, 128)';
-    break;
   }
 }
 
@@ -95,7 +94,7 @@ function moveUp() {
 }
 
 function moveDownCondition(index) {
-  if (line[index].className === 'line selected' || line[index].className === 'line selected completed') {
+  if (line[index + 1]) {
     const storeLine = line[index].innerHTML;
     const storeClassUp = line[index + 1].className;
     const storeClassDown = line[index].className;
@@ -105,14 +104,14 @@ function moveDownCondition(index) {
     line[index + 1].style.backgroundColor = 'rgb(128, 128, 128)';
     line[index + 1].innerHTML = storeLine;
     line[index + 1].className = storeClassDown;
-    break;
   }
 }
 
 function moveDown() {
   for (let index = 0; index < line.length; index += 1) {
-    if (line[index + 1]) {
+    if (line[index].className === 'line selected' || line[index].className === 'line selected completed') {
       moveDownCondition(index);
+      break;
     }
   }
 }
