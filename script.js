@@ -19,6 +19,16 @@ function addItemInList() {
   contentInput.value = '';
 }
 
+function reselecting(event) {
+  if (event.target.className === 'line completed') {
+    event.target.className = 'line selected completed';
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  } else {
+    event.target.className = 'line selected';
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  }
+}
+
 function selectText(event) {
   for (let index = 0; index < line.length; index += 1) {
     if (line[index].className === 'line selected completed' || line[index].className === 'line completed') {
@@ -29,13 +39,7 @@ function selectText(event) {
       line[index].className = 'line';
     }
   }
-  if (event.target.className === 'line completed') {
-    event.target.className = 'line selected completed';
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  } else {
-    event.target.className = 'line selected'
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  }
+  reselecting(event)
 }
 
 function concludedOrNot(event) {
@@ -63,13 +67,15 @@ function clearAll() {
 function moveUp() {
   for (let index = 0; index < line.length; index += 1) {
     if (line[index].className === 'line selected' || line[index].className === 'line selected completed') {
-      let storeLine = line[index - 1].innerHTML;
-      let storeClassUp = line[index - 1].className;
-      let storeClassDown = line[index].className;
+      const storeLine = line[index - 1].innerHTML;
+      const storeClassUp = line[index - 1].className;
+      const storeClassDown = line[index].className;
       line[index - 1].innerHTML = line[index].innerHTML;
       line[index].innerHTML = storeLine;
       line[index].className = storeClassUp;
+      line[index].style.backgroundColor = '';
       line[index - 1].className = storeClassDown;
+      line[index - 1].style.backgroundColor = 'rgb(128, 128, 128)';
       break;
     }
   }
@@ -78,11 +84,13 @@ function moveUp() {
 function moveDown() {
   for (let index = 0; index < line.length; index += 1) {
     if (line[index].className === 'line selected' || line[index].className === 'line selected completed') {
-      let storeLine = line[index].innerHTML;
-      let storeClassUp = line[index + 1].className;
-      let storeClassDown = line[index].className;
+      const storeLine = line[index].innerHTML;
+      const storeClassUp = line[index + 1].className;
+      const storeClassDown = line[index].className;
       line[index].innerHTML = line[index + 1].innerHTML;
       line[index].className = storeClassUp;
+      line[index].style.backgroundColor = '';
+      line[index + 1].style.backgroundColor = 'rgb(128, 128, 128)';
       line[index + 1].innerHTML = storeLine;
       line[index + 1].className = storeClassDown;
       break;
@@ -97,5 +105,5 @@ window.onload = function init() {
   buttonClear.addEventListener('click', clearAll);
   buttonRemoveSelected.addEventListener('click', removeCompleted);
   moveToUp.addEventListener('click', moveUp);
-  moveToDown.addEventListener('click', moveDown)
+  moveToDown.addEventListener('click', moveDown);
 };
