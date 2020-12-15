@@ -1,6 +1,6 @@
-window.onload = function() {
+// window.onload = function() {
 
-}
+// }
 
 // function createItemList() {
 //   const textButton = document.getElementById('texto-tarefa').value;
@@ -11,4 +11,4 @@ window.onload = function() {
 
 // function addItemList() {
 
-// }
+// }s
