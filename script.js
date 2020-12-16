@@ -102,7 +102,7 @@ function createCompletedDelete() {
   const createCompletedDelete = document.createElement('button');
   mainAccess.appendChild(createCompletedDelete);
   createCompletedDelete.id = 'remover-finalizados';
-  createCompletedDelete.innerText = 'Apaga itens selecionados';
+  createCompletedDelete.innerText = 'Apaga itens marcados';
 }
 
 function removeCompleted() {
@@ -110,6 +110,25 @@ function removeCompleted() {
   acessbuttonCompleted.addEventListener('click', function (event) {
     var lista = document.getElementsByTagName('ol')[0];
     var itens = lista.querySelectorAll('.completed');
+    for (let index = 0; index < itens.length; index += 1) {
+      lista.removeChild(itens[index]);
+    }
+  });
+}
+
+function createSelectDelete() {
+  const mainAccess = document.querySelector('main');
+  const createSelectDelete = document.createElement('button');
+  mainAccess.appendChild(createSelectDelete);
+  createSelectDelete.id = 'remover-selecionado';
+  createSelectDelete.innerText = 'Apaga selecionado';
+}
+
+function removeSelected() {
+  const acessbuttonCompleted = document.getElementById('remover-selecionado');
+  acessbuttonCompleted.addEventListener('click', function (event) {
+    var lista = document.getElementsByTagName('ol')[0];
+    var itens = lista.querySelectorAll('.selected');
     for (let index = 0; index < itens.length; index += 1) {
       lista.removeChild(itens[index]);
     }
@@ -129,4 +148,6 @@ window.onload = function () {
   removeAll();
   createCompletedDelete();
   removeCompleted();
+  createSelectDelete();
+  removeSelected();
 };
