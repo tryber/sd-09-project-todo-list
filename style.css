@@ -9,3 +9,7 @@
 .completed {
   text-decoration: line-through solid black;
 }
+
+#remover-finalizados {
+    display: inline;
+}

@@ -2,6 +2,7 @@ window.onload = function () {
   const imput = document.querySelector('#texto-tarefa');
   const list = document.querySelector('#lista-tarefas');
   const clear = document.querySelector('#apaga-tudo');
+  const claerFinished = document.querySelector('#remover-finalizados');
   const buttonAddLesson = document.querySelector('#criar-tarefa');
   buttonAddLesson.addEventListener('click', function () {
     if (imput.value !== '' && imput.value[0] !== ' ') {
@@ -29,5 +30,14 @@ window.onload = function () {
     while (list.firstChild) {
       list.removeChild(list.firstChild);
     }
+  });
+  claerFinished.addEventListener('click', function() {
+      const list = document.querySelector('#lista-tarefas');
+      const childs = list.childNodes;
+      for (let x = 0; x < childs.length; x += 1) {
+        if (childs[x].className === 'completed') {
+          list.removeChild(childs[x]);
+        }
+      }
   });
 };
