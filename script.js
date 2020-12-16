@@ -49,7 +49,7 @@ function clickItem() {
   }
 }
 
-function dblClick() {
+/* function dblClick() {
   const listItem = document.querySelectorAll('li');
   for (let index = 0; index < listItem.length; index += 1) {
     listItem[index].addEventListener('dblclick', function () {
@@ -61,7 +61,7 @@ function dblClick() {
       this.classList.remove('completed');
     });
   }
-}
+} */
 
 function clickButton() {
   const button = document.querySelector('#criar-tarefa');
@@ -74,7 +74,6 @@ function clickButton() {
     listItem.innerText = inputValue;
     input.value = '';
     clickItem();
-    dblClick();
   });
 }
 
