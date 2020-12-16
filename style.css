@@ -36,6 +36,10 @@ p {
   text-align: center;
 }
 
+.remover-finalizados {
+  margin-right: 8px;
+}
+
 .selecionado {
   background-color: grey;
   color: white;

@@ -75,9 +75,29 @@ function botaoApagaTudo() {
   });
 }
 
+function botaoApagaConcluido() {
+  const controles = document.querySelector('#controles');
+  const botao = document.createElement('button');
+  botao.innerText = 'Limpar Concluídos ❌';
+  botao.id = 'remover-finalizados';
+  botao.className = 'remover-finalizados';
+  controles.appendChild(botao);
+  botao.addEventListener('click', function () {
+    const linha = document.getElementsByTagName('li');
+    for (let index = 0; index < linha.length; index += 1) {
+      const lista = document.getElementById('lista-tarefas');
+      // fonte: https://www.w3schools.com/jsref/prop_element_classlist.asp
+      if (linha[index].classList.contains('completed')) {
+        lista.removeChild(lista.childNodes[index]);
+      }
+    }
+  });
+}
+
 window.onload = function () {
   funcaoAdicionar();
   seleciona();
   tarefaConcluida();
+  botaoApagaConcluido();
   botaoApagaTudo();
 };
