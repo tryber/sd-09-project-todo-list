@@ -36,3 +36,14 @@ function ativaInput() {
 createAssingnment.addEventListener('click', ativaInput);
 
 // ----
+
+function deleteLista () {
+  const list = document.getElementsByTagName('li');
+  const elements = list.length - 1;
+  for (let index = elements; index >= 0; index -= 1) {
+    list[index].remove();
+  }
+  localStorage.clear();
+}
+const btnDelete = document.querySelector('#apaga-tudo');
+btnDelete.addEventListener('click', deleteLista);
