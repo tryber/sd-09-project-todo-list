@@ -1,17 +1,38 @@
-//const inputFirst = document.querySelectorAll('#texto-tarefa'); //  input
-//const createAssingnment = document.getElementById('criar-tarefa'); //  button
-//const listAssingnment = document.getElementById('lista-tarefas'); //  Ol
+const inputFirst = document.querySelector('#texto-tarefa'); //  input
+const createAssingnment = document.getElementById('criar-tarefa'); //  button
+const listAssingnment = document.getElementById('lista-tarefas'); //  Ol
 
-//  REQUISITO 5
-function ativaInput () {
-  if (inputFirst !== undefined) {
+// ----
+function backInput(item) {
+  const selectedOnOf = document.querySelector('.selected');
+  if (selectedOnOf != null) {
+    selectedOnOf.classList.remove('selected');
+  }
+  item.classList.add('selected');
+}
+
+function lineThrough(item) {
+  if (item.classList.contains('completed')) {
+    item.classList.remove('completed');
+  } else {
+  item.classList.add('completed');
+  }
+}
+
+function ativaInput() {
     const listLi = document.createElement('li');
     listLi.innerHTML = inputFirst.value;
     listAssingnment.appendChild(listLi);
+    listLi.className = 'list-input';
     inputFirst.value = null;
-  }
+
+  listLi.addEventListener('click', function() {
+  backInput(listLi);
+ })
+  listLi.addEventListener('dblclick', function() {
+  lineThrough(listLi);
+ })
 }
-const inputFirst = document.querySelector('#texto-tarefa'); //  input
-const listAssingnment = document.getElementById('lista-tarefas'); //  Ol
-const createAssingnment = document.getElementById('criar-tarefa'); //  button
 createAssingnment.addEventListener('click', ativaInput);
+
+// ----

@@ -1,0 +1,16 @@
+
+.selected {
+  background-color: gray;
+  display: inline-block;
+  padding: 0 20px 0 20px;
+  line-height: 25px;
+  border-radius: 6px;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+li {
+  cursor: pointer;
+}
