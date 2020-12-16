@@ -40,7 +40,7 @@ function createButton() {
 function clickItem() {
   const listItems = document.getElementById('lista-tarefas');
   listItems.addEventListener('click', function (event) {
-    const selected = document.querySelector('selected');
+    const selected = document.querySelectorAll('selected');
     for (let index = 0; index < selected.length; index += 1) {
       selected[index].classList.remove('selected');
     }
