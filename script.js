@@ -9,6 +9,7 @@ function structure() {
   let createOL = document.createElement('ol');
   createOL.id = 'lista-tarefas';
   append.appendChild(createOL);
+
   let createButton = document.createElement('button');
   createButton.id = 'criar-tarefa';
   append.appendChild(createButton);
@@ -18,21 +19,25 @@ function structure() {
   createInput.setAttribute('type', 'text');
   append.appendChild(createInput);
 }
-
+// get text from input
 function addAssignment() {
-  document.getElementById('criar-tarefa');
-  console.log('botão ok no listener, abaixo texte de console de input');
-  let getInput = document.getElementById('texto-tarefa').value;
+  document.getElementById('criar-tarefa');  
+  let getInput = document.getElementById('texto-tarefa').value; // pega texto do contido no input
   console.log(getInput);
-  
-// pega texto do contido no input
-// onclick conteudo do input = createElement li append ol
+  if(getInput != "") {
+    let addLI = document.createElement('li');    
+    let getID = document.getElementById('lista-tarefas');
+    getID.appendChild(addLI);
+    addLI.innerHTML = getInput
+  }
 }
+
+
 
 // created a function to encapsulate all listeners/function callers
 function listeners() {
-let addLI = document.getElementById('criar-tarefa');
-addLI.addEventListener('click', addAssignment)
+let getInput = document.getElementById('criar-tarefa');
+getInput.addEventListener('click', addAssignment)
 }
 
 window.onload = function() {
@@ -40,3 +45,8 @@ window.onload = function() {
   listeners();
 }
 // pixel art => modificar botão para input de valores; acrescentar função no VQV onde let base = ' ' copiar função de criação de base, adicionar if input tem numero adicionar  valor a base, if input < 5 || > 50 alert, if input é texto e não numero alert
+
+
+
+
+
