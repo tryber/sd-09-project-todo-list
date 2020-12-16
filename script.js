@@ -11,10 +11,17 @@ window.onload = function () {
     }
   });
   list.addEventListener('click', function (event) {
-    const line = document.querySelectorAll('li') 
+    const line = document.querySelectorAll('li');
     for (let x = 0; x < line.length; x += 1) {
       line[x].removeAttribute('style');
     }
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  });
+  list.addEventListener('dblclick', function (event) {
+      if (event.target.className === 'completed') {
+        event.target.classList.remove('completed');
+      } else {
+        event.target.classList.add('completed');
+      }
   });
 };
