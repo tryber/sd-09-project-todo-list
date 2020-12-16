@@ -16,4 +16,5 @@ ol li {
 
 .selected {
   background-color: rgb(128 , 128 , 128);
+  width:fit-content;
 }
