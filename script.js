@@ -2,6 +2,7 @@ window.onload = function () {
   createOrganizedList();
   addSelectedClassToOneItem();
   completedTasks();
+  cleanAllTasks()
 }
 
 function createOrganizedList() {
@@ -40,6 +41,15 @@ function completedTasks() {
   });
 }
 
+function cleanAllTasks() {
+  const deleteButton = document.getElementById('apaga-tudo');
+  deleteButton.addEventListener('click', function() {
+    const tasks = document.querySelectorAll('li');
+    for (index = 0; index < tasks.length; index += 1) {
+      tasks[index].remove();
+    }
+  });
+}
 
 /*
 function completedTasks() {
