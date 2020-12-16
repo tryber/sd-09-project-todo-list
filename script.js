@@ -41,7 +41,7 @@ function createButtonAddItem() {
 function clickAddItem() {
   const buttonAccess = document.querySelector('#criar-tarefa');
   const olAccess = document.querySelector('#lista-tarefas');
-  buttonAccess.addEventListener('click' , function () {
+  buttonAccess.addEventListener('click', function () {
     const elementList = document.createElement('li');
     const input = document.querySelector('#texto-tarefa');
     const inputValue = document.querySelector('#texto-tarefa').value;
@@ -53,28 +53,28 @@ function clickAddItem() {
 
 function selectedItemList() {
   const itensList = document.getElementById('lista-tarefas');
-    itensList.addEventListener('click' , function(event) {
-      const selectedClass = document.querySelectorAll('.selected');
-      for(let index = 0; index < selectedClass.length; index += 1) {
-        selectedClass[index].classList.remove('selected');
-      }
-      event.target.classList.add('selected');
-    })
+  itensList.addEventListener('click', function (event) {
+    const selectedClass = document.querySelectorAll('.selected');
+    for (let index = 0; index < selectedClass.length; index += 1) {
+      selectedClass[index].classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+  });
 }
 
 function selectedCompletedItem() {
   const itensList = document.getElementById('lista-tarefas');
-    itensList.addEventListener('dblclick' , function(event) {
-      event.target.classList.add('completed');
-    })
+  itensList.addEventListener('dblclick', function (event) {
+    event.target.classList.add('completed');
+  });
 }
 
 function removeCompletedItem() {
   const callCompletedItens = document.querySelectorAll('.completed');
-  for(let index = 0; index < callCompletedItens; index += 1) {
-    callCompletedItens[index].addEventListener('dblclick' , function(event) {
+  for (let index = 0; index < callCompletedItens; index += 1) {
+    callCompletedItens[index].addEventListener('dblclick', function (event) {
       event.target.classList.remove('completed');
-    })
+    });
   }
 }
 
@@ -88,13 +88,13 @@ function createDeleteButton() {
 
 function removeAll() {
   const acessButton = document.getElementById('apaga-tudo');
-  acessButton.addEventListener('click' , function() {
+  acessButton.addEventListener('click', function () {
     var lista = document.getElementsByTagName('ol')[0];
     var itens = lista.querySelectorAll('li');
-    for(let index = 0; index < itens.length; index +=1) {
+    for (let index = 0; index < itens.length; index += 1) {
       lista.removeChild(itens[index]);
     }
-  })
+  });
 }
 
 function createCompletedDelete() {
@@ -107,13 +107,13 @@ function createCompletedDelete() {
 
 function removeCompleted() {
   const acessbuttonCompleted = document.getElementById('remover-finalizados');
-  acessbuttonCompleted.addEventListener('click' , function(event) {
+  acessbuttonCompleted.addEventListener('click', function (event) {
     var lista = document.getElementsByTagName('ol')[0];
     var itens = lista.querySelectorAll('.completed');
-    for(let index = 0; index < itens.length; index +=1) {
+    for (let index = 0; index < itens.length; index += 1) {
       lista.removeChild(itens[index]);
     }
-  })
+  });
 }
 
 window.onload = function () {
