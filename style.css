@@ -1,0 +1,231 @@
+body {
+  background: rgb(0 , 66 , 87);
+  box-sizing: border-box;
+  font-family: Nunito Sans, sans-serif;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+.header {
+  text-align: center;
+  width: 100%;
+}
+
+.title {
+  color: white;
+  font-size: 4.5rem;
+}
+
+.paragraph {
+  color: white;
+  font-size: 2rem;
+}
+
+.container {
+  background: gray;
+  border: 0.3rem solid rgb(14 , 236 , 133);
+  border-radius: 2rem;
+  margin: 0 auto;
+  padding: 1rem;
+  width: 70rem;
+}
+
+.task-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.forms {
+  display: flex;
+}
+
+.form {
+  align-items: center;
+  border: 0.3rem solid rgb(0 , 66 , 87);
+  display: flex;
+  justify-content: center;
+}
+
+.btn-add {
+  background: white;
+  color: rgb(0 , 66 , 87);
+  cursor: pointer;
+  transition: all 300ms ease;
+  width: 5rem;
+}
+
+.form .input , .form .btn-add , .btn-delete-all {
+  background-color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.btn-add:hover {
+  background: rgb(14 , 236 , 133);
+  color: white;
+}
+
+.task-list {
+  margin-top: 2rem;
+  width: 32rem;
+}
+
+.ordered-list {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  font-size: 2rem;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+li {
+  list-style: none;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 auto 2rem;
+  width: 100%;
+}
+
+.move-up , .move-down {
+  background: white;
+  border: none;
+  border-radius: 50%;
+  color: rgb(0 , 66 , 87);
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 1.5rem;
+  transition: all 500ms ease;
+}
+
+.move-up {
+  margin-right: 0.5rem;
+}
+
+.move-up:hover {
+  background: rgb(0 , 66 , 87);
+  color: white;
+}
+
+.move-down:hover {
+  background: rgb(0 , 66 , 87);
+  color: white;
+}
+
+.btn-delete-all {
+  background: rgb(0 , 66 , 87);
+  color: white;
+  cursor: pointer;
+  transition: all 300ms ease;
+  width: 5rem;
+}
+
+.btn-delete-all:hover {
+  background: rgb(219 , 5 , 5);
+}
+
+.btn-delete-selected {
+  background: rgb(0 , 66 , 87);
+  border: none;
+  border-radius: 3rem;
+  color: white;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 1.5rem 3rem;
+  transition: all 500ms ease;
+}
+
+.btn-delete-selected:hover {
+  background: rgb(219 , 5 , 5);
+}
+
+.btn-save {
+  background: rgb(0 , 66 , 87);
+  border: none;
+  border-radius: 3rem;
+  color: white;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: 600;
+  height: 5rem;
+  padding: 1.5rem 3rem;
+  transition: all 500ms ease;
+}
+
+.btn-save:hover {
+  background: rgb(14 , 236 , 133);
+  color: white;
+}
+
+.btn-delete-completed {
+  background: rgb(0 , 66 , 87);
+  border: none;
+  border-radius: 3rem;
+  color: white;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 1.5rem 3rem;
+  transition: all 500ms ease;
+}
+
+.btn-delete-completed:hover {
+  background: rgb(219 , 5 , 5);
+}
+
+.tasks {
+  font-size: 2.2rem;
+  font-weight: 600;
+}
+
+.selected {
+  font-size: 2.6rem;
+}
+
+.footer {
+  align-items: center;
+  background: rgb(1 , 43 , 56);
+  border-top: 0.3rem solid rgb(14 , 236 , 133);
+  bottom: 0;
+  display: flex;
+  height: 6rem;
+  justify-content: center;
+  margin-top: 3rem;
+  position: fixed;
+  width: 100%;
+}
+
+.logotrybe {
+  margin-right: 3rem;
+  width: 7rem;
+}
+
+.fab {
+  color: white;
+  font-size: 4rem;
+  padding-right: 3rem;
+  transition: all 300ms ease;
+}
+
+.fab:hover {
+  color: rgb(14 , 236 , 133);
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}

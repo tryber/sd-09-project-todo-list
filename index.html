@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css">
+  <title>Todo List</title>
+</head>
+
+<body>
+  <header class="header">
+    <h1 class="title">Minha Lista de Tarefas</h1>
+    <p class="paragraph" id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+  </header>
+  <article class="container">
+
+    <div class="task-container">
+      <div class="forms">
+        <form class="form">
+          <input class="input" type="text" id="texto-tarefa">
+          <button class="btn-add" id="criar-tarefa"><i class="fas fa-plus"></i></button>
+          <button class="btn-delete-all" id="apaga-tudo"><i class="fas fa-trash"></i></button>
+        </form>
+      </div>
+      <section class="task-list">
+        <ol class="ordered-list" id="lista-tarefas"></ol>
+      </section>
+    </div>
+
+    <section class="buttons">
+      <div class="btn-moves">
+        <button class="move-up" id="mover-cima"><i class="fas fa-arrow-up fa-lg"></i></button>
+        <button class="move-down" id="mover-baixo"><i class="fas fa-arrow-down fa-lg"></i></button>
+      </div>
+      <button class="btn-delete-selected" id="remover-selecionado">Apagar tarefa</button>
+      <button class="btn-delete-completed" id="remover-finalizados">Apagar finalizadas</button>
+      <button class="btn-save" id="salvar-tarefas">Salvar</button>
+    </section>
+  </article>
+  <footer class="footer">
+    <a href="https://www.betrybe.com" target="_blank"><img class="logotrybe" src="trybelogo.svg" alt=""></a>
+    <a href="https://www.github.com/negres" target="_blank"><i class="fab fa-github"></i></a>
+    <a href="https://www.linkedin.com/in/natalianegres" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </footer>
+  <script src="script.js"></script>
+</body>
+
+</html>
