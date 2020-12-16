@@ -1,3 +1,71 @@
 body {
   text-align: center;
+  font-family: sans-serif;
+  background-color: rgb(3, 107, 82);
+}
+
+.main-page {
+  background-color: rgb(213, 225, 223);
+  border: 5px solid rgb(47, 193, 140);
+  border-radius: 15px;
+  color: rgb(3, 107, 82);
+  margin: 2% 20%;
+  text-align: center;
+  width: auto;
+  height: auto;
+  padding-bottom: 20%;
+}
+
+.button-section {
+  float: left;
+  padding-left: 2%;
+}
+
+.button-section button {
+  display: block;
+  width: 60%;
+  margin: 5%;
+}
+
+.green-button {
+  background-color: green;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+.blue-button {
+  background-color: blue;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+.red-button {
+  background-color: red;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+.task-section {
+  display: inline-block;
+  width: 75%;
+  height: auto;
+}
+
+.task-section li{
+  margin-right: 30%;
+  overflow-wrap: break-word;
+  text-align: left;
+}
+
+.page-footer {
+  background-color: rgb(213, 225, 223);
+  border: 5px solid rgb(47, 193, 140);
+  border-radius: 15px;
+  color: rgb(3, 107, 82);
+  font-size: 15px;
+  margin: 1% 20%;
+  padding: 7px;
 }

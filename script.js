@@ -128,6 +128,7 @@ function saveTasks() {
       const tasksArray = [tasks[index].innerHTML, tasks[index].className];
       localStorage.setItem(`task ${index}`, tasksArray);
     }
+    alert('Tarefas Salvas!');
   } else {
     alert('Browser dont support Web Storage!');
   }
