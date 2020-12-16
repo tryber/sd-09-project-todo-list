@@ -20,9 +20,9 @@ window.onload = function () {
   });
   list.addEventListener('dblclick', function (event) {
     if (event.target.className === 'completed') {
-    event.target.classList.remove('completed');
+      event.target.classList.remove('completed');
     } else {
-    event.target.classList.add('completed');
+      event.target.classList.add('completed');
     }
   });
   clear.addEventListener('click', function () {
