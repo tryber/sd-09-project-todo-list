@@ -62,39 +62,39 @@ function removeFinishedTasks() {
 }
 removeFinishedTasks();
 
-function saveTasks() {
-  const btnsaveTasks = document.querySelector('#salvar-tarefas');
-  btnsaveTasks.addEventListener('click', () => {
-    const taskList = document.querySelector('#lista-tarefas');
-    const tasks = [];
-    for (let index = 0; index < taskList.childElementCount; index += 1) {
-      const task = [];
-      task.push(taskList.children[index].innerText);
+// function saveTasks() {
+//   const btnsaveTasks = document.querySelector('#salvar-tarefas');
+//   btnsaveTasks.addEventListener('click', () => {
+//     const taskList = document.querySelector('#lista-tarefas');
+//     const tasks = [];
+//     for (let index = 0; index < taskList.childElementCount; index += 1) {
+//       const task = [];
+//       task.push(taskList.children[index].innerText);
 
-      if (taskList.children[index].className) {
-        task.push(taskList.children[index].className);
-      }
-      tasks.push(task);
-    }
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-  });
-}
-saveTasks();
+//       if (taskList.children[index].className) {
+//         task.push(taskList.children[index].className);
+//       }
+//       tasks.push(task);
+//     }
+//     localStorage.setItem('tasks', JSON.stringify(tasks));
+//   });
+// }
+// saveTasks();
 
-function loadTasks() {
-  const taskList = document.querySelector('#lista-tarefas');
+// function loadTasks() {
+//   const taskList = document.querySelector('#lista-tarefas');
 
-  const tasks = JSON.parse(localStorage.getItem('tasks'));
-  for (let index = 0; index < tasks.length; index += 1) {
-    const listItem = document.createElement('li');
-    listItem.innerText = tasks[index][0];
-    if (tasks[index][1]) {
-      listItem.className = tasks[index][1];
-    }
-    taskList.appendChild(listItem);
-  }
-}
-loadTasks();
+//   const tasks = JSON.parse(localStorage.getItem('tasks'));
+//   for (let index = 0; index < tasks.length; index += 1) {
+//     const listItem = document.createElement('li');
+//     listItem.innerText = tasks[index][0];
+//     if (tasks[index][1]) {
+//       listItem.className = tasks[index][1];
+//     }
+//     taskList.appendChild(listItem);
+//   }
+// }
+// loadTasks();
 
 function moveToUp() {
   const btnMoveToUp = document.querySelector('#mover-cima');
