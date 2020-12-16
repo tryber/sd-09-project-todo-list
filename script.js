@@ -39,10 +39,10 @@ window.onload = function () {
         const newList = document.createElement('li');
         newList.innerText = input.value;
 
-      newList.className = 'list-items';
-      list.appendChild(newList);
-      input.value = '';
-    }
+        newList.className = 'list-items';
+        list.appendChild(newList);
+        input.value = '';
+      }
     });
 
     input.addEventListener('keyup', function (event) {
@@ -98,7 +98,7 @@ window.onload = function () {
       }
     })
   }
-	removeList();
+  removeList();
 
   function createButtonClearItemFinalized() {
     let button = document.createElement('button');
@@ -113,34 +113,80 @@ window.onload = function () {
     let taskList = document.querySelector('#lista-tarefas');
     let buttonClearFinalized = document.querySelector('#remover-finalizados');
 
-      buttonClearFinalized.addEventListener('click', function () {
+    buttonClearFinalized.addEventListener('click', function () {
       let itemsList = document.querySelectorAll('.completed');
       for (let index = 0; index < itemsList.length; index += 1) {
-      taskList.removeChild(itemsList[index]);
+        taskList.removeChild(itemsList[index]);
       }
-      })
-    }
-    removeItemFinalized();
+    })
+  }
+  removeItemFinalized();
 
   function createButtonClearItemSelected() {
-      let button = document.createElement('button');
-      let container = document.querySelector('.container');
-      button.id = 'remover-selecionado';
-      button.innerText = 'Clear Item Selected';
-      container.appendChild(button);
-    }
-    createButtonClearItemSelected();
-  
-    function removeItemSelected() {
-      let taskList = document.querySelector('#lista-tarefas');
-      let buttonClearSelected = document.querySelector('#remover-selecionado');
-  
-        buttonClearSelected.addEventListener('click', function () {
-        let itemsList = document.querySelectorAll('.selected');
-        for (let index = 0; index < itemsList.length; index += 1) {
+    let button = document.createElement('button');
+    let container = document.querySelector('.container');
+    button.id = 'remover-selecionado';
+    button.innerText = 'Clear Item Selected';
+    container.appendChild(button);
+  }
+  createButtonClearItemSelected();
+
+  function removeItemSelected() {
+    let taskList = document.querySelector('#lista-tarefas');
+    let buttonClearSelected = document.querySelector('#remover-selecionado');
+
+    buttonClearSelected.addEventListener('click', function () {
+      let itemsList = document.querySelectorAll('.selected');
+      for (let index = 0; index < itemsList.length; index += 1) {
         taskList.removeChild(itemsList[index]);
-        }
-        })
       }
-      removeItemSelected();
+    })
+  }
+  removeItemSelected();
+
+  function createButtonsMoveUpMoveDown() {
+    const buttonUp = document.createElement('button');
+    const buttonDown = document.createElement('button');
+    const container = document.querySelector('.container');
+    buttonUp.id = 'mover-cima';
+    buttonDown.id = 'mover-baixo';
+    buttonUp.innerText = '⇧';
+    buttonDown.innerText = '⇩';
+    container.appendChild(buttonUp);
+    container.appendChild(buttonDown);
+  }
+  createButtonsMoveUpMoveDown();
+
+  function moveUp() {
+    let buttonUp = document.querySelector('#mover-cima');
+    buttonUp.addEventListener('click', function () {
+      let taskList = document.querySelector('#lista-tarefas');
+      let itemSelected = document.querySelector('.selected');
+      let itemsList = document.querySelectorAll('li')
+      for (let index = 0; index < itemsList.length; index += 1) {
+        if (itemSelected.classList === itemsList[index].classList) {
+          taskList.insertBefore(itemSelected, itemsList[index - 1])
+        }
+      }
+    })
+  }
+  moveUp();
+
+  function moveDown() {
+    let buttonDown = document.querySelector('#mover-baixo');
+    buttonDown.addEventListener('click', function () {
+      let taskList = document.querySelector('#lista-tarefas');
+      let itemSelected = document.querySelector('.selected');
+      let itemsList = document.querySelectorAll('li')
+      for (let index = 0; index < itemsList.length; index += 1) {
+        if (itemSelected === itemsList[itemsList.length - 1]) {
+          taskList.insertBefore(itemSelected, itemsList[0])
+        } else if (itemSelected.classList === itemsList[index].classList) {
+
+          taskList.insertBefore(itemsList[index + 1], itemSelected)
+        }
+      }
+    })
+  }
+  moveDown();
 };
