@@ -37,10 +37,23 @@ function createButton() {
   button.innerText = 'Criar tarefa';
 }
 
+function clickButton() {
+  const button = document.querySelector('#criar-tarefa');
+  const list = document.querySelector('#lista-tarefas');
+  button.addEventListener('click', function () {
+    const input = document.querySelector('#texto-tarefa');
+    const inputValue = document.querySelector('#texto-tarefa').value;
+    const listItem = document.createElement('li');
+    list.appendChild(listItem);
+    listItem.innerText = inputValue;
+    input.value = '';
+  });
+}
+
 function clickItem() {
   const listItems = document.getElementById('lista-tarefas');
   listItems.addEventListener('click', function (event) {
-    const selected = document.querySelectorAll('selected');
+    const selected = document.querySelectorAll('.selected');
     for (let index = 0; index < selected.length; index += 1) {
       selected[index].classList.remove('selected');
     }
@@ -56,19 +69,6 @@ function dblClickItem() {
     } else {
       event.target.classList.add('completed');
     }
-  });
-}
-
-function clickButton() {
-  const button = document.querySelector('#criar-tarefa');
-  const list = document.querySelector('#lista-tarefas');
-  button.addEventListener('click', function () {
-    const input = document.querySelector('#texto-tarefa');
-    const inputValue = document.querySelector('#texto-tarefa').value;
-    const listItem = document.createElement('li');
-    list.appendChild(listItem);
-    listItem.innerText = inputValue;
-    input.value = '';
   });
 }
 
