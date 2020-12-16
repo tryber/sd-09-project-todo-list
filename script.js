@@ -91,6 +91,14 @@ function clickDeleteButton() {
   });
 }
 
+function createRemoveSelectedButton() {
+  const main = document.querySelector('main');
+  const button = document.createElement('button');
+  main.appendChild(button);
+  button.id = 'remover-selecionado';
+  button.innerText = 'Remover item';
+}
+
 window.onload = function () {
   createTitle();
   createParagraph();
@@ -102,4 +110,5 @@ window.onload = function () {
   dblClickItem();
   createDeleteButton();
   clickDeleteButton();
+  createRemoveSelectedButton();
 };
