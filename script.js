@@ -46,17 +46,52 @@ function createOrderedList() {
   main.appendChild(orderedList);
 }
 
+// function doubleClicked() {
+// 	const listItem = document.querySelectorAll('li');
+// 	for (let index = 0; index < listItem.length; index += 1) {
+// 		listItem[index].addEventListener('dblclick', function() {
+// 			for (let i = 0; i < listItem.length; i += 1) {
+// 				this.classList.toggle('completed');
+// 			}
+// 		})
+// 	}	
+// }	
+
+// function doubleClicked() {
+// 	const orderedList = document.querySelector('ol');
+// 	orderedList.addEventListener('dblclick', function(event) {
+//     if (event.target.classList.contains('.completed')){
+//       event.target.classList.remove('completed');
+//     } else {
+//       event.target.classList.add('completed');					
+// 		}
+//   })
+// }
+
+function doubleClicked() {
+	const orderedList = document.querySelector('ol');
+	orderedList.addEventListener('dblclick', function(event) {
+    if (event.target.classList.contains('completed')){
+			event.target.classList.remove('completed');
+
+    }else{
+      event.target.classList.add('completed');
+    }
+	})		
+}
+
+
 function clickedItem() {
-	const listItem = document.querySelectorAll('li');
-	for (let index = 0; index < listItem.length; index += 1) {
-		listItem[index].addEventListener('click', function() {
-			for (let i = 0; i < listItem.length; i += 1) {
-				listItem[i].classList.remove('selected');
-			}
-			this.classList.add('selected');
+	const orderedList = document.querySelector('ol');
+	orderedList.addEventListener('click', function(event) {
+    const selected = document.querySelectorAll('.selected');
+		for (let i = 0; i < selected.length; i += 1) {
+			selected[i].classList.remove('selected');
+		}
+			event.target.classList.add('selected');
 		});		
-	}
-}	
+}
+
 
 
 
@@ -69,8 +104,9 @@ function submitButton() {
 		const listItem = document.createElement('li');
 		listItem.innerText = inputValue;
 		orderedList.appendChild(listItem);
-		input.value = '';
+		input.value = '';	
 		clickedItem();
+		doubleClicked();
 	})
 }
 
