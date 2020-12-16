@@ -113,12 +113,12 @@ function clearAllTasks() {
 function clearCompletedTasks() {
   const button = document.getElementById('remover-finalizados');
   const ol = document.getElementById('lista-tarefas');
-  const liList = document.getElementsByTagName('li');
   button.addEventListener('click', function () {
-    const listLength = ol.childElementCount;
+    const liList = document.getElementsByTagName('li');
     for (let index = 0; index < liList.length; index += 1) {
       if (liList[index].classList.contains('completed')) {
         liList[index].remove();
+        index -= 1;
       }
     }      
   })
