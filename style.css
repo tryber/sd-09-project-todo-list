@@ -54,19 +54,19 @@ body {
   justify-content: center;
 }
 
-.form .input , .form .btn-add , .btn-delete-all {
-  background-color: white;
-  border: none;
-  font-size: 2rem;
-  padding: 1rem;
-}
-
 .btn-add {
   background: white;
   color: rgb(0 , 66 , 87);
   cursor: pointer;
   transition: all 300ms ease;
   width: 5rem;
+}
+
+.form .input , .form .btn-add , .btn-delete-all {
+  background-color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 1rem;
 }
 
 .btn-add:hover {
@@ -135,7 +135,7 @@ li {
 }
 
 .btn-delete-all:hover {
-  background: #db0505;
+  background: rgb(219 , 5 , 5);
 }
 
 .btn-delete-selected {
@@ -151,7 +151,7 @@ li {
 }
 
 .btn-delete-selected:hover {
-  background: #db0505;
+  background: rgb(219 , 5 , 5);
 }
 
 .btn-save {
@@ -185,7 +185,7 @@ li {
 }
 
 .btn-delete-completed:hover {
-  background: #db0505;
+  background: rgb(219 , 5 , 5);
 }
 
 .tasks {
@@ -198,13 +198,13 @@ li {
 }
 
 .completed {
-  text-decoration: line-through;
   opacity: 0.7;
+  text-decoration: line-through;
 }
 
 .footer {
   align-items: center;
-  background: rgb(1, 43, 56);
+  background: rgb(1 , 43 , 56);
   border-top: 0.3rem solid rgb(14 , 236 , 133);
   bottom: 0;
   display: flex;
@@ -216,8 +216,8 @@ li {
 }
 
 .logotrybe {
-  width: 7rem;
   margin-right: 3rem;
+  width: 7rem;
 }
 
 .fab {
