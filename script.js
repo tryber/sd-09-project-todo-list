@@ -41,7 +41,6 @@ function createButtonAddItem() {
 function clickAddItem() {
   const buttonAccess = document.querySelector('#criar-tarefa');
   const olAccess = document.querySelector('#lista-tarefas');
-
   buttonAccess.addEventListener('click' , function () {
     const elementList = document.createElement('li');
     const input = document.querySelector('#texto-tarefa');
@@ -52,6 +51,42 @@ function clickAddItem() {
   });
 }
 
+function selectedItemList() {
+  const itensList = document.getElementById('lista-tarefas');
+    itensList.addEventListener('click' , function(event) {
+      const selectedClass = document.querySelectorAll('.selected');
+      for(let index = 0; index < selectedClass.length; index += 1) {
+        selectedClass[index].classList.remove('selected');
+      }
+      event.target.classList.add('selected');
+    })
+}
+
+function selectedCompletedItem() {
+  const itensList = document.getElementById('lista-tarefas');
+    itensList.addEventListener('dblclick' , function(event) {
+      event.target.classList.add('completed');
+    })
+}
+
+// const itensList = document.getElementById('lista-tarefas');
+//   const selectedClass = document.querySelectorAll('.completed');
+//   selectedClass.addEventListener('dblclick' , function(event){
+//     for(let index = 0; index < itensList.length; index += 1) {
+//       itensList[index].classList.remove('completed');
+//     }
+//   })
+
+function removeCompletedItem() {
+  const removeCompleted = document.getElementById('lista-tarefas');
+  for(index = 0; index < removeCompleted.length; index += 1) {
+    const itensListClass = removeCompleted.children[index];
+    itensListClass.addEventListener('dblclick' , function () {
+      itensListClass[index].classList.remove('completed');
+    })
+  }
+}
+
 window.onload = function () {
   createTitle();
   createParagraph();
@@ -59,4 +94,7 @@ window.onload = function () {
   createOrderedList();
   createButtonAddItem();
   clickAddItem();
+  selectedItemList();
+  selectedCompletedItem();
+  removeCompletedItem();
 };
