@@ -31,13 +31,12 @@ window.onload = function () {
       list.removeChild(list.firstChild);
     }
   });
-  claerFinished.addEventListener('click', function() {
-      const list = document.querySelector('#lista-tarefas');
-      const childs = list.childNodes;
-      for (let x = 0; x < childs.length; x += 1) {
-        if (childs[x].className === 'completed') {
-          list.removeChild(childs[x]);
-        }
+  claerFinished.addEventListener('click', function () {
+    line = document.querySelectorAll('li');
+    for (let x = 0; x < line.length; x += 1) {
+      if (line[x].className === 'completed') {
+        list.removeChild(line[x]);
       }
+    }
   });
 };
