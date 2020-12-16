@@ -40,9 +40,12 @@ function createButton() {
 function clickItem() {
   const listItem = document.querySelectorAll('li');
   for (let index = 0; index < listItem.length; index += 1) {
-    listItem[index].addEventListener('dblclick', function () {
-      this.style.backgroundColor = 'rgb(128, 128, 128)';
-    })
+    listItem[index].addEventListener('click', function () {
+      for (let i = 0; i < listItem.length; i += 1) {
+        listItem[i].classList.remove('selected');
+      }
+      this.classList.add('selected');
+      });
   }
 }
 
