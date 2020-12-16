@@ -13,6 +13,9 @@ function structure() {
   createInput.setAttribute('type', 'text');
   createInput.name = "inputAssigment"
   append.appendChild(createInput);
+  let createRemoveButton = document.createElement('button');
+  createRemoveButton.id = 'remover-selecionado';
+  append.appendChild(createRemoveButton);
   let createOL = document.createElement('ol');
   createOL.id = 'lista-tarefas';
   append.appendChild(createOL);
@@ -44,6 +47,7 @@ getInput.addEventListener('click', addAssignment);
 let cleanInput = document.getElementById('criar-tarefa');
 cleanInput.addEventListener('click', cleanAssigmentInput);
 }
+
 
 window.onload = function() {
   structure();  
