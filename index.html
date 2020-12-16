@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do List</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div id="box">
     <header>
         <h1>Minha Lista de Tarefas</h1>
     </header>
@@ -13,9 +17,16 @@
     <form action="null">
         <label for="atividade">Atividade:</label>
         <input type="text" id="texto-tarefa" name="atividade">
+        <button type="button" id="criar-tarefa">Adicionar à lista</button>
+
     </form>
     <ol id="lista-tarefas">
-        <li>temp</li>
+        <li>Lorem Ipsum</li>
     </ol>
+    <button type="button" id="apaga-tudo">Apagar lista</button>
+    <button type="button" id="remover-finalizados">Remover finalizados</button>
+    <button type="button" id="salvar-tarefas">Salvar tarefas</button>
+    <button type="button" id="remover-selecionado">Remover tarefa selecionada</button>
+</div>
 </body>
 </html>
