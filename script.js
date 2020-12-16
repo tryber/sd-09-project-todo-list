@@ -1,6 +1,7 @@
 window.onload = function () {
   createOrganizedList();
   addSelectedClassToOneItem();
+  completedTasks();
 }
 
 function createOrganizedList() {
@@ -18,7 +19,6 @@ function createOrganizedList() {
 }
 
 function addSelectedClassToOneItem() {
-  const itens = document.querySelectorAll('li');
   const organizedList = document.getElementById('lista-tarefas');
   organizedList.addEventListener('click', function (event) {
     const selected = document.querySelectorAll('.selected');
@@ -26,6 +26,33 @@ function addSelectedClassToOneItem() {
       selected[index].classList.remove('selected')
     }
     event.target.classList.add('selected');
+  });
+}
+
+function completedTasks() {
+  const organizedList = document.getElementById('lista-tarefas');
+  organizedList.addEventListener('dblclick', function (event) {
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+    } else {
+    event.target.classList.add('completed');
+    }
+  });
+}
+
+
+/*
+function completedTasks() {
+  const organizedList = document.getElementById('lista-tarefas');
+  organizedList.addEventListener('dblclick', function (event) {
+    if (event.target.classList.contains('completed')) {
+      const completed = document.querySelectorAll('.completed');
+      for (let index = 0; index < completed.length; index += 1) {
+      completed[index].classList.remove('completed')
+      }
+    } else {
+    event.target.classList.add('completed');
+    }
   });
 }
 
