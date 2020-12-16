@@ -65,7 +65,11 @@ function selectedItemList() {
 function selectedCompletedItem() {
   const itensList = document.getElementById('lista-tarefas');
   itensList.addEventListener('dblclick', function (event) {
-    event.target.classList.add('completed');
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+    }else {
+      event.target.classList.add('completed');
+    }
   });
 }
 
