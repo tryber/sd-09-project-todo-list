@@ -18,8 +18,12 @@ function addTaskOnList() {
 }
 
 function changeBackgroundColor(event) {
+  const grayList = document.querySelector('.gray');
+  if (grayList != undefined) {
+    grayList.classList.remove('gray')
+  }
   let lista = event.target
-  lista.style.backgroundColor = "rgb(128, 128, 128)";
+  lista.classList.add('gray')
   console.log(lista);
 }
 
