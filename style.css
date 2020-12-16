@@ -1,0 +1,69 @@
+body {
+  background-color: rgb(3 , 107 , 82);
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.main-page {
+  background-color: rgb(213 , 225 , 223);
+  border: 5px solid rgb(47 , 193 , 140);
+  border-radius: 15px;
+  color: rgb(3 , 107 , 82);
+  margin: 2% 20%;
+  padding-bottom: 20%;
+  text-align: center;
+}
+
+.button-section {
+  float: left;
+  padding-left: 2%;
+}
+
+.button-section button {
+  display: block;
+  margin: 5%;
+  width: 60%;
+}
+
+.green-button {
+  background-color: green;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+}
+
+.blue-button {
+  background-color: blue;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+}
+
+.red-button {
+  background-color: red;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+}
+
+.task-section {
+  display: inline-block;
+  height: auto;
+  width: 75%;
+}
+
+.task-section li {
+  margin-right: 30%;
+  overflow-wrap: break-word;
+  text-align: left;
+}
+
+.page-footer {
+  background-color: rgb(213 , 225 , 223);
+  border: 5px solid rgb(47 , 193 , 140);
+  border-radius: 15px;
+  color: rgb(3 , 107 , 82);
+  font-size: 15px;
+  margin: 1% 20%;
+  padding: 7px;
+}
