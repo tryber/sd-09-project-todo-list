@@ -99,6 +99,14 @@ function createRemoveSelectedButton() {
   button.innerText = 'Remover item';
 }
 
+function clickRemoveSelectedButton() {
+  const button = document.getElementById('remover-selecionado');
+  button.addEventListener('click', function () {
+    const selected = document.getElementsByClassName('selected');
+    while (selected.length > 0) selected[0].remove();
+  });
+}
+
 window.onload = function () {
   createTitle();
   createParagraph();
@@ -111,4 +119,5 @@ window.onload = function () {
   createDeleteButton();
   clickDeleteButton();
   createRemoveSelectedButton();
+  clickRemoveSelectedButton();
 };
