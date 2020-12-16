@@ -91,6 +91,22 @@ function clickDeleteButton() {
   });
 }
 
+function createRemoveCompletedButton() {
+  const main = document.querySelector('main');
+  const button = document.createElement('button');
+  main.appendChild(button);
+  button.id = 'remover-finalizados';
+  button.innerText = 'Remover finalizados';
+}
+
+function clickRemoveCompletedButton() {
+  const button = document.getElementById('remover-finalizados');
+  button.addEventListener('click', function () {
+    const selected = document.getElementsByClassName('completed');
+    while (selected.length > 0) selected[0].remove();
+  });
+}
+
 function createRemoveSelectedButton() {
   const main = document.querySelector('main');
   const button = document.createElement('button');
@@ -118,6 +134,8 @@ window.onload = function () {
   dblClickItem();
   createDeleteButton();
   clickDeleteButton();
+  createRemoveCompletedButton();
+  clickRemoveCompletedButton()
   createRemoveSelectedButton();
   clickRemoveSelectedButton();
 };
