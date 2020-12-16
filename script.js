@@ -62,8 +62,7 @@ getInput.addEventListener('click', addAssignment);
 let cleanInput = document.getElementById('criar-tarefa');
 cleanInput.addEventListener('click', cleanAssigmentInput);
 }
-
-
+// functions to be opened when open browser
 window.onload = function() {
   structure();  
   listeners();
