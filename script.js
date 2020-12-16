@@ -33,17 +33,15 @@ function addBackgroundList(event) {
 
 function removeAll() {
   const getLists = document.getElementById('lista-tarefas');
-  const teste = getLists.children.length - 1;
-  for (let index = teste; index <= teste; index -= 1) {
-    getLists.removeChild(getLists.children[index]);
+  while (getLists.children.length > 0) {
+    getLists.removeChild(getLists.children[0]);
   }
 }
 
 function removeSelected() {
   const getSelecteds = document.getElementsByClassName('completed');
   const getLists = document.getElementById('lista-tarefas');
-  const teste = getSelecteds.length - 1;
-  for (let index = teste; index >= teste; index -= 1) {
-    getLists.removeChild(getSelecteds[index]);
+  while (getSelecteds.length > 0) {
+    getLists.removeChild(getSelecteds[0]);
   }
 }
