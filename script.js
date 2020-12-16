@@ -1,7 +1,6 @@
 window.onload = function () {
   createOrganizedList();
-  /*const taskList = document.querySelector('#lista-tarefas');
-  taskList.addEventListener('click', updateTaskColor);*/
+  addSelectedClassToOneItem();
 }
 
 function createOrganizedList() {
@@ -18,11 +17,23 @@ function createOrganizedList() {
   });
 }
 
+function addSelectedClassToOneItem() {
+  const itens = document.querySelectorAll('li');
+  const organizedList = document.getElementById('lista-tarefas');
+  organizedList.addEventListener('click', function (event) {
+    const selected = document.querySelectorAll('.selected');
+    for (let index = 0; index < selected.length; index += 1) {
+      selected[index].classList.remove('selected')
+    }
+    event.target.classList.add('selected');
+  });
+}
+
 /*
-function removeClassSelected() {
-  const tasksSelected = document.querySelectorAll('.selected');
-  for (let index = 0; index < tasksSelected.length; index += 1) {
-    tasksSelected[index].classList.remove('selected');
+function deleteSelectedClass() {
+  const selected = document.querySelectorAll('.selected');
+  for (let index = 0; index < selected.length; index += 1) {
+    selected[index].classList.remove('selected')
   }
 }
 
@@ -46,7 +57,6 @@ function updateTaskColor(event) {
   updateBackgroundColor();
 }
 
-*/
 
 /*
 function changeItemBackgroundColor() {
