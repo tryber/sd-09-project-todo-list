@@ -1,13 +1,22 @@
 window.onload = function () {
-    let imput = document.querySelector('#texto-tarefa'); 
-    let buttonAddLesson = document.querySelector('#criar-tarefa');
-    buttonAddLesson.addEventListener('click', function () {
+  const imput = document.querySelector('#texto-tarefa');
+  const list = document.querySelector('#lista-tarefas');
+  const buttonAddLesson = document.querySelector('#criar-tarefa');
+  buttonAddLesson.addEventListener('click', function () {
       if (imput.value !== '' && imput.value[0] !== ' ') {
-          let newLesson = document.createElement('li');
+          const newLesson = document.createElement('li');
           newLesson.innerText = imput.value;
-          let list = document.querySelector('#lista-tarefas');
           list.appendChild(newLesson);
           imput.value = '';
-      }
+        }
+  });
+  list.addEventListener('click', function () {
+      const line = document.querySelectorAll('li')
+      for (const x = 0; x < line.length; x += 1){
+          line[x].style.backgroundColor = 'white';
+        }
     });
-}
+  list.addEventListener('click', function (event) {
+      event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+    });
+};
