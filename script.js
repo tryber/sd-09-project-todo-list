@@ -20,15 +20,15 @@ function addTask() {
 
 function selectTask(event) {
   let getTargetList = event.target;
-  let toggleTeste = getTargetList.classList.toggle('lined');
+  let toggleTeste = getTargetList.classList.toggle('completed');
 }
 
 function addBackgroundList(event) {
-  const listOfTasks = document.querySelector('.completed');
+  const listOfTasks = document.querySelector('.colored');
   if (listOfTasks !== null) {
-    listOfTasks.classList.remove('completed');
+    listOfTasks.classList.remove('colored');
   }
-  event.target.classList.toggle('completed');
+  event.target.classList.toggle('colored');
 }
 
 function removeAll() {
@@ -36,12 +36,11 @@ function removeAll() {
   const teste = getLists.children.length - 1;
   for (let index = teste; index <= teste; index -= 1) {
     getLists.removeChild(getLists.children[index]);
-    console.log('hello');
   }
 }
 
 function removeSelected() {
-  const getSelecteds = document.getElementsByClassName('lined');
+  const getSelecteds = document.getElementsByClassName('completed');
   const getLists = document.getElementById('lista-tarefas');
   const teste = getSelecteds.length - 1;
   for (let index = teste; index >= teste; index -= 1) {

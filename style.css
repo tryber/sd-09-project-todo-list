@@ -1,7 +1,7 @@
-.lined {
+.completed {
   text-decoration: line-through solid black;
 }
 
-.completed {
+.colored {
   background-color: rgb(128 , 128 , 128);
 }
