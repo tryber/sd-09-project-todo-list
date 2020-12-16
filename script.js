@@ -10,9 +10,11 @@ function clickItemList(event) {
   const li = document.querySelectorAll('li');
   li.forEach((item) => {
     item.style.backgroundColor = '';
+    item.style.color = 'white';
     item.classList.remove('selected');
   });
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  event.target.style.color = '#0eec85';
   event.target.classList.add('selected');
 }
 
@@ -27,7 +29,8 @@ function doubleClickItem() {
 doubleClickItem();
 
 // Requisito [5] - Função responsável por adicionar uma nova tarefa
-function createTask() {
+function createTask(event) {
+  event.preventDefault();
   const input = document.querySelector('#texto-tarefa').value;
   const listTask = document.createElement('li');
   listTask.className = 'tasks';
