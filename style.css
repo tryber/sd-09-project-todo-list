@@ -1,5 +1,5 @@
 body {
-  background: #004257;
+  background: rgb(0 , 66 , 87);
   box-sizing: border-box;
   font-family: Nunito Sans, sans-serif;
   height: 100vh;
@@ -27,8 +27,8 @@ body {
 }
 
 .container {
-  background: rgb(128, 128, 128);
-  border: 0.3rem solid #0eec85;
+  background: gray;
+  border: 0.3rem solid rgb(14 , 236 , 133);
   border-radius: 2rem;
   margin: 0 auto;
   padding: 1rem;
@@ -48,30 +48,29 @@ body {
 }
 
 .form {
-  border: 0.3rem solid #004257;
   align-items: center;
+  border: 0.3rem solid rgb(0 , 66 , 87);
   display: flex;
   justify-content: center;
 }
 
-.form .input, .form .btn-add, .btn-delete-all {
+.form .input , .form .btn-add , .btn-delete-all {
   background-color: white;
   border: none;
   font-size: 2rem;
-  outline: none;
   padding: 1rem;
 }
 
 .btn-add {
-  color: #004257;
   background: white;
+  color: rgb(0 , 66 , 87);
   cursor: pointer;
   transition: all 300ms ease;
   width: 5rem;
 }
 
 .btn-add:hover {
-  background: #0eec85;
+  background: rgb(14 , 236 , 133);
   color: white;
 }
 
@@ -102,14 +101,13 @@ li {
   width: 100%;
 }
 
-.move-up, .move-down {
+.move-up , .move-down {
   background: white;
   border: none;
   border-radius: 50%;
-  color: #004257;
+  color: rgb(0 , 66 , 87);
   cursor: pointer;
   font-size: 1.5rem;
-  outline: none;
   padding: 1.5rem;
   transition: all 500ms ease;
 }
@@ -119,20 +117,19 @@ li {
 }
 
 .move-up:hover {
-  background: #004257;
+  background: rgb(0 , 66 , 87);
   color: white;
 }
 
 .move-down:hover {
-  background: #004257;
+  background: rgb(0 , 66 , 87);
   color: white;
 }
 
 .btn-delete-all {
+  background: rgb(0 , 66 , 87);
   color: white;
-  background: #004257;
   cursor: pointer;
-  outline: none;
   transition: all 300ms ease;
   width: 5rem;
 }
@@ -142,14 +139,13 @@ li {
 }
 
 .btn-delete-selected {
-  background: #004257;
+  background: rgb(0 , 66 , 87);
   border: none;
   border-radius: 3rem;
   color: white;
   cursor: pointer;
   font-size: 1.6rem;
   font-weight: 600;
-  outline: none;
   padding: 1.5rem 3rem;
   transition: all 500ms ease;
 }
@@ -159,7 +155,7 @@ li {
 }
 
 .btn-save {
-  background: #004257;
+  background: rgb(0 , 66 , 87);
   border: none;
   border-radius: 3rem;
   color: white;
@@ -167,25 +163,23 @@ li {
   font-size: 1.6rem;
   font-weight: 600;
   height: 5rem;
-  outline: none;
   padding: 1.5rem 3rem;
   transition: all 500ms ease;
 }
 
 .btn-save:hover {
-  background: #0eec85;
+  background: rgb(14 , 236 , 133);
   color: white;
 }
 
 .btn-delete-completed {
-  background: #004257;
+  background: rgb(0 , 66 , 87);
   border: none;
   border-radius: 3rem;
   color: white;
   cursor: pointer;
   font-size: 1.6rem;
   font-weight: 600;
-  outline: none;
   padding: 1.5rem 3rem;
   transition: all 500ms ease;
 }
@@ -210,8 +204,8 @@ li {
 
 .footer {
   align-items: center;
-  background: #012b38;
-  border-top: 0.3rem solid #0eec85;
+  background: rgb(1, 43, 56);
+  border-top: 0.3rem solid rgb(14 , 236 , 133);
   bottom: 0;
   display: flex;
   height: 6rem;
@@ -227,12 +221,12 @@ li {
 }
 
 .fab {
-  font-size: 4rem;
   color: white;
+  font-size: 4rem;
   padding-right: 3rem;
   transition: all 300ms ease;
 }
 
 .fab:hover {
-  color: #0eec85;
+  color: rgb(14 , 236 , 133);
 }
