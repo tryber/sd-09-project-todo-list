@@ -46,6 +46,20 @@ function createOrderedList() {
   main.appendChild(orderedList);
 }
 
+function clickedItem() {
+	const listItem = document.querySelectorAll('li');
+	for (let index = 0; index < listItem.length; index += 1) {
+		listItem[index].addEventListener('click', function() {
+			for (let i = 0; i < listItem.length; i += 1) {
+				listItem[i].classList.remove('selected');
+			}
+			this.classList.add('selected');
+		});		
+	}
+}	
+
+
+
 function submitButton() {
 	const orderedList = document.querySelector('#lista-tarefas');
 	const button = document.querySelector('#criar-tarefa');
@@ -56,6 +70,7 @@ function submitButton() {
 		listItem.innerText = inputValue;
 		orderedList.appendChild(listItem);
 		input.value = '';
+		clickedItem();
 	})
 }
 
