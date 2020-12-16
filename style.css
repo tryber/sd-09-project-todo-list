@@ -4,10 +4,6 @@ body {
   padding: 0;
 }
 
-.li-tasks {
-  width: 300px;
-}
-
 .completed {
   text-decoration: line-through;
 }
