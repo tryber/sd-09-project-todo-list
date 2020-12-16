@@ -81,20 +81,20 @@ removeFinishedTasks();
 // }
 // saveTasks();
 
-// function loadTasks() {
-//   const taskList = document.querySelector('#lista-tarefas');
+function loadTasks() {
+  const taskList = document.querySelector('#lista-tarefas');
 
-//   const tasks = JSON.parse(localStorage.getItem('tasks'));
-//   for (let index = 0; index < tasks.length; index += 1) {
-//     const listItem = document.createElement('li');
-//     listItem.innerText = tasks[index][0];
-//     if (tasks[index][1]) {
-//       listItem.className = tasks[index][1];
-//     }
-//     taskList.appendChild(listItem);
-//   }
-// }
-// loadTasks();
+  const tasks = JSON.parse(localStorage.getItem('tasks'));
+  for (let index = 0; index < tasks.length; index += 1) {
+    const listItem = document.createElement('li');
+    listItem.innerText = tasks[index][0];
+    if (tasks[index][1]) {
+      listItem.className = tasks[index][1];
+    }
+    taskList.appendChild(listItem);
+  }
+}
+loadTasks();
 
 function moveToUp() {
   const btnMoveToUp = document.querySelector('#mover-cima');
