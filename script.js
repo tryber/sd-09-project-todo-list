@@ -2,7 +2,8 @@ window.onload = function () {
   createOrganizedList();
   addSelectedClassToOneItem();
   completedTasks();
-  cleanAllTasks()
+  cleanAllTasks();
+  cleanCompletedItens();
 }
 
 function createOrganizedList() {
@@ -43,10 +44,20 @@ function completedTasks() {
 
 function cleanAllTasks() {
   const deleteButton = document.getElementById('apaga-tudo');
-  deleteButton.addEventListener('click', function() {
+  deleteButton.addEventListener('click', function () {
     const tasks = document.querySelectorAll('li');
     for (index = 0; index < tasks.length; index += 1) {
       tasks[index].remove();
+    }
+  });
+}
+
+function cleanCompletedItens() {
+  const deleteCompletedButton = document.getElementById('remover-finalizados');
+  deleteCompletedButton.addEventListener('click', function () {
+    const completedItens = document.querySelectorAll('.completed');
+    for (index = 0; index < completedItens.length; index += 1) {
+      completedItens[index].remove();
     }
   });
 }
