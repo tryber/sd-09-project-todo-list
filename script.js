@@ -45,7 +45,21 @@ function clickItem() {
         listItem[i].classList.remove('selected');
       }
       this.classList.add('selected');
-      });
+    });
+  }
+}
+
+function dblClick() {
+  const listItem = document.querySelectorAll('li');
+  for (let index = 0; index < listItem.length; index += 1) {
+    listItem[index].addEventListener('dblclick', function () {
+      this.classList.add('completed');
+    });
+  }
+  if (listItem[index].classList == 'completed') {
+    listItem[index].addEventListener('dblclick', function () {
+      this.classList.remove('completed');
+    });
   }
 }
 
@@ -60,8 +74,21 @@ function clickButton() {
     listItem.innerText = inputValue;
     input.value = '';
     clickItem();
+    dblClick();
   });
 }
+
+/* function deleteButton() {
+  const main = document.querySelector('main');
+  const button = document.createElement('button');
+  main.appendChild(button);
+  button.id = 'apaga-tudo';
+  button.innerText = 'Apagar tudo'
+  button.addEventListener('click', function () {
+    const items = document.querySelectorAll('li');
+    delete items;
+  }
+} */
 
 window.onload = function () {
   createTitle();
@@ -70,4 +97,5 @@ window.onload = function () {
   createList();
   createButton();
   clickButton();
+  deleteButton();
 };

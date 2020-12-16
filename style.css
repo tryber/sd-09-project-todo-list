@@ -4,11 +4,15 @@ body {
   text-align: center;
 }
 
+.completed {
+  text-decoration: line-through solid black;
+}
+
 h1 {
   font-family: Courier New, Courier, monospace;
   margin-top: 0;
 }
 
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: gray;
 }
