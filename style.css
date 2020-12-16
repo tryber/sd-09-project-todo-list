@@ -197,10 +197,6 @@ li {
   font-size: 2.6rem;
 }
 
-.completed {
-  text-decoration: line-through;
-}
-
 .footer {
   align-items: center;
   background: rgb(1 , 43 , 56);
@@ -228,4 +224,8 @@ li {
 
 .fab:hover {
   color: rgb(14 , 236 , 133);
+}
+
+.completed {
+  text-decoration: line-through;
 }
