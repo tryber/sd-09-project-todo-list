@@ -97,6 +97,25 @@ function removeAll() {
   })
 }
 
+function createCompletedDelete() {
+  const mainAccess = document.querySelector('main');
+  const createCompletedDelete = document.createElement('button');
+  mainAccess.appendChild(createCompletedDelete);
+  createCompletedDelete.id = 'remover-finalizados';
+  createCompletedDelete.innerText = 'Apaga itens selecionados';
+}
+
+function removeCompleted() {
+  const acessbuttonCompleted = document.getElementById('remover-finalizados');
+  acessbuttonCompleted.addEventListener('click' , function(event) {
+    var lista = document.getElementsByTagName('ol')[0];
+    var itens = lista.querySelectorAll('.completed');
+    for(let index = 0; index < itens.length; index +=1) {
+      lista.removeChild(itens[index]);
+    }
+  })
+}
+
 window.onload = function () {
   createTitle();
   createParagraph();
@@ -108,4 +127,6 @@ window.onload = function () {
   selectedCompletedItem();
   createDeleteButton();
   removeAll();
+  createCompletedDelete();
+  removeCompleted();
 };
