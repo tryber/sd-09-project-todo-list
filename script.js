@@ -48,6 +48,15 @@ function clearTasksButton() {
 
 }
 
+function clearCompletedButton() {
+  const main = document.querySelector('main');
+  const button = document.createElement('button');
+  button.id = 'remover-finalizados';
+  button.innerText = 'Apagar completados'
+  main.appendChild(button);
+
+}
+
 function createOrderedList() {
   const main = document.querySelector('main');
   const orderedList = document.createElement('ol');
@@ -101,6 +110,20 @@ function clearAllTasks() {
   });
 }
 
+function clearCompletedTasks() {
+  const button = document.getElementById('remover-finalizados');
+  const ol = document.getElementById('lista-tarefas');
+  const liList = document.getElementsByTagName('li');
+  button.addEventListener('click', function () {
+    const listLength = ol.childElementCount;
+    for (let index = 0; index < liList.length; index += 1) {
+      if (liList[index].classList.contains('completed')) {
+        liList[index].remove();
+      }
+    }      
+  })
+}
+
 
 
 window.onload = function () {
@@ -111,6 +134,8 @@ window.onload = function () {
   createButton();
   submitButton();
   clearTasksButton();
+  clearCompletedButton();
+  clearCompletedTasks();
   clearAllTasks();
   doubleClicked();
   clickedItem();
