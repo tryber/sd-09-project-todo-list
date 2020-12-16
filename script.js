@@ -163,8 +163,11 @@ window.onload = function () {
       let taskList = document.querySelector('#lista-tarefas');
       let itemSelected = document.querySelector('.selected');
       let itemsList = document.querySelectorAll('li')
+      if (itemSelected === null) {
+        return
+      }
       for (let index = 0; index < itemsList.length; index += 1) {
-        if (itemSelected.classList === itemsList[index].classList) {
+        if (itemsList[index].innerText === itemSelected.innerText) {
           taskList.insertBefore(itemSelected, itemsList[index - 1])
         }
       }
@@ -178,11 +181,13 @@ window.onload = function () {
       let taskList = document.querySelector('#lista-tarefas');
       let itemSelected = document.querySelector('.selected');
       let itemsList = document.querySelectorAll('li')
+      if (itemSelected === null) {
+        return
+      }
       for (let index = 0; index < itemsList.length; index += 1) {
         if (itemSelected === itemsList[itemsList.length - 1]) {
           taskList.insertBefore(itemSelected, itemsList[0])
-        } else if (itemSelected.classList === itemsList[index].classList) {
-
+        } else if (itemSelected.innerText === itemsList[index].innerText) {
           taskList.insertBefore(itemsList[index + 1], itemSelected)
         }
       }
