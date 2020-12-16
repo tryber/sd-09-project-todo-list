@@ -7,7 +7,7 @@ h1, p {
 }
 
 .completed {
-  text-decoration: line-through solid black;
+  text-decoration: line-through solid rgb(0 , 0 , 0);
 }
 
 ol li {
@@ -15,6 +15,10 @@ ol li {
 }
 
 .selected {
+<<<<<<< HEAD
   background-color: rgb(128 , 128 , 128);
   width:fit-content;
+=======
+  background-color: rgb(128, 128, 128);
+>>>>>>> parent of 7d9ff4d... Tarefa 14 - remover selecionado ok
 }
