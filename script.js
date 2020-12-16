@@ -6,10 +6,6 @@ function structure() {
   createP.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
   append.appendChild(createP);
 
-  let createOL = document.createElement('ol');
-  createOL.id = 'lista-tarefas';
-  append.appendChild(createOL);
-
   let createButton = document.createElement('button');
   createButton.id = 'criar-tarefa';
   append.appendChild(createButton);
@@ -18,18 +14,21 @@ function structure() {
   createInput.id = 'texto-tarefa'
   createInput.setAttribute('type', 'text');
   append.appendChild(createInput);
+
+  let createOL = document.createElement('ol');
+  createOL.id = 'lista-tarefas';
+  append.appendChild(createOL);
 }
-// get text from input
+// get text from input and create LI with the input context
 function addAssignment() {
   document.getElementById('criar-tarefa');  
-  let getInput = document.getElementById('texto-tarefa').value; // pega texto do contido no input
-  console.log(getInput);
+  let getInput = document.getElementById('texto-tarefa').value;
   if(getInput != "") {
     let addLI = document.createElement('li');    
     let getID = document.getElementById('lista-tarefas');
     getID.appendChild(addLI);
-    addLI.innerHTML = getInput
-  }
+    addLI.innerHTML = getInput;
+  }  
 }
 
 
