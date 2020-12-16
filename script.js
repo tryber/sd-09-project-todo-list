@@ -38,30 +38,26 @@ function createButton() {
 }
 
 function clickItem() {
-  const listItem = document.querySelectorAll('li');
-  for (let index = 0; index < listItem.length; index += 1) {
-    listItem[index].addEventListener('click', function () {
-      for (let i = 0; i < listItem.length; i += 1) {
-        listItem[i].classList.remove('selected');
-      }
-      this.classList.add('selected');
-    });
-  }
+  const listItems = document.getElementById('lista-tarefas');
+  listItems.addEventListener('click', function (event) {
+    const selected = document.querySelector('selected');
+    for (let index = 0; index < selected.length; index += 1) {
+      selected[index].classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+  });
 }
 
-/* function dblClick() {
-  const listItem = document.querySelectorAll('li');
-  for (let index = 0; index < listItem.length; index += 1) {
-    listItem[index].addEventListener('dblclick', function () {
-      this.classList.add('completed');
-    });
-  }
-  if (listItem[index].classList === 'completed') {
-    listItem[index].addEventListener('dblclick', function () {
-      this.classList.remove('completed');
-    });
-  }
-} */
+function dblClickItem() {
+  const listItems = document.getElementById('lista-tarefas');
+  listItems.addEventListener('dblclick', function (event) {
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
+    }
+  });
+}
 
 function clickButton() {
   const button = document.querySelector('#criar-tarefa');
@@ -73,7 +69,6 @@ function clickButton() {
     list.appendChild(listItem);
     listItem.innerText = inputValue;
     input.value = '';
-    clickItem();
   });
 }
 
@@ -96,4 +91,6 @@ window.onload = function () {
   createList();
   createButton();
   clickButton();
+  clickItem();
+  dblClickItem();
 };
