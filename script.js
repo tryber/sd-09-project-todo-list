@@ -95,3 +95,18 @@ function loadTasks() {
   }
 }
 loadTasks();
+
+function moveToUp() {
+  const btnMoveToUp = document.querySelector('#mover-cima');
+  btnMoveToUp.addEventListener('click', () => {
+    const taskList = document.querySelector('#lista-tarefas');
+    for (let index = 0; index < taskList.childElementCount; index += 1) {
+      if (taskList.children[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+        if (taskList.children[index].previousSibling) {
+          taskList.insertBefore(taskList.children[index], taskList.children[index].previousSibling);
+        }
+      }
+    }
+  });
+}
+moveToUp();
