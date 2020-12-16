@@ -45,10 +45,9 @@ function tarefaConcluida() {
   const listaTarefas = document.querySelector('#lista-tarefas');
   listaTarefas.addEventListener('dblclick', function (event) {
     const completado = event.target;
-    console.log(completado.classList.length);
     let cont = 0;
     for (let index = 0; index < completado.classList.length; index += 1) {
-      if ( completado.classList[index] === 'completed') {
+      if (completado.classList[index] === 'completed') {
         cont += 1;
       }
     }
@@ -60,8 +59,25 @@ function tarefaConcluida() {
   });
 }
 
+function botaoApagaTudo() {
+  const controles = document.querySelector('#controles');
+  const botao = document.createElement('button');
+  botao.innerText = 'Limpar Lista 🗑';
+  botao.id = 'apaga-tudo';
+  botao.className = 'apaga-tudo';
+  controles.appendChild(botao);
+  botao.addEventListener('click', function () {
+    const lista = document.getElementById('lista-tarefas');
+    // fonte: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_removechild_while
+    while (lista.hasChildNodes()) {
+      lista.removeChild(lista.firstChild);
+    }
+  });
+}
+
 window.onload = function () {
   funcaoAdicionar();
   seleciona();
   tarefaConcluida();
+  botaoApagaTudo();
 };
