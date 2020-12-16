@@ -56,7 +56,7 @@ function dblClick() {
       this.classList.add('completed');
     });
   }
-  if (listItem[index].classList == 'completed') {
+  if (listItem[index].classList === 'completed') {
     listItem[index].addEventListener('dblclick', function () {
       this.classList.remove('completed');
     });
@@ -97,5 +97,4 @@ window.onload = function () {
   createList();
   createButton();
   clickButton();
-  deleteButton();
 };
