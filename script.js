@@ -29,7 +29,7 @@ function createList() {
   list.id = 'lista-tarefas';
 }
 
-function createButton() {
+function createAddButton() {
   const main = document.querySelector('main');
   const button = document.createElement('button');
   main.appendChild(button);
@@ -37,7 +37,7 @@ function createButton() {
   button.innerText = 'Criar tarefa';
 }
 
-function clickButton() {
+function clickAddButton() {
   const button = document.querySelector('#criar-tarefa');
   const list = document.querySelector('#lista-tarefas');
   button.addEventListener('click', function () {
@@ -72,25 +72,34 @@ function dblClickItem() {
   });
 }
 
-/* function deleteButton() {
+function createDeleteButton() {
   const main = document.querySelector('main');
   const button = document.createElement('button');
   main.appendChild(button);
   button.id = 'apaga-tudo';
-  button.innerText = 'Apagar tudo'
+  button.innerText = 'Apagar tudo';
+}
+
+function clickDeleteButton() {
+  const button = document.getElementById('apaga-tudo');
+  const listItems = document.getElementById('lista-tarefas');
   button.addEventListener('click', function () {
-    const items = document.querySelectorAll('li');
-    delete items;
-  }
-} */
+    const items = listItems.childElementCount;
+    for (let index = 0; index < items; index += 1) {
+      listItems.firstChild.remove();
+    }
+  });
+}
 
 window.onload = function () {
   createTitle();
   createParagraph();
   createInput();
   createList();
-  createButton();
-  clickButton();
+  createAddButton();
+  clickAddButton();
   clickItem();
   dblClickItem();
+  createDeleteButton();
+  clickDeleteButton();
 };
