@@ -3,7 +3,8 @@ window.onload = function () {
   addSelectedClassToOneItem();
   completedTasks();
   cleanAllTasks();
-  cleanCompletedItens();
+  cleanCompletedItems();
+  removeSelectedItem()
 }
 
 function createOrganizedList() {
@@ -52,12 +53,22 @@ function cleanAllTasks() {
   });
 }
 
-function cleanCompletedItens() {
+function cleanCompletedItems() {
   const deleteCompletedButton = document.getElementById('remover-finalizados');
   deleteCompletedButton.addEventListener('click', function () {
-    const completedItens = document.querySelectorAll('.completed');
-    for (index = 0; index < completedItens.length; index += 1) {
-      completedItens[index].remove();
+    const completedItems = document.querySelectorAll('.completed');
+    for (index = 0; index < completedItems.length; index += 1) {
+      completedItems[index].remove();
+    }
+  });
+}
+
+function removeSelectedItem() {
+  const deleteSelectButton = document.getElementById('remover-selecionado');
+  deleteSelectButton.addEventListener('click', function () {
+    const selectedItems = document.querySelectorAll('.selected');
+    for (index = 0; index < selectedItems.length; index += 1) {
+      selectedItems[index].remove();
     }
   });
 }
