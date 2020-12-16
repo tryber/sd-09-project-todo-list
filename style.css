@@ -1,19 +1,17 @@
 body {
-  text-align: center;
+  background-color: rgb(3 , 107 , 82);
   font-family: sans-serif;
-  background-color: rgb(3, 107, 82);
+  text-align: center;
 }
 
 .main-page {
-  background-color: rgb(213, 225, 223);
-  border: 5px solid rgb(47, 193, 140);
+  background-color: rgb(213 , 225 , 223);
+  border: 5px solid rgb(47 , 193 , 140);
   border-radius: 15px;
-  color: rgb(3, 107, 82);
+  color: rgb(3 , 107 , 82);
   margin: 2% 20%;
-  text-align: center;
-  width: auto;
-  height: auto;
   padding-bottom: 20%;
+  text-align: center;
 }
 
 .button-section {
@@ -23,48 +21,48 @@ body {
 
 .button-section button {
   display: block;
-  width: 60%;
   margin: 5%;
+  width: 60%;
 }
 
 .green-button {
   background-color: green;
   border-radius: 5px;
   color: white;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .blue-button {
   background-color: blue;
   border-radius: 5px;
   color: white;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .red-button {
   background-color: red;
   border-radius: 5px;
   color: white;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 .task-section {
   display: inline-block;
-  width: 75%;
   height: auto;
+  width: 75%;
 }
 
-.task-section li{
+.task-section li {
   margin-right: 30%;
   overflow-wrap: break-word;
   text-align: left;
 }
 
 .page-footer {
-  background-color: rgb(213, 225, 223);
-  border: 5px solid rgb(47, 193, 140);
+  background-color: rgb(213 , 225 , 223);
+  border: 5px solid rgb(47 , 193 , 140);
   border-radius: 15px;
-  color: rgb(3, 107, 82);
+  color: rgb(3 , 107 , 82);
   font-size: 15px;
   margin: 1% 20%;
   padding: 7px;
