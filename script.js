@@ -1,5 +1,5 @@
 window.onload = function() {
-  let getAddButton = document.getElementById('criar-tarefa');
+  const getAddButton = document.getElementById('criar-tarefa');
   getAddButton.addEventListener('click', addTask);
   const getRemoveBtn = document.getElementById('apaga-tudo');
   getRemoveBtn.addEventListener('click', removeAll);
@@ -34,8 +34,9 @@ function addBackgroundList(event) {
 function removeAll() {
   const getLists = document.getElementById('lista-tarefas');
   const teste = getLists.children.length - 1;
-  for (let index = teste; index => teste; index -= 1) {
+  for (let index = teste; index <= teste; index -= 1) {
     getLists.removeChild(getLists.children[index]);
+    console.log('hello');
   }
 }
 
@@ -43,7 +44,7 @@ function removeSelected() {
   const getSelecteds = document.getElementsByClassName('lined');
   const getLists = document.getElementById('lista-tarefas');
   const teste = getSelecteds.length - 1;
-  for (let index = teste; index => teste; index -= 1) {
+  for (let index = teste; index >= teste; index -= 1) {
     getLists.removeChild(getSelecteds[index]);
   }
 }
