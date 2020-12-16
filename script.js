@@ -69,22 +69,32 @@ function selectedCompletedItem() {
     })
 }
 
-// const itensList = document.getElementById('lista-tarefas');
-//   const selectedClass = document.querySelectorAll('.completed');
-//   selectedClass.addEventListener('dblclick' , function(event){
-//     for(let index = 0; index < itensList.length; index += 1) {
-//       itensList[index].classList.remove('completed');
-//     }
-//   })
-
 function removeCompletedItem() {
-  const removeCompleted = document.getElementById('lista-tarefas');
-  for(index = 0; index < removeCompleted.length; index += 1) {
-    const itensListClass = removeCompleted.children[index];
-    itensListClass.addEventListener('dblclick' , function () {
-      itensListClass[index].classList.remove('completed');
+  const callCompletedItens = document.querySelectorAll('.completed');
+  for(let index = 0; index < callCompletedItens; index += 1) {
+    callCompletedItens[index].addEventListener('dblclick' , function(event) {
+      event.target.classList.remove('completed');
     })
   }
+}
+
+function createDeleteButton() {
+  const mainAccess = document.querySelector('main');
+  const createRemoveButton = document.createElement('button');
+  mainAccess.appendChild(createRemoveButton);
+  createRemoveButton.id = 'apaga-tudo';
+  createRemoveButton.innerText = 'Apagar tudo';
+}
+
+function removeAll() {
+  const acessButton = document.getElementById('apaga-tudo');
+  acessButton.addEventListener('click' , function() {
+    var lista = document.getElementsByTagName('ol')[0];
+    var itens = lista.querySelectorAll('li');
+    for(let index = 0; index < itens.length; index +=1) {
+      lista.removeChild(itens[index]);
+    }
+  })
 }
 
 window.onload = function () {
@@ -96,5 +106,6 @@ window.onload = function () {
   clickAddItem();
   selectedItemList();
   selectedCompletedItem();
-  removeCompletedItem();
+  createDeleteButton();
+  removeAll();
 };
