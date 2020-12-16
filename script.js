@@ -34,8 +34,8 @@ function createInput() {
 function createButton() {
   const main = document.querySelector('main');
   const button = document.createElement('button');
-	button.id = 'criar-tarefa';
-	button.innerText = 'Criar tarefa'
+  button.id = 'criar-tarefa';
+  button.innerText = 'Criar tarefa';
   main.appendChild(button);
 }
 
@@ -54,8 +54,8 @@ function createOrderedList() {
 // 				this.classList.toggle('completed');
 // 			}
 // 		})
-// 	}	
-// }	
+// 	}
+// }
 
 // function doubleClicked() {
 // 	const orderedList = document.querySelector('ol');
@@ -63,51 +63,44 @@ function createOrderedList() {
 //     if (event.target.classList.contains('.completed')){
 //       event.target.classList.remove('completed');
 //     } else {
-//       event.target.classList.add('completed');					
+//       event.target.classList.add('completed');
 // 		}
 //   })
 // }
 
 function doubleClicked() {
-	const orderedList = document.querySelector('ol');
-	orderedList.addEventListener('dblclick', function(event) {
-    if (event.target.classList.contains('completed')){
-			event.target.classList.remove('completed');
-
-    }else{
+  const orderedList = document.querySelector('ol');
+  orderedList.addEventListener('dblclick', function (event) {
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+    } else {
       event.target.classList.add('completed');
     }
-	})		
+  });
 }
-
 
 function clickedItem() {
-	const orderedList = document.querySelector('ol');
-	orderedList.addEventListener('click', function(event) {
+  const orderedList = document.querySelector('ol');
+  orderedList.addEventListener('click', function (event) {
     const selected = document.querySelectorAll('.selected');
-		for (let i = 0; i < selected.length; i += 1) {
-			selected[i].classList.remove('selected');
-		}
-			event.target.classList.add('selected');
-		});		
+    for (let i = 0; i < selected.length; i += 1) {
+      selected[i].classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+  });
 }
 
-
-
-
 function submitButton() {
-	const orderedList = document.querySelector('#lista-tarefas');
-	const button = document.querySelector('#criar-tarefa');
-	button.addEventListener('click', function() {
-		const input = document.querySelector('#texto-tarefa');
-		const inputValue = document.querySelector('#texto-tarefa').value;
-		const listItem = document.createElement('li');
-		listItem.innerText = inputValue;
-		orderedList.appendChild(listItem);
-		input.value = '';	
-		clickedItem();
-		doubleClicked();
-	})
+  const orderedList = document.querySelector('#lista-tarefas');
+  const button = document.querySelector('#criar-tarefa');
+  button.addEventListener('click', function () {
+    const input = document.querySelector('#texto-tarefa');
+    const inputValue = document.querySelector('#texto-tarefa').value;
+    const listItem = document.createElement('li');
+    listItem.innerText = inputValue;
+    orderedList.appendChild(listItem);
+    input.value = '';
+  });
 }
 
 window.onload = function () {
@@ -115,6 +108,8 @@ window.onload = function () {
   createParagraph();
   createInput();
   createOrderedList();
-	createButton();
-	submitButton();
+  createButton();
+  submitButton();
+  doubleClicked();
+  clickedItem();
 };
