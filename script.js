@@ -32,7 +32,7 @@ function addTask() {
   });
 }
 
-
+// Muda a cor de fundo da lista ao ser clicado
 function chamgeBackgroudColorOfList() {
   orderedList.addEventListener('click', function (event) {
     if (event.target.className === 'lista-de-tarefas') {
@@ -78,45 +78,10 @@ function removeCheckedTasks() {
   });
 }
 
-// Salva as preferencias no localStorage
-function saveAllTasks() {
-  saveTasks.addEventListener('click', function () {
-    const olList = document.querySelectorAll('.todo-list');
-    const mylList = [];
-    const classes = [];
-    const myTasks = {
-      mylList,
-      classes,
-    };
-    for (let index = 0; index < olList.length; index += 1) {
-      mylList.push(olList[index].innerHTML);
-      classes.push(olList[index].classList.contains('completed'));
-    }
-    localStorage.setItem('myTodoList', JSON.stringify(myTasks));
-  });
-}
-
-// Ao recarregar a página as preferências são carregadas
-window.addEventListener('load', function () {
-  const myTodo = JSON.parse(window.localStorage.getItem('myTodoList'));
-
-  for (let index = 0; index < myTodo.mylList.length; index += 1) {
-    const savedList = document.createElement('li');
-    const lis = myTodo.mylList[index];
-    savedList.innerHTML = lis;
-    savedList.classList = 'todo-list';
-    if (myTodo.classes[index] === true) {
-      savedList.classList += ' completed';
-    }
-    orderedList.appendChild(savedList);
-  }
-});
-
 window.onload = function () {
   addTask();
   chamgeBackgroudColorOfList();
   todoCompleted();
   removeAllTasks();
   removeCheckedTasks();
-  saveAllTasks();
 };
