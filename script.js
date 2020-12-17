@@ -71,7 +71,7 @@ function removeSelected() {
 
 function saveList() {
   const listForSave = document.querySelectorAll('#lista-tarefas li');
-  const listToDoArray = [[] , []];
+  const listToDoArray = [[], []];
   for (let i = 0; i < listForSave.length; i += 1) {
     listToDoArray[0].push(listForSave[i].innerText);
     listToDoArray[1].push(listForSave[i].className);
@@ -81,7 +81,7 @@ function saveList() {
 
 function loadSavedList() {
   const listSaved = JSON.parse(localStorage.getItem('itemList'));
-  if (listSaved[0].length > 0) {
+  if (listSaved !== null && listSaved[0][0] !== undefined) {
     const olList = document.getElementById('lista-tarefas');
     for (let i = 0; i < listSaved[0].length; i += 1) {
       const liItem = document.createElement('li');
