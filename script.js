@@ -11,7 +11,11 @@ buttonsSection.appendChild(removeTasks);
 const removeChecked = document.createElement('button');
 removeChecked.id = "remover-finalizados";
 removeChecked.innerHTML = 'Remover Concluídos';
-buttonsSection.appendChild(removeChecked)
+buttonsSection.appendChild(removeChecked);
+const saveTasks = document.createElement('button');
+saveTasks.id = 'salvar-tarefas';
+saveTasks.innerHTML = 'Salvar Tarefas';
+buttonsSection.appendChild(saveTasks);
 
 function addTask() {
   button.addEventListener('click', function () {
@@ -69,10 +73,42 @@ function removeCheckedTasks() {
   })
 }
 
+function saveAllTasks() {  
+  saveTasks.addEventListener('click', function() {
+    let olList = document.querySelectorAll('.todo-list');
+    let mylList = [];
+    let classes = [];
+    let myTasks = {
+      mylList,
+      classes,
+    }
+    for (let index = 0; index < olList.length; index += 1) {
+      mylList.push(olList[index].innerHTML);
+      classes.push(olList[index].classList.contains('completed'));
+    }
+    localStorage.setItem('myTodoList', JSON.stringify(myTasks));
+  });
+}
+
+  window.addEventListener('load', function () { 
+    let myTodo = JSON.parse(window.localStorage.getItem('myTodoList'));
+
+    for (let index = 0; index < myTodo.mylList.length; index += 1) {
+      let savedList = document.createElement('li');
+      var lis = myTodo.mylList[index]
+      savedList.innerHTML = lis;
+      savedList.classList = 'todo-list';
+      if (myTodo.classes[index] === true) {
+        savedList.classList += ' completed';
+      }
+      orderedList.appendChild(savedList);
+    }
+  });
+
 window.onload = function () {
   addTask();
   chamgeBackgroudColorOfList();
   todoCompleted();
   removeAllTasks();
-  removeCheckedTasks()
+  saveAllTasks();
 };
