@@ -1,4 +1,3 @@
-window.onload = function () {
 const text = document.querySelector('#texto-tarefa');
 const button = document.querySelector('#criar-tarefa');
 const orderedList = document.querySelector('#lista-tarefas');
@@ -100,7 +99,6 @@ function saveAllTasks() {
 // Ao recarregar a página as preferências são carregadas
 function loadPage() {
   const myTodo = JSON.parse(localStorage.getItem('myTodoList'));
-
   for (let index = 0; index < myTodo.mylList.length; index += 1) {
     const savedList = document.createElement('li');
     const lis = myTodo.mylList[index];
@@ -112,7 +110,9 @@ function loadPage() {
     orderedList.appendChild(savedList);
   }
 }
-  loadPage();
+loadPage()
+
+window.onload = function () {
   saveAllTasks();
   removeCheckedTasks();
   removeAllTasks();
