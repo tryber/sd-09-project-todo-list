@@ -57,6 +57,15 @@ function clearCompletedButton() {
 
 }
 
+function clearSelectedButton() {
+  const main = document.querySelector('main');
+  const button = document.createElement('button');
+  button.id = 'remover-selecionado';
+  button.innerText = 'Apagar selecionado'
+  main.appendChild(button);
+
+}
+
 function createOrderedList() {
   const main = document.querySelector('main');
   const orderedList = document.createElement('ol');
@@ -112,11 +121,23 @@ function clearAllTasks() {
 
 function clearCompletedTasks() {
   const button = document.getElementById('remover-finalizados');
-  const ol = document.getElementById('lista-tarefas');
   button.addEventListener('click', function () {
     const liList = document.getElementsByTagName('li');
     for (let index = 0; index < liList.length; index += 1) {
       if (liList[index].classList.contains('completed')) {
+        liList[index].remove();
+        index -= 1;
+      }
+    }      
+  })
+}
+
+function clearSelectedTasks() {
+  const button = document.getElementById('remover-selecionado');
+  button.addEventListener('click', function () {
+    const liList = document.getElementsByTagName('li');
+    for (let index = 0; index < liList.length; index += 1) {
+      if (liList[index].classList.contains('selected')) {
         liList[index].remove();
         index -= 1;
       }
@@ -135,7 +156,9 @@ window.onload = function () {
   submitButton();
   clearTasksButton();
   clearCompletedButton();
+  clearSelectedButton()
   clearCompletedTasks();
+  clearSelectedTasks();
   clearAllTasks();
   doubleClicked();
   clickedItem();
