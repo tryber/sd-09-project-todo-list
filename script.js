@@ -1,4 +1,3 @@
-
 function createItemList() {
   const buttom = document.getElementById('criar-tarefa');
   const list = document.getElementById('lista-tarefas');
@@ -45,5 +44,4 @@ function eraseAll() {
 window.onload = function() {
   createItemList();
   eraseAll();
-  main();
 };
