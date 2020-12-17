@@ -80,13 +80,17 @@ function saveList() {
 }
 
 function loadSavedList() {
-  const listSaved = JSON.parse(localStorage.getItem('itemList')) || [];
-  const olList = document.getElementById('lista-tarefas');
-  for (let i = 0; i < listSaved[0].length; i += 1) {
-    const liItem = document.createElement('li');
-    liItem.textContent = listSaved[0][i];
-    liItem.className = listSaved[1][i];
-    olList.appendChild(liItem);
+  const listSaved = JSON.parse(localStorage.getItem('itemList'));
+  if (listSaved[0].length > 0) {
+    const olList = document.getElementById('lista-tarefas');
+    for (let i = 0; i < listSaved[0].length; i += 1) {
+      const liItem = document.createElement('li');
+      liItem.textContent = listSaved[0][i];
+      liItem.className = listSaved[1][i];
+      olList.appendChild(liItem);
+    }
+  } else {
+    localStorage.clear();
   }
 }
 
