@@ -82,10 +82,10 @@ function chooseAssigmentList(event) {
 }
 // function to set line-through assigment and set off line through assigment
 function lineThroughAssigment(event) {
-  if(event.target.classList.value != 'assigmentList backgroundList completed') {
-    event.target.classList.add('completed');
-} else {
-  event.target.classList.remove('completed');
+  if(event.target.classList.value.includes('completed')) {
+    event.target.classList.remove('completed');
+  } else {
+  event.target.classList.add('completed');
 }
 }
 // function to remove all itens from class 'completed'
