@@ -4,7 +4,8 @@ function addEventsListener() {
   addTaskButton.addEventListener('click',addTaskOnList);
   //  Escutador na lista
   const listDiv = document.querySelector('#lista-tarefas');
-  listDiv.addEventListener('click',changeBackgroundColor)
+  listDiv.addEventListener('click',changeBackgroundColor);
+  listDiv.addEventListener("dblclick",setCompleted)
 }
 
 function addTaskOnList() {
@@ -25,6 +26,14 @@ function changeBackgroundColor(event) {
   let lista = event.target
   lista.classList.add('gray')
   console.log(lista);
+}
+
+//  https://css-tricks.com/snippets/javascript/bind-different-events-to-click-and-double-click/
+
+function setCompleted(event) {
+  console.log(`Executando função set completed`)
+  let element = event.target
+  element.classList.toggle('completed')
 }
 
 window.onload = addEventsListener();
