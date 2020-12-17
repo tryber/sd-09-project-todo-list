@@ -112,29 +112,15 @@ function removeAll() {
 }
 // function to remove iten by selection
 function removeChoosed() {
-  let elementAssigmentList = document.querySelectorAll('.assigmentList');  
+  let elementAssigmentList = document.querySelectorAll('.assigmentList');
   let tarefas = document.getElementById('lista-tarefas');
   for(let index = 0; index < elementAssigmentList.length; index += 1) {
-    let element = elementAssigmentList[index];    
+    let element = elementAssigmentList[index];
     if(element.classList.value.includes('backgroundList')) {
       tarefas.removeChild(element);
     }
   }
 }
-
-
-// 2) Será verificado que, quando um elemento da lista é selecionado, o elemento selecionado previamente deixa de sê-lo. Isso é verificado através da presença ou não do estilo `background-color: rgb(128, 128, 128)` no elemento
-// function unchooseAssigmentList() {
-//  for(index de assigmentlist para percorrer todos elementos com background pintado)
-//  if(element[index] have style.value = background-color: rgb(128, 128, 128)) {
-//  remove class backgroundList
-// let doc = document.querySelector('.assigmentList.backgroundList') seleciona as duas classes
-// doc retorna >>>>>  <li class=​"assigmentList backgroundList">​…​</li>​
-// let doc2 = getComputedStyle(doc); retorna estilos css
-// doc2.backgroundColor retorna o bgC que quero remover >>>>> "rgb(128, 128, 128)"
-// 
-// usar como base para montar função
-// 
 // created a function to encapsulate all listeners/function callers
 function listeners() {
 let getInput = document.getElementById('criar-tarefa');
@@ -151,8 +137,6 @@ let removeAllList = document.getElementById('apaga-tudo');
 removeAllList.addEventListener('click', removeAll);
 let removeChoosedIten = document.getElementById('remover-selecionado');
 removeChoosedIten.addEventListener('click', removeChoosed);
-// let unchooseList = document.querySelector('#lista-tarefas');
-// unchooseList.addEventListener('click', unchooseAssigmentList);
 }
 // functions to be opened when open browser
 window.onload = function() {
