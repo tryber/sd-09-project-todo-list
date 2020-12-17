@@ -1,7 +1,6 @@
 const btnAdd = document.querySelector('#criar-tarefa');
 const olList = document.querySelector('#lista-tarefas');
 
-
 function createLi() {
   const liItem = document.createElement('li');
   const inputValue = document.querySelector('#texto-tarefa');
@@ -76,13 +75,13 @@ function removeSelected() {
 }
 
 function saveList() {
-  const listForSave = document.querySelectorAll('#lista-tarefas li')
+  const listForSave = document.querySelectorAll('#lista-tarefas li');
   const listToDoArray = [[],[]];
   for (let i = 0; i < listForSave.length; i += 1) {
     listToDoArray[0].push(listForSave[i].innerText);
     listToDoArray[1].push(listForSave[i].className);
   }
-  localStorage.setItem('itemList', JSON.stringify(listToDoArray))
+  localStorage.setItem('itemList', JSON.stringify(listToDoArray));
 }
 
 function loadSavedList() {
