@@ -1,11 +1,8 @@
-function main (){
-  createItemList();
-}
 
-function createItemList () {
+function createItemList() {
   const buttom = document.getElementById('criar-tarefa');
   const list = document.getElementById('lista-tarefas');
-  const generateItemByClick = buttom.addEventListener('click', function () {
+  const generateItemByClick = buttom.addEventListener('click', function() {
     const createItem = document.createElement('li');
     createItem.classList.add('list');
     const imputText = document.getElementById('texto-tarefa').value;
@@ -17,7 +14,7 @@ function createItemList () {
   });
 }
 
-function greybackground () {
+function greybackground() {
   const list2 = document.querySelectorAll('.list');
   const listLength = list2.length;
   for (let index = 0; index < list2.length; index += 1) {
@@ -30,6 +27,23 @@ function greybackground () {
   }
 }
 
-window.onload = function () {
+function eraseAll() {
+  const erase = document.getElementById('apaga-tudo');
+  const list = document.getElementById('lista-tarefas');
+  erase.addEventListener('click', function() {
+    list.innerText = '';
+  })
+}
+
+// function dobleClick() {
+//   const title = document.getElementsByClassName('title')
+//   title.addEventListener('dobleClick', function(event) {
+//     event.target.classList.add('completed');
+//   })
+// }
+
+window.onload = function() {
+  createItemList();
+  eraseAll();
   main();
 };
