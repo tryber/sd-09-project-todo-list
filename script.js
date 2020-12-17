@@ -19,9 +19,13 @@ function createItemList () {
 
 function greybackground () {
   const list2 = document.querySelectorAll('.list');
+  const listLength = list2.length;
   for (let index = 0; index < list2.length; index += 1) {
     list2[index].addEventListener('click', function() {
-    list2[index].style.backgroundColor = 'rgb(128,128,128)';
+      for (index2 =0; index2 < list2.length; index2 +=1) {
+        list2[index2].classList.remove('greyBackground');
+      }
+      list2[index].classList.add('greyBackground');
     });
   }
 }
