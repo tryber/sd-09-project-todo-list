@@ -85,16 +85,8 @@ function saveList() {
   localStorage.setItem('itemList', JSON.stringify(listToDoArray))
 }
 
-// function ifListSaved() {
-//   const test = localStorage.getItem('itemList');
-//   if(test) {
-//     loadSavedList();
-//   }
-// }
-
 function loadSavedList() {
   const listSaved = JSON.parse(localStorage.getItem('itemList')) || [];
-  console.log(listSaved)
   const olList = document.getElementById('lista-tarefas');
   for (let i = 0; i < listSaved[0].length; i += 1) {
     const liItem = document.createElement('li');
@@ -105,7 +97,6 @@ function loadSavedList() {
 }
 
 window.onload = function() {
-  loadSavedList();
   btnAdd.addEventListener('click', createLi);
   olList.addEventListener('click', oneClick);
   olList.addEventListener('dblclick', dbClick);
@@ -117,5 +108,5 @@ window.onload = function() {
   btnEraseSelected.addEventListener('click', removeSelected);
   const btnSave = document.querySelector('#salvar-tarefas');
   btnSave.addEventListener('click', saveList);
-  // ifListSaved();
+  loadSavedList();
 }
