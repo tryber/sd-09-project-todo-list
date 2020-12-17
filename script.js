@@ -90,35 +90,28 @@ function saveAllTasks() {
     };
     for (let index = 0; index < olList.length; index += 1) {
       mylList.push(olList[index].innerHTML);
-      classes.push(olList[index].classList.contains('completed'));
+      classes.push(olList[index].className);
     }
     localStorage.setItem('myTodoList', JSON.stringify(myTasks));
   });
 }
 
+saveAllTasks();
+removeCheckedTasks();
+removeAllTasks();
+todoCompleted();
+chamgeBackgroudColorOfList();
+addTask();
+
 // Ao recarregar a página as preferências são carregadas
-function loadPage() {
+window.onload = function () {
   const myTodo = JSON.parse(localStorage.getItem('myTodoList'));
   if (myTodo !== null && myTodo.mylList.length > 0) {
     for (let index = 0; index < myTodo.mylList.length; index += 1) {
       const savedList = document.createElement('li');
-      const lis = myTodo.mylList[index];
-      savedList.innerHTML = lis;
-      savedList.classList = 'todo-list';
-      if (myTodo.classes[index] === true) {
-        savedList.classList += ' completed';
-      }
+      savedList.innerHTML = myTodo.mylList[index];
+      savedList.className = myTodo.classes[index];
       orderedList.appendChild(savedList);
     }
   }
-}
-
-window.onload = function () {
-  saveAllTasks();
-  removeCheckedTasks();
-  removeAllTasks();
-  todoCompleted();
-  chamgeBackgroudColorOfList();
-  addTask();
-  loadPage();
 };
