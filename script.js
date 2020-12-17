@@ -1,5 +1,3 @@
-// Requisitos obrigatórios
-// Sua lista deve possuir o título "Minha Lista de Tarefas" em uma tag
 function createTitle() {
   const header = document.querySelector('header');
   const title = document.createElement('h1');
@@ -7,7 +5,6 @@ function createTitle() {
   title.innerText = 'Minha Lista de Tarefas';
 }
 
-// Abaixo do título deve haver um pequeno e discreto parágrafo com id="funcionamento" e com o texto "Clique duas vezes em um item para marcá-lo como completo"
 function createParagraph() {
   const main = document.querySelector('main');
   const paragraph = document.createElement('p');
@@ -16,7 +13,6 @@ function createParagraph() {
   paragraph.id = 'funcionamento';
 }
 
-// Deve haver um input com o id="texto-tarefa" onde o usuário poderá digitar o nome do item que deseja adicionar à lista
 function createInput() {
   const main = document.querySelector('main');
   const input = document.createElement('input');
@@ -26,7 +22,6 @@ function createInput() {
   input.placeholder = 'Digite o item que deseja adicionar à lista';
 }
 
-// Deve haver uma lista ordenada de tarefas com o id="lista-tarefas" | Os itens da lista de tarefas devem ser ordenados por ordem de criação
 function createList() {
   const main = document.querySelector('main');
   const list = document.createElement('ol');
@@ -34,7 +29,6 @@ function createList() {
   list.id = 'lista-tarefas';
 }
 
-// Deve haver um botão com id="criar-tarefa" e, ao clicar nesse botão, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo
 function createAddButton() {
   const main = document.querySelector('main');
   const button = document.createElement('button');
@@ -56,7 +50,6 @@ function clickAddButton() {
   });
 }
 
-// // Ao clicar em um item da lista, altere a cor de fundo do item para cinza rgb(128,128,128) | Não deve ser possível selecionar mais de um elemento da lista ao mesmo tempo
 function clickItem() {
   const listItems = document.getElementById('lista-tarefas');
   listItems.addEventListener('click', function (event) {
@@ -68,7 +61,6 @@ function clickItem() {
   });
 }
 
-// Ao clicar duas vezes em um item, ele deverá ser riscado, indicando que foi completo. Deve ser possível desfazer essa ação clicando novamente duas vezes no item
 function dblClickItem() {
   const listItems = document.getElementById('lista-tarefas');
   listItems.addEventListener('dblclick', function (event) {
@@ -80,7 +72,6 @@ function dblClickItem() {
   });
 }
 
-// Deve haver um botão com id="apaga-tudo"que quando clicado deve apagar todos os itens da lista
 function createDeleteButton() {
   const main = document.querySelector('main');
   const button = document.createElement('button');
@@ -100,7 +91,6 @@ function clickDeleteButton() {
   });
 }
 
-// Deve haver um botãoid="remover-finalizados"que quando clicado remove somente os elementos finalizados da sua lista
 function createRemoveCompletedButton() {
   const main = document.querySelector('main');
   const button = document.createElement('button');
@@ -117,7 +107,6 @@ function clickRemoveCompletedButton() {
   });
 }
 
-// Adicione um botão com id="salvar-tarefas" que salve o conteúdo da lista. Se você fechar e reabrir a página, a lista deve continuar no estado em que estava
 function createSaveTasksButton() {
   const main = document.querySelector('main');
   const button = document.createElement('button');
@@ -151,7 +140,6 @@ function clickSaveTasksButtonGet() {
   }
 }
 
-// Adicione dois botões, um com id="mover-cima" e outro com id="mover-baixo", que permitam mover o item selecionado para cima ou para baixo na lista de tarefas
 function createMoveUpButton() {
   const main = document.querySelector('main');
   const button = document.createElement('button');
@@ -176,7 +164,6 @@ function clickMoveDownButton() {
 
 }
 
-// Adicione um botão com id="remover-selecionado" que, quando clicado, remove o item selecionado
 function createRemoveSelectedButton() {
   const main = document.querySelector('main');
   const button = document.createElement('button');
