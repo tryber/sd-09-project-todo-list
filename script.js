@@ -81,14 +81,22 @@ function cleanAssigmentInput() {
 function chooseAssigmentList(event) {  
   event.target.classList.add('backgroundList');  
 }
+function lineThroughAssigment(event) {
+  event.target.classList.add('completed');
+}
 // 2) Será verificado que, quando um elemento da lista é selecionado, o elemento selecionado previamente deixa de sê-lo. Isso é verificado através da presença ou não do estilo `background-color: rgb(128, 128, 128)` no elemento
 
 // function unchooseAssigmentList() {
-//   if(choosed element have style.value = background-color: rgb(128, 128, 128)) {
-//   remove class backgroundList
-// }
-// }
-// }
+//  for(index de assigmentlist para percorrer todos elementos com background pintado)
+//  if(element[index] have style.value = background-color: rgb(128, 128, 128)) {
+//  remove class backgroundList
+// let doc = document.querySelector('.assigmentList.backgroundList') seleciona as duas classes
+// doc retorna >>>>>  <li class=​"assigmentList backgroundList">​…​</li>​
+// let doc2 = getComputedStyle(doc); retorna estilos css
+// doc2.backgroundColor retorna o bgC que quero remover >>>>> "rgb(128, 128, 128)"
+// 
+// usar como base para montar função
+// 
 // created a function to encapsulate all listeners/function callers
 function listeners() {
 let getInput = document.getElementById('criar-tarefa');
@@ -97,6 +105,8 @@ let cleanInput = document.getElementById('criar-tarefa');
 cleanInput.addEventListener('click', cleanAssigmentInput);
 let chooseList = document.querySelector('#lista-tarefas');
 chooseList.addEventListener('click', chooseAssigmentList);
+let lineThrough = document.querySelector('#lista-tarefas');
+lineThrough.addEventListener('dblclick', lineThroughAssigment)
 // let unchooseList = document.querySelector('#lista-tarefas');
 // unchooseList.addEventListener('click', unchooseAssigmentList);
 }
