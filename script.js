@@ -1,3 +1,4 @@
+window.onload = function () {
 const text = document.querySelector('#texto-tarefa');
 const button = document.querySelector('#criar-tarefa');
 const orderedList = document.querySelector('#lista-tarefas');
@@ -111,8 +112,6 @@ function loadPage() {
     orderedList.appendChild(savedList);
   }
 }
-
-window.onload = function () {
   loadPage();
   saveAllTasks();
   removeCheckedTasks();
