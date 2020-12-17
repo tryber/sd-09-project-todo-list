@@ -39,4 +39,13 @@ window.onload = function () {
       }
     }
   });
+  const removeSelected = document.querySelector('#remover-selecionado');
+  removeSelected.addEventListener('click', function () {
+    line = document.querySelectorAll('li');
+    for (let x =0; x < line.length; x += 1) {
+      if(line[x].style.backgroundColor === 'rgb(128, 128, 128)') {
+        list.removeChild(line[x]);
+      }
+    }    
+  });
 };
