@@ -9,7 +9,7 @@ function addTaskOnList() {
 
 function changeBackgroundColor(event) {
   const grayList = document.querySelector('.gray');
-  if (grayList !== undefined) {
+  if (grayList !== null) {
     grayList.classList.remove('gray');
   }
   const lista = event.target;
