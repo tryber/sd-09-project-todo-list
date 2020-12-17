@@ -102,7 +102,7 @@ window.addEventListener('load', function () {
 
   for (let index = 0; index < myTodo.mylList.length; index += 1) {
     const savedList = document.createElement('li');
-    let lis = myTodo.mylList[index];
+    const lis = myTodo.mylList[index];
     savedList.innerHTML = lis;
     savedList.classList = 'todo-list';
     if (myTodo.classes[index] === true) {
