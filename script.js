@@ -76,17 +76,36 @@ function removeSelected() {
 }
 
 function saveList() {
-  localStorage.clear();
-  const olList = document.querySelector('#lista-tarefas')
-  const list = olList.children;
-  for (let i = 0; i < list.length; i += 1) {
-    const strList = JSON.stringify([list[i].innerText, list[i].className]);
-    localStorage.setItem(i, strList);
+  const listForSave = document.querySelectorAll('#lista-tarefas li')
+  const listToDoArray = [[],[]];
+  for (let i = 0; i < listForSave.length; i += 1) {
+    listToDoArray[0].push(listForSave[i].innerText);
+    listToDoArray[1].push(listForSave[i].className);
+  }
+  localStorage.setItem('itemList', JSON.stringify(listToDoArray))
+}
+
+// function ifListSaved() {
+//   const test = localStorage.getItem('itemList');
+//   if(test) {
+//     loadSavedList();
+//   }
+// }
+
+function loadSavedList() {
+  const listSaved = JSON.parse(localStorage.getItem('itemList')) || [];
+  console.log(listSaved)
+  const olList = document.getElementById('lista-tarefas');
+  for (let i = 0; i < listSaved[0].length; i += 1) {
+    const liItem = document.createElement('li');
+    liItem.textContent = listSaved[0][i];
+    liItem.className = listSaved[1][i];
+    olList.appendChild(liItem);
   }
 }
 
 window.onload = function() {
-
+  loadSavedList();
   btnAdd.addEventListener('click', createLi);
   olList.addEventListener('click', oneClick);
   olList.addEventListener('dblclick', dbClick);
@@ -98,4 +117,5 @@ window.onload = function() {
   btnEraseSelected.addEventListener('click', removeSelected);
   const btnSave = document.querySelector('#salvar-tarefas');
   btnSave.addEventListener('click', saveList);
+  // ifListSaved();
 }
