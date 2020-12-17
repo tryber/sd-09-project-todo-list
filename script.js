@@ -25,6 +25,7 @@ function structure() {
   createRemoveButton.innerText = 'Remove Choosed Task';
   createRemoveButton.classList = 'styleButtons';
   append.appendChild(createRemoveButton);
+
   let createclearAllButton = document.createElement('button');
   createclearAllButton.id = 'apaga-tudo';
   createclearAllButton.innerText = 'Remove All Tasks';
@@ -110,6 +111,16 @@ function removeAll() {
   tarefas.removeChild(element)}
 }
 }
+// function to remove iten by selection
+function removeChoosed() {
+  let elementAssigmentList = document.querySelectorAll('.assigmentList');  
+  let tarefas = document.getElementById('lista-tarefas')
+  for(let index = 0; index < elementAssigmentList.length; index += 1){
+    let element = elementAssigmentList[index];    
+    if(element.classList.value.includes('backgroundList')) {
+  tarefas.removeChild(element)}
+}
+}
 // 2) Será verificado que, quando um elemento da lista é selecionado, o elemento selecionado previamente deixa de sê-lo. Isso é verificado através da presença ou não do estilo `background-color: rgb(128, 128, 128)` no elemento
 
 // function unchooseAssigmentList() {
@@ -136,7 +147,9 @@ lineThrough.addEventListener('dblclick', lineThroughAssigment)
 let removeCompletedLI = document.getElementById('remover-finalizados');
 removeCompletedLI.addEventListener('click', removeCompleted);
 let removeAllList = document.getElementById('apaga-tudo');
-removeAllList.addEventListener('click', removeAll)
+removeAllList.addEventListener('click', removeAll);
+let removeChoosedIten = document.getElementById('remover-selecionado');
+removeChoosedIten.addEventListener('click', removeChoosed)
 // let unchooseList = document.querySelector('#lista-tarefas');
 // unchooseList.addEventListener('click', unchooseAssigmentList);
 }
