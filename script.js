@@ -75,6 +75,16 @@ function removeSelected() {
   }
 }
 
+function saveList() {
+  localStorage.clear();
+  const olList = document.querySelector('#lista-tarefas')
+  const list = olList.children;
+  for (let i = 0; i < list.length; i += 1) {
+    const strList = JSON.stringify([list[i].innerText, list[i].className]);
+    localStorage.setItem(i, strList);
+  }
+}
+
 window.onload = function() {
 
   btnAdd.addEventListener('click', createLi);
@@ -84,6 +94,8 @@ window.onload = function() {
   inputEraseAll.addEventListener('click', eraseAll);
   const btnEraseFinished = document.querySelector('#remover-finalizados');
   btnEraseFinished.addEventListener('click', removeFinished);
-  const btnEraseSelected = document.getElementById('remover-selecionado')
+  const btnEraseSelected = document.getElementById('remover-selecionado');
   btnEraseSelected.addEventListener('click', removeSelected);
+  const btnSave = document.querySelector('#salvar-tarefas');
+  btnSave.addEventListener('click', saveList);
 }
