@@ -78,6 +78,7 @@ function cleanAssigmentInput() {
     element.value = '';
   })
 }
+// function to set bgColor on choosed iten of assigment list
 function chooseAssigmentList(event) {  
   event.target.classList.add('backgroundList');  
 }
@@ -89,7 +90,16 @@ function lineThroughAssigment(event) {
   event.target.classList.remove('completed');
 }
 }
-
+// function to remove all itens from class 'completed'
+function removeCompleted() {
+  let elementAssigmentList = document.querySelectorAll('.assigmentList');  
+  let tarefas = document.getElementById('lista-tarefas')
+  for(let index = 0; index < elementAssigmentList.length; index += 1){
+    let element = elementAssigmentList[index];    
+    if(element.classList.value.includes('completed')) {
+  tarefas.removeChild(element)}
+}
+}
 
 // 2) Será verificado que, quando um elemento da lista é selecionado, o elemento selecionado previamente deixa de sê-lo. Isso é verificado através da presença ou não do estilo `background-color: rgb(128, 128, 128)` no elemento
 
@@ -114,6 +124,8 @@ let chooseList = document.querySelector('#lista-tarefas');
 chooseList.addEventListener('click', chooseAssigmentList);
 let lineThrough = document.querySelector('#lista-tarefas');
 lineThrough.addEventListener('dblclick', lineThroughAssigment)
+let removeCompletedLI = document.getElementById('remover-finalizados');
+removeCompletedLI.addEventListener('click', removeCompleted);
 // let unchooseList = document.querySelector('#lista-tarefas');
 // unchooseList.addEventListener('click', unchooseAssigmentList);
 }
