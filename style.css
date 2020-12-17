@@ -1,0 +1,32 @@
+.backgroundList {
+  background-color: rgb(128 , 128 , 128);
+}
+.completed {
+  text-decoration: line-through;  
+}
+#mover-cima {
+  float: left;
+  position: relative;
+  right: 788px;
+  top: 95px;
+}
+#mover-baixo {
+  float: left;
+  position: relative;
+  right: 854px;
+  top: 120px;
+}
+.styleButtons {
+  float: left;
+  position: relative;  
+}
+.styleButtonSaveTasks {
+  float: left;
+  position: relative;
+}
+ol {
+  float: left;
+  position: relative;
+  right: 860px;  
+  top: 25px;
+}

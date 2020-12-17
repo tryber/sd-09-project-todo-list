@@ -7,29 +7,42 @@ function structure() {
   append.appendChild(createP);
   let createButton = document.createElement('button');
   createButton.id = 'criar-tarefa';
+  createButton.innerText = 'Create Task';
+  createButton.classList = 'styleButtons'
   append.appendChild(createButton);
   let createInput = document.createElement('input');
   createInput.id = 'texto-tarefa'
   createInput.setAttribute('type', 'text');
   createInput.name = "inputAssigment"
+  createInput.classList = 'styleButtons'
   append.appendChild(createInput);
   let createRemoveButton = document.createElement('button');
   createRemoveButton.id = 'remover-selecionado';
+  createRemoveButton.innerText = 'Remove Choosed Task';
+  createRemoveButton.classList = 'styleButtons'
   append.appendChild(createRemoveButton);
   let createclearAllButton = document.createElement('button');
   createclearAllButton.id = 'apaga-tudo';
+  createclearAllButton.innerText = 'Remove All Tasks'
+  createclearAllButton.classList = 'styleButtons'
   append.appendChild(createclearAllButton);
   let removeFinishedButton = document.createElement('button');
   removeFinishedButton.id = 'remover-finalizados';
+  removeFinishedButton.innerText = 'Remove Finished Tasks';
+  removeFinishedButton.classList = 'styleButtons'
   append.appendChild(removeFinishedButton);
   let saveAllAssigment = document.createElement('button');
   saveAllAssigment.id = 'salvar-tarefas';
+  saveAllAssigment.innerText = 'Save Tasks';
+  saveAllAssigment.classList = 'styleButtonSaveTasks'
   append.appendChild(saveAllAssigment);
   let buttonUP = document.createElement('button');
   buttonUP.id = 'mover-cima';
+  buttonUP.innerText = 'UP Task';
   append.appendChild(buttonUP);
   let buttonDown = document.createElement('button');
   buttonDown.id = 'mover-baixo';
+  buttonDown.innerText = 'DOWN Task';
   append.appendChild(buttonDown);
   let createOL = document.createElement('ol');
   createOL.id = 'lista-tarefas';
