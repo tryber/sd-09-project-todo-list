@@ -69,8 +69,15 @@ function cleanAssigmentInput() {
     element.value = '';
   })
 }
-// function to set bgColor on choosed iten of assigment list
-function chooseAssigmentList(event) {  
+// function to set bgColor on choosed element of assigment list and remove bgColor when choose another element from list
+function chooseAssigmentList(event) {
+  let elementAssigmentList = document.querySelectorAll('.assigmentList');  
+  for(let index = 0; index < elementAssigmentList.length; index += 1) {
+    let element = elementAssigmentList[index];    
+    if(element.classList.value.includes('backgroundList')) {
+      element.classList.remove('backgroundList')
+    }
+  }
   event.target.classList.add('backgroundList');
 }
 // function to set line-through assigment and set off line through assigment
@@ -114,6 +121,8 @@ function removeChoosed() {
     }
   }
 }
+
+
 // 2) Será verificado que, quando um elemento da lista é selecionado, o elemento selecionado previamente deixa de sê-lo. Isso é verificado através da presença ou não do estilo `background-color: rgb(128, 128, 128)` no elemento
 // function unchooseAssigmentList() {
 //  for(index de assigmentlist para percorrer todos elementos com background pintado)
