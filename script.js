@@ -100,7 +100,16 @@ function removeCompleted() {
   tarefas.removeChild(element)}
 }
 }
-
+// function to removel all itens from assigment list
+function removeAll() {
+  let elementAssigmentList = document.querySelectorAll('.assigmentList');  
+  let tarefas = document.getElementById('lista-tarefas')
+  for(let index = 0; index < elementAssigmentList.length; index += 1){
+    let element = elementAssigmentList[index];    
+    if(element.classList.value.includes('assigmentList')) {
+  tarefas.removeChild(element)}
+}
+}
 // 2) Será verificado que, quando um elemento da lista é selecionado, o elemento selecionado previamente deixa de sê-lo. Isso é verificado através da presença ou não do estilo `background-color: rgb(128, 128, 128)` no elemento
 
 // function unchooseAssigmentList() {
@@ -126,6 +135,8 @@ let lineThrough = document.querySelector('#lista-tarefas');
 lineThrough.addEventListener('dblclick', lineThroughAssigment)
 let removeCompletedLI = document.getElementById('remover-finalizados');
 removeCompletedLI.addEventListener('click', removeCompleted);
+let removeAllList = document.getElementById('apaga-tudo');
+removeAllList.addEventListener('click', removeAll)
 // let unchooseList = document.querySelector('#lista-tarefas');
 // unchooseList.addEventListener('click', unchooseAssigmentList);
 }
