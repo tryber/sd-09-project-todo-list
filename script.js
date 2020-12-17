@@ -102,8 +102,8 @@ function saveAllTasks() {
 }
 saveAllTasks();
 
-window.onload = function () {
 // Ao recarregar a página as preferências são carregadas
+window.addEventListener('load', function () {
   const myTodo = JSON.parse(localStorage.getItem('myTodoList'));
   for (let index = 0; index < myTodo.mylList.length; index += 1) {
     const savedList = document.createElement('li');
@@ -115,4 +115,4 @@ window.onload = function () {
     }
     orderedList.appendChild(savedList);
   }
-};
+});
