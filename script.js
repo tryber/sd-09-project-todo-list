@@ -23,17 +23,46 @@ function createTaskInput() {
   main.appendChild(taskInput);
 }
 
+function createTaskInputButton() {
+  const main = document.querySelector('main');
+  const taskInputButton = document.createElement('button');
+  taskInputButton.id = 'criar-tarefa';
+  taskInputButton.innerHTML = 'adicionar tarefa';
+  main.appendChild(taskInputButton);
+}
+
 function createOrderedList() {
   const main = document.querySelector('main');
   const orderedList = document.createElement('ol');
   orderedList.id = 'lista-tarefas';
   main.appendChild(orderedList);
+}
 
+function addTaskToList() {
+  let taskInput = document.querySelector('#texto-tarefa');
+  const orderedList = document.querySelector('#lista-tarefas');
+  const listItem = document.createElement('li');
+  listItem.innerHTML = taskInput.value;
+  orderedList.appendChild(listItem);
+  taskInput.value = '';
+}
+
+function enterKey(evt) {
+  if (evt.keyCode === 13) {
+    addTaskToList();
+  } else {
+    // Do nothing
+  }
 }
 
 window.onload = function () {
   createHeader();
   createMain();
   createTaskInput();
+  createTaskInputButton();
   createOrderedList();
+  const taskInputButton = document.querySelector('#criar-tarefa');
+  taskInputButton.addEventListener('click', addTaskToList);
+  let taskInput = document.querySelector('#texto-area');
+  taskInput = document.addEventListener('keyup', enterKey);
 };
