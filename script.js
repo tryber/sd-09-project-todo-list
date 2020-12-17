@@ -55,6 +55,16 @@ function enterKey(evt) {
   }
 }
 
+function turnGray(evt) {
+  const listItem = document.querySelectorAll('li');
+  for (let index = 0; index < listItem.length; index += 1) {
+    listItem[index].style.backgroundColor = '';
+    console.log(listItem[index]);
+  }
+  const selectedItem = evt.target;
+  selectedItem.style.backgroundColor = 'rgb(128 , 128 , 128)';
+}
+
 window.onload = function () {
   createHeader();
   createMain();
@@ -65,4 +75,6 @@ window.onload = function () {
   taskInputButton.addEventListener('click', addTaskToList);
   let taskInput = document.querySelector('#texto-area');
   taskInput = document.addEventListener('keyup', enterKey);
+  const orderedList = document.querySelector('ol');
+  orderedList.addEventListener('click', turnGray);
 };
