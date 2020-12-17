@@ -81,9 +81,16 @@ function cleanAssigmentInput() {
 function chooseAssigmentList(event) {  
   event.target.classList.add('backgroundList');  
 }
+// function to set line-through assigment and set off line through assigment
 function lineThroughAssigment(event) {
-  event.target.classList.add('completed');
+  if(event.target.classList.value != 'assigmentList backgroundList completed') {
+    event.target.classList.add('completed');
+} else {
+  event.target.classList.remove('completed');
 }
+}
+
+
 // 2) Será verificado que, quando um elemento da lista é selecionado, o elemento selecionado previamente deixa de sê-lo. Isso é verificado através da presença ou não do estilo `background-color: rgb(128, 128, 128)` no elemento
 
 // function unchooseAssigmentList() {
