@@ -9,6 +9,9 @@ function addEventsListener() {
   //  Escutador do botão apaga tudo
   const deleteAllButton = document.querySelector('#apaga-tudo');
   deleteAllButton.addEventListener('click',deleteAllLists)
+  //  Escutador do botão remover selecionados
+  const buttonRemoveCompleted = document.querySelector('#remover-finalizados');
+  buttonRemoveCompleted.addEventListener('click',removeCompletedElements)
 }
 
 function addTaskOnList() {
@@ -41,6 +44,15 @@ function deleteAllLists() {
   const taskList = document.querySelector('#lista-tarefas');
   for (;taskList.firstChild != undefined;){
     taskList.removeChild(taskList.firstChild)
+  }
+}
+
+function removeCompletedElements() {
+  let completedElements = document.querySelectorAll('.completed')
+  for (;completedElements[0] != undefined;) {
+    console.log('Executou o laço')
+    completedElements[0].remove()
+    completedElements = document.querySelectorAll('.completed')
   }
 }
 window.onload = addEventsListener();
