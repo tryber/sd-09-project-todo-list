@@ -31,7 +31,7 @@ function addTask() {
     }
   });
 }
-addTask()
+addTask();
 
 // Muda a cor de fundo da lista ao ser clicado
 function chamgeBackgroudColorOfList() {
@@ -43,7 +43,7 @@ function chamgeBackgroudColorOfList() {
     }
   });
 }
-chamgeBackgroudColorOfList()
+chamgeBackgroudColorOfList();
 
 // Risca as tarefas clicadas duas vezes
 function todoCompleted() {
@@ -55,7 +55,7 @@ function todoCompleted() {
     }
   });
 }
-todoCompleted()
+todoCompleted();
 
 // Remove todas as tarefas
 function removeAllTasks() {
@@ -67,7 +67,7 @@ function removeAllTasks() {
     }
   });
 }
-removeAllTasks()
+removeAllTasks();
 
 // Remove as tarefas riscadas
 function removeCheckedTasks() {
@@ -81,10 +81,10 @@ function removeCheckedTasks() {
     }
   });
 }
-removeCheckedTasks()
+removeCheckedTasks();
 
-window.onload = function () {
 // Salva as preferencias no localStorage
+function saveAllTasks() {
   saveTasks.addEventListener('click', function () {
     const olList = document.querySelectorAll('.todo-list');
     const mylList = [];
@@ -99,7 +99,10 @@ window.onload = function () {
     }
     localStorage.setItem('myTodoList', JSON.stringify(myTasks));
   });
+}
+saveAllTasks();
 
+window.onload = function () {
 // Ao recarregar a página as preferências são carregadas
   const myTodo = JSON.parse(localStorage.getItem('myTodoList'));
   for (let index = 0; index < myTodo.mylList.length; index += 1) {
