@@ -15,7 +15,15 @@ function createMain() {
   document.body.appendChild(main);
 }
 
+function createOrderedList() {
+  const main = document.querySelector('main');
+  const orderedList = document.createElement('ol');
+  main.appendChild(orderedList);
+
+}
+
 window.onload = function () {
   createHeader();
   createMain();
-}
+  createOrderedList();
+};
