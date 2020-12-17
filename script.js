@@ -6,6 +6,9 @@ function addEventsListener() {
   const listDiv = document.querySelector('#lista-tarefas');
   listDiv.addEventListener('click',changeBackgroundColor);
   listDiv.addEventListener("dblclick",setCompleted)
+  //  Escutador do botão apaga tudo
+  const deleteAllButton = document.querySelector('#apaga-tudo');
+  deleteAllButton.addEventListener('click',deleteAllLists)
 }
 
 function addTaskOnList() {
@@ -28,12 +31,16 @@ function changeBackgroundColor(event) {
   console.log(lista);
 }
 
-//  https://css-tricks.com/snippets/javascript/bind-different-events-to-click-and-double-click/
-
 function setCompleted(event) {
   console.log(`Executando função set completed`)
   let element = event.target
   element.classList.toggle('completed')
 }
 
+function deleteAllLists() {
+  const taskList = document.querySelector('#lista-tarefas');
+  for (;taskList.firstChild != undefined;){
+    taskList.removeChild(taskList.firstChild)
+  }
+}
 window.onload = addEventsListener();
