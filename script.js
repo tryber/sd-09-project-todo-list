@@ -23,7 +23,7 @@ function setCompleted(event) {
 
 function deleteAllLists() {
   const taskList = document.querySelector('#lista-tarefas');
-  for (;taskList.firstChild !== undefined;) {
+  for (;taskList.firstChild !== null;) {
     taskList.removeChild(taskList.firstChild);
   }
 }
