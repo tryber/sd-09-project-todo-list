@@ -15,9 +15,18 @@ function createMain() {
   document.body.appendChild(main);
 }
 
+function createTaskInput() {
+  const main = document.querySelector('main');
+  const taskInput = document.createElement('input');
+  taskInput.id = 'texto-tarefa';
+  taskInput.type = 'text';
+  main.appendChild(taskInput);
+}
+
 function createOrderedList() {
   const main = document.querySelector('main');
   const orderedList = document.createElement('ol');
+  orderedList.id = 'lista-tarefas';
   main.appendChild(orderedList);
 
 }
@@ -25,5 +34,6 @@ function createOrderedList() {
 window.onload = function () {
   createHeader();
   createMain();
+  createTaskInput();
   createOrderedList();
 };
