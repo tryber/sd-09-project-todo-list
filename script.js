@@ -1,4 +1,5 @@
 window.onload = function () {
+  const removeSelected = document.querySelector('#remover-selecionado');
   const imput = document.querySelector('#texto-tarefa');
   const list = document.querySelector('#lista-tarefas');
   const clear = document.querySelector('#apaga-tudo');
@@ -39,7 +40,7 @@ window.onload = function () {
       }
     }
   });
-  const removeSelected = document.querySelector('#remover-selecionado');
+  
   removeSelected.addEventListener('click', function () {
     line = document.querySelectorAll('li');
     for (let x =0; x < line.length; x += 1) {
