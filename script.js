@@ -31,19 +31,17 @@ function addTask() {
     }
   });
 }
-addTask();
 
 // Muda a cor de fundo da lista ao ser clicado
 function chamgeBackgroudColorOfList() {
   orderedList.addEventListener('click', function (event) {
     if (event.target.className === 'lista-de-tarefas') {
-      event.target.style.backgroundColor = false;
+      event.target.style.backgroundColor = '';
     } else if (list.classList.contains('todo-list')) {
       event.target.style.backgroundColor = 'rgb(128, 128, 128)';
     }
   });
 }
-chamgeBackgroudColorOfList();
 
 // Risca as tarefas clicadas duas vezes
 function todoCompleted() {
@@ -55,7 +53,6 @@ function todoCompleted() {
     }
   });
 }
-todoCompleted();
 
 // Remove todas as tarefas
 function removeAllTasks() {
@@ -67,7 +64,6 @@ function removeAllTasks() {
     }
   });
 }
-removeAllTasks();
 
 // Remove as tarefas riscadas
 function removeCheckedTasks() {
@@ -81,7 +77,6 @@ function removeCheckedTasks() {
     }
   });
 }
-removeCheckedTasks();
 
 // Salva as preferencias no localStorage
 function saveAllTasks() {
@@ -100,7 +95,6 @@ function saveAllTasks() {
     localStorage.setItem('myTodoList', JSON.stringify(myTasks));
   });
 }
-saveAllTasks();
 
 // Ao recarregar a página as preferências são carregadas
 function loadPage() {
@@ -120,4 +114,10 @@ function loadPage() {
 
 window.onload = function () {
   loadPage();
+  saveAllTasks();
+  removeCheckedTasks();
+  removeAllTasks();
+  todoCompleted();
+  chamgeBackgroudColorOfList();
+  addTask();
 };
