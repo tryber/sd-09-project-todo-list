@@ -81,11 +81,14 @@ function cleanAssigmentInput() {
 function chooseAssigmentList(event) {  
   event.target.classList.add('backgroundList');  
 }
-function unchooseAssigmentList() {
-  document.querySelector('.backgroundList').classList.remove('backgroundList');
-  
-  
-}
+// 2) Será verificado que, quando um elemento da lista é selecionado, o elemento selecionado previamente deixa de sê-lo. Isso é verificado através da presença ou não do estilo `background-color: rgb(128, 128, 128)` no elemento
+
+// function unchooseAssigmentList() {
+//   if(choosed element have style.value = background-color: rgb(128, 128, 128)) {
+//   remove class backgroundList
+// }
+// }
+// }
 // created a function to encapsulate all listeners/function callers
 function listeners() {
 let getInput = document.getElementById('criar-tarefa');
@@ -94,8 +97,8 @@ let cleanInput = document.getElementById('criar-tarefa');
 cleanInput.addEventListener('click', cleanAssigmentInput);
 let chooseList = document.querySelector('#lista-tarefas');
 chooseList.addEventListener('click', chooseAssigmentList);
-let unchooseList = document.querySelector('#lista-tarefas');
-unchooseList.addEventListener('click', unchooseAssigmentList);
+// let unchooseList = document.querySelector('#lista-tarefas');
+// unchooseList.addEventListener('click', unchooseAssigmentList);
 }
 // functions to be opened when open browser
 window.onload = function() {
@@ -103,8 +106,3 @@ window.onload = function() {
   listeners();  
 }
 // pixel art => modificar botão para input de valores; acrescentar função no VQV onde let base = ' ' copiar função de criação de base, adicionar if input tem numero adicionar  valor a base, if input < 5 || > 50 alert, if input é texto e não numero alert
-
-
-
-
-
