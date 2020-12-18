@@ -79,6 +79,20 @@ function lineThrough(evt) {
   }
 }
 
+function createRemoveButton() {
+  const main = document.querySelector('main');
+  const removeButton = document.createElement('button');
+  removeButton.id = 'apaga-tudo';
+  removeButton.innerHTML = 'Limpar Lista';
+  main.appendChild(removeButton);
+}
+
+function removeListItem() {
+  const listItem = document.querySelectorAll('li');
+  for (let index = 0; index < listItem.length; index += 1) {
+    listItem[index].remove();
+  }
+}
 window.onload = function () {
   createHeader();
   createMain();
@@ -92,4 +106,7 @@ window.onload = function () {
   const orderedList = document.querySelector('ol');
   orderedList.addEventListener('click', turnGray);
   orderedList.addEventListener('dblclick', lineThrough);
+  createRemoveButton();
+  const removeButton = document.querySelector('#apaga-tudo');
+  removeButton.addEventListener('click', removeListItem);
 };
