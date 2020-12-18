@@ -99,13 +99,16 @@ function moveToUp() {
   let lis = olList.children;
   for (let i = 0; i < lis.length; i += 1) {
     let temp = document.createElement('li');
-    if ((lis[i].className === 'selected') || (lis[i].className === 'selected completed') && i > 0) {
+    console.log(i, 'antes')
+    if (((i > 0) && (lis[i].className === 'selected completed')) || ((i > 0) && (lis[i].className === 'selected'))) {
+      console.log(i, 'dentro')
       temp.innerText = lis[i - 1].innerText;
       temp.className = lis[i - 1].className;
       lis[i - 1].innerText = lis[i].innerText;
       lis[i - 1].className = lis[i].className;
       lis[i].innerText = temp.innerText;
       lis[i].className = temp.className;
+      break;
     }
   }
 }
