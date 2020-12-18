@@ -59,7 +59,7 @@ function clearSelectedButton() {
   const main = document.querySelector('main');
   const button = document.createElement('button');
   button.id = 'remover-selecionado';
-  button.innerText = 'Apagar selecionado'
+  button.innerText = 'Apagar selecionado';
   main.appendChild(button);
 }
 
@@ -150,7 +150,7 @@ function clearCompletedTasks() {
         index -= 1;
       }
     }
-  })
+  });
 }
 
 function clearSelectedTasks() {
@@ -168,7 +168,7 @@ function clearSelectedTasks() {
 
 function setListItens() {
   const button = document.getElementById('salvar-tarefas');
-  button.addEventListener('click', function (){
+  button.addEventListener('click', function () {
     const lineItens = document.getElementsByTagName('li');
     for (let index = 0; index < lineItens.length; index += 1) {
       const objeto = {
@@ -234,7 +234,7 @@ function moveSelectedDown() {
 }
 
 window.onload = function () {
-  createTitle(); 
+  createTitle();
   createParagraph();
   createInput();
   createOrderedList();
