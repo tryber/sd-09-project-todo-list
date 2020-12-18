@@ -13,7 +13,7 @@ function greybackground() {
 function createItemList() {
   const buttom = document.getElementById('criar-tarefa');
   const list = document.getElementById('lista-tarefas');
-  buttom.addEventListener('click', function() {
+  buttom.addEventListener('click', function () {
     const createItem = document.createElement('li');
     createItem.classList.add('list');
     const imputText = document.getElementById('texto-tarefa').value;
@@ -28,14 +28,14 @@ function createItemList() {
 function eraseAll() {
   const erase = document.getElementById('apaga-tudo');
   const list = document.getElementById('lista-tarefas');
-  erase.addEventListener('click', function() {
+  erase.addEventListener('click', function () {
     list.innerText = '';
   });
 }
 
 function dblclick() {
   const list = document.querySelector('ol');
-  list.addEventListener('dblclick', function(event) {
+  list.addEventListener('dblclick', function (event) {
     if (event.target.classList.contains('completed')) {
       event.target.classList.remove('completed');
     } else {
@@ -45,7 +45,7 @@ function dblclick() {
 }
 
 window.onload = function () {
-  createItemList ();
-  dblclick ();
-  eraseAll ();
+  createItemList();
+  dblclick();
+  eraseAll();
 };
