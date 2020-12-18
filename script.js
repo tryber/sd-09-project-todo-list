@@ -19,7 +19,15 @@ buttonsSection.appendChild(saveTasks);
 const removeSelected = document.createElement('button');
 removeSelected.id = 'remover-selecionado';
 removeSelected.innerHTML = 'Remove Selected';
-buttonsSection.appendChild(removeSelected)
+buttonsSection.appendChild(removeSelected);
+const moveUp = document.createElement('button');
+moveUp.id = 'mover-cima';
+moveUp.innerHTML = 'Move Up';
+buttonsSection.appendChild(moveUp);
+const moveDown = document.createElement('button');
+moveDown.id = 'mover-baixo';
+moveDown.innerHTML = 'Move Down';
+buttonsSection.appendChild(moveDown);
 
 // Adiciona as tarefas
 function addTask() {
@@ -38,7 +46,7 @@ function addTask() {
 
 function selectedDesativate() {
   orderedList.addEventListener('click', function (event) {
-  const selectedLi = document.querySelectorAll('.selected')
+    const selectedLi = document.querySelectorAll('.selected');
     for (let index = 0; index < selectedLi.length; index += 1) {
       selectedLi[index].classList.remove('selected');
     }
@@ -100,10 +108,34 @@ function saveAllTasks() {
 }
 
 function removeSelectedTasks() {
-removeSelected.addEventListener('click', function () {
-  const selectList = document.querySelector('.selected')
-  orderedList.removeChild(selectList)
-});
+  removeSelected.addEventListener('click', function () {
+    const selectList = document.querySelector('.selected');
+    orderedList.removeChild(selectList);
+  });
+}
+
+function moveListDown() {
+  moveDown.addEventListener('click', function () {
+    const lists = document.querySelectorAll('.todo-list');
+    for (let position = 0; position < lists.length; position += 1) {
+      const pos = lists[position];
+      if (pos.classList.contains('selected') && pos.nextSibling !== null) {
+        pos.parentNode.insertBefore(lists[position + 1], pos);
+      }
+    }
+  });
+}
+
+function moveListUp() {
+  moveUp.addEventListener('click', function () {
+    const lists = document.querySelectorAll('.todo-list');
+    for (let position = 0; position < lists.length; position += 1) {
+      const pos = lists[position];
+      if (pos.classList.contains('selected') && pos.previousElementSibling !== null) {
+        pos.parentNode.insertBefore(pos, lists[position - 1]);
+      }
+    }
+  });
 }
 
 saveAllTasks();
@@ -113,6 +145,8 @@ todoCompleted();
 addTask();
 selectedDesativate();
 removeSelectedTasks();
+moveListDown();
+moveListUp();
 
 // Ao recarregar a página as preferências são carregadas
 const myTodo = JSON.parse(localStorage.getItem('myTodoList'));
