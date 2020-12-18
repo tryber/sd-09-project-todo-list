@@ -94,11 +94,54 @@ function apagaConcluido() {
   });
 }
 
+function botaoSalvar() {
+  const controles = document.querySelector('#controles');
+  const botao = document.createElement('button');
+  botao.innerText = 'Salvar 💾';
+  botao.id = 'salvar-tarefas';
+  botao.className = 'salvar-tarefas';
+  controles.appendChild(botao);
+}
+
+function webStorage() {
+  const botao = document.querySelector('#salvar-tarefas');
+  botao.addEventListener('click', function () {
+    const lista = document.getElementsByTagName('li');
+    if (typeof(Storage) !== 'undefined') {
+      const tarefas = [];
+      for (let index = 0; index < lista.length; index += 1) {
+        tarefas.push({ value: lista[index].innerHTML, class: lista[index].className });
+      }
+      localStorage.setItem('tarefasSalvas', JSON.stringify(tarefas));
+    }
+  });
+}
+
+function recuperarSalvos() {
+  const lista = document.getElementById('lista-tarefas');
+  let salvos = {
+    class: '',
+    value: '',
+  };
+  if (localStorage.length !== 0) {
+    salvos = JSON.parse(localStorage.getItem('tarefasSalvas'));
+    for (let index = 0; index < salvos.length; index += 1) {
+      const recupera = document.createElement('li');
+      recupera.innerText = salvos[index].value;
+      recupera.className = salvos[index].class;
+      lista.appendChild(recupera);
+    }
+  }
+}
+
 window.onload = function () {
   funcaoAdicionar();
   seleciona();
   tarefaConcluida();
+  botaoSalvar();
   botaoApagaConcluido();
   apagaConcluido();
   botaoApagaTudo();
+  webStorage();
+  recuperarSalvos();
 };
