@@ -58,7 +58,7 @@ function tarefaConcluida() {
     }
   });
 }
-
+// fonte: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_removechild_while
 function botaoApagaTudo() {
   const controles = document.querySelector('#controles');
   const botao = document.createElement('button');
@@ -68,7 +68,6 @@ function botaoApagaTudo() {
   controles.appendChild(botao);
   botao.addEventListener('click', function () {
     const lista = document.getElementById('lista-tarefas');
-    // fonte: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_removechild_while
     while (lista.hasChildNodes()) {
       lista.removeChild(lista.firstChild);
     }
@@ -83,10 +82,9 @@ function botaoApagaConcluido() {
   botao.className = 'remover-finalizados';
   controles.appendChild(botao);
   botao.addEventListener('click', function () {
-    const linha = document.getElementsByTagName('li');
+        const linha = document.getElementsByTagName('li');
     for (let index = 0; index < linha.length; index += 1) {
       const lista = document.getElementById('lista-tarefas');
-      // fonte: https://www.w3schools.com/jsref/prop_element_classlist.asp
       if (linha[index].classList.contains('completed')) {
         lista.removeChild(lista.childNodes[index]);
       }
