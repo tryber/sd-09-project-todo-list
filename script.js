@@ -210,7 +210,7 @@ function moveSelectedUp() {
       previousElement.innerText = selected.innerText;
       previousElement.className = selected.className;
       selected.innerText = auxiliar.text;
-      selected.className = auxiliar.className;
+      selected.className = auxiliar.class;
     }
   });
 }
@@ -231,7 +231,7 @@ function moveSelectedDown() {
       nextElement.innerText = selected.innerText;
       nextElement.className = selected.className;
       selected.innerText = auxiliar.text;
-      selected.className = auxiliar.className;
+      selected.className = auxiliar.class;
     }
   });
 }
