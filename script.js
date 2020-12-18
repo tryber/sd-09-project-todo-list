@@ -34,7 +34,7 @@ function createAddButton() {
   const button = document.createElement('button');
   main.appendChild(button);
   button.id = 'criar-tarefa';
-  button.innerText = 'Criar tarefa';
+  button.innerText = 'Adicionar';
 }
 
 function clickAddButton() {
@@ -77,7 +77,7 @@ function createDeleteButton() {
   const button = document.createElement('button');
   main.appendChild(button);
   button.id = 'apaga-tudo';
-  button.innerText = 'Apagar tudo';
+  button.innerText = 'Limpar lista';
 }
 
 function clickDeleteButton() {
@@ -96,7 +96,7 @@ function createRemoveCompletedButton() {
   const button = document.createElement('button');
   main.appendChild(button);
   button.id = 'remover-finalizados';
-  button.innerText = 'Remover finalizados';
+  button.innerText = 'Limpar finalizados';
 }
 
 function clickRemoveCompletedButton() {
@@ -112,7 +112,7 @@ function createSaveTasksButton() {
   const button = document.createElement('button');
   main.appendChild(button);
   button.id = 'salvar-tarefas';
-  button.innerText = 'Salvar tarefas';
+  button.innerText = 'Salvar lista';
 }
 
 function clickSaveTasksButtonSet() {
@@ -145,11 +145,28 @@ function createMoveUpButton() {
   const button = document.createElement('button');
   main.appendChild(button);
   button.id = 'mover-cima';
-  button.innerText = 'Mover para cima';
+  button.innerText = '⬆';
 }
 
 function clickMoveUpButton() {
-
+  const button = document.getElementById('mover-cima');
+  button.addEventListener('click', function () {
+    const selected = document.querySelector('.selected');
+    let previousElement;
+    if (selected) {
+      previousElement = selected.previousElementSibling;
+    }
+    if (previousElement) {
+      const aux = {
+        text: previousElement.innerText,
+        class: previousElement.class,
+      };
+      previousElement.innerText = selected.innerText;
+      previousElement.className = selected.className;
+      selected.innerText = aux.text;
+      selected.className = aux.class;
+    }
+  });
 }
 
 function createMoveDownButton() {
@@ -157,11 +174,28 @@ function createMoveDownButton() {
   const button = document.createElement('button');
   main.appendChild(button);
   button.id = 'mover-baixo';
-  button.innerText = 'Mover para baixo';
+  button.innerText = '⬇';
 }
 
 function clickMoveDownButton() {
-
+  const button = document.getElementById('mover-baixo');
+  button.addEventListener('click', function () {
+    const selected = document.querySelector('.selected');
+    let nextElement;
+    if (selected) {
+      nextElement = selected.nextElementSibling;
+    }
+    if (nextElement) {
+      const aux = {
+        text: nextElement.innerText,
+        class: nextElement.class,
+      };
+      nextElement.innerText = selected.innerText;
+      nextElement.className = selected.className;
+      selected.innerText = aux.text;
+      selected.className = aux.class;
+    }
+  });
 }
 
 function createRemoveSelectedButton() {
@@ -169,7 +203,7 @@ function createRemoveSelectedButton() {
   const button = document.createElement('button');
   main.appendChild(button);
   button.id = 'remover-selecionado';
-  button.innerText = 'Remover item';
+  button.innerText = '✖';
 }
 
 function clickRemoveSelectedButton() {
