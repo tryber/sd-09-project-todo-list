@@ -1,0 +1,27 @@
+#texto-tarefa {
+  display: inline;
+}
+
+#criar-tarefa {
+  display: inline;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+#remover-finalizados {
+  display: inline;
+}
+
+#remover-selecionado {
+  display: inline;
+}
+
+#mover-cima {
+  display: inline;
+}
+
+#mover-baixo {
+  display: inline;
+}
