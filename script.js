@@ -94,6 +94,36 @@ function loadSavedList() {
   }
 }
 
+function moveToUp() {
+  const olList = document.querySelector('#lista-tarefas');
+  let lis = olList.children;
+  for (let i = 0; i < lis.length; i += 1) {
+    let temp = document.createElement('li');
+    if ((lis[i].className === 'selected') || (lis[i].className === 'selected completed') && i > 0) {
+      temp.innerText = lis[i - 1].innerText;
+      temp.className = lis[i - 1].className;
+      lis[i - 1].innerText = lis[i].innerText;
+      lis[i - 1].className = lis[i].className;
+      lis[i].innerText = temp.innerText;
+      lis[i].className = temp.className;
+    }
+  }
+}
+
+function moveToDown() {
+  if (document.querySelector('.selected')) {
+    let selected = document.querySelector('.selected');
+    if (selected.nextElementSibling) {
+      const tempText = selected.nextElementSibling.innerText;
+      const tempClass = selected.nextElementSibling.className;
+      selected.nextElementSibling.innerText = selected.innerText;
+      selected.nextElementSibling.className = selected.className;
+      selected.innerText = tempText;
+      selected.className = tempClass;
+    }
+  }
+}
+
 function allEvents() {
   const btnAdd = document.querySelector('#criar-tarefa');
   const olList = document.querySelector('#lista-tarefas');
@@ -101,6 +131,8 @@ function allEvents() {
   const btnEraseFinished = document.querySelector('#remover-finalizados');
   const btnEraseSelected = document.getElementById('remover-selecionado');
   const btnSave = document.querySelector('#salvar-tarefas');
+  const btnCima = document.querySelector('#mover-cima');
+  const btnBaixo = document.querySelector('#mover-baixo');
 
   btnAdd.addEventListener('click', createLi);
   olList.addEventListener('click', oneClick);
@@ -109,6 +141,8 @@ function allEvents() {
   btnEraseFinished.addEventListener('click', removeFinished);
   btnEraseSelected.addEventListener('click', removeSelected);
   btnSave.addEventListener('click', saveList);
+  btnCima.addEventListener('click', moveToUp);
+  btnBaixo.addEventListener('click', moveToDown);
 }
 
 window.onload = function () {
