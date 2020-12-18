@@ -32,16 +32,13 @@ function addTask() {
   });
 }
 
-// Muda a cor de fundo da lista ao ser clicado
-function chamgeBackgroudColorOfList() {
+function selectedDesativate() {
   orderedList.addEventListener('click', function (event) {
-    if (event.target.className === 'lista-de-tarefas') {
-      event.target.style.backgroundColor = '';
-    } else if (event.target.classList.contains('selected')) {
-      event.target.classList.remove('selected');
-    } else {
-      event.target.classList.add('selected');
+  const selectedLi = document.querySelectorAll('.selected')
+    for (let index = 0; index < selectedLi.length; index += 1) {
+      selectedLi[index].classList.remove('selected');
     }
+    event.target.classList.add('selected')
   });
 }
 
@@ -97,26 +94,28 @@ function saveAllTasks() {
     localStorage.setItem('myTodoList', JSON.stringify(myTasks));
   });
 }
-//########################################################################
+
 saveAllTasks();
 removeCheckedTasks();
 removeAllTasks();
 todoCompleted();
-chamgeBackgroudColorOfList();
 addTask();
+selectedDesativate();
 
 // Ao recarregar a página as preferências são carregadas
-window.onload = function () {
-  const myTodo = JSON.parse(localStorage.getItem('myTodoList'));
-  if (myTodo !== null && myTodo.mylList.length > 0) {
-    for (let index = 0; index < myTodo.mylList.length; index += 1) {
-      const savedList = document.createElement('li');
-      savedList.innerHTML = myTodo.mylList[index];
-      savedList.classList = 'todo-list';
-      if (myTodo.classes[index] === true) {
-        savedList.classList += ' completed';
-      }
-      orderedList.appendChild(savedList);
+const myTodo = JSON.parse(localStorage.getItem('myTodoList'));
+function loadPage () {
+  for (let index = 0; index < myTodo.mylList.length; index += 1) {
+    const savedList = document.createElement('li');
+    savedList.innerHTML = myTodo.mylList[index];
+    savedList.classList = 'todo-list';
+    if (myTodo.classes[index] === true) {
+      savedList.classList += ' completed';
     }
+    orderedList.appendChild(savedList);
   }
-};
+}
+
+if (myTodo !== null && myTodo.mylList.length > 0) {
+  window.onload = loadPage();
+}
