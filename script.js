@@ -1,4 +1,5 @@
 const container = document.querySelector('#container');
+
 function addHeader() {
   const createHeader = document.createElement('header');
   container.appendChild(createHeader);
@@ -36,6 +37,16 @@ function addList() {
   const createList = document.createElement('ol');
   createList.id = 'lista-tarefas';
   container.appendChild(createList);
+}
+
+function loadListInStorage() {
+  let getTasks = JSON.parse(localStorage.getItem('tasks'));
+  for (let index = 0; index < getTasks.length; index += 1) {
+    const list = document.getElementById('lista-tarefas');
+    const createListItem = document.createElement('li');
+    createListItem.innerText = getTasks[index];
+    list.appendChild(createListItem);
+  }
 }
 
 function handleTaskClick(event) {
@@ -90,28 +101,24 @@ function generateContainerButtons() {
 
 function handleRemoveList() {
   const listItems = document.querySelectorAll ('li');
-  console.log(listItems);
   for (let index = 0; index < listItems.length; index += 1) {
     listItems[index].parentNode.removeChild(listItems[index]);
   }
 }
-
 
 function generateButtonRemove() {
   const containerButtons = document.getElementById('container-buttons');
   const createButton = document.createElement('button');
   createButton.id = 'apaga-tudo';
   createButton.className = 'btn';
-  createButton.innerText = 'LIMPAR LISTA';
+  createButton.innerText = 'Limpar Lista';
   createButton.addEventListener('click', handleRemoveList);
   containerButtons.appendChild(createButton);
 }
 
 function handleRemoveListCompleted() {
   const taskCompleted = document.querySelectorAll('.completed');
-  console.log(taskCompleted);
   for (let index = 0; index < taskCompleted.length; index += 1) {
-    // console.log(listItems[index]);
     taskCompleted[index].parentNode.removeChild(taskCompleted[index]);
   }
 }
@@ -119,10 +126,35 @@ function handleRemoveListCompleted() {
 function generateButtonRemoveTasksCompleted() {
   const containerButtons = document.getElementById('container-buttons');
   const createButton = document.createElement('button');
-  createButton.innerText = 'REMOVER COMPLETOS';
+  createButton.innerText = 'Remover Completos';
   createButton.id = 'remover-finalizados';
   createButton.className = 'btn';
   createButton.addEventListener('click', handleRemoveListCompleted);
+  containerButtons.appendChild(createButton);
+}
+
+function handleSaveTasks() {
+  if (typeof(Storage) !== "undefined") {
+    // Code for localStorage/sessionStorage.
+    localStorage.clear();
+    let tasks = [];
+    const listItems = document.querySelectorAll('li');
+    for (let index = 0; index < listItems.length; index += 1) {
+      tasks.push(listItems[index].innerText);
+    }
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  } else {
+    alert('Sorry! No Web Storage support..');
+  }
+}
+
+function generateButtonSaveTasks() {
+  const containerButtons = document.getElementById('container-buttons');
+  const createButton = document.createElement('button');
+  createButton.id = 'salvar-tarefas';
+  createButton.innerText = 'Salvar Tarefas';
+  createButton.className = 'btn';
+  createButton.addEventListener('click', handleSaveTasks);
   containerButtons.appendChild(createButton);
 }
 
@@ -134,7 +166,9 @@ window.onload = function () {
   addInput();
   addList();
   addButton();
+  loadListInStorage();
   generateContainerButtons();
   generateButtonRemove();
   generateButtonRemoveTasksCompleted();
+  generateButtonSaveTasks()
 };
