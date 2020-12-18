@@ -6,17 +6,15 @@ function createTitle() {
 }
 
 function createParagraph() {
-  const main = document.querySelector('main');
-  const paragraph = document.createElement('p');
-  main.appendChild(paragraph);
+  const paragraph = document.querySelector('.paragraph');
   paragraph.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
   paragraph.id = 'funcionamento';
 }
 
 function createInput() {
-  const main = document.querySelector('main');
+  const div = document.querySelector('.createList');
   const input = document.createElement('input');
-  main.appendChild(input);
+  div.appendChild(input);
   input.id = 'texto-tarefa';
   input.type = 'text';
   input.placeholder = 'Digite o item que deseja adicionar à lista';
@@ -30,9 +28,10 @@ function createList() {
 }
 
 function createAddButton() {
-  const main = document.querySelector('main');
+  const div = document.querySelector('.createList');
   const button = document.createElement('button');
-  main.appendChild(button);
+  div.appendChild(button);
+  button.className = 'buttons';
   button.id = 'criar-tarefa';
   button.innerText = 'Adicionar';
 }
@@ -73,9 +72,10 @@ function dblClickItem() {
 }
 
 function createDeleteButton() {
-  const main = document.querySelector('main');
+  const div = document.querySelector('.buttonContainer');
   const button = document.createElement('button');
-  main.appendChild(button);
+  div.appendChild(button);
+  button.className = 'buttons';
   button.id = 'apaga-tudo';
   button.innerText = 'Limpar lista';
 }
@@ -92,9 +92,10 @@ function clickDeleteButton() {
 }
 
 function createRemoveCompletedButton() {
-  const main = document.querySelector('main');
+  const div = document.querySelector('.buttonContainer');
   const button = document.createElement('button');
-  main.appendChild(button);
+  div.appendChild(button);
+  button.className = 'buttons';
   button.id = 'remover-finalizados';
   button.innerText = 'Limpar finalizados';
 }
@@ -108,9 +109,10 @@ function clickRemoveCompletedButton() {
 }
 
 function createSaveTasksButton() {
-  const main = document.querySelector('main');
+  const div = document.querySelector('.buttonContainer');
   const button = document.createElement('button');
-  main.appendChild(button);
+  div.appendChild(button);
+  button.className = 'buttons';
   button.id = 'salvar-tarefas';
   button.innerText = 'Salvar lista';
 }
@@ -141,11 +143,12 @@ function clickSaveTasksButtonGet() {
 }
 
 function createMoveUpButton() {
-  const main = document.querySelector('main');
+  const div = document.querySelector('.buttonContainer');
   const button = document.createElement('button');
-  main.appendChild(button);
+  div.appendChild(button);
+  button.className = 'buttons';
   button.id = 'mover-cima';
-  button.innerText = '⬆';
+  button.innerHTML = '&#8679';
 }
 
 function clickMoveUpButton() {
@@ -170,11 +173,12 @@ function clickMoveUpButton() {
 }
 
 function createMoveDownButton() {
-  const main = document.querySelector('main');
+  const div = document.querySelector('.buttonContainer');
   const button = document.createElement('button');
-  main.appendChild(button);
+  div.appendChild(button);
+  button.className = 'buttons';
   button.id = 'mover-baixo';
-  button.innerText = '⬇';
+  button.innerHTML = '&#8681';
 }
 
 function clickMoveDownButton() {
@@ -199,11 +203,12 @@ function clickMoveDownButton() {
 }
 
 function createRemoveSelectedButton() {
-  const main = document.querySelector('main');
+  const div = document.querySelector('.buttonContainer');
   const button = document.createElement('button');
-  main.appendChild(button);
+  div.appendChild(button);
+  button.className = 'buttons';
   button.id = 'remover-selecionado';
-  button.innerText = '✖';
+  button.innerHTML = '&#10008';
 }
 
 function clickRemoveSelectedButton() {

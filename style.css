@@ -1,9 +1,42 @@
+* {
+  margin: 0;
+}
+
 body {
-  background-color: #002B49;
-  color: whitesmoke;
-  margin: 10px;
-  padding: 25px 200px;
-  text-align: center;
+  background-color: #40AD41;
+  font-family: Courier New, Courier, monospace;
+  margin-top: 10px;
+}
+
+.buttons {
+  background: rgb(165, 165, 165);
+  border-color: transparent;
+  border-radius: 20px;
+  color: white;
+  font-family: Courier New, Courier, monospace;
+  height: 30px;
+  margin-right: 8px;
+  padding: 5px 1em;
+}
+
+button#criar-tarefa, button#remover-finalizados {
+  background-color: #0D88CF;
+}
+
+.buttons:focus {
+  outline: none;
+}
+
+button#mover-cima, button#mover-baixo {
+  background-color: #FC7F01;
+}
+
+button#remover-selecionado, button#apaga-tudo {
+  background-color: rgb(175, 0, 0);
+}
+
+button#salvar-tarefas {
+  background-color: #40AD41;
 }
 
 .completed {
@@ -11,10 +44,53 @@ body {
 }
 
 h1 {
-  font-family: Courier New, Courier, monospace;
+  margin-bottom: 10px;
   margin-top: 0;
+}
+
+input {
+  height: 25px;
+  margin-right: 8px;
+  width: 240px;
+}
+
+ol#lista-tarefas {
+  line-height: 25px;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  overflow: scroll;
+}
+
+.paragraph {
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.principal {
+  /* background: linear-gradient(329.54deg, #a3e0a3 0%, #eec8eb 100%) no-repeat; */
+  background: white;
+  border-radius: 20px;
+  color: rgb(34, 34, 34);
+  margin: 50px auto;
+  margin-bottom: 100px;
+  max-width: 70%;
+  min-width: 35%;
+  padding: 30px;
+  width: auto;
 }
 
 .selected {
   background-color: gray;
 }
+
+/* footer {
+  background-color: white;
+  bottom: 0;
+  color: rgb(34, 34, 34);
+  position: fixed;
+  text-align: center;
+}
+
+.footerP {
+  font-size: 15px;
+} */
