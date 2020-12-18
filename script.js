@@ -43,18 +43,16 @@ function clearTasksButton() {
   const main = document.querySelector('main');
   const button = document.createElement('button');
   button.id = 'apaga-tudo';
-  button.innerText = 'Apaga tudo'
+  button.innerText = 'Apaga tudo';
   main.appendChild(button);
-
 }
 
 function clearCompletedButton() {
   const main = document.querySelector('main');
   const button = document.createElement('button');
   button.id = 'remover-finalizados';
-  button.innerText = 'Apagar completados'
+  button.innerText = 'Apagar completados';
   main.appendChild(button);
-
 }
 
 function clearSelectedButton() {
@@ -63,14 +61,13 @@ function clearSelectedButton() {
   button.id = 'remover-selecionado';
   button.innerText = 'Apagar selecionado'
   main.appendChild(button);
-
 }
 
 function saveTasksButton() {
   const main = document.querySelector('main');
   const button = document.createElement('button');
   button.id = 'salvar-tarefas';
-  button.innerText = 'Salvar Lista'
+  button.innerText = 'Salvar Lista';
   main.appendChild(button);
 }
 
@@ -78,7 +75,7 @@ function moveUpButton() {
   const main = document.querySelector('main');
   const button = document.createElement('button');
   button.id = 'mover-cima';
-  button.innerText = 'Mover para cima'
+  button.innerText = 'Mover para cima';
   main.appendChild(button);
 }
 
@@ -86,7 +83,7 @@ function moveDownButton() {
   const main = document.querySelector('main');
   const button = document.createElement('button');
   button.id = 'mover-baixo';
-  button.innerText = 'Mover para baixo'
+  button.innerText = 'Mover para baixo';
   main.appendChild(button);
 }
 
@@ -136,7 +133,7 @@ function clearAllTasks() {
   const button = document.getElementById('apaga-tudo');
   const orderedList = document.getElementById('lista-tarefas');
   button.addEventListener('click', function () {
-    const listLength = orderedList.childElementCount;  
+    const listLength = orderedList.childElementCount;
     for (let index = 0; index < listLength; index += 1) {
       orderedList.firstChild.remove();
     }
@@ -152,7 +149,7 @@ function clearCompletedTasks() {
         liList[index].remove();
         index -= 1;
       }
-    }      
+    }
   })
 }
 
@@ -165,15 +162,15 @@ function clearSelectedTasks() {
         liList[index].remove();
         index -= 1;
       }
-    }      
-  })
+    }
+  });
 }
 
 function setListItens() {
   const button = document.getElementById('salvar-tarefas');
-  button.addEventListener('click', function(){
+  button.addEventListener('click', function (){
     const lineItens = document.getElementsByTagName('li');
-    for (let index = 0; index < lineItens.length; index += 1){
+    for (let index = 0; index < lineItens.length; index += 1) {
       const objeto = {
         text: lineItens[index].innerText,
         class: lineItens[index].className,
@@ -185,7 +182,7 @@ function setListItens() {
 
 function getListItens() {
   const orderedList = document.getElementById('lista-tarefas');
-  for (let index = 0; index < localStorage.length; index += 1){
+  for (let index = 0; index < localStorage.length; index += 1) {
     const listItem = document.createElement('li');
     const objStorage = JSON.parse(localStorage.getItem(index));
     listItem.innerText = objStorage.text;
@@ -199,10 +196,10 @@ function moveSelectedUp() {
   button.addEventListener('click', function () {
     const selected = document.querySelector('.selected');
     let previousElement;
-    if (selected){
+    if (selected) {
       previousElement = selected.previousElementSibling;
     }
-    if (previousElement){
+    if (previousElement) {
       const auxiliar = {
         text: previousElement.innerText,
         class: previousElement.className,
@@ -220,10 +217,10 @@ function moveSelectedDown() {
   button.addEventListener('click', function () {
     const selected = document.querySelector('.selected');
     let nextElement;
-    if (selected){
+    if (selected) {
       nextElement = selected.nextElementSibling;
     }
-    if (nextElement){
+    if (nextElement) {
       const auxiliar = {
         text: nextElement.innerText,
         class: nextElement.className,
@@ -235,9 +232,6 @@ function moveSelectedDown() {
     }
   });
 }
-
-
-
 
 window.onload = function () {
   createTitle(); 
