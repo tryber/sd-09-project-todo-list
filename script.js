@@ -83,10 +83,10 @@ function removeCheckedTasks() {
 // Salva as preferencias no localStorage
 function saveAllTasks() {
   saveTasks.addEventListener('click', function () {
-    let olList = document.querySelectorAll('.todo-list');
-    let mylList = [];
-    let classes = [];
-    let myTasks = {
+    const olList = document.querySelectorAll('.todo-list');
+    const mylList = [];
+    const classes = [];
+    const myTasks = {
       mylList,
       classes,
     };
@@ -107,10 +107,10 @@ addTask();
 
 // Ao recarregar a página as preferências são carregadas
 window.onload = function () {
-  let myTodo = JSON.parse(localStorage.getItem('myTodoList'));
+  const myTodo = JSON.parse(localStorage.getItem('myTodoList'));
   if (myTodo !== null && myTodo.mylList.length > 0) {
     for (let index = 0; index < myTodo.mylList.length; index += 1) {
-      let savedList = document.createElement('li');
+      const savedList = document.createElement('li');
       savedList.innerHTML = myTodo.mylList[index];
       savedList.classList = 'todo-list';
       if (myTodo.classes[index] === true) {
