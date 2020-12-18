@@ -37,8 +37,10 @@ function chamgeBackgroudColorOfList() {
   orderedList.addEventListener('click', function (event) {
     if (event.target.className === 'lista-de-tarefas') {
       event.target.style.backgroundColor = '';
-    } else if (list.classList.contains('todo-list')) {
-      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    } else if (event.target.classList.contains('selected')) {
+      event.target.classList.remove('selected');
+    } else {
+      event.target.classList.add('selected');
     }
   });
 }
@@ -46,10 +48,10 @@ function chamgeBackgroudColorOfList() {
 // Risca as tarefas clicadas duas vezes
 function todoCompleted() {
   orderedList.addEventListener('dblclick', function (event) {
-    if (event.target.className === 'todo-list') {
-      event.target.className = 'todo-list completed';
-    } else if (event.target.className === 'todo-list completed') {
-      event.target.className = 'todo-list';
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
     }
   });
 }
@@ -81,21 +83,21 @@ function removeCheckedTasks() {
 // Salva as preferencias no localStorage
 function saveAllTasks() {
   saveTasks.addEventListener('click', function () {
-    const olList = document.querySelectorAll('.todo-list');
-    const mylList = [];
-    const classes = [];
-    const myTasks = {
+    let olList = document.querySelectorAll('.todo-list');
+    let mylList = [];
+    let classes = [];
+    let myTasks = {
       mylList,
       classes,
     };
     for (let index = 0; index < olList.length; index += 1) {
       mylList.push(olList[index].innerHTML);
-      classes.push(olList[index].className);
+      classes.push(olList[index].classList.contains('completed'));
     }
     localStorage.setItem('myTodoList', JSON.stringify(myTasks));
   });
 }
-
+//########################################################################
 saveAllTasks();
 removeCheckedTasks();
 removeAllTasks();
@@ -105,12 +107,15 @@ addTask();
 
 // Ao recarregar a página as preferências são carregadas
 window.onload = function () {
-  const myTodo = JSON.parse(localStorage.getItem('myTodoList'));
+  let myTodo = JSON.parse(localStorage.getItem('myTodoList'));
   if (myTodo !== null && myTodo.mylList.length > 0) {
     for (let index = 0; index < myTodo.mylList.length; index += 1) {
-      const savedList = document.createElement('li');
+      let savedList = document.createElement('li');
       savedList.innerHTML = myTodo.mylList[index];
-      savedList.className = myTodo.classes[index];
+      savedList.classList = 'todo-list';
+      if (myTodo.classes[index] === true) {
+        savedList.classList += ' completed';
+      }
       orderedList.appendChild(savedList);
     }
   }

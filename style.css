@@ -5,3 +5,7 @@ body {
 .completed {
   text-decoration: line-through black;
 }
+
+.selected {
+  background-color: rgb(128, 128, 128);
+}
