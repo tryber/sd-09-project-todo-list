@@ -16,6 +16,10 @@ const saveTasks = document.createElement('button');
 saveTasks.id = 'salvar-tarefas';
 saveTasks.innerHTML = 'Salvar Tarefas';
 buttonsSection.appendChild(saveTasks);
+const removeSelected = document.createElement('button');
+removeSelected.id = 'remover-selecionado';
+removeSelected.innerHTML = 'Remove Selected';
+buttonsSection.appendChild(removeSelected)
 
 // Adiciona as tarefas
 function addTask() {
@@ -38,7 +42,7 @@ function selectedDesativate() {
     for (let index = 0; index < selectedLi.length; index += 1) {
       selectedLi[index].classList.remove('selected');
     }
-    event.target.classList.add('selected')
+    event.target.classList.add('selected');
   });
 }
 
@@ -70,7 +74,7 @@ function removeCheckedTasks() {
     const listUl = document.querySelectorAll('#lista-tarefas>li');
     for (let index = 0; index < listUl.length; index += 1) {
       const checked = listUl[index];
-      if (checked.className === 'todo-list completed') {
+      if (checked.classList.contains('completed')) {
         checked.parentNode.removeChild(checked);
       }
     }
@@ -95,16 +99,24 @@ function saveAllTasks() {
   });
 }
 
+function removeSelectedTasks() {
+removeSelected.addEventListener('click', function () {
+  const selectList = document.querySelector('.selected')
+  orderedList.removeChild(selectList)
+});
+}
+
 saveAllTasks();
 removeCheckedTasks();
 removeAllTasks();
 todoCompleted();
 addTask();
 selectedDesativate();
+removeSelectedTasks();
 
 // Ao recarregar a página as preferências são carregadas
 const myTodo = JSON.parse(localStorage.getItem('myTodoList'));
-function loadPage () {
+function loadPage() {
   for (let index = 0; index < myTodo.mylList.length; index += 1) {
     const savedList = document.createElement('li');
     savedList.innerHTML = myTodo.mylList[index];
