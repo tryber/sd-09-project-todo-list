@@ -74,6 +74,22 @@ function saveTasksButton() {
   main.appendChild(button);
 }
 
+function moveUpButton() {
+  const main = document.querySelector('main');
+  const button = document.createElement('button');
+  button.id = 'mover-cima';
+  button.innerText = 'Mover para cima'
+  main.appendChild(button);
+}
+
+function moveDownButton() {
+  const main = document.querySelector('main');
+  const button = document.createElement('button');
+  button.id = 'mover-baixo';
+  button.innerText = 'Mover para baixo'
+  main.appendChild(button);
+}
+
 function createOrderedList() {
   const main = document.querySelector('main');
   const orderedList = document.createElement('ol');
@@ -178,6 +194,48 @@ function getListItens() {
   }
 }
 
+function moveSelectedUp() {
+  const button = document.getElementById('mover-cima');
+  button.addEventListener('click', function () {
+    const selected = document.querySelector('.selected');
+    let previousElement;
+    if (selected){
+      previousElement = selected.previousElementSibling;
+    }
+    if (previousElement){
+      const auxiliar = {
+        text: previousElement.innerText,
+        class: previousElement.className,
+      };
+      previousElement.innerText = selected.innerText;
+      previousElement.className = selected.className;
+      selected.innerText = auxiliar.text;
+      selected.className = auxiliar.className;
+    }
+  });
+}
+
+function moveSelectedDown() {
+  const button = document.getElementById('mover-baixo');
+  button.addEventListener('click', function () {
+    const selected = document.querySelector('.selected');
+    let nextElement;
+    if (selected){
+      nextElement = selected.nextElementSibling;
+    }
+    if (nextElement){
+      const auxiliar = {
+        text: nextElement.innerText,
+        class: nextElement.className,
+      };
+      nextElement.innerText = selected.innerText;
+      nextElement.className = selected.className;
+      selected.innerText = auxiliar.text;
+      selected.className = auxiliar.className;
+    }
+  });
+}
+
 
 
 
@@ -192,11 +250,15 @@ window.onload = function () {
   clearCompletedButton();
   clearSelectedButton();
   saveTasksButton();
+  moveUpButton();
+  moveDownButton();
   setListItens();
   getListItens();
   clearCompletedTasks();
   clearSelectedTasks();
   clearAllTasks();
+  moveSelectedUp();
+  moveSelectedDown();
   doubleClicked();
   clickedItem();
 };
