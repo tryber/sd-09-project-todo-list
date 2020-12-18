@@ -59,10 +59,24 @@ function turnGray(evt) {
   const listItem = document.querySelectorAll('li');
   for (let index = 0; index < listItem.length; index += 1) {
     listItem[index].style.backgroundColor = '';
-    console.log(listItem[index]);
   }
   const selectedItem = evt.target;
   selectedItem.style.backgroundColor = 'rgb(128 , 128 , 128)';
+}
+
+function lineThrough(evt) {
+  const selectedItem = evt.target;
+  if (selectedItem.classList.contains('completed')) {
+    selectedItem.classList.remove('completed');
+  } else {
+    const previousCompleted = document.querySelector('.completed');
+    if (previousCompleted !== null) {
+      previousCompleted.classList.remove('completed');
+      selectedItem.classList.add('completed');
+    } else {
+      selectedItem.classList.add('completed');
+    }
+  }
 }
 
 window.onload = function () {
@@ -77,4 +91,5 @@ window.onload = function () {
   taskInput = document.addEventListener('keyup', enterKey);
   const orderedList = document.querySelector('ol');
   orderedList.addEventListener('click', turnGray);
+  orderedList.addEventListener('dblclick', lineThrough);
 };
