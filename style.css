@@ -11,5 +11,17 @@
 }
 
 #remover-finalizados {
-    display: inline;
+  display: inline;
+}
+
+#remover-selecionado {
+  display: inline;
+}
+
+#mover-cima {
+  display: inline;
+}
+
+#mover-baixo {
+  display: inline;
 }
