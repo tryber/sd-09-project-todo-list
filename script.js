@@ -39,7 +39,7 @@ function createOrderedList() {
 }
 
 function addTaskToList() {
-  let taskInput = document.querySelector('#texto-tarefa');
+  const taskInput = document.querySelector('#texto-tarefa');
   const orderedList = document.querySelector('#lista-tarefas');
   const listItem = document.createElement('li');
   listItem.innerHTML = taskInput.value;
@@ -69,14 +69,8 @@ function lineThrough(evt) {
   if (selectedItem.classList.contains('completed')) {
     selectedItem.classList.remove('completed');
   } else {
-    const previousCompleted = document.querySelector('.completed');
-    if (previousCompleted !== null) {
-      previousCompleted.classList.remove('completed');
-      selectedItem.classList.add('completed');
-    } else {
       selectedItem.classList.add('completed');
     }
-  }
 }
 
 function createRemoveButton() {
@@ -93,6 +87,22 @@ function removeListItem() {
     listItem[index].remove();
   }
 }
+
+function createRemoveCompletedButton() {
+  const main = document.querySelector('main');
+  const removeCompletedButton = document.createElement('button');
+  removeCompletedButton.id = 'remover-finalizados';
+  removeCompletedButton.innerHTML = 'Remover finalizados';
+  main.appendChild(removeCompletedButton);
+}
+
+function removeCompleted() {
+  const completedTasks = document.querySelectorAll('.completed');
+  for (let index = 0; index < completedTasks.length; index += 1) {
+    completedTasks[index].remove();
+  }
+}
+
 window.onload = function () {
   createHeader();
   createMain();
@@ -109,4 +119,7 @@ window.onload = function () {
   createRemoveButton();
   const removeButton = document.querySelector('#apaga-tudo');
   removeButton.addEventListener('click', removeListItem);
+  createRemoveCompletedButton();
+  const removeCompletedButton = document.querySelector('#remover-finalizados');
+  removeCompletedButton.addEventListener('click', removeCompleted);
 };
