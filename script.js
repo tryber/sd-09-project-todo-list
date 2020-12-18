@@ -58,6 +58,7 @@ function tarefaConcluida() {
     }
   });
 }
+
 // fonte: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_removechild_while
 function botaoApagaTudo() {
   const controles = document.querySelector('#controles');
@@ -81,13 +82,14 @@ function botaoApagaConcluido() {
   botao.id = 'remover-finalizados';
   botao.className = 'remover-finalizados';
   controles.appendChild(botao);
+}
+
+function apagaConcluido() {
+  const botao = document.querySelector('#remover-finalizados');
   botao.addEventListener('click', function () {
-        const linha = document.getElementsByTagName('li');
-    for (let index = 0; index < linha.length; index += 1) {
-      const lista = document.getElementById('lista-tarefas');
-      if (linha[index].classList.contains('completed')) {
-        lista.removeChild(lista.childNodes[index]);
-      }
+    const tarefa = document.querySelectorAll('.completed');
+    for (let index = 0; index < tarefa.length; index += 1) {
+      tarefa[index].remove();
     }
   });
 }
@@ -97,5 +99,6 @@ window.onload = function () {
   seleciona();
   tarefaConcluida();
   botaoApagaConcluido();
+  apagaConcluido();
   botaoApagaTudo();
 };
