@@ -1,0 +1,19 @@
+body {
+  margin: 0;
+}
+
+h1 , p {
+  text-align: center;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+ol li {
+  background-color: white;
+}
+
+.selected {
+  background-color: rgb(128 , 128 , 128);
+}
