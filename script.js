@@ -36,6 +36,29 @@ function removeCompletedElements() {
   }
 }
 
+function loadSavedTasks() {
+  // Pegar cada conjunto chave-valor do Local Storage, e criar uma linha inserindo o texto do valor da chave
+  console.log(localStorage.getItem(`Task `))
+  for (let index = 1; index <= localStorage.length; index += 1) {
+    let taskText = localStorage.getItem(`Task ${index}`)
+    const line = document.createElement('li')
+    line.textContent = taskText
+    const taskList = document.querySelector('#lista-tarefas')
+    taskList.appendChild(line)
+  }
+}
+
+function saveTasks() {
+  const tasks = document.querySelectorAll('#lista-tarefas > li');
+  if (tasks === null) {
+    return
+  }
+  localStorage.clear();
+  for (let index = 0; index <= tasks.length -1; index += 1) {
+    localStorage.setItem(`Task ${index + 1}`,tasks[index].textContent)
+  }
+}
+
 function addEventsListener() {
 //  Escutador no botão
   const addTaskButton = document.querySelector('#criar-tarefa');
@@ -50,6 +73,12 @@ function addEventsListener() {
   //  Escutador do botão remover selecionados
   const buttonRemoveCompleted = document.querySelector('#remover-finalizados');
   buttonRemoveCompleted.addEventListener('click', removeCompletedElements);
+  //  Escitador do botão que salva a lista
+  const buttonSave = document.querySelector('#salvar-tarefas')
+  buttonSave.addEventListener('click',saveTasks)
 }
 
-window.onload = addEventsListener();
+window.onload = function() {
+  addEventsListener();
+  loadSavedTasks();
+}
