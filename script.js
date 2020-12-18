@@ -39,10 +39,13 @@ function removeCompletedElements() {
 function loadSavedTasks() {
   // Pegar cada conjunto chave-valor do Local Storage, e criar uma linha inserindo o texto do valor da chave
   console.log(localStorage.getItem(`Task `))
-  for (let index = 1; index <= localStorage.length; index += 1) {
-    let taskText = localStorage.getItem(`Task ${index}`)
+  const numberTasks = localStorage.getItem('Task count');
+  for (let index = 1; index <= numberTasks; index += 1) {
+    const taskText = localStorage.getItem(`Task ${index}`)
     const line = document.createElement('li')
     line.textContent = taskText
+    const taskClasses = localStorage.getItem(`Task ${index} - class`)
+    line.classList = taskClasses
     const taskList = document.querySelector('#lista-tarefas')
     taskList.appendChild(line)
   }
@@ -54,8 +57,10 @@ function saveTasks() {
     return
   }
   localStorage.clear();
+  localStorage.setItem(`Task count`,tasks.length)
   for (let index = 0; index <= tasks.length -1; index += 1) {
     localStorage.setItem(`Task ${index + 1}`,tasks[index].textContent)
+    localStorage.setItem(`Task ${index + 1} - class`,tasks[index].classList)
   }
 }
 
