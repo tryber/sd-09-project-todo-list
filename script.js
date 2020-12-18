@@ -1,41 +1,34 @@
 let taskList = [];
-const listTask = document.querySelector('#lista-tarefas');
 
 function addItemButton() {
-  const clickButton = document.querySelector('#criar-tarefa');
+  const clickButton = document.querySelector('#criar-tarefa')
   clickButton.addEventListener('click', function() {
-    let textInBox = document.querySelector('#texto-tarefa').value;
-    taskList.push(textInBox);
-    listTask.innerHTML = '';
-    taskListItem();
-    textInBox = document.querySelector('#texto-tarefa').value = '';  
-    paintElementLi()
-  });
-}
+  let textInBox = document.querySelector('#texto-tarefa');
+  const listTask = document.querySelector('#lista-tarefas');
 
-function taskListItem() {
-  for (let listItem = 0; listItem < taskList.length; listItem += 1){
-   const taskItem = taskList[listItem];
-   let item = document.createElement('li');
-   item.innerText = taskItem;
-   listTask.appendChild(item);
-   }
+  if(textInBox.value.length > 0){
+    const item = document.createElement('li');
+    item.innerText = textInBox.value;
+    item.className = 'item';
+    listTask.appendChild(item);
+    textInBox.value = '';
 }
+});
+}
+addItemButton();
+
 function paintElementLi () {
-    let backgroundColorTask = document.getElementsByTagName('li')
-    for (let indexElement = 0; indexElement < taskList.length; indexElement +=1 ){
-        backgroundColorTask[indexElement].addEventListener('click', function(event){
-           backgroundColorTask[indexElement].style.background = 'rgb(128, 128, 128)'
-        })
-    }
-    
-}
+  const backgroundColorTask = document.querySelector('#lista-tarefas')
+  backgroundColorTask.addEventListener('click', function (event) {
+  const backgroundColorTask = document.querySelector('.selected');
+  if (backgroundColorTask) {
+    backgroundColorTask.classList.remove('selected');
+    backgroundColorTask.style.backgroundColor = '';
+  }
+    event.target.className = 'selected';       
 
-
-  
-
-window.onload = function() {
-    addItemButton();
-    taskListItem();
-    
+  });
 };
+paintElementLi()
+
+
