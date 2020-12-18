@@ -1,10 +1,10 @@
 .completed {
-  text-decoration: line-through rgb(0, 0, 0);
+  text-decoration: line-through rgb(0 , 0 , 0);
 }
 
 .greyBackground {
-  background-color:  rgb(128, 128, 128);
-  }
+  background-color:  rgb(128 , 128 , 128);
+}
 
 .main {
   border: 1px solid;

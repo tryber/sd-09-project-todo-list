@@ -1,7 +1,19 @@
+function greybackground() {
+  const list2 = document.querySelectorAll('.list');
+  for (let index = 0; index < list2.length; index += 1) {
+    list2[index].addEventListener('click', function () {
+      for (let index2 = 0; index2 < list2.length; index2 += 1) {
+        list2[index2].classList.remove('greyBackground');
+      }
+      list2[index].classList.add('greyBackground');
+    });
+  }
+}
+
 function createItemList() {
   const buttom = document.getElementById('criar-tarefa');
   const list = document.getElementById('lista-tarefas');
-  const generateItemByClick = buttom.addEventListener('click', function() {
+  buttom.addEventListener('click', function() {
     const createItem = document.createElement('li');
     createItem.classList.add('list');
     const imputText = document.getElementById('texto-tarefa').value;
@@ -13,35 +25,27 @@ function createItemList() {
   });
 }
 
-function greybackground() {
-  const list2 = document.querySelectorAll('.list');
-  const listLength = list2.length;
-  for (let index = 0; index < list2.length; index += 1) {
-    list2[index].addEventListener('click', function() {
-      for (index2 =0; index2 < list2.length; index2 +=1) {
-        list2[index2].classList.remove('greyBackground');
-      }
-      list2[index].classList.add('greyBackground');
-    });
-  }
-}
-
 function eraseAll() {
   const erase = document.getElementById('apaga-tudo');
   const list = document.getElementById('lista-tarefas');
   erase.addEventListener('click', function() {
     list.innerText = '';
-  })
+  });
 }
 
-// function dobleClick() {
-//   const title = document.getElementsByClassName('title')
-//   title.addEventListener('dobleClick', function(event) {
-//     event.target.classList.add('completed');
-//   })
-// }
+function dblclick() {
+  const list = document.querySelector('ol');
+  list.addEventListener('dblclick', function(event) {
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
+    }
+  });
+}
 
-window.onload = function() {
-  createItemList();
-  eraseAll();
+window.onload = function () {
+  createItemList ();
+  dblclick ();
+  eraseAll ();
 };
