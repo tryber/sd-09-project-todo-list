@@ -4,17 +4,23 @@ body {
   min-width: 500px;
 }
 
+.botao {
+  margin: 0 3px;
+}
+
 .completed {
   text-decoration: line-through solid black;
 }
 
 .controles {
-  margin-top: 8px;
+  margin: 8px auto;
+  text-align-last: center;
 }
 
 fieldset {
   margin: 0;
   padding: 0;
+  border-radius: 5px;
 }
 
 h1 {
@@ -28,16 +34,12 @@ li {
 }
 
 main {
-  margin: auto;
+  margin: 0 auto;
   width: 500px;
 }
 
 p {
   text-align: center;
-}
-
-.remover-finalizados {
-  margin: 0 8px;
 }
 
 .selecionado {

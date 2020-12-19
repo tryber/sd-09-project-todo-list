@@ -1,3 +1,12 @@
+function criarBotao(descricao, identificador, pai) {
+  const elementoPai = document.getElementById(pai);
+  const botao = document.createElement('button');
+  botao.innerText = descricao;
+  botao.id = identificador;
+  botao.classList.add('botao', identificador);
+  elementoPai.appendChild(botao);
+}
+
 function criarTarefa() {
   const entradaTextoTarefa = document.getElementById('texto-tarefa');
   const listaTarefas = document.getElementById('lista-tarefas');
@@ -41,6 +50,15 @@ function seleciona() {
   });
 }
 
+function moverParaCima() {
+  const botao = document.querySelector('#mover-cima');
+  botao.appendChild('click', function () {
+    const lista = document.querySelector('#lista-tarefas');
+    const selecionado = document.querySelector('.selecionado');
+    
+  });
+}
+
 function tarefaConcluida() {
   const listaTarefas = document.querySelector('#lista-tarefas');
   listaTarefas.addEventListener('dblclick', function (event) {
@@ -60,28 +78,14 @@ function tarefaConcluida() {
 }
 
 // fonte: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_removechild_while
-function botaoApagaTudo() {
-  const controles = document.querySelector('#controles');
-  const botao = document.createElement('button');
-  botao.innerText = 'Limpar Lista 🗑';
-  botao.id = 'apaga-tudo';
-  botao.className = 'apaga-tudo';
-  controles.appendChild(botao);
+function ApagaTudo() {
+  const botao = document.querySelector('#apaga-tudo');
   botao.addEventListener('click', function () {
     const lista = document.getElementById('lista-tarefas');
     while (lista.hasChildNodes()) {
       lista.removeChild(lista.firstChild);
     }
   });
-}
-
-function botaoApagaConcluido() {
-  const controles = document.querySelector('#controles');
-  const botao = document.createElement('button');
-  botao.innerText = 'Limpar Concluídos ❌';
-  botao.id = 'remover-finalizados';
-  botao.className = 'remover-finalizados';
-  controles.appendChild(botao);
 }
 
 function apagaConcluido() {
@@ -94,20 +98,11 @@ function apagaConcluido() {
   });
 }
 
-function botaoSalvar() {
-  const controles = document.querySelector('#controles');
-  const botao = document.createElement('button');
-  botao.innerText = 'Salvar 💾';
-  botao.id = 'salvar-tarefas';
-  botao.className = 'salvar-tarefas';
-  controles.appendChild(botao);
-}
-
 function webStorage() {
   const botao = document.querySelector('#salvar-tarefas');
   botao.addEventListener('click', function () {
     const lista = document.getElementsByTagName('li');
-    if (typeof(Storage) !== 'undefined') {
+    if (typeof (Storage) !== 'undefined') {
       const tarefas = [];
       for (let index = 0; index < lista.length; index += 1) {
         tarefas.push({ value: lista[index].innerHTML, class: lista[index].className });
@@ -134,14 +129,20 @@ function recuperarSalvos() {
   }
 }
 
+
+
 window.onload = function () {
+  criarBotao('Adicionar 📝', 'criar-tarefa', 'tarefas');
+  criarBotao('⬆', 'mover-cima', 'controles');
+  criarBotao('⬇', 'mover-baixo', 'controles');
+  criarBotao('Salvar 💾', 'salvar-tarefas', 'controles');
+  criarBotao('Limpar Concluídos ❌', 'remover-finalizados', 'controles');
+  criarBotao('Limpar Lista 🗑', 'apaga-tudo', 'controles');
   funcaoAdicionar();
   seleciona();
   tarefaConcluida();
-  botaoSalvar();
-  botaoApagaConcluido();
-  apagaConcluido();
-  botaoApagaTudo();
   webStorage();
   recuperarSalvos();
+  apagaConcluido();
+  ApagaTudo();
 };
