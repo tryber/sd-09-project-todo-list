@@ -21,7 +21,6 @@ function createTaskInput() {
   taskInput.id = 'texto-tarefa';
   taskInput.type = 'text';
   main.appendChild(taskInput);
-  taskInput.addEventListener('keyup', enterKey);
 }
 
 function createTaskInputButton() {
@@ -30,7 +29,6 @@ function createTaskInputButton() {
   taskInputButton.id = 'criar-tarefa';
   taskInputButton.innerHTML = 'adicionar tarefa';
   main.appendChild(taskInputButton);
-  taskInputButton.addEventListener('click', addTaskToList);
 }
 
 function createOrderedList() {
@@ -50,8 +48,6 @@ function createOrderedList() {
     }
   }
   main.appendChild(orderedList);
-  orderedList.addEventListener('click', turnGray);
-  orderedList.addEventListener('dblclick', lineThrough);
 }
 
 function addTaskToList() {
@@ -97,7 +93,6 @@ function createRemoveButton() {
   removeButton.id = 'apaga-tudo';
   removeButton.innerHTML = 'Limpar Lista';
   main.appendChild(removeButton);
-  removeButton.addEventListener('click', removeListItem);
 }
 
 function removeListItem() {
@@ -113,7 +108,6 @@ function createRemoveCompletedButton() {
   removeCompletedButton.id = 'remover-finalizados';
   removeCompletedButton.innerHTML = 'Remover finalizados';
   main.appendChild(removeCompletedButton);
-  removeCompletedButton.addEventListener('click', removeCompleted);
 }
 
 function removeCompleted() {
@@ -129,7 +123,6 @@ function createSaveTasksButton() {
   saveTasksButton.id = 'salvar-tarefas';
   saveTasksButton.innerHTML = 'salvar tarefas';
   main.appendChild(saveTasksButton);
-  saveTasksButton.addEventListener('click', saveTasks);
 }
 
 function saveTasks() {
@@ -155,7 +148,6 @@ function createMoveUp() {
   moveUpButton.id = 'mover-cima';
   moveUpButton.innerText = 'Up';
   main.appendChild(moveUpButton);
-  moveUpButton.addEventListener('click', moveUp);
 }
 
 function createMoveDown() {
@@ -164,7 +156,6 @@ function createMoveDown() {
   moveDownButton.id = 'mover-baixo';
   moveDownButton.innerText = 'Down';
   main.appendChild(moveDownButton);
-  moveDownButton.addEventListener('click', moveDown);
 }
 
 function moveUp() {
@@ -183,10 +174,10 @@ function moveDown() {
   const listItem = document.querySelectorAll('li');
   const lastItem = listItem[(listItem.length - 1)];
   const selectedItem = document.querySelector('.selected');
-  const nextElement = selectedItem.nextElementSibling;
   if (selectedItem === null || lastItem.classList.contains('selected')) {
     // do nothing
   } else {
+    const nextElement = selectedItem.nextElementSibling;
     orderedList.insertBefore(selectedItem, nextElement.nextElementSibling);
   }
 }
@@ -197,11 +188,10 @@ function createRemoveSelectedButton() {
   removeSelectedButton.id = 'remover-selecionado';
   removeSelectedButton.innerText = 'Remover selecionado';
   main.appendChild(removeSelectedButton);
-  removeSelectedButton.addEventListener('click', removeSelected);
 }
 
 function removeSelected() {
-  let selectedItem = document.querySelector('.selected');
+  const selectedItem = document.querySelector('.selected');
   if (selectedItem !== null) {
     selectedItem.remove();
   }
@@ -213,10 +203,29 @@ window.onload = function () {
   createTaskInput();
   createTaskInputButton();
   createOrderedList();
+  const taskInputButton = document.querySelector('#criar-tarefa');
+  taskInputButton.addEventListener('click', addTaskToList);
+  const taskInput = document.querySelector('#texto-area');
+  taskInput.addEventListener('keyup', enterKey);
+  const orderedList = document.querySelector('ol');
+  orderedList.addEventListener('click', turnGray);
+  orderedList.addEventListener('dblclick', lineThrough);
   createRemoveButton();
+  const removeButton = document.querySelector('#apaga-tudo');
+  removeButton.addEventListener('click', removeListItem);
   createRemoveCompletedButton();
+  const removeCompletedButton = document.querySelector('#remover-finalizados');
+  removeCompletedButton.addEventListener('click', removeCompleted);
   createSaveTasksButton();
+  const saveTasksButton = document.querySelector('#salvar-tarefas');
+  saveTasksButton.addEventListener('click', saveTasks);
   createMoveUp();
+  const moveUpButton = document.querySelector('#mover-cima');
+  moveUpButton.addEventListener('click', moveUp);
   createMoveDown();
+  const moveDownButton = document.querySelector('#mover-baixo');
+  moveDownButton.addEventListener('click', moveDown);
   createRemoveSelectedButton();
+  const removeSelectedButton = document.querySelector('#remover-selecionado');
+  removeSelectedButton.addEventListener('click', removeSelected);
 };
