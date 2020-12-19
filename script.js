@@ -72,10 +72,10 @@ function enterKey(evt) {
 function turnGray(evt) {
   const listItem = document.querySelectorAll('li');
   for (let index = 0; index < listItem.length; index += 1) {
-    listItem[index].style.backgroundColor = '';
+    listItem[index].classList.remove('selected');
   }
   const selectedItem = evt.target;
-  selectedItem.style.backgroundColor = 'rgb(128 , 128 , 128)';
+  selectedItem.classList.add('selected');
 }
 
 function lineThrough(evt) {
@@ -142,6 +142,46 @@ function saveTasks() {
   localStorage.setItem('completed', JSON.stringify(completedTasks));
 }
 
+function createMoveUp() {
+  const main = document.querySelector('main');
+  const moveUpButton = document.createElement('button');
+  moveUpButton.id = 'mover-cima';
+  moveUpButton.innerText = 'Up';
+  main.appendChild(moveUpButton);
+}
+
+function createMoveDown() {
+  const main = document.querySelector('main');
+  const moveDownButton = document.createElement('button');
+  moveDownButton.id = 'mover-baixo';
+  moveDownButton.innerText = 'Down';
+  main.appendChild(moveDownButton);
+}
+
+function moveUp() {
+  const orderedList = document.querySelector('ol');
+  const listItem = document.querySelectorAll('li');
+  const selectedItem = document.querySelector('.selected');
+  if (selectedItem === null || listItem[0].classList.contains('selected')) {
+    // do nothing
+  } else {
+    orderedList.insertBefore(selectedItem, selectedItem.previousElementSibling);
+  }
+}
+
+function moveDown() {
+  const orderedList = document.querySelector('ol');
+  const listItem = document.querySelectorAll('li');
+  const lastItem = listItem[(listItem.length - 1)];
+  const selectedItem = document.querySelector('.selected');
+  const nextElement = selectedItem.nextElementSibling;
+  if (selectedItem === null || lastItem.classList.contains('selected')) {
+    // do nothing
+  } else {
+    orderedList.insertBefore(selectedItem, nextElement.nextElementSibling);
+  }
+}
+
 window.onload = function () {
   createHeader();
   createMain();
@@ -164,4 +204,10 @@ window.onload = function () {
   createSaveTasksButton();
   const saveTasksButton = document.querySelector('#salvar-tarefas');
   saveTasksButton.addEventListener('click', saveTasks);
+  createMoveUp();
+  createMoveDown();
+  const moveUpButton = document.querySelector('#mover-cima');
+  moveUpButton.addEventListener('click', moveUp);
+  const moveDownButton = document.querySelector('#mover-baixo');
+  moveDownButton.addEventListener('click', moveDown);
 };
