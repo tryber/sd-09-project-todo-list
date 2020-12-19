@@ -205,7 +205,7 @@ window.onload = function () {
   createOrderedList();
   const taskInputButton = document.querySelector('#criar-tarefa');
   taskInputButton.addEventListener('click', addTaskToList);
-  const taskInput = document.querySelector('#texto-area');
+  const taskInput = document.querySelector('#texto-tarefa');
   taskInput.addEventListener('keyup', enterKey);
   const orderedList = document.querySelector('ol');
   orderedList.addEventListener('click', turnGray);
