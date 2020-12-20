@@ -32,6 +32,7 @@ function limpaSelecao() {
   const selecao = document.querySelectorAll('li');
   for (let index = 0; index < selecao.length; index += 1) {
     selecao[index].classList.remove('selecionado');
+    selecao[index].removeAttribute('id');
   }
 }
 
@@ -48,48 +49,45 @@ function seleciona() {
     if (cont === 0) {
       limpaSelecao();
       selecao.classList.add('selecionado');
+      selecao.id = 'selecionado';
     } else {
       limpaSelecao();
     }
   });
 }
 
-function moverParaCima() {
-  const botao = document.querySelector('#mover-cima');
-  botao.addEventListener('click', function () {
-    mover('paraCima');
-  });
-}
-
-function moverParaBaixo() {
-  const botao = document.querySelector('#mover-baixo');
-  botao.addEventListener('click', function () {
-    mover('paraBaixo');
-  });
-}
-
-function mover(direcao) {
-  if(direcao === 'paraCima') {
-    const lista = document.querySelector('#lista-tarefas');
-    const tarefa = document.querySelectorAll('li');
-    for (let index = 0; index < tarefa.length; index += 1) {
-      if (tarefa[index].classList.contains('selecionado')) {
-        if (tarefa[index].previousElementSibling !== null) {
-          lista.insertBefore(tarefa[index], tarefa[index].previousElementSibling);
-        }
-      }
-    }
-  } else {
-    const lista = document.querySelector('#lista-tarefas');
-    const tarefa = document.querySelectorAll('li');
-    for (let index = 0; index < tarefa.length; index += 1) {
-      if (tarefa[index].classList.contains('selecionado')) {
-        if (tarefa[index].nextElementSibling !== null) {
-          lista.insertBefore(tarefa[index].nextElementSibling, tarefa[index]);
-        }
+function moverCima() {
+  const lista = document.querySelector('#lista-tarefas');
+  const tarefa = document.querySelectorAll('li');
+  for (let index = 0; index < tarefa.length; index += 1) {
+    if (tarefa[index].classList.contains('selecionado')) {
+      if (tarefa[index].previousElementSibling !== null) {
+        lista.insertBefore(tarefa[index], tarefa[index].previousElementSibling);
       }
     }
   }
+ }
+
+function moverBaixo() {
+  const lista = document.querySelector('#lista-tarefas');
+  const tarefa = document.querySelectorAll('li');
+  for (let index = 0; index < tarefa.length; index += 1) {
+    if (tarefa[index].classList.contains('selecionado')) {
+      if (tarefa[index].nextElementSibling !== null) {
+        lista.insertBefore(tarefa[index].nextElementSibling, tarefa[index]);
+      }
+    }
+  }
+}
+
+function botaoSobe() {
+  const botao = document.querySelector('#mover-cima');
+  botao.addEventListener('click', moverCima);
+}
+
+function botaoDesce() {
+  const botao = document.querySelector('#mover-baixo');
+  botao.addEventListener('click', moverBaixo);
 }
 
 function tarefaConcluida() {
@@ -161,12 +159,26 @@ function recuperarSalvos() {
   }
 }
 
+function removerSelecionado() {
+  const botao = document.querySelector('#remover-selecionado');
+  botao.addEventListener('click', function () {
+    const lista = document.querySelectorAll('li');
+    const selecionado = document.getElementById('selecionado');
+    for (let index = 0; index < lista.length; index += 1) {
+      if (lista[index].id === 'selecionado') {
+        selecionado.parentNode.removeChild(selecionado);
+      }
+    }
+  });
+}
+
 window.onload = function () {
   criarBotao('Adicionar 📝', 'criar-tarefa', 'tarefas');
   criarBotao('⬆', 'mover-cima', 'controles');
   criarBotao('⬇', 'mover-baixo', 'controles');
   criarBotao('Salvar 💾', 'salvar-tarefas', 'controles');
-  criarBotao('Limpar Concluídos ❌', 'remover-finalizados', 'controles');
+  criarBotao('Selecionado ❌', 'remover-selecionado', 'controles');
+  criarBotao('Concluídos ❌', 'remover-finalizados', 'controles');
   criarBotao('Limpar Lista 🗑', 'apaga-tudo', 'controles');
   funcaoAdicionar();
   seleciona();
@@ -175,6 +187,7 @@ window.onload = function () {
   recuperarSalvos();
   apagaConcluido();
   ApagaTudo();
-  moverParaCima();
-  moverParaBaixo();
+  botaoSobe();
+  botaoDesce();
+  removerSelecionado();
 };
