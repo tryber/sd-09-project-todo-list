@@ -13,3 +13,12 @@ buttonAddTask.addEventListener('click', function () {
   myTaskList.appendChild(myElement);
   myTaskInput.value = '';
 });
+myTaskList.addEventListener('click', function (event) {
+  const selectedItem = document.getElementsByClassName('selected')[0];
+  if (selectedItem) {
+    selectedItem.classList.remove('selected');
+  }
+  const clickedItem = event.target;
+  console.log(event.target);
+  clickedItem.classList.add('selected');
+});
