@@ -1,4 +1,11 @@
 html {
   margin: 0;
-  padding: 0;
+  padding: 50px;
+}
+
+main {
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
 }

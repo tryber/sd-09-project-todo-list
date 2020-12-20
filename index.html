@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
   <title>toDoList</title>
 </head>
 <body>
@@ -10,5 +11,17 @@
     <h1>Minha Lista de Tarefas</h1>
     <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
   </header>
+  <main>
+    <section class="Tasks-Container">
+      <ol id="lista-tarefas">
+        <li><span>teste</span></li>
+      </ol>
+    </section>
+    <div>
+      <input id="texto-tarefa" type="text" placeholder="Insert here your task.">
+      <button id="criar-tarefa">Create Task</button>
+    </div>
+  </main>
+  <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
