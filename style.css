@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,300&display=swap');
+
 body {
-  font-family: 'Nanum Pen Script', cursive;
+  font-family: Poppins;
 }
 
 main {
@@ -11,47 +13,109 @@ main {
   text-align: center;
 }
 
+h1{
+  border-bottom: 1.5px solid #107AB0;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  color:black;
+}
+
+p{
+  border-bottom: 1.5px solid #107AB0;
+  border-radius: 10px;
+  color:black;
+  font-size: 14px;
+}
+
 input[type='text'] {
-  height: 9px;
   border: 1px solid #ccc;
   border-radius: 100px;
   color: #999;
   font-size: 15px;
+  height: 9px;
+  outline: none;
   padding: 10px;
   width: 80%;
 }
 
+input:focus{
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+input:hover{
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
 button {
   border: none;
-  background: #107AB0;
-  border-radius: 100px;
+  background-color: #4CAF50;
+  border-radius: 10px;
   color: #fff;
   cursor: pointer;
   height: 25px;
+  outline: none;
   transition: background 0.3s;
+  text-align: center;
+  text-decoration: none;
+}
+
+.button1 {
+  background-color: white; 
+  border: 2px solid #4CAF50;
+  color: black; 
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.button2 {
+  background-color: white; 
+  border: 2px solid #008CBA;
+  color: black; 
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+
+.button3 {
+  background-color: white; 
+  border: 2px solid #f44336;
+  color: black; 
+}
+
+.button3:hover {
+  background-color: #f44336;
+  color: white;
+}
+
+ol{
+  padding: 0;
 }
 
 li {
-  border-bottom: 1px solid #107AB0;
+  border-radius: 10px;
+  border-left: 2.5px solid #107AB0;
+  border-right: 2.5px solid #107AB0;
   cursor: pointer;
   font-size: 15px;
+  list-style: none;
   margin: 0 auto;
-  padding: 10px 10px 10px 40px;
+  outline: none;
+  padding: 10px 10px 10px 10px;
   text-align: center;
   width: 95%;
+}
+
+li:hover{
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
 .completed {
   text-decoration: line-through;
   user-select: none;
-}
-.completed::before {
-  content: '\2705';
-  display: inline-block;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 20px;
-  text-align: center;
 }
 
 .selected {
