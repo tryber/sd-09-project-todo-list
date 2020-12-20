@@ -56,38 +56,34 @@ function seleciona() {
   });
 }
 
-function moverCima() {
-  const lista = document.querySelector('#lista-tarefas');
-  const tarefa = document.querySelectorAll('li');
-  for (let index = 0; index < tarefa.length; index += 1) {
-    if (tarefa[index].classList.contains('selecionado')) {
-      if (tarefa[index].previousElementSibling !== null) {
-        lista.insertBefore(tarefa[index], tarefa[index].previousElementSibling);
-      }
-    }
-  }
- }
-
-function moverBaixo() {
-  const lista = document.querySelector('#lista-tarefas');
-  const tarefa = document.querySelectorAll('li');
-  for (let index = 0; index < tarefa.length; index += 1) {
-    if (tarefa[index].classList.contains('selecionado')) {
-      if (tarefa[index].nextElementSibling !== null) {
-        lista.insertBefore(tarefa[index].nextElementSibling, tarefa[index]);
-      }
-    }
-  }
-}
-
 function botaoSobe() {
+  const lista = document.querySelector('#lista-tarefas');
+  const tarefa = document.querySelectorAll('li');
   const botao = document.querySelector('#mover-cima');
-  botao.addEventListener('click', moverCima);
+  botao.addEventListener('click', function () {
+    for (let index = 0; index < tarefa.length; index += 1) {
+      if (tarefa[index].classList.contains('selecionado')) {
+        if (tarefa[index].previousElementSibling !== null) {
+          lista.insertBefore(tarefa[index], tarefa[index].previousElementSibling);
+        }
+      }
+    }
+  });
 }
 
 function botaoDesce() {
+  const lista = document.querySelector('#lista-tarefas');
+  const tarefa = document.querySelectorAll('li');
   const botao = document.querySelector('#mover-baixo');
-  botao.addEventListener('click', moverBaixo);
+  botao.addEventListener('click', function () {
+    for (let index = 0; index < tarefa.length; index += 1) {
+      if (tarefa[index].classList.contains('selecionado')) {
+        if (tarefa[index].nextElementSibling !== null) {
+          lista.insertBefore(tarefa[index].nextElementSibling, tarefa[index]);
+        }
+      }
+    }
+  });
 }
 
 function tarefaConcluida() {
