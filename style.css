@@ -13,14 +13,14 @@ body {
 }
 
 .controles {
-  margin: 8px auto;
+  margin: 7px auto;
   text-align-last: center;
 }
 
 fieldset {
+  border-radius: 5px;
   margin: 0;
   padding: 0;
-  border-radius: 5px;
 }
 
 h1 {
@@ -28,8 +28,8 @@ h1 {
 }
 
 li {
+  line-height: 25px;
   list-style-type: decimal-leading-zero;
-  margin-left: 0;
   padding-left: 5px;
 }
 
@@ -45,7 +45,7 @@ p {
 .selecionado {
   background-color: grey;
   color: white;
-  width: 98%;
+  width: 96%;
 }
 
 .selecionado::marker {

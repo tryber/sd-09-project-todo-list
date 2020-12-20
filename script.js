@@ -1,3 +1,7 @@
+/* Fontes:
+https://developer.mozilla.org/
+https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_removechild_while
+*/
 function criarBotao(descricao, identificador, pai) {
   const elementoPai = document.getElementById(pai);
   const botao = document.createElement('button');
@@ -52,11 +56,40 @@ function seleciona() {
 
 function moverParaCima() {
   const botao = document.querySelector('#mover-cima');
-  botao.appendChild('click', function () {
-    const lista = document.querySelector('#lista-tarefas');
-    const selecionado = document.querySelector('.selecionado');
-    
+  botao.addEventListener('click', function () {
+    mover('paraCima');
   });
+}
+
+function moverParaBaixo() {
+  const botao = document.querySelector('#mover-baixo');
+  botao.addEventListener('click', function () {
+    mover('paraBaixo');
+  });
+}
+
+function mover(direcao) {
+  if(direcao === 'paraCima') {
+    const lista = document.querySelector('#lista-tarefas');
+    const tarefa = document.querySelectorAll('li');
+    for (let index = 0; index < tarefa.length; index += 1) {
+      if (tarefa[index].classList.contains('selecionado')) {
+        if (tarefa[index].previousElementSibling !== null) {
+          lista.insertBefore(tarefa[index], tarefa[index].previousElementSibling);
+        }
+      }
+    }
+  } else {
+    const lista = document.querySelector('#lista-tarefas');
+    const tarefa = document.querySelectorAll('li');
+    for (let index = 0; index < tarefa.length; index += 1) {
+      if (tarefa[index].classList.contains('selecionado')) {
+        if (tarefa[index].nextElementSibling !== null) {
+          lista.insertBefore(tarefa[index].nextElementSibling, tarefa[index]);
+        }
+      }
+    }
+  }
 }
 
 function tarefaConcluida() {
@@ -77,7 +110,6 @@ function tarefaConcluida() {
   });
 }
 
-// fonte: https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_removechild_while
 function ApagaTudo() {
   const botao = document.querySelector('#apaga-tudo');
   botao.addEventListener('click', function () {
@@ -129,8 +161,6 @@ function recuperarSalvos() {
   }
 }
 
-
-
 window.onload = function () {
   criarBotao('Adicionar 📝', 'criar-tarefa', 'tarefas');
   criarBotao('⬆', 'mover-cima', 'controles');
@@ -145,4 +175,6 @@ window.onload = function () {
   recuperarSalvos();
   apagaConcluido();
   ApagaTudo();
+  moverParaCima();
+  moverParaBaixo();
 };
