@@ -13,8 +13,8 @@ function addTask() {
 }
 
 function selectItem() {
-  const listItems = document.getElementById('lista-tarefas');
-  listItems.addEventListener('click', function (event) {
+  const listItem = document.getElementById('lista-tarefas');
+  listItem.addEventListener('click', function (event) {
     const selectedItem = document.getElementsByClassName('selected');
     if (selectedItem[0]) {
       selectedItem[0].classList.remove('selected');
@@ -23,7 +23,15 @@ function selectItem() {
   });
 }
 
+function completedItem() {
+  const listItem = document.getElementById('lista-tarefas');
+  listItem.addEventListener('dblclick', function (event) {
+      event.target.classList.toggle('completed');
+  });
+}
+
 window.onload = function () {
   addTask();
   selectItem();
+  completedItem();
 };
