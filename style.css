@@ -2,7 +2,7 @@ body {
   background-image: url('img/background.png');
   font-family: sans-serif;
   height: 100%;
-  margin: 0 0;
+  margin: 0;
   margin-bottom: -40px;
   max-width: 1366px;
   min-width: 500px;
@@ -58,7 +58,6 @@ fieldset {
 
 h1 {
   color: white;
-  font-family: Handlee;
   font-size: 35px;
   letter-spacing: 4px;
   margin-bottom: 0;

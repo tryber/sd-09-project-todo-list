@@ -12,7 +12,7 @@ function criarBotao(descricao, identificador, pai) {
   elementoPai.appendChild(botao);
 }
 
-//5 | 6- Adiciona uma li à lista ordenada com o valor digitado pelo usuário
+// 5 | 6- Adiciona uma li à lista ordenada com o valor digitado pelo usuário
 function criarTarefa() {
   const entradaTextoTarefa = document.getElementById('texto-tarefa');
   const listaTarefas = document.getElementById('lista-tarefas');
@@ -23,7 +23,7 @@ function criarTarefa() {
   entradaTextoTarefa.value = '';
 }
 
-//5- Adiciona um evento ao botão criar tarefa que chama a função 'criarTarefa'
+// 5- Adiciona um evento ao botão criar tarefa que chama a função 'criarTarefa'
 function funcaoAdicionar() {
   const botao = document.querySelector('#criar-tarefa');
   botao.addEventListener('click', function () {
@@ -41,7 +41,7 @@ function enterAdicionar() {
   });
 }
 
-//8-  Função para remover a classe selecionado
+// 8-  Função para remover a classe selecionado
 function limpaSelecao() {
   const selecao = document.querySelectorAll('li');
   for (let index = 0; index < selecao.length; index += 1) {
@@ -49,7 +49,7 @@ function limpaSelecao() {
   }
 }
 
-//7- Função realiza a ação de adicionar e retirar a seleção com 'click'
+// 7- Função realiza a ação de adicionar e retirar a seleção com 'click'
 function seleciona() {
   const selecionar = document.querySelector('#lista-tarefas');
   selecionar.addEventListener('click', function (event) {
@@ -63,18 +63,18 @@ function seleciona() {
     if (cont === 0) {
       limpaSelecao();
       selecao.classList.add('selecionado');
-    } else {
+    }  /* else {
       limpaSelecao();
-    }
+    } */
   });
 }
 
-//13- Adiciona evento para subir a posição do item selecionado na lista
+// 13- Adiciona evento para subir a posição do item selecionado na lista
 function botaoSobe() {
   const lista = document.querySelector('#lista-tarefas');
   const botao = document.querySelector('#mover-cima');
   botao.addEventListener('click', function () {
-    let tarefa = document.querySelector('.selecionado');
+    const tarefa = document.querySelector('.selecionado');
     if (tarefa) {
       if (tarefa.previousElementSibling !== null) {
         lista.insertBefore(tarefa, tarefa.previousElementSibling);
@@ -83,12 +83,12 @@ function botaoSobe() {
   });
 }
 
-//13- Adiciona evento para descer a posição do item selecionado na lista
+// 13- Adiciona evento para descer a posição do item selecionado na lista
 function botaoDesce() {
   const lista = document.querySelector('#lista-tarefas');
   const botao = document.querySelector('#mover-baixo');
   botao.addEventListener('click', function () {
-    let tarefa = document.querySelector('.selecionado');
+    const tarefa = document.querySelector('.selecionado');
     if (tarefa) {
       if (tarefa.nextElementSibling !== null) {
         lista.insertBefore(tarefa.nextElementSibling, tarefa);
@@ -97,7 +97,7 @@ function botaoDesce() {
   });
 }
 
-//9- Adiciona evento de duplo 'click' para indicar tarefa concluída com 'tachado'
+// 9- Adiciona evento de duplo 'click' para indicar tarefa concluída com 'tachado'
 function tarefaConcluida() {
   const listaTarefas = document.querySelector('#lista-tarefas');
   listaTarefas.addEventListener('dblclick', function (event) {
@@ -116,7 +116,7 @@ function tarefaConcluida() {
   });
 }
 
-//10- Adiciona evento para limpar todo conteúdo da lista
+// 10- Adiciona evento para limpar todo conteúdo da lista
 function ApagaTudo() {
   const botao = document.querySelector('#apaga-tudo');
   botao.addEventListener('click', function () {
@@ -127,7 +127,7 @@ function ApagaTudo() {
   });
 }
 
-//11- Adiciona evento para remover as tarefas concluídas da lista
+// 11- Adiciona evento para remover as tarefas concluídas da lista
 function apagaConcluido() {
   const botao = document.querySelector('#remover-finalizados');
   botao.addEventListener('click', function () {
@@ -138,7 +138,7 @@ function apagaConcluido() {
   });
 }
 
-//12- Armazena os dados da lista no 'Web Storage' do 'browser'
+// 12- Armazena os dados da lista no 'Web Storage' do 'browser'
 function webStorage() {
   const botao = document.querySelector('#salvar-tarefas');
   botao.addEventListener('click', function () {
@@ -153,7 +153,7 @@ function webStorage() {
   });
 }
 
-//12- Recupera os dados do 'Web Storage' ao recarregar a página
+// 12- Recupera os dados do 'Web Storage' ao recarregar a página
 function recuperarSalvos() {
   const lista = document.getElementById('lista-tarefas');
   let salvos = {
@@ -171,7 +171,7 @@ function recuperarSalvos() {
   }
 }
 
-//14- Adiciona evento para remover os itens selecionados
+// 14- Adiciona evento para remover os itens selecionados
 function removerSelecionado() {
   const botao = document.querySelector('#remover-selecionado');
   botao.addEventListener('click', function () {
