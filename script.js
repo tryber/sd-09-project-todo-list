@@ -5,6 +5,7 @@
 const myTaskList = document.getElementById('lista-tarefas');
 const myTaskInput = document.getElementById('texto-tarefa');
 const buttonAddTask = document.getElementById('criar-tarefa');
+const buttonRemoveAll = document.getElementById('apaga-tudo');
 
 buttonAddTask.addEventListener('click', function () {
   const myElement = document.createElement('li');
@@ -27,5 +28,11 @@ myTaskList.addEventListener('dblclick', function (event) {
     markItemAsCompleted.classList.remove('completed');
   } else {
     markItemAsCompleted.classList.add('completed');
+  }
+});
+buttonRemoveAll.addEventListener('click', function () {
+  const myTasks = myTaskList.children;
+  while (myTasks.length > 0) {
+    myTaskList.removeChild(myTasks[0]);
   }
 });
