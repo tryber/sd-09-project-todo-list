@@ -1,4 +1,5 @@
 const taskList = document.querySelector('#lista-tarefas');
+const cleanButton = document.querySelector('#apaga-tudo');
 
 function inputTaskOnTheList() {
   const taskText = document.querySelector('#texto-tarefa');
@@ -27,6 +28,7 @@ function changeBgColor(event) {
     event.target.classList.add('selected');
   }
 }
+taskList.addEventListener('click', changeBgColor);
 
 function crossOutTasks(event) {
   const completed = document.querySelector('.completed');
@@ -37,6 +39,10 @@ function crossOutTasks(event) {
     event.target.classList.add('completed');
   }
 }
-
-taskList.addEventListener('click', changeBgColor);
 taskList.addEventListener('dblclick', crossOutTasks);
+
+function cleanTaskList() {
+  taskList.innerText = '';
+}
+
+cleanButton.addEventListener('click', cleanTaskList);
