@@ -12,6 +12,18 @@ function addTask() {
   });
 }
 
+function selectItem() {
+  const listItems = document.getElementById('lista-tarefas');
+  listItems.addEventListener('click', function (event) {
+    const selectedItem = document.getElementsByClassName('selected');
+    if (selectedItem[0]) {
+      selectedItem[0].classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+  });
+}
+
 window.onload = function () {
   addTask();
+  selectItem();
 };
