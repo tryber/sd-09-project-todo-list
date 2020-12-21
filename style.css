@@ -1,46 +1,42 @@
-* {
-  margin: 0;
-}
-
 body {
-  background-color: #40AD41;
+  background-color: #40ad41;
   font-family: Courier New, Courier, monospace;
   margin-top: 10px;
 }
 
 .buttons {
-  background: rgb(165, 165, 165);
+  background: rgb(165 , 165 , 165);
   border-color: transparent;
   border-radius: 20px;
   color: white;
+  cursor: pointer;
   font-family: Courier New, Courier, monospace;
   height: 30px;
   margin-right: 8px;
   padding: 5px 1em;
 }
 
-button#criar-tarefa, button#remover-finalizados {
-  background-color: #0D88CF;
-}
-
 .buttons:focus {
-  outline: none;
-}
-
-button#mover-cima, button#mover-baixo {
-  background-color: #FC7F01;
-}
-
-button#remover-selecionado, button#apaga-tudo {
-  background-color: rgb(175, 0, 0);
-}
-
-button#salvar-tarefas {
-  background-color: #40AD41;
+  outline: 0;
 }
 
 .completed {
   text-decoration: line-through solid black;
+}
+
+footer {
+  background-color: white;
+  bottom: 0;
+  color: rgb(34, 34, 34);
+  margin: auto;
+  left: 0;
+  position: fixed;
+  right: 0;
+  text-align: center;
+}
+
+.footerParagraph {
+  font-size: 12px;
 }
 
 h1 {
@@ -54,7 +50,17 @@ input {
   width: 240px;
 }
 
-ol#lista-tarefas {
+.links {
+  font-weight: 600;
+  padding-top: 10px;
+}
+
+.moveDown, .moveUp {
+  background-color: #fc7f01;
+  padding: 0 1em;
+}
+
+ol {
   line-height: 25px;
   margin-bottom: 25px;
   margin-top: 25px;
@@ -67,10 +73,9 @@ ol#lista-tarefas {
 }
 
 .principal {
-  /* background: linear-gradient(329.54deg, #a3e0a3 0%, #eec8eb 100%) no-repeat; */
   background: white;
   border-radius: 20px;
-  color: rgb(34, 34, 34);
+  color: rgb(34 , 34 , 34);
   margin: 50px auto;
   margin-bottom: 100px;
   max-width: 70%;
@@ -79,18 +84,18 @@ ol#lista-tarefas {
   width: auto;
 }
 
+.removeCompleted, .addButton {
+  background-color: #0d88cf;
+}
+
+.removeSelected, .deleteButton {
+  background-color: rgb(175 , 0 , 0);
+}
+
+.saveTasks {
+  background-color: #40ad41;
+}
+
 .selected {
   background-color: gray;
 }
-
-/* footer {
-  background-color: white;
-  bottom: 0;
-  color: rgb(34, 34, 34);
-  position: fixed;
-  text-align: center;
-}
-
-.footerP {
-  font-size: 15px;
-} */

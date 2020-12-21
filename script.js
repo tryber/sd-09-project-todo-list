@@ -31,7 +31,7 @@ function createAddButton() {
   const div = document.querySelector('.createList');
   const button = document.createElement('button');
   div.appendChild(button);
-  button.className = 'buttons';
+  button.className = 'buttons addButton';
   button.id = 'criar-tarefa';
   button.innerText = 'Adicionar';
 }
@@ -40,12 +40,15 @@ function clickAddButton() {
   const button = document.querySelector('#criar-tarefa');
   const list = document.querySelector('#lista-tarefas');
   button.addEventListener('click', function () {
-    const input = document.querySelector('#texto-tarefa');
-    const inputValue = document.querySelector('#texto-tarefa').value;
+    // const input = document.querySelector('#texto-tarefa');
+    let inputValue = document.querySelector('#texto-tarefa').value;
     const listItem = document.createElement('li');
     list.appendChild(listItem);
     listItem.innerText = inputValue;
-    input.value = '';
+    if (inputValue = '') {
+      alert('A tarefa não pode ser vazia!');
+    }
+    // input.value = '';
   });
 }
 
@@ -63,11 +66,7 @@ function clickItem() {
 function dblClickItem() {
   const listItems = document.getElementById('lista-tarefas');
   listItems.addEventListener('dblclick', function (event) {
-    if (event.target.classList.contains('completed')) {
-      event.target.classList.remove('completed');
-    } else {
-      event.target.classList.add('completed');
-    }
+    event.target.classList.toggle('completed');
   });
 }
 
@@ -75,7 +74,7 @@ function createDeleteButton() {
   const div = document.querySelector('.buttonContainer');
   const button = document.createElement('button');
   div.appendChild(button);
-  button.className = 'buttons';
+  button.className = 'buttons deleteButton';
   button.id = 'apaga-tudo';
   button.innerText = 'Limpar lista';
 }
@@ -95,7 +94,7 @@ function createRemoveCompletedButton() {
   const div = document.querySelector('.buttonContainer');
   const button = document.createElement('button');
   div.appendChild(button);
-  button.className = 'buttons';
+  button.className = 'buttons removeCompleted';
   button.id = 'remover-finalizados';
   button.innerText = 'Limpar finalizados';
 }
@@ -112,7 +111,7 @@ function createSaveTasksButton() {
   const div = document.querySelector('.buttonContainer');
   const button = document.createElement('button');
   div.appendChild(button);
-  button.className = 'buttons';
+  button.className = 'buttons saveTasks';
   button.id = 'salvar-tarefas';
   button.innerText = 'Salvar lista';
 }
@@ -146,9 +145,9 @@ function createMoveUpButton() {
   const div = document.querySelector('.buttonContainer');
   const button = document.createElement('button');
   div.appendChild(button);
-  button.className = 'buttons';
+  button.className = 'buttons moveUp';
   button.id = 'mover-cima';
-  button.innerHTML = '&#8679';
+  button.innerHTML = '&#11014';
 }
 
 function clickMoveUpButton() {
@@ -176,9 +175,9 @@ function createMoveDownButton() {
   const div = document.querySelector('.buttonContainer');
   const button = document.createElement('button');
   div.appendChild(button);
-  button.className = 'buttons';
+  button.className = 'buttons moveDown';
   button.id = 'mover-baixo';
-  button.innerHTML = '&#8681';
+  button.innerHTML = '&#11015';
 }
 
 function clickMoveDownButton() {
@@ -206,7 +205,7 @@ function createRemoveSelectedButton() {
   const div = document.querySelector('.buttonContainer');
   const button = document.createElement('button');
   div.appendChild(button);
-  button.className = 'buttons';
+  button.className = 'buttons removeSelected';
   button.id = 'remover-selecionado';
   button.innerHTML = '&#10008';
 }
