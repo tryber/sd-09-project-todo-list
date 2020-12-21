@@ -35,11 +35,7 @@ function taskSelector(event) {
   targetTask.classList.add('selected');
 }
 
-function getSelector() {
-  taskList.addEventListener('click', taskSelector);
-}
-
-getSelector();
+taskList.addEventListener('click', taskSelector);
 
 function mkLineTrough(event) {
   const lineTarget = event.target;
@@ -84,3 +80,10 @@ window.onload = function () {
     taskList.appendChild(li);
   }
 };
+
+function deleteSelected() {
+  const selectedLi = document.querySelector('.selected');
+  selectedLi.remove();
+}
+
+document.querySelector('#remover-selecionado').addEventListener('click', deleteSelected);
