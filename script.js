@@ -97,12 +97,7 @@ function createOrderedList() {
 function doubleClicked() {
   const orderedList = document.querySelector('ol');
   orderedList.addEventListener('dblclick', function (event) {
-    if (event.target.classList.contains('completed')) {
-      event.target.classList.remove('completed');
-    } else {
-      event.target.classList.add('completed');
-    }
-  });
+    event.target.classList.toggle('completed')});
 }
 
 function clickedItem() {
