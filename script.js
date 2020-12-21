@@ -1,5 +1,6 @@
 const taskList = document.querySelector('#lista-tarefas');
 const cleanButton = document.querySelector('#apaga-tudo');
+const complButton = document.querySelector('#remover-finalizados');
 
 function inputTaskOnTheList() {
   const taskText = document.querySelector('#texto-tarefa');
@@ -14,8 +15,8 @@ function inputTaskOnTheList() {
 }
 
 function taskButton() {
-  const button = document.querySelector('#criar-tarefa');
-  button.addEventListener('click', inputTaskOnTheList);
+  const createButton = document.querySelector('#criar-tarefa');
+  createButton.addEventListener('click', inputTaskOnTheList);
 }
 taskButton();
 
@@ -31,18 +32,19 @@ function changeBgColor(event) {
 taskList.addEventListener('click', changeBgColor);
 
 function crossOutTasks(event) {
-  const completed = document.querySelector('.completed');
-  if (completed) {
-    completed.classList.remove('completed');
-  }
-  if (completed !== event.target) {
-    event.target.classList.add('completed');
-  }
+    event.target.classList.toggle('completed');
 }
 taskList.addEventListener('dblclick', crossOutTasks);
 
 function cleanTaskList() {
-  taskList.innerText = '';
+  taskList.innerHTML = '';
 }
-
 cleanButton.addEventListener('click', cleanTaskList);
+
+function cleanCompletedTasks() {
+  const completed = document.querySelectorAll('.completed');
+  for (let index = 0; index < completed.length; index += 1) {
+    completed[index].remove();
+  }
+}
+complButton.addEventListener('click', cleanCompletedTasks);
