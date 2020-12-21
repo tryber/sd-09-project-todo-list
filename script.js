@@ -132,6 +132,7 @@ function selectedElement() {
   }
 }
 // function to move up on index the choosed task by pressing button up
+// href https://stackoverflow.com/questions/34913953/move-an-element-one-place-up-or-down-in-the-dom-tree-with-javascript
 function moveUpTask() {
   let moveUP = selectedElement();
   if(moveUP.previousElementSibling) {
@@ -139,6 +140,7 @@ function moveUpTask() {
   }
 }
 // function to move down on index the choosed task by pressing button down
+// href https://stackoverflow.com/questions/34913953/move-an-element-one-place-up-or-down-in-the-dom-tree-with-javascript
 function moveDownTask() {
   let moveDown = selectedElement();
   if(moveDown.nextElementSibling) {
