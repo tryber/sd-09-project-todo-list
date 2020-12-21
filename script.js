@@ -40,15 +40,16 @@ function clickAddButton() {
   const button = document.querySelector('#criar-tarefa');
   const list = document.querySelector('#lista-tarefas');
   button.addEventListener('click', function () {
-    // const input = document.querySelector('#texto-tarefa');
+    const input = document.querySelector('#texto-tarefa');
     let inputValue = document.querySelector('#texto-tarefa').value;
+    if (inputValue == '') {
+      alert('A tarefa não pode ser vazia!');
+      return;
+    }
     const listItem = document.createElement('li');
     list.appendChild(listItem);
     listItem.innerText = inputValue;
-    if (inputValue = '') {
-      alert('A tarefa não pode ser vazia!');
-    }
-    // input.value = '';
+    input.value = '';
   });
 }
 
@@ -65,8 +66,8 @@ function clickItem() {
 
 function dblClickItem() {
   const listItems = document.getElementById('lista-tarefas');
-  listItems.addEventListener('dblclick', function (event) {
-    event.target.classList.toggle('completed');
+  listItems.addEventListener('dblclick', function () {
+    this.classList.toggle('completed');
   });
 }
 
