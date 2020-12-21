@@ -19,6 +19,13 @@ myTaskList.addEventListener('click', function (event) {
     selectedItem.classList.remove('selected');
   }
   const clickedItem = event.target;
-  console.log(event.target);
   clickedItem.classList.add('selected');
+});
+myTaskList.addEventListener('dblclick', function (event) {
+  const markItemAsCompleted = event.target;
+  if (markItemAsCompleted.classList.contains('completed')) {
+    markItemAsCompleted.classList.remove('completed');
+  } else {
+    markItemAsCompleted.classList.add('completed');
+  }
 });
