@@ -41,11 +41,26 @@ function dblclick() {
     } else {
       event.target.classList.add('completed');
     }
+    //event.target.classList.toggle('completed');
   });
 }
 
+function removeEnded () {
+  const buttom = document.getElementById('remover-finalizados');
+  buttom.addEventListener('click', function () {    
+    const list = document.getElementsByTagName('li');
+    for (index = 0; index < list.length; index += 1) {
+      if (list[index].classList.contains('completed')) {
+        list[index].remove();
+        index = index - 1;
+      }
+    }
+  })
+}
+   
 window.onload = function () {
   createItemList();
   dblclick();
   eraseAll();
+  removeEnded();
 };
