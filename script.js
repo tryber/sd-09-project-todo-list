@@ -1,14 +1,15 @@
-const btnCreateLi = document.querySelector('#criar-tarefa');
-const captureOl = document.querySelector('#lista-tarefas');
+const btnCreateTask = document.querySelector('#criar-tarefa');
+const taskList = document.querySelector('#lista-tarefas');
 const newTaskText = document.querySelector('#texto-tarefa');
 const deleteAll = document.querySelector('#apaga-tudo');
 const deleteCompleted = document.querySelector('#remover-finalizados');
+const btnSaveTasks = document.querySelector('#salvar-tarefas');
 
 function makeLi(content) {
   const li = document.createElement('li');
   li.innerText = content;
   li.classList.add('task');
-  captureOl.appendChild(li);
+  taskList.appendChild(li);
 }
 
 function clickBtn() {
@@ -17,7 +18,13 @@ function clickBtn() {
   newTaskText.value = '';
 }
 
-btnCreateLi.addEventListener('click', clickBtn);
+btnCreateTask.addEventListener('click', clickBtn);
+newTaskText.addEventListener('keyup',(event) => {
+  if (event.key === 'Enter') {
+    clickBtn();
+  }
+});
+
 
 function taskSelector(event) {
   const selectedClass = document.querySelector('.selected');
@@ -29,7 +36,7 @@ function taskSelector(event) {
 }
 
 function getSelector() {
-  captureOl.addEventListener('click', taskSelector);
+  taskList.addEventListener('click', taskSelector);
 }
 
 getSelector();
@@ -39,11 +46,11 @@ function mkLineTrough(event) {
   lineTarget.classList.toggle('completed');
 }
 
-captureOl.addEventListener('dblclick', mkLineTrough);
+taskList.addEventListener('dblclick', mkLineTrough);
 
 function removeAllChild() {
-  while (captureOl.firstChild) {
-    captureOl.removeChild(captureOl.firstChild);
+  while (taskList.firstChild) {
+    taskList.removeChild(taskList.firstChild);
   }
 }
 
@@ -57,3 +64,23 @@ function deleteAllCompleted() {
 }
 
 deleteCompleted.addEventListener('click', deleteAllCompleted);
+
+function saveTasks() {
+  const tasks = document.querySelectorAll('.task');
+  localStorage.clear();
+  for (let index = 0; index < tasks.length; index += 1) {
+    localStorage.setItem(index, JSON.stringify([tasks[index].innerText, tasks[index].className]));
+  }
+}
+
+btnSaveTasks.addEventListener('click', saveTasks);
+
+window.onload = function() {
+  for (let index = 0; index < localStorage.length; index += 1) {
+    const storageValue = JSON.parse(localStorage.getItem(index));
+    const li = document.createElement('li');
+    li.innerText = storageValue[0];
+    li.className = storageValue[1];
+    taskList.appendChild(li);
+  }
+}
