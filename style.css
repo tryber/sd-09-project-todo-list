@@ -92,6 +92,10 @@ ol {
   background-color: rgb(175 , 0 , 0);
 }
 
+.saved-items {
+  background-color: rgb(64 , 173 , 65);
+}
+
 .saveTasks {
   background-color: rgb(64 , 173 , 65);
 }

@@ -122,12 +122,14 @@ function clickSaveTasksButtonSet() {
   button.addEventListener('click', function () {
     const listItems = document.getElementsByTagName('li');
     for (let index = 0; index < listItems.length; index += 1) {
+      listItems[index].classList.add('saved-items');
       const objectString = {
         text: listItems[index].innerText,
         class: listItems[index].className,
       };
       localStorage.setItem(index, JSON.stringify(objectString));
     }
+    alert('Lista salva!');
   });
 }
 
@@ -155,6 +157,11 @@ function clickDeleteSavedListButton() {
   const button = document.getElementById('apagar-lista-salva');
   button.addEventListener('click', function () {
     localStorage.clear();
+    const listItems = document.getElementsByTagName('li');
+    for (let index = 0; index < listItems.length; index += 1) {
+      listItems[index].classList.remove('saved-items');
+    }
+    alert('Lista apagada!');
   });
 }
 
@@ -178,7 +185,7 @@ function clickMoveUpButton() {
     if (previousElement) {
       const aux = {
         text: previousElement.innerText,
-        class: previousElement.class,
+        class: previousElement.className,
       };
       previousElement.innerText = selected.innerText;
       previousElement.className = selected.className;
@@ -208,7 +215,7 @@ function clickMoveDownButton() {
     if (nextElement) {
       const aux = {
         text: nextElement.innerText,
-        class: nextElement.class,
+        class: nextElement.className,
       };
       nextElement.innerText = selected.innerText;
       nextElement.className = selected.className;
