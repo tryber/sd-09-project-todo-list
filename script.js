@@ -1,4 +1,4 @@
-// created a function to encapsulate all dynamic HTML sctructure
+// created a function to encapsulate all dynamic HTML sctructure and getting all onload of page
 function structure() {
   let append = document.getElementById('infoSection');
   let createP = document.createElement('p');
@@ -121,6 +121,30 @@ function removeChoosed() {
     }
   }
 }
+// function to get iten position on assigment list by index
+function selectedElement() {
+  let liItens = document.querySelectorAll('li');
+  for(let index = 0; index < liItens.length; index += 1) {
+    if(liItens[index].classList.value.includes('backgroundList')) {
+      let element = liItens[index];
+      return element;
+    }
+  }
+}
+// function to move up on index the choosed task by pressing button up
+function moveUpTask() {
+  let moveUP = selectedElement();
+  if(moveUP.previousElementSibling) {
+    moveUP.parentNode.insertBefore(moveUP, moveUP.previousElementSibling);
+  }
+}
+// function to move down on index the choosed task by pressing button down
+function moveDownTask() {
+  let moveDown = selectedElement();
+  if(moveDown.nextElementSibling) {
+    moveDown.parentNode.insertBefore(moveDown.nextElementSibling, moveDown);
+  }
+}
 // created a function to encapsulate all listeners/function callers
 function listeners() {
 let getInput = document.getElementById('criar-tarefa');
@@ -137,10 +161,13 @@ let removeAllList = document.getElementById('apaga-tudo');
 removeAllList.addEventListener('click', removeAll);
 let removeChoosedIten = document.getElementById('remover-selecionado');
 removeChoosedIten.addEventListener('click', removeChoosed);
+let upTask = document.getElementById('mover-cima');
+upTask.addEventListener('click', moveUpTask);
+let downTask = document.getElementById('mover-baixo');
+downTask.addEventListener('click', moveDownTask);
 }
 // functions to be opened when open browser
 window.onload = function() {
   structure();
   listeners();
 }
-// pixel art => modificar botão para input de valores; acrescentar função no VQV onde let base = ' ' copiar função de criação de base, adicionar if input tem numero adicionar  valor a base, if input < 5 || > 50 alert, if input é texto e não numero alert

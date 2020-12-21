@@ -18,7 +18,7 @@
 }
 .styleButtons {
   float: left;
-  position: relative;  
+  position: relative;
 }
 .styleButtonSaveTasks {
   float: left;
@@ -30,9 +30,3 @@ ol {
   right: 860px;  
   top: 25px;
 }
-/* auto seleciona onde estiver essa classe */
-/* .selectable {
-  user-select: all;
-  
-} */
-
