@@ -35,7 +35,7 @@ footer {
   text-align: center;
 }
 
-.footerParagraph {
+.footer-paragraph {
   font-size: 12px;
 }
 
@@ -55,7 +55,7 @@ input {
   padding-top: 10px;
 }
 
-.moveDown , .moveUp {
+.move-down , .move-up {
   background-color: rgb(252 , 127 , 1);
   padding: 0 1em;
 }
@@ -84,19 +84,19 @@ ol {
   width: auto;
 }
 
-.removeCompleted , .addButton {
+.remove-completed , .add-button {
   background-color: rgb(13 , 136 , 207);
 }
 
-.removeSelected , .deleteButton {
+.remove-selected , .delete-button {
   background-color: rgb(175 , 0 , 0);
 }
 
 .saved-items {
-  background-color: rgb(64 , 173 , 65);
+  background-color: rgb(212 , 212 , 212);
 }
 
-.saveTasks {
+.save-tasks {
   background-color: rgb(64 , 173 , 65);
 }
 

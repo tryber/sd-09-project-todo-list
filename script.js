@@ -31,7 +31,7 @@ function createAddButton() {
   const div = document.querySelector('.createList');
   const button = document.createElement('button');
   div.appendChild(button);
-  button.className = 'buttons addButton';
+  button.className = 'buttons add-button';
   button.id = 'criar-tarefa';
   button.innerText = 'Adicionar';
 }
@@ -75,7 +75,7 @@ function createDeleteButton() {
   const div = document.querySelector('.buttonContainer');
   const button = document.createElement('button');
   div.appendChild(button);
-  button.className = 'buttons deleteButton';
+  button.className = 'buttons delete-button';
   button.id = 'apaga-tudo';
   button.innerText = 'Limpar lista';
 }
@@ -95,7 +95,7 @@ function createRemoveCompletedButton() {
   const div = document.querySelector('.buttonContainer');
   const button = document.createElement('button');
   div.appendChild(button);
-  button.className = 'buttons removeCompleted';
+  button.className = 'buttons remove-completed';
   button.id = 'remover-finalizados';
   button.innerText = 'Limpar finalizados';
 }
@@ -112,7 +112,7 @@ function createSaveTasksButton() {
   const div = document.querySelector('.buttonContainer');
   const button = document.createElement('button');
   div.appendChild(button);
-  button.className = 'buttons saveTasks';
+  button.className = 'buttons save-tasks';
   button.id = 'salvar-tarefas';
   button.innerText = 'Salvar lista';
 }
@@ -148,7 +148,7 @@ function createDeleteSavedListButton() {
   const div = document.querySelector('.buttonContainer');
   const button = document.createElement('button');
   div.appendChild(button);
-  button.className = 'buttons deleteSavedList';
+  button.className = 'buttons delete-saved-list';
   button.id = 'apagar-lista-salva';
   button.innerText = 'Limpar lista salva';
 }
@@ -169,7 +169,7 @@ function createMoveUpButton() {
   const div = document.querySelector('.buttonContainer');
   const button = document.createElement('button');
   div.appendChild(button);
-  button.className = 'buttons moveUp';
+  button.className = 'buttons move-up';
   button.id = 'mover-cima';
   button.innerHTML = '&#11014';
 }
@@ -199,7 +199,7 @@ function createMoveDownButton() {
   const div = document.querySelector('.buttonContainer');
   const button = document.createElement('button');
   div.appendChild(button);
-  button.className = 'buttons moveDown';
+  button.className = 'buttons move-down';
   button.id = 'mover-baixo';
   button.innerHTML = '&#11015';
 }
@@ -229,7 +229,7 @@ function createRemoveSelectedButton() {
   const div = document.querySelector('.buttonContainer');
   const button = document.createElement('button');
   div.appendChild(button);
-  button.className = 'buttons removeSelected';
+  button.className = 'buttons remove-selected';
   button.id = 'remover-selecionado';
   button.innerHTML = '&#10008';
 }
