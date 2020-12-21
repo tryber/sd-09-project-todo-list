@@ -252,7 +252,7 @@ window.onload = function () {
   clickSaveTasksButtonSet();
   clickSaveTasksButtonGet();
   createDeleteSavedListButton();
-  clickDeleteSavedListButton()
+  clickDeleteSavedListButton();
   createMoveUpButton();
   clickMoveUpButton();
   createMoveDownButton();
