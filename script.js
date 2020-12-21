@@ -28,4 +28,15 @@ function changeBgColor(event) {
   }
 }
 
+function crossOutTasks(event) {
+  const completed = document.querySelector('.completed');
+  if (completed) {
+    completed.classList.remove('completed');
+  }
+  if (completed !== event.target) {
+    event.target.classList.add('completed');
+  }
+}
+
 taskList.addEventListener('click', changeBgColor);
+taskList.addEventListener('dblclick', crossOutTasks);
