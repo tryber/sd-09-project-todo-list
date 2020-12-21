@@ -1,5 +1,5 @@
 body {
-  background-color: #40ad41;
+  background-color: rgb(64 , 173 , 65);
   font-family: Courier New, Courier, monospace;
   margin-top: 10px;
 }
@@ -17,7 +17,7 @@ body {
 }
 
 .buttons:focus {
-  outline: 0;
+  outline: transparent;
 }
 
 .completed {
@@ -27,9 +27,9 @@ body {
 footer {
   background-color: white;
   bottom: 0;
-  color: rgb(34, 34, 34);
-  margin: auto;
+  color: rgb(34 , 34 , 34);
   left: 0;
+  margin: auto;
   position: fixed;
   right: 0;
   text-align: center;
@@ -55,8 +55,8 @@ input {
   padding-top: 10px;
 }
 
-.moveDown, .moveUp {
-  background-color: #fc7f01;
+.moveDown , .moveUp {
+  background-color: rgb(252 , 127 , 1);
   padding: 0 1em;
 }
 
@@ -84,16 +84,16 @@ ol {
   width: auto;
 }
 
-.removeCompleted, .addButton {
-  background-color: #0d88cf;
+.removeCompleted , .addButton {
+  background-color: rgb(13 , 136 , 207);
 }
 
-.removeSelected, .deleteButton {
+.removeSelected , .deleteButton {
   background-color: rgb(175 , 0 , 0);
 }
 
 .saveTasks {
-  background-color: #40ad41;
+  background-color: rgb(64 , 173 , 65);
 }
 
 .selected {

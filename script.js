@@ -41,8 +41,8 @@ function clickAddButton() {
   const list = document.querySelector('#lista-tarefas');
   button.addEventListener('click', function () {
     const input = document.querySelector('#texto-tarefa');
-    let inputValue = document.querySelector('#texto-tarefa').value;
-    if (inputValue == '') {
+    const inputValue = document.querySelector('#texto-tarefa').value;
+    if (inputValue === '') {
       alert('A tarefa não pode ser vazia!');
       return;
     }
@@ -66,8 +66,8 @@ function clickItem() {
 
 function dblClickItem() {
   const listItems = document.getElementById('lista-tarefas');
-  listItems.addEventListener('dblclick', function () {
-    this.classList.toggle('completed');
+  listItems.addEventListener('dblclick', function (event) {
+    event.target.classList.toggle('completed');
   });
 }
 
@@ -140,6 +140,22 @@ function clickSaveTasksButtonGet() {
     listItems.className = objectString.class;
     list.appendChild(listItems);
   }
+}
+
+function createDeleteSavedListButton() {
+  const div = document.querySelector('.buttonContainer');
+  const button = document.createElement('button');
+  div.appendChild(button);
+  button.className = 'buttons deleteSavedList';
+  button.id = 'apagar-lista-salva';
+  button.innerText = 'Limpar lista salva';
+}
+
+function clickDeleteSavedListButton() {
+  const button = document.getElementById('apagar-lista-salva');
+  button.addEventListener('click', function () {
+    localStorage.clear();
+  });
 }
 
 function createMoveUpButton() {
@@ -235,6 +251,8 @@ window.onload = function () {
   createSaveTasksButton();
   clickSaveTasksButtonSet();
   clickSaveTasksButtonGet();
+  createDeleteSavedListButton();
+  clickDeleteSavedListButton()
   createMoveUpButton();
   clickMoveUpButton();
   createMoveDownButton();
