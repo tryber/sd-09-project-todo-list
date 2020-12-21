@@ -32,7 +32,7 @@ function changeBgColor(event) {
 taskList.addEventListener('click', changeBgColor);
 
 function crossOutTasks(event) {
-    event.target.classList.toggle('completed');
+  event.target.classList.toggle('completed');
 }
 taskList.addEventListener('dblclick', crossOutTasks);
 
