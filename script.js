@@ -63,9 +63,9 @@ function seleciona() {
     if (cont === 0) {
       limpaSelecao();
       selecao.classList.add('selecionado');
-    }  /* else {
+    } else {
       limpaSelecao();
-    } */
+    }
   });
 }
 
