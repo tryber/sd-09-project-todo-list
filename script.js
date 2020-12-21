@@ -19,7 +19,7 @@ function clickBtn() {
 }
 
 btnCreateTask.addEventListener('click', clickBtn);
-newTaskText.addEventListener('keyup',(event) => {
+newTaskText.addEventListener('keyup', (event) => {
   if (event.key === 'Enter') {
     clickBtn();
   }
@@ -75,7 +75,7 @@ function saveTasks() {
 
 btnSaveTasks.addEventListener('click', saveTasks);
 
-window.onload = function() {
+window.onload = function () {
   for (let index = 0; index < localStorage.length; index += 1) {
     const storageValue = JSON.parse(localStorage.getItem(index));
     const li = document.createElement('li');
@@ -83,4 +83,4 @@ window.onload = function() {
     li.className = storageValue[1];
     taskList.appendChild(li);
   }
-}
+};
