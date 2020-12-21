@@ -19,10 +19,12 @@ function taskButton() {
 taskButton();
 
 function changeBgColor(event) {
-  const listItem = document.querySelectorAll('#item-lista');
-
-  for (let index = 0; index < listItem.length; index += 1) {
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  const selected = document.querySelector('.selected');
+  if (selected) {
+    selected.classList.remove('selected');
+  }
+  if (selected !== event.target) {
+    event.target.classList.add('selected');
   }
 }
 
