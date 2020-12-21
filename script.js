@@ -2,6 +2,7 @@
 https://developer.mozilla.org/
 https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_node_removechild_while
 */
+// 5 | 10 | 11 | 12 | 14- Função para criar botão
 function criarBotao(descricao, identificador, pai) {
   const elementoPai = document.getElementById(pai);
   const botao = document.createElement('button');
@@ -11,6 +12,7 @@ function criarBotao(descricao, identificador, pai) {
   elementoPai.appendChild(botao);
 }
 
+//5 | 6- Adiciona uma li à lista ordenada com o valor digitado pelo usuário
 function criarTarefa() {
   const entradaTextoTarefa = document.getElementById('texto-tarefa');
   const listaTarefas = document.getElementById('lista-tarefas');
@@ -21,6 +23,7 @@ function criarTarefa() {
   entradaTextoTarefa.value = '';
 }
 
+//5- Adiciona um evento ao botão criar tarefa que chama a função 'criarTarefa'
 function funcaoAdicionar() {
   const botao = document.querySelector('#criar-tarefa');
   botao.addEventListener('click', function () {
@@ -28,14 +31,25 @@ function funcaoAdicionar() {
   });
 }
 
+// Adiciona um evento 'tecla Enter' ao botão criar tarefa
+function enterAdicionar() {
+  const caixaInput = document.querySelector('#texto-tarefa');
+  caixaInput.addEventListener('keyup', function (event) {
+    if (event.keyCode === 13) {
+      criarTarefa();
+    }
+  });
+}
+
+//8-  Função para remover a classe selecionado
 function limpaSelecao() {
   const selecao = document.querySelectorAll('li');
   for (let index = 0; index < selecao.length; index += 1) {
     selecao[index].classList.remove('selecionado');
-    selecao[index].removeAttribute('id');
   }
 }
 
+//7- Função realiza a ação de adicionar e retirar a seleção com 'click'
 function seleciona() {
   const selecionar = document.querySelector('#lista-tarefas');
   selecionar.addEventListener('click', function (event) {
@@ -49,43 +63,41 @@ function seleciona() {
     if (cont === 0) {
       limpaSelecao();
       selecao.classList.add('selecionado');
-      selecao.id = 'selecionado';
     } else {
       limpaSelecao();
     }
   });
 }
 
+//13- Adiciona evento para subir a posição do item selecionado na lista
 function botaoSobe() {
   const lista = document.querySelector('#lista-tarefas');
-  const tarefa = document.querySelectorAll('li');
   const botao = document.querySelector('#mover-cima');
   botao.addEventListener('click', function () {
-    for (let index = 0; index < tarefa.length; index += 1) {
-      if (tarefa[index].classList.contains('selecionado')) {
-        if (tarefa[index].previousElementSibling !== null) {
-          lista.insertBefore(tarefa[index], tarefa[index].previousElementSibling);
-        }
+    let tarefa = document.querySelector('.selecionado');
+    if (tarefa) {
+      if (tarefa.previousElementSibling !== null) {
+        lista.insertBefore(tarefa, tarefa.previousElementSibling);
       }
     }
   });
 }
 
+//13- Adiciona evento para descer a posição do item selecionado na lista
 function botaoDesce() {
   const lista = document.querySelector('#lista-tarefas');
-  const tarefa = document.querySelectorAll('li');
   const botao = document.querySelector('#mover-baixo');
   botao.addEventListener('click', function () {
-    for (let index = 0; index < tarefa.length; index += 1) {
-      if (tarefa[index].classList.contains('selecionado')) {
-        if (tarefa[index].nextElementSibling !== null) {
-          lista.insertBefore(tarefa[index].nextElementSibling, tarefa[index]);
-        }
+    let tarefa = document.querySelector('.selecionado');
+    if (tarefa) {
+      if (tarefa.nextElementSibling !== null) {
+        lista.insertBefore(tarefa.nextElementSibling, tarefa);
       }
     }
   });
 }
 
+//9- Adiciona evento de duplo 'click' para indicar tarefa concluída com 'tachado'
 function tarefaConcluida() {
   const listaTarefas = document.querySelector('#lista-tarefas');
   listaTarefas.addEventListener('dblclick', function (event) {
@@ -104,6 +116,7 @@ function tarefaConcluida() {
   });
 }
 
+//10- Adiciona evento para limpar todo conteúdo da lista
 function ApagaTudo() {
   const botao = document.querySelector('#apaga-tudo');
   botao.addEventListener('click', function () {
@@ -114,6 +127,7 @@ function ApagaTudo() {
   });
 }
 
+//11- Adiciona evento para remover as tarefas concluídas da lista
 function apagaConcluido() {
   const botao = document.querySelector('#remover-finalizados');
   botao.addEventListener('click', function () {
@@ -124,6 +138,7 @@ function apagaConcluido() {
   });
 }
 
+//12- Armazena os dados da lista no 'Web Storage' do 'browser'
 function webStorage() {
   const botao = document.querySelector('#salvar-tarefas');
   botao.addEventListener('click', function () {
@@ -138,6 +153,7 @@ function webStorage() {
   });
 }
 
+//12- Recupera os dados do 'Web Storage' ao recarregar a página
 function recuperarSalvos() {
   const lista = document.getElementById('lista-tarefas');
   let salvos = {
@@ -155,28 +171,49 @@ function recuperarSalvos() {
   }
 }
 
+//14- Adiciona evento para remover os itens selecionados
 function removerSelecionado() {
   const botao = document.querySelector('#remover-selecionado');
   botao.addEventListener('click', function () {
-    const lista = document.querySelectorAll('li');
-    const selecionado = document.getElementById('selecionado');
-    for (let index = 0; index < lista.length; index += 1) {
-      if (lista[index].id === 'selecionado') {
-        selecionado.parentNode.removeChild(selecionado);
-      }
+    const tarefa = document.querySelector('.selecionado');
+    if (tarefa) {
+      tarefa.remove();
     }
   });
 }
 
+// Adiciona um círculo à página
+function criarCirculo() {
+  const main = document.querySelector('main');
+  const circulo = document.createElement('div');
+  circulo.id = 'circulo';
+  circulo.classList.add('circulo');
+  main.appendChild(circulo);
+}
+
+// Adiciona um elemento 'footer' à página
+function criarRodape() {
+  const corpo = document.querySelector('#body-content');
+  const rodape = document.createElement('footer');
+  rodape.id = 'rodape';
+  rodape.classList.add('rodape');
+  rodape.innerText = 'Todo List Project - Bloco 5 - Trybe 🚀 - Criado por: Cleber Lopes Teixeira - Turma 09 - 2020 ©️';
+  corpo.appendChild(rodape);
+}
+
+// Chama as funções após o carregamento HTML
 window.onload = function () {
   criarBotao('Adicionar 📝', 'criar-tarefa', 'tarefas');
-  criarBotao('⬆', 'mover-cima', 'controles');
-  criarBotao('⬇', 'mover-baixo', 'controles');
+  criarBotao('⤴️', 'mover-cima', 'controles');
+  criarBotao('⤵️', 'mover-baixo', 'controles');
   criarBotao('Salvar 💾', 'salvar-tarefas', 'controles');
   criarBotao('Selecionado ❌', 'remover-selecionado', 'controles');
   criarBotao('Concluídos ❌', 'remover-finalizados', 'controles');
   criarBotao('Limpar Lista 🗑', 'apaga-tudo', 'controles');
+  criarRodape();
+  criarCirculo();
   funcaoAdicionar();
+  enterAdicionar();
   seleciona();
   tarefaConcluida();
   webStorage();
