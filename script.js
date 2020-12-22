@@ -50,10 +50,40 @@ function clearListCompleted() {
   });
 }
 
+function saveList() {
+  const buttonSaveList = document.getElementById('salvar-tarefas');
+  buttonSaveList.addEventListener('click', function () {
+    const list = document.getElementsByTagName('li');
+    let index = 0;
+    let listObject = {};
+    while (list[index]) {
+      listObject = {
+        item: list[index].innerHTML,
+        class: list[index].className
+      };
+      localStorage.setItem(index, JSON.stringify(listObject))
+      index += 1;
+    }
+  });
+}
+
+function uploadTasks () {
+  const list = document.getElementById('lista-tarefas');
+  for (index = 0; index < localStorage.length; index += 1) {
+    const li = document.createElement('li');
+    const listObject = JSON.parse(localStorage.getItem(index));
+    li.innerText = listObject.item;
+    li.className = listObject.class;
+    list.appendChild(li);
+  }
+}
+
 window.onload = function () {
   addTask();
   selectItem();
   completedItem();
   clearList();
   clearListCompleted();
+  saveList();
+  uploadTasks();
 };
