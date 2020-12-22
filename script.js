@@ -2,6 +2,13 @@ const taskList = document.querySelector('#lista-tarefas');
 const cleanButton = document.querySelector('#apaga-tudo');
 const complButton = document.querySelector('#remover-finalizados');
 const selectButton = document.querySelector('#remover-selecionado');
+const saveButton = document.querySelector('#salvar-tarefas');
+
+// localStorage.setItem('rua', 'oii');
+// localStorage.removeItem('rua');
+// localStorage.clear();
+// let vnome = localStorage.getItem('rua');
+// alert(vnome);
 
 function inputTaskOnTheList() {
   const taskText = document.querySelector('#texto-tarefa');
@@ -55,3 +62,13 @@ function cleanSelectedItem() {
   selected.remove();
 }
 selectButton.addEventListener('click', cleanSelectedItem);
+
+function saveTasksList() {
+  localStorage.setItem('list', taskList.innerHTML);
+}
+saveButton.addEventListener('click', saveTasksList);
+
+function getTasksList() {
+  taskList.innerHTML = localStorage.getItem('list');
+}
+getTasksList();
