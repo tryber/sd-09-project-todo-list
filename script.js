@@ -98,4 +98,4 @@ function moveTaskLower() {
   nextItem.innerText = itemText;
   nextItem.className = itemClass;
 }
-downButton.addEventListener('click',moveTaskLower);
+downButton.addEventListener('click', moveTaskLower);
