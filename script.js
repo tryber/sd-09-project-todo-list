@@ -2,6 +2,7 @@ var addButton = document.getElementById('criar-tarefa');
 var textBox = document.getElementById('texto-tarefa');
 var father = document.getElementsByTagName('ol')[0];
 var clearAll = document.getElementById('apaga-tudo');
+var clearCompleted = document.getElementById('remover-finalizados')
 
 function add() {
     let son = document.createElement('li');
@@ -47,3 +48,14 @@ function clearList() {
 }
 
 clearAll.addEventListener('click', clearList)
+
+function clearStriped() {
+    for(i = 0; i < list.length; i += 1) {
+        if (list[i].className === 'completed') {
+            father.removeChild(list[i])
+            i--
+        }
+    }
+}
+
+clearCompleted.addEventListener('click', clearStriped)
