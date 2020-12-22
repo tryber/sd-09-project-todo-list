@@ -27,3 +27,14 @@ function changeBackground(originaryEvent) {
 
 father.addEventListener('click', changeBackground)
 
+function done(originaryEvent) {
+    for(i = 0; i < list.length; i += 1) {
+        if (originaryEvent.target === list[i] && list[i].className !== 'completed') {
+            list[i].classList.add('completed')
+        } else if (originaryEvent.target === list[i] && list[i].className === 'completed') {
+            list[i].classList.remove('completed')
+        }
+    }
+}
+
+father.addEventListener('dblclick', done)
