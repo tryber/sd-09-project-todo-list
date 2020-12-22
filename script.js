@@ -122,11 +122,10 @@ downButton.addEventListener('click', moveParaBaixo);
 
 function moveParaCima() {
   const selected = taskList.querySelector('.selected');
-  const anterior = selected.previousElementSibling; 
+  const anterior = selected.previousElementSibling;
   if (selected && anterior) {
     const parent = selected.parentNode;
     parent.insertBefore(selected, anterior);
   }
 }
 upButton.addEventListener('click', moveParaCima);
-// https://developer.mozilla.org/en-US/docs/Web/API/NonDocumentTypeChildNode/previousElementSibling  
