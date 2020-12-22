@@ -88,7 +88,7 @@ function lineThroughAssigment(event) {
   event.target.classList.add('completed');
 }
 }
-// function to remove all itens from class 'completed'
+// function to remove all itens from class 'completed' also remove from storage too
 function removeCompleted() {
   let elementAssigmentList = document.querySelectorAll('.assigmentList');  
   let tarefas = document.getElementById('lista-tarefas');
@@ -96,6 +96,11 @@ function removeCompleted() {
     let element = elementAssigmentList[index];
     if(element.classList.value.includes('completed')) {
       tarefas.removeChild(element);
+      const assigmentToRemove = {
+        text: element.innerText,
+        class: element.className,
+      }
+      localStorage.removeItem(index, JSON.stringify(assigmentToRemove));
     }
   }
 }
@@ -115,7 +120,7 @@ function removeAll() {
     }
   }
 }
-// function to remove iten by selection
+// function to remove iten by selection also add remove from storage too
 function removeChoosed() {
   let elementAssigmentList = document.querySelectorAll('.assigmentList');
   let tarefas = document.getElementById('lista-tarefas');
@@ -123,17 +128,14 @@ function removeChoosed() {
     let element = elementAssigmentList[index];
     if(element.classList.value.includes('backgroundList')) {
       tarefas.removeChild(element);
-      localStorage.removeItem(element)
-      const listItems = document.getElementsByTagName('li');
-      for (let index = 0; index < listItems.length; index += 1) {
-        listItems[index].classList.remove('saved-items');
+      const assigmentToRemove = {
+        text: element.innerText,
+        class: element.className,
       }
+      localStorage.removeItem(index, JSON.stringify(assigmentToRemove));
     }
   }
 }
-
-
-
 // function to get iten position on assigment list by index
 function selectedElement() {
   let liItens = document.querySelectorAll('li');
@@ -172,7 +174,6 @@ function buttonSaveAllTasks() {
     localStorage.setItem(index, JSON.stringify(assigmentToSave));
   }
 }
-
 // function to auto recovery stored tasks when open or refresh page
 function recoveryLocalStorage() {
   const inputedTasks = document.getElementById('lista-tarefas');
@@ -184,8 +185,6 @@ function recoveryLocalStorage() {
     inputedTasks.appendChild(recoveredTasks);
   }
 }
-
-
 // created a function to encapsulate all listeners/function callers
 function listeners() {
 let getInput = document.getElementById('criar-tarefa');
