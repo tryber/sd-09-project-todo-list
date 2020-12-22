@@ -18,3 +18,19 @@ function addTask() {
 }
 
 addTask()
+
+// Removendo todos os itens da lista
+function removeAll() {
+  let removeAllItens = document.querySelector("#apaga-tudo")
+
+  removeAllItens.addEventListener('click', function () {
+    let itemList = document.querySelectorAll(".item-list")
+    let fatherList = document.querySelector("#lista-tarefas")
+
+    for (let index = 0; index < itemList.length; index += 1) {
+      fatherList.removeChild(itemList[index])
+    }
+  })
+}
+
+removeAll()
