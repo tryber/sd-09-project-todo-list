@@ -3,17 +3,14 @@ const cleanButton = document.querySelector('#apaga-tudo');
 const complButton = document.querySelector('#remover-finalizados');
 const selectButton = document.querySelector('#remover-selecionado');
 const saveButton = document.querySelector('#salvar-tarefas');
-
-// localStorage.setItem('rua', 'oii');
-// localStorage.removeItem('rua');
-// localStorage.clear();
-// let vnome = localStorage.getItem('rua');
-// alert(vnome);
+const upButton = document.querySelector('#mover-cima');
+const downButton = document.querySelector('#mover-baixo');
 
 function inputTaskOnTheList() {
   const taskText = document.querySelector('#texto-tarefa');
   const listElement = document.createElement('li');
   listElement.id = 'item-lista';
+  listElement.classList.add('item-lista');
 
   if (taskText.value !== '') {
     listElement.innerText = taskText.value;
@@ -25,6 +22,12 @@ function inputTaskOnTheList() {
 function taskButton() {
   const createButton = document.querySelector('#criar-tarefa');
   createButton.addEventListener('click', inputTaskOnTheList);
+  const taskText = document.querySelector('#texto-tarefa');
+  taskText.addEventListener('keyup', function (event) {
+    if (event.key === 'Enter') {
+      inputTaskOnTheList();
+    }
+  });
 }
 taskButton();
 
@@ -72,3 +75,27 @@ function getTasksList() {
   taskList.innerHTML = localStorage.getItem('list');
 }
 getTasksList();
+
+function moveTaskUpper() {
+  const selected = document.querySelector('.selected');
+  const prevItem = selected.previousElementSibling;
+  const itemText = selected.innerText;
+  const itemClass = selected.className;
+  selected.innerText = prevItem.innerText;
+  selected.className = prevItem.className;
+  prevItem.innerText = itemText;
+  prevItem.className = itemClass;
+}
+upButton.addEventListener('click', moveTaskUpper);
+
+function moveTaskLower() {
+  const selected = document.querySelector('.selected');
+  const nextItem = selected.nextElementSibling;
+  const itemText = selected.innerText;
+  const itemClass = selected.className;
+  selected.innerText = nextItem.innerText;
+  selected.className = nextItem.className;
+  nextItem.innerText = itemText;
+  nextItem.className = itemClass;
+}
+downButton.addEventListener('click',moveTaskLower);
