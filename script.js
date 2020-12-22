@@ -55,19 +55,19 @@ function removeEnded() {
         index = index - 1;
       }
     }
-  })
+  });
 }
 
 function removeSelected() {
   const buttom = document.getElementById('remover-selecionado');
-  buttom.addEventListener('click', function() {
+  buttom.addEventListener('click', function () {
     const list = document.getElementsByTagName('li');
-    for (index = 0; index < list.length; index += 1) {
+    for (let index = 0; index < list.length; index += 1) {
       if (list[index].classList.contains('greyBackground')) {
         list[index].remove();
       }
     }
-  }); 
+  });
 }
 
 window.onload = function () {
