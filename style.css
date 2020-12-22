@@ -1,3 +1,7 @@
 body {
   background-color: blue;
 }
+
+.selected {
+  background-color:rgb(128, 128, 128);
+}

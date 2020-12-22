@@ -16,7 +16,6 @@ function addTask() {
     task.value = ""
   })
 }
-
 addTask()
 
 // Removendo todos os itens da lista
@@ -32,5 +31,22 @@ function removeAll() {
     }
   })
 }
-
 removeAll()
+
+function SelectItem() {
+  let task = document.querySelector('#lista-tarefas')
+
+  task.addEventListener('click', function(event) {
+    let identifySelectedItem = document.querySelector(".selected")
+    
+    if( identifySelectedItem !== null) {
+      identifySelectedItem.classList.remove("selected")
+    }
+    
+    let clickedItem = event.target
+    clickedItem.classList.add("selected")
+    console.log(event.target)
+  })
+}
+
+SelectItem ()
