@@ -9,19 +9,19 @@ function functionsLoaded() {
 }
 
 function clearInput() {
-  let inputLocal = document.querySelector('#texto-tarefa');
+  const inputLocal = document.querySelector('#texto-tarefa');
   inputLocal.value = '';
 }
 
 function newItemList() {
-  let buttonLocal = document.querySelector('#criar-tarefa');
+  const buttonLocal = document.querySelector('#criar-tarefa');
 
   buttonLocal.addEventListener('click', function () {
-    let inputLocal = document.querySelector('#texto-tarefa');
-    let taskName = inputLocal.value;
-    let listLocal = document.querySelector('#lista-tarefas');
+    const inputLocal = document.querySelector('#texto-tarefa');
+    const taskName = inputLocal.value;
+    const listLocal = document.querySelector('#lista-tarefas');
 
-    let newItem = document.createElement('li');
+    const newItem = document.createElement('li');
     newItem.className = 'list-item';
     newItem.innerText = taskName;
     listLocal.appendChild(newItem);
@@ -33,8 +33,8 @@ function newItemList() {
 
 function clickColor() {
   document.addEventListener('click', function (event) {
-    let element = event.target;
-    let listItemLocal = document.querySelectorAll('.list-item');
+    const element = event.target;
+    const listItemLocal = document.querySelectorAll('.list-item');
     for (let count = 0; count < listItemLocal.length; count += 1) {
       if (listItemLocal[count].style.backgroundColor === 'rgb(128, 128, 128)') {
         listItemLocal[count].style.backgroundColor = 'white';
@@ -57,9 +57,9 @@ function doubleClick() {
 }
 
 function eraseAll() {
-  let eraseButtonLocal = document.querySelector('#apaga-tudo');
+  const eraseButtonLocal = document.querySelector('#apaga-tudo');
   eraseButtonLocal.addEventListener('click', function () {
-    let listItemLocal = document.querySelectorAll('.list-item');
+    const listItemLocal = document.querySelectorAll('.list-item');
     for (let index = 0; index < listItemLocal.length; index += 1) {
       listItemLocal[index].remove();
     }
@@ -67,9 +67,9 @@ function eraseAll() {
 }
 
 function eraseFinished() {
-  let eraseFinishedButtonLocal = document.querySelector('#remover-finalizados');
+  const eraseFinishedButtonLocal = document.querySelector('#remover-finalizados');
   eraseFinishedButtonLocal.addEventListener('click', function () {
-    let listFinishedLocal = document.querySelectorAll('.completed');
+    const listFinishedLocal = document.querySelectorAll('.completed');
     for (let indice = 0; indice < listFinishedLocal.length; indice += 1) {
       listFinishedLocal[indice].remove();
     }
@@ -77,9 +77,9 @@ function eraseFinished() {
 }
 
 function eraseSelected() {
-  let eraseSelectedButton = document.querySelector('#remover-selecionado');
+  const eraseSelectedButton = document.querySelector('#remover-selecionado');
   eraseSelectedButton.addEventListener('click', function () {
-    let listItemGen = document.querySelectorAll('.list-item');
+    const listItemGen = document.querySelectorAll('.list-item');
     for (let contador = 0; contador < listItemGen.length; contador += 1) {
       if (
         listItemGen[contador].style.backgroundColor === 'rgb(128, 128, 128)'
