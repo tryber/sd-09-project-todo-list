@@ -104,6 +104,15 @@ function moveDown() {
   });
 }
 
+function removeSelected() {
+  const buttonRemoveSelected = document.getElementById('remover-selecionado');
+  buttonRemoveSelected.addEventListener('click', function () {
+    const selectedItems = document.getElementsByClassName('selected');
+    const selectedItem = selectedItems[0];
+    selectedItem.parentNode.removeChild(selectedItem);
+  });
+}
+
 window.onload = function () {
   addTask();
   selectItem();
@@ -114,4 +123,5 @@ window.onload = function () {
   uploadTasks();
   moveUp();
   moveDown();
+  removeSelected();
 };
