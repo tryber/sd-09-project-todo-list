@@ -70,7 +70,7 @@ function finishTask() {
 finishTask()
 
 // Remover selecionado
-function removeFinalizedItens() {
+function removeSelectedItem() {
   const botaoRemoverSelecionado = document.querySelector('#remover-selecionado')
 
   botaoRemoverSelecionado.addEventListener('click', function () {
@@ -85,5 +85,22 @@ function removeFinalizedItens() {
   })
 }
 
-removeFinalizedItens()
+removeSelectedItem()
 
+// Remove todos finalizados
+function removeFinalizedItens() {
+  const botaoRemoverFinalizados = document.querySelector('#remover-finalizados')
+
+  botaoRemoverFinalizados.addEventListener('click', function () {
+    const taksList = document.querySelectorAll('.item-list')
+    const list = document.querySelector("#lista-tarefas")
+
+    for (let index = 0; index < taksList.length; index += 1) {
+      if (taksList[index].className === 'item-list selected completed' || taksList[index].className === 'item-list completed') {
+        list.removeChild(taksList[index])
+      }
+    }
+  })
+}
+
+removeFinalizedItens()
