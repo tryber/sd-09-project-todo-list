@@ -147,6 +147,32 @@ function moveDownTask() {
     moveDown.parentNode.insertBefore(moveDown.nextElementSibling, moveDown);
   }
 }
+// function to save tasks when press save tasks button
+function buttonSaveAllTasks() {
+    const assigmentTasks = document.getElementsByTagName('li');
+    for (let index = 0; index < assigmentTasks.length; index += 1) {
+      assigmentTasks[index].classList.add('saved-items');
+      const assigmentToSave = {
+        text: assigmentTasks[index].innerText,
+        class: assigmentTasks[index].className,
+      };
+      localStorage.setItem(index, JSON.stringify(assigmentToSave));
+    }
+    alert('Lista salva!');
+  }
+
+// function to auto recovery stored tasks when open page
+function recoveryLocalStorage() {
+  const inputedTasks = document.getElementById('lista-tarefas');
+  for (let index = 0; index < localStorage.length; index += 1) {
+    const recoveredTasks = document.createElement('li');
+    const objectString = JSON.parse(localStorage.getItem(index));
+    recoveredTasks.innerText = objectString.text;
+    recoveredTasks.className = objectString.class;
+    inputedTasks.appendChild(recoveredTasks);
+  }
+}
+
 // created a function to encapsulate all listeners/function callers
 function listeners() {
 let getInput = document.getElementById('criar-tarefa');
@@ -167,9 +193,12 @@ let upTask = document.getElementById('mover-cima');
 upTask.addEventListener('click', moveUpTask);
 let downTask = document.getElementById('mover-baixo');
 downTask.addEventListener('click', moveDownTask);
+let buttonStorage = document.getElementById('salvar-tarefas');
+buttonStorage.addEventListener('click', buttonSaveAllTasks);
 }
 // functions to be opened when open browser
 window.onload = function() {
   structure();
   listeners();
+  recoveryLocalStorage();
 }
