@@ -37,9 +37,7 @@ function changeBgColor(event) {
     if (selected) {
       selected.classList.remove('selected');
     }
-    // if (selected !== event.target) {
     event.target.classList.add('selected');
-    // }
   }
 }
 taskList.addEventListener('click', changeBgColor);
