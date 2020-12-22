@@ -33,11 +33,13 @@ taskButton();
 
 function changeBgColor(event) {
   const selected = document.querySelector('.selected');
-  if (selected) {
-    selected.classList.remove('selected');
-  }
-  if (selected !== event.target) {
-    event.target.classList.add('selected');
+  if (event.target.id !== 'lista-tarefas') {
+    if (selected) {
+      selected.classList.remove('selected');
+    }
+    if (selected !== event.target) {
+      event.target.classList.add('selected');
+    }
   }
 }
 taskList.addEventListener('click', changeBgColor);
