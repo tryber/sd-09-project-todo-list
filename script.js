@@ -1,13 +1,3 @@
-window.onload = functionsLoaded();
-
-function functionsLoaded() {
-  newItemList();
-  doubleClick();
-  eraseAll();
-  eraseFinished();
-  eraseSelected();
-}
-
 function clearInput() {
   const inputLocal = document.querySelector('#texto-tarefa');
   inputLocal.value = '';
@@ -89,3 +79,11 @@ function eraseSelected() {
     }
   });
 }
+
+window.onload = function(){
+  newItemList();
+  doubleClick();
+  eraseAll();
+  eraseFinished();
+  eraseSelected();
+};
