@@ -3,10 +3,10 @@ function addTask() {
   const createTask = document.querySelector('#criar-tarefa');
 
   createTask.addEventListener('click', function () {
-    let task = document.querySelector("#texto-tarefa");
+    const task = document.querySelector("#texto-tarefa");
 
-    let insertTask = document.createElement('li');
-    let fatherList = document.querySelector('#lista-tarefas');
+    const insertTask = document.createElement('li');
+    const fatherList = document.querySelector('#lista-tarefas');
 
     insertTask.className = ('item-list');
     insertTask.innerText = task.value;
@@ -20,11 +20,11 @@ addTask()
 
 // Removendo todos os itens da lista
 function removeAll() {
-  let removeAllItens = document.querySelector("#apaga-tudo");
+  const removeAllItens = document.querySelector("#apaga-tudo");
 
   removeAllItens.addEventListener('click', function () {
-    let itemList = document.querySelectorAll(".item-list");
-    let fatherList = document.querySelector("#lista-tarefas");
+    const itemList = document.querySelectorAll(".item-list");
+    const fatherList = document.querySelector("#lista-tarefas");
 
     for (let index = 0; index < itemList.length; index += 1) {
       fatherList.removeChild(itemList[index])
@@ -34,10 +34,10 @@ function removeAll() {
 removeAll()
 
 function SelectItem() {
-  let task = document.querySelector('#lista-tarefas')
+  const task = document.querySelector('#lista-tarefas')
 
   task.addEventListener('click', function(event) {
-    let identifySelectedItem = document.querySelector(".selected")
+    const identifySelectedItem = document.querySelector(".selected")
 
     if( identifySelectedItem !== null) {
       identifySelectedItem.classList.remove("selected")
@@ -68,3 +68,22 @@ function finishTask() {
   });
 }
 finishTask()
+
+// Remover selecionado
+function removeFinalizedItens() {
+  const botaoRemoverSelecionado = document.querySelector('#remover-selecionado')
+
+  botaoRemoverSelecionado.addEventListener('click', function () {
+    const taksList = document.querySelectorAll('.item-list')
+    const list = document.querySelector("#lista-tarefas")
+
+    for (let index = 0; index < taksList.length; index += 1) {
+      if (taksList[index].className === 'item-list selected') {
+        list.removeChild(taksList[index])
+      }
+    }
+  })
+}
+
+removeFinalizedItens()
+
