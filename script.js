@@ -107,6 +107,11 @@ function removeAll() {
     let element = elementAssigmentList[index];    
     if(element.classList.value.includes('assigmentList')) {
       tarefas.removeChild(element);
+      localStorage.clear();
+      const listItems = document.getElementsByTagName('li');
+      for (let index = 0; index < listItems.length; index += 1) {
+        listItems[index].classList.remove('saved-items');
+      }
     }
   }
 }
@@ -118,9 +123,17 @@ function removeChoosed() {
     let element = elementAssigmentList[index];
     if(element.classList.value.includes('backgroundList')) {
       tarefas.removeChild(element);
+      localStorage.removeItem(element)
+      const listItems = document.getElementsByTagName('li');
+      for (let index = 0; index < listItems.length; index += 1) {
+        listItems[index].classList.remove('saved-items');
+      }
     }
   }
 }
+
+
+
 // function to get iten position on assigment list by index
 function selectedElement() {
   let liItens = document.querySelectorAll('li');
@@ -149,19 +162,18 @@ function moveDownTask() {
 }
 // function to save tasks when press save tasks button
 function buttonSaveAllTasks() {
-    const assigmentTasks = document.getElementsByTagName('li');
-    for (let index = 0; index < assigmentTasks.length; index += 1) {
-      assigmentTasks[index].classList.add('saved-items');
-      const assigmentToSave = {
-        text: assigmentTasks[index].innerText,
-        class: assigmentTasks[index].className,
-      };
-      localStorage.setItem(index, JSON.stringify(assigmentToSave));
-    }
-    alert('Lista salva!');
+  const assigmentTasks = document.getElementsByTagName('li');
+  for (let index = 0; index < assigmentTasks.length; index += 1) {
+    assigmentTasks[index].classList.add('saved-items');
+    const assigmentToSave = {
+      text: assigmentTasks[index].innerText,
+      class: assigmentTasks[index].className,
+    };
+    localStorage.setItem(index, JSON.stringify(assigmentToSave));
   }
+}
 
-// function to auto recovery stored tasks when open page
+// function to auto recovery stored tasks when open or refresh page
 function recoveryLocalStorage() {
   const inputedTasks = document.getElementById('lista-tarefas');
   for (let index = 0; index < localStorage.length; index += 1) {
@@ -172,6 +184,7 @@ function recoveryLocalStorage() {
     inputedTasks.appendChild(recoveredTasks);
   }
 }
+
 
 // created a function to encapsulate all listeners/function callers
 function listeners() {
