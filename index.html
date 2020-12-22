@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <title>Todo-List</title>
+  </head>
+  <main class="container animate__animated animate__rubberBand animate__delay-1s 1s animate__fast">
+    <header class="header">
+      <h1>Minha Lista de Tarefas</h1>
+      <p id="funcionamento"> Clique duas vezes em um item para marcá-lo como completo </p>
+    </header>
+
+    <body>
+      <div class="form">
+        <div class="move-button">
+          <button id="mover-cima" class="move-button">Up</button>
+          <button id="mover-baixo">Down</button>
+        </div>
+        <div class="input-area">
+          <input id="texto-tarefa" type="text" name="text" required autofocus class="input" />
+        </div>
+        <div class="save-task">
+          <button id="criar-tarefa" type="submit">Create Task</button>
+          <button id="salvar-tarefas" type="submit">Save List</button>
+        </div>
+      </div>
+      <div>
+        <ol id="lista-tarefas" class="ordered-list"></ol>
+      </div>
+      <div class="delete-buttons">
+        <div>
+          <button id="remover-selecionado">Remove Selected</button>
+        </div>
+        <div>
+          <button id="apaga-tudo" type="reset">Erase List</button>
+        </div>
+        <div>
+          <button id="remover-finalizados" type="reset">Remove Finished</button>
+        </div>
+        <script src="script.js"></script>
+    </body>
+  </main>
+
+</html>
