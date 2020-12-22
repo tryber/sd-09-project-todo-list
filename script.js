@@ -78,6 +78,28 @@ function uploadTasks() {
   }
 }
 
+function moveUp() {
+  const buttonMoveUp = document.getElementById('mover-cima');
+  buttonMoveUp.addEventListener('click', function () {
+    let list = document.getElementById('lista-tarefas');
+    let selectedItem = document.getElementsByClassName('selected');
+    if (selectedItem[0].previousSibling !== null) {
+      list.insertBefore(selectedItem[0], selectedItem[0].previousSibling);
+    }
+  });
+}
+
+function moveDown() {
+  const buttonMoveDown = document.getElementById('mover-baixo');
+  buttonMoveDown.addEventListener('click', function () {
+    let list = document.getElementById('lista-tarefas');
+    let selectedItem = document.getElementsByClassName('selected');
+    if (selectedItem[0].nextSibling !== null) {
+      list.insertBefore(selectedItem[0].nextSibling, selectedItem[0]);
+    }
+  });
+}
+
 window.onload = function () {
   addTask();
   selectItem();
@@ -86,4 +108,6 @@ window.onload = function () {
   clearListCompleted();
   saveList();
   uploadTasks();
+  moveUp();
+  moveDown();
 };
