@@ -45,9 +45,7 @@ function clearListCompleted() {
   buttonclearListCompleted.addEventListener('click', function () {
     const listCompleted = document.getElementsByClassName('completed');
     while (listCompleted[0]) {
-      console.log("cai aqui")
       listCompleted[0].parentNode.removeChild(listCompleted[0]);
-      alert("stop");
     }
   });
 }
