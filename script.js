@@ -34,9 +34,9 @@ taskButton();
 function changeBgColor(event) {
   const selected = document.querySelector('.selected');
   if (event.target.id !== 'lista-tarefas') {
-    if (selected) {
-      selected.classList.remove('selected');
-    }
+    // if (selected) {
+    //   selected.classList.remove('selected');
+    // }
     if (selected !== event.target) {
       event.target.classList.add('selected');
     }
@@ -109,23 +109,3 @@ function moveTaskLower() {
   }
 }
 downButton.addEventListener('click', moveTaskLower);
-
-// function moveParaBaixo() {
-//   const selected = taskList.querySelector('.selected');
-//   const proximo = selected.nextElementSibling;
-//   if (selected && proximo) {
-//     const parent = selected.parentNode;
-//     parent.insertBefore(proximo, selected);
-//   }
-// }
-// downButton.addEventListener('click', moveParaBaixo);
-
-// function moveParaCima() {
-//   const selected = taskList.querySelector('.selected');
-//   const anterior = selected.previousElementSibling;
-//   if (selected && anterior) {
-//     const parent = selected.parentNode;
-//     parent.insertBefore(selected, anterior);
-//   }
-// }
-// upButton.addEventListener('click', moveParaCima);
