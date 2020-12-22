@@ -78,54 +78,54 @@ function getTasksList() {
 }
 getTasksList();
 
-// function moveTaskUpper() {
-//   if (document.querySelector('.selected')) {
-//     const selected = document.querySelector('.selected');
-//     if (selected.previousElementSibling) {
-//       const prevItem = selected.previousElementSibling;
-//       const itemText = selected.innerText;
-//       const itemClass = selected.className;
-//       selected.innerText = prevItem.innerText;
-//       selected.className = prevItem.className;
-//       prevItem.innerText = itemText;
-//       prevItem.className = itemClass;
-//     }
-//   }
-// }
-// upButton.addEventListener('click', moveTaskUpper);
-
-// function moveTaskLower() {
-//   if (document.querySelector('.selected')) {
-//     const selected = document.querySelector('.selected');
-//     if (selected.nextElementSibling) {
-//       const nextItem = selected.nextElementSibling;
-//       const itemText = selected.innerText;
-//       const itemClass = selected.className;
-//       selected.innerText = nextItem.innerText;
-//       selected.className = nextItem.className;
-//       nextItem.innerText = itemText;
-//       nextItem.className = itemClass;
-//     }
-//   }
-// }
-// downButton.addEventListener('click', moveTaskLower);
-
-function moveParaBaixo() {
-  const selected = taskList.querySelector('.selected');
-  const proximo = selected.nextElementSibling;
-  if (selected && proximo) {
-    const parent = selected.parentNode;
-    parent.insertBefore(proximo, selected);
+function moveTaskUpper() {
+  if (document.querySelector('.selected')) {
+    const selected = document.querySelector('.selected');
+    if (selected.previousElementSibling) {
+      const prevItem = selected.previousElementSibling;
+      const itemText = selected.innerText;
+      const itemClass = selected.className;
+      selected.innerText = prevItem.innerText;
+      selected.className = prevItem.className;
+      prevItem.innerText = itemText;
+      prevItem.className = itemClass;
+    }
   }
 }
-downButton.addEventListener('click', moveParaBaixo);
+upButton.addEventListener('click', moveTaskUpper);
 
-function moveParaCima() {
-  const selected = taskList.querySelector('.selected');
-  const anterior = selected.previousElementSibling;
-  if (selected && anterior) {
-    const parent = selected.parentNode;
-    parent.insertBefore(selected, anterior);
+function moveTaskLower() {
+  if (document.querySelector('.selected')) {
+    const selected = document.querySelector('.selected');
+    if (selected.nextElementSibling) {
+      const nextItem = selected.nextElementSibling;
+      const itemText = selected.innerText;
+      const itemClass = selected.className;
+      selected.innerText = nextItem.innerText;
+      selected.className = nextItem.className;
+      nextItem.innerText = itemText;
+      nextItem.className = itemClass;
+    }
   }
 }
-upButton.addEventListener('click', moveParaCima);
+downButton.addEventListener('click', moveTaskLower);
+
+// function moveParaBaixo() {
+//   const selected = taskList.querySelector('.selected');
+//   const proximo = selected.nextElementSibling;
+//   if (selected && proximo) {
+//     const parent = selected.parentNode;
+//     parent.insertBefore(proximo, selected);
+//   }
+// }
+// downButton.addEventListener('click', moveParaBaixo);
+
+// function moveParaCima() {
+//   const selected = taskList.querySelector('.selected');
+//   const anterior = selected.previousElementSibling;
+//   if (selected && anterior) {
+//     const parent = selected.parentNode;
+//     parent.insertBefore(selected, anterior);
+//   }
+// }
+// upButton.addEventListener('click', moveParaCima);
