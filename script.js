@@ -3,7 +3,7 @@ function addTask() {
   const createTask = document.querySelector('#criar-tarefa');
 
   createTask.addEventListener('click', function () {
-    const task = document.querySelector("#texto-tarefa");
+    const task = document.querySelector('#texto-tarefa')
 
     const insertTask = document.createElement('li');
     const fatherList = document.querySelector('#lista-tarefas');
@@ -13,65 +13,61 @@ function addTask() {
 
     fatherList.appendChild(insertTask);
 
-    task.value = "";
-  })
+    task.value = '';
+  });
 }
-addTask()
+addTask();
 
 // Removendo todos os itens da lista
 function removeAll() {
-  const removeAllItens = document.querySelector("#apaga-tudo");
+  const removeAllItens = document.querySelector('#apaga-tudo');
 
   removeAllItens.addEventListener('click', function () {
     const itemList = document.querySelectorAll(".item-list");
     const fatherList = document.querySelector("#lista-tarefas");
 
     for (let index = 0; index < itemList.length; index += 1) {
-      fatherList.removeChild(itemList[index])
+      fatherList.removeChild(itemList[index]);
     }
   });
 }
-removeAll()
+removeAll();
 
 function SelectItem() {
-  const task = document.querySelector('#lista-tarefas')
+  const task = document.querySelector('#lista-tarefas');
 
   task.addEventListener('click', function(event) {
-    const identifySelectedItem = document.querySelector(".selected")
+    const identifySelectedItem = document.querySelector('.selected');
 
     if( identifySelectedItem !== null) {
-      identifySelectedItem.classList.remove("selected")
+      identifySelectedItem.classList.remove('selected');
     }
 
-    let clickedItem = event.target
-    clickedItem.classList.add("selected")
+    let clickedItem = event.target;
+    clickedItem.classList.add('selected');
   })
 }
-
-SelectItem ()
-
+SelectItem ();
 
 function finishTask() {
   const task = document.querySelector('#lista-tarefas');
 
   task.addEventListener('dblclick', function (event) {
-    let finishedTask = event.target
+    let finishedTask = event.target;
 
     if (finishedTask.className === 'item-list completed' || finishedTask.className === 'item-list selected completed' || finishedTask.className === 'item-list completed selected') {
-      finishedTask.classList.remove('selected')
-      finishedTask.classList.remove('completed')
+      finishedTask.classList.remove('selected');
+      finishedTask.classList.remove('completed');
     } else {
-      finishedTask.classList.add('completed')
-  };
-
-    console.log(event.target)
+      finishedTask.classList.add('completed');
+    };
   });
 }
-finishTask()
+finishTask();
 
 // Remover selecionado
 function removeSelectedItem() {
-  const botaoRemoverSelecionado = document.querySelector('#remover-selecionado')
+  const botaoRemoverSelecionado = document.querySelector('#remover-selecionado');
 
   botaoRemoverSelecionado.addEventListener('click', function () {
     const taksList = document.querySelectorAll('.item-list')
@@ -92,15 +88,15 @@ function removeFinalizedItens() {
   const botaoRemoverFinalizados = document.querySelector('#remover-finalizados')
 
   botaoRemoverFinalizados.addEventListener('click', function () {
-    const taksList = document.querySelectorAll('.item-list')
-    const list = document.querySelector("#lista-tarefas")
+    const taksList = document.querySelectorAll('.item-list');
+    const list = document.querySelector("#lista-tarefas");
 
     for (let index = 0; index < taksList.length; index += 1) {
       if (taksList[index].className === 'item-list selected completed' || taksList[index].className === 'item-list completed') {
-        list.removeChild(taksList[index])
+        list.removeChild(taksList[index]);
       }
     }
-  })
+  });
 }
 
-removeFinalizedItens()
+removeFinalizedItens();
