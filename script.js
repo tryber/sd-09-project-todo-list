@@ -79,8 +79,8 @@ getTasksList();
 function moveTaskUpper() {
   if (document.querySelector('.selected')) {
     const selected = document.querySelector('.selected');
-    const prevItem = selected.previousElementSibling;
-    if (prevItem) {
+    if (selected.previousElementSibling) {
+      const prevItem = selected.previousElementSibling;
       const itemText = selected.innerText;
       const itemClass = selected.className;
       selected.innerText = prevItem.innerText;
@@ -95,8 +95,8 @@ upButton.addEventListener('click', moveTaskUpper);
 function moveTaskLower() {
   if (document.querySelector('.selected')) {
     const selected = document.querySelector('.selected');
-    const nextItem = selected.nextElementSibling;
-    if (nextItem) {
+    if (selected.nextElementSibling) {
+      const nextItem = selected.nextElementSibling;
       const itemText = selected.innerText;
       const itemClass = selected.className;
       selected.innerText = nextItem.innerText;
