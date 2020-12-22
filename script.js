@@ -30,8 +30,19 @@ function completedItem() {
   });
 }
 
+function clearList() {
+  const buttonClearList = document.getElementById('apaga-tudo');
+  buttonClearList.addEventListener('click', function (event) {
+    listItem = document.getElementById('lista-tarefas');
+    while (listItem.firstChild) {
+      listItem.removeChild(listItem.firstChild);
+    }
+  });
+}
+
 window.onload = function () {
   addTask();
   selectItem();
   completedItem();
+  clearList();
 };
