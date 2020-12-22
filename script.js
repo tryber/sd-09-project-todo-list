@@ -59,17 +59,17 @@ function saveList() {
     while (list[index]) {
       listObject = {
         item: list[index].innerHTML,
-        class: list[index].className
+        class: list[index].className,
       };
-      localStorage.setItem(index, JSON.stringify(listObject))
+      localStorage.setItem(index, JSON.stringify(listObject));
       index += 1;
     }
   });
 }
 
-function uploadTasks () {
+function uploadTasks() {
   const list = document.getElementById('lista-tarefas');
-  for (index = 0; index < localStorage.length; index += 1) {
+  for (let index = 0; index < localStorage.length; index += 1) {
     const li = document.createElement('li');
     const listObject = JSON.parse(localStorage.getItem(index));
     li.innerText = listObject.item;
