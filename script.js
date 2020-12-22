@@ -1,6 +1,7 @@
 var addButton = document.getElementById('criar-tarefa');
 var textBox = document.getElementById('texto-tarefa');
 var father = document.getElementsByTagName('ol')[0];
+var clearAll = document.getElementById('apaga-tudo');
 
 function add() {
     let son = document.createElement('li');
@@ -38,3 +39,11 @@ function done(originaryEvent) {
 }
 
 father.addEventListener('dblclick', done)
+
+function clearList() {
+    while (father.hasChildNodes()) {
+        father.removeChild(list[0])
+    }
+}
+
+clearAll.addEventListener('click', clearList)
