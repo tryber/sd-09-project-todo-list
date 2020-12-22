@@ -78,24 +78,32 @@ getTasksList();
 
 function moveTaskUpper() {
   const selected = document.querySelector('.selected');
-  const prevItem = selected.previousElementSibling;
-  const itemText = selected.innerText;
-  const itemClass = selected.className;
-  selected.innerText = prevItem.innerText;
-  selected.className = prevItem.className;
-  prevItem.innerText = itemText;
-  prevItem.className = itemClass;
+  if (selected) {
+    const prevItem = selected.previousElementSibling;
+    if (prevItem) {
+      const itemText = selected.innerText;
+      const itemClass = selected.className;
+      selected.innerText = prevItem.innerText;
+      selected.className = prevItem.className;
+      prevItem.innerText = itemText;
+      prevItem.className = itemClass;
+    }
+  }
 }
 upButton.addEventListener('click', moveTaskUpper);
 
 function moveTaskLower() {
   const selected = document.querySelector('.selected');
-  const nextItem = selected.nextElementSibling;
-  const itemText = selected.innerText;
-  const itemClass = selected.className;
-  selected.innerText = nextItem.innerText;
-  selected.className = nextItem.className;
-  nextItem.innerText = itemText;
-  nextItem.className = itemClass;
+  if (selected) {
+    const nextItem = selected.nextElementSibling;
+    if (nextItem && selected) {
+      const itemText = selected.innerText;
+      const itemClass = selected.className;
+      selected.innerText = nextItem.innerText;
+      selected.className = nextItem.className;
+      nextItem.innerText = itemText;
+      nextItem.className = itemClass;
+    }
+  }
 }
 downButton.addEventListener('click', moveTaskLower);
