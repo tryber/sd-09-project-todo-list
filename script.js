@@ -1,6 +1,7 @@
 const taskList = document.querySelector('#lista-tarefas');
 const cleanButton = document.querySelector('#apaga-tudo');
 const complButton = document.querySelector('#remover-finalizados');
+const selectButton = document.querySelector('#remover-selecionado');
 
 function inputTaskOnTheList() {
   const taskText = document.querySelector('#texto-tarefa');
@@ -48,3 +49,9 @@ function cleanCompletedTasks() {
   }
 }
 complButton.addEventListener('click', cleanCompletedTasks);
+
+function cleanSelectedItem() {
+  const selected = document.querySelector('.selected');
+  selected.remove();
+}
+selectButton.addEventListener('click', cleanSelectedItem);
