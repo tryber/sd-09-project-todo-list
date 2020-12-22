@@ -26,7 +26,7 @@ function selectItem() {
 function completedItem() {
   const listItem = document.getElementById('lista-tarefas');
   listItem.addEventListener('dblclick', function (event) {
-      event.target.classList.toggle('completed');
+    event.target.classList.toggle('completed');
   });
 }
 
