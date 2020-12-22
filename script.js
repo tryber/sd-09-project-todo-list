@@ -40,9 +40,22 @@ function clearList() {
   });
 }
 
+function clearListCompleted() {
+  const buttonclearListCompleted = document.getElementById('remover-finalizados');
+  buttonclearListCompleted.addEventListener('click', function () {
+    const listCompleted = document.getElementsByClassName('completed');
+    while (listCompleted[0]) {
+      console.log("cai aqui")
+      listCompleted[0].parentNode.removeChild(listCompleted[0]);
+      alert("stop");
+    }
+  });
+}
+
 window.onload = function () {
   addTask();
   selectItem();
   completedItem();
   clearList();
+  clearListCompleted();
 };
