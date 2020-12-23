@@ -1,4 +1,6 @@
-#lista-tarefas {
-  padding: 20%;
-  border: solid 2px black
+.lista-tarefas {
+font-family: 'Courier New', Courier, monospace;
+border:solid;
+padding: 50px;
+
 }
