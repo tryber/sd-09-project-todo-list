@@ -140,13 +140,15 @@ function saveStorage() {
 
 function startList() {
   const elements = JSON.parse(localStorage.getItem('itens'));
-  if (elements.length > 0) {
-    for (let count = 0; count < elements.length; count += 1) {
-      let createLi = document.createElement('li');
-      createLi.innerText = elements[count];
-      createLi.classList.add('list-item');
-      const listLocal = document.querySelector('#lista-tarefas');
-      listLocal.appendChild(createLi);
+  if (elements !== null){
+    if (elements.length > 0) {
+      for (let count = 0; count < elements.length; count += 1) {
+        let createLi = document.createElement('li');
+        createLi.innerText = elements[count];
+        createLi.classList.add('list-item');
+        const listLocal = document.querySelector('#lista-tarefas');
+        listLocal.appendChild(createLi);
+      }
     }
   }
 }
