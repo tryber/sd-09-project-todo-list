@@ -46,7 +46,7 @@ body{
     outline: none;
     
 }
-#titulo {
+.titulo {
     display: inline-block;
     
     left: 50px;
