@@ -25,7 +25,7 @@ function createParagraph() {
   createParagraph.id = "funcionamento";
 
   createParagraph.innerText =
-    "Clique duas vezes em um item apra marcá-lo como completo";
+    "Clique duas vezes em um item para marcá-lo como completo";
 
   main.appendChild(createParagraph);
 }
@@ -52,6 +52,20 @@ function createInput() {
  * DESAFIO 04
  */
 
+function createOrderedList() {
+  let main = document.querySelector("main");
+
+  let createOl = document.createElement("ol");
+
+  createOl.id = "lista-tarefas";
+
+  main.appendChild(createOl);
+}
+
+/**
+ * DESAFIO 05
+ */
+
 function createButton() {
   let main = document.querySelector("main");
 
@@ -68,5 +82,6 @@ window.onload = function () {
   createTitle();
   createParagraph();
   createInput();
+  createOrderedList();
   createButton();
 };
