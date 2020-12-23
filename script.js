@@ -76,6 +76,6 @@ window.onload = function () {
   createInput();
   createAddButton();
   createList();
-  //clickButton();
+  clickButton();
   clickItem();
 };
