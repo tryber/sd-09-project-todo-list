@@ -53,7 +53,7 @@ buttonSaveAll.addEventListener('click', function () {
   //   alert('Nothing to save...');
   // }
   for (let index = 0; index < myTaskList.children.length; index += 1) {
-    localStorage.setItem(index, `<li class=${myTaskList.children[index].className}>${myTaskList.children[index].innerHTML}</li>`);
+    localStorage.setItem(index, `<li class="${myTaskList.children[index].className}">${myTaskList.children[index].innerHTML}</li>`);
   }
   // alert('Everything is save :)');
 });
