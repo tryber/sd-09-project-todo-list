@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
+  <script src="https://kit.fontawesome.com/41d5eef277.js" crossorigin="anonymous"></script>
   <title>To do List</title>
 </head>
 <body>
@@ -18,9 +19,13 @@
     </section>
     <div>
       <input id="texto-tarefa" type="text" placeholder="Insert here your task.">
-      <button id="criar-tarefa">Create Task</button>
-      <button id="apaga-tudo">Remove All Tasks</button>
-      <button id="remover-finalizados">Remove All Completed Tasks</button>
+      <button id="criar-tarefa"><i class="fas fa-plus-circle"></i> Task</button>
+      <button id="apaga-tudo"><i class="fas fa-trash"></i></i> All Tasks</button>
+      <button id="remover-finalizados"><i class="fas fa-trash"></i></i> All Completed</button>
+      <button id="remover-selecionado"><i class="fas fa-trash"></i></i> Selected</button>
+      <button id="mover-cima">Move <i class="fas fa-angle-double-up"></i></button>
+      <button id="mover-baixo">Move <i class="fas fa-angle-double-down"></i></button>
+      <button id="salvar-tarefas"><i class="fas fa-save"></i> All Tasks</button>
     </div>
   </main>
   <script type="text/javascript" src="script.js"></script>
