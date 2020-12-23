@@ -44,6 +44,23 @@ function createList() {
   createList.id = "lista-tarefas";
 }
 
+function clickAddButton() {
+  let getButton = document.querySelector("#criar-tarefa");
+  let getList = document.querySelector("#lista-tarefas");
+  getButton.addEventListener("click", function () {
+    let getInput = document.querySelector("#texto-tarefa");
+    let getInputValue = document.querySelector("#texto-tarefa").value;
+    if (getInputValue === "") {
+      alert("A tarefa não pode ser vazia!");
+      return;
+    }
+    let createListItem = document.createElement("li");
+    getList.appendChild(getListItem);
+    createListItem.innerText = getInputValue;
+    getInput.value = "";
+  });
+}
+
 /*
 function clearTasksButton() {
   let getMain = document.querySelector("main");
@@ -242,6 +259,7 @@ window.onload = function () {
   createInput();
   createList();
   createButton();
+  clickAddButton();
   /*submitButton();
   clearTasksButton();
   clearCompletedButton();
