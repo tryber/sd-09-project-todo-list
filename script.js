@@ -26,7 +26,7 @@ function createInput() {
   getMain.appendChild(createInput);
 }
 
-function createAddButton() {
+/*function createAddButton() {
   let main = document.querySelector("main");
   let button = document.createElement("button");
   main.appendChild(button);
@@ -34,6 +34,7 @@ function createAddButton() {
   button.id = "criar-tarefa";
   button.innerText = "Adicionar";
 }
+*/
 function createList() {
   let main = document.querySelector("main");
   let list = document.createElement("li");
@@ -73,7 +74,7 @@ window.onload = function () {
   createTitle();
   createParagraph();
   createInput();
-  createAddButton();
+  //createAddButton();
   createList();
   clickButton();
   clickItem();
