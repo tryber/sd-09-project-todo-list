@@ -1,0 +1,78 @@
+* {
+    padding: 10px;
+    margin: auto;
+    box-sizing: border-box;
+    
+}
+
+#cabecalho {
+    position: fixed;
+    top: 0;
+    background-color: rgb(72 ,164 ,107);
+    width: 100%;
+    height: 15%;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+
+  #titulo {
+    display: inline-block;
+    
+    left: 50px;
+    top: 10px;
+    padding: 20px;
+    font-family: Shadows Into Light, Arial, Helvetica;
+    font-size: xx-large;
+    text-align: center;
+
+  }
+ 
+body{
+    height: 100%;
+    background-color: rgba(168, 235, 168, 0.637);
+}
+#texto-tarefa{
+    border-radius: 25px;
+    width: 400px;
+    height: 40px;
+    background-color:rgb(217, 238, 217) ;
+    outline: none;
+    
+}
+#criar-tarefa{
+    background-color:rgb(217, 238, 217) ; 
+    border-radius: 25px;
+    outline: none;
+    
+}
+#titulo {
+    display: inline-block;
+    
+    left: 50px;
+    top: 10px;
+    padding: 20px;
+    font-family: Shadows Into Light, Arial, Helvetica;
+    font-size: xx-large;
+    text-align: center;
+
+  }
+ section{
+     margin-top: 100px;
+ }
+ .completed{
+  text-decoration: line-through solid rgb(0, 0, 0);
+ }
+ #apaga-tudo {
+
+  background-color:rgb(217, 238, 217) ; 
+  border-radius: 25px;
+  outline: none;  
+ }
+
+ #remover-finalizados {
+    
+  background-color:rgb(217, 238, 217) ; 
+  border-radius: 25px;
+  outline: none;  
+ }
