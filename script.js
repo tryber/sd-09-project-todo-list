@@ -132,7 +132,9 @@ function saveStorage() {
     let itens = [];
     let itensListLocal = document.querySelectorAll('.list-item');
     for (let count = 0; count < itensListLocal.length; count += 1) {
-      itens.push(itensListLocal[count].innerText);
+      if (!itensListLocal.classList.contains('completed')){
+        itens.push(itensListLocal[count].innerText);
+      }
     }
     localStorage.setItem('itens', JSON.stringify(itens));
   });
@@ -164,4 +166,4 @@ window.onload = function () {
   moveDown();
   saveStorage();
   startList();
-};
+}
