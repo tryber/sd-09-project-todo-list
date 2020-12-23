@@ -13,7 +13,7 @@ function addInputText() {
   let getOl = document.querySelector("#lista-tarefas");
   let createTagLi = document.createElement("li");
 
-  if (getInput !== "") {
+  if (getInput != "") {
     createTagLi.innerHTML = getInput.value;
     getOl.appendChild(createTagLi);
     getInput.value = "";
