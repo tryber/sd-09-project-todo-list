@@ -16,7 +16,7 @@ function createParagraph() {
   createParagraph.id = "funcionamento";
   getMain.appendChild(createParagraph);
 }
-/*
+
 function createInput() {
   let getMain = document.querySelector("main");
   let createInput = document.createElement("input");
@@ -25,7 +25,7 @@ function createInput() {
   createInput.placeholder = "Digite o item que deseja adicionar a lista";
   getMain.appendChild(createInput);
 }
-
+/*
 function createButton() {
   let getMain = document.querySelector("main");
   let createButton = document.createElement("button");
@@ -228,8 +228,8 @@ function moveSelectedDown() {
 window.onload = function () {
   createTitle();
   createParagraph();
-  /*createInput();
-  createOrderedList();
+  createInput();
+  /*createOrderedList();
   createButton();
   submitButton();
   clearTasksButton();
