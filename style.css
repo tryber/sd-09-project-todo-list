@@ -1,5 +1,7 @@
 .backgroundList {
   background-color: gray;
+  opacity: 0.4;
+  border-radius: 3px;
 }
 
 .completed {
@@ -9,30 +11,94 @@
 .mover-cima {
   float: left;
   position: relative;
-  right: 788px;
-  top: 95px;
+  right: 175px;
+  top: 120px;
+  width: 87px;
 }
 
 .mover-baixo {
   float: left;
   position: relative;
-  right: 854px;
-  top: 120px;
+  right: 263px;
+  top: 150px;
+  width: 87px;
 }
 
-.styleButtons {
+.styleHeadButtons {
   float: left;
   position: relative;
+  top: 25px;
+  
 }
 
-.styleButtonSaveTasks {
+.styleFooterButtons {
   float: left;
   position: relative;
+  top: 300px;
+  right: 531px;
+  width: 177px;
 }
 
 ol {
   float: left;
   position: relative;
-  right: 860px;
   top: 25px;
+  z-index: 1;  
+  top: 15px;
+  right: 280px;
+}
+
+.section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: table-footer-group;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+  
+h1 {
+  float: left;
+  position: relative;  
+  z-index: 1;
+  color: white;
+  left: 500px;
+}  
+.video-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1366px;
+  height: auto;
+  z-index: 0;
+  margin-left: 0%;
+  margin: 0%;
+}
+body {
+  margin: 0%;
+}
+p {
+  color: white;
+  z-index: 1;
+  float: left;
+  position: relative;
+  margin-top: 0;
+  left: 460px;
+}
+
+li {
+  color: white;
+}
+
+input {
+  width: 350px;
+}
+
+.styleRmvAllButton {
+  float: left;
+  position: relative;
+  top: 279px;
+  left: 352px;
+  width: 176px;
 }

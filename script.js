@@ -9,50 +9,50 @@ function structure() {
   const createButton = document.createElement('button');
   createButton.id = 'criar-tarefa';
   createButton.innerText = 'Create Task';
-  createButton.classList = 'styleButtons';
+  createButton.classList = 'styleHeadButtons';
   append.appendChild(createButton);
 
   const createInput = document.createElement('input');
   createInput.id = 'texto-tarefa';
   createInput.setAttribute('type', 'text');
   createInput.name = 'inputAssigment';
-  createInput.classList = 'styleButtons';
+  createInput.classList = 'styleHeadButtons';
   append.appendChild(createInput);
-
-  const createRemoveButton = document.createElement('button');
-  createRemoveButton.id = 'remover-selecionado';
-  createRemoveButton.innerText = 'Remove Choosed Task';
-  createRemoveButton.classList = 'styleButtons';
-  append.appendChild(createRemoveButton);
-
-  const createclearAllButton = document.createElement('button');
-  createclearAllButton.id = 'apaga-tudo';
-  createclearAllButton.innerText = 'Remove All Tasks';
-  createclearAllButton.classList = 'styleButtons';
-  append.appendChild(createclearAllButton);
-
-  const removeFinishedButton = document.createElement('button');
-  removeFinishedButton.id = 'remover-finalizados';
-  removeFinishedButton.innerText = 'Remove Finished Tasks';
-  removeFinishedButton.classList = 'styleButtons';
-  append.appendChild(removeFinishedButton);
 
   const saveAllAssigment = document.createElement('button');
   saveAllAssigment.id = 'salvar-tarefas';
   saveAllAssigment.innerText = 'Save Tasks';
-  saveAllAssigment.classList = 'styleButtonSaveTasks';
+  saveAllAssigment.classList = 'styleHeadButtons';
   append.appendChild(saveAllAssigment);
+
+  const createRemoveButton = document.createElement('button');
+  createRemoveButton.id = 'remover-selecionado';
+  createRemoveButton.innerText = 'Remove Choosed Task';
+  createRemoveButton.classList = 'styleFooterButtons';
+  append.appendChild(createRemoveButton);
+
+  const removeFinishedButton = document.createElement('button');
+  removeFinishedButton.id = 'remover-finalizados';
+  removeFinishedButton.innerText = 'Remove Finished Tasks';
+  removeFinishedButton.classList = 'styleFooterButtons';
+  append.appendChild(removeFinishedButton);
+
+  const createclearAllButton = document.createElement('button');
+  createclearAllButton.id = 'apaga-tudo';
+  createclearAllButton.innerText = 'Remove All Tasks';
+  createclearAllButton.classList = 'styleRmvAllButton';
+  append.appendChild(createclearAllButton);
 
   const buttonUP = document.createElement('button');
   buttonUP.id = 'mover-cima';
   buttonUP.classList = 'mover-cima';
-  buttonUP.innerText = 'UP Task';
+  buttonUP.innerText = 'UP';
   append.appendChild(buttonUP);
 
   const buttonDown = document.createElement('button');
   buttonDown.id = 'mover-baixo';
   buttonDown.classList = 'mover-baixo';
-  buttonDown.innerText = 'DOWN Task';
+  buttonDown.innerText = 'DOWN';
   append.appendChild(buttonDown);
 
   const createOL = document.createElement('ol');
@@ -196,10 +196,15 @@ function recoveryLocalStorage() {
     inputedTasks.appendChild(recoveredTasks);
   }
 }
+function unmute() {
+  document.getElementById('start').play();
+}
+
 // created a function to encapsulate all listeners/function callers
-function listeners () {
+function listeners() {
   const getInput = document.getElementById('criar-tarefa');
   getInput.addEventListener('click', addAssignment);
+  getInput.addEventListener('click', unmute)
   const cleanInput = document.getElementById('criar-tarefa');
   cleanInput.addEventListener('click', cleanAssigmentInput);
   const chooseList = document.querySelector('#lista-tarefas');
@@ -217,11 +222,11 @@ function listeners () {
   const downTask = document.getElementById('mover-baixo');
   downTask.addEventListener('click', moveDownTask);
   const buttonStorage = document.getElementById('salvar-tarefas');
-  buttonStorage.addEventListener('click', buttonSaveAllTasks);
+  buttonStorage.addEventListener('click', buttonSaveAllTasks);  
 }
 // functions to be opened when open browser
 window.onload = function () {
   structure();
   listeners();
-  recoveryLocalStorage();
+  recoveryLocalStorage();  
 };
