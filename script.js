@@ -1,6 +1,6 @@
 // created a function to encapsulate all dynamic HTML sctructure and getting all onload of page
 function structure() {
-  let append = document.getElementById('infoSection');
+  const append = document.getElementById('infoSection');
   const createP = document.createElement('p');
   createP.id = 'funcionamento';
   createP.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
@@ -159,7 +159,7 @@ function moveUpTask() {
   const moveUP = selectedElement();
   if (selectedElement() === undefined) {
     return;
-  }else if (moveUP.previousElementSibling) {
+  } else if (moveUP.previousElementSibling) {
     moveUP.parentNode.insertBefore(moveUP, moveUP.previousElementSibling);
   }
 }
