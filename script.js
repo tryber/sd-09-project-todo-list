@@ -87,14 +87,16 @@ saveList();
 function moveUpItem() {
   moveUpButton.addEventListener('click', function () {
     const selectedItem = document.querySelector('.selected');
-    const selectedClass = selectedItem.classList.value;
-    const selectedText  = selectedItem.innerHTML
-    const previusClass = selectedItem.previousElementSibling.classList.value;
-    const previusText = selectedItem.previousElementSibling.innerHTML;
-    selectedItem.innerHTML = previusText;
-    selectedItem.previousElementSibling.innerHTML = selectedText;
-    selectedItem.previousElementSibling.className = selectedClass;
-    selectedItem.className = previusClass;
+    if (selectedItem !== null) {
+      const selectedClass = selectedItem.classList.value;
+      const selectedText  = selectedItem.innerHTML
+      const previusClass = selectedItem.previousElementSibling.classList.value;
+      const previusText = selectedItem.previousElementSibling.innerHTML;
+      selectedItem.innerHTML = previusText;
+      selectedItem.previousElementSibling.innerHTML = selectedText;
+      selectedItem.previousElementSibling.className = selectedClass;
+      selectedItem.className = previusClass;
+    };
   });
 }
 moveUpItem();
@@ -102,14 +104,16 @@ moveUpItem();
 function moveDownItem() {
   moveDownButton.addEventListener('click', function () {
     const selectedItem = document.querySelector('.selected');
-    const selectedClass = selectedItem.classList.value;
-    const selectedText  = selectedItem.innerHTML
-    const previusClass = selectedItem.nextElementSibling.classList.value;
-    const previusText = selectedItem.nextElementSibling.innerHTML;
-    selectedItem.innerHTML = previusText;
-    selectedItem.nextElementSibling.innerHTML = selectedText;
-    selectedItem.nextElementSibling.className = selectedClass;
-    selectedItem.className = previusClass;
+    if (selectedItem !== null) {
+      const selectedClass = selectedItem.classList.value;
+      const selectedText  = selectedItem.innerHTML
+      const previusClass = selectedItem.nextElementSibling.classList.value;
+      const previusText = selectedItem.nextElementSibling.innerHTML;
+      selectedItem.innerHTML = previusText;
+      selectedItem.nextElementSibling.innerHTML = selectedText;
+      selectedItem.nextElementSibling.className = selectedClass;
+      selectedItem.className = previusClass;
+    };
   });
 }
 moveDownItem();
