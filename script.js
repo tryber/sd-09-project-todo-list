@@ -157,7 +157,7 @@ function clickItem() {
     event.target.classList.add("getSelected");
   });
 }
-
+/*
 function TaskClearAll() {
   let getButtonClearTask = document.querySelector("#apaga-tudo");
 
@@ -186,6 +186,8 @@ function TaskClearCompleted() {
     }
   });
 }
+
+*/
 
 function setListItens() {
   let getButtonSave = document.querySelector("salvar-tarefas");
@@ -232,8 +234,8 @@ window.onload = function () {
   buttonMoveDown();
   doubleClick();
   clickItem();
-  TaskClearAll();
-  TaskClearCompleted();
+  // TaskClearAll();
+  // TaskClearCompleted();
   setListItens();
   getItensList();
 };
