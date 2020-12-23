@@ -1,8 +1,3 @@
-/**
- * DESAFIO 01
- * criar um
- */
-
 function createTitle() {
   let getHeader = document.querySelector("header");
 
@@ -12,10 +7,6 @@ function createTitle() {
 
   createH1.innerText = "Minha Lista de Tarefas";
 }
-
-/**
- * DESAFIO 02
- */
 
 function createParagraph() {
   let main = document.querySelector("main");
@@ -29,10 +20,6 @@ function createParagraph() {
 
   main.appendChild(createParagraph);
 }
-
-/**
- * DESAFIO 03
- */
 
 function createInput() {
   let main = document.querySelector("main");
@@ -48,10 +35,6 @@ function createInput() {
   main.appendChild(createInput);
 }
 
-/**
- * DESAFIO 04
- */
-
 function createOrderedList() {
   let main = document.querySelector("main");
 
@@ -61,10 +44,6 @@ function createOrderedList() {
 
   main.appendChild(createOl);
 }
-
-/**
- * DESAFIO 05
- */
 
 function createButton() {
   let main = document.querySelector("main");
@@ -78,27 +57,7 @@ function createButton() {
   main.appendChild(buttonCreate);
 }
 
-function submitButton() {
-  let getOl = document.querySelector("#lista-tarefas");
-
-  let buttonCreate = document.querySelector("#criar-tarefa");
-
-  buttonCreate.addEventListener("click", function () {
-    let createInput = document.querySelector("#texto-tarefa");
-
-    let createInputValue = document.querySelector("#texto-tarefa").value;
-
-    let createTagLi = document.createElement("li");
-
-    createTagLi.innerText = createInputValue;
-
-    getOl.appendChild(createInputValue);
-
-    createInput.value = "";
-  });
-}
-
-/*function buttonClearTask() {
+function buttonClearTask() {
   let main = document.querySelector("main");
 
   let createButtonClearTask = document.createElement("button");
@@ -121,7 +80,128 @@ function buttonClearSelected() {
 
   main.appendChild(createButtonClearSelected);
 }
-*/
+
+function buttonSave() {
+  let main = document.querySelector("main");
+
+  let createSaveButton = document.createElement("button");
+
+  createSaveButton.id = "salvar-tarefas";
+
+  createSaveButton.InnerText = "Salvar Lista";
+
+  main.appendChild(createSaveButton);
+}
+
+function buttonMoveUp() {
+  let main = document.querySelector("main");
+
+  let createButtonMoveUp = document.createElement("button");
+
+  createButtonMoveUp.id = "mover-cima";
+
+  createButtonMoveUp.innerText = "Mover para cima";
+
+  main.appendChild(createButtonMoveUp);
+}
+
+function buttonMoveDown() {
+  let main = document.querySelector("main");
+
+  let createButtonMoveDown = document.createElement("button");
+
+  createButtonMoveDown.id = "mover-baixo";
+
+  createButtonMoveDown.innerText = "mover para baixo";
+
+  main.appendChild(createButtonMoveDown);
+}
+
+function doubleClick() {
+  let getTagOl = document.querySelector("ol");
+
+  getTagOl.addEventListener("dblclick", function (event) {
+    event.target.classList.toggle("compled");
+  });
+}
+
+function submitButton() {
+  let getOl = document.querySelector("#lista-tarefas");
+
+  let buttonCreate = document.querySelector("#criar-tarefa");
+
+  buttonCreate.addEventListener("click", function () {
+    let createInput = document.querySelector("#texto-tarefa");
+
+    let createInputValue = document.querySelector("#texto-tarefa").value;
+
+    let createTagLi = document.createElement("li");
+
+    createTagLi.innerText = createInputValue;
+
+    getOl.appendChild(createInputValue);
+
+    createInput.value = "";
+  });
+}
+
+function clickItem() {
+  let getTagOl = document.querySelector("ol");
+  getTagOl.addEventListener("click", function (event) {
+    let getSelected = document.querySelectorAll(".selected");
+
+    for (let index = 0; index < getSelected.length; index += 1) {
+      getSelected[index].classList.remove("getSelected");
+    }
+
+    event.target.classList.add("getSelected");
+  });
+}
+
+function TaskClearAll() {
+  let getButtonClearTask = document.querySelector("#apaga-tudo");
+
+  let getCreateOl = document.querySelector("#lista-tarefas");
+
+  getButtonClearTask.addEventListener("click", function () {
+    let getList = getCreateOl.childElementCount;
+
+    for (let index = 0; index < getList.length; index += 1) {
+      getCreateOl.firstChild.remove();
+    }
+  });
+}
+
+function TaskClearCompleted() {
+  let getButtonClearSelected = document.querySelector("#remover-finalizados");
+
+  getButtonClearSelected.addEventListener("click", function () {
+    let getTagLi = document.getElementByTagName("li");
+
+    for (let index = 0; index < getTagLi.length; index += 1) {
+      if (getTagLi[index].classList.contains("completed")) {
+        getTagLi[index].remove();
+        index -= 1;
+      }
+    }
+  });
+}
+
+function setListItens() {
+  let getButtonSave = document.querySelector("salvar-tarefas");
+
+  getButtonSave.addEventListener("click", function () {
+    let getLiItens = document.getElementByTagName("li");
+
+    for (let index = 0; index < getLiItens.length; index += 1) {
+      let createObject = {
+        text: getLiItens[index].innerText,
+        class: getLiItens[index].className,
+      };
+      localStorage.setItem(index, JSON.stringify(createObject));
+    }
+  });
+}
 
 window.onload = function () {
   createTitle();
@@ -129,7 +209,13 @@ window.onload = function () {
   createInput();
   createOrderedList();
   createButton();
-  // buttonClearTask();
-  // buttonClearSelected();
+  buttonClearTask();
+  buttonClearSelected();
+  buttonSave();
   submitButton();
+  buttonMoveDown();
+  doubleClick();
+  clickItem();
+  TaskClearAll();
+  TaskClearCompleted();
 };
