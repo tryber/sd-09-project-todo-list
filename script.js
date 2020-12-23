@@ -5,6 +5,8 @@ const buttonRemoveAll = document.getElementById('apaga-tudo');
 const buttonRemoveCompleted = document.getElementById('remover-finalizados');
 const buttonSaveAll = document.getElementById('salvar-tarefas');
 const buttonDeleteSelected = document.getElementById('remover-selecionado');
+const buttonMoveUp = document.getElementById('mover-cima');
+const buttonMoveDown = document.getElementById('mover-baixo');
 
 window.onload = function () {
   for (let item = 0; item < localStorage.length; item += 1) {
@@ -48,16 +50,35 @@ buttonRemoveCompleted.addEventListener('click', function () {
   }
 });
 buttonSaveAll.addEventListener('click', function () {
-  localStorage.clear();
-  // if (myTaskList.children.length === 0) {
-  //   alert('Nothing to save...');
-  // }
-  for (let index = 0; index < myTaskList.children.length; index += 1) {
-    localStorage.setItem(index, `<li class="${myTaskList.children[index].className}">${myTaskList.children[index].innerHTML}</li>`);
+  if (myTaskList.children.length === 0 && localStorage.length === 0) {
+    alert('Nothing to save...');
   }
-  // alert('Everything is save :)');
+  localStorage.clear();
+  if (myTaskList.children.length !== 0) {
+    for (let index = 0; index < myTaskList.children.length; index += 1) {
+      localStorage.setItem(index, `<li class="${myTaskList.children[index].className}">${myTaskList.children[index].innerHTML}</li>`);
+    }
+    alert('Everything is save :)');
+  }
+  
 });
 buttonDeleteSelected.addEventListener('click', function () {
   const selectedClass = document.getElementsByClassName('selected');
   selectedClass[0].remove();
 });
+buttonMoveUp.addEventListener('click', function () {
+  const selectedTask = document.getElementsByClassName('selected')[0];
+  let myNodeBefore = selectedTask.previousElementSibling;
+  if (myNodeBefore !== null) {
+    myTaskList.removeChild(selectedTask);
+    myNodeBefore.before(selectedTask);
+  }
+})
+buttonMoveDown.addEventListener('click', function () {
+  const selectedTask = document.getElementsByClassName('selected')[0];
+  let myNodeAfter = selectedTask.nextElementSibling;
+  if (myNodeAfter !== null) {
+    myTaskList.removeChild(selectedTask);
+    myNodeAfter.after(selectedTask);
+  }
+})
