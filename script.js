@@ -8,7 +8,6 @@ function createTitle() {
   createH1.innerText = "Minha Lista de Tarefas";
 }
 
-/*
 function createParagraph() {
   let getMain = document.querySelector("main");
   let createParagraph = document.createElement("p");
@@ -17,7 +16,7 @@ function createParagraph() {
   createParagraph.id = "funcionamento";
   getMain.appendChild(createParagraph);
 }
-
+/*
 function createInput() {
   let getMain = document.querySelector("main");
   let createInput = document.createElement("input");
@@ -228,8 +227,8 @@ function moveSelectedDown() {
 
 window.onload = function () {
   createTitle();
-  /* createParagraph();
-  createInput();
+  createParagraph();
+  /*createInput();
   createOrderedList();
   createButton();
   submitButton();
