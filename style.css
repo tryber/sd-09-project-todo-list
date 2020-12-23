@@ -1,0 +1,8 @@
+.completed {
+  text-decoration: line-through;
+  user-select: none;
+}
+
+.selected {
+  background-color: gray;
+}
