@@ -13,8 +13,6 @@ function createTitle() {
   createH1.innerText = "Minha Lista de Tarefas";
 }
 
-createTitle();
-
 /**
  * DESAFIO 02
  */
@@ -31,8 +29,6 @@ function createParagraph() {
 
   main.appendChild(createParagraph);
 }
-
-createParagraph();
 
 /**
  * DESAFIO 03
@@ -52,8 +48,6 @@ function createInput() {
   main.appendChild(createInput);
 }
 
-createInput();
-
 /**
  * DESAFIO 04
  */
@@ -70,4 +64,9 @@ function createButton() {
   main.appendChild(createButton);
 }
 
-createButton();
+window.onload = function () {
+  createTitle();
+  createParagraph();
+  createInput();
+  createButton();
+};
