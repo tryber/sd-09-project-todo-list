@@ -203,6 +203,22 @@ function setListItens() {
   });
 }
 
+function getItensList() {
+  let getCreateOl = document.querySelector("#lista-tarefas");
+
+  for (let index = 0; index < localStorage.length; index += 1) {
+    let createLi = document.createElement("li");
+
+    let getStorageObject = JSON.parse(localStorage.getItem(index));
+
+    createLi.innerText = getStorageObject.text;
+
+    createLi.className = getStorageObject.class;
+
+    getCreateOl.appendChild(createLi);
+  }
+}
+
 window.onload = function () {
   createTitle();
   createParagraph();
@@ -218,4 +234,6 @@ window.onload = function () {
   clickItem();
   TaskClearAll();
   TaskClearCompleted();
+  setListItens();
+  getItensList();
 };
