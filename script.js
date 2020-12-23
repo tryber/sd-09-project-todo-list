@@ -231,8 +231,8 @@ window.onload = function () {
   createParagraph();
   createInput();
   createOrderedList();
-  /*createButton();
-  submitButton();
+  createButton();
+  /*submitButton();
   clearTasksButton();
   clearCompletedButton();
   clearSelectedButton();
