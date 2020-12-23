@@ -1,6 +1,6 @@
 .backgroundList {
   background-color: gray;
-  opacity: 0.4;
+  opacity: 0.7;
   border-radius: 3px;
 }
 
@@ -45,7 +45,7 @@ ol {
   top: 25px;
   z-index: 1;  
   top: 15px;
-  right: 280px;
+  right: 270px;
 }
 
 .section {
@@ -55,15 +55,16 @@ ol {
   display: table-footer-group;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: hidden;  
 }
   
 h1 {
   float: left;
   position: relative;  
   z-index: 1;
-  color: white;
+  color: rgb(196, 255, 247);
   left: 500px;
+  top: 100px;
 }  
 .video-container {
   position: absolute;
@@ -79,7 +80,7 @@ body {
   margin: 0%;
 }
 p {
-  color: white;
+  color: rgb(196, 255, 247);
   z-index: 1;
   float: left;
   position: relative;
@@ -88,7 +89,9 @@ p {
 }
 
 li {
-  color: white;
+  color: rgb(196, 255, 247);
+  font-size: 20px;
+  font-weight: bold;
 }
 
 input {
@@ -101,4 +104,10 @@ input {
   top: 279px;
   left: 352px;
   width: 176px;
+}
+
+main {
+  float: none;
+  position: relative;
+  top: 100px;
 }
