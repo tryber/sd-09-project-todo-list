@@ -109,7 +109,7 @@ function moveDownItem() {
     if (selectedItem !== null) {
       const selectedClass = selectedItem.classList.value;
       const selectedText  = selectedItem.innerHTML
-      if (selectedItem.previousElementSibling) {
+      if (selectedItem.nextElementSibling) {
         const previusClass = selectedItem.nextElementSibling.classList.value;
         const previusText = selectedItem.nextElementSibling.innerHTML;
         selectedItem.innerHTML = previusText;
