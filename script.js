@@ -98,7 +98,7 @@ function submitButton() {
   });
 }
 
-function buttonClearTask() {
+/*function buttonClearTask() {
   let main = document.querySelector("main");
 
   let createButtonClearTask = document.createElement("button");
@@ -121,6 +121,7 @@ function buttonClearSelected() {
 
   main.appendChild(createButtonClearSelected);
 }
+*/
 
 window.onload = function () {
   createTitle();
@@ -128,6 +129,7 @@ window.onload = function () {
   createInput();
   createOrderedList();
   createButton();
-  buttonClearTask();
-  buttonClearSelected();
+  // buttonClearTask();
+  // buttonClearSelected();
+  submitButton();
 };
