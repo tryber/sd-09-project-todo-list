@@ -2,15 +2,15 @@
   background-color: rgb(128 , 128 , 128);
 }
 .completed {
-  text-decoration: line-through;  
+  text-decoration: line-through;
 }
-#mover-cima {
+.mover-cima {
   float: left;
   position: relative;
   right: 788px;
   top: 95px;
 }
-#mover-baixo {
+.mover-baixo {
   float: left;
   position: relative;
   right: 854px;
@@ -27,6 +27,6 @@
 ol {
   float: left;
   position: relative;
-  right: 860px;  
+  right: 860px;
   top: 25px;
 }
