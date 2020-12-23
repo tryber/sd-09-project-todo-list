@@ -27,6 +27,12 @@ const criarTarefa = document.createElement('button');
       });
     }
 
+    const deletaTarefa = document.createElement('button');
+    deletaTarefa.id = 'apaga-tudo';
+    deletaTarefa.innerHTML = 'Apagar tudo';
+    document.body.appendChild(deletaTarefa);
+
+
     window.onload = function () {
     taskAdd();
     colorItem();
