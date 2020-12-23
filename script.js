@@ -11,7 +11,7 @@ function criaTarefa(){
  }
 
 function apagarTudo(){
-   let apagaTudo = document.querySelectorAll('#apagaTudo');
+   let apagaTudo = document.querySelectorAll('#lista-tarefas');
    for(i=0; i<apagaTudo.length;i+=1){
        apagaTudo[i].remove();
    }
