@@ -69,7 +69,7 @@ function buttonClearTask() {
   main.appendChild(createButtonClearTask);
 }
 
-function buttonClearSelected() {
+/*function buttonClearSelected() {
   let main = document.querySelector("main");
 
   let createButtonClearSelected = document.createElement("button");
@@ -262,6 +262,7 @@ function selectedMoveDown() {
     }
   });
 }
+*/
 
 window.onload = function () {
   createTitle();
