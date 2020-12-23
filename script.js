@@ -68,22 +68,24 @@ buttonDeleteSelected.addEventListener('click', function () {
 buttonMoveUp.addEventListener('click', function () {
   const selectedTask = document.getElementsByClassName('selected')[0];
   if (selectedTask === undefined) {
-    return alert('Please select a task first.');
-  }
-  const myNodeBefore = selectedTask.previousElementSibling;
-  if (myNodeBefore !== null) {
-    myTaskList.removeChild(selectedTask);
-    myNodeBefore.before(selectedTask);
+    alert('Please select a task first.');
+  } else {
+    const myNodeBefore = selectedTask.previousElementSibling;
+    if (myNodeBefore !== null) {
+      myTaskList.removeChild(selectedTask);
+      myNodeBefore.before(selectedTask);
+    }
   }
 });
 buttonMoveDown.addEventListener('click', function () {
   const selectedTask = document.getElementsByClassName('selected')[0];
   if (selectedTask === undefined) {
-    return alert('Please select a task first.');
-  }
-  const myNodeAfter = selectedTask.nextElementSibling;
-  if (myNodeAfter !== null) {
-    myTaskList.removeChild(selectedTask);
-    myNodeAfter.after(selectedTask);
+    alert('Please select a task first.');
+  } else {
+    const myNodeAfter = selectedTask.nextElementSibling;
+    if (myNodeAfter !== null) {
+      myTaskList.removeChild(selectedTask);
+      myNodeAfter.after(selectedTask);
+    }
   }
 });
