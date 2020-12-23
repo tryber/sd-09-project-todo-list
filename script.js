@@ -29,9 +29,19 @@ function createInput() {
 function createButton() {
   let getMain = document.querySelector("main");
   let createButton = document.createElement("button");
-  createButton.id = "criar-tarefa";
-  createButton.innerText = "Criar tarefa";
+  createButton.className = "criar-tarefa";
+  createButton.innerText = "Adicionar";
   getMain.appendChild(createButton);
+}
+
+function createList() {
+  let getMain = document.querySelector("main");
+
+  let createList = document.createElement("ol");
+
+  getMain.appendChild(createList);
+
+  createList.id = "lista-tarefas";
 }
 
 /*
@@ -230,7 +240,7 @@ window.onload = function () {
   createTitle();
   createParagraph();
   createInput();
-  createOrderedList();
+  createList();
   createButton();
   /*submitButton();
   clearTasksButton();
