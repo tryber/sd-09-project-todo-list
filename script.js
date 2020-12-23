@@ -62,7 +62,7 @@ function clickButton() {
 function clickItem() {
   let itemsList = document.getElementById("lista-tarefas");
   itemsList.addEventListener("click", function (event) {
-    const selected = document.querySelectorAll(".selected");
+    let selected = document.querySelectorAll(".selected");
     for (let index = 0; index < selected.length; index += 1) {
       selected[index].classList.remove("selected");
     }
@@ -70,12 +70,107 @@ function clickItem() {
   });
 }
 
+function doubleClickItem() {
+  let listItems = document.getElementById("lista-tarefas");
+  listItems.addEventListener("dblclick", function (event) {
+    event.target.classList.toggle("completed");
+  });
+}
+
+function createDeleteButton() {
+  let main = document.querySelector("main");
+  let button = document.createElement("button");
+  main.appendChild(button);
+  button.className = "buttons delete-button";
+  button.id = "apaga-tudo";
+  button.innerText = "Limpar lista";
+}
+
+function clickDeleteButton() {
+  let button = document.getElementById("apaga-tudo");
+  let listItems = document.getElementById("lista-tarefas");
+  button.addEventListener("click", function () {
+    let items = listItems.childElementCount;
+    for (let index = 0; index < items; index += 1) {
+      listItems.firstChild.remove();
+    }
+  });
+}
+
+function createRemoveCompletedButton() {
+  let main = document.querySelector("main");
+  let button = document.createElement("button");
+  main.appendChild(button);
+  button.className = "buttons remove-completed";
+  button.id = "remover-finalizados";
+  button.innerText = "Limpar finalizados";
+}
+
+function clickRemoveCompletedButton() {
+  let button = document.getElementById("remover-finalizados");
+  button.addEventListener("click", function () {
+    let selected = document.getElementClassName("completed");
+    while (selected.length > 0) seletected[0].remove();
+  });
+}
+
+function createSaveTasksButton() {
+  let main = document.querySelector("main");
+  let button = document.createElement("button");
+  main.appendChild(button);
+  button.className = "buttons save-tasks";
+  button.id = "salvar-tarefas";
+  button.innerText = "Salvar lista";
+}
+
+function createSaveTasksButton() {
+  let main = document.querySelector("main");
+  let button = document.createElement("button");
+  main.appendChild(button);
+  button.className = "buttons save-tasks";
+  button.id = "salvar-tarefas";
+  button.innerText = "Salvar lista";
+}
+
+function clickSaveTasksButtonSet() {
+  let button = document.getElementById("salvar-tarefas");
+  button.addEventListener("click", function () {
+    let listItems = document.getElementsByTagName("li");
+    for (let index = 0; index < listItems.length; index += 1) {
+      listItems[index].classList.add("saved-items");
+      let objectString = {
+        text: listItems[index].innerText,
+        class: listItems[index].className,
+      };
+
+      localStorage.setItem(index, JSON.stringify(objectString));
+    }
+    alert("Lista salva!!!");
+  });
+}
+
 window.onload = function () {
   createTitle();
   createParagraph();
   createInput();
-  createAddButton();
   createList();
-  clickButton();
+  createAddButton();
+  clickAddButton();
   clickItem();
+  dblClickItem();
+  createDeleteButton();
+  clickDeleteButton();
+  createRemoveCompletedButton();
+  clickRemoveCompletedButton();
+  createSaveTasksButton();
+  clickSaveTasksButtonSet();
+  clickSaveTasksButtonGet();
+  createDeleteSavedListButton();
+  clickDeleteSavedListButton();
+  createMoveUpButton();
+  clickMoveUpButton();
+  createMoveDownButton();
+  clickMoveDownButton();
+  createRemoveSelectedButton();
+  clickRemoveSelectedButton();
 };

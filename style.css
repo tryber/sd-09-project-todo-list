@@ -1,7 +1,20 @@
-.selected {
-  background-color: rgb(128, 128, 128);
+body {
+  background-color: rgb(219, 239, 248);
+  text-align: center;
+}
+
+main {
+  background-color: seashell;
+  border-radius: 5%;
+  margin: 0 20%;
+  padding: 1em;
+  text-align: left;
 }
 
 .completed {
-  text-decoration: line-through solid black;
+  text-decoration: line-through;
+}
+
+.selected {
+  background-color: gray;
 }
