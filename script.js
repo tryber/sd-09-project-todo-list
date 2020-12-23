@@ -10,11 +10,12 @@ fazer um clear up na caixa de texto
 
 function addInputText() {
   let getInput = document.querySelector("#texto-tarefa");
+  //let getButton = document.querySelector('#criar-tarefa');
   let getOl = document.querySelector("#lista-tarefas");
   let createTagLi = document.createElement("li");
 
-  if (getInput != "") {
-    createTagLi.innerHTML = getInput.value;
+  if (getInput !== "") {
+    createTagLi.innerText = getInput.value;
     getOl.appendChild(createTagLi);
     getInput.value = "";
   }
