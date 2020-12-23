@@ -80,4 +80,5 @@ window.onload = function () {
   createButton();
   createList();
   clickButton();
+  itemClick();
 };
