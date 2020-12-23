@@ -10,7 +10,6 @@ function inputTaskOnTheList() {
   const taskText = document.querySelector('#texto-tarefa');
   const listElement = document.createElement('li');
   listElement.id = 'item-lista';
-  listElement.classList.add('item-lista');
 
   if (taskText.value !== '') {
     listElement.innerText = taskText.value;
