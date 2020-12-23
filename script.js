@@ -157,7 +157,7 @@ function clickItem() {
     event.target.classList.add("getSelected");
   });
 }
-/*
+
 function TaskClearAll() {
   let getButtonClearTask = document.querySelector("#apaga-tudo");
 
@@ -186,8 +186,6 @@ function TaskClearCompleted() {
     }
   });
 }
-
-*/
 
 function setListItens() {
   let getButtonSave = document.querySelector("salvar-tarefas");
@@ -221,6 +219,50 @@ function getItensList() {
   }
 }
 
+function selectedMoveUp() {
+  let getButton = querySelector("#mover-cima");
+
+  getButton.addEventListener("click", function () {
+    let getSelected = document.querySelector(".selected");
+
+    let previousElement;
+
+    if (previousElement) {
+      let createAuxiliarObject = {
+        text: previousElement.innerText,
+        class: previousElement.className,
+      };
+
+      previousElement.innerText = getSelected.innerText;
+      previousElement.className = getSelected.className;
+      getSelected.innerText = createAuxiliarObject.text;
+      getSelected.className = createAuxiliarObject.class;
+    }
+  });
+}
+
+function selectedMoveDown() {
+  let getButton = document.querySelector("#mover-baixo");
+
+  getButton.addEventListener("click", function () {
+    let getSelected = document.querySelector(".selected");
+
+    let nextElement;
+
+    if (getSelected) {
+      let auxiliarObject = {
+        text: nextElement.innerText,
+        class: nextElement.className,
+      };
+
+      nextElement.innerText = getSelected.innerText;
+      nextElement.className = getSelected.className;
+      getSelected.innerText = auxiliarObject.text;
+      getSelected.className = auxiliarObject.class;
+    }
+  });
+}
+
 window.onload = function () {
   createTitle();
   createParagraph();
@@ -234,8 +276,10 @@ window.onload = function () {
   buttonMoveDown();
   doubleClick();
   clickItem();
-  // TaskClearAll();
-  // TaskClearCompleted();
+  TaskClearAll();
+  TaskClearCompleted();
   setListItens();
   getItensList();
+  selectedMoveUp();
+  selectedMoveDown();
 };
