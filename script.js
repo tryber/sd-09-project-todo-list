@@ -192,7 +192,7 @@ function clickMoveUpButton() {
       };
       previousElement.innerText = selected.innerText;
       previousElement.className = selected.className;
-      selected.innerText = aauxiliary.text;
+      selected.innerText = auxiliary.text;
       selected.className = auxiliary.class;
     }
   });
