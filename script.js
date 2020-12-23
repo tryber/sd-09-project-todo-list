@@ -73,7 +73,7 @@ function createButton() {
 
   createButton.id = "criar-tarefa";
 
-  createButton.innerText = "Criar tarefa";
+  createButton.innerHTML = "Adicionar tarefa";
 
   main.appendChild(createButton);
 }
