@@ -27,11 +27,12 @@ function createInput() {
 }
 
 function createButton() {
-  let getMain = document.querySelector("main");
-  let createButton = document.createElement("button");
-  createButton.className = "criar-tarefa";
-  createButton.innerText = "Adicionar";
-  getMain.appendChild(createButton);
+  const getMain = document.querySelector("main");
+  const buttonCreate = document.createElement("button");
+  getMain.appendChild(buttonCreate);
+  //button.className = 'buttons add-button';
+  button.id = "criar-tarefa";
+  button.innerText = "Adicionar";
 }
 
 function createList() {
