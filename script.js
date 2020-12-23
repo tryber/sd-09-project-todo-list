@@ -78,10 +78,36 @@ function createButton() {
   main.appendChild(createButton);
 }
 
+function buttonClearTask() {
+  let main = document.querySelector("main");
+
+  let createButtonClearTask = document.createElement("button");
+
+  createButtonClearTask.id = "apaga-tudo";
+
+  button.innerText = "Apaga tudo";
+
+  main.appendChild(createButtonClearTask);
+}
+
+function buttonClearSelected() {
+  let main = document.querySelector("main");
+
+  let createButtonClearSelected = document.createElement("button");
+
+  createButtonClearSelected.id = "remover-finalizados";
+
+  createButtonClearSelected.innerText = "Apagar completados";
+
+  main.appendChild(createButtonClearSelected);
+}
+
 window.onload = function () {
   createTitle();
   createParagraph();
   createInput();
   createOrderedList();
   createButton();
+  buttonClearTask();
+  buttonClearSelected();
 };
