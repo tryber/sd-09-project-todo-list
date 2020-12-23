@@ -26,7 +26,7 @@ function createInput() {
   getMain.appendChild(createInput);
 }
 
-/*function createAddButton() {
+function createAddButton() {
   let main = document.querySelector("main");
   let button = document.createElement("button");
   main.appendChild(button);
@@ -34,14 +34,14 @@ function createInput() {
   button.id = "criar-tarefa";
   button.innerText = "Adicionar";
 }
-*/
+
 function createList() {
   let main = document.querySelector("main");
   let list = document.createElement("li");
   main.appendChild(createList);
   list.id = "lista-tarefas";
 }
-
+/*
 function clickButton() {
   let button = document.querySelector("#criar-tarefa");
   let list = document.querySelector("#lista-tarefas");
@@ -58,7 +58,7 @@ function clickButton() {
     input.value = "";
   });
 }
-
+*/
 function clickItem() {
   let itemsList = document.getElementById("lista-tarefas");
   itemsList.addEventListener("click", function (event) {
@@ -74,8 +74,8 @@ window.onload = function () {
   createTitle();
   createParagraph();
   createInput();
-  //createAddButton();
+  createAddButton();
   createList();
-  clickButton();
+  //clickButton();
   clickItem();
 };
