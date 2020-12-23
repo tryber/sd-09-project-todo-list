@@ -3,7 +3,7 @@
    criarTarefa.id = 'criar-tarefa';
    criarTarefa.innerHTML = 'adicionar';
    document.body.appendChild(criarTarefa);
-   
+
    function taskAdd() {
     const btnAdd = document.getElementById('criar-tarefa');
     btnAdd.addEventListener('click', function () {
@@ -13,7 +13,9 @@
     newLine.innerHTML = newTask;
     taskLine.appendChild(newLine);
 
-    document.getElementById('texto-tarefa').value = ' ';
+    document.getElementById('texto-tarefa').value = null;
+
+
   });
   }
   taskAdd();
