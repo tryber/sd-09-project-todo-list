@@ -36,27 +36,27 @@ function createButton() {
 
 function createList() {
   let main = document.querySelector("main");
-  let craeteList = document.createElement("li");
+  let list = document.createElement("li");
   main.appendChild(createList);
-  createList.id = "lista-tarefas";
+  list.id = "lista-tarefas";
 }
 
 function clickButton() {
-  let getButton = document.getElementById("criar-tarefa");
-  let getList = document.getElementById("lista-tarefas");
+  let button = document.getElementById("criar-tarefa");
+  let list = document.getElementById("lista-tarefas");
 
-  getButton.addEventListener("click", function () {
-    let getInput = document.getElementById("texto-tarefa");
-    let getInputValue = document.getElementById("texto-tarefa").nodeValue;
+  button.addEventListener("click", function () {
+    let input = document.getElementById("texto-tarefa");
+    let inputValue = document.getElementById("texto-tarefa").nodeValue;
 
-    if (getInputValue === "") {
+    if (inputValue === "") {
       warn("A tarefa não pode ser vazia!");
     }
 
     let createListItem = document.createElement("li");
-    getList.appendChild(createListItem);
-    createListItem.innerText = getInputValue;
-    getInput.value = "";
+    list.appendChild(createListItem);
+    createListItem.innerText = inputValue;
+    input.value = "";
   });
 }
 
