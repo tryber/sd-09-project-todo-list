@@ -6,7 +6,7 @@ const buttonRemoveFinished = document.querySelector('#remover-finalizados');
 function createTask() {
   const inputTask = document.querySelector('#texto-tarefa');
   if (inputTask.value === '') {
-    return;
+    return alert('não é possível criar task vazia.');
   }
   const createLi = document.createElement('li');
   createLi.innerText = inputTask.value;
