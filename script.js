@@ -28,10 +28,11 @@ function createInput() {
 
 function createButton() {
   let main = document.querySelector("main");
-  let createButton = document.createElement("button");
-  createButton.id = "criar-tarefa";
-  createButton.innerText = "Criar tarefa";
-  main.appendChild(createButton);
+  let button = document.createElement("button");
+  main.appendChild(button);
+  button.className = "buttons add-button";
+  button.id = "criar-tarefa";
+  button.innerText = "Adicionar";
 }
 
 function createList() {
@@ -42,19 +43,17 @@ function createList() {
 }
 
 function clickButton() {
-  let button = document.getElementById("criar-tarefa");
-  let list = document.getElementById("lista-tarefas");
-
+  let button = document.querySelector("#criar-tarefa");
+  let list = document.querySelector("#lista-tarefas");
   button.addEventListener("click", function () {
-    let input = document.getElementById("texto-tarefa");
-    let inputValue = document.getElementById("texto-tarefa").nodeValue;
-
+    let input = document.querySelector("#texto-tarefa");
+    let inputValue = document.querySelector("#texto-tarefa").value;
     if (inputValue === "") {
-      warn("A tarefa não pode ser vazia!");
+      alert("A tarefa não pode ser vazia!");
+      return;
     }
-
     let createListItem = document.createElement("li");
-    list.appendChild(createListItem);
+    list.appendChild(listItem);
     createListItem.innerText = inputValue;
     input.value = "";
   });
