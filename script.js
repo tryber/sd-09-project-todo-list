@@ -41,7 +41,7 @@ function createList() {
   main.appendChild(createList);
   list.id = "lista-tarefas";
 }
-/*
+
 function clickButton() {
   let button = document.querySelector("#criar-tarefa");
   let list = document.querySelector("#lista-tarefas");
@@ -58,7 +58,7 @@ function clickButton() {
     input.value = "";
   });
 }
-*/
+
 function clickItem() {
   let itemsList = document.getElementById("lista-tarefas");
   itemsList.addEventListener("click", function (event) {
