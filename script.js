@@ -27,43 +27,37 @@ function createInput() {
 }
 
 function createButton() {
-  const main = document.querySelector("main");
-  const button = document.createElement("button");
-  button.id = "criar-tarefa";
-  button.innerText = "Criar tarefa";
-  main.appendChild(button);
+  let main = document.querySelector("main");
+  let createButton = document.createElement("button");
+  createButton.id = "criar-tarefa";
+  createButton.innerText = "Criar tarefa";
+  main.appendChild(createButton);
 }
 
-function clearTasksButton() {
-  const main = document.querySelector("main");
-  const button = document.createElement("button");
-  button.id = "apaga-tudo";
-  button.innerText = "Apaga tudo";
-  main.appendChild(button);
+function createList() {
+  let main = document.querySelector("main");
+  let craeteList = document.createElement("li");
+  main.appendChild(createList);
+  createList.id = "lista-tarefas";
 }
 
-function clearCompletedButton() {
-  const main = document.querySelector("main");
-  const button = document.createElement("button");
-  button.id = "remover-finalizados";
-  button.innerText = "Apagar completados";
-  main.appendChild(button);
-}
+function clickButton() {
+  let getButton = document.getElementById("criar-tarefa");
+  let getList = document.getElementById("lista-tarefas");
 
-function clearSelectedButton() {
-  const main = document.querySelector("main");
-  const button = document.createElement("button");
-  button.id = "remover-selecionado";
-  button.innerText = "Apagar selecionado";
-  main.appendChild(button);
-}
+  getButton.addEventListener("click", function () {
+    let getInput = document.getElementById("texto-tarefa");
+    let getInputValue = document.getElementById("texto-tarefa").nodeValue;
 
-function saveTasksButton() {
-  const main = document.querySelector("main");
-  const button = document.createElement("button");
-  button.id = "salvar-tarefas";
-  button.innerText = "Salvar Lista";
-  main.appendChild(button);
+    if (getInputValue === "") {
+      warn("A tarefa não pode ser vazia!");
+    }
+
+    let createListItem = document.createElement("li");
+    getList.appendChild(createListItem);
+    createListItem.innerText = getInputValue;
+    getInput.value = "";
+  });
 }
 
 window.onload = function () {
@@ -71,8 +65,6 @@ window.onload = function () {
   createParagraph();
   createInput();
   createButton();
-  clearTasksButton();
-  clearCompletedButton();
-  clearSelectedButton();
-  saveTasksButton();
+  createList();
+  clickButton();
 };
