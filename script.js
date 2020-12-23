@@ -5,8 +5,8 @@ const olList = document.querySelector('#lista-tarefas');
 const removeButton = document.querySelector('#apaga-tudo');
 const removeDoneButton = document.querySelector('#remover-finalizados');
 const saveButton = document.querySelector('#salvar-tarefas');
-const moveUpButton = document.querySelector('#move-up');
-const moveDownButton = document.querySelector('#move-down');
+const moveUpButton = document.querySelector('#mover-cima');
+const moveDownButton = document.querySelector('#mover-baixo');
 
 function recriaLista() {
   if (localStorage.length !== 0) {
