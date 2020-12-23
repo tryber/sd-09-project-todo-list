@@ -7,6 +7,7 @@ const removeDoneButton = document.querySelector('#remover-finalizados');
 const saveButton = document.querySelector('#salvar-tarefas');
 const moveUpButton = document.querySelector('#mover-cima');
 const moveDownButton = document.querySelector('#mover-baixo');
+const removeSelectedButton = document.querySelector('#remover-selecionado');
 
 function recriaLista() {
   if (localStorage.length !== 0) {
@@ -121,3 +122,11 @@ function moveDownItem() {
   });
 }
 moveDownItem();
+
+function removeSelected() {
+  removeSelectedButton.addEventListener('click', function () {
+    const selectedItem = document.querySelector('.selected');
+    selectedItem.parentNode.removeChild(selectedItem);
+  })
+}
+removeSelected();
