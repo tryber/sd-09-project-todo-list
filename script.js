@@ -59,6 +59,20 @@ function clickButton() {
   });
 }
 
+function itemClick() {
+  let itemsList = document.getElementById("lista-tarefas");
+
+  itemsList.addEventListener("click", function (event) {
+    let selected = document.querySelectorAll(".selected");
+
+    for (let index = 0; index < selected.length; index += 1) {
+      selected[index].classList.remove("selected");
+    }
+
+    event.target.classList.add("selected");
+  });
+}
+
 window.onload = function () {
   createTitle();
   createParagraph();
