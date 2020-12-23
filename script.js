@@ -69,13 +69,33 @@ function createOrderedList() {
 function createButton() {
   let main = document.querySelector("main");
 
-  let createButton = document.createElement("button");
+  let buttonCreate = document.createElement("button");
 
-  createButton.id = "criar-tarefa";
+  buttonCreate.id = "criar-tarefa";
 
-  createButton.innerHTML = "Adicionar tarefa";
+  buttonCreate.innerHTML = "Adicionar tarefa";
 
-  main.appendChild(createButton);
+  main.appendChild(buttonCreate);
+}
+
+function submitButton() {
+  let getOl = document.querySelector("#lista-tarefas");
+
+  let buttonCreate = document.querySelector("#criar-tarefa");
+
+  buttonCreate.addEventListener("click", function () {
+    let createInput = document.querySelector("#texto-tarefa");
+
+    let createInputValue = document.querySelector("#texto-tarefa").value;
+
+    let createTagLi = document.createElement("li");
+
+    createTagLi.innerText = createInputValue;
+
+    getOl.appendChild(createInputValue);
+
+    createInput.value = "";
+  });
 }
 
 function buttonClearTask() {
