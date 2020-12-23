@@ -76,5 +76,5 @@ window.onload = function () {
   createAddButton();
   createList();
   clickButton();
-  itemClick();
+  clickItem();
 };
