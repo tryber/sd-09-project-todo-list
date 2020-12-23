@@ -197,7 +197,7 @@ function recoveryLocalStorage() {
   }
 }
 // created a function to encapsulate all listeners/function callers
-function listeners() {
+function listeners () {
   const getInput = document.getElementById('criar-tarefa');
   getInput.addEventListener('click', addAssignment);
   const cleanInput = document.getElementById('criar-tarefa');
@@ -220,8 +220,8 @@ function listeners() {
   buttonStorage.addEventListener('click', buttonSaveAllTasks);
 }
 // functions to be opened when open browser
-window.onload = function() {
+window.onload = function () {
   structure();
   listeners();
   recoveryLocalStorage();
-}
+};
