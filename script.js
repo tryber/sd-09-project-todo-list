@@ -8,6 +8,7 @@ function createTitle() {
   createH1.innerText = "Minha Lista de Tarefas";
 }
 
+/*
 function createParagraph() {
   let getMain = document.querySelector("main");
   let createParagraph = document.createElement("p");
@@ -184,7 +185,7 @@ function getListItens() {
 
 function moveSelectedUp() {
   let getButton = document.getElementById("mover-cima");
-  button.addEventListener("click", function () {
+  getButton.addEventListener("click", function () {
     let getSelected = document.querySelector(".selected");
     let previousElement;
     if (getSelected) {
@@ -205,7 +206,7 @@ function moveSelectedUp() {
 
 function moveSelectedDown() {
   let getButton = document.getElementById("mover-baixo");
-  button.addEventListener("click", function () {
+  getButton.addEventListener("click", function () {
     let getSelected = document.querySelector(".selected");
     let nextElement;
     if (getSelected) {
@@ -223,6 +224,7 @@ function moveSelectedDown() {
     }
   });
 }
+*/
 
 window.onload = function () {
   createTitle();
