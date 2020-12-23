@@ -27,57 +27,52 @@ function createInput() {
 }
 
 function createButton() {
-  let getMain = document.querySelector("main");
-  let buttonCreate = document.createElement("button");
-  getMain.appendChild(buttonCreate);
+  const main = document.querySelector("main");
+  const button = document.createElement("button");
   button.id = "criar-tarefa";
-  button.innerText = "Adicionar";
+  button.innerText = "Criar tarefa";
+  main.appendChild(button);
 }
 
-function createList() {
-  let getMain = document.querySelector("main");
-
-  let createList = document.createElement("ol");
-
-  getMain.appendChild(createList);
-
-  createList.id = "lista-tarefas";
+function clearTasksButton() {
+  const main = document.querySelector("main");
+  const button = document.createElement("button");
+  button.id = "apaga-tudo";
+  button.innerText = "Apaga tudo";
+  main.appendChild(button);
 }
 
-function clickAddButton() {
-  let getButton = document.getElementById("criar-tarefa");
-  let getList = document.getElementById("lista-tarefas");
-  getButton.addEventListener("click", function () {
-    let getInput = document.querySelector("#texto-tarefa");
-    let getInputValue = document.querySelector("#texto-tarefa").value;
-    if (getInputValue === "") {
-      alert("A tarefa não pode ser vazia!");
-      return;
-    }
-    let createListItem = document.createElement("li");
-    getList.appendChild(getListItem);
-    createListItem.innerText = getInputValue;
-    getInput.value = "";
-  });
+function clearCompletedButton() {
+  const main = document.querySelector("main");
+  const button = document.createElement("button");
+  button.id = "remover-finalizados";
+  button.innerText = "Apagar completados";
+  main.appendChild(button);
 }
 
-function clickItem() {
-  let itemsList = document.getElementById("lista-tarefas");
-  itemsList.addEventListener("click", function (event) {
-    let selected = document.querySelectorAll(".selected");
-    for (let index = 0; index < selected.length; index += 1) {
-      selected[index].classList.remove("selected");
-    }
-    event.target.classList.add("selected");
-  });
+function clearSelectedButton() {
+  const main = document.querySelector("main");
+  const button = document.createElement("button");
+  button.id = "remover-selecionado";
+  button.innerText = "Apagar selecionado";
+  main.appendChild(button);
+}
+
+function saveTasksButton() {
+  const main = document.querySelector("main");
+  const button = document.createElement("button");
+  button.id = "salvar-tarefas";
+  button.innerText = "Salvar Lista";
+  main.appendChild(button);
 }
 
 window.onload = function () {
   createTitle();
   createParagraph();
   createInput();
-  createList();
   createButton();
-  clickAddButton();
-  clickItem();
+  clearTasksButton();
+  clearCompletedButton();
+  clearSelectedButton();
+  saveTasksButton();
 };
