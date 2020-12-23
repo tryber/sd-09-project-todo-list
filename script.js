@@ -1,186 +1,156 @@
 function createTitle() {
-  let getHeader = document.querySelector("header");
+  let getheader = document.querySelector("header");
 
   let createH1 = document.createElement("h1");
 
-  getHeader.appendChild(createH1);
+  getheader.appendChild(createH1);
 
   createH1.innerText = "Minha Lista de Tarefas";
 }
 
 function createParagraph() {
-  let main = document.querySelector("main");
-
+  let getMain = document.querySelector("main");
   let createParagraph = document.createElement("p");
-
-  createParagraph.id = "funcionamento";
-
   createParagraph.innerText =
     "Clique duas vezes em um item para marcá-lo como completo";
-
-  main.appendChild(createParagraph);
+  createParagraph.id = "funcionamento";
+  getMain.appendChild(createParagraph);
 }
 
 function createInput() {
-  let main = document.querySelector("main");
-
+  let getMain = document.querySelector("main");
   let createInput = document.createElement("input");
-
   createInput.id = "texto-tarefa";
-
   createInput.type = "text";
-
   createInput.placeholder = "Digite o item que deseja adicionar a lista";
-
-  main.appendChild(createInput);
-}
-
-function createOrderedList() {
-  let main = document.querySelector("main");
-
-  let createOl = document.createElement("ol");
-
-  createOl.id = "lista-tarefas";
-
-  main.appendChild(createOl);
+  getMain.appendChild(createInput);
 }
 
 function createButton() {
-  let main = document.querySelector("main");
-
-  let buttonCreate = document.createElement("button");
-
-  buttonCreate.id = "criar-tarefa";
-
-  buttonCreate.innerHTML = "Adicionar tarefa";
-
-  main.appendChild(buttonCreate);
+  let getMain = document.querySelector("main");
+  let createButton = document.createElement("button");
+  createButton.id = "criar-tarefa";
+  createButton.innerText = "Criar tarefa";
+  getMain.appendChild(createButton);
 }
 
-function buttonClearTask() {
-  let main = document.querySelector("main");
-
-  let createButtonClearTask = document.createElement("button");
-
-  createButtonClearTask.id = "apaga-tudo";
-
-  button.innerText = "Apaga tudo";
-
-  main.appendChild(createButtonClearTask);
+function clearTasksButton() {
+  let getMain = document.querySelector("main");
+  let createClearTaskButton = document.createElement("button");
+  createClearTaskButton.id = "apaga-tudo";
+  createClearTaskButton.innerText = "Apaga tudo";
+  getMain.appendChild(createClearTaskButton);
 }
 
-/*function buttonClearSelected() {
-  let main = document.querySelector("main");
-
-  let createButtonClearSelected = document.createElement("button");
-
-  createButtonClearSelected.id = "remover-finalizados";
-
-  createButtonClearSelected.innerText = "Apagar completados";
-
-  main.appendChild(createButtonClearSelected);
+function clearCompletedButton() {
+  let getMain = document.querySelector("main");
+  let createClearCompletedButton = document.createElement("button");
+  createClearCompletedButton.id = "remover-finalizados";
+  createClearCompletedButton.innerText = "Apagar completados";
+  getMain.appendChild(createClearCompletedButton);
 }
 
-function buttonSave() {
-  let main = document.querySelector("main");
-
-  let createSaveButton = document.createElement("button");
-
-  createSaveButton.id = "salvar-tarefas";
-
-  createSaveButton.InnerText = "Salvar Lista";
-
-  main.appendChild(createSaveButton);
+function clearSelectedButton() {
+  let getMain = document.querySelector("main");
+  let createClearSelectedButton = document.createElement("button");
+  createClearSelectedButton.id = "remover-selecionado";
+  createClearSelectedButton.innerText = "Apagar selecionado";
+  getMain.appendChild(createClearSelectedButton);
 }
 
-function buttonMoveUp() {
-  let main = document.querySelector("main");
-
-  let createButtonMoveUp = document.createElement("button");
-
-  createButtonMoveUp.id = "mover-cima";
-
-  createButtonMoveUp.innerText = "Mover para cima";
-
-  main.appendChild(createButtonMoveUp);
+function saveTasksButton() {
+  let getMain = document.querySelector("main");
+  let createSaveTaskButton = document.createElement("button");
+  createSaveTaskButtonn.id = "salvar-tarefas";
+  createSaveTaskButton.innerText = "Salvar Lista";
+  getMain.appendChild(createSaveTaskButton);
 }
 
-function buttonMoveDown() {
-  let main = document.querySelector("main");
-
-  let createButtonMoveDown = document.createElement("button");
-
-  createButtonMoveDown.id = "mover-baixo";
-
-  createButtonMoveDown.innerText = "mover para baixo";
-
-  main.appendChild(createButtonMoveDown);
+function moveUpButton() {
+  let getMain = document.querySelector("main");
+  let createMoveUpButton = document.createElement("button");
+  createMoveUpButton.id = "mover-cima";
+  createMoveUpButton.innerText = "Mover para cima";
+  getMain.appendChild(createMoveUpButton);
 }
 
-function doubleClick() {
-  let getTagOl = document.querySelector("ol");
+function moveDownButton() {
+  let getMain = document.querySelector("main");
+  let createMoveDownButton = document.createElement("button");
+  createMoveDownButtonn.id = "mover-baixo";
+  createMoveDownButton.innerText = "Mover para baixo";
+  getMain.appendChild(createMoveDownButton);
+}
 
-  getTagOl.addEventListener("dblclick", function (event) {
-    event.target.classList.toggle("compled");
+function createOrderedList() {
+  let getMain = document.querySelector("main");
+  let createOrderedList = document.createElement("ol");
+  createOrderedList.id = "lista-tarefas";
+  getMain.appendChild(createOrderedListt);
+}
+
+function doubleClicked() {
+  let getOrderedList = document.querySelector("ol");
+  getOrderedList.addEventListener("dblclick", function (event) {
+    event.target.classList.toggle("completed");
+  });
+}
+
+function clickedItem() {
+  let getOrderedList = document.querySelector("ol");
+  getOrderedList.addEventListener("click", function (event) {
+    let getSelected = document.querySelectorAll(".selected");
+    for (let index = 0; index < getSelected.length; index += 1) {
+      getSelected[index].classList.remove("selected");
+    }
+    event.target.classList.add("selected");
   });
 }
 
 function submitButton() {
-  let getOl = document.querySelector("#lista-tarefas");
-
-  let buttonCreate = document.querySelector("#criar-tarefa");
-
-  buttonCreate.addEventListener("click", function () {
-    let createInput = document.querySelector("#texto-tarefa");
-
-    let createInputValue = document.querySelector("#texto-tarefa").value;
-
-    let createTagLi = document.createElement("li");
-
-    createTagLi.innerText = createInputValue;
-
-    getOl.appendChild(createInputValue);
-
-    createInput.value = "";
+  let getOrderedList = document.querySelector("#lista-tarefas");
+  let getButton = document.querySelector("#criar-tarefa");
+  getButton.addEventListener("click", function () {
+    let getInput = document.querySelector("#texto-tarefa");
+    let getInputValue = document.querySelector("#texto-tarefa").value;
+    let createListItem = document.createElement("li");
+    createListItem.innerText = getInputValue;
+    getOrderedList.appendChild(createListItem);
+    getInput.value = "";
   });
 }
 
-function clickItem() {
-  let getTagOl = document.querySelector("ol");
-  getTagOl.addEventListener("click", function (event) {
-    let getSelected = document.querySelectorAll(".selected");
-
-    for (let index = 0; index < getSelected.length; index += 1) {
-      getSelected[index].classList.remove("getSelected");
-    }
-
-    event.target.classList.add("getSelected");
-  });
-}
-
-function TaskClearAll() {
-  let getButtonClearTask = document.querySelector("#apaga-tudo");
-
-  let getCreateOl = document.querySelector("#lista-tarefas");
-
-  getButtonClearTask.addEventListener("click", function () {
-    let getList = getCreateOl.childElementCount;
-
-    for (let index = 0; index < getList.length; index += 1) {
-      getCreateOl.firstChild.remove();
+function clearAllTasks() {
+  let getButton = document.getElementById("apaga-tudo");
+  let getOrderedList = document.getElementById("lista-tarefas");
+  button.addEventListener("click", function () {
+    let listLength = orderedList.childElementCount;
+    for (let index = 0; index < listLength; index += 1) {
+      getOrderedList.firstChild.remove();
     }
   });
 }
 
-function TaskClearCompleted() {
-  let getButtonClearSelected = document.querySelector("#remover-finalizados");
+function clearCompletedTasks() {
+  let getButton = document.getElementById("remover-finalizados");
+  getButton.addEventListener("click", function () {
+    let liList = document.getElementsByTagName("li");
+    for (let index = 0; index < liList.length; index += 1) {
+      if (liList[index].classList.contains("completed")) {
+        liList[index].remove();
+        index -= 1;
+      }
+    }
+  });
+}
 
-  getButtonClearSelected.addEventListener("click", function () {
-    let getTagLi = document.getElementByTagName("li");
-
-    for (let index = 0; index < getTagLi.length; index += 1) {
-      if (getTagLi[index].classList.contains("completed")) {
-        getTagLi[index].remove();
+function clearSelectedTasks() {
+  let getButton = document.getElementById("remover-selecionado");
+  getButton.addEventListener("click", function () {
+    let liList = document.getElementsByTagName("li");
+    for (let index = 0; index < liList.length; index += 1) {
+      if (liList[index].classList.contains("selected")) {
+        liList[index].remove();
         index -= 1;
       }
     }
@@ -188,81 +158,71 @@ function TaskClearCompleted() {
 }
 
 function setListItens() {
-  let getButtonSave = document.querySelector("salvar-tarefas");
-
-  getButtonSave.addEventListener("click", function () {
-    let getLiItens = document.getElementByTagName("li");
-
-    for (let index = 0; index < getLiItens.length; index += 1) {
-      let createObject = {
-        text: getLiItens[index].innerText,
-        class: getLiItens[index].className,
+  let getButton = document.getElementById("salvar-tarefas");
+  getButton.addEventListener("click", function () {
+    let lineItens = document.getElementsByTagName("li");
+    for (let index = 0; index < lineItens.length; index += 1) {
+      let objeto = {
+        text: lineItens[index].innerText,
+        class: lineItens[index].className,
       };
-      localStorage.setItem(index, JSON.stringify(createObject));
+      localStorage.setItem(index, JSON.stringify(objeto));
     }
   });
 }
 
-function getItensList() {
-  let getCreateOl = document.querySelector("#lista-tarefas");
-
+function getListItens() {
+  let getOrderedList = document.getElementById("lista-tarefas");
   for (let index = 0; index < localStorage.length; index += 1) {
-    let createLi = document.createElement("li");
-
-    let getStorageObject = JSON.parse(localStorage.getItem(index));
-
-    createLi.innerText = getStorageObject.text;
-
-    createLi.className = getStorageObject.class;
-
-    getCreateOl.appendChild(createLi);
+    let createListItem = document.createElement("li");
+    let objStorage = JSON.parse(localStorage.getItem(index));
+    createListItem.innerText = objStorage.text;
+    createListItem.className = objStorage.class;
+    getOrderedList.appendChild(createListItem);
   }
 }
 
-function selectedMoveUp() {
-  let getButton = querySelector("#mover-cima");
-
-  getButton.addEventListener("click", function () {
+function moveSelectedUp() {
+  let getButton = document.getElementById("mover-cima");
+  button.addEventListener("click", function () {
     let getSelected = document.querySelector(".selected");
-
     let previousElement;
-
+    if (getSelected) {
+      previousElement = getSelected.previousElementSibling;
+    }
     if (previousElement) {
-      let createAuxiliarObject = {
+      let auxiliar = {
         text: previousElement.innerText,
         class: previousElement.className,
       };
-
       previousElement.innerText = getSelected.innerText;
       previousElement.className = getSelected.className;
-      getSelected.innerText = createAuxiliarObject.text;
-      getSelected.className = createAuxiliarObject.class;
+      getSelected.innerText = auxiliar.text;
+      getSelected.className = auxiliar.class;
     }
   });
 }
 
-function selectedMoveDown() {
-  let getButton = document.querySelector("#mover-baixo");
-
-  getButton.addEventListener("click", function () {
+function moveSelectedDown() {
+  let getButton = document.getElementById("mover-baixo");
+  button.addEventListener("click", function () {
     let getSelected = document.querySelector(".selected");
-
     let nextElement;
-
     if (getSelected) {
-      let auxiliarObject = {
+      nextElement = getSelected.nextElementSibling;
+    }
+    if (nextElement) {
+      let auxiliar = {
         text: nextElement.innerText,
         class: nextElement.className,
       };
-
       nextElement.innerText = getSelected.innerText;
       nextElement.className = getSelected.className;
-      getSelected.innerText = auxiliarObject.text;
-      getSelected.className = auxiliarObject.class;
+      getSelected.innerText = auxiliar.text;
+      getSelected.className = auxiliar.class;
     }
   });
 }
-*/
 
 window.onload = function () {
   createTitle();
@@ -270,17 +230,20 @@ window.onload = function () {
   createInput();
   createOrderedList();
   createButton();
-  buttonClearTask();
-  buttonClearSelected();
-  buttonSave();
   submitButton();
-  buttonMoveDown();
-  doubleClick();
-  clickItem();
-  TaskClearAll();
-  TaskClearCompleted();
+  clearTasksButton();
+  clearCompletedButton();
+  clearSelectedButton();
+  saveTasksButton();
+  moveUpButton();
+  moveDownButton();
   setListItens();
-  getItensList();
-  selectedMoveUp();
-  selectedMoveDown();
+  getListItens();
+  clearCompletedTasks();
+  clearSelectedTasks();
+  clearAllTasks();
+  moveSelectedUp();
+  moveSelectedDown();
+  doubleClicked();
+  clickedItem();
 };
