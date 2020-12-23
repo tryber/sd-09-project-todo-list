@@ -1,22 +1,73 @@
 /**
- * DESAFIO 05
- * 
- * CRIAR UM ELEMENTO DA TAG <button id="criar-tarefa">
-criar uma variavel para acessar o id="criar-tarefa"da tag button
-criar uma variavel para acessar o id="lista-tarefas" da tag ol
-criar uma variavel para inserir uma tag <li> para adicionar o texto dentro da <ol>
-fazer um clear up na caixa de texto
+ * DESAFIO 01
+ * criar um
  */
 
-function addInputText() {
-  let getInput = document.querySelector("#texto-tarefa");
-  //let getButton = document.querySelector('#criar-tarefa');
-  let getOl = document.querySelector("#lista-tarefas");
-  let createTagLi = document.createElement("li");
+function createTitle() {
+  let getHeader = document.querySelector("header");
 
-  if (getInput !== "") {
-    createTagLi.innerText = getInput.value;
-    getOl.appendChild(createTagLi);
-    getInput.value = "";
-  }
+  let createH1 = document.createElement("h1");
+
+  getHeader.appendChild(createH1);
+
+  createH1.innerText = "Minha Lista de Tarefas";
 }
+
+createTitle();
+
+/**
+ * DESAFIO 02
+ */
+
+function createParagraph() {
+  let main = document.querySelector("main");
+
+  let createParagraph = document.createElement("p");
+
+  createParagraph.id = "funcionamento";
+
+  createParagraph.innerText =
+    "Clique duas vezes em um item apra marcá-lo como completo";
+
+  main.appendChild(createParagraph);
+}
+
+createParagraph();
+
+/**
+ * DESAFIO 03
+ */
+
+function createInput() {
+  let main = document.querySelector("main");
+
+  let createInput = document.createElement("input");
+
+  createInput.id = "texto-tarefa";
+
+  createInput.type = "text";
+
+  createInput.placeholder = "Digite o item que deseja adicionar a lista";
+
+  main.appendChild(createInput);
+}
+
+createInput();
+
+/**
+ * DESAFIO 04
+ */
+
+function createButton() {
+  let main = document.querySelector("main");
+
+  let createButton = document.createElement("button");
+
+  createButton.id = "criar-tarefa";
+
+  createButton.innerText = "Criar tarefa";
+
+  main.appendChild(createButton);
+}
+
+createButton();
