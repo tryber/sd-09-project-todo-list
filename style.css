@@ -1,0 +1,19 @@
+html {
+  margin: 0;
+  padding: 50px;
+}
+
+main {
+  border: 1px solid black;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px;
+}
+
+.selected {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through;
+}
