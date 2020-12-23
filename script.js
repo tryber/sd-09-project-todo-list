@@ -25,7 +25,7 @@ function createInput() {
   createInput.placeholder = "Digite o item que deseja adicionar a lista";
   getMain.appendChild(createInput);
 }
-/*
+
 function createButton() {
   let getMain = document.querySelector("main");
   let createButton = document.createElement("button");
@@ -34,6 +34,7 @@ function createButton() {
   getMain.appendChild(createButton);
 }
 
+/*
 function clearTasksButton() {
   let getMain = document.querySelector("main");
   let createClearTaskButton = document.createElement("button");
@@ -229,8 +230,8 @@ window.onload = function () {
   createTitle();
   createParagraph();
   createInput();
-  /*createOrderedList();
-  createButton();
+  createOrderedList();
+  /*createButton();
   submitButton();
   clearTasksButton();
   clearCompletedButton();
