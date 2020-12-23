@@ -132,7 +132,7 @@ function saveStorage() {
     let itens = [];
     let itensListLocal = document.querySelectorAll('.list-item');
     for (let count = 0; count < itensListLocal.length; count += 1) {
-      if (!itensListLocal.classList.contains('completed')){
+      if (!itensListLocal[count].classList.contains('completed')){
         itens.push(itensListLocal[count].innerText);
       }
     }
