@@ -126,6 +126,31 @@ function moveDown() {
   });
 }
 
+function saveStorage() {
+  let saveDataButton = document.querySelector('#salvar-tarefas');
+  saveDataButton.addEventListener('click', function () {
+    let itens = [];
+    let itensListLocal = document.querySelectorAll('.list-item');
+    for (let count = 0; count < itensListLocal.length; count += 1) {
+      itens.push(itensListLocal[count].innerText);
+    }
+    localStorage.setItem('itens', JSON.stringify(itens));
+  });
+}
+
+function startList() {
+  const elements = JSON.parse(localStorage.getItem('itens'));
+  if (elements.length > 0) {
+    for (let count = 0; count < elements.length; count += 1) {
+      let createLi = document.createElement('li');
+      createLi.innerText = elements[count];
+      createLi.classList.add('list-item');
+      const listLocal = document.querySelector('#lista-tarefas');
+      listLocal.appendChild(createLi);
+    }
+  }
+}
+
 window.onload = function () {
   newItemList();
   doubleClick();
@@ -135,4 +160,6 @@ window.onload = function () {
   moveUp();
   clickColor();
   moveDown();
+  saveStorage();
+  startList();
 };
