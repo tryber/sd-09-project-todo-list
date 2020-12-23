@@ -228,7 +228,7 @@ function moveSelectedDown() {
 
 window.onload = function () {
   createTitle();
-  createParagraph();
+  /* createParagraph();
   createInput();
   createOrderedList();
   createButton();
@@ -248,4 +248,5 @@ window.onload = function () {
   moveSelectedDown();
   doubleClicked();
   clickedItem();
+  */
 };
