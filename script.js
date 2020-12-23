@@ -26,7 +26,7 @@ function createInput() {
   getMain.appendChild(createInput);
 }
 
-function createButton() {
+function createAddButton() {
   let main = document.querySelector("main");
   let button = document.createElement("button");
   main.appendChild(button);
@@ -34,7 +34,6 @@ function createButton() {
   button.id = "criar-tarefa";
   button.innerText = "Adicionar";
 }
-
 function createList() {
   let main = document.querySelector("main");
   let list = document.createElement("li");
@@ -52,23 +51,20 @@ function clickButton() {
       alert("A tarefa não pode ser vazia!");
       return;
     }
-    let createListItem = document.createElement("li");
+    let listItem = document.createElement("li");
     list.appendChild(listItem);
-    createListItem.innerText = inputValue;
+    listItem.innerText = inputValue;
     input.value = "";
   });
 }
 
-function itemClick() {
+function clickItem() {
   let itemsList = document.getElementById("lista-tarefas");
-
   itemsList.addEventListener("click", function (event) {
-    let selected = document.querySelectorAll(".selected");
-
+    const selected = document.querySelectorAll(".selected");
     for (let index = 0; index < selected.length; index += 1) {
       selected[index].classList.remove("selected");
     }
-
     event.target.classList.add("selected");
   });
 }
@@ -77,7 +73,7 @@ window.onload = function () {
   createTitle();
   createParagraph();
   createInput();
-  createButton();
+  createAddButton();
   createList();
   clickButton();
   itemClick();
