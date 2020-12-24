@@ -1,0 +1,103 @@
+#featherpen {
+  width: 10%;
+}
+.completed {
+  text-decoration: line-through solid rgb(0 , 0 , 0);
+}
+
+.selected {
+  background-color: rgb(150, 147, 147);
+}
+
+#main-container {
+  text-align: center;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 5%;
+  padding-top: 1px;
+  padding-bottom: 50px;
+  border-radius: 50px;
+  background-color: rgba(210, 215, 226, 0.952);
+}
+
+#ol-container {
+  text-align: left;
+  margin-left: 10%;
+  margin-right: 5%;
+}
+
+#lista-tarefas {
+  padding-left: 0;
+  margin-right: 5% ;
+}
+
+#criar-tarefa {
+  cursor:pointer;
+  height: 30px;
+  font-size: 15px;
+  
+}
+
+#criar-tarefa:hover {
+  background:linear-gradient(to bottom, #eb9b48 5%, #f7d6b3 100%);
+}
+
+#salvar-tarefas {
+  height: 30px;
+  font-size: 15px;
+  cursor:pointer;
+}
+
+#salvar-tarefas:hover {
+  background:linear-gradient(to bottom, #389b4d 5%, #abffbd 100%);
+}
+
+#apaga-tudo {
+  height: 30px;
+  font-size: 15px;
+  cursor:pointer;
+}
+
+#apaga-tudo:hover {
+  background:linear-gradient(to bottom, #c43e3e 5%, #ff9a9a 100%);
+}
+
+#remover-finalizados {
+  height: 30px;
+  font-size: 15px;
+  cursor:pointer;
+}
+
+#remover-selecionado {
+  height: 30px;
+  font-size: 15px;
+  cursor:pointer;
+}
+
+#mover-baixo {
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+  cursor:pointer;
+}
+
+#mover-cima {
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+  cursor:pointer;
+}
+
+#texto-tarefa {
+  width: 30%;
+  height: 25px;
+}
+
+#funcionamento {
+  opacity: 0.4;
+}
+
+body {
+  background-image: url(backimage.png);
+  background-repeat:round;
+}

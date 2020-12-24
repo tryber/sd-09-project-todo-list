@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id='main-container'>
+    <h1>Minha Lista de Tarefas  <img id ='featherpen'src='featherpen-removebg-preview.png'></h1>
+    <input type ='text' placeholder='Escreva aqui sua tarefa' id='texto-tarefa' type="text">
+    <button id='criar-tarefa'>Adicionar tarefa a lista</button>
+    <p id='funcionamento'>Clique duas vezes em um item para marcá-lo como completo</p>
+    <div id='ol-container'>
+      <ol id='lista-tarefas'></ol>
+    </div>
+    <div id='buttons-div'>
+      <button id="mover-cima"> ↑ </button>
+      <button id="mover-baixo"> ↓ </button>
+      <button id="remover-selecionado">Remove selecionado</button>
+      <button id="remover-finalizados">Remove finalizados</button>
+      <button id="apaga-tudo">Apaga tudo</button>
+      <button id="salvar-tarefas">Salvar</button>
+    </div>
+  </div>
+  <script src='script.js'></script>
+  </div>
+</body>
+</html>
