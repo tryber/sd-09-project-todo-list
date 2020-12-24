@@ -9,7 +9,11 @@ const moveBaixo = document.querySelector('#mover-baixo');
 const apagaSelecionado = document.querySelector('#remover-selecionado');
 
 window.onload = function () {
-  listaTarefas.innerHTML = localStorage.toDoList;
+  if (localStorage.toDoList === undefined) {
+    listaTarefas.innerHTML = '';
+  } else {
+    listaTarefas.innerHTML = localStorage.toDoList;
+  }
 };
 
 function addTask() {
