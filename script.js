@@ -76,6 +76,7 @@ removeDoneListItens();
 
 function saveList() {
   saveButton.addEventListener('click', function () {
+    localStorage.clear();
     let listas = document.querySelectorAll('li');
     for(let index = 0; index < listas.length; index +=1) {
       let arrayValorClasses = [];
