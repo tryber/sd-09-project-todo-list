@@ -8,6 +8,7 @@ const saveButton = document.querySelector('#salvar-tarefas');
 const moveUpButton = document.querySelector('#mover-cima');
 const moveDownButton = document.querySelector('#mover-baixo');
 const removeSelectedButton = document.querySelector('#remover-selecionado');
+let eraseEverything = false;
 
 function recriaLista() {
   if (localStorage.length !== 0) {
@@ -59,6 +60,7 @@ function removeAllListItens() {
     for (let index = 0; index < listItens.length; index += 1) {
       olList.removeChild(listItens[index]);
     }
+    eraseEverything = true;
   });
 }
 removeAllListItens();
@@ -80,6 +82,10 @@ function saveList() {
       arrayValorClasses.push(listas[index].innerHTML);
       arrayValorClasses.push(listas[index].className);
       localStorage.setItem(index, arrayValorClasses);
+    }
+    if (eraseEverything === true) {
+      localStorage.clear()
+      eraseEverything = false;
     }
   });
 }

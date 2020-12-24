@@ -7,21 +7,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Minha Lista de Tarefas</h1>
-  </header>
-  <input type ='text' placeholder='Escreva aqui sua tarefa' id='texto-tarefa' type="text">
-  <button id='criar-tarefa'>Adicionar tarefa a lista</button>
-  <div><br>
-    <button id="apaga-tudo">Apaga tudo</button>
-    <button id="salvar-tarefas">Salvar</button>
-    <button id="remover-finalizados">Remove finalizados</button>
-    <button id="remover-selecionado">Remove selecionado</button><br><br>
-    <button id="mover-cima">Mover para cima</button><br>
-    <button id="mover-baixo">Mover para baixo</button>
+  
+  <div id='main-container'>
+    <h1>Minha Lista de Tarefas  <img id ='featherpen'src='featherpen-removebg-preview.png'></h1>
+    <input type ='text' placeholder='Escreva aqui sua tarefa' id='texto-tarefa' type="text">
+    <button id='criar-tarefa'>Adicionar tarefa a lista</button>
+    <p id='funcionamento'>Clique duas vezes em um item para marcá-lo como completo</p>
+    <div id='ol-container'>
+      <ol id='lista-tarefas'></ol>
+    </div>
+    <div id='buttons-div'>
+      <button id="mover-cima"> ↑ </button>
+      <button id="mover-baixo"> ↓ </button>
+      <button id="remover-selecionado">Remove selecionado</button>
+      <button id="remover-finalizados">Remove finalizados</button>
+      <button id="apaga-tudo">Apaga tudo</button>
+      <button id="salvar-tarefas">Salvar</button>
+    </div>
   </div>
-  <p id='funcionamento'>Clique duas vezes em um item para marcá-lo como completo</p>
-  <ol id='lista-tarefas'></ol>
   <script src='script.js'></script>
+  </div>
 </body>
 </html>
