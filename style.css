@@ -1,0 +1,11 @@
+body {
+  box-sizing: border-box;
+}
+
+.selected {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
