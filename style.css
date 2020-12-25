@@ -10,3 +10,6 @@ main {
   padding: 2em;
   width: 80%;
 }
+.input-container {
+  height: 100px;
+}
