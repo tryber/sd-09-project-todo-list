@@ -1,0 +1,12 @@
+body {
+  background-color: limegreen;
+  padding: 2em;
+}
+
+main {
+  background-color: white;
+  border-radius: 2em;
+  margin: auto;
+  padding: 2em;
+  width: 80%;
+}
