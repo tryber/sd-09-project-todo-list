@@ -1,5 +1,5 @@
 body {
-  background-color: limegreen;
+  background-image: linear-gradient(to right, forestgreen, chartreuse);
   font-family: sans-serif;
   padding: 2em;
 }
@@ -9,13 +9,13 @@ em {
 }
 
 h1 {
-  font-weight: bold;
+  font-weight: 800;
 }
 
 input {
   border: 0.1em solid gray;
-  border-radius: 0.2em;
-  }
+  border-radius: 0.3em;
+}
 
 input:hover {
   border: 0.2em solid darkcyan;
@@ -29,56 +29,55 @@ main {
   width: 80%;
 }
 
-.blue-button {
+.blue {
   background-color: darkcyan;
+}
+
+.blue:hover {
+  background-color: darkturquoise;
+}
+
+button {
   border: none;
   border-radius: 1em;
   color: white;
-  font-weight: bold;
+  font-weight: 600;
   margin: 0.5em;
   padding: 0.5em;
-  padding-inline: 2em;
+  padding-left: 2em;
+  padding-right: 2em;
 }
 
 .completed {
   text-decoration: line-through solid black;
 }
 
-.green-button {
-  background-color: limegreen;
-  border: none;
-  border-radius: 1em;
-  color: white;
-  font-weight: bold;
-  margin: 0.5em;
-  padding: 0.5em;
-  padding-inline: 2em;
+.green {
+  background-color: forestgreen;
+}
+
+.green:hover {
+  background-color: chartreuse;
 }
 
 .input-container {
   height: 5em;
 }
 
-.orange-button {
+.orange {
   background-color: darkorange;
-  border: none;
-  border-radius: 1em;
-  color: white;
-  font-weight: bold;
-  margin: 0.5em;
-  padding: 0.5em;
-  padding-inline: 2em;
 }
 
-.red-button {
+.orange:hover {
+  background-color: gold;
+}
+
+.red {
   background-color: darkred;
-  border: none;
-  border-radius: 1em;
-  color: white;
-  font-weight: bold;
-  margin: 0.5em;
-  padding: 0.5em;
-  padding-inline: 2em;
+}
+
+.red:hover {
+  background-color: red;
 }
 
 .selected {

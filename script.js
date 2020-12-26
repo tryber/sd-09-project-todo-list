@@ -22,7 +22,7 @@ function clearTaskList() {
   const taskList = document.querySelector('#lista-tarefas');
   const listItemArray = document.querySelectorAll('.list-item');
   for (let index = 0; index < listItemArray.length; index += 1) {
-    let listItem = listItemArray[index];
+    const listItem = listItemArray[index];
     taskList.removeChild(listItem);
   }
 }
@@ -31,7 +31,7 @@ function removeCompletedTasks() {
   const taskList = document.querySelector('#lista-tarefas');
   const completedTasksArray = document.querySelectorAll('.completed');
   for (let index = 0; index < completedTasksArray.length; index += 1) {
-    let completedTask = completedTasksArray[index];
+    const completedTask = completedTasksArray[index];
     taskList.removeChild(completedTask);
   }
 }
