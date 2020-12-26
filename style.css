@@ -10,6 +10,15 @@ main {
   padding: 2em;
   width: 80%;
 }
+
+.completed {
+  text-decoration: line-through;
+}
+
 .input-container {
   height: 100px;
+}
+
+.selected {
+  background-color: rgb(128, 128, 128);
 }
