@@ -12,7 +12,7 @@ main {
 }
 
 .completed {
-  text-decoration: line-through;
+  text-decoration: line-through solid rgb(0, 0, 0)
 }
 
 .input-container {
@@ -20,5 +20,5 @@ main {
 }
 
 .selected {
-  background-color: rgb(128, 128, 128);
+  background-color: gray;
 }
