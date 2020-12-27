@@ -36,13 +36,16 @@ event.target.className='completed'
 
 let lista= document.querySelector('#lista-tarefas');
 
-
+lista.addEventListener('click', changeColor);
 lista.addEventListener('dblclick', risk);
 
 
   function risk(event){
   event.target.classList.toggle('completed'); 
+  }
 
+  function changeColor(event){
+    event.target.classList.toggle('selecao');
   }
 
 

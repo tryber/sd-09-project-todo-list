@@ -30,7 +30,7 @@
  
 body{
     height: 100%;
-    background-color: rgba(168, 235, 168, 0.637);
+    
 }
 #texto-tarefa{
     border-radius: 25px;
@@ -50,7 +50,7 @@ body{
  section{
      margin-top: 100px;
  }
- 
+
  .completed{
   text-decoration: line-through solid rgb(0, 0, 0);
  }
