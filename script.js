@@ -21,20 +21,17 @@ adicTarefa.addEventListener('click', criaTarefa);
 let apagaTudo = document.getElementById('apaga-tudo');
 apagaTudo.addEventListener('click', apagarTudo);
 
-
-
 let lista = document.querySelector('#lista-tarefas');
-
 lista.addEventListener('click', changeColor);
 lista.addEventListener('dblclick', risk);
-
 
 function risk(event) {
   event.target.classList.toggle('completed');
 }
 
 function changeColor(event) {
-  event.target.classList.toggle('selecao');
+  event.target.style.backgroundColor = 'rgb(128,128,128)'
+  //classList.toggle('selecao');
 }
 
 let finalizados = document.querySelector('#remover-finalizados');
