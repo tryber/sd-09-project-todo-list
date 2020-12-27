@@ -5,7 +5,7 @@ function criaTarefa() {
   itemLista.innerHTML = tarefa.value;
   itemLista.className = 'item';
   lista.appendChild(itemLista)
-  tarefa.value = " ";
+  tarefa.value = "";
 }
 
 function apagarTudo() {
