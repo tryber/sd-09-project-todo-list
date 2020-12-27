@@ -11,7 +11,7 @@ function criaTarefa(){
  }
 
 function apagarTudo(){
-   let apagaTudo = document.querySelectorAll('#lista-tarefas');
+   let apagaTudo = document.querySelectorAll('.item');
    for(i=0; i<apagaTudo.length;i+=1){
        apagaTudo[i].remove();
    }
@@ -25,14 +25,25 @@ apagaTudo.addEventListener('click', apagarTudo);
 
 
 
-let corFundoTarefa= document.querySelectorAll('.item');
-for (let index = 0; index < corFundoTarefa.length; index += 1) {
-corFundoTarefa[i].addEventListener('click', color);
+let corFundoTarefa= document.querySelector('p');
+corFundoTarefa.addEventListener('click', color);
+
+
+function color(event){
+event.target.className='completed'
 }
 
-function color(){
-let corFundo= document.querySelectorAll('.item');  
-for (let index = 0; index < corFundo.length; index += 1) {
-    corFundo[i].style.backgroundColor = rgb(128,128,128);
-}
-}
+
+let lista= document.querySelector('#lista-tarefas');
+
+
+lista.addEventListener('dblclick', risk);
+
+
+  function risk(event){
+  event.target.classList.toggle('completed'); 
+
+  }
+
+
+
