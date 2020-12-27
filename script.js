@@ -1,0 +1,1 @@
+let lista_ordenada = document.querySelector('#lista-tarefas');
