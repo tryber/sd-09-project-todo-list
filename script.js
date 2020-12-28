@@ -3,7 +3,9 @@ window.onload = function() {
   getAddButton.addEventListener('click', addTask);
   const getRemoveBtn = document.getElementById('apaga-tudo');
   getRemoveBtn.addEventListener('click', removeAll);
-  const getRemoveSelectedBtn = document.getElementById('remover-finalizados');
+  const getRemoveCompletedBtn = document.getElementById('remover-finalizados');
+  getRemoveCompletedBtn.addEventListener('click', removeCompleted);
+  const getRemoveSelectedBtn = document.getElementById('remover-selecionado');
   getRemoveSelectedBtn.addEventListener('click', removeSelected);
 };
 
@@ -38,8 +40,16 @@ function removeAll() {
   }
 }
 
+function removeCompleted() {
+  const getCompleteds = document.getElementsByClassName('completed');
+  const getLists = document.getElementById('lista-tarefas');
+  while (getCompleteds.length > 0) {
+    getLists.removeChild(getCompleteds[0]);
+  }
+}
+
 function removeSelected() {
-  const getSelecteds = document.getElementsByClassName('completed');
+  const getSelecteds = document.getElementsByClassName('colored');
   const getLists = document.getElementById('lista-tarefas');
   while (getSelecteds.length > 0) {
     getLists.removeChild(getSelecteds[0]);
