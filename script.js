@@ -1,5 +1,6 @@
 const inputField = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
+let darkTheme = false;
 
 function removeSelectedClass() {
   const taskArray = document.querySelectorAll('.task');
@@ -80,6 +81,19 @@ function moveDown() {
   }
 }
 
+function toggleDarkTheme() {
+  const app = document.querySelector('main');
+  if (darkTheme) {
+    app.style.backgroundColor = 'rgb(255, 255, 255, 0.5)';
+    app.style.color = 'rgb(0, 0, 0)';
+    darkTheme = false;
+  } else {
+    app.style.backgroundColor = 'rgb(0, 0, 0, 0.5)';
+    app.style.color = 'rgb(255, 255, 255)';
+    darkTheme = true;
+  }
+}
+
 window.onload = function () {
   const addButton = document.querySelector('#criar-tarefa');
   const clearButton = document.querySelector('#apaga-tudo');
@@ -88,6 +102,7 @@ window.onload = function () {
   const saveButton = document.querySelector('#salvar-tarefas');
   const moveUpButton = document.querySelector('#mover-cima');
   const moveDownButton = document.querySelector('#mover-baixo');
+  const settingsButton = document.querySelector('#settings');
 
   addButton.addEventListener('click', addNewTask);
   clearButton.addEventListener('click', clearTaskList);
@@ -96,6 +111,7 @@ window.onload = function () {
   saveButton.addEventListener('click', saveTasks);
   moveUpButton.addEventListener('click', moveUp);
   moveDownButton.addEventListener('click', moveDown);
+  settingsButton.addEventListener('click', toggleDarkTheme);
 
   clickToSelect();
   dblClickToComplete();

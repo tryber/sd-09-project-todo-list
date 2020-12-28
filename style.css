@@ -9,7 +9,8 @@ em {
 }
 
 h1 {
-  font-weight: 800;
+  font-weight: 900;
+  text-shadow: 2px 2px 5px grey;
 }
 
 input {
@@ -22,8 +23,9 @@ input:hover {
 }
 
 main {
-  background-color: white;
+  background-color: rgb(255, 255, 255, 0.5);
   border-radius: 2em;
+  box-shadow: 2px 2px 5px grey;
   margin: auto;
   padding: 2em;
   width: 80%;
@@ -40,6 +42,7 @@ main {
 button {
   border: none;
   border-radius: 1em;
+  box-shadow: 2px 2px 5px grey;
   color: white;
   font-weight: 600;
   margin: 0.5em;
@@ -82,4 +85,10 @@ button {
 
 .selected {
   background-color: gray;
+}
+
+.nav-button {
+  float: right;
+  position: relative;
+  top: -5em;
 }
