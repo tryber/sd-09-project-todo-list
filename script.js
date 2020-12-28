@@ -1,34 +1,35 @@
+const inputField = document.querySelector('#texto-tarefa');
+const taskList = document.querySelector('#lista-tarefas');
+
 function removeSelectedClass() {
-  const listItemArray = document.querySelectorAll('.list-item');
-  for (let index = 0; index < listItemArray.length; index += 1) {
-    listItemArray[index].classList.remove('selected');
+  const taskArray = document.querySelectorAll('.task');
+  for (let index = 0; index < taskArray.length; index += 1) {
+    taskArray[index].classList.remove('selected');
   }
 }
 
-function addSelectedClass(event) {
-  removeSelectedClass();
-  event.classList += ' selected';
+function clickToSelect(event) {
+  taskList.addEventListener('click', function (event) {
+    removeSelectedClass();
+    event.target.classList += ' selected';
+  });
 }
 
-function addCompletedClass(event) {
-  if (event.classList.contains('completed')) {
-    event.classList.remove('completed');
-  } else {
-    event.classList += ' completed';
-  }
+function dblClickToComplete(event) {
+  taskList.addEventListener('dblclick', function (event) {
+    event.target.classList.toggle('completed');
+  });
 }
 
 function clearTaskList() {
-  const taskList = document.querySelector('#lista-tarefas');
-  const listItemArray = document.querySelectorAll('.list-item');
-  for (let index = 0; index < listItemArray.length; index += 1) {
-    const listItem = listItemArray[index];
-    taskList.removeChild(listItem);
+  const taskArray = document.querySelectorAll('.task');
+  for (let index = 0; index < taskArray.length; index += 1) {
+    const task = taskArray[index];
+    taskList.removeChild(task);
   }
 }
 
 function removeCompletedTasks() {
-  const taskList = document.querySelector('#lista-tarefas');
   const completedTasksArray = document.querySelectorAll('.completed');
   for (let index = 0; index < completedTasksArray.length; index += 1) {
     const completedTask = completedTasksArray[index];
@@ -36,23 +37,30 @@ function removeCompletedTasks() {
   }
 }
 
+function removeSelectedTask() {
+  const selectedTask = document.querySelector('.selected');
+  taskList.removeChild(selectedTask);
+}
+
 function addNewTask() {
-  const inputField = document.querySelector('#texto-tarefa');
-  const taskList = document.querySelector('#lista-tarefas');
-  if (inputField.value.length > 0) {
-    const listItem = document.createElement('li');
-    listItem.innerText = inputField.value;
-    listItem.className = 'list-item';
-    listItem.addEventListener('click', function () {
-      addSelectedClass(listItem);
-    });
-    listItem.addEventListener('dblclick', function () {
-      addCompletedClass(listItem);
-    });
-    taskList.appendChild(listItem);
+  if (inputField.value !== '') {
+    const task = document.createElement('li');
+    task.innerText = inputField.value;
+    task.className = 'task';
+    taskList.appendChild(task);
     inputField.value = '';
   } else {
     alert('Error: Digite ao menos 1 caractere.');
+  }
+}
+
+function saveTasks() {
+  localStorage.savedTasks = taskList.innerHTML;
+}
+
+function loadSavedTasks() {
+  if (localStorage.savedTasks !== undefined) {
+    taskList.innerHTML = localStorage.savedTasks;
   }
 }
 
@@ -60,7 +68,16 @@ window.onload = function () {
   const addButton = document.querySelector('#criar-tarefa');
   const clearButton = document.querySelector('#apaga-tudo');
   const removeButton = document.querySelector('#remover-finalizados');
+  const deleteButton = document.querySelector('#remover-selecionado');
+  const saveButton = document.querySelector('#salvar-tarefas');
+
   addButton.addEventListener('click', addNewTask);
   clearButton.addEventListener('click', clearTaskList);
   removeButton.addEventListener('click', removeCompletedTasks);
+  deleteButton.addEventListener('click', removeSelectedTask);
+  saveButton.addEventListener('click', saveTasks);
+
+  clickToSelect();
+  dblClickToComplete();
+  loadSavedTasks();
 };
