@@ -39,7 +39,10 @@ function removeCompletedTasks() {
 
 function removeSelectedTask() {
   const selectedTask = document.querySelector('.selected');
-  taskList.removeChild(selectedTask);
+  if (selectedTask) {
+    const selectedTask = document.querySelector('.selected');
+    taskList.removeChild(selectedTask);
+  }
 }
 
 function addNewTask() {
@@ -66,14 +69,16 @@ function loadSavedTasks() {
 
 function moveUp() {
   const selectedTask = document.querySelector('.selected');
-  if (selectedTask.previousElementSibling)
-	selectedTask.parentNode.insertBefore(selectedTask, selectedTask.previousElementSibling);
+  if (selectedTask) {
+    selectedTask.parentNode.insertBefore(selectedTask, selectedTask.previousElementSibling);
+  }
 }
 
 function moveDown() {
   const selectedTask = document.querySelector('.selected');
-  if (selectedTask.nextSibling)
-	selectedTask.parentNode.insertBefore(selectedTask.nextSibling, selectedTask);
+  if (selectedTask) {
+    selectedTask.parentNode.insertBefore(selectedTask.nextSibling, selectedTask);
+  }
 }
 
 window.onload = function () {
