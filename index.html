@@ -5,23 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Todo List</title>
   <link rel="stylesheet" href="style.css">
+  <link href= "https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel='stylesheet' type='text/css'>
+  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,400;1,400;1,700&family=Yellowtail&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Minha Lista de Tarefas</h1>
-  </header>
-  <section>
-    <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    <header class="title">
+      <h1>Minha Lista de Tarefas</h1>
+    </header>
+    <section class="center">
+      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    </section>
+    <section class="center">
+      <input type="text" id="texto-tarefa" class="input text">
+      <button type="submit" id="criar-tarefa" class="input send">Adicionar</button>
+    </section>
+    <section class="center">
+      <ol id="lista-tarefas" class="lista-de-tarefas center">
+      </ol>
+      <section id="buttons" class="center buttons"></section>
   </section>
-  <section>
-    <input type="text" id="texto-tarefa">
-    <button type="submit" id="criar-tarefa">Adicionar</button>
-  </section>
-  <section>
-    <ol id="lista-tarefas" class="lista-de-tarefas">
-    </ol>
-  </section>
-  <section id="buttons"></section>
+  <footer></footer>
   <script src="script.js"></script>
 </body>
 </html>

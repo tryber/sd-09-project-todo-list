@@ -6,27 +6,33 @@ list.className = 'todo-list';
 const buttonsSection = document.querySelector('#buttons');
 const removeTasks = document.createElement('button');
 removeTasks.id = 'apaga-tudo';
-removeTasks.innerHTML = 'Excluir Tudo';
+removeTasks.className = 'button remove';
+removeTasks.innerHTML = 'Remove All';
 buttonsSection.appendChild(removeTasks);
 const removeChecked = document.createElement('button');
 removeChecked.id = 'remover-finalizados';
-removeChecked.innerHTML = 'Remover Concluídos';
+removeChecked.className = 'button remove';
+removeChecked.innerHTML = 'Remove Completed';
 buttonsSection.appendChild(removeChecked);
-const saveTasks = document.createElement('button');
-saveTasks.id = 'salvar-tarefas';
-saveTasks.innerHTML = 'Salvar Tarefas';
-buttonsSection.appendChild(saveTasks);
 const removeSelected = document.createElement('button');
 removeSelected.id = 'remover-selecionado';
+removeSelected.className = 'button remove';
 removeSelected.innerHTML = 'Remove Selected';
 buttonsSection.appendChild(removeSelected);
+const saveTasks = document.createElement('button');
+saveTasks.id = 'salvar-tarefas';
+saveTasks.className = 'button save';
+saveTasks.innerHTML = '💾';
+buttonsSection.appendChild(saveTasks);
 const moveUp = document.createElement('button');
 moveUp.id = 'mover-cima';
-moveUp.innerHTML = 'Move Up';
+moveUp.className = 'move';
+moveUp.innerHTML = '⬆';
 buttonsSection.appendChild(moveUp);
 const moveDown = document.createElement('button');
 moveDown.id = 'mover-baixo';
-moveDown.innerHTML = 'Move Down';
+moveDown.className = 'move';
+moveDown.innerHTML = '⬇';
 buttonsSection.appendChild(moveDown);
 
 // Adiciona as tarefas
@@ -52,6 +58,10 @@ function selectedDesativate() {
     }
     event.target.classList.add('selected');
   });
+}
+
+function todoSelected() {
+
 }
 
 // Risca as tarefas clicadas duas vezes
@@ -138,9 +148,18 @@ function moveListUp() {
   });
 }
 
+    // if (orderedList.children.length < 0) {
+    //   orderedList.style.backgroundColor = 'blue'
+    //   console.log(' maior que 0');
+    // } else  {
+    // orderedList.style.backgroundColor = 'red'
+    // console.log(' menor que 0');
+    // }
+
 saveAllTasks();
 removeCheckedTasks();
 removeAllTasks();
+todoSelected();
 todoCompleted();
 addTask();
 selectedDesativate();
