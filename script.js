@@ -1,24 +1,5 @@
 const container = document.querySelector('#container');
 
-function addHeader() {
-  const createHeader = document.createElement('header');
-  container.appendChild(createHeader);
-}
-
-function addTitle() {
-  const header = document.querySelector('header');
-  const createTitle = document.createElement('h1');
-  createTitle.innerText = 'Minha Lista de Tarefas';
-  header.appendChild(createTitle);
-}
-
-function addParagraph() {
-  const createParagraph = document.createElement('p');
-  createParagraph.innerText = 'Clique duas vezes em um item para marcá-lo como completo';
-  createParagraph.id = 'funcionamento';
-  container.appendChild(createParagraph);
-}
-
 function addContainerTask() {
   const containerTask = document.createElement('div');
   containerTask.id = 'container-task';
@@ -208,10 +189,23 @@ function generateButtonDown() {
   containerButtons.appendChild(createButtonDown);
 }
 
+function handleRemoveSelected() {
+  const selectedItem = document.querySelector('.selected');
+  const list = selectedItem.parentNode;
+  list.removeChild(selectedItem);
+}
+
+function generateButtonRemoveSelected() {
+  const containerButtons = document.getElementById('container-buttons');
+  const createButton = document.createElement('button');
+  createButton.id = 'remover-selecionado';
+  createButton.className = 'btn';
+  createButton.innerText = 'Remover selecionado';
+  createButton.addEventListener('click', handleRemoveSelected);
+  containerButtons.appendChild(createButton);
+}
+
 window.onload = function () {
-  addHeader();
-  addTitle();
-  addParagraph();
   addContainerTask();
   addInput();
   addList();
@@ -223,4 +217,5 @@ window.onload = function () {
   generateButtonSaveTasks()
   generateButtonUp();
   generateButtonDown();
+  generateButtonRemoveSelected();
 };
