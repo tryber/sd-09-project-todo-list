@@ -148,14 +148,6 @@ function moveListUp() {
   });
 }
 
-    // if (orderedList.children.length < 0) {
-    //   orderedList.style.backgroundColor = 'blue'
-    //   console.log(' maior que 0');
-    // } else  {
-    // orderedList.style.backgroundColor = 'red'
-    // console.log(' menor que 0');
-    // }
-
 saveAllTasks();
 removeCheckedTasks();
 removeAllTasks();

@@ -1,64 +1,54 @@
-* {
-  margin: 0;
-  padding: 0;
-}
 body {
-  background-color: rgb(251, 253, 251);
-  font-family: 'Josefin Sans', sans-serif;
+  background-color: rgb(251 , 253 , 251);
+  font-family: Josefin Sans, sans-serif;
+  margin: 0;
+  max-height: 100%;
   font-size: 20px;
   max-width: 100%;
-  max-height: 100%;
+  padding: 0;
   position: relative;
 }
 
 header {
-  background-color: rgb(255, 68, 0);
+  background-color: rgb(255 , 68 , 0);
   color: aliceblue;
-  text-align: center;
-  padding-bottom: 20px;
-  padding-top: 20px;
   margin-bottom: 15px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  text-align: center;
 }
 
 footer {
-  background-color: rgb(255, 68, 0);
+  background-color: rgb(255 , 68 , 0);
   bottom: 0;
   margin: auto;
-  position: fixed;
   padding: 10px;
+  position: fixed;
   width: 100%;
 }
 
-.center {   
-  background-color: rgb(251, 253, 251);
-  margin-left: auto;
-  text-align: center;
-  padding: 8px;
+.center {
+  background-color: rgb(251 , 253 , 251);
   line-height: 25px;
+  margin-left: auto;
+  padding: 8px;
+  text-align: center;
 }
 
 .lista-de-tarefas {
-  background-image: url(/imgs/papel.png);
+  background-image: url('/imgs/papel.png');
   background-size: 370px;
-  font-family: 'Yellowtail', cursive;
+  font-family: Yellowtail, cursive;
   font-size: 20px;
   margin-right: auto;
-  max-width: 300px;
   margin-top: 15px;
-  padding-left: 35px;
-  padding-right: 35px;
-  padding-top: 0;
-  padding-bottom: 0;
+  max-width: 300px;
+  padding: 0 35px 0 35px;
   text-align: center;
 }
 
 .completed {
   text-decoration: line-through black;
-  text-decoration: ✔️;
-}
-
-.completed::after {
-  content: ' ✔️';
 }
 
 .selected {
@@ -87,15 +77,15 @@ footer {
 }
 
 .move:hover {
-  background-color: rgba(0, 0, 255, 0.801);
+  background-color: rgba(0 , 0 , 255 , 0.801);
 }
 
 .save {
-  background-color: rgb(20, 163, 20);
+  background-color: rgb(20 , 163 , 20);
 }
 
 .save:hover {
-  background-color: rgba(20, 163, 20, 0.781);
+  background-color: rgba(20 , 163 , 20, 0.781);
 }
 
 .remove {
@@ -103,12 +93,12 @@ footer {
 }
 
 .remove:hover {
-  background-color: rgba(255, 0, 0, 0.774);
+  background-color: rgba(255 , 0 , 0 , 0.774);
 }
 
 .text {
-  font-family: 'Yellowtail', cursive;
-  font-size: 15px
+  font-family: Yellowtail, cursive;
+  font-size: 15px;
 }
 
 .input {
@@ -118,9 +108,9 @@ footer {
 }
 
 .send {
-  background-color: rgb(255, 242, 183);
+  background-color: rgb(255 , 242 , 183);
 }
 
 .send:hover {
-  background-color: rgba(255, 242, 183, 0.63);
+  background-color: rgba(255 , 242 , 183 , 0.63);
 }
