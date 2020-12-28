@@ -118,7 +118,7 @@ moverCima.addEventListener('click', () => {
       items[index].parentNode.insertBefore(items[index], items[index].previousSibling);
     }
   }
-})
+});
 
 // Move os elementos selecionados para baixo
 moverBaixo.addEventListener('click', () => {
@@ -128,4 +128,4 @@ moverBaixo.addEventListener('click', () => {
       items[index].parentNode.insertBefore(items[index].nextSibling, items[index]);
     }
   }
-})
+});
