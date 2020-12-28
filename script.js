@@ -11,16 +11,12 @@ function createTask() {
   });
 }
 createTask();
+
 function changeColorTask() {
-  let task = document.getElementsByClassName('task');
-  console.log(task);
-  const color = 'rgb(128, 128, 128)';
-  for (let index = 0; index < task.length; index += 1) {
-    task[index].addEventListener('click', function (event) {
-      console.log('oi')
-      console.log(event.target);
-      event.target.style.backgroudColor = color;
+  let taskList = document.querySelector('.taskList');
+  let color = 'rgb(128, 128, 128)';
+  taskList.addEventListener('click', function (event) {
+    event.target.style.backgroundColor = color;
     });
   }
-}
-changeColorTask();
+  changeColorTask();
