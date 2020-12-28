@@ -16,3 +16,13 @@ function clickButton () {
     })
 }
 clickButton();
+
+function selectedItem() {
+    let itemTask = document.querySelectorAll('li');
+    for (let index = 0; index < itemTask.length; index += 1) {
+        itemTask[index].addEventListener('click', function (event) {
+            event.target.classList.toggle('selected')
+        }) 
+    }
+}
+selectedItem();
