@@ -8,14 +8,14 @@ function removeSelectedClass() {
   }
 }
 
-function clickToSelect(event) {
+function clickToSelect() {
   taskList.addEventListener('click', function (event) {
     removeSelectedClass();
     event.target.classList += ' selected';
   });
 }
 
-function dblClickToComplete(event) {
+function dblClickToComplete() {
   taskList.addEventListener('dblclick', function (event) {
     event.target.classList.toggle('completed');
   });
