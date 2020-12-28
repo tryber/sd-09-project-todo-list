@@ -17,15 +17,14 @@ function clickButton () {
 }
 
 function taskSelected() {
-    let listTasks = document.querySelector('#lista-tarefas')
-    let taskSelected = listTasks[0];
-    for (let index = 0; index < listTasks.length; index += 1) {
-        listTasks[index].addEventListener('click', function (event) {
-            taskSelected.className = 'task';
-            event.target.className = 'task selected';
-            return taskSelected = event.target;
-        })
+    let lists = document.getElementById('lista-tarefas')
+    lists.addEventListener('click', function (event) {
+    let select = document.querySelectorAll('.selected');
+    for (let index = 0; index < select.length; index += 1) {
+      select[index].classList.remove('selected');
     }
+    event.target.classList.add('selected');
+  });
 }
 
 function dblClick() {
@@ -35,9 +34,10 @@ function dblClick() {
     });
 }
 
+
 window.onload = function() {
+    taskSelected();
     clickButton();
     dblClick();
-    taskSelected();
 
 }
