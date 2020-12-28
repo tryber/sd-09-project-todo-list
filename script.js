@@ -11,7 +11,14 @@ function createTask() {
   });
 }
 createTask();
-
+function removeColorTask() {
+  const taskList = document.querySelectorAll('.task');
+  for (let index = 0; index < taskList.length; index += 1) {
+    if (taskList[index].style.backgroundColor !== 'white') {
+      taskList[index].style.backgroundColor = 'white';
+    }
+  }
+}
 function changeColorTask() {
   const taskList = document.querySelector('.taskList');
   const color = 'rgb(128, 128, 128)';
@@ -21,11 +28,14 @@ function changeColorTask() {
   });
 }
 changeColorTask();
-function removeColorTask () {
-  const taskList = document.querySelectorAll('.task') ;
-  for (let index = 0; index < taskList.length; index += 1){
-    if (taskList[index].style.backgroundColor !== 'white'){
-      taskList[index].style.backgroundColor = 'white'
+function addCompleted() {
+  const taskList = document.querySelector('.taskList');
+  taskList.addEventListener('dblclick', function (event) {
+    if (event.target.className === 'task completed') {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
     }
-  }
+  });
 }
+addCompleted();
