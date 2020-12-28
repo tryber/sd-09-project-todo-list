@@ -12,7 +12,7 @@ function clickButton () {
         let newTask = document.createElement('li');
         taskList.appendChild(newTask);
         newTask.innerText = inputText;
-        inputText = '';
+        input.value = '';
     })
 }
 clickButton();
