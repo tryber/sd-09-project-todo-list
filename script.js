@@ -64,18 +64,34 @@ function loadSavedTasks() {
   }
 }
 
+function moveUp() {
+  const selectedTask = document.querySelector('.selected');
+  if (selectedTask.previousElementSibling)
+	selectedTask.parentNode.insertBefore(selectedTask, selectedTask.previousElementSibling);
+}
+
+function moveDown() {
+  const selectedTask = document.querySelector('.selected');
+  if (selectedTask.nextSibling)
+	selectedTask.parentNode.insertBefore(selectedTask.nextSibling, selectedTask);
+}
+
 window.onload = function () {
   const addButton = document.querySelector('#criar-tarefa');
   const clearButton = document.querySelector('#apaga-tudo');
   const removeButton = document.querySelector('#remover-finalizados');
   const deleteButton = document.querySelector('#remover-selecionado');
   const saveButton = document.querySelector('#salvar-tarefas');
+  const moveUpButton = document.querySelector('#mover-cima');
+  const moveDownButton = document.querySelector('#mover-baixo');
 
   addButton.addEventListener('click', addNewTask);
   clearButton.addEventListener('click', clearTaskList);
   removeButton.addEventListener('click', removeCompletedTasks);
   deleteButton.addEventListener('click', removeSelectedTask);
   saveButton.addEventListener('click', saveTasks);
+  moveUpButton.addEventListener('click', moveUp);
+  moveDownButton.addEventListener('click', moveDown);
 
   clickToSelect();
   dblClickToComplete();
