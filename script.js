@@ -41,11 +41,19 @@ function addList() {
 
 function loadListInStorage() {
   let getTasks = JSON.parse(localStorage.getItem('tasks'));
-  for (let index = 0; index < getTasks.length; index += 1) {
-    const list = document.getElementById('lista-tarefas');
-    const createListItem = document.createElement('li');
-    createListItem.innerText = getTasks[index];
-    list.appendChild(createListItem);
+  for (let index; index < getTasks.lenght; index += 1) {
+    console.log('load ' + getTasks[index].class);
+  }
+  if (getTasks.length > 0) {
+    for (let index = 0; index < getTasks.length; index += 1) {
+      const list = document.getElementById('lista-tarefas');
+      const createListItem = document.createElement('li');
+      createListItem.innerText = getTasks[index].text;
+      createListItem.className = getTasks[index].class;
+      createListItem.addEventListener('click', handleTaskClick);
+      createListItem.addEventListener('dblclick', handleTaskCompleted);
+      list.appendChild(createListItem);
+    }
   }
 }
 
@@ -135,12 +143,23 @@ function generateButtonRemoveTasksCompleted() {
 
 function handleSaveTasks() {
   if (typeof(Storage) !== "undefined") {
-    // Code for localStorage/sessionStorage.
     localStorage.clear();
     let tasks = [];
+    let isCompleted = false;
     const listItems = document.querySelectorAll('li');
     for (let index = 0; index < listItems.length; index += 1) {
-      tasks.push(listItems[index].innerText);
+      isCompleted = listItems[index].classList.contains('completed');
+      if (isCompleted) {
+        tasks.push({
+          text: listItems[index].innerText,
+          class: 'completed'
+        });
+      } else {
+        tasks.push({
+          text: listItems[index].innerText,
+          class: ''
+        });
+      }
     }
     localStorage.setItem('tasks', JSON.stringify(tasks));
   } else {
@@ -158,6 +177,37 @@ function generateButtonSaveTasks() {
   containerButtons.appendChild(createButton);
 }
 
+function handleMoveUp(event) {
+  const currentListItem = event.target;
+  const listItemParent = currentListItem.parentNode;
+  const previousSibling = currentListItem.previousSibling;
+  listItemParent.insertBefore(currentListItem, previousSibling);
+}
+
+function generateButtonUp() {
+  const containerButtons = document.getElementById('container-buttons');
+  const createButtonUp = document.createElement('button');
+  createButtonUp.id = 'mover-cima';
+  createButtonUp.className = 'btn';
+  createButtonUp.innerHTML = '&#708';
+  createButtonUp.addEventListener('click', handleMoveUp);
+  containerButtons.appendChild(createButtonUp);
+}
+
+function handleMoveDown() {
+
+}
+
+function generateButtonDown() {
+  const containerButtons = document.getElementById('container-buttons');
+  const createButtonDown = document.createElement('button');
+  createButtonDown.id = 'mover-baixo';
+  createButtonDown.className = 'btn';
+  createButtonDown.innerHTML = '&#709';
+  createButtonDown.addEventListener('click', handleMoveDown);
+  containerButtons.appendChild(createButtonDown);
+}
+
 window.onload = function () {
   addHeader();
   addTitle();
@@ -171,4 +221,6 @@ window.onload = function () {
   generateButtonRemove();
   generateButtonRemoveTasksCompleted();
   generateButtonSaveTasks()
+  generateButtonUp();
+  generateButtonDown();
 };
