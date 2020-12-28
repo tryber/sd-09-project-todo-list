@@ -39,8 +39,8 @@ function addCompleted() {
   });
 }
 addCompleted();
-function clearAll () {
-  const button = document.querySelector('.buttonClear')
+function clearAll() {
+  const button = document.querySelector('.buttonClear');
   const list = document.querySelector('.taskList');
   button.addEventListener('click', function () {
     if (list.parentNode) {
