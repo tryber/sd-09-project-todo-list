@@ -40,7 +40,6 @@ function removeCompletedTasks() {
 function removeSelectedTask() {
   const selectedTask = document.querySelector('.selected');
   if (selectedTask) {
-    const selectedTask = document.querySelector('.selected');
     taskList.removeChild(selectedTask);
   }
 }
@@ -69,14 +68,14 @@ function loadSavedTasks() {
 
 function moveUp() {
   const selectedTask = document.querySelector('.selected');
-  if (selectedTask) {
+  if (selectedTask && selectedTask.previousElementSibling !== null) {
     selectedTask.parentNode.insertBefore(selectedTask, selectedTask.previousElementSibling);
   }
 }
 
 function moveDown() {
   const selectedTask = document.querySelector('.selected');
-  if (selectedTask) {
+  if (selectedTask && selectedTask.nextSibling !== null) {
     selectedTask.parentNode.insertBefore(selectedTask.nextSibling, selectedTask);
   }
 }
