@@ -41,9 +41,6 @@ function addList() {
 
 function loadListInStorage() {
   let getTasks = JSON.parse(localStorage.getItem('tasks'));
-  for (let index; index < getTasks.lenght; index += 1) {
-    console.log('load ' + getTasks[index].class);
-  }
   if (getTasks.length > 0) {
     for (let index = 0; index < getTasks.length; index += 1) {
       const list = document.getElementById('lista-tarefas');
@@ -177,8 +174,8 @@ function generateButtonSaveTasks() {
   containerButtons.appendChild(createButton);
 }
 
-function handleMoveUp(event) {
-  const currentListItem = event.target;
+function handleMoveUp() {
+  const currentListItem = document.querySelector('.selected');
   const listItemParent = currentListItem.parentNode;
   const previousSibling = currentListItem.previousSibling;
   listItemParent.insertBefore(currentListItem, previousSibling);
@@ -195,7 +192,10 @@ function generateButtonUp() {
 }
 
 function handleMoveDown() {
-
+  const currentListItem = document.querySelector('.selected');
+  const listItemParent = currentListItem.parentNode;
+  const nextSibling = currentListItem.nextSibling;
+  listItemParent.insertBefore(nextSibling, currentListItem);
 }
 
 function generateButtonDown() {
