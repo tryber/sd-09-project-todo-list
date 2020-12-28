@@ -1,9 +1,9 @@
 body {
   background-color: rgb(251 , 253 , 251);
   font-family: Josefin Sans, sans-serif;
+  font-size: 20px;
   margin: 0;
   max-height: 100%;
-  font-size: 20px;
   max-width: 100%;
   padding: 0;
   position: relative;
@@ -43,7 +43,7 @@ footer {
   margin-right: auto;
   margin-top: 15px;
   max-width: 300px;
-  padding: 0 35px 0 35px;
+  padding: 0 35px;
   text-align: center;
 }
 
@@ -85,7 +85,7 @@ footer {
 }
 
 .save:hover {
-  background-color: rgba(20 , 163 , 20, 0.781);
+  background-color: rgba(20 , 163 , 20 , 0.781);
 }
 
 .remove {
