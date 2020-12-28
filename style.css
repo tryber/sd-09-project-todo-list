@@ -1,0 +1,116 @@
+body {
+  background-color: rgb(251 , 253 , 251);
+  font-family: Josefin Sans, sans-serif;
+  font-size: 20px;
+  margin: 0;
+  max-height: 100%;
+  max-width: 100%;
+  padding: 0;
+  position: relative;
+}
+
+header {
+  background-color: rgb(255 , 68 , 0);
+  color: aliceblue;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+footer {
+  background-color: rgb(255 , 68 , 0);
+  bottom: 0;
+  margin: auto;
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+}
+
+.center {
+  background-color: rgb(251 , 253 , 251);
+  line-height: 25px;
+  margin-left: auto;
+  padding: 8px;
+  text-align: center;
+}
+
+.lista-de-tarefas {
+  background-image: url('/imgs/papel.png');
+  background-size: 370px;
+  font-family: Yellowtail, cursive;
+  font-size: 20px;
+  margin-right: auto;
+  margin-top: 15px;
+  max-width: 300px;
+  padding: 0 35px;
+  text-align: center;
+}
+
+.completed {
+  text-decoration: line-through black;
+}
+
+.selected {
+  background-color: gray;
+}
+
+.button {
+  border: 1px solid black;
+  border-radius: 2px;
+  color: white;
+  margin: 3px;
+  padding: 5px;
+}
+
+.buttons {
+  padding-bottom: 15px;
+}
+
+.move {
+  background-color: blue;
+  border: 1px solid black;
+  border-radius: 2px;
+  color: white;
+  margin: 1px;
+  padding: 5px;
+}
+
+.move:hover {
+  background-color: rgba(0 , 0 , 255 , 0.801);
+}
+
+.save {
+  background-color: rgb(20 , 163 , 20);
+}
+
+.save:hover {
+  background-color: rgba(20 , 163 , 20 , 0.781);
+}
+
+.remove {
+  background-color: red;
+}
+
+.remove:hover {
+  background-color: rgba(255 , 0 , 0 , 0.774);
+}
+
+.text {
+  font-family: Yellowtail, cursive;
+  font-size: 15px;
+}
+
+.input {
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 3px;
+}
+
+.send {
+  background-color: rgb(255 , 242 , 183);
+}
+
+.send:hover {
+  background-color: rgba(255 , 242 , 183 , 0.63);
+}
