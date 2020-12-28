@@ -6,6 +6,8 @@ const removerFinalizados = document.querySelector('#remover-finalizados');
 const removerSelecionado = document.querySelector('#remover-selecionado');
 const salvarTarefas = document.querySelector('#salvar-tarefas');
 const ilList = document.getElementsByTagName('li');
+const moverCima = document.querySelector('#mover-cima');
+const moverBaixo = document.querySelector('#mover-baixo');
 
 // Recupera dados salvos localmente
 if (localStorage.getItem('savedClasses')) {
@@ -94,6 +96,7 @@ removerSelecionado.addEventListener('click', () => {
   }
 });
 
+// Salva os items e suas classes no localStorage
 function saveLocal() {
   let savedItems = '';
   let savedClasses = '';
@@ -106,3 +109,23 @@ function saveLocal() {
   localStorage.setItem('savedClasses', savedClasses);
 }
 salvarTarefas.addEventListener('click', saveLocal);
+
+// Move os elementos selecionados para cima
+moverCima.addEventListener('click', () => {
+  const items = document.querySelectorAll('.olItem');
+  for (let index = 0; index < items.length; index += 1) {
+    if (items[index].classList.contains('line-color') && items[index].previousSibling !== null) {
+      items[index].parentNode.insertBefore(items[index], items[index].previousSibling);
+    }
+  }
+})
+
+// Move os elementos selecionados para baixo
+moverBaixo.addEventListener('click', () => {
+  const items = document.querySelectorAll('.olItem');
+  for (let index = 0; index < items.length; index += 1) {
+    if (items[index].classList.contains('line-color') && items[index].nextSibling !== null) {
+      items[index].parentNode.insertBefore(items[index].nextSibling, items[index]);
+    }
+  }
+})
