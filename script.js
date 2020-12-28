@@ -44,7 +44,7 @@ function clearAll() {
   const list = document.querySelector('.taskList');
   button.addEventListener('click', function () {
     while (list.firstChild) {
-      list.removeChild(list.firstChild)
+      list.removeChild(list.firstChild);
     }
   });
 }
@@ -52,8 +52,7 @@ clearAll();
 function clearCompleted() {
   const button = document.querySelector('.clearCompleted');
   button.addEventListener('click', function () {
-    console.log('apertei o botão');
-    let list = document.querySelectorAll('.completed');
+    const list = document.querySelectorAll('.completed');
     for (let index = 0; index < list.length; index += 1) {
       list[index].remove();
     }
