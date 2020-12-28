@@ -1,0 +1,24 @@
+.completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+.criar-tarefa {
+    background-color: aqua;
+    border-radius: 15px;
+}
+.div-text {
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.header {
+    text-align: center;
+}
+
+.new-task {
+    display: inline-block;
+    margin-left: 5px;
+}
+.selected {
+    background-color: rgb(128, 128, 128);
+}
