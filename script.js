@@ -116,5 +116,5 @@ window.onload = function () {
   clickToSelect();
   dblClickToComplete();
   loadSavedTasks();
-  toggleDarkTheme()
+  toggleDarkTheme();
 };
