@@ -21,8 +21,9 @@ function addList() {
 }
 
 function loadListInStorage() {
-  let getTasks = JSON.parse(localStorage.getItem('tasks'));
-  if (getTasks.length > 0) {
+  if (localStorage.length !== 0) {
+    let getTasks = JSON.parse(localStorage.getItem('tasks'));
+    console.log(getTasks);
     for (let index = 0; index < getTasks.length; index += 1) {
       const list = document.getElementById('lista-tarefas');
       const createListItem = document.createElement('li');
