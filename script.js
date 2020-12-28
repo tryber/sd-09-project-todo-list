@@ -7,6 +7,9 @@ window.onload = function() {
   getRemoveCompletedBtn.addEventListener('click', removeCompleted);
   const getRemoveSelectedBtn = document.getElementById('remover-selecionado');
   getRemoveSelectedBtn.addEventListener('click', removeSelected);
+  const getSaveBtn = document.getElementById('salvar-tarefas');
+  getSaveBtn.addEventListener('click', saveStorage);
+  document.getElementById("lista-tarefas").innerHTML = localStorage.getItem('list');
 };
 
 function addTask() {
@@ -54,4 +57,9 @@ function removeSelected() {
   while (getSelecteds.length > 0) {
     getLists.removeChild(getSelecteds[0]);
   }
+}
+
+function saveStorage() {
+  let getListToSave = document.querySelector('#lista-tarefas');
+  localStorage.setItem('list', getListToSave.innerHTML);
 }
