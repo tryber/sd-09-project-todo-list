@@ -1,7 +1,17 @@
+.criar-tarefa {
+    background-color: aqua;
+    border-radius: 15px;
+}
 .div-text {
-    display:inline-block;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+.header {
+    text-align: center;
 }
 
 .new-task {
-    display:inline-block;
+    display: inline-block;
+    margin-left: 5px;
 }

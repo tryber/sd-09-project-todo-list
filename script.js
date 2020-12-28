@@ -1,17 +1,18 @@
-let lista_ordenada = document.querySelector('#lista-tarefas');
-let inputText = document.querySelector('#texto-tarefa').value;
-let buttonClick = document.querySelector('#criar-tarefa');
+let input = document.querySelector('#texto-tarefa');
+let button = document.querySelector('#criar-tarefa');
+let taskList = document.querySelector('#lista-tarefas')
 
-function cLickBtn () {
-    buttonClick.addEventListener('click', function () {
+function clickButton () {
+    button.addEventListener('click', function (event) {
+        let inputText = input.value;
         if (inputText === '') {
-            alert ('A tarefa não pode ser vazia!');
+            alert ('Favor inserir uma nova tarefa!')
             return;
         }
-        let newTask = document.createElement ('li');
-        lista_ordenada.appendChild(newTask);
-        newRow.innerText = inputText;
+        let newTask = document.createElement('li');
+        taskList.appendChild(newTask);
+        newTask.innerText = inputText;
         inputText = '';
     })
-    
 }
+clickButton();
