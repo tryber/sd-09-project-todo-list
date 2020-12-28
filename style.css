@@ -23,7 +23,7 @@ input:hover {
 }
 
 main {
-  background-color: rgb(255, 255, 255, 0.5);
+  background-color: white;
   border-radius: 2em;
   box-shadow: 2px 2px 5px grey;
   margin: auto;
