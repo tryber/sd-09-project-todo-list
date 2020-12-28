@@ -20,27 +20,11 @@ function addList() {
   container.appendChild(createList);
 }
 
-function loadListInStorage() {
-  if (localStorage.length !== 0) {
-    let getTasks = JSON.parse(localStorage.getItem('tasks'));
-    console.log(getTasks);
-    for (let index = 0; index < getTasks.length; index += 1) {
-      const list = document.getElementById('lista-tarefas');
-      const createListItem = document.createElement('li');
-      createListItem.innerText = getTasks[index].text;
-      createListItem.className = getTasks[index].class;
-      createListItem.addEventListener('click', handleTaskClick);
-      createListItem.addEventListener('dblclick', handleTaskCompleted);
-      list.appendChild(createListItem);
-    }
-  }
-}
-
 function handleTaskClick(event) {
   const listItem = event.target;
   const selectedItems = document.getElementsByTagName('li');
   for (let index = 0; index < selectedItems.length; index += 1) {
-    let isSelected = selectedItems[index].classList.contains('selected');
+    const isSelected = selectedItems[index].classList.contains('selected');
     if (isSelected) {
       selectedItems[index].classList.remove('selected');
     }
@@ -55,6 +39,21 @@ function handleTaskCompleted(event) {
     task.classList.remove('completed');
   } else {
     task.classList.add('completed');
+  }
+}
+
+function loadListInStorage() {
+  if (localStorage.length !== 0) {
+    const getTasks = JSON.parse(localStorage.getItem('tasks'));
+    for (let index = 0; index < getTasks.length; index += 1) {
+      const list = document.getElementById('lista-tarefas');
+      const createListItem = document.createElement('li');
+      createListItem.innerText = getTasks[index].text;
+      createListItem.className = getTasks[index].class;
+      createListItem.addEventListener('click', handleTaskClick);
+      createListItem.addEventListener('dblclick', handleTaskCompleted);
+      list.appendChild(createListItem);
+    }
   }
 }
 
@@ -87,7 +86,7 @@ function generateContainerButtons() {
 }
 
 function handleRemoveList() {
-  const listItems = document.querySelectorAll ('li');
+  const listItems = document.querySelectorAll('li');
   for (let index = 0; index < listItems.length; index += 1) {
     listItems[index].parentNode.removeChild(listItems[index]);
   }
@@ -121,9 +120,9 @@ function generateButtonRemoveTasksCompleted() {
 }
 
 function handleSaveTasks() {
-  if (typeof(Storage) !== "undefined") {
+  if (typeof (Storage) !== 'undefined') {
     localStorage.clear();
-    let tasks = [];
+    const tasks = [];
     let isCompleted = false;
     const listItems = document.querySelectorAll('li');
     for (let index = 0; index < listItems.length; index += 1) {
@@ -131,12 +130,12 @@ function handleSaveTasks() {
       if (isCompleted) {
         tasks.push({
           text: listItems[index].innerText,
-          class: 'completed'
+          class: 'completed',
         });
       } else {
         tasks.push({
           text: listItems[index].innerText,
-          class: ''
+          class: '',
         });
       }
     }
@@ -157,10 +156,13 @@ function generateButtonSaveTasks() {
 }
 
 function handleMoveUp() {
-  const currentListItem = document.querySelector('.selected');
-  const listItemParent = currentListItem.parentNode;
-  const previousSibling = currentListItem.previousSibling;
-  listItemParent.insertBefore(currentListItem, previousSibling);
+  const listItemSelected = document.querySelector('.selected');
+  const listItemParent = listItemSelected.parentNode;
+  const firstChild = listItemParent.firstChild;
+  if (listItemSelected !== firstChild) {
+    const previousSibling = listItemSelected.previousSibling;
+    listItemParent.insertBefore(listItemSelected, previousSibling);
+  }
 }
 
 function generateButtonUp() {
@@ -174,10 +176,13 @@ function generateButtonUp() {
 }
 
 function handleMoveDown() {
-  const currentListItem = document.querySelector('.selected');
-  const listItemParent = currentListItem.parentNode;
-  const nextSibling = currentListItem.nextSibling;
-  listItemParent.insertBefore(nextSibling, currentListItem);
+  const listItemSelected = document.querySelector('.selected');
+  const listItemParent = listItemSelected.parentNode;
+  const lastChild = listItemParent.lastChild;
+  if (listItemSelected !== lastChild) {
+    const nextSibling = listItemSelected.nextSibling;
+    listItemParent.insertBefore(nextSibling, listItemSelected);
+  }
 }
 
 function generateButtonDown() {
@@ -215,7 +220,7 @@ window.onload = function () {
   generateContainerButtons();
   generateButtonRemove();
   generateButtonRemoveTasksCompleted();
-  generateButtonSaveTasks()
+  generateButtonSaveTasks();
   generateButtonUp();
   generateButtonDown();
   generateButtonRemoveSelected();
