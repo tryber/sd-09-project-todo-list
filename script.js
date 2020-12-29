@@ -69,7 +69,7 @@ function salvarTarefas() {
 }
 
 salvaTarefas.addEventListener('click', salvarTarefas);
-
+/*
 function tarefasSalvasCompletas(index, tarefa) {
   const completas = JSON.parse(localStorage.getItem('completas'));
   if (completas !== null){
@@ -92,3 +92,4 @@ function tarefasSalvas() {
 }
 
 tarefasSalvas();
+*/
