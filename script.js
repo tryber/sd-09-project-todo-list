@@ -14,10 +14,21 @@ novaTarefa.addEventListener('click', criarTarefa);
 function selecionarTarefa(event) {
   const tarefa = event.target;
   const lista = listaTarefas.getElementsByTagName('li');
-  for(let index = 0; index < lista.length; index += 1){
-      lista[index].classList.remove('selecionado');
+  for (let index = 0; index < lista.length; index += 1) {
+    lista[index].classList.remove('selecionado');
   }
   tarefa.classList.add('selecionado');
 }
 
 listaTarefas.addEventListener('click', selecionarTarefa);
+
+function completarTarefa(event) {
+  const tarefa = event.target;
+  if (tarefa.classList.contains('completed')){
+    tarefa.classList.remove('completed');
+  } else {
+    tarefa.classList.add('completed');
+  }
+}
+
+listaTarefas.addEventListener('dblclick', completarTarefa);
