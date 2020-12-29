@@ -2,6 +2,7 @@ const novaTarefa = document.getElementById('criar-tarefa');
 const nomeNovaTarefa = document.getElementById('texto-tarefa');
 const listaTarefas = document.getElementById('lista-tarefas');
 const apagaTarefas = document.getElementById('apaga-tudo');
+const removeFinalizados = document.getElementById('remover-finalizados');
 
 function criarTarefa() {
   const tarefa = document.createElement('li');
@@ -42,3 +43,12 @@ function apagaTudo() {
 }
 
 apagaTarefas.addEventListener('click', apagaTudo);
+
+function removerFinalizados() {
+  const finalizados = listaTarefas.getElementsByClassName('completed');
+  while (finalizados.length > 0) {
+    listaTarefas.removeChild(finalizados[finalizados.length - 1]);
+  }
+}
+
+removeFinalizados.addEventListener('click', removerFinalizados);
