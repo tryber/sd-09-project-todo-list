@@ -11,8 +11,10 @@ function removeSelectedClass() {
 
 function clickToSelect() {
   taskList.addEventListener('click', function (event) {
-    removeSelectedClass();
-    event.target.classList += ' selected';
+    if (event.target.className === 'task') {
+      removeSelectedClass();
+      event.target.classList += ' selected';
+    }
   });
 }
 
@@ -84,11 +86,11 @@ function moveDown() {
 function toggleDarkTheme() {
   const app = document.querySelector('main');
   if (darkTheme) {
-    app.style.backgroundColor = 'rgb(255, 255, 255, 0.5)';
+    app.style.backgroundColor = 'rgb(255, 255, 255, 0.7)';
     app.style.color = 'rgb(0, 0, 0)';
     darkTheme = false;
   } else {
-    app.style.backgroundColor = 'rgb(0, 0, 0, 0.5)';
+    app.style.backgroundColor = 'rgb(0, 0, 0, 0.7)';
     app.style.color = 'rgb(255, 255, 255)';
     darkTheme = true;
   }
