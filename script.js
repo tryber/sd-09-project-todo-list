@@ -36,8 +36,8 @@ listaTarefas.addEventListener('dblclick', completarTarefa);
 
 function apagaTudo() {
   const lista = listaTarefas.getElementsByTagName('li');
-  for (let index = 0; index < lista.length; index += 1) {
-    listaTarefas.removeChild;
+  while (lista.length > 0) {
+    listaTarefas.removeChild(lista[lista.length - 1]);
   }
 }
 
