@@ -70,6 +70,17 @@ function salvarTarefas() {
 
 salvaTarefas.addEventListener('click', salvarTarefas);
 
+function tarefasSalvasCompletas(index, tarefa) {
+  const completas = JSON.parse(localStorage.getItem('completas'));
+  if (completas !== null){
+    for (let helper = 0; helper < completas.length; helper += 1) {
+    if (completas[helper] === index) {
+      tarefa.classList.add('completed');
+    }
+  }
+  }
+}
+
 function tarefasSalvas() {
   const salvas = JSON.parse(localStorage.getItem('tarefas'));
   for (let index = 0; index < salvas.length; index += 1) {
@@ -78,15 +89,6 @@ function tarefasSalvas() {
     tarefasSalvasCompletas(index, tarefa);
     listaTarefas.appendChild(tarefa);
   }
-}
-
-function tarefasSalvasCompletas(index, tarefa) {
-  const completas = JSON.parse(localStorage.getItem('completas'));
-  for (let helper = 0; helper < completas.length; helper += 1) {
-      if (completas[helper] === index) {
-        tarefa.classList.add('completed');
-      }
-    }
 }
 
 tarefasSalvas();
