@@ -1,6 +1,7 @@
 const novaTarefa = document.getElementById('criar-tarefa');
 const nomeNovaTarefa = document.getElementById('texto-tarefa');
 const listaTarefas = document.getElementById('lista-tarefas');
+const apagaTarefas = document.getElementById('apaga-tudo');
 
 function criarTarefa() {
   const tarefa = document.createElement('li');
@@ -24,7 +25,7 @@ listaTarefas.addEventListener('click', selecionarTarefa);
 
 function completarTarefa(event) {
   const tarefa = event.target;
-  if (tarefa.classList.contains('completed')){
+  if (tarefa.classList.contains('completed')) {
     tarefa.classList.remove('completed');
   } else {
     tarefa.classList.add('completed');
@@ -32,3 +33,12 @@ function completarTarefa(event) {
 }
 
 listaTarefas.addEventListener('dblclick', completarTarefa);
+
+function apagaTudo() {
+  const lista = listaTarefas.getElementsByTagName('li');
+  for (let index = 0; index < lista.length; index += 1) {
+    listaTarefas.removeChild;
+  }
+}
+
+apagaTarefas.addEventListener('click', apagaTudo);
