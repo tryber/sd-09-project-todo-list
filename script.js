@@ -71,9 +71,9 @@ function salvarTarefas() {
 salvaTarefas.addEventListener('click', salvarTarefas);
 
 function tarefasSalvasCompletas(index, tarefa) {
-  let completas = JSON.parse(localStorage.getItem('completas'));
-  let counter = completas.length;
-  for (let helper = 0; helper < counter; helper += 1) {
+  const completas = JSON.parse(localStorage.getItem('completas'));
+  const counter = localStorage.getItem('completas').split(',');
+  for (let helper = 0; helper < counter.length; helper += 1) {
     if (completas[helper] === index) {
       tarefa.classList.add('completed');
     }
@@ -82,8 +82,8 @@ function tarefasSalvasCompletas(index, tarefa) {
 
 function tarefasSalvas() {
   const salvas = JSON.parse(localStorage.getItem('tarefas'));
-  let counter = salvas.length;
-  for (let index = 0; index < counter; index += 1) {
+  const counter = localStorage.getItem('tarefas').split(',');
+  for (let index = 0; index < counter.length; index += 1) {
     const tarefa = document.createElement('li');
     tarefa.innerText = salvas[index];
     tarefasSalvasCompletas(index, tarefa);
