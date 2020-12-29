@@ -10,12 +10,21 @@ function changeBackgroundColor(event) {
   }
 }
 
+function completedTask(event) {
+  if (event.target.className === 'completed') {
+    event.target.className = '';
+  } else {
+    event.target.className = 'completed';
+  }
+}
+
 function createLiElement() {
   const orderedList = document.getElementById('lista-tarefas');
   const textBox = document.getElementById('texto-tarefa');
   const liElement = document.createElement('li');
   liElement.innerText = textBox.value;
   liElement.addEventListener('click', changeBackgroundColor);
+  liElement.addEventListener('dblclick', completedTask)
   orderedList.appendChild(liElement);
   textBox.value = '';
 }
