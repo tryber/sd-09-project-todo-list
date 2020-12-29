@@ -6,7 +6,7 @@ function createLiElement() {
   let liElement = document.createElement('li');
   liElement.innerText = textBox.value;
   orderedList.appendChild(liElement);
-  textBox.innerText = '';
+  textBox.value = '';
 }
 
 const button = document.getElementById('criar-tarefa');
