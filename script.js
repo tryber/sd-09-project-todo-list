@@ -44,9 +44,12 @@ if(event.target.classList.contains('completed')){
 confereCompleta();
 
 function removeFinalizados(){
-  const finalizados = document.querySelectorAll('.completed');
-    for (let index = 0; index < finalizados.length; index += 1) {
-      finalizados[index].remove();
-    }
-  }
+    const botaoFinalizados = document.getElementById('remover-finalizados');
+    const finalizados = document.getElementsByClassName('completed');
+    botaoFinalizados.addEventListener('click',function(){
+for (let index=0;index<=finalizados.length;index+=1){
+    finalizados[index].remove();
+}
+    })
+}
 removeFinalizados();
