@@ -24,12 +24,10 @@ function createLiElement() {
   const liElement = document.createElement('li');
   liElement.innerText = textBox.value;
   liElement.addEventListener('click', changeBackgroundColor);
-  liElement.addEventListener('dblclick', completedTask)
+  liElement.addEventListener('dblclick', completedTask);
   orderedList.appendChild(liElement);
   textBox.value = '';
 }
 
 const button = document.getElementById('criar-tarefa');
 button.addEventListener('click', createLiElement);
-
-
