@@ -1,50 +1,56 @@
-function addTodo(){
-    const inputTodo = document.querySelector("#texto-tarefa");
-    const addTodo = document.querySelector("#criar-tarefa");
-    const todoList = document.querySelector("#lista-tarefas");
-
-    addTodo.addEventListener('click', function (){
-        const todoText = inputTodo.value;
-        const todo = document.createElement('li');
-        todo.innerText = todoText;
-
-        todoList.appendChild(todo);
-        inputTodo.value = '';
-    });
-}
-addTodo();
-//requisito 5 feito com ajuda do Thiago Granville da turma 9
-    function mudaCor(){
-        let cor = document.getElementsByTagName("li");
-        let lista = document.querySelector("#lista-tarefas");
-  lista.addEventListener("click", function (){
-    for (let index = 0; index < cor.length; index += 1) {
-      if (cor[index].classList.contains("selected") == true) {
-        cor[index].classList.remove("selected");
-      } else{
-        cor[index].classList.add("selected");
+const selectBotao = document.getElementById('criar-tarefa');
+const selectLista = document.getElementById('lista-tarefas');
+const addTarefa = () => {
+    let input = document.getElementById('texto-tarefa');
+    let li = document.createElement('li');
+selectLista.appendChild(li);
+li.textContent= input.value;
+input.value = "";
+li.className = 'lista-tarefas';
     }
+selectBotao.addEventListener('click',addTarefa);
+function addClassSelected(){
+    let lista = document.getElementById('lista-tarefas');
+lista.addEventListener('click',function(event){
+    const selected = document.querySelectorAll('.selected');
+    for (let i = 0; i < selected.length; i += 1) {
+      selected[i].classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+  });
 }
-  })
-};
-mudaCor();
+addClassSelected();
+
+function apagaTudo(){
+    const elementos = document.getElementById('lista-tarefas');
+    const botaoLimpar = document.getElementById('apaga-tudo');
+    botaoLimpar.addEventListener('click',function(){
+elementos.innerText = '';
+    });
+    }
+apagaTudo();
+
 function confereCompleta(){
-    let lista2= document.querySelector("#lista-tarefas");
-    lista2.addEventListener("dblclick", function (event) {
-        if (event.target.classList.contains("completed") == false) {
-          event.target.classList.add("completed");
-        } else {
-          event.target.classList.remove("completed");
-        }
-      });
+    const elements = document.getElementById('lista-tarefas');
+    elements.addEventListener('dblclick',function(event){
+if(event.target.classList.contains('completed')){
+    event.target.classList.remove('completed');
+} else {
+    event.target.classList.add('completed');
+
+}
+    })
 }
 confereCompleta();
 
-function apagaTudo() {
-    let botaoApaga = document.querySelector('#apaga-tudo');
-    let lista3 = document.querySelector('#lista-tarefas');
-    botaoApaga.addEventListener('click', function() {
-        lista3.innerText = '';
-    });
+function removeFinalizados(){
+    const botaoFinalizados = document.getElementById('remover-finalizados');
+    const finalizados = document.getElementsByClassName('completed');
+    botaoFinalizados.addEventListener('click',function(){
+for (let index=0;index<=finalizados.length;index+=1){
+    finalizados[index].innerHTML = '';
+    finalizados[index].classList.remove ('selected');
 }
-apagaTudo();
+    })
+}
+removeFinalizados();
