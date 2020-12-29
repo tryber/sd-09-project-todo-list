@@ -157,11 +157,16 @@ function generateButtonSaveTasks() {
 
 function handleMoveUp() {
   const listItemSelected = document.querySelector('.selected');
-  const listItemParent = listItemSelected.parentNode;
-  const firstChild = listItemParent.firstChild;
-  if (listItemSelected !== firstChild) {
-    const previousSibling = listItemSelected.previousSibling;
-    listItemParent.insertBefore(listItemSelected, previousSibling);
+  if (listItemSelected !== null) {
+
+    const listItemParent = listItemSelected.parentNode;
+    const firstChild = listItemParent.firstChild;
+    if (listItemSelected !== firstChild) {
+      const previousSibling = listItemSelected.previousSibling;
+      listItemParent.insertBefore(listItemSelected, previousSibling);
+    }
+  } else {
+    alert('Selecione uma tarefa!');
   }
 }
 
@@ -177,11 +182,15 @@ function generateButtonUp() {
 
 function handleMoveDown() {
   const listItemSelected = document.querySelector('.selected');
-  const listItemParent = listItemSelected.parentNode;
-  const lastChild = listItemParent.lastChild;
-  if (listItemSelected !== lastChild) {
-    const nextSibling = listItemSelected.nextSibling;
-    listItemParent.insertBefore(nextSibling, listItemSelected);
+  if (listItemSelected !== null) {
+    const listItemParent = listItemSelected.parentNode;
+    const lastChild = listItemParent.lastChild;
+    if (listItemSelected !== lastChild) {
+      const nextSibling = listItemSelected.nextSibling;
+      listItemParent.insertBefore(nextSibling, listItemSelected);
+    }
+  } else {
+    alert('Selecione uma tarefa!');
   }
 }
 
@@ -197,8 +206,12 @@ function generateButtonDown() {
 
 function handleRemoveSelected() {
   const selectedItem = document.querySelector('.selected');
-  const list = selectedItem.parentNode;
-  list.removeChild(selectedItem);
+  if (selectedItem !== null) {
+    const list = selectedItem.parentNode;
+    list.removeChild(selectedItem);
+  } else {
+    alert('Selecione uma tarefa!');
+  }
 }
 
 function generateButtonRemoveSelected() {
