@@ -109,11 +109,10 @@ function tarefaSobe() {
   const tarefa = listaTarefas.getElementsByClassName('selecionado');
   const lista = listaTarefas.getElementsByTagName('li');
   const helper = document.createElement('li');
-  let tarefaSelecionada;
   if (tarefa.length === 0) {
     return;
   }
-  tarefaSelecionada = descobreTarefaSelecionada(lista);
+  const tarefaSelecionada = descobreTarefaSelecionada(lista);
   if (tarefaSelecionada === 0) {
     return;
   }
@@ -131,11 +130,10 @@ function tarefaDesce() {
   const tarefa = listaTarefas.getElementsByClassName('selecionado');
   const lista = listaTarefas.getElementsByTagName('li');
   const helper = document.createElement('li');
-  let tarefaSelecionada;
   if (tarefa.length === 0) {
     return;
   }
-  tarefaSelecionada = descobreTarefaSelecionada(lista);
+  const tarefaSelecionada = descobreTarefaSelecionada(lista);
   if (tarefaSelecionada === lista.length - 1) {
     return;
   }
