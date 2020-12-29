@@ -56,8 +56,8 @@ removeFinalizados.addEventListener('click', removerFinalizados);
 
 function salvarTarefas() {
   const lista = listaTarefas.getElementsByTagName('li');
-  let tarefas = [];
-  let completos = [];
+  const tarefas = [];
+  const completos = [];
   for (let index = 0; index < lista.length; index += 1) {
     tarefas[index] = lista[index].textContent;
     if (lista[index].classList.contains('completed')) {
@@ -72,17 +72,21 @@ salvaTarefas.addEventListener('click', salvarTarefas);
 
 function tarefasSalvas() {
   const salvas = JSON.parse(localStorage.getItem('tarefas'));
-  const completas = JSON.parse(localStorage.getItem('completas'));
   for (let index = 0; index < salvas.length; index += 1) {
-    let tarefa = document.createElement('li');
+    const tarefa = document.createElement('li');
     tarefa.innerText = salvas[index];
-    for (let helper = 0; helper < completas.length; helper += 1) {
+    tarefasSalvasCompletas(index, tarefa);
+    listaTarefas.appendChild(tarefa);
+  }
+}
+
+function tarefasSalvasCompletas(index, tarefa) {
+  const completas = JSON.parse(localStorage.getItem('completas'));
+  for (let helper = 0; helper < completas.length; helper += 1) {
       if (completas[helper] === index) {
         tarefa.classList.add('completed');
       }
     }
-    listaTarefas.appendChild(tarefa);
-  }
 }
 
 tarefasSalvas();
