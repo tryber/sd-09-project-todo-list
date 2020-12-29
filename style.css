@@ -1,0 +1,52 @@
+body {
+  font-family: Lato, sans-serif;
+}
+
+.btn {
+  background-color: rgb(230 , 230 , 230);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  height: 48px;
+  margin: 0 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+.completed {
+  text-decoration: line-through;
+}
+
+#container {
+  margin: 0 auto;
+  max-width: 740px;
+}
+
+#container-task {
+  display: flex;
+  margin-top: 40px;
+}
+
+#funcionamento {
+  color: rgb(117 , 117 , 117);
+  font-style: italic;
+}
+
+li {
+  margin-top: 10px;
+}
+
+.selected {
+  background-color: rgb(128 , 128 , 128);
+}
+
+#texto-tarefa {
+  border: 1px solid rgb(204 , 204 , 204);
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: 48px;
+  margin-right: 5px;
+  padding: 12px 20px;
+  width: 100%;
+}
