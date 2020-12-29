@@ -1,8 +1,9 @@
 function changeBackgroundColor(event) {
   const itemsList = document.getElementsByTagName('li');
-
+  console.log(itemsList);
   for (let index = 0; index < itemsList.length; index += 1) {
-    if (itemsList[index].style.backgroundColor !== '') {
+    console.log(itemsList[index])
+    if (itemsList[index].style.backgroundColor === 'rgb(128,128,128)') {
       itemsList[index].style.backgroundColor = '';
     } else {
       event.target.style.backgroundColor = 'rgb(128,128,128)';
