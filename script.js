@@ -3,6 +3,7 @@ const nomeNovaTarefa = document.getElementById('texto-tarefa');
 const listaTarefas = document.getElementById('lista-tarefas');
 const apagaTarefas = document.getElementById('apaga-tudo');
 const removeFinalizados = document.getElementById('remover-finalizados');
+const salvaTarefas = document.getElementById('salvar-tarefas');
 
 function criarTarefa() {
   const tarefa = document.createElement('li');
@@ -52,3 +53,36 @@ function removerFinalizados() {
 }
 
 removeFinalizados.addEventListener('click', removerFinalizados);
+
+function salvarTarefas() {
+  const lista = listaTarefas.getElementsByTagName('li');
+  let tarefas = [];
+  let completos = [];
+  for (let index = 0; index < lista.length; index += 1) {
+    tarefas[index] = lista[index].textContent;
+    if (lista[index].classList.contains('completed')) {
+      completos.push(index);
+    }
+  }
+  localStorage.setItem('tarefas', JSON.stringify(tarefas));
+  localStorage.setItem('completas', JSON.stringify(completos));
+}
+
+salvaTarefas.addEventListener('click', salvarTarefas);
+
+function tarefasSalvas() {
+  const salvas = JSON.parse(localStorage.getItem('tarefas'));
+  const completas = JSON.parse(localStorage.getItem('completas'));
+  for (let index = 0; index < salvas.length; index += 1) {
+    let tarefa = document.createElement('li');
+    tarefa.innerText = salvas[index];
+    for (let helper = 0; helper < completas.length; helper += 1) {
+      if (completas[helper] === index) {
+        tarefa.classList.add('completed');
+      }
+    }
+    listaTarefas.appendChild(tarefa);
+  }
+}
+
+tarefasSalvas();
