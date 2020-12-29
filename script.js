@@ -4,6 +4,8 @@ const listaTarefas = document.getElementById('lista-tarefas');
 const apagaTarefas = document.getElementById('apaga-tudo');
 const removeFinalizados = document.getElementById('remover-finalizados');
 const salvaTarefas = document.getElementById('salvar-tarefas');
+const moverCima = document.getElementById('mover-cima');
+const moverBaixo = document.getElementById('mover-baixo');
 
 function criarTarefa() {
   const tarefa = document.createElement('li');
@@ -92,3 +94,55 @@ function tarefasSalvas() {
 }
 
 tarefasSalvas();
+
+function tarefaSobe() {
+  const tarefa = listaTarefas.getElementsByClassName('selecionado');
+  const lista = listaTarefas.getElementsByTagName('li');
+  let tarefaSelecionada;
+  let helper = document.createElement('li');
+  if (tarefa.length === 0) {
+    return;
+  }
+  for (let index = 0; index < lista.length; index += 1) {
+    if (lista[index].classList.contains('selecionado')) {
+      tarefaSelecionada = index;
+    }
+  }
+  if (tarefaSelecionada === 0) {
+    return;
+  }
+  helper.classList = lista[tarefaSelecionada].classList;
+  helper.textContent = lista[tarefaSelecionada].textContent;
+  lista[tarefaSelecionada].classList = lista[tarefaSelecionada - 1].classList;
+  lista[tarefaSelecionada].textContent = lista[tarefaSelecionada - 1].textContent;
+  lista[tarefaSelecionada - 1].classList = helper.classList;
+  lista[tarefaSelecionada - 1].textContent = helper.textContent;
+}
+
+moverCima.addEventListener('click', tarefaSobe);
+
+function tarefaDesce() {
+  const tarefa = listaTarefas.getElementsByClassName('selecionado');
+  const lista = listaTarefas.getElementsByTagName('li');
+  let tarefaSelecionada;
+  let helper = document.createElement('li');
+  if (tarefa.length === 0) {
+    return;
+  }
+  for (let index = 0; index < lista.length; index += 1) {
+    if (lista[index].classList.contains('selecionado')) {
+      tarefaSelecionada = index;
+    }
+  }
+  if (tarefaSelecionada === lista.length - 1) {
+    return;
+  }
+  helper.classList = lista[tarefaSelecionada].classList;
+  helper.textContent = lista[tarefaSelecionada].textContent;
+  lista[tarefaSelecionada].classList = lista[tarefaSelecionada + 1].classList;
+  lista[tarefaSelecionada].textContent = lista[tarefaSelecionada + 1].textContent;
+  lista[tarefaSelecionada + 1].classList = helper.classList;
+  lista[tarefaSelecionada + 1].textContent = helper.textContent;
+}
+
+moverBaixo.addEventListener('click', tarefaDesce);
