@@ -95,19 +95,25 @@ function tarefasSalvas() {
 
 tarefasSalvas();
 
-function tarefaSobe() {
-  const tarefa = listaTarefas.getElementsByClassName('selecionado');
-  const lista = listaTarefas.getElementsByTagName('li');
+function descobreTarefaSelecionada(lista) {
   let tarefaSelecionada;
-  let helper = document.createElement('li');
-  if (tarefa.length === 0) {
-    return;
-  }
   for (let index = 0; index < lista.length; index += 1) {
     if (lista[index].classList.contains('selecionado')) {
       tarefaSelecionada = index;
     }
   }
+  return tarefaSelecionada;
+}
+
+function tarefaSobe() {
+  const tarefa = listaTarefas.getElementsByClassName('selecionado');
+  const lista = listaTarefas.getElementsByTagName('li');
+  const helper = document.createElement('li');
+  let tarefaSelecionada;
+  if (tarefa.length === 0) {
+    return;
+  }
+  tarefaSelecionada = descobreTarefaSelecionada(lista);
   if (tarefaSelecionada === 0) {
     return;
   }
@@ -124,16 +130,12 @@ moverCima.addEventListener('click', tarefaSobe);
 function tarefaDesce() {
   const tarefa = listaTarefas.getElementsByClassName('selecionado');
   const lista = listaTarefas.getElementsByTagName('li');
+  const helper = document.createElement('li');
   let tarefaSelecionada;
-  let helper = document.createElement('li');
   if (tarefa.length === 0) {
     return;
   }
-  for (let index = 0; index < lista.length; index += 1) {
-    if (lista[index].classList.contains('selecionado')) {
-      tarefaSelecionada = index;
-    }
-  }
+  tarefaSelecionada = descobreTarefaSelecionada(lista);
   if (tarefaSelecionada === lista.length - 1) {
     return;
   }
