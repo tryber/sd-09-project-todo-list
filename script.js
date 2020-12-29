@@ -3,14 +3,12 @@ function changeBackgroundColor(event) {
   console.log(itemsList);
   for (let index = 0; index < itemsList.length; index += 1) {
     console.log(itemsList[index])
-    if (itemsList[index].style.backgroundColor === 'rgb(128,128,128)') {
+    if (itemsList[index].style.backgroundColor !== '') {
       itemsList[index].style.backgroundColor = '';
-    } else {
-      event.target.style.backgroundColor = 'rgb(128,128,128)';
     }
-  }
+  
+  } event.target.style.backgroundColor = 'rgb(128,128,128)';
 }
-
 function completedTask(event) {
   if (event.target.className === 'completed') {
     event.target.className = '';
