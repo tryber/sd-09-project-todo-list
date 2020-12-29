@@ -6,6 +6,7 @@ const removeFinalizados = document.getElementById('remover-finalizados');
 const salvaTarefas = document.getElementById('salvar-tarefas');
 const moverCima = document.getElementById('mover-cima');
 const moverBaixo = document.getElementById('mover-baixo');
+const removeSelecionado = document.getElementById('remover-selecionado');
 
 function criarTarefa() {
   const tarefa = document.createElement('li');
@@ -146,3 +147,12 @@ function tarefaDesce() {
 }
 
 moverBaixo.addEventListener('click', tarefaDesce);
+
+function removerSelecionado() {
+  const tarefa = listaTarefas.getElementsByClassName('selecionado');
+  while (tarefa.length > 0) {
+    listaTarefas.removeChild(tarefa[tarefa.length - 1]);
+  }
+}
+
+removeSelecionado.addEventListener('click', removerSelecionado);
