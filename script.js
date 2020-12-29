@@ -48,8 +48,7 @@ function removeFinalizados(){
     const finalizados = document.getElementsByClassName('completed');
     botaoFinalizados.addEventListener('click',function(){
 for (let index=0;index<=finalizados.length;index+=1){
-    finalizados[index].innerHTML = '';
-    finalizados[index].classList.remove ('selected');
+    finalizados[index].remove();
 }
     })
 }
