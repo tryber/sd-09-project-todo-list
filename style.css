@@ -1,7 +1,7 @@
 body {
   background-color: white;
   background-image: url('https://academiadamarca.com.br/wp-content/uploads/2017/03/gradiente-azul-claro-fundo.jpg');
-  font-family: "Open+Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   text-align: center;
 }
 
@@ -11,11 +11,11 @@ body {
 
 header {
   font-size: 40px;
-  font-weight: bold;
+  font-weight: 900;
 }
 
 p {
-  font-weight: bold;
+  font-weight: 900;
 }
 
 .taskList {
