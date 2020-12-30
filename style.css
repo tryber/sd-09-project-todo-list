@@ -41,7 +41,7 @@ main {
   background-color: darkturquoise;
 }
 
-button {
+.button {
   border: none;
   border-radius: 1em;
   box-shadow: 2px 2px 5px grey;
@@ -54,7 +54,7 @@ button {
   transition: 0.5s;
 }
 
-button:focus {
+.button:focus {
   outline: transparent;
 }
 
