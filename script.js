@@ -1,3 +1,18 @@
+/* funcao para ler tarefas salvas */
+function loadItems (storage) {
+  if (localStorage.getItem(storage) != null) {
+    let itemsStorage = JSON.parse(localStorage.getItem(storage));
+    for (let index = 0; index < itemsStorage.length; index += 1){
+      let addTask = document.createElement('li');
+      addTask.innerText = itemsStorage[index].objItem;
+      addTask.className = itemsStorage[index].objClass;
+      addTask.style.backgroundColor = itemsStorage[index].objBackgound;
+      addTask.style.textDecoration = itemsStorage[index].objStyle;
+      taskList.appendChild(addTask);
+    }
+  }
+ }
+
 /* funcao para retornar a posicao do item */
 function itemPosition (itemsList, item) {
   for (let index = 0; index < itemsList.length; index += 1){
@@ -5,8 +20,8 @@ function itemPosition (itemsList, item) {
       return index;
     }
   }
-
 }
+
 /* funcao para remover itens */
 function removeItems (items) {
   itemsToRemove = document.querySelectorAll(items);
@@ -16,10 +31,14 @@ function removeItems (items) {
   itemsToRemove.remove
 }
 
+/* Inicio do Script */
+const taskList = document.querySelector('#lista-tarefas');
+
+loadItems ('toDoList');
+
 /* Adiciona tarefa */
 const addButton = document.querySelector('#criar-tarefa');
 const textTask = document.querySelector('#texto-tarefa');
-const taskList = document.querySelector('#lista-tarefas');
 addButton.addEventListener('click', function () {
   if (textTask.value != '') {
     let addTask = document.createElement('li');
@@ -125,4 +144,25 @@ moveDown.addEventListener('click', function (item) {
       moveSelect.style.backgroundColor = backgroundTemp;
     }
   }
+});
+
+/* Salva tarefas */
+const saveTasks = document.querySelector('#salvar-tarefas');
+saveTasks.addEventListener('click', function () {
+  let saveList = document.querySelectorAll('li');
+  let arrayTask = [];
+  for (let index = 0; index < saveList.length; index += 1) {
+    let objectList = {
+      objItem: '',
+      objClass: '',
+      objBackgound: '',
+      objStyle: ''
+    };
+    objectList.objItem = saveList[index].innerText;
+    objectList.objClass = saveList[index].className;
+    objectList.objBackgound = saveList[index].style.backgroundColor;
+    objectList.objStyle = saveList[index].style.textDecoration;
+    arrayTask.push (objectList);
+  }
+  localStorage.setItem('toDoList', JSON.stringify(arrayTask));
 });
