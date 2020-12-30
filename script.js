@@ -87,12 +87,16 @@ moveUp.addEventListener('click', function (item) {
   if (moveSelect != null > 0 && actualPosition > 0){
     let textTemp = moveList[actualPosition - 1].innerText;
     let classTemp = moveList[actualPosition - 1].className;
+    let styleTemp = moveList[actualPosition - 1].style.textDecoration;
+    let backgroundTemp = moveList[actualPosition - 1].style.backgroundColor;
     moveList[actualPosition - 1].innerText = moveSelect.innerText;
     moveList[actualPosition - 1].className = moveSelect.className;
-    moveList[actualPosition - 1].style.backgroundColor = 'rgb(128, 128, 128)'
+    moveList[actualPosition - 1].style.textDecoration = moveSelect.style.textDecoration;
+    moveList[actualPosition - 1].style.backgroundColor = moveSelect.style.backgroundColor;
     moveSelect.innerText = textTemp;
     moveSelect.className = classTemp;
-    moveSelect.style.backgroundColor = 'rgb(255, 255, 255)'
+    moveSelect.style.textDecoration = styleTemp;
+    moveSelect.style.backgroundColor = backgroundTemp;
   }
 });
 
@@ -105,11 +109,15 @@ moveDown.addEventListener('click', function (item) {
   if (moveSelect != null > 0 && actualPosition < moveList.length - 1){
     let textTemp = moveList[actualPosition + 1].innerText;
     let classTemp = moveList[actualPosition + 1].className;
+    let styleTemp = moveList[actualPosition + 1].style.textDecoration;
+    let backgroundTemp = moveList[actualPosition + 1].style.backgroundColor;
     moveList[actualPosition + 1].innerText = moveSelect.innerText;
     moveList[actualPosition + 1].className = moveSelect.className;
-    moveList[actualPosition + 1].style.backgroundColor = 'rgb(128, 128, 128)'
+    moveList[actualPosition + 1].style.textDecoration = moveSelect.style.textDecoration;
+    moveList[actualPosition + 1].style.backgroundColor = moveSelect.style.backgroundColor;
     moveSelect.innerText = textTemp;
     moveSelect.className = classTemp;
-    moveSelect.style.backgroundColor = 'rgb(255, 255, 255)'
+    moveSelect.style.textDecoration = styleTemp;
+    moveSelect.style.backgroundColor = backgroundTemp;
   }
 });
