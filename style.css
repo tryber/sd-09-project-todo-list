@@ -24,11 +24,12 @@ input:hover {
 }
 
 main {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.7);
   border-radius: 2em;
   box-shadow: 2px 2px 5px grey;
   margin: auto;
   padding: 2em;
+  transition: 0.3s;
   width: 80%;
 }
 

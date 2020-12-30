@@ -1,6 +1,6 @@
 const inputField = document.querySelector('#texto-tarefa');
 const taskList = document.querySelector('#lista-tarefas');
-let darkTheme = true;
+let darkTheme = false;
 
 function removeSelectedClass() {
   const taskArray = document.querySelectorAll('.task');
@@ -118,5 +118,4 @@ window.onload = function () {
   clickToSelect();
   dblClickToComplete();
   loadSavedTasks();
-  toggleDarkTheme();
 };
