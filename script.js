@@ -13,12 +13,28 @@ addButton.addEventListener('click', function () {
 
 /* Selecionar tarefa */
 const selecTask = document.querySelector('#lista-tarefas');
-selecTask.addEventListener('click', function (itemList) {
+taskList.addEventListener('click', function (itemList) {
   selectedItem = document.querySelector('.selected');
   if (selectedItem != null) {
     selectedItem.className = '';
     selectedItem.style.backgroundColor = 'rgb(255, 255, 255)'
   }
-  itemList.target.className = 'selected';
-  itemList.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  if (itemList.target.className != 'completed') {
+    itemList.target.className = 'selected';
+    itemList.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  }
+});
+
+/* Completa tarefa */
+taskList.addEventListener('dblclick', function (itemList) {
+  itemList.target.style.backgroundColor = 'rgb(255, 255, 255)'
+  console.log(itemList.target.className );
+  if (itemList.target.className === 'completed') {
+    itemList.target.className = '';
+    itemList.target.style.textDecoration = 'none';
+  }
+  else {
+    itemList.target.className = 'completed';
+    itemList.target.style.textDecoration = 'line-through';
+  }
 });
