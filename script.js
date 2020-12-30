@@ -1,3 +1,12 @@
+/* funcao para retornar a posicao do item */
+function itemPosition (itemsList, item) {
+  for (let index = 0; index < itemsList.length; index += 1){
+    if (itemsList[index].innerText == item) {
+      return index;
+    }
+  }
+
+}
 /* funcao para remover itens */
 function removeItems (items) {
   itemsToRemove = document.querySelectorAll(items);
@@ -67,4 +76,40 @@ const eraseFinished = document.querySelector('#remover-finalizados');
 eraseFinished.addEventListener('click', function (item) {
   if (document.querySelectorAll('.completed').length > 0)
     removeItems('.completed');
+});
+
+/* Move item para cima */
+const moveUp = document.querySelector('#mover-cima');
+moveUp.addEventListener('click', function (item) {
+  let moveList = document.querySelectorAll('li');
+  let moveSelect = document.querySelector('.selected');
+  let actualPosition = itemPosition(moveList, moveSelect.innerText);
+  if (moveSelect != null > 0 && actualPosition > 0){
+    let textTemp = moveList[actualPosition - 1].innerText;
+    let classTemp = moveList[actualPosition - 1].className;
+    moveList[actualPosition - 1].innerText = moveSelect.innerText;
+    moveList[actualPosition - 1].className = moveSelect.className;
+    moveList[actualPosition - 1].style.backgroundColor = 'rgb(128, 128, 128)'
+    moveSelect.innerText = textTemp;
+    moveSelect.className = classTemp;
+    moveSelect.style.backgroundColor = 'rgb(255, 255, 255)'
+  }
+});
+
+/* Move item para baixo */
+const moveDown = document.querySelector('#mover-baixo');
+moveDown.addEventListener('click', function (item) {
+  let moveList = document.querySelectorAll('li');
+  let moveSelect = document.querySelector('.selected');
+  let actualPosition = itemPosition(moveList, moveSelect.innerText);
+  if (moveSelect != null > 0 && actualPosition < moveList.length - 1){
+    let textTemp = moveList[actualPosition + 1].innerText;
+    let classTemp = moveList[actualPosition + 1].className;
+    moveList[actualPosition + 1].innerText = moveSelect.innerText;
+    moveList[actualPosition + 1].className = moveSelect.className;
+    moveList[actualPosition + 1].style.backgroundColor = 'rgb(128, 128, 128)'
+    moveSelect.innerText = textTemp;
+    moveSelect.className = classTemp;
+    moveSelect.style.backgroundColor = 'rgb(255, 255, 255)'
+  }
 });
