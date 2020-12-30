@@ -43,3 +43,13 @@ buttonApagarTudo.addEventListener('click', function() {
       document.querySelector('#lista-tarefas').removeChild(li[index]);
     }
 })
+
+let buttonApagarFinalizados = document.querySelector('#apaga-finalizados');
+buttonApagarFinalizados.addEventListener('click', function() {
+  let li = document.querySelectorAll('li');
+    for (let index = 0; index < li.length; index += 1) {
+      if (li[index].classList.contains('completed')) {
+        document.querySelector('#lista-tarefas').removeChild(li[index]);
+      }
+    }
+})
