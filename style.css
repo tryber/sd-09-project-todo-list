@@ -47,11 +47,14 @@ button {
   color: white;
   font-weight: 600;
   margin: 0.5em;
-  outline: none;
   padding: 0.5em;
   padding-left: 2em;
   padding-right: 2em;
   transition: 0.5s;
+}
+
+button:focus {
+  outline: none;
 }
 
 .completed {
