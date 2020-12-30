@@ -44,7 +44,7 @@ buttonApagarTudo.addEventListener('click', function() {
     }
 })
 
-let buttonApagarFinalizados = document.querySelector('#apaga-finalizados');
+let buttonApagarFinalizados = document.querySelector('#remover-finalizados');
 buttonApagarFinalizados.addEventListener('click', function() {
   let li = document.querySelectorAll('li');
     for (let index = 0; index < li.length; index += 1) {
