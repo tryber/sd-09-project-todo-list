@@ -1,11 +1,5 @@
 function selected (textoTarefa) {
   if (document.querySelectorAll('.selected').length > 0) {
-      if (textoTarefa.classList.contains('selected')) {
-        textoTarefa.classList.remove('selected');
-      } else {        
-        document.querySelector('.selected').classList.remove('selected');  
-        textoTarefa.classList.add('selected');
-      }
       document.querySelector('.selected').classList.remove('selected');  
       textoTarefa.classList.add('selected');
     } else {        
