@@ -36,16 +36,7 @@ btnLimparLista.addEventListener('click', function(){
 }
 removeList();
 
-// function addDoubleClick(){
-//     const ol = document.querySelector('ol#lista-tarefas');
-//     ol.addEventListener('dblclick', function(e){
-//         const dlb = e.target;
-//         dlb.classList.add('completed');                 
-//     })
-// }
-// addDoubleClick();
-
-function removeDoubleClick(){
+function DoubleClick(){
     const ol = document.querySelector('ol#lista-tarefas');
     ol.addEventListener('dblclick', function(event){
         const dlb = event.target;                
@@ -56,4 +47,18 @@ function removeDoubleClick(){
         }
     })
 }
-removeDoubleClick();
+DoubleClick();
+
+function removeFinished(){
+    const btnRemoveFinished = document.querySelector('#remover-finalizados');
+    btnRemoveFinished.addEventListener('click', function(){
+        const cleanFinished = document.querySelectorAll('ol li');
+        const ol = document.querySelector('ol');
+        for(let index = 0; index < cleanFinished.length; index += 1){
+            if(cleanFinished[index].className.includes('completed')){
+                ol.removeChild(cleanFinished[index]);
+            }
+        }
+    })
+}
+removeFinished();
