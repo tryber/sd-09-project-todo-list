@@ -5,18 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To Do List</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Texturina:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
+    <header class="head">
+      <img src="assets/trybe.png" alt="Nova Logo da Trybe" class="logo" />
+      <p class="title">Projeto 04 | To Do List</p>
+    </header>
     <main>
       <header>Minha Lista de Tarefas</header>
       <aside id="funcionamento">
         Clique duas vezes em um item para marcá-lo como completo
       </aside>
+      <label for="texto-tarefa">Tarefa:</label>
       <input type="text" id="texto-tarefa" maxlength="75" />
       <ol id="lista-tarefas"></ol>
       <button id="criar-tarefa">Nova Tarefa</button>
-      <button id="apaga-tudo">Apaga Tudo</button>
+      <button id="apaga-tudo">Apagar Tudo</button>
       <button id="remover-finalizados">Remover Finalizados</button>
+      <br>
       <button id="salvar-tarefas">Salvar Tarefas</button>
       <button id="mover-cima">⬆</button>
       <button id="mover-baixo">⬇</button>
