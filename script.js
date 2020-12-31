@@ -1,12 +1,17 @@
+//Move Up Task
 function moveUp(list) {
   const btnUp = document.querySelector('#mover-cima');
   btnUp.addEventListener('click', function () {
     for (let index = 0; index < list.childElementCount; index += 1) {
       if (list.childNodes[index].classList.contains('selected')) {
-        let selectedItem = list.childNodes[index].innerText;
-        let prevItem = list.childNodes[index - 1].innerText;
+        const selectedItem = list.childNodes[index].innerText;
+        const prevItem = list.childNodes[index - 1];
+        if (!prevItem) {
+          return;
+        }
+        let prevItemText = prevItem.innerText;
         list.childNodes[index - 1].innerText = selectedItem;
-        list.childNodes[index].innerText = prevItem;
+        list.childNodes[index].innerText = prevItemText;
         list.childNodes[index - 1].classList.add('selected');
         list.childNodes[index].classList.remove('selected');
       }
@@ -14,15 +19,20 @@ function moveUp(list) {
   });
 }
 
+//Move Down Task
 function moveDown(list) {
   const btnDown = document.querySelector('#mover-baixo');
   btnDown.addEventListener('click', function () {
     for (let index = 0; index < list.childElementCount; index += 1) {
       if (list.childNodes[index].classList.contains('selected')) {
-        let selectedItem = list.childNodes[index].innerText;
-        let nextItem = list.childNodes[index + 1].innerText;
+        const selectedItem = list.childNodes[index].innerText;
+        const nextItem = list.childNodes[index + 1];
+        if (!nextItem) {
+          return;
+        }
+        let nextItemText = nextItem.innerText;
         list.childNodes[index + 1].innerText = selectedItem;
-        list.childNodes[index].innerText = nextItem;
+        list.childNodes[index].innerText = nextItemText;
         list.childNodes[index + 1].classList.add('selected');
         list.childNodes[index].classList.remove('selected');
         return;
@@ -44,7 +54,7 @@ function removeCompleted() {
   });
 }
 
-// Mark
+// Mark Completed task
 function taskCompleted(event) {
   event.target.classList.toggle('completed');
   removeCompleted();
