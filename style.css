@@ -11,7 +11,9 @@ body {
   text-decoration: line-through solid black;
 }
 
-input { 
+input {
+  border-radius: 5px;
+  box-shadow: 1.2px 1.2px black;
   margin: 0.5em;
 }
 
@@ -21,7 +23,7 @@ input {
 }
 
 main {
-  background-color: rgb(108, 200, 202);
+  background-color: rgb(108 , 200 , 202);
   border-radius: 10px;
   box-shadow: 2px 2px black;
   margin: auto;
@@ -33,7 +35,7 @@ main {
 }
 
 .head {
-  background-color: rgb(82, 183, 136);
+  background-color: rgb(82 , 183 , 136);
   height: 50px;
   position: fixed;
   right: 0;
@@ -45,7 +47,7 @@ main {
 
 .title {
   bottom: 30%;
-  color: rgb(108, 200, 202);
+  color: rgb(108 , 200 , 202);
   display: inline-block;
   font-family: Texturina, serif;
   font-size: xx-large;
@@ -90,9 +92,4 @@ button {
 
 label {
   text-shadow: 1px 1px white;
-}
-
-input {
-  border-radius: 5px;
-  box-shadow: 1.2px 1.2px black;
 }
