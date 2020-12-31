@@ -1,0 +1,95 @@
+body {
+  background-color: rgb(253 , 251 , 251);
+  font-size: large;
+}
+
+.selecionado {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+input {
+  border-radius: 5px;
+  box-shadow: 1.2px 1.2px black;
+  margin: 0.5em;
+}
+
+.logo {
+  height: 50px;
+  position: relative;
+}
+
+main {
+  background-color: rgb(108 , 200 , 202);
+  border-radius: 10px;
+  box-shadow: 2px 2px black;
+  margin: auto;
+  padding: 0.5em;
+  position: relative;
+  text-align: center;
+  top: 3em;
+  width: fit-content;
+}
+
+.head {
+  background-color: rgb(82 , 183 , 136);
+  height: 50px;
+  position: fixed;
+  right: 0;
+  text-align: left;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.title {
+  bottom: 30%;
+  color: rgb(108 , 200 , 202);
+  display: inline-block;
+  font-family: Texturina, serif;
+  font-size: xx-large;
+  font-weight: 600;
+  margin: auto;
+  margin-left: 1%;
+  position: relative;
+  text-align: left;
+  text-shadow: 1.5px 1.5px black;
+}
+
+main header {
+  color: silver;
+  font-family: Dancing Script, cursive;
+  font-size: 45px;
+  font-weight: 600;
+  position: relative;
+  text-shadow: 1.2px 1.2px black;
+}
+
+aside {
+  color: silver;
+  font-family: Dancing Script, cursive;
+  font-size: 25px;
+  font-weight: 400;
+  text-shadow: 1px 1px black;
+}
+
+ol {
+  font-family: Rock Salt, cursive;
+  margin: auto;
+  text-shadow: 1px 1px white;
+  width: 30%;
+}
+
+button {
+  background-color: silver;
+  border-radius: 12px;
+  margin: 0.2em 0.1em;
+  text-shadow: 0.7px 0.7px white;
+}
+
+label {
+  text-shadow: 1px 1px white;
+}
