@@ -23,6 +23,7 @@ function itemSelected(){
 }
 itemSelected();
 
+
 const btnLimparLista = document.querySelector('#apaga-tudo');
 function removeList(){
 btnLimparLista.addEventListener('click', function(){
@@ -34,3 +35,25 @@ btnLimparLista.addEventListener('click', function(){
 })
 }
 removeList();
+
+// function addDoubleClick(){
+//     const ol = document.querySelector('ol#lista-tarefas');
+//     ol.addEventListener('dblclick', function(e){
+//         const dlb = e.target;
+//         dlb.classList.add('completed');                 
+//     })
+// }
+// addDoubleClick();
+
+function removeDoubleClick(){
+    const ol = document.querySelector('ol#lista-tarefas');
+    ol.addEventListener('dblclick', function(event){
+        const dlb = event.target;                
+        if(dlb.className.includes('completed')){         
+            dlb.classList.remove('completed')
+        } else {
+            dlb.classList.add('completed') 
+        }
+    })
+}
+removeDoubleClick();
