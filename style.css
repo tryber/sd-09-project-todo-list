@@ -1,39 +1,43 @@
-* {
-  padding: 10px;
-  margin: auto;
-  box-sizing: border-box;
-  text-align: center;
-}
-
-#cabecalho {
+header {
   position: fixed;
-  background-color: #211103;
-  width: 100%;
+  background-color: rgba(124, 120, 123, 0.637);
+  width: 90%;
   height: 15%;
   color: white;
   left: 50px;
   display: inline-block;
-  top: 10px;
-  padding: 20px;
+  top: 10px; 
   font-family: Shadows Into Light, Arial, Helvetica;
   font-size: xx-large;
+  border-radius: 25px;
+  
 }
-
+.colorido{
+  color: rgb(92, 126, 155);
+  
+}
 body {
   height: 100%;
+  padding: 10px;
+  margin: auto;
+  box-sizing: border-box;
+  text-align: center;
+  margin-top: 100px;
+  background-color: rgb(33, 92, 33);
 }
 
-#texto-tarefa {
+input {
   border-radius: 25px;
   width: 400px;
-  height: 40px;
+  height: 30px;
   background-color: rgb(217, 238, 217);
-  outline: none;
+  outline: none;  
 }
 
-#criar-tarefa {
-  background-color: rgb(217, 238, 217);
+button {
+  background-color: rgba(219, 217, 219, 0.637);
   border-radius: 25px;
+  height: 30px;
   outline: none;
 }
 
@@ -42,19 +46,7 @@ section {
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0, 0, 0);
-}
-
-#apaga-tudo {
-  background-color: rgb(217, 238, 217);
-  border-radius: 25px;
-  outline: none;
-}
-
-#remover-finalizados {
-  background-color: rgb(217, 238, 217);
-  border-radius: 25px;
-  outline: none;
+  text-decoration: line-through solid black;
 }
 
 .selecao {

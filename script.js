@@ -1,27 +1,27 @@
 function criaTarefa() {
-  let tarefa = document.querySelector('#texto-tarefa');
-  let lista = document.querySelector('#lista-tarefas');
-  let itemLista = document.createElement('li');
+  const tarefa = document.querySelector('#texto-tarefa');
+  const lista = document.querySelector('#lista-tarefas');
+  const itemLista = document.createElement('li');
   itemLista.innerHTML = tarefa.value;
   itemLista.className = 'item';
   lista.appendChild(itemLista)
-  tarefa.value = "";
+  tarefa.value = '';
 }
 
 function apagarTudo() {
   let apagaTudo = document.querySelectorAll('.item');
-  for (i = 0; i < apagaTudo.length; i += 1) {
+  for (let i = 0; i < apagaTudo.length; i += 1) {
     apagaTudo[i].remove();
   }
 }
 
-let adicTarefa = document.querySelector('#criar-tarefa');
+const adicTarefa = document.querySelector('#criar-tarefa');
 adicTarefa.addEventListener('click', criaTarefa);
 
-let apagaTudo = document.getElementById('apaga-tudo');
+const apagaTudo = document.getElementById('apaga-tudo');
 apagaTudo.addEventListener('click', apagarTudo);
 
-let lista = document.querySelector('#lista-tarefas');
+const lista = document.querySelector('#lista-tarefas');
 lista.addEventListener('click', changeColor);
 lista.addEventListener('dblclick', risk);
 
@@ -30,17 +30,16 @@ function risk(event) {
 }
 
 function changeColor(event) {
-  event.target.style.backgroundColor = 'rgb(128,128,128)'
-  //classList.toggle('selecao');
+  event.target.classList.toggle('selecao');
 }
 
 let finalizados = document.querySelector('#remover-finalizados');
-let complet = document.querySelectorAll('.completed');
 finalizados.addEventListener('click', apagarFinalizados);
 
-function apagarFinalizados(){
-  for (i = 0; i < complet.length; i += 1) {
-      complet[i].remove();
+function apagarFinalizados() {
+  const completos= document.querySelectorAll('.completed');
+  for (let index = 0; index < completos.length; index += 1) {
+    completos[index].remove();
   }
 }
 
