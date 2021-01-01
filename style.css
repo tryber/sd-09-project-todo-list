@@ -103,11 +103,15 @@ body {
 }
 
 .task {
+  align-items: center;
   border-radius: 5px;
-  box-shadow: 0 1px 1px 1px rgba( 0 , 0 , 0 , 0.2 );
+  box-shadow: 0 1px 1px 1px rgba(0 , 0 , 0 , 0.2);
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
   margin-top: 9px;
   padding: 10px;
+  user-select: none;
 }
 
 .selected {
@@ -139,7 +143,8 @@ body {
   border: none;
   cursor: pointer;
   margin: 0;
-  overflow: hidden;
+  padding: 0;
+  background-color: rgba(0 , 0 , 0 , 0);
 }
 
 .action-btn:hover {
@@ -163,6 +168,6 @@ body {
   color: rgb(185 , 25 , 24);
 }
 
-.block-text-selected {
-  user-select: none;
+.white-color {
+  color: white;
 }

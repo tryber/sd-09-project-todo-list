@@ -1,4 +1,67 @@
-//Move Up Task
+// Select task
+function addIconTrash(task) {
+  if (task.classList.contains('selected')) {
+    const btnDelete = createBtnDelete();
+    task.appendChild(btnDelete);
+  }
+}
+
+// Remove Selected
+function removeSelected(itemSelected) {
+  const list = itemSelected.parentElement;
+  const btnDeleteSelected = document.querySelector('#remover-selecionado');
+  if (!btnDeleteSelected) {
+    return;
+  }
+  btnDeleteSelected.addEventListener('click', function () {
+    list.removeChild(itemSelected);
+  });
+}
+
+// Create Btn Delete selected
+function createBtnDelete() {
+  const btnDelete = document.createElement('button');
+  const iconTrash = document.createElement('span');
+  btnDelete.setAttribute('id', 'remover-selecionado');
+  btnDelete.setAttribute('class', 'action-btn white-color');
+  iconTrash.setAttribute('class', 'fas fa-trash');
+  btnDelete.appendChild(iconTrash);
+  return btnDelete;
+}
+
+// Change Background
+function selectedElement(event) {
+  const taskElements = document.querySelectorAll('.task');
+  taskElements.forEach((task) => {
+    if (task.classList.contains('selected')) {
+      task.classList.remove('selected');
+      task.removeChild(task.firstElementChild);
+    }
+  });
+  // add class selected
+  event.target.classList.add('selected');
+  // add icon Trash for delete item selected
+  addIconTrash(event.target);
+  // function for remove item selected
+  removeSelected(event.target);
+}
+
+// Change position Task
+function changePositionEngine(list, operator, elementSelected, elementOfChange, position) {
+  let operation = 0;
+  // Obtem a operação dependendo do operador passado pela função moveUp ou moveDown
+  switch (operator) {
+    case '-': operation = position - 1; break;
+    case '+': operation = position + 1; break;
+  }
+  // Faz a troca dos textos dos filhos, o anterior com o posterior (caso moveUp) ou Contrário caso moveDown
+  list.childNodes[operation].innerText = elementSelected;
+  list.childNodes[position].innerText = elementOfChange;
+  list.childNodes[operation].classList.add('selected');
+  list.childNodes[position].classList.remove('selected');
+}
+
+// Move Up Task
 function moveUp(list) {
   const btnUp = document.querySelector('#mover-cima');
   btnUp.addEventListener('click', function () {
@@ -9,17 +72,16 @@ function moveUp(list) {
         if (!prevItem) {
           return;
         }
-        let prevItemText = prevItem.innerText;
-        list.childNodes[index - 1].innerText = selectedItem;
-        list.childNodes[index].innerText = prevItemText;
-        list.childNodes[index - 1].classList.add('selected');
-        list.childNodes[index].classList.remove('selected');
+        const prevItemText = prevItem.innerText;
+        changePositionEngine(list, '-', selectedItem, prevItemText, index);
+        addIconTrash(list.childNodes[index - 1]);
+        removeSelected(list.childNodes[index - 1]);
       }
     }
   });
 }
 
-//Move Down Task
+// Move Down Task
 function moveDown(list) {
   const btnDown = document.querySelector('#mover-baixo');
   btnDown.addEventListener('click', function () {
@@ -30,11 +92,10 @@ function moveDown(list) {
         if (!nextItem) {
           return;
         }
-        let nextItemText = nextItem.innerText;
-        list.childNodes[index + 1].innerText = selectedItem;
-        list.childNodes[index].innerText = nextItemText;
-        list.childNodes[index + 1].classList.add('selected');
-        list.childNodes[index].classList.remove('selected');
+        const nextItemText = nextItem.innerText;
+        changePositionEngine(list, '+', selectedItem, nextItemText, index);
+        addIconTrash(list.childNodes[index + 1]);
+        removeSelected(list.childNodes[index + 1]);
         return;
       }
     }
@@ -60,22 +121,10 @@ function taskCompleted(event) {
   removeCompleted();
 }
 
-// Change Background
-function selectedElement(event) {
-  const taskElements = document.querySelectorAll('.task');
-  taskElements.forEach((task) => {
-    if (task.classList.contains('selected')) {
-      task.classList.remove('selected');
-    }
-  });
-  event.target.classList.add('selected');
-}
-
 // Create Task in list
 function createTaskElement(taskName) {
   const taskElement = document.createElement('li');
   taskElement.className = 'task';
-  taskElement.classList.add('block-text-selected');
   taskElement.innerText = taskName;
   taskElement.addEventListener('click', selectedElement);
   taskElement.addEventListener('dblclick', taskCompleted);
@@ -112,6 +161,7 @@ window.onload = function () {
   const taskList = document.querySelector('#lista-tarefas');
   addTaskInlist(buttonAddTask, textTaskInput, taskList);
   deleteAllTasks(taskList);
-  moveDown(taskList);
+  // function move up item selected
   moveUp(taskList);
+  moveDown(taskList);
 };
