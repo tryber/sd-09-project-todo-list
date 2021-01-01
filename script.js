@@ -11,16 +11,18 @@ function removeSelectedClass() {
 
 function clickToSelect() {
   taskList.addEventListener('click', function (event) {
-    if (event.target.className === 'task') {
+    if (event.target.nodeName === 'LI') {
       removeSelectedClass();
-      event.target.classList += ' selected';
+      event.target.classList.toggle('selected');
     }
   });
 }
 
 function dblClickToComplete() {
   taskList.addEventListener('dblclick', function (event) {
-    event.target.classList.toggle('completed');
+    if (event.target.nodeName === 'LI') {
+      event.target.classList.toggle('completed');
+    }
   });
 }
 

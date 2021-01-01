@@ -1,7 +1,7 @@
 body {
   background-image: linear-gradient(to right , forestgreen , chartreuse);
   font-family: sans-serif;
-  padding: 2em;
+  padding: 3em;
 }
 
 em {
@@ -30,7 +30,7 @@ main {
   margin: auto;
   padding: 2em;
   transition: 0.3s;
-  width: 80%;
+  width: 70%;
 }
 
 .blue {
@@ -57,6 +57,7 @@ main {
 }
 
 .completed {
+  opacity: 0.7;
   text-decoration: line-through solid black;
 }
 
@@ -69,7 +70,13 @@ main {
 }
 
 .input-container {
-  height: 5em;
+  min-height: 5em;
+}
+
+.nav-button {
+  float: right;
+  position: relative;
+  top: -5em;
 }
 
 .orange {
@@ -89,11 +96,14 @@ main {
 }
 
 .selected {
-  background-color: gray;
+  background-color: rgba(128, 128, 128, 0.5);
+  opacity: 1;
 }
 
-.nav-button {
-  float: right;
-  position: relative;
-  top: -5em;
+.task {
+  padding: 0.1em 0;
+}
+
+.task-list {
+  margin-block-start: 0;
 }
