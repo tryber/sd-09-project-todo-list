@@ -21,24 +21,22 @@ const apagaTudo = document.getElementById('apaga-tudo');
 apagaTudo.addEventListener('click', apagarTudo);
 
 const lista = document.querySelector('#lista-tarefas');
-
 lista.addEventListener('dblclick', risk);
 
 function risk(event) {
   event.target.classList.toggle('completed');
 }
 
+let finalizados = document.querySelector('#remover-finalizados');
+finalizados.addEventListener('click', apagarFinalizados);
 
-
-let finalizados = document.querySelector('#remover-selecionado');
-finalizados.addEventListener('click', apagarSelecionados);
-
-function apagarSelecionados() {
-  const final= document.querySelectorAll('.selecao');
-  for (let index = 0; index < final.length; index += 1) {
-    final[index].remove();
+function apagarFinalizados() {
+  const finaliz= document.querySelectorAll('.completed');
+  for (let index = 0; index < finaliz.length; index += 1) {
+    finaliz[index].remove();
   }
 }
+
 
 let lista1 = document.querySelector('#lista-tarefas')
   lista1.addEventListener('click', changeColor);
@@ -49,5 +47,18 @@ function changeColor(event) {
       selecionado[i].classList.remove('selecao');
    }event.target.classList.add('selecao')
 }
+
+
+
+let selecionados = document.querySelector('#remover-selecionado');
+selecionados.addEventListener('click', apagarSelecionados);
+
+function apagarSelecionados() {
+  const sele= document.querySelectorAll('.selecao');
+  for (let index = 0; index < sele.length; index += 1) {
+    sele[index].remove();
+  }
+}
+
 
 
