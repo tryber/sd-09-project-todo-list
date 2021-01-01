@@ -1,0 +1,105 @@
+body {
+  background-image: linear-gradient(to right , forestgreen , chartreuse);
+  font-family: sans-serif;
+  padding: 3em;
+}
+
+em {
+  color: gray;
+}
+
+h1 {
+  font-weight: 900;
+  text-shadow: 2px 2px 5px gray;
+}
+
+input {
+  border: 0.1em solid gray;
+  border-radius: 0.3em;
+  padding: 0.3em;
+}
+
+input:hover {
+  border: 0.2em solid darkcyan;
+}
+
+main {
+  background-color: rgba(255 , 255 , 255 , 0.7);
+  border-radius: 2em;
+  box-shadow: 2px 2px 5px gray;
+  margin: auto;
+  padding: 2em;
+  transition: 0.3s;
+  width: 70%;
+}
+
+.blue {
+  background-color: darkcyan;
+}
+
+.blue:hover {
+  background-color: darkturquoise;
+}
+
+.button {
+  border: none;
+  border-radius: 1em;
+  box-shadow: 2px 2px 5px gray;
+  color: white;
+  font-weight: 600;
+  margin: 0.5em;
+  padding: 0.5em 2em;
+  transition: 0.5s;
+}
+
+.button:focus {
+  outline: transparent;
+}
+
+.completed {
+  opacity: 0.7;
+  text-decoration: line-through solid black;
+}
+
+.green {
+  background-color: forestgreen;
+}
+
+.green:hover {
+  background-color: chartreuse;
+}
+
+.input-container {
+  min-height: 5em;
+}
+
+.nav-button {
+  float: right;
+  position: relative;
+  top: -5em;
+}
+
+.orange {
+  background-color: darkorange;
+}
+
+.orange:hover {
+  background-color: gold;
+}
+
+.red {
+  background-color: darkred;
+}
+
+.red:hover {
+  background-color: red;
+}
+
+.selected {
+  background-color: gray;
+  opacity: 1;
+}
+
+.task {
+  padding: 0.1em 0;
+}
