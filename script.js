@@ -21,16 +21,14 @@ const apagaTudo = document.getElementById('apaga-tudo');
 apagaTudo.addEventListener('click', apagarTudo);
 
 const lista = document.querySelector('#lista-tarefas');
-lista.addEventListener('click', changeColor);
+
 lista.addEventListener('dblclick', risk);
 
 function risk(event) {
   event.target.classList.toggle('completed');
 }
 
-function changeColor(event) {
-  event.target.classList.toggle('selecao');
-}
+
 
 let finalizados = document.querySelector('#remover-selecionado');
 finalizados.addEventListener('click', apagarSelecionados);
@@ -42,6 +40,14 @@ function apagarSelecionados() {
   }
 }
 
+let lista1 = document.querySelector('#lista-tarefas')
+  lista1.addEventListener('click', changeColor);
 
+function changeColor(event) {
+  let selecionado = document.querySelectorAll('.selecao');
+    for (let i=0; i<selecionado.length; i+=1){
+      selecionado[i].classList.remove('selecao');
+   }event.target.classList.add('selecao')
+}
 
 
