@@ -1,12 +1,10 @@
-let taskList = [];
-
 function addItemButton() {
-  const clickButton = document.querySelector('#criar-tarefa')
-  clickButton.addEventListener('click', function() {
+  const clickButton = document.querySelector('#criar-tarefa');
+  clickButton.addEventListener('click', function () {
   let textInBox = document.querySelector('#texto-tarefa');
   const listTask = document.querySelector('#lista-tarefas');
 
-  if(textInBox.value.length > 0){
+  if(textInBox.value.length > 0) {
     const item = document.createElement('li');
     item.innerText = textInBox.value;
     item.className = 'item';
@@ -25,10 +23,22 @@ function paintElementLi () {
     backgroundColorTask.classList.remove('selected');
     backgroundColorTask.style.backgroundColor = '';
   }
-    event.target.className = 'selected';       
+    event.target.className = 'selected';
 
   });
 };
 paintElementLi()
+
+function taskCompleted () {
+  const completedItem = document.querySelector('#lista-tarefas');
+  completedItem.addEventListener('dblclick', function () {
+    const completedItem = document.querySelector('.completed')
+    if(completedItem) {
+      completedItem.classList.remove('completed');
+    }
+    event.target.className = ('completed')
+  })
+}
+taskCompleted();
 
 
