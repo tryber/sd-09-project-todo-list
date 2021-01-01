@@ -7,6 +7,8 @@ function criaTarefa() {
   lista.appendChild(itemLista)
   tarefa.value = '';
 }
+const adicTarefa = document.querySelector('#criar-tarefa');
+adicTarefa.addEventListener('click', criaTarefa);
 
 function apagarTudo() {
   let apagaTudo = document.querySelectorAll('.item');
@@ -14,9 +16,6 @@ function apagarTudo() {
     apagaTudo[i].remove();
   }
 }
-
-const adicTarefa = document.querySelector('#criar-tarefa');
-adicTarefa.addEventListener('click', criaTarefa);
 
 const apagaTudo = document.getElementById('apaga-tudo');
 apagaTudo.addEventListener('click', apagarTudo);
@@ -33,13 +32,16 @@ function changeColor(event) {
   event.target.classList.toggle('selecao');
 }
 
-let finalizados = document.querySelector('#remover-finalizados');
-finalizados.addEventListener('click', apagarFinalizados);
+let finalizados = document.querySelector('#remover-selecionado');
+finalizados.addEventListener('click', apagarSelecionados);
 
-function apagarFinalizados() {
-  const completos= document.querySelectorAll('.completed');
-  for (let index = 0; index < completos.length; index += 1) {
-    completos[index].remove();
+function apagarSelecionados() {
+  const final= document.querySelectorAll('.selecao');
+  for (let index = 0; index < final.length; index += 1) {
+    final[index].remove();
   }
 }
+
+
+
 
