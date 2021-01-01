@@ -23,7 +23,7 @@ function paintElementLi () {
     backgroundColorTask.classList.remove('selected');
     backgroundColorTask.style.backgroundColor = '';
   }
-    event.target.className = 'selected';
+    event.target.className += ' selected';
 
   });
 };
@@ -31,12 +31,13 @@ paintElementLi()
 
 function taskCompleted () {
   const completedItem = document.querySelector('#lista-tarefas');
-  completedItem.addEventListener('dblclick', function () {
-    const completedItem = document.querySelector('.completed')
-    if(completedItem) {
-      completedItem.classList.remove('completed');
+  completedItem.addEventListener('dblclick', function (event) {
+    
+    if(event.target.className !== 'completed') {
+      event.target.classList.toggle('completed');
+      event.target.style.backgroundColor = '';
     }
-    event.target.className = ('completed')
+    
   })
 }
 taskCompleted();
