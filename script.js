@@ -42,3 +42,9 @@ function limpar2() {
       element.remove();
    })
 }
+
+function limpar3() {
+   document.querySelectorAll(".selected").forEach(element => {
+      element.remove();
+   })
+}

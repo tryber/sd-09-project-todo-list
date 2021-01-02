@@ -18,3 +18,7 @@
     text-decoration: line-through;
     background-color: white;
 }
+
+#remover-selecionado {
+    background-color: red;
+}
