@@ -1,3 +1,46 @@
+// hiddenBox message function
+function hiddenBox() {
+  const divContainerMenssage = document.querySelector('.feedback-message');
+  let opacity = 100;
+  let intervalFadeOut = setInterval(fadeOut, 10);
+  function fadeOut() {
+    if (opacity <= 0) {
+      clearInterval(intervalFadeOut);
+    } else {
+      opacity -= 1;
+      divContainerMenssage.style.opacity = `${opacity/100}`;
+    }
+  }
+}
+
+// FeedBack Message
+function feedBackMessage(textMessage) {
+  const divContainerMenssage = document.querySelector('.feedback-message');
+  divContainerMenssage.innerHTML = textMessage;
+  let opacity = 0;
+  let intervalFadeIn = setInterval(fadeIn, 10);
+  function fadeIn() {
+    if (opacity >= 100) {
+      clearInterval(intervalFadeIn);
+    } else {
+      opacity += 1;
+      divContainerMenssage.style.opacity = `${opacity/100}`;
+    } 
+  }
+  setTimeout(hiddenBox, 2000);
+}
+
+// Create Btn Delete selected
+function createBtnDelete() {
+  const btnDelete = document.createElement('button');
+  const iconTrash = document.createElement('span');
+  btnDelete.setAttribute('id', 'remover-selecionado');
+  btnDelete.setAttribute('class', 'action-btn white-color');
+  iconTrash.setAttribute('class', 'fas fa-trash');
+  btnDelete.appendChild(iconTrash);
+  return btnDelete;
+}
+
 // Select task
 function addIconTrash(task) {
   if (task.classList.contains('selected')) {
@@ -15,18 +58,8 @@ function removeSelected(itemSelected) {
   }
   btnDeleteSelected.addEventListener('click', function () {
     list.removeChild(itemSelected);
+    feedBackMessage('Tarefa apagada com sucesso');
   });
-}
-
-// Create Btn Delete selected
-function createBtnDelete() {
-  const btnDelete = document.createElement('button');
-  const iconTrash = document.createElement('span');
-  btnDelete.setAttribute('id', 'remover-selecionado');
-  btnDelete.setAttribute('class', 'action-btn white-color');
-  iconTrash.setAttribute('class', 'fas fa-trash');
-  btnDelete.appendChild(iconTrash);
-  return btnDelete;
 }
 
 // Change Background
@@ -53,8 +86,9 @@ function changePositionEngine(list, operator, elementSelected, elementOfChange, 
   switch (operator) {
     case '-': operation = position - 1; break;
     case '+': operation = position + 1; break;
+    // no default
   }
-  // Faz a troca dos textos dos filhos, o anterior com o posterior (caso moveUp) ou Contrário caso moveDown
+  // Faz a troca. O anterior com o posterior (caso moveUp) e vice-versa (moveDown) 
   list.childNodes[operation].innerText = elementSelected;
   list.childNodes[position].innerText = elementOfChange;
   list.childNodes[operation].classList.add('selected');
@@ -112,6 +146,7 @@ function removeCompleted() {
         list.removeChild(list.childNodes[index]);
       }
     }
+    feedBackMessage('Tarefas completas removidas!');
   });
 }
 
@@ -129,6 +164,32 @@ function createTaskElement(taskName) {
   taskElement.addEventListener('click', selectedElement);
   taskElement.addEventListener('dblclick', taskCompleted);
   return taskElement;
+}
+
+// Save List in Local Storage
+function saveList(list) {
+  const btnSave = document.querySelector('#salvar-tarefas');
+  const tasks = list.childNodes;
+  btnSave.addEventListener('click', function () {
+    let valuesTask = [];
+    tasks.forEach((task) => {
+      valuesTask.push(task.innerText);
+    });
+    //Deleta os dados antigos (caso exista) antes de setar novos
+    localStorage.removeItem('tasks');
+    //Salva as auterações
+    localStorage.setItem('tasks', JSON.stringify(valuesTask));
+    feedBackMessage('Lista salva com sucesso!');
+  });
+}
+
+// Get Items of Local Storage
+function getItemOfLocalStorage(list) {
+  let valuesTextTask = JSON.parse(localStorage.getItem('tasks'));
+  for (let index = 0; index < valuesTextTask.length; index += 1) {
+    let taskElemetOld = createTaskElement(valuesTextTask[index]);
+    list.appendChild(taskElemetOld);
+  }
 }
 
 // Add task in list
@@ -152,6 +213,7 @@ function deleteAllTasks(taskList) {
     while (taskList.firstChild) {
       taskList.removeChild(taskList.firstChild);
     }
+    feedBackMessage('Lista apagada com sucesso!');
   });
 }
 
@@ -159,9 +221,11 @@ window.onload = function () {
   const textTaskInput = document.querySelector('#texto-tarefa');
   const buttonAddTask = document.querySelector('#criar-tarefa');
   const taskList = document.querySelector('#lista-tarefas');
+  getItemOfLocalStorage(taskList);
   addTaskInlist(buttonAddTask, textTaskInput, taskList);
   deleteAllTasks(taskList);
   // function move up item selected
   moveUp(taskList);
   moveDown(taskList);
+  saveList(taskList);
 };

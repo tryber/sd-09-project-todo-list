@@ -33,6 +33,23 @@ body {
 .section-list {
   margin: 2em auto;
   max-width: 300px;
+  padding-top: 10px;
+  position: relative;
+}
+
+.feedback-message {
+  background-color: rgb(21 , 131 , 85);
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: white;
+  font-size: 13px;
+  left: 2em;
+  opacity: 0;
+  padding: 5px;
+  position: absolute;
+  text-align: center;
+  top: -2em;
+  width: 80%;
 }
 
 /* Section List - input */
@@ -43,6 +60,8 @@ body {
 .input {
   border: none;
   border-radius: 5px 0 0 5px;
+  box-shadow: 0 0 5px 1px rgba(0 , 0 , 0 , 0.2);
+  outline: none;
   padding: 10px;
   width: 200px;
 }
@@ -51,6 +70,7 @@ body {
   background-color: rgb(1 , 95 , 159);
   border: none;
   border-radius: 0 5px 5px 0;
+  box-shadow: 0 0 5px 1px rgba(0 , 0 , 0 , 0.2);
   color: white;
   cursor: pointer;
   transition: 0.5s;
@@ -64,6 +84,7 @@ body {
 .box-list {
   background-color: white;
   border-radius: 5px;
+  box-shadow: 0 0 5px 1px rgba(0 , 0 , 0 , 0.2);
   box-sizing: border-box;
   margin-top: 10px;
   padding: 0.5em;
@@ -127,8 +148,8 @@ body {
 }
 
 .task:hover {
-  background-color: rgb(223 , 223 , 223);
-  color: black;
+  background-color: gray;
+  color: white;
 }
 
 /* Actions list icon */
@@ -140,15 +161,15 @@ body {
 }
 
 .action-btn {
+  background-color: rgba(0 , 0 , 0 , 0);
   border: none;
   cursor: pointer;
   margin: 0;
-  padding: 0;
-  background-color: rgba(0 , 0 , 0 , 0);
 }
 
 .action-btn:hover {
   opacity: 0.8;
+  color: black;
 }
 
 /* Global Class */
@@ -170,4 +191,36 @@ body {
 
 .white-color {
   color: white;
+}
+
+.hidden {
+  animation-name: fedeout;
+  animation-duration: 3s;
+}
+
+.show {
+  animation-name: fedein;
+  animation-duration: 3s;
+  display: block;
+}
+
+/* Key-Frames */
+@keyframes fedeout {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fedein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
