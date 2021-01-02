@@ -26,6 +26,10 @@ main {
   height: 25%;
 }
 
+.todo-container header {
+  text-align: center;
+}
+
 .todo-container .todo-heading {
   background: rgb(191 , 184 , 218);
   border-bottom-left-radius: 50%;
@@ -36,18 +40,17 @@ main {
   font-weight: 400;
   margin: 0;
   padding: 16px;
-  text-align: center;
   text-shadow: 2px 2px 5px rgb(38 , 38 , 38);
-}
-
-.todo-container p {
-  margin: 0;
-  padding: 32px 0 16px;
-  text-align: center;
 }
 
 .todo-column {
   margin: 16px;
+}
+
+.todo-column p {
+  margin: 0;
+  padding: 32px 0 16px;
+  text-align: center;
 }
 
 .todo-column button {
@@ -82,10 +85,6 @@ main {
 
 .todo-buttons {
   text-align: center;
-}
-
-.todo-buttons button:not( .rounded ) {
-  width: 100%;
 }
 
 .todo-buttons .rounded {
@@ -129,6 +128,13 @@ main {
   border-bottom: none;
 }
 
+footer {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+
 @media only screen and ( max-width : 999px ) {
 
   .todo-column {
@@ -138,6 +144,24 @@ main {
   .todo-column:first-of-type {
     margin-bottom: 8px;
   }
+
+  .incluir-tarefa {
+    display: flex;
+  }
+
+  .incluir-tarefa input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-bottom: 16px;
+    width: 70%;
+  }
+
+  .incluir-tarefa button {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    width: 30%;
+  }
+
 
   .todo-column:last-of-type {
     margin-top: 8px;
@@ -152,7 +176,7 @@ main {
   }
 
   .todo-column {
-    height: calc(75% - 32px);
+    height: calc(65% - 32px);
   }
 
   .todo-column:first-of-type {
@@ -177,6 +201,10 @@ main {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     margin-top: -2px;
+  }
+
+  .todo-buttons button:not( .rounded ) {
+    width: 100%;
   }
 
   .todo-column:last-of-type {
