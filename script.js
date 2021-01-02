@@ -8,3 +8,12 @@ function addItem() {
     taskList.appendChild(task).innerText = textBox;
     document.getElementById('texto-tarefa').value = ''
 }
+
+let clickTask = document.getElementById('lista-tarefas')
+clickTask.addEventListener('click', changeGray)
+
+function changeGray(taskGray) {
+    let choices = taskGray.target
+    choices.style.backgroundColor = 'rgb(128, 128, 128)';
+    console.log(choices)
+}
