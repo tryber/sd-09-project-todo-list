@@ -44,5 +44,13 @@ function itemLista() {
   const listaTarefa = document.createElement('li');
   listaTarefa.innerHTML = textInput.value;
   item.appendChild(listaTarefa);
+  limpaTexto();
 }
 botao.addEventListener('click', itemLista);
+
+function limpaTexto() {
+  const textInput = document.querySelector('#texto-tarefa');
+  if(textInput.value !== ''){
+    textInput.value = '';
+  }
+}
