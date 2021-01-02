@@ -22,9 +22,27 @@ function textBox(idString) {
 }
 textBox('texto-tarefa');
 
-function list(listString) {
+function createList(listString) {
   const newList = document.createElement('ol');
   newList.id = listString;
   main.appendChild(newList);
 }
-list('list-task');
+createList('list-task');
+
+function createTask() {
+  let newTask = document.createElement('button');
+  newTask.id = 'createdTask';
+  newTask.innerHTML = 'Algo';
+  main.appendChild(newTask);
+}
+createTask();
+
+let botao = document.querySelector('button');
+function itemLista() {
+  let item = document.querySelector('#list-task');
+  let textInput = document.querySelector('#texto-tarefa');
+  let listaTarefa = document.createElement('li');
+  listaTarefa.innerHTML = textInput.value;
+  item.appendChild(listaTarefa);
+}
+botao.addEventListener('click', itemLista);
