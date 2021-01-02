@@ -13,7 +13,13 @@ let clickTask = document.getElementById('lista-tarefas')
 clickTask.addEventListener('click', changeGray)
 
 function changeGray(taskGray) {
+    let allList = document.querySelectorAll('li')
+    for (let index = 0; index < allList.length; index += 1) {
+        allList[index].style.backgroundColor = '';
+    }
+
     let choices = taskGray.target
     choices.style.backgroundColor = 'rgb(128, 128, 128)';
     console.log(choices)
 }
+
