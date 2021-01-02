@@ -1,14 +1,14 @@
-let main = document.querySelector('body');
+const main = document.querySelector('body');
 
 function title(titlesString) {
-  let newHeader = document.createElement('header');
+  const newHeader = document.createElement('header');
   newHeader.innerHTML = titlesString;
   main.appendChild(newHeader);
 }
 title('Minha Lista de Tarefas');
 
 function workout(textString) {
-  let paragraph = document.createElement('p');
+  const paragraph = document.createElement('p');
   paragraph.id = 'funcionamento';
   paragraph.innerHTML = textString;
   main.appendChild(paragraph);
@@ -16,8 +16,15 @@ function workout(textString) {
 workout('Clique duas vezes em um item para marcá-lo como completo');
 
 function textBox(idString) {
-  let newInput = document.createElement('input');
+  const newInput = document.createElement('input');
   newInput.id = idString;
-  main.appendChild(newInput)
+  main.appendChild(newInput);
 }
 textBox('texto-tarefa');
+
+function list(listString) {
+  const newList = document.createElement('ol');
+  newList.id = listString;
+  main.appendChild(newList);
+}
+list('list-task');
