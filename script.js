@@ -2,11 +2,20 @@
 
 function criarTarefa() {
 
-  let input = document.querySelector('#texto-tarefa');
+  const input = document.querySelector('#texto-tarefa');
+  const taskList = document.querySelector('#lista-tarefas');
 
-  input.value;
+  let task = input.value;
 
-  
+  function addTaskToList(event) {
+
+    const newTask = document.createElement('li');
+    newTask.className('task');
+  }
+
+  localStorage.setItem('input', JSON.stringify(task))
+
+ 
 }
 
-criarTarefa()
+
