@@ -5,7 +5,7 @@ function criarTarefa() {
   const input = document.querySelector('#texto-tarefa');
   const taskList = document.querySelector('#lista-tarefas');
 
-  let task = input.value;
+  //let task = input.value;
 
   function addTaskToList() {
 
@@ -20,11 +20,13 @@ function criarTarefa() {
 
     // Adicionar o elemento filho ao elemento pai
     taskList.appendChild(newTask);
+
+    input.value = '';
   }
 
   addTaskToList()
 
-  localStorage.setItem('input', JSON.stringify(task))
+  //localStorage.setItem('input', JSON.stringify(task))
 
 
 }
