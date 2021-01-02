@@ -6,4 +6,5 @@ function addItem() {
     let task = document.createElement('li');
     let textBox = document.getElementById('texto-tarefa').value
     taskList.appendChild(task).innerText = textBox;
+    document.getElementById('texto-tarefa').value = ''
 }
