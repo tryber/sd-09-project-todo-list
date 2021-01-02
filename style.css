@@ -1,3 +1,20 @@
+#header {
+  font-size: 80px;
+  color: green;
+}
+
 .title-page {
   color: blue;
+}
+.container {
+  border:3px solid cadetblue;  
+  margin: 10px;
+  padding: 10px;
+  width: 1300px;
+  height: 200px;
+}
+.layout {
+  border: 1px solid black;
+  display: inline-block;
+  width: 646px;
 }
