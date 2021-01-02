@@ -12,7 +12,7 @@ const criarTarefa = document.createElement('button');
       newLine.innerHTML = newTask;
       taskLine.appendChild(newLine);
 
-         document.getElementById('texto-tarefa').value = null;
+          document.getElementById('texto-tarefa').value = null;
       });
     }
 
@@ -39,9 +39,6 @@ const criarTarefa = document.createElement('button');
       btnDell.addEventListener('click', function () {
       taskLine.innerText = ''
 
-
-      taskLine.parentNode.removeChild(Line)
-      
       });
     }
 
