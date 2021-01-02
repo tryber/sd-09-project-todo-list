@@ -7,15 +7,26 @@ function criarTarefa() {
 
   let task = input.value;
 
-  function addTaskToList(event) {
+  function addTaskToList() {
 
+    // Criando o elemento
     const newTask = document.createElement('li');
-    newTask.className('task');
+
+    // Adicionando classe ao elemento
+    newTask.className = 'task';
+
+    // Adicionando o valor do input
+    newTask.innerText = input.value;
+
+    // Adicionar o elemento filho ao elemento pai
+    taskList.appendChild(newTask);
   }
+
+  addTaskToList()
 
   localStorage.setItem('input', JSON.stringify(task))
 
- 
+
 }
 
 
