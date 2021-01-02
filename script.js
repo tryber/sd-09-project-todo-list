@@ -32,8 +32,21 @@ const criarTarefa = document.createElement('button');
     deletaTarefa.innerHTML = 'Apagar tudo';
     document.body.appendChild(deletaTarefa);
 
+    function dellTasks() {
+      const btnDell = document.getElementById('apaga-tudo');
+      const taskLine = document.querySelector('#lista-tarefas');
+      const Line = document.getElementsByTagName('li');
+      btnDell.addEventListener('click', function () {
+      taskLine.innerText = ''
+
+
+      taskLine.parentNode.removeChild(Line)
+      
+      });
+    }
 
     window.onload = function () {
     taskAdd();
     colorItem();
+    dellTasks();
     };
