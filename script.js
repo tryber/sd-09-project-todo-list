@@ -32,48 +32,48 @@ function limpaTexto() {
     textInput.value = '';
   }
 }
-// function trocaFundoItemLista() {
-//   const itensLista = document.querySelector('#lista-tarefas').childNodes;
-//   for (let index = 0; index < itensLista.length; index++) {
-//     const elementoItem = itensLista[index];
-//     elementoItem.addEventListener('click', function(event){
-//       pegaItem();
-//       console.log(elementoItem);
-//         event.target.classList.toggle('color');
-//     })
-//   }
-// }
-
-// function pegaItem() {
-//   const itensLista = document.querySelector('#lista-tarefas').childNodes;
-//   for (let index = 0; index < itensLista.length; index++) {
-//     const elementoItem = itensLista[index];
-//     if (elementoItem.classList.contains('color')) {
-//       elementoItem.classList.remove('color');
-//     }
-//   }
-// }
-
-const listaDeTarefas = document.querySelector('#lista-tarefas');
-function selecionarTarefa(event) {
-  const selecionarItem = document.querySelector('.color');
-  const tarefaSelecionada = event.target;
-  if (selecionarItem !== null) {
-    selecionarItem.classList.remove('color');
-  } else {
-    tarefaSelecionada.classList.add('color');
+function trocaFundoItemLista() {
+  const itensLista = document.querySelector('#lista-tarefas').childNodes;
+  for (let index = 0; index < itensLista.length; index++) {
+    const elementoItem = itensLista[index];
+    elementoItem.addEventListener('click', function(event){
+      pegaItem();
+      console.log(elementoItem);
+        event.target.classList.toggle('color');
+    })
   }
 }
-listaDeTarefas.addEventListener('click', selecionarTarefa);
+
+function pegaItem() {
+  const itensLista = document.querySelector('#lista-tarefas').childNodes;
+  for (let index = 0; index < itensLista.length; index++) {
+    const elementoItem = itensLista[index];
+    if (elementoItem.classList.contains('color')) {
+      elementoItem.classList.remove('color');
+    }
+  }
+}
+
+// const listaDeTarefas = document.querySelector('#lista-tarefas');
+// function selecionarTarefa(event) {
+//   const selecionarItem = document.querySelector('.color');
+//   const tarefaSelecionada = event.target;
+//   if (selecionarItem !== null) {
+//     selecionarItem.classList.remove('color');
+//   } else {
+//     tarefaSelecionada.classList.add('color');
+//   }
+// }
+// listaDeTarefas.addEventListener('click', selecionarTarefa);
 
 const botao = document.querySelector('button');
 function itemLista() {
   const item = document.querySelector('#lista-tarefas');
   const textInput = document.querySelector('#texto-tarefa');
   const listaTarefa = document.createElement('li');
-  listaTarefa.innerHTML = textInput.value;
+  listaTarefa.innerText = textInput.value;
   item.appendChild(listaTarefa);
   limpaTexto();
-  // trocaFundoItemLista();
+  trocaFundoItemLista();
 }
 botao.addEventListener('click', itemLista);
