@@ -16,12 +16,9 @@ document.addEventListener('click', function (event) {
 
    
       if ( event.target.nodeName === 'LI' ) {
-         
-         
-                     
-            document.querySelectorAll('.selected').forEach(element => {
-               element.classList.remove('selected')
-            })
+         document.querySelectorAll('.selected').forEach(element => {
+            element.classList.remove('selected')
+         })
             event.target.classList.toggle('selected')
          
    }
@@ -39,3 +36,9 @@ document.addEventListener('dblclick', function(event){
          event.target.classList.toggle('completed')
    }}
 })
+
+function limpar2() {
+   document.querySelectorAll(".completed").forEach(element => {
+      element.remove();
+   })
+}
