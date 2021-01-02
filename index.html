@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minha lista de tarefas</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header><h1>Minha Lista de Tarefas</h1></header>
@@ -12,7 +13,8 @@
     <input type="text" name="adicionar" id="texto-tarefa">
     <button id="criar-tarefa" onclick=adicionar()>Adicionar</button>
     <ol id="lista-tarefas"></ol>
-   
+   <button id="apaga-tudo" onclick=limpar()>limpar lista</button>
+   <button id="remover-finalizados" onclick=limpar2()> limpar completos </button>
     
     <script src="script.js"></script>
 </body>
