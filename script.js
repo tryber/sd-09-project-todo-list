@@ -22,26 +22,26 @@ function textBox(idString) {
 }
 textBox('texto-tarefa');
 
-function createList(listString) {
+function criarLista(listString) {
   const newList = document.createElement('ol');
   newList.id = listString;
   main.appendChild(newList);
 }
-createList('list-task');
+criarLista('lista-tarefas');
 
-function createTask() {
-  let newTask = document.createElement('button');
-  newTask.id = 'createdTask';
-  newTask.innerHTML = 'Algo';
+function criarTarefa(tarefa) {
+  const newTask = document.createElement('button');
+  newTask.id = tarefa;
+  newTask.innerHTML = 'Adicionar';
   main.appendChild(newTask);
 }
-createTask();
+criarTarefa('criar-tarefa');
 
 let botao = document.querySelector('button');
 function itemLista() {
-  let item = document.querySelector('#list-task');
-  let textInput = document.querySelector('#texto-tarefa');
-  let listaTarefa = document.createElement('li');
+  const item = document.querySelector('#lista-tarefas');
+  const textInput = document.querySelector('#texto-tarefa');
+  const listaTarefa = document.createElement('li');
   listaTarefa.innerHTML = textInput.value;
   item.appendChild(listaTarefa);
 }
