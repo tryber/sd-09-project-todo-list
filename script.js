@@ -186,6 +186,9 @@ function saveList(list) {
 // Get Items of Local Storage
 function getItemOfLocalStorage(list) {
   let valuesTextTask = JSON.parse(localStorage.getItem('tasks'));
+  if (!valuesTextTask) {
+    return;
+  }
   for (let index = 0; index < valuesTextTask.length; index += 1) {
     let taskElemetOld = createTaskElement(valuesTextTask[index]);
     list.appendChild(taskElemetOld);
