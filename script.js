@@ -94,7 +94,7 @@ eraseSelected.addEventListener('click', function () {
 
 /* Apaga finalizados */
 const eraseFinished = document.querySelector('#remover-finalizados');
-eraseFinished.addEventListener('click', function (item) {
+eraseFinished.addEventListener('click', function () {
   if (document.querySelectorAll('.completed').length > 0) {
     removeItems('.completed');
   }
@@ -126,7 +126,7 @@ moveUp.addEventListener('click', function () {
 
 /* Move item para baixo */
 const moveDown = document.querySelector('#mover-baixo');
-moveDown.addEventListener('click', function (item) {
+moveDown.addEventListener('click', function () {
   const moveList = document.querySelectorAll('li');
   const moveSelect = document.querySelector('.selected');
   if (moveSelect != null) {
