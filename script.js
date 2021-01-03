@@ -13,9 +13,12 @@ buttonClick.addEventListener("click", verifyInput);
 const clickColor = document.querySelector("#lista-tarefas");
 
 function backgroundColorLi (colorize) {
+    let removeBgColor = document.querySelectorAll("li");
+    for (let index = 0; index < removeBgColor.length; index += 1) {
+        removeBgColor[index].style.backgroundColor = "white";
+    }
     let itensList = colorize.target;
-    itensList.style.backgroundColor = "rgb(128, 128, 128)"
-    
+    itensList.style.backgroundColor = "rgb(128, 128, 128)"    
 }
 
 clickColor.addEventListener("click", backgroundColorLi);
