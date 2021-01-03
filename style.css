@@ -10,13 +10,13 @@
 }
 
 body {
-  background-color: rgb(57, 62, 65);
+  background-color: rgb(57 , 62 , 65);
   font-family: sans-serif;
 
 }
 
 .create-task {
-  background-color: rgb(67, 170, 139);
+  background-color: rgb(67 , 170 , 139);
   border: 0;
   border-radius: 20px;
   color: white;
@@ -28,7 +28,7 @@ body {
 }
 
 h1 {
-  color: rgb(233, 79, 55);
+  color: rgb(233 , 79 , 55);
   font-size: 50px;
   margin-top: 5px;
 
@@ -46,7 +46,7 @@ h1 {
 
 }
 .main-body {
-  background-color: rgb(246, 247, 235);
+  background-color: rgb(246 , 247 , 235);
   border-radius: 20px;
   margin: 2em;
   padding: 20px;
@@ -54,7 +54,7 @@ h1 {
 }
 
 .move-button {
-  background-color: rgb(109, 187, 171);
+  background-color: rgb(109 , 187 , 171);
   border: 0;
   border-radius: 15px;
   color: aliceblue;
@@ -66,7 +66,7 @@ h1 {
 }
 
 .remove-finished {
-  background-color: rgb(233, 77, 53);
+  background-color: rgb(233 , 77 , 53);
   border: 0;
   border-radius: 15px;
   color: aliceblue;
@@ -78,7 +78,7 @@ h1 {
 }
 
 .remove-selected {
-  background-color: rgb(255, 166, 48);
+  background-color: rgb(255 , 166 , 48);
   border: 0;
   border-radius: 15px;
   color: aliceblue;
@@ -90,7 +90,7 @@ h1 {
 }
 
 .save-tasks {
-  background-color: rgb(41, 102, 84);
+  background-color: rgb(41 , 102 , 84);
   border: 0;
   border-radius: 15px;
   color: aliceblue;
