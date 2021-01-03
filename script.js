@@ -70,8 +70,7 @@ taskList.addEventListener('dblclick', function (itemList) {
   if (itemList.target.className === 'completed') {
     itemList.target.className = '';
     itemList.target.style.textDecoration = 'none';
-  }
-  else {
+  } else {
     itemList.target.className = 'completed';
     itemList.target.style.textDecoration = 'line-through';
   }
