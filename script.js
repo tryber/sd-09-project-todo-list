@@ -42,6 +42,16 @@ function apagador() {
     for (let index = 0; index < taskList.length; index += 1) {
         let criança = document.querySelector('.lista-tarefas').lastChild
         document.querySelector('.lista-tarefas').removeChild(criança)
-    }
-    
+    }    
+}
+
+let clickRemovFinalizados = document.getElementById('remover-finalizados')
+clickRemovFinalizados.addEventListener('click', rmFinalizados)
+
+function rmFinalizados() {
+    let riscasos = document.querySelectorAll('.completed')
+    for (let index = 0; index < riscasos.length; index += 1) {
+        let criança = riscasos[index]
+        document.querySelector('.lista-tarefas').removeChild(criança)
+    }   
 }
