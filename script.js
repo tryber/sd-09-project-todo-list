@@ -26,27 +26,18 @@ function criarBotao(tarefa) {
 }
 criarBotao('criar-tarefa');
 
+// limpa o o texto digitado na caixa de texto
 function limpaTexto() {
   const textInput = document.querySelector('#texto-tarefa');
-  if(textInput.value !== '') {
+  if (textInput.value !== '') {
     textInput.value = '';
   }
 }
-function trocaFundoItemLista() {
-  const itensLista = document.querySelector('#lista-tarefas').childNodes;
-  for (let index = 0; index < itensLista.length; index++) {
-    const elementoItem = itensLista[index];
-    elementoItem.addEventListener('click', function(event){
-      pegaItem();
-      console.log(elementoItem);
-        event.target.classList.toggle('color');
-    })
-  }
-}
 
+// limpa elemento com class color
 function pegaItem() {
   const itensLista = document.querySelector('#lista-tarefas').childNodes;
-  for (let index = 0; index < itensLista.length; index++) {
+  for (let index = 0; index < itensLista.length; index+=1) {
     const elementoItem = itensLista[index];
     if (elementoItem.classList.contains('color')) {
       elementoItem.classList.remove('color');
@@ -54,18 +45,19 @@ function pegaItem() {
   }
 }
 
-// const listaDeTarefas = document.querySelector('#lista-tarefas');
-// function selecionarTarefa(event) {
-//   const selecionarItem = document.querySelector('.color');
-//   const tarefaSelecionada = event.target;
-//   if (selecionarItem !== null) {
-//     selecionarItem.classList.remove('color');
-//   } else {
-//     tarefaSelecionada.classList.add('color');
-//   }
-// }
-// listaDeTarefas.addEventListener('click', selecionarTarefa);
+// funcao para selecionar elemento da lista com acao de click
+function trocaFundoItemLista() {
+  const itensLista = document.querySelector('#lista-tarefas').childNodes;
+  for (let index = 0; index < itensLista.length; index+=1) {
+    const elementoItem = itensLista[index];
+    elementoItem.addEventListener('click', function (event) {
+      pegaItem();
+      event.target.classList.toggle('color');
+    });
+  }
+}
 
+// cria uma lista ordenada dentro de ol
 const botao = document.querySelector('button');
 function itemLista() {
   const item = document.querySelector('#lista-tarefas');
@@ -77,3 +69,16 @@ function itemLista() {
   trocaFundoItemLista();
 }
 botao.addEventListener('click', itemLista);
+
+// funcao para riscar um item da lista que ja foi completado
+const listaDeTarefas = document.querySelector('#lista-tarefas');
+function riscaItem(event) {
+  const selecionarItem = document.querySelector('.completed');
+  const tarefaSelecionada = event.target;
+  if (selecionarItem !== null) {
+    tarefaSelecionada.classList.remove('completed');
+  } else {
+    tarefaSelecionada.classList.add('completed');
+  }
+}
+listaDeTarefas.addEventListener('dblclick', riscaItem);
