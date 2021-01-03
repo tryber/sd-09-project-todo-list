@@ -9,3 +9,13 @@ function verifyInput () {
 }
 
 buttonClick.addEventListener("click", verifyInput);
+
+const clickColor = document.querySelector("#lista-tarefas");
+
+function backgroundColorLi (colorize) {
+    let itensList = colorize.target;
+    itensList.style.backgroundColor = "rgb(128, 128, 128)"
+    
+}
+
+clickColor.addEventListener("click", backgroundColorLi);
