@@ -1,99 +1,59 @@
 html {
   background-color: rgb(25, 25, 25);
   font-family: Share Tech Mono, monospace;
-  height: 100%;
+}
+
+body {
   margin: 0;
-  padding: 0;
-  text-align: center;
-  width: 100%;
+  min-width: 250px;
 }
 
-header {
-  background-color: rgb(106, 98, 246);
-  padding: 30px 40px;
-  color: white;
-  text-align: center;
+/* Include the padding and border in an element's total width and height */
+* {
+  box-sizing: border-box;
 }
 
-header:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-input {
-  margin: 0;
-  border: none;
-  border-radius: 0;
-  width: 50%;
-  padding: 10px;
-  font-size: 16px;
-}
-
-#criar-tarefa {
-  padding: 10px;
-  background: #d9d9d9;
-  color: #555;
-  text-align: center;
-  font-size: 16px;
-  cursor: pointer;
-  transition: 0.3s;
-  border-radius: 0;
-}
-
-#criar-tarefa:hover {
-  background-color: #bbb;
-}
-
-a {
-  color: rgb(106, 98, 246);
-  text-decoration: none;
-}
-
-a:hover {
-  color: rgba(250, 100, 100, 1);
-}
-
-.page-footer {
-  background-color: rgb(10, 10, 10);
-  color: rgb(73, 73, 73);
-  font-size: 1rem;
-  margin-top: 50px;
-  padding: 20px;
-}
-
+/* Remove margins and padding from the list */
 ol {
   margin: 0;
   padding: 0;
 }
 
+/* Style the list items */
 ol li {
   cursor: pointer;
   position: relative;
   padding: 12px 8px 12px 40px;
-  background: #555;
+  list-style-type: none;
+  background: #eee;
   font-size: 18px;
   transition: 0.2s;
+  
+  /* make the list items unselectable */
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
 }
 
+/* Set all odd list items to a different color (zebra-stripes) */
 ol li:nth-child(odd) {
   background: #f9f9f9;
 }
 
+/* Darker background-color on hover */
 ol li:hover {
-  background: #ddd;
+  background: rgb(221, 221, 221);
 }
 
+/* When clicked on, add a background color and strike out text */
 ol li.checked {
-  background: #888;
+  background: rgb(128,128,128);
   color: #fff;
   text-decoration: line-through;
 }
 
+/* Add a "checked" mark when clicked on */
 ol li.checked::before {
   content: '';
   position: absolute;
@@ -107,6 +67,7 @@ ol li.checked::before {
   width: 7px;
 }
 
+/* Style the close button */
 .close {
   position: absolute;
   right: 0;
@@ -115,6 +76,74 @@ ol li.checked::before {
 }
 
 .close:hover {
-  background-color: #f44336;
+  background-color: rgb(100, 100, 250);
   color: white;
+}
+
+/* Style the header */
+header {
+  background-color: rgb(100, 100, 250);
+  padding: 30px 40px;
+  color: black;
+  text-align: center;
+}
+
+/* Clear floats after the header */
+header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the input */
+input {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+/* Style the "Add" button */
+#criar-tarefa {
+  padding: 10px;
+  border: none;
+  width: 25%;
+  background: #d9d9d9;
+  color: #555;
+  float: left;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 0;
+}
+
+#criar-tarefa:hover {
+  background-color: #bbb;
+}
+
+.page-footer {
+  background-color: rgb(10, 10, 10);
+  color: rgb(73, 73, 73);
+  font-size: 1rem;
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
+}
+
+a {
+  color: rgb(100, 100, 250);
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgba(250, 100, 100, 1);
+}
+
+#controlButtons {
+  margin-top: 30px;
+  text-align: center;
 }

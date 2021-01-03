@@ -1,40 +1,45 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset='utf-8'>
-  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <meta name='viewport' content='width=device-width, initial-scale=1'>
-  <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+<html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/e718b707b4.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&family=Share+Tech+Mono&display=swap">
-   <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
   <title>Minha Lista de Tarefas</title>
-</head>
-<body>
+  </head>
+  <body>
+
   <header>
     <h1>Minha Lista de Tarefas</h1>
     <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    <input type="text" id="texto-tarefa">
-    <button id="criar-tarefa">Criar tarefa</button>
+    <input type="text" id="texto-tarefa" placeholder="Inserir tarefa..." autofocus>
+    <button onclick="newElement()" id="criar-tarefa">Criar</button>
   </header>
 
-  <main>
-    <ol id="lista-tarefas">
-      <li class="checked">Ler um livro</li>
-      <li>Organizar finanças</li>
-      <li>Ir pra academia</li>
-    </ol>
+  <ol id="lista-tarefas">
+    <li>Ir na academia</li>
+    <li class="checked">Pagar boletos</li>
+    <li>Conhecer Fulano</li>
+    <li>Ir no mercado</li>
+    <li>Ler livro</li>
+    <li>Organizar escritório</li>
+  </ol>
+
+  <section id="controlButtons">
     <button id="mover-cima" name="Mover para cima">Mover para cima <i class="fas fa-arrow-up"></i></button>
-    <button id="mover-baixo">Mover para baixo <i class="fas fa-arrow-down"></i></button>
-    <button id="remover-selecionado">Remover selecionado <i class="fas fa-minus-circle"></i></button>
-    <button id="apaga-tudo">Apaga tudo <i class="fas fa-trash-alt"></i></button>
-    <button id="remover-finalizados">Remover finalizados <i class="fas fa-check-double"></i></button>
-    <button id="salvar-tarefas">Salvar tarefas <i class="fas fa-save"></i></button>
-  </main>
+  <button id="mover-baixo">Mover para baixo <i class="fas fa-arrow-down"></i></button>
+  <button id="remover-selecionado">Remover selecionado <i class="fas fa-minus-circle"></i></button>
+  <button id="apaga-tudo">Apaga tudo <i class="fas fa-trash-alt"></i></button>
+  <button id="remover-finalizados">Remover finalizados <i class="fas fa-check-double"></i></button>
+  <button id="salvar-tarefas">Salvar tarefas <i class="fas fa-save"></i></button>
+  </section>
   
+
   <footer class="page-footer">
     <p><i class="fas fa-code"></i> com 💜 por <a href="https://github.com/LeonarDev" target="_blank">Leonardo Majevski</a> &copy; 2020</p>
   </footer>
-  <script src='scrip.js'></script>
-</body>
+
+  <script src="script.js"></script>
+  </body>
 </html>
