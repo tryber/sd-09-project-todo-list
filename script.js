@@ -18,9 +18,10 @@ function loadItems(storage) {
 
 /* funcao para retornar a posicao do item */
 function itemPosition(itemsList, item) {
+  let positionReturn;
   for (let index = 0; index < itemsList.length; index += 1) {
     if (itemsList[index].innerText === item) {
-      let positionReturn = index; 
+      positionReturn = index;
     }
   }
   return positionReturn;
@@ -32,7 +33,6 @@ function removeItems(items) {
   for (let index = 0; index < itemsToRemove.length; index += 1) {
     itemsToRemove[index].remove();
   }
-  itemsToRemove.remove
 }
 
 /* Inicio do Script */
