@@ -31,7 +31,6 @@ list.addEventListener('click', function(ev) {
 var list = document.querySelector('ol');
 list.addEventListener('dblclick', function(ev) {
   if (ev.target.tagName === 'LI') {
-    ev.target.classList.remove('marked');
     ev.target.classList.toggle('checked');
   }
 }, false);
