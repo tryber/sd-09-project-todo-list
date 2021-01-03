@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projeto Lista de Tarefas</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Leckerli+One&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main>
+    <div id="container" class="todo-container">
+      <header>
+        <h1 class="todo-heading">Minha Lista de Tarefas</h1>
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+      </header>
+      <div class="todo-column">
+        <div class="incluir-tarefa">
+          <input type="text" id="texto-tarefa" autofocus placeholder="Adicione um item">
+          <button id="criar-tarefa" title="Adiciona o texto digitado na lista">Adicionar</button>
+        </div>
+        <div id="buttons" class="todo-buttons">
+          <button id="apaga-tudo" class="remove" title="Remove todos os itens da lista">Apagar Lista</button>
+          <button id="remover-finalizados" class="remove" title="Remove todos os itens finalizados">Remover Finalizados</button>
+          <button id="salvar-tarefas" title="Salva todos os itens da lista">Salvar Lista</button>
+          <button id="mover-cima" class="rounded" title="Move o item selecionado para cima">&#x2B06;</button>
+          <button id="mover-baixo" class="rounded" title="Move o item selecionado para baixo">&#x2B07;</button>
+          <button id="remover-selecionado" class="rounded remove" title="Remove o item selecionado">X</button>
+        </div>
+      </div>
+      <div class="todo-column">
+        <ol id="lista-tarefas" class="lista-tarefas"></ol>
+      </div>
+      <footer>
+        <p>Feito com 💙 & ☕ por Nathália Veneziano &copy; 12/2020</p>
+      </footer>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

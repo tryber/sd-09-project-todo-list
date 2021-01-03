@@ -1,0 +1,214 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  background-color: rgba(246 , 237 , 233 , 0.5);
+  box-sizing: border-box;
+  height: 100vh;
+  padding: 25px;
+}
+
+.todo-container {
+  align-items: flex-start;
+  background-color: white;
+  border: 1px solid rgb(200 , 200 , 200);
+  box-shadow: 0 0 16px rgb(145 , 145 , 145);
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.todo-container > header {
+  flex: 1 0 100%;
+  height: 25%;
+}
+
+.todo-container header {
+  text-align: center;
+}
+
+.todo-container .todo-heading {
+  background: rgb(191 , 184 , 218);
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  color: rgb(146 , 128 , 218);
+  font-family: Leckerli One, cursive;
+  font-size: 42px;
+  font-weight: 400;
+  margin: 0;
+  padding: 16px;
+  text-shadow: 2px 2px 5px rgb(38 , 38 , 38);
+}
+
+.todo-column {
+  margin: 16px;
+}
+
+.todo-column p {
+  margin: 0;
+  padding: 32px 0 16px;
+  text-align: center;
+}
+
+.todo-column button {
+  background-color: rgb(51 , 83 , 158);
+  border: 2px solid rgb(51 , 83 , 158);
+  border-radius: 16px;
+  color: rgb(127 , 172 , 214);
+  font-family: Leckerli One, cursive;
+  font-size: 1.25em;
+  margin-bottom: 16px;
+  padding: 8px;
+  text-align: center;
+}
+
+.todo-column .remove {
+  background-color: rgb(165 , 103 , 142);
+  border: 2px solid rgb(165 , 103 , 142);
+  color: rgb(232 , 183 , 212);
+}
+
+.incluir-tarefa input , .incluir-tarefa button {
+  border: 2px solid rgb(51 , 83 , 158);
+  border-radius: 16px;
+  box-sizing: border-box;
+  padding: 8px;
+}
+
+.incluir-tarefa input {
+  color: rgb(51 , 83 , 158);
+  font-family: Indie Flower, cursive;
+}
+
+.todo-buttons {
+  text-align: center;
+}
+
+.todo-buttons .rounded {
+  border-radius: 100%;
+  font-family: courier, monospace;
+  font-size: 2em;
+  font-weight: 700;
+  width: 1.75em;
+}
+
+.todo-column button:hover {
+  background-color: rgb(127 , 172 , 214);
+  color: rgb(51 , 83 , 158);
+}
+
+.todo-column .remove:hover {
+  background-color: rgb(232 , 183 , 212);
+  color: rgb(165 , 103 , 142);
+}
+
+.todo-column:last-of-type {
+  background-color: rgb(212 , 212 , 212);
+  border-radius: 20px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.lista-tarefas {
+  color: rgb(85 , 85 , 85);
+  font-family: courier, monospace;
+}
+
+.lista-tarefas-item {
+  border-bottom: 1px dotted rgb(132 , 132 , 132);
+  font-family: Indie Flower, cursive;
+  margin-right: 40px;
+  padding: 10px;
+}
+
+.lista-tarefas-item:last-of-type {
+  border-bottom: none;
+}
+
+footer {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+
+@media only screen and ( max-width : 999px ) {
+
+  .todo-column {
+    flex: 1 0 calc(100% - 32px);
+  }
+
+  .todo-column:first-of-type {
+    margin-bottom: 8px;
+  }
+
+  .incluir-tarefa {
+    display: flex;
+  }
+
+  .incluir-tarefa input {
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    margin-bottom: 16px;
+    width: 70%;
+  }
+
+  .incluir-tarefa button {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    width: 30%;
+  }
+
+
+  .todo-column:last-of-type {
+    margin-top: 8px;
+  }
+}
+
+@media only screen and ( min-width : 1000px ) {
+
+  .todo-container {
+    height: calc(100vh - 50px);
+    width: 75vw;
+  }
+
+  .todo-column {
+    height: calc(65% - 32px);
+  }
+
+  .todo-column:first-of-type {
+    flex: 1 0 calc(25% - 32px);
+    margin: 0 8px 0 16px;
+  }
+
+  .todo-buttons {
+    margin-top: 3em;
+  }
+
+  .incluir-tarefa input , .incluir-tarefa button {
+    width: 100%;
+  }
+
+  .incluir-tarefa input {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .incluir-tarefa button {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: -2px;
+  }
+
+  .todo-buttons button:not( .rounded ) {
+    width: 100%;
+  }
+
+  .todo-column:last-of-type {
+    flex: 1 0 calc(75% - 32px);
+    margin: 0 16px 0 8px;
+  }
+}
