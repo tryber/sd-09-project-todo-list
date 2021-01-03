@@ -92,7 +92,7 @@ document.querySelector('#remover-selecionado').addEventListener('click', deleteS
 
 function moveUp() {
   const classSelected = document.querySelector('.selected');
-  if (classSelected.previousElementSibling) {
+  if (classSelected && classSelected.previousElementSibling) {
     const oldTaskText = classSelected.previousElementSibling.innerText;
     const oldTaskClass = classSelected.previousElementSibling.className;
     classSelected.previousElementSibling.innerText = classSelected.innerText;
@@ -106,7 +106,7 @@ btnMoveUp.addEventListener('click', moveUp);
 
 function moveDown() {
   const classSelected = document.querySelector('.selected');
-  if (classSelected.nextElementSibling) {
+  if (classSelected && classSelected.nextElementSibling) {
     const oldTaskText = classSelected.nextElementSibling.innerText;
     const oldTaskClass = classSelected.nextElementSibling.className;
     classSelected.nextElementSibling.innerText = classSelected.innerText;
