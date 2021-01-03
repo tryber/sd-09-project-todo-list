@@ -4,6 +4,8 @@ const newTaskText = document.querySelector('#texto-tarefa');
 const deleteAll = document.querySelector('#apaga-tudo');
 const deleteCompleted = document.querySelector('#remover-finalizados');
 const btnSaveTasks = document.querySelector('#salvar-tarefas');
+const btnMoveUp = document.querySelector('#mover-cima');
+const btnMoveDown = document.querySelector('#mover-baixo');
 
 function makeLi(content) {
   const li = document.createElement('li');
@@ -87,3 +89,31 @@ function deleteSelected() {
 }
 
 document.querySelector('#remover-selecionado').addEventListener('click', deleteSelected);
+
+function moveUp() {
+  const classSelected = document.querySelector('.selected');
+  if (classSelected.previousElementSibling) {
+    const oldTaskText = classSelected.previousElementSibling.innerText;
+    const oldTaskClass = classSelected.previousElementSibling.className;
+    classSelected.previousElementSibling.innerText = classSelected.innerText;
+    classSelected.previousElementSibling.className = classSelected.className;
+    classSelected.innerText = oldTaskText;
+    classSelected.className = oldTaskClass;
+  }
+}
+
+btnMoveUp.addEventListener('click', moveUp);
+
+function moveDown() {
+  const classSelected = document.querySelector('.selected');
+  if (classSelected.nextElementSibling) {
+    const oldTaskText = classSelected.nextElementSibling.innerText;
+    const oldTaskClass = classSelected.nextElementSibling.className;
+    classSelected.nextElementSibling.innerText = classSelected.innerText;
+    classSelected.nextElementSibling.className = classSelected.className;
+    classSelected.innerText = oldTaskText;
+    classSelected.className = oldTaskClass;
+  }
+}
+
+btnMoveDown.addEventListener('click', moveDown);
