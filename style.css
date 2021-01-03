@@ -1,4 +1,6 @@
-#lista-tarefas {
+body {
+    background-color: green;
+    display: inline-block;
 }
 #apaga-tudo {
     background-color: red;
@@ -21,4 +23,16 @@
 
 #remover-selecionado {
     background-color: red;
+}
+
+#mover-cima {
+    display: inline-block;
+    background-color: orange;
+    color: white;
+}
+
+#mover-baixo {
+    display: inline-block;
+    background-color: orange;
+    color: white;
 }
