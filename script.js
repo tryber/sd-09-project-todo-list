@@ -9,7 +9,11 @@ window.onload = function() {
   getRemoveSelectedBtn.addEventListener('click', removeSelected);
   const getSaveBtn = document.getElementById('salvar-tarefas');
   getSaveBtn.addEventListener('click', saveStorage);
-  document.getElementById("lista-tarefas").innerHTML = localStorage.getItem('list');
+  getStorage();
+  const btnMoveUp = document.querySelector('#mover-cima');
+  btnMoveUp.addEventListener('click', moveUp);
+  const btnMoveDown = document.querySelector('#mover-baixo');
+  btnMoveDown.addEventListener('click', moveDown);
 };
 
 function addTask() {
@@ -60,6 +64,39 @@ function removeSelected() {
 }
 
 function saveStorage() {
-  let getListToSave = document.querySelector('#lista-tarefas');
+  const getListToSave = document.querySelector('#lista-tarefas');
   localStorage.setItem('list', getListToSave.innerHTML);
+}
+
+function getStorage() {
+  document.getElementById("lista-tarefas").innerHTML = localStorage.getItem('list');
+  const getList = document.querySelector('#lista-tarefas');
+  for (let index = 0; index < getList.children.length; index += 1) {
+    getList.children[index].addEventListener('dblclick', selectTask);
+    getList.children[index].addEventListener('click', addBackgroundList);
+  }
+}
+
+function moveUp() {
+  const classSelected = document.querySelector('.colored');
+  if (classSelected && classSelected.previousElementSibling) {
+    const oldTaskText = classSelected.previousElementSibling.innerText;
+    const oldTaskClass = classSelected.previousElementSibling.className;
+    classSelected.previousElementSibling.innerText = classSelected.innerText;
+    classSelected.previousElementSibling.className = classSelected.className;
+    classSelected.innerText = oldTaskText;
+    classSelected.className = oldTaskClass;
+  }
+}
+
+function moveDown() {
+  const classSelected = document.querySelector('.colored');
+  if (classSelected && classSelected.nextElementSibling) {
+    const oldTaskText = classSelected.nextElementSibling.innerText;
+    const oldTaskClass = classSelected.nextElementSibling.className;
+    classSelected.nextElementSibling.innerText = classSelected.innerText;
+    classSelected.nextElementSibling.className = classSelected.className;
+    classSelected.innerText = oldTaskText;
+    classSelected.className = oldTaskClass;
+  }
 }
