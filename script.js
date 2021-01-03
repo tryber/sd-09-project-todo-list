@@ -1,21 +1,18 @@
 /*https://github.com/tryber/sd-09-project-todo-list/pull/106 
 https://github.com/tryber/sd-09-project-todo-list*/
 
-const inputTextoTarefa = document.querySelector("#texto-tarefa");
-const buttonCriarTarefas = document.querySelector("#criar-tarefa");
-const listaTarefas = document.querySelector("#lista-tarefas");
-
-/*5 - Deve haver um botão com id="criar-tarefa" e ao clicar nesse botão, 
-um novo item deverá ser criado ao final da lista e o texto do input deve ser 
-limpo.*/
+const inputTextoTarefa = document.querySelector('#texto-tarefa');
+const buttonApagar = document.querySelector('#apaga-tudo')
+const buttonCriarTarefas = document.querySelector('#criar-tarefa');
+const listaTarefas = document.querySelector('#lista-tarefas');
 
 function receberTexto() {
-  const listaLi = document.createElement("li");
+  const listaLi = document.createElement('li');
   listaLi.innerText = inputTextoTarefa.value;
   listaTarefas.appendChild(listaLi);
-  inputTextoTarefa.value = "";
+  inputTextoTarefa.value = '';
 }
-buttonCriarTarefas.addEventListener("click", receberTexto);
+buttonCriarTarefas.addEventListener('click', receberTexto);
 
 listaTarefas.addEventListener('click', function (event) {
   let listTarefa = document.querySelectorAll('li');
@@ -36,4 +33,14 @@ listaTarefas.addEventListener('dblclick', function (event) {
     }
   }
   event.target.classList.add('completed');
+  
 });
+  
+
+function apagarElementos() {
+  let apagarElemento = document.querySelectorAll('li');
+  for(let index = 0; index < apagarElemento.length; index +=1){
+    apagarElemento[index].remove('li');
+  }
+}
+buttonApagar.addEventListener('click', apagarElementos)
