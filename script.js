@@ -29,5 +29,11 @@ listaTarefas.addEventListener('click', function (event) {
 
 
 listaTarefas.addEventListener('dblclick', function (event) {
-  riscado = event.target.style.textDecoration;
+  let riscTarefa = document.querySelectorAll('li');
+  for(let index = 0; index < riscTarefa.length; index += 1){
+    if (riscTarefa[index].classList.contains('completed')) {
+      riscTarefa[index].classList.remove('completed');
+    }
+  }
+  event.target.classList.add('completed');
 });
