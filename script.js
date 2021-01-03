@@ -48,3 +48,16 @@ function deleteLi () {
 }
 
 deleteList.addEventListener("click", deleteLi)
+
+const removeFinished = document.querySelector("#remover-finalizados");
+
+function deleteFinished () {
+    let clearFinished = document.querySelectorAll(".completed");
+    for (let index = 0; index < clearFinished.length; index += 1) {
+        let selected = clearFinished[index];
+        document.querySelector("ol").removeChild(selected);
+    }
+    clearFinished.innerHtml
+}
+
+removeFinished.addEventListener("click", deleteFinished)
