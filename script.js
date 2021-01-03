@@ -22,3 +22,16 @@ function backgroundColorLi (colorize) {
 }
 
 clickColor.addEventListener("click", backgroundColorLi);
+
+const doubleClick = document.querySelector("#lista-tarefas");
+
+function creatingClass (markLiOne) {
+    let decorationText = markLiOne.target;
+    if (decorationText.className === "completed"){
+        decorationText.className = "";
+    } else {
+        decorationText.className = "completed";
+    }
+}
+
+doubleClick.addEventListener("dblclick", creatingClass);
