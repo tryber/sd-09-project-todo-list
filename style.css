@@ -150,15 +150,15 @@ footer {
   }
 
   .incluir-tarefa input {
-    border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
     margin-bottom: 16px;
     width: 70%;
   }
 
   .incluir-tarefa button {
-    border-top-left-radius: 0;
     border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
     width: 30%;
   }
 
