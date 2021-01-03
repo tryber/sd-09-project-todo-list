@@ -46,7 +46,7 @@ addButton.addEventListener('click', function () {
   if (textTask.value !== '') {
     const addTask = document.createElement('li');
     addTask.innerText = textTask.value;
-    addTask.style.marginTop = '3px'
+    addTask.style.marginTop = '3px';
     taskList.appendChild(addTask);
     textTask.value = '';
   }
