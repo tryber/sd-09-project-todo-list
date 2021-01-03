@@ -1,0 +1,108 @@
+.erase-all {
+  background-color: rgb(220 , 51 , 24);
+  border: 0;
+  border-radius: 15px;
+  color: aliceblue;
+  font-size: 17px;
+  height: 30px;
+  width: 45px;
+
+}
+
+body {
+  background-color: rgb(57 , 62 , 65);
+  font-family: sans-serif;
+
+}
+
+.create-task {
+  background-color: rgb(67 , 170 , 139);
+  border: 0;
+  border-radius: 20px;
+  color: white;
+  font-size: 17px;
+  height: 30px;
+  margin-left: 20px;
+  width: 120px;
+
+}
+
+h1 {
+  color: rgb(233 , 79 , 55);
+  font-size: 50px;
+  margin-top: 5px;
+
+}
+
+.funcionamento {
+  font-size: 15px;
+  font-style: italic;
+  padding: 0;
+
+}
+
+.list-tasks {
+  font-size: 20px;
+
+}
+
+.main-body {
+  background-color: rgb(246 , 247 , 235);
+  border-radius: 20px;
+  margin: 2em;
+  padding: 20px;
+
+}
+
+.move-button {
+  background-color: rgb(109 , 187 , 171);
+  border: 0;
+  border-radius: 15px;
+  color: aliceblue;
+  font-size: 17px;
+  height: 30px;
+  margin-left: 10px;
+  width: 45px;
+
+}
+
+.remove-finished {
+  background-color: rgb(233 , 77 , 53);
+  border: 0;
+  border-radius: 15px;
+  color: aliceblue;
+  font-size: 17px;
+  height: 30px;
+  margin-left: 10px;
+  width: 220px;
+
+}
+
+.remove-selected {
+  background-color: rgb(255 , 166 , 48);
+  border: 0;
+  border-radius: 15px;
+  color: aliceblue;
+  font-size: 17px;
+  height: 30px;
+  margin-left: 10px;
+  width: 220px;
+
+}
+
+.save-tasks {
+  background-color: rgb(41 , 102 , 84);
+  border: 0;
+  border-radius: 15px;
+  color: aliceblue;
+  font-size: 17px;
+  height: 30px;
+  margin-left: 10px;
+  width: 220px;
+
+}
+
+.text-task {
+  font-size: 17px;
+
+}
