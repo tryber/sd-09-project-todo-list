@@ -53,12 +53,12 @@ addButton.addEventListener('click', function () {
 
 /* Selecionar tarefa */
 taskList.addEventListener('click', function (itemList) {
-  selectedItem = document.querySelector('.selected');
+  const selectedItem = document.querySelector('.selected');
   if (selectedItem != null) {
     selectedItem.className = '';
-    selectedItem.style.backgroundColor = 'rgb(255, 255, 255)'
+    selectedItem.style.backgroundColor = 'rgb(255, 255, 255)';
   }
-  if (itemList.target.className != 'completed') {
+  if (itemList.target.className !== 'completed') {
     itemList.target.className = 'selected';
     itemList.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
@@ -66,8 +66,7 @@ taskList.addEventListener('click', function (itemList) {
 
 /* Completa tarefa */
 taskList.addEventListener('dblclick', function (itemList) {
-  itemList.target.style.backgroundColor = 'rgb(255, 255, 255)'
-  console.log(itemList.target.className );
+  itemList.target.style.backgroundColor = 'rgb(255, 255, 255)';
   if (itemList.target.className === 'completed') {
     itemList.target.className = '';
     itemList.target.style.textDecoration = 'none';
