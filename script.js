@@ -78,9 +78,10 @@ taskList.addEventListener('dblclick', function (itemList) {
 
 /* Apaga tudo */
 const eraseAll = document.querySelector('#apaga-tudo');
-eraseAll.addEventListener('click', function (item) {
-  if (document.querySelectorAll('li').length > 0)
+eraseAll.addEventListener('click', function () {
+  if (document.querySelectorAll('li').length > 0) {
     removeItems('li');
+  }
 });
 
 /* Apaga selecionado */
