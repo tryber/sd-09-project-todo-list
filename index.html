@@ -7,26 +7,28 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Minha Lista de Tarefas</h1>
-        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    </header>
-    <section>
-        <input id="texto-tarefa" type="text">
-        <button id="criar-tarefa">Adicionar</button>
-    </section>
-    <section>
-        <ol id="lista-tarefas">
-        </ol>
-    </section>
-    <nav>
-        <button id="apaga-tudo">X</button>
-        <button id="mover-cima">▲</button>
-        <button id="mover-baixo">▼</button>
-        <button id="remover-selecionado">Remover selecionado</button>
-        <button id="remover-finalizados">Limpar Completos</button>
-        <button id="salvar-tarefas">Salva lista</button>
-    </nav>
+    <div class="main-body">
+        <header>
+            <h1>Minha Lista de Tarefas</h1>
+            <p class="funcionamento" id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+        </header>
+        <section>
+            <input class="text-task" id="texto-tarefa" type="text">
+            <button class="create-task" id="criar-tarefa">Adicionar</button>
+        </section>
+        <section>
+            <ol class="list-tasks" id="lista-tarefas">
+            </ol>
+        </section>
+        <nav>
+            <button class="apaga-tudo" id="apaga-tudo">X</button>
+            <button class="move-button " id="mover-cima">▲</button>
+            <button class="move-button " id="mover-baixo">▼</button>
+            <button class="remove-selected" id="remover-selecionado">Remover selecionado</button>
+            <button class="remove-finished" id="remover-finalizados">Limpar Completos</button>
+            <button class="save-tasks" id="salvar-tarefas">Salva lista</button>
+        </nav>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

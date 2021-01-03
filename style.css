@@ -1,0 +1,96 @@
+.apaga-tudo {
+  border: 0px;
+  border-radius: 15px;
+  background-color: rgb(220, 51, 24);
+  color: aliceblue;
+  height: 30px;
+  font-size: 17px;
+  width: 45px;
+}
+body {
+  background-color: rgb(57, 62, 65);
+  font-family: sans-serif;
+}
+
+.create-task {
+  background-color: rgb(67, 170, 139);
+  border: 0px;
+  border-radius: 20px;
+  color: white;
+  font-size: 17px;
+  height: 30px;
+  margin-left: 20px;
+  width: 120px;
+}
+
+h1 {
+  color: rgb(233, 79, 55);
+  font-size: 50px;
+  margin-top: 5px;
+}
+
+.funcionamento {
+    font-size: 15px;
+    font-style: italic;
+    padding: 0;
+}
+
+.list-tasks {
+  font-size: 20px;
+  height: ;
+}
+.main-body {
+  background-color: rgb(246, 247, 235);
+  border-radius: 20px;
+  padding: 20px;
+  margin: 2em;
+}
+
+.move-button {
+  border: 0px;
+  border-radius: 15px;
+  background-color: rgb(109, 187, 171);
+  color: aliceblue;
+  font-size: 17px;
+  height: 30px;
+  margin-left: 10px;
+  width: 45px;
+}
+
+.remove-finished{
+  border: 0px;
+  border-radius: 15px;
+  background-color: rgb(233, 77, 53);
+  color: aliceblue;
+  font-size: 17px;
+  height: 30px;
+  margin-left: 10px;
+  width: 220px;
+}
+
+.remove-selected {
+  border: 0px;
+  border-radius: 15px;
+  background-color: rgb(255, 166, 48);
+  color: aliceblue;
+  font-size: 17px;
+  height: 30px;
+  margin-left: 10px;
+  width: 220px;
+}
+
+.save-tasks {
+  border: 0px;
+  border-radius: 15px;
+  background-color: rgb(41, 102, 84);
+  color: aliceblue;
+  font-size: 17px;
+  height: 30px;
+  margin-left: 10px;
+  width: 220px;
+}
+
+.text-task {
+  font-size: 17px;
+}
+
