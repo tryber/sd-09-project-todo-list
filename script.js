@@ -158,7 +158,7 @@ saveTasks.addEventListener('click', function () {
       objItem: '',
       objClass: '',
       objBackgound: '',
-      objStyle: ''.
+      objStyle: '',
     };
     objectList.objItem = saveList[index].innerText;
     objectList.objClass = saveList[index].className;
