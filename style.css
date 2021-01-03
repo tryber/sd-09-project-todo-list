@@ -1,0 +1,26 @@
+html {
+  background-color: rgb(25, 25, 25);
+  color: white;
+  font-family: Share Tech Mono, monospace;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  width: 100%;
+}
+
+a {
+  color: rgb(106, 98, 246);
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgba(250, 100, 100, 1);
+}
+
+.page-footer {
+  background-color: rgb(10, 10, 10);
+  color: rgb(73, 73, 73);
+  font-size: 1rem;
+  padding: 20px;
+}
