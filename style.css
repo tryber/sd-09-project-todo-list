@@ -1,0 +1,23 @@
+.completed {
+  text-decoration: line-through solid black;
+}
+
+.colored {
+  background-color: grey;
+}
+
+.botoes button {
+  width: 130px;
+}
+
+.botoes {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.center {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
