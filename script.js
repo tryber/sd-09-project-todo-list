@@ -20,9 +20,8 @@ function changeGray(taskGray) {
 
     let choices = taskGray.target
     choices.style.backgroundColor = 'rgb(128, 128, 128)';
-    console.log(choices)
 }
-//-----------------------------------
+
 let dbclickTask = document.getElementById('lista-tarefas')
 dbclickTask.addEventListener('dblclick', midLine)
 
@@ -31,10 +30,18 @@ function midLine(line) {
     if ( finalchoices.className === 'completed' ){
         finalchoices.className = ''
     } else {
-        finalchoices.className = 'completed'
-        console.log(finalchoices)
+        finalchoices.className = 'completed'       
     }
+}
 
-    
+let clickApagar = document.getElementById('apaga-tudo')
+clickApagar.addEventListener('click', apagador)
+
+function apagador() {
+    let taskList = document.querySelectorAll('li')
+    for (let index = 0; index < taskList.length; index += 1) {
+        let criança = document.querySelector('.lista-tarefas').lastChild
+        document.querySelector('.lista-tarefas').removeChild(criança)
+    }
     
 }
