@@ -22,4 +22,19 @@ function changeGray(taskGray) {
     choices.style.backgroundColor = 'rgb(128, 128, 128)';
     console.log(choices)
 }
+//-----------------------------------
+let dbclickTask = document.getElementById('lista-tarefas')
+dbclickTask.addEventListener('dblclick', midLine)
 
+function midLine(line) {
+    let finalchoices = line.target
+    if ( finalchoices.className === 'completed' ){
+        finalchoices.className = ''
+    } else {
+        finalchoices.className = 'completed'
+        console.log(finalchoices)
+    }
+
+    
+    
+}
