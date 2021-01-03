@@ -19,22 +19,31 @@ for (i = 0; i < close.length; i++) {
   }
 }
 
+// Add a "marked" class when clicking on a list item
+var list = document.querySelector('ol');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('marked');
+  }
+}, false);
+
 // Add a "checked" symbol when double-clicking on a list item
 var list = document.querySelector('ol');
 list.addEventListener('dblclick', function(ev) {
   if (ev.target.tagName === 'LI') {
+    ev.target.classList.remove('marked');
     ev.target.classList.toggle('checked');
   }
 }, false);
 
-// Create a new list item when clicking on the "Add" button
+// Create a new list item when clicking on the "Criar" button
 function newElement() {
   var li = document.createElement("li");
   var inputValue = document.getElementById("texto-tarefa").value;
   var t = document.createTextNode(inputValue);
   li.appendChild(t);
   if (inputValue === '') {
-    alert("You must write something!");
+    alert("Você precisa digitar alguma coisa para adicionar como uma tarefa.");
   } else {
     document.getElementById("lista-tarefas").appendChild(li);
   }

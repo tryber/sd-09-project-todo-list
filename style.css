@@ -13,6 +13,32 @@ body {
   box-sizing: border-box;
 }
 
+/* Style the header */
+header {
+  background-color: rgb(100, 100, 250);
+  padding: 30px 40px;
+  color: black;
+  text-align: center;
+}
+
+/* Clear floats after the header */
+header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Style the input */
+input {
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  width: 75%;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
 /* Remove margins and padding from the list */
 ol {
   margin: 0;
@@ -48,16 +74,18 @@ ol li:hover {
 
 /* When clicked on, add a background color and strike out text */
 ol li.checked {
-  background: rgb(128,128,128);
-  color: #fff;
   text-decoration: line-through;
+}
+
+ol li.marked {
+  background: rgb(128, 128, 128);
 }
 
 /* Add a "checked" mark when clicked on */
 ol li.checked::before {
   content: '';
   position: absolute;
-  border-color: #fff;
+  border-color: rgb(100, 100, 250);
   border-style: solid;
   border-width: 0 2px 2px 0;
   top: 10px;
@@ -78,32 +106,6 @@ ol li.checked::before {
 .close:hover {
   background-color: rgb(100, 100, 250);
   color: white;
-}
-
-/* Style the header */
-header {
-  background-color: rgb(100, 100, 250);
-  padding: 30px 40px;
-  color: black;
-  text-align: center;
-}
-
-/* Clear floats after the header */
-header:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-/* Style the input */
-input {
-  margin: 0;
-  border: none;
-  border-radius: 0;
-  width: 75%;
-  padding: 10px;
-  float: left;
-  font-size: 16px;
 }
 
 /* Style the "Add" button */
