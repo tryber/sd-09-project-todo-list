@@ -1,9 +1,12 @@
+/* Definicao de variaveis / constantes */
+const taskList = document.querySelector('#lista-tarefas');
+
 /* funcao para ler tarefas salvas */
-function loadItems (storage) {
+function loadItems(storage) {
   if (localStorage.getItem(storage) != null) {
-    let itemsStorage = JSON.parse(localStorage.getItem(storage));
-    for (let index = 0; index < itemsStorage.length; index += 1){
-      let addTask = document.createElement('li');
+    const itemsStorage = JSON.parse(localStorage.getItem(storage));
+    for (let index = 0; index < itemsStorage.length; index += 1) {
+      const addTask = document.createElement('li');
       addTask.innerText = itemsStorage[index].objItem;
       addTask.className = itemsStorage[index].objClass;
       addTask.style.backgroundColor = itemsStorage[index].objBackgound;
@@ -32,7 +35,6 @@ function removeItems (items) {
 }
 
 /* Inicio do Script */
-const taskList = document.querySelector('#lista-tarefas');
 
 loadItems ('toDoList');
 
@@ -119,7 +121,6 @@ moveUp.addEventListener('click', function (item) {
       moveSelect.style.backgroundColor = backgroundTemp;
     }
   }
-  
 });
 
 /* Move item para baixo */
