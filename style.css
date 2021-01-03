@@ -1,4 +1,5 @@
 .erase-all {
+
   background-color: rgb(220, 51, 24);
   border: 0;
   border-radius: 15px;
@@ -8,11 +9,13 @@
   width: 45px;
 }
 body {
+
   background-color: rgb(57, 62, 65);
   font-family: sans-serif;
 }
 
 .create-task {
+
   background-color: rgb(67, 170, 139);
   border: 0;
   border-radius: 20px;
@@ -24,21 +27,25 @@ body {
 }
 
 h1 {
+
   color: rgb(233, 79, 55);
   font-size: 50px;
   margin-top: 5px;
 }
 
 .funcionamento {
+
     font-size: 15px;
     font-style: italic;
     padding: 0;
 }
 
 .list-tasks {
+
   font-size: 20px;
 }
 .main-body {
+
   background-color: rgb(246, 247, 235);
   border-radius: 20px;
   margin: 2em;
@@ -46,6 +53,7 @@ h1 {
 }
 
 .move-button {
+
   background-color: rgb(109, 187, 171);
   border: 0;
   border-radius: 15px;
@@ -57,8 +65,9 @@ h1 {
 }
 
 .remove-finished {
+
   background-color: rgb(233, 77, 53);
-  border: 0px;
+  border: 0;
   border-radius: 15px;
   color: aliceblue;
   font-size: 17px;
@@ -68,9 +77,10 @@ h1 {
 }
 
 .remove-selected {
+
+  background-color: rgb(255, 166, 48);
   border: 0;
   border-radius: 15px;
-  background-color: rgb(255, 166, 48);
   color: aliceblue;
   font-size: 17px;
   height: 30px;
@@ -79,6 +89,7 @@ h1 {
 }
 
 .save-tasks {
+
   background-color: rgb(41, 102, 84);
   border: 0;
   border-radius: 15px;
@@ -90,5 +101,6 @@ h1 {
 }
 
 .text-task {
+
   font-size: 17px;
 }
