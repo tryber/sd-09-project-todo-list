@@ -20,9 +20,10 @@ function loadItems(storage) {
 function itemPosition(itemsList, item) {
   for (let index = 0; index < itemsList.length; index += 1) {
     if (itemsList[index].innerText === item) {
-      return index;
+      let positionReturn = index; 
     }
   }
+  return positionReturn;
 }
 
 /* funcao para remover itens */
