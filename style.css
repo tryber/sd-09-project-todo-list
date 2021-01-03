@@ -3,7 +3,7 @@
 }
 
 .colored {
-  background-color: rgb(128 , 128 , 128);
+  background-color: grey;
 }
 
 .botoes button {
@@ -11,13 +11,13 @@
 }
 
 .botoes {
-  flex-direction: column;
-  display: flex;
   align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .center {
-  flex-direction: column;
-  display: flex;
   align-items: center;
+  display: flex;
+  flex-direction: column;
 }

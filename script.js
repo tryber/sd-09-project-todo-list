@@ -1,25 +1,7 @@
-window.onload = function() {
-  const getAddButton = document.getElementById('criar-tarefa');
-  getAddButton.addEventListener('click', addTask);
-  const getRemoveBtn = document.getElementById('apaga-tudo');
-  getRemoveBtn.addEventListener('click', removeAll);
-  const getRemoveCompletedBtn = document.getElementById('remover-finalizados');
-  getRemoveCompletedBtn.addEventListener('click', removeCompleted);
-  const getRemoveSelectedBtn = document.getElementById('remover-selecionado');
-  getRemoveSelectedBtn.addEventListener('click', removeSelected);
-  const getSaveBtn = document.getElementById('salvar-tarefas');
-  getSaveBtn.addEventListener('click', saveStorage);
-  getStorage();
-  const btnMoveUp = document.querySelector('#mover-cima');
-  btnMoveUp.addEventListener('click', moveUp);
-  const btnMoveDown = document.querySelector('#mover-baixo');
-  btnMoveDown.addEventListener('click', moveDown);
-};
-
 function addTask() {
-  let getInputValue = document.getElementById('texto-tarefa');
-  let getList = document.getElementById('lista-tarefas');
-  let createLists = document.createElement('li');
+  const getInputValue = document.getElementById('texto-tarefa');
+  const getList = document.getElementById('lista-tarefas');
+  const createLists = document.createElement('li');
   getList.appendChild(createLists);
   createLists.addEventListener('dblclick', selectTask);
   createLists.addEventListener('click', addBackgroundList);
@@ -28,8 +10,8 @@ function addTask() {
 }
 
 function selectTask(event) {
-  let getTargetList = event.target;
-  let toggleTeste = getTargetList.classList.toggle('completed');
+  const getTargetList = event.target;
+  const toggleTeste = getTargetList.classList.toggle('completed');
 }
 
 function addBackgroundList(event) {
@@ -69,7 +51,7 @@ function saveStorage() {
 }
 
 function getStorage() {
-  document.getElementById("lista-tarefas").innerHTML = localStorage.getItem('list');
+  document.getElementById('lista-tarefas').innerHTML = localStorage.getItem('list');
   const getList = document.querySelector('#lista-tarefas');
   for (let index = 0; index < getList.children.length; index += 1) {
     getList.children[index].addEventListener('dblclick', selectTask);
@@ -100,3 +82,19 @@ function moveDown() {
     classSelected.className = oldTaskClass;
   }
 }
+
+const getAddButton = document.getElementById('criar-tarefa');
+getAddButton.addEventListener('click', addTask);
+const getRemoveBtn = document.getElementById('apaga-tudo');
+getRemoveBtn.addEventListener('click', removeAll);
+const getRemoveCompletedBtn = document.getElementById('remover-finalizados');
+getRemoveCompletedBtn.addEventListener('click', removeCompleted);
+const getRemoveSelectedBtn = document.getElementById('remover-selecionado');
+getRemoveSelectedBtn.addEventListener('click', removeSelected);
+const getSaveBtn = document.getElementById('salvar-tarefas');
+getSaveBtn.addEventListener('click', saveStorage);
+getStorage();
+const btnMoveUp = document.querySelector('#mover-cima');
+btnMoveUp.addEventListener('click', moveUp);
+const btnMoveDown = document.querySelector('#mover-baixo');
+btnMoveDown.addEventListener('click', moveDown);
