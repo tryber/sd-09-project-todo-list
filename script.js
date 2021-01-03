@@ -35,3 +35,16 @@ function creatingClass (markLiOne) {
 }
 
 doubleClick.addEventListener("dblclick", creatingClass);
+
+const deleteList = document.querySelector("#apaga-tudo");
+
+function deleteLi () {
+    let clearTotalList = document.querySelectorAll("li");
+    for (let index = 0; index < clearTotalList.length; index += 1) {
+        let son = document.querySelector("#lista-tarefas").lastChild;
+        document.querySelector("ol").removeChild(son);
+    }
+    clearTotalList.innerHtml
+}
+
+deleteList.addEventListener("click", deleteLi)
