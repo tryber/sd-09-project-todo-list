@@ -14,20 +14,20 @@ function loadItems(storage) {
       taskList.appendChild(addTask);
     }
   }
- }
+}
 
 /* funcao para retornar a posicao do item */
-function itemPosition (itemsList, item) {
-  for (let index = 0; index < itemsList.length; index += 1){
-    if (itemsList[index].innerText == item) {
+function itemPosition(itemsList, item) {
+  for (let index = 0; index < itemsList.length; index += 1) {
+    if (itemsList[index].innerText === item) {
       return index;
     }
   }
 }
 
 /* funcao para remover itens */
-function removeItems (items) {
-  itemsToRemove = document.querySelectorAll(items);
+function removeItems(items) {
+  const itemsToRemove = document.querySelectorAll(items);
   for (let index = 0; index < itemsToRemove.length; index += 1) {
     itemsToRemove[index].remove();
   }
@@ -36,14 +36,14 @@ function removeItems (items) {
 
 /* Inicio do Script */
 
-loadItems ('toDoList');
+loadItems('toDoList');
 
 /* Adiciona tarefa */
 const addButton = document.querySelector('#criar-tarefa');
 const textTask = document.querySelector('#texto-tarefa');
 addButton.addEventListener('click', function () {
-  if (textTask.value != '') {
-    let addTask = document.createElement('li');
+  if (textTask.value !== '') {
+    const addTask = document.createElement('li');
     addTask.innerText = textTask.value;
     taskList.appendChild(addTask);
     textTask.value = '';
@@ -51,7 +51,6 @@ addButton.addEventListener('click', function () {
 });
 
 /* Selecionar tarefa */
-const selecTask = document.querySelector('#lista-tarefas');
 taskList.addEventListener('click', function (itemList) {
   selectedItem = document.querySelector('.selected');
   if (selectedItem != null) {
