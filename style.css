@@ -1,0 +1,38 @@
+body {
+    background-color: green;
+    display: inline-block;
+}
+#apaga-tudo {
+    background-color: red;
+    color: white;
+}
+
+#remover-finalizados {
+    background-color: blue;
+    color: white;
+}
+
+.selected {
+    background-color:  rgb(128, 128, 128);
+}
+
+.completed {
+    text-decoration: line-through;
+    background-color: white;
+}
+
+#remover-selecionado {
+    background-color: red;
+}
+
+#mover-cima {
+    display: inline-block;
+    background-color: orange;
+    color: white;
+}
+
+#mover-baixo {
+    display: inline-block;
+    background-color: orange;
+    color: white;
+}
