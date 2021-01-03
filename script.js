@@ -32,7 +32,7 @@ listaTarefas.addEventListener('dblclick', function (event) {
   let riscTarefa = document.querySelectorAll('li');
   for(let index = 0; index < riscTarefa.length; index += 1){
     if (riscTarefa[index].classList.contains('completed')) {
-      riscTarefa[index].classList.remove('completed');
+    riscTarefa[index].remove('listaTarefa');
     }
   }
   event.target.classList.add('completed');
