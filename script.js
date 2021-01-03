@@ -40,7 +40,7 @@ function limpaTexto() {
 // limpa elemento com class color
 function pegaItem() {
   const itensLista = document.querySelector('#lista-tarefas').childNodes;
-  for (let index = 0; index < itensLista.length; index +=1) {
+  for (let index = 0; index < itensLista.length; index += 1) {
     const elementoItem = itensLista[index];
     if (elementoItem.classList.contains('color')) {
       elementoItem.classList.remove('color');
@@ -51,7 +51,7 @@ function pegaItem() {
 // funcao para selecionar elemento da lista com acao de click
 function trocaFundoItemLista() {
   const itensLista = document.querySelector('#lista-tarefas').childNodes;
-  for (let index = 0; index < itensLista.length; index +=1) {
+  for (let index = 0; index < itensLista.length; index += 1) {
     const elementoItem = itensLista[index];
     elementoItem.addEventListener('click', function (event) {
       pegaItem();
@@ -86,14 +86,13 @@ function riscaItem(event) {
 listaDeTarefas.addEventListener('dblclick', riscaItem);
 
 window.onload = function criaBotaoApagar() {
-  const botao2 = document.querySelectorAll('button')[1];
     botao2.id = 'apaga-tudo';
     botao2.innerText = 'Apagar Lista';
-}
+};
 
 // remove itens da lista
 function apagaLista() {
-  while (listaDeTarefas.firstChild){
+  while (listaDeTarefas.firstChild) {
     listaDeTarefas.removeChild(listaDeTarefas.firstChild);
   }
 }
