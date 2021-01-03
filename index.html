@@ -8,13 +8,22 @@
 </head>
 <body>
   <div class="container">
-    <header>Minha Lista de Tarefas</header>
+    <header><h1>Minha Lista de Tarefas</h1></header>
     <div class="layout">
-      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
-    </div>
-    <div class="layout">
-      <p>çasduhnvwierc awoeirch asçhioe xw ceruoiaw xçlkjzh iouzs ciuew çk ash ciause</p>
-    </div>  
+      <section>
+      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo.        
+      </p>      
+        <form>
+          <input id="texto-tarefa" type="text" name="nome" id="nome"/>
+          <button id="criar-tarefa">Adicionar</button>
+          <button id="apaga-tudo">Apagar</button>
+          <button id="remover-finalizados">Remover Finalizados</button>
+        </form>
+      </section>    
+    <section>
+      <ol id="lista=tarefas"></ol>
+    </section>
+  </div>
 </div>
 </body>
 </html>
