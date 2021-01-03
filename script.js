@@ -86,30 +86,32 @@ eraseAll.addEventListener('click', function () {
 
 /* Apaga selecionado */
 const eraseSelected = document.querySelector('#remover-selecionado');
-eraseSelected.addEventListener('click', function (item) {
-  if (document.querySelectorAll('.selected').length > 0)
+eraseSelected.addEventListener('click', function () {
+  if (document.querySelectorAll('.selected').length > 0) {
     removeItems('.selected');
+  }
 });
 
 /* Apaga finalizados */
 const eraseFinished = document.querySelector('#remover-finalizados');
 eraseFinished.addEventListener('click', function (item) {
-  if (document.querySelectorAll('.completed').length > 0)
+  if (document.querySelectorAll('.completed').length > 0) {
     removeItems('.completed');
+  }
 });
 
 /* Move item para cima */
 const moveUp = document.querySelector('#mover-cima');
-moveUp.addEventListener('click', function (item) {
-  let moveList = document.querySelectorAll('li');
-  let moveSelect = document.querySelector('.selected');
+moveUp.addEventListener('click', function () {
+  const moveList = document.querySelectorAll('li');
+  const moveSelect = document.querySelector('.selected');
   if (moveSelect != null) {
-    let actualPosition = itemPosition(moveList, moveSelect.innerText);
-    if (actualPosition > 0){
-      let textTemp = moveList[actualPosition - 1].innerText;
-      let classTemp = moveList[actualPosition - 1].className;
-      let styleTemp = moveList[actualPosition - 1].style.textDecoration;
-      let backgroundTemp = moveList[actualPosition - 1].style.backgroundColor;
+    const actualPosition = itemPosition(moveList, moveSelect.innerText);
+    if (actualPosition > 0) {
+      const textTemp = moveList[actualPosition - 1].innerText;
+      const classTemp = moveList[actualPosition - 1].className;
+      const styleTemp = moveList[actualPosition - 1].style.textDecoration;
+      const backgroundTemp = moveList[actualPosition - 1].style.backgroundColor;
       moveList[actualPosition - 1].innerText = moveSelect.innerText;
       moveList[actualPosition - 1].className = moveSelect.className;
       moveList[actualPosition - 1].style.textDecoration = moveSelect.style.textDecoration;
@@ -125,15 +127,15 @@ moveUp.addEventListener('click', function (item) {
 /* Move item para baixo */
 const moveDown = document.querySelector('#mover-baixo');
 moveDown.addEventListener('click', function (item) {
-  let moveList = document.querySelectorAll('li');
-  let moveSelect = document.querySelector('.selected');
+  const moveList = document.querySelectorAll('li');
+  const moveSelect = document.querySelector('.selected');
   if (moveSelect != null) {
-    let actualPosition = itemPosition(moveList, moveSelect.innerText);
-    if (actualPosition < moveList.length - 1){
-      let textTemp = moveList[actualPosition + 1].innerText;
-      let classTemp = moveList[actualPosition + 1].className;
-      let styleTemp = moveList[actualPosition + 1].style.textDecoration;
-      let backgroundTemp = moveList[actualPosition + 1].style.backgroundColor;
+    const actualPosition = itemPosition(moveList, moveSelect.innerText);
+    if (actualPosition < moveList.length - 1) {
+      const textTemp = moveList[actualPosition + 1].innerText;
+      const classTemp = moveList[actualPosition + 1].className;
+      const styleTemp = moveList[actualPosition + 1].style.textDecoration;
+      const backgroundTemp = moveList[actualPosition + 1].style.backgroundColor;
       moveList[actualPosition + 1].innerText = moveSelect.innerText;
       moveList[actualPosition + 1].className = moveSelect.className;
       moveList[actualPosition + 1].style.textDecoration = moveSelect.style.textDecoration;
@@ -149,20 +151,20 @@ moveDown.addEventListener('click', function (item) {
 /* Salva tarefas */
 const saveTasks = document.querySelector('#salvar-tarefas');
 saveTasks.addEventListener('click', function () {
-  let saveList = document.querySelectorAll('li');
-  let arrayTask = [];
+  const saveList = document.querySelectorAll('li');
+  const arrayTask = [];
   for (let index = 0; index < saveList.length; index += 1) {
-    let objectList = {
+    const objectList = {
       objItem: '',
       objClass: '',
       objBackgound: '',
-      objStyle: ''
+      objStyle: ''.
     };
     objectList.objItem = saveList[index].innerText;
     objectList.objClass = saveList[index].className;
     objectList.objBackgound = saveList[index].style.backgroundColor;
     objectList.objStyle = saveList[index].style.textDecoration;
-    arrayTask.push (objectList);
+    arrayTask.push(objectList);
   }
   localStorage.setItem('toDoList', JSON.stringify(arrayTask));
 });
