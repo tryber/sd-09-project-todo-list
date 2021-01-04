@@ -22,33 +22,44 @@ function selectTaskOnList() {
       }
       event.target.classList.add("selecionado");
     } else {
-      event.target.classList.remove('selecionado');
+      event.target.classList.remove("selecionado");
     }
   });
 }
 selectTaskOnList();
 
 function completeTask() {
-  const taskList = document.querySelector('#lista-tarefas');
-  taskList.addEventListener('dblclick', function(event) {
-    if (event.target.className.indexOf('completed') === -1) {
-      event.target.classList.add('completed');
+  const taskList = document.querySelector("#lista-tarefas");
+  taskList.addEventListener("dblclick", function (event) {
+    if (event.target.className.indexOf("completed") === -1) {
+      event.target.classList.add("completed");
     } else {
-      event.target.classList.remove('completed');
+      event.target.classList.remove("completed");
     }
-    
   });
 }
 completeTask();
 
 function eraseList() {
-  const eraseListBtn = document.getElementById('apaga-tudo');
-  let taskList = document.querySelectorAll('.linha');
-  eraseListBtn.addEventListener('click', function() {
-    let allList = document.getElementById('lista-tarefas');
+  const eraseListBtn = document.getElementById("apaga-tudo");
+  eraseListBtn.addEventListener("click", function () {
+    let allList = document.querySelector("#lista-tarefas");
     while (allList.firstChild) {
       allList.removeChild(allList.firstChild);
     }
   });
 }
 eraseList();
+
+function removeCompleted() {
+  const eraseCompletedBtn = document.querySelector("#remover-finalizados");
+  eraseCompletedBtn.addEventListener("click", function () {
+    const completedTasks = document.querySelectorAll(".completed");
+    for (let index = 0; index < completedTasks.length; index += 1) {
+      document
+        .querySelector("#lista-tarefas")
+        .removeChild(completedTasks[index]);
+    }
+  });
+}
+removeCompleted();
