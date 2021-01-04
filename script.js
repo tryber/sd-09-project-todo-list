@@ -2,15 +2,15 @@
 function hiddenBox() {
   const divContainerMenssage = document.querySelector('.feedback-message');
   let opacity = 100;
-  let intervalFadeOut = setInterval(fadeOut, 10);
   function fadeOut() {
     if (opacity <= 0) {
       clearInterval(intervalFadeOut);
     } else {
       opacity -= 1;
-      divContainerMenssage.style.opacity = `${opacity/100}`;
+      divContainerMenssage.style.opacity = `${opacity / 100}`;
     }
   }
+  const intervalFadeOut = setInterval(fadeOut, 10);
 }
 
 // FeedBack Message
@@ -18,15 +18,15 @@ function feedBackMessage(textMessage) {
   const divContainerMenssage = document.querySelector('.feedback-message');
   divContainerMenssage.innerHTML = textMessage;
   let opacity = 0;
-  let intervalFadeIn = setInterval(fadeIn, 10);
   function fadeIn() {
     if (opacity >= 100) {
       clearInterval(intervalFadeIn);
     } else {
       opacity += 1;
-      divContainerMenssage.style.opacity = `${opacity/100}`;
-    } 
+      divContainerMenssage.style.opacity = `${opacity / 100}`;
+    }
   }
+  const intervalFadeIn = setInterval(fadeIn, 10);
   setTimeout(hiddenBox, 2000);
 }
 
@@ -80,7 +80,7 @@ function selectedElement(event) {
 }
 
 // Change position Task
-function changePositionEngine(list, operator, elementSelected, elementOfChange, position) {
+function changePositionEngine(list, operator, elementSelected, elementOfChange, positionInitial) {
   let operation = 0;
   // Obtem a operação dependendo do operador passado pela função moveUp ou moveDown
   switch (operator) {
@@ -88,11 +88,11 @@ function changePositionEngine(list, operator, elementSelected, elementOfChange, 
     case '+': operation = position + 1; break;
     // no default
   }
-  // Faz a troca. O anterior com o posterior (caso moveUp) e vice-versa (moveDown) 
+  // Faz a troca. O anterior com o posterior (caso moveUp) e vice-versa (moveDown)
   list.childNodes[operation].innerText = elementSelected;
   list.childNodes[position].innerText = elementOfChange;
   list.childNodes[operation].classList.add('selected');
-  list.childNodes[position].classList.remove('selected');
+  list.childNodes[positionInitial].classList.remove('selected');
 }
 
 // Move Up Task
@@ -171,18 +171,18 @@ function saveList(list) {
   const btnSave = document.querySelector('#salvar-tarefas');
   const tasks = list.childNodes;
   btnSave.addEventListener('click', function () {
-    let textInnerTask = [];
-    let taskCompleted = [];
+    const textInnerTask = [];
+    const taskCompleted = [];
     for (let index = 0; index < tasks.length; index += 1) {
       textInnerTask.push(tasks[index].innerText);
       if (tasks[index].classList.contains('completed')) {
         taskCompleted.push(index);
       }
     }
-    //Deleta os dados antigos (caso exista) antes de setar novos
+    // Deleta os dados antigos (caso exista) antes de setar novos
     localStorage.removeItem('tasks');
     localStorage.removeItem('tasksCompletedPosition');
-    //Salva as auterações
+    // Salva as alterações
     localStorage.setItem('tasks', JSON.stringify(textInnerTask));
     localStorage.setItem('tasksCompletedPosition', JSON.stringify(taskCompleted));
     feedBackMessage('Lista salva com sucesso!');
@@ -191,13 +191,13 @@ function saveList(list) {
 
 // Get Items of Local Storage
 function getItemsOfLocalStorage(list) {
-  let valuesTextTask = JSON.parse(localStorage.getItem('tasks'));
-  let positionTaskCompleted = JSON.parse(localStorage.getItem('tasksCompletedPosition'));
+  const valuesTextTask = JSON.parse(localStorage.getItem('tasks'));
+  const positionTaskCompleted = JSON.parse(localStorage.getItem('tasksCompletedPosition'));
   if (!valuesTextTask || !positionTaskCompleted) {
     return;
   }
   for (let index = 0; index < valuesTextTask.length; index += 1) {
-    let taskElemetOld = createTaskElement(valuesTextTask[index]);
+    const taskElemetOld = createTaskElement(valuesTextTask[index]);
     if (positionTaskCompleted.indexOf(index) >= 0) {
       taskElemetOld.classList.add('completed');
       // Chamada da função de remover as completas - Para adcionar o evento inicialmente.
