@@ -12,7 +12,7 @@ function pushTaskToList() {
 }
 pushTaskToList();
 
-function selectTask() {
+function selectTaskOnList() {
   const taskList = document.querySelector("#lista-tarefas");
   taskList.addEventListener("click", function (event) {
     let allItens = document.querySelectorAll(".linha");
@@ -21,8 +21,17 @@ function selectTask() {
         allItens[index].classList.remove("selecionado");
       }
       event.target.classList.add("selecionado");
+    } else {
+      event.target.classList.remove('selecionado');
     }
   });
 }
+selectTaskOnList();
 
-selectTask();
+function completeTask() {
+  const taskList = document.querySelector('#lista-tarefas');
+  taskList.addEventListener('dblclick', function(event) {
+    event.target.classList.add('completed');
+  });
+}
+completeTask();
