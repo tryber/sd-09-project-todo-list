@@ -6,3 +6,7 @@
 .navegacao {
   margin: 10px 0;
 }
+
+.selecionado {
+    background-color: rgb(128, 128 ,128);
+}
