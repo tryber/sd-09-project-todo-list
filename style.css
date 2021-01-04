@@ -168,3 +168,11 @@ input::placeholder {
   transition: 0.5s;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background:hsl(220, 86%, 65%);
+  border-radius: 6px;
+}
