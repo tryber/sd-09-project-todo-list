@@ -64,6 +64,13 @@ function saveTasks() {
   }
 }
 
+//  https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
+function moveList() {
+  const selectedElement = document.querySelector('.completed');
+  const tasksList = document.querySelector('#lista-tarefas');
+  tasksList.insertBefore
+}
+
 function addEventsListener() {
 //  Escutador no botão
   const addTaskButton = document.querySelector('#criar-tarefa');
