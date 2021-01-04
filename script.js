@@ -13,6 +13,7 @@ function addTasks(){
     })     
 }
 addTasks();
+
 function addKeyTasks(){    
     const olListaTarefas = document.querySelector('#lista-tarefas');
     const input = document.querySelector('#texto-tarefa');   
