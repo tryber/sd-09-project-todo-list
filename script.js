@@ -13,6 +13,24 @@ function addTasks(){
     })     
 }
 addTasks();
+function addKeyTasks(){    
+    const olListaTarefas = document.querySelector('#lista-tarefas');
+    const input = document.querySelector('#texto-tarefa');   
+    input.addEventListener('keyup', function(e){
+        if(e.keyCode === 13){
+            const lengthValeu = document.querySelector('#texto-tarefa').value.length
+            if(lengthValeu > 0){
+            const textTasks = document.querySelector('#texto-tarefa');      
+            const createLi = document.createElement('li');
+            createLi.innerText = textTasks.value;
+            olListaTarefas.appendChild(createLi);  
+            textTasks.value = '';
+            }     
+        }
+                  
+    })     
+}
+addKeyTasks();
 
 function itemSelected(){
     const olListaTarefas = document.querySelector('ol#lista-tarefas');
