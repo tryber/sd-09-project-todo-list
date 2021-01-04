@@ -1,14 +1,14 @@
 // Create a 'close' button and append it to each list item
-var myNodelist = document.getElementsByTagName('LI');
-var i;
-for (i = 0; i < myNodelist.length; i++) {
-  var closeButton = document.createElement('BUTTON');
-  var txt = document.createTextNode('\u00D7');
-  closeButton.className = 'close';
-  closeButton.setAttribute('id', 'remover-selecionado')
-  closeButton.appendChild(txt);
-  myNodelist[i].appendChild(closeButton);
-}
+// var myNodelist = document.getElementsByTagName('LI');
+// var i;
+// for (i = 0; i < myNodelist.length; i++) {
+//   var closeButton = document.createElement('BUTTON');
+//   var txt = document.createTextNode('\u00D7');
+//   closeButton.className = 'close';
+//   closeButton.setAttribute('id', 'remover-selecionado')
+//   closeButton.appendChild(txt);
+//   myNodelist[i].appendChild(closeButton);
+// }
 
 // Click on a close button to remove the current list item
 var close = document.getElementsByClassName('close');
@@ -21,12 +21,25 @@ for (i = 0; i < close.length; i += 1) {
 }
 
 // Add a 'selected' class when clicking on a list item (only one list item must have this class)
-document.querySelector('#lista-tarefas').addEventListener('click', function(e) {
-  var selected;
-  if (e.target.tagName === 'LI') {
-    selected = document.querySelector('li.selected');
-    if(selected) selected.classList.remove('selected');
-    e.target.classList.add('selected');
+// document.querySelector('#lista-tarefas').addEventListener('click', function(e) {
+//   var selected;
+//   if (e.target.tagName === 'LI') {
+//     selected = document.querySelector('li.selected');
+//     if(selected) selected.classList.remove('selected');
+//     e.target.classList.add('selected');
+//   }
+// });
+
+const taskList = document.querySelector('#lista-tarefas');
+taskList.addEventListener('click', function (itemList) {
+  const selectedItem = document.querySelector('.selected');
+  if (selectedItem != null) {
+    selectedItem.className = '';
+    selectedItem.style.backgroundColor = 'rgb(255, 255, 255)';
+  }
+  if (itemList.target.className !== 'completed') {
+    itemList.target.className = 'selected';
+    itemList.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 });
 
@@ -38,6 +51,21 @@ document.querySelector('#lista-tarefas').addEventListener('dblclick', function(e
 }, false);
 
 // Click on 'apaga-tudo' button to remove all list items
+// if (confirm('Você tem certeza que deseja apagar todas as tarefas?')) {
+  function removeAllFromList() {
+    var e = document.querySelector("ul"); 
+        var first = e.firstElementChild; 
+        while (first) { 
+            first.remove(); 
+            first = e.firstElementChild; 
+        } 
+    } 
+    var btn = document.getElementById( 
+      "apaga-tudo").onclick = function() { 
+        removeAllFromList(); 
+    }
+
+
 // var allListItems = document.getElementsByTagName('li');
 // for (var index = 0; index < allListItems.length; index += 1) {
 //   allListItems[index].addEventListener('click', function(){
