@@ -29,7 +29,6 @@ for (i = 0; i < close.length; i += 1) {
 //     e.target.classList.add('selected');
 //   }
 // });
-
 const taskList = document.querySelector('#lista-tarefas');
 taskList.addEventListener('click', function (itemList) {
   const selectedItem = document.querySelector('.selected');
@@ -44,11 +43,21 @@ taskList.addEventListener('click', function (itemList) {
 });
 
 // Add a 'checked' symbol when double-clicking on a list item
-document.querySelector('#lista-tarefas').addEventListener('dblclick', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.classList.toggle('completed');
+// document.querySelector('#lista-tarefas').addEventListener('dblclick', function(ev) {
+//   if (ev.target.tagName === 'LI') {
+//     ev.target.classList.toggle('completed');
+//   }
+// }, false);
+taskList.addEventListener('dblclick', function (itemList) {
+  itemList.target.style.backgroundColor = 'rgb(255, 255, 255)';
+  if (itemList.target.className === 'completed') {
+    itemList.target.className = '';
+    itemList.target.style.textDecoration = 'none';
+  } else {
+    itemList.target.className = 'completed';
+    itemList.target.style.textDecoration = 'line-through';
   }
-}, false);
+});
 
 // Click on 'apaga-tudo' button to remove all list items
 // if (confirm('Você tem certeza que deseja apagar todas as tarefas?')) {
