@@ -21,10 +21,6 @@ function selectTask() {
         allItens[index].classList.remove("selecionado");
       }
       event.target.classList.add("selecionado");
-    } else {
-      for (let index = 0; index < allItens.length; index += 1) {
-        allItens[index].classList.remove("selecionado");
-      }
     }
   });
 }
