@@ -2,11 +2,12 @@
 var myNodelist = document.getElementsByTagName('LI');
 var i;
 for (i = 0; i < myNodelist.length; i++) {
-  var span = document.createElement('SPAN');
+  var closeButton = document.createElement('BUTTON');
   var txt = document.createTextNode('\u00D7');
-  span.className = 'close';
-  span.appendChild(txt);
-  myNodelist[i].appendChild(span);
+  closeButton.className = 'close';
+  closeButton.setAttribute('id', 'remover-selecionado')
+  closeButton.appendChild(txt);
+  myNodelist[i].appendChild(closeButton);
 }
 
 // Click on a close button to remove the current list item
@@ -16,8 +17,6 @@ for (i = 0; i < close.length; i += 1) {
   close[i].onclick = function() {
     this.parentElement.remove()
     return;
-    // var div = this.parentElement;
-    // div.style.display = 'none';
   }
 }
 
@@ -65,16 +64,19 @@ function newElement() {
   }
   document.getElementById('texto-tarefa').value = '';
 
-  var span = document.createElement('SPAN');
+  var closeButton = document.createElement('BUTTON');
   var txt = document.createTextNode('\u00D7');
-  span.className = 'close';
-  span.appendChild(txt);
-  li.appendChild(span);
+  closeButton.className = 'close';
+  closeButton.setAttribute('id', 'remover-selecionado')
+  closeButton.appendChild(txt);
+  li.appendChild(closeButton);
 
   for (i = 0; i < close.length; i++) {
     close[i].onclick = function() {
-      var div = this.parentElement;
-      div.style.display = 'none';
+      this.parentElement.remove()
+      return;
+      // var div = this.parentElement;
+      // div.style.display = 'none';
     }
   }
 }

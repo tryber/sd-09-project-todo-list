@@ -127,6 +127,11 @@ ol li.selected {
   background-color: #bbb;
 }
 
+#remover-selecionado {
+  border: none;
+  height: 100%;
+}
+
 .page-footer {
   background-color: rgb(10, 10, 10);
   color: rgb(73, 73, 73);
