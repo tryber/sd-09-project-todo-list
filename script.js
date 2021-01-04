@@ -30,6 +30,14 @@ function criarTarefa() {
 
 }
 
+function selectTask() {
+
+  
+  
+};
+
+selectTask();
+
 function cleanList () {
 
   // Meu botão
