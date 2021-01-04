@@ -8,14 +8,15 @@ window.onload = function () {
     task.textContent = inputBtn;
     olParent.appendChild(task);
     document.getElementById('texto-tarefa').value = '';
-  }
-  btnCreaTask.addEventListener("click", createTasks);
-
-  let listItem = document.querySelector('li'); 
-  
-  function grayColor () {
-      for (let i = 0; i <= listItem.length; i += 1) {
-        
+    
+    function grayColor (evento) {
+      let selectedItem = document.querySelector('.grayClass')
+      if (selectedItem !== null) {
+        selectedItem.classList.remove('grayClass')
       }
+      evento.target.classList.add('grayClass');
+    }
+    task.addEventListener('click', grayColor);
   }
+  btnCreaTask.addEventListener("click", createTasks)
 }
