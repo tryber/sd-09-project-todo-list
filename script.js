@@ -77,6 +77,30 @@ function removeSelectedTask() {
   list.removeChild(task);
 }
 
+function moveTaskUp() {
+  let up = -1
+  moveTask(up)
+}
+
+function moveTaskDown() {
+  let down = +2
+  moveTask(down)
+}
+
+function moveTask(UpOrDown) {
+  let taskList = document.querySelector('#lista-tarefas');
+  let tasks = document.querySelectorAll('#lista-tarefas > li');
+  let selectedTask = document.querySelector('.gray');
+
+  for (let index = 0; tasks.length >= index; index += 1){
+    if (tasks[index] === selectedTask) {
+      if(index === 0 && UpOrDown === -1) {return}
+      taskList.insertBefore(selectedTask,tasks[index + UpOrDown])
+      return
+    }
+  }
+}
+
 function addEventsListener() {
 //  Escutador no botão
   const addTaskButton = document.querySelector('#criar-tarefa');
@@ -97,6 +121,12 @@ function addEventsListener() {
   //  Escutador do botão que salva a lista
   const buttonRemoveSelected = document.querySelector('#remover-selecionado')
   buttonRemoveSelected.addEventListener('click',removeSelectedTask)
+  //  Escutador do botão que move para cima
+  const buttonMoveUp = document.querySelector('#mover-cima')
+  buttonMoveUp.addEventListener('click',moveTaskUp)
+   //  Escutador do botão que move para baixo
+   const buttonMoveDown = document.querySelector('#mover-baixo')
+   buttonMoveDown.addEventListener('click',moveTaskDown)
 }
 
 window.onload = function() {
