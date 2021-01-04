@@ -59,15 +59,23 @@ taskList.addEventListener('dblclick', function (itemList) {
   }
 });
 
+// Function to remove items
+function removeItems(items) {
+  const itemsToRemove = document.querySelectorAll(items);
+  for (let index = 0; index < itemsToRemove.length; index += 1) {
+    itemsToRemove[index].remove();
+  }
+}
+
 // Button to remove all list items
-if (confirm('Você tem certeza que deseja apagar todas as tarefas?')) {
+// if (confirm('Você tem certeza que deseja apagar todas as tarefas?')) {
   const buttonRemoveAll = document.querySelector('#apaga-tudo');
   buttonRemoveAll.addEventListener('click', function () {
     if (document.querySelectorAll('li').length > 0) {
       removeItems('li');
     }
   });
-}
+// }
 
 // Button to remove a selected list item
 const buttonRemoveSelected = document.querySelector('#remover-selecionado');
@@ -129,10 +137,10 @@ buttonCreate.addEventListener('click', function () {
 var buttonRemoveChecked = document.querySelector('#remover-finalizados');
 
 // Creates the function of clicking on the 'criar-tarefa' button by pressing 'Enter'
-document.getElementById('texto-tarefa')
-    .addEventListener('keyup', function(e) {
-    e.preventDefault();
-    if (e.key === 'Enter') {
-        document.getElementById('criar-tarefa').click();
-    }
-});
+// document.getElementById('texto-tarefa')
+//     .addEventListener('keyup', function(e) {
+//     e.preventDefault();
+//     if (e.key === 'Enter') {
+//         document.getElementById('criar-tarefa').click();
+//     }
+// });
