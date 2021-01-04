@@ -59,30 +59,33 @@ taskList.addEventListener('dblclick', function (itemList) {
   }
 });
 
-// Click on 'apaga-tudo' button to remove all list items
-// if (confirm('Você tem certeza que deseja apagar todas as tarefas?')) {
-const buttonRemoveAll = document.querySelector('#apaga-tudo');
-buttonRemoveAll.addEventListener('click', function () {
-  if (document.querySelectorAll('li').length > 0) {
-    removeItems('li');
+// Button to remove all list items
+if (confirm('Você tem certeza que deseja apagar todas as tarefas?')) {
+  const buttonRemoveAll = document.querySelector('#apaga-tudo');
+  buttonRemoveAll.addEventListener('click', function () {
+    if (document.querySelectorAll('li').length > 0) {
+      removeItems('li');
+    }
+  });
+}
+
+// Button to remove a selected list item
+const buttonRemoveSelected = document.querySelector('#remover-selecionado');
+buttonRemoveSelected.addEventListener('click', function () {
+  if (document.querySelectorAll('.selected').length > 0) {
+    removeItems('.selected');
   }
 });
 
+// Button to remove all completed list items
+const buttonRemoveAllCompleted = document.querySelector('#remover-finalizados');
+buttonRemoveAllCompleted.addEventListener('click', function () {
+  if (document.querySelectorAll('.completed').length > 0) {
+    removeItems('.completed');
+  }
+});
 
-// var allListItems = document.getElementsByTagName('li');
-// for (var index = 0; index < allListItems.length; index += 1) {
-//   allListItems[index].addEventListener('click', function(){
-//     this.classList.toggle("active");
-//   });
-//   allListItems[index].querySelector('#apaga-tudo').addEventListener('click', function(){
-//     this.closes
-//   })
-// }
-
-
-
-
-// Create a new list item when clicking on the 'Criar' button
+// Button to create a new list item
 function newElement() {
   var li = document.createElement('li');
   var inputValue = document.getElementById('texto-tarefa').value;
