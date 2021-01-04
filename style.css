@@ -23,7 +23,7 @@ div {
 }
 
 input {
-  font-family: 'Gloria Hallelujah', cursive;
+  font-family: Gloria Hallelujah, cursive;
 }
 
 header {
@@ -35,7 +35,7 @@ ol {
 }
 
 .selected {
-  background-color:grey;
+  background-color: grey;
   color: white;
 }
 
