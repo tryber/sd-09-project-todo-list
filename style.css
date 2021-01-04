@@ -1,13 +1,12 @@
 *{
-    background-color: rgb(188, 211, 133);
+  background-color: rgb(188, 211, 133);
 }
 header, div{
- text-align: center;   
+ text-align: center;
 }
 .selectedList{
-    background-color: rgb(128, 128, 128);
-    
+  background-color: rgb(128, 128, 128);    
 }
 .completed{
-    text-decoration: line-through solid rgb(0, 0, 0);
+  text-decoration: line-through solid rgb(0, 0, 0);
 }
