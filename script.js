@@ -2,15 +2,14 @@
 function hiddenBox() {
   const divContainerMenssage = document.querySelector('.feedback-message');
   let opacity = 100;
-  function fadeOut() {
+  setInterval(function (event) {
     if (opacity <= 0) {
-      clearInterval(intervalFadeOut);
+      clearInterval(event);
     } else {
       opacity -= 1;
       divContainerMenssage.style.opacity = `${opacity / 100}`;
     }
-  }
-  const intervalFadeOut = setInterval(fadeOut, 10);
+  }, 10);
 }
 
 // FeedBack Message
@@ -18,16 +17,15 @@ function feedBackMessage(textMessage) {
   const divContainerMenssage = document.querySelector('.feedback-message');
   divContainerMenssage.innerHTML = textMessage;
   let opacity = 0;
-  function fadeIn() {
+  setInterval(function (event) {
     if (opacity >= 100) {
-      clearInterval(intervalFadeIn);
+      clearInterval(event);
     } else {
       opacity += 1;
       divContainerMenssage.style.opacity = `${opacity / 100}`;
     }
-  }
-  const intervalFadeIn = setInterval(fadeIn, 10);
-  setTimeout(hiddenBox, 2000);
+  }, 10);
+  setTimeout(hiddenBox, 3000);
 }
 
 // Create Btn Delete selected
@@ -79,63 +77,6 @@ function selectedElement(event) {
   removeSelected(event.target);
 }
 
-// Change position Task
-function changePositionEngine(list, operator, elementSelected, elementOfChange, positionInitial) {
-  let operation = 0;
-  // Obtem a operação dependendo do operador passado pela função moveUp ou moveDown
-  switch (operator) {
-    case '-': operation = position - 1; break;
-    case '+': operation = position + 1; break;
-    // no default
-  }
-  // Faz a troca. O anterior com o posterior (caso moveUp) e vice-versa (moveDown)
-  list.childNodes[operation].innerText = elementSelected;
-  list.childNodes[position].innerText = elementOfChange;
-  list.childNodes[operation].classList.add('selected');
-  list.childNodes[positionInitial].classList.remove('selected');
-}
-
-// Move Up Task
-function moveUp(list) {
-  const btnUp = document.querySelector('#mover-cima');
-  btnUp.addEventListener('click', function () {
-    for (let index = 0; index < list.childElementCount; index += 1) {
-      if (list.childNodes[index].classList.contains('selected')) {
-        const selectedItem = list.childNodes[index].innerText;
-        const prevItem = list.childNodes[index - 1];
-        if (!prevItem) {
-          return;
-        }
-        const prevItemText = prevItem.innerText;
-        changePositionEngine(list, '-', selectedItem, prevItemText, index);
-        addIconTrash(list.childNodes[index - 1]);
-        removeSelected(list.childNodes[index - 1]);
-      }
-    }
-  });
-}
-
-// Move Down Task
-function moveDown(list) {
-  const btnDown = document.querySelector('#mover-baixo');
-  btnDown.addEventListener('click', function () {
-    for (let index = 0; index < list.childElementCount; index += 1) {
-      if (list.childNodes[index].classList.contains('selected')) {
-        const selectedItem = list.childNodes[index].innerText;
-        const nextItem = list.childNodes[index + 1];
-        if (!nextItem) {
-          return;
-        }
-        const nextItemText = nextItem.innerText;
-        changePositionEngine(list, '+', selectedItem, nextItemText, index);
-        addIconTrash(list.childNodes[index + 1]);
-        removeSelected(list.childNodes[index + 1]);
-        return;
-      }
-    }
-  });
-}
-
 // Delete Tasks Completed
 function removeCompleted() {
   const btnDeleteComplete = document.querySelector('#remover-finalizados');
@@ -156,6 +97,72 @@ function taskCompleted(event) {
   removeCompleted();
 }
 
+// Change position Task
+function changePositionEngine(list, operator, prevItem, positionInitial) {
+  let operation = 0;
+  const taskSelected = list.childNodes[positionInitial];
+  const textItemSelected = list.childNodes[positionInitial].innerText;
+  const textItemOfChange = prevItem.innerText;
+  // Obtem a operação dependendo do operador passado pela função moveUp ou moveDown
+  switch (operator) {
+    case '-': operation = positionInitial - 1; break;
+    case '+': operation = positionInitial + 1; break;
+    // no default
+  }
+  // Verificando quem está marcado como completo e ai mudar para posição correta
+  if (taskSelected.classList.contains('completed') && !prevItem.classList.contains('completed')) {
+    taskSelected.classList.toggle('completed');
+    prevItem.classList.toggle('completed');
+    removeCompleted();
+  } else if (prevItem.classList.contains('completed')) {
+    taskSelected.classList.add('completed');
+    prevItem.classList.remove('completed');
+    removeCompleted();
+  }
+  // Faz a troca. O anterior com o posterior (caso moveUp) e vice-versa (moveDown)
+  list.childNodes[operation].innerText = textItemSelected;
+  list.childNodes[positionInitial].innerText = textItemOfChange;
+  list.childNodes[operation].classList.add('selected');
+  list.childNodes[positionInitial].classList.remove('selected');
+}
+
+// Move Up Task
+function moveUp(list) {
+  const btnUp = document.querySelector('#mover-cima');
+  btnUp.addEventListener('click', function () {
+    for (let index = 0; index < list.childElementCount; index += 1) {
+      if (list.childNodes[index].classList.contains('selected')) {
+        const prevItem = list.childNodes[index - 1];
+        if (!prevItem) {
+          return;
+        }
+        changePositionEngine(list, '-', prevItem, index);
+        addIconTrash(list.childNodes[index - 1]);
+        removeSelected(list.childNodes[index - 1]);
+      }
+    }
+  });
+}
+
+// Move Down Task
+function moveDown(list) {
+  const btnDown = document.querySelector('#mover-baixo');
+  btnDown.addEventListener('click', function () {
+    for (let index = 0; index < list.childElementCount; index += 1) {
+      if (list.childNodes[index].classList.contains('selected')) {
+        const nextItem = list.childNodes[index + 1];
+        if (!nextItem) {
+          return;
+        }
+        changePositionEngine(list, '+', nextItem, index);
+        addIconTrash(list.childNodes[index + 1]);
+        removeSelected(list.childNodes[index + 1]);
+        return;
+      }
+    }
+  });
+}
+
 // Create Task in list
 function createTaskElement(taskName) {
   const taskElement = document.createElement('li');
@@ -172,11 +179,11 @@ function saveList(list) {
   const tasks = list.childNodes;
   btnSave.addEventListener('click', function () {
     const textInnerTask = [];
-    const taskCompleted = [];
+    const taskPositionCompleted = [];
     for (let index = 0; index < tasks.length; index += 1) {
       textInnerTask.push(tasks[index].innerText);
       if (tasks[index].classList.contains('completed')) {
-        taskCompleted.push(index);
+        taskPositionCompleted.push(index);
       }
     }
     // Deleta os dados antigos (caso exista) antes de setar novos
@@ -184,7 +191,7 @@ function saveList(list) {
     localStorage.removeItem('tasksCompletedPosition');
     // Salva as alterações
     localStorage.setItem('tasks', JSON.stringify(textInnerTask));
-    localStorage.setItem('tasksCompletedPosition', JSON.stringify(taskCompleted));
+    localStorage.setItem('tasksCompletedPosition', JSON.stringify(taskPositionCompleted));
     feedBackMessage('Lista salva com sucesso!');
   });
 }
@@ -192,13 +199,13 @@ function saveList(list) {
 // Get Items of Local Storage
 function getItemsOfLocalStorage(list) {
   const valuesTextTask = JSON.parse(localStorage.getItem('tasks'));
-  const positionTaskCompleted = JSON.parse(localStorage.getItem('tasksCompletedPosition'));
-  if (!valuesTextTask || !positionTaskCompleted) {
+  const positionsTaskCompleted = JSON.parse(localStorage.getItem('tasksCompletedPosition'));
+  if (!valuesTextTask || !positionsTaskCompleted) {
     return;
   }
   for (let index = 0; index < valuesTextTask.length; index += 1) {
     const taskElemetOld = createTaskElement(valuesTextTask[index]);
-    if (positionTaskCompleted.indexOf(index) >= 0) {
+    if (positionsTaskCompleted.indexOf(index) >= 0) {
       taskElemetOld.classList.add('completed');
       // Chamada da função de remover as completas - Para adcionar o evento inicialmente.
       removeCompleted();
