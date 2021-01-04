@@ -31,7 +31,24 @@ selectTaskOnList();
 function completeTask() {
   const taskList = document.querySelector('#lista-tarefas');
   taskList.addEventListener('dblclick', function(event) {
-    event.target.classList.add('completed');
+    if (event.target.className.indexOf('completed') === -1) {
+      event.target.classList.add('completed');
+    } else {
+      event.target.classList.remove('completed');
+    }
+    
   });
 }
 completeTask();
+
+function eraseList() {
+  const eraseListBtn = document.getElementById('apaga-tudo');
+  let taskList = document.querySelectorAll('.linha');
+  eraseListBtn.addEventListener('click', function() {
+    let allList = document.getElementById('lista-tarefas');
+    while (allList.firstChild) {
+      allList.removeChild(allList.firstChild);
+    }
+  });
+}
+eraseList();
