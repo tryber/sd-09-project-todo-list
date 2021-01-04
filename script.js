@@ -61,18 +61,12 @@ taskList.addEventListener('dblclick', function (itemList) {
 
 // Click on 'apaga-tudo' button to remove all list items
 // if (confirm('Você tem certeza que deseja apagar todas as tarefas?')) {
-  function removeAllFromList() {
-    var e = document.querySelector("ul"); 
-        var first = e.firstElementChild; 
-        while (first) { 
-            first.remove(); 
-            first = e.firstElementChild; 
-        } 
-    } 
-    var btn = document.getElementById( 
-      "apaga-tudo").onclick = function() { 
-        removeAllFromList(); 
-    }
+const buttonRemoveAll = document.querySelector('#apaga-tudo');
+buttonRemoveAll.addEventListener('click', function () {
+  if (document.querySelectorAll('li').length > 0) {
+    removeItems('li');
+  }
+});
 
 
 // var allListItems = document.getElementsByTagName('li');
