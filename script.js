@@ -1,7 +1,7 @@
-let task
+let task;
 
-let addButton = document.querySelector('#criar-tarefa')
-let taskList = document.querySelector('#lista-tarefas')
+let addButton = document.querySelector('#criar-tarefa');
+let taskList = document.querySelector('#lista-tarefas');
 let itemOfList = document.getElementsByTagName('ol li');
 
 addButton.addEventListener('click', (e) => {
@@ -12,17 +12,4 @@ addButton.addEventListener('click', (e) => {
   document.querySelector('#texto-tarefa').value = '';
   document.querySelector('#texto-tarefa').focus();
   taskList.appendChild(listItem);
-})
-
-let removeAllBG = () => {
-itemOfList.forEach(item => {
-    item.classList.remove = 'cinza'
-})
-}
-
-itemOfList.forEach(item => {
-    item.addEventListener('click', () => {
-        removeAllBG()
-      item.classList.add = 'cinza'
-    })
-})
+});
