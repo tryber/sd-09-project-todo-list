@@ -64,22 +64,22 @@ function newElement() {
   }
   document.getElementById('texto-tarefa').value = '';
 
-  var closeButton = document.createElement('BUTTON');
-  var txt = document.createTextNode('\u00D7');
-  closeButton.className = 'close';
-  closeButton.setAttribute('id', 'remover-selecionado')
-  closeButton.appendChild(txt);
-  li.appendChild(closeButton);
+  // var closeButton = document.createElement('BUTTON');
+  // var txt = document.createTextNode('\u00D7');
+  // closeButton.className = 'close';
+  // closeButton.setAttribute('id', 'remover-selecionado')
+  // closeButton.appendChild(txt);
+  // li.appendChild(closeButton);
 
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      this.parentElement.remove()
-      return;
-      // var div = this.parentElement;
-      // div.style.display = 'none';
-    }
-  }
+  // for (i = 0; i < close.length; i++) {
+  //   close[i].onclick = function() {
+  //     this.parentElement.remove()
+  //     return;
+  //   }
+  // }
 }
+
+var buttonRemoveChecked = document.querySelector('#remover-finalizados');
 
 // Creates the function of clicking on the 'criar-tarefa' button by pressing 'Enter'
 document.getElementById('texto-tarefa')
