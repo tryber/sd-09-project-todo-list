@@ -71,6 +71,12 @@ function moveList() {
   tasksList.insertBefore
 }
 
+function removeSelectedTask() {
+  let list = document.querySelector('#lista-tarefas')
+  let task = document.querySelector('.gray');
+  list.removeChild(task);
+}
+
 function addEventsListener() {
 //  Escutador no botão
   const addTaskButton = document.querySelector('#criar-tarefa');
@@ -85,9 +91,12 @@ function addEventsListener() {
   //  Escutador do botão remover selecionados
   const buttonRemoveCompleted = document.querySelector('#remover-finalizados');
   buttonRemoveCompleted.addEventListener('click', removeCompletedElements);
-  //  Escitador do botão que salva a lista
+  //  Escutador do botão que salva a lista
   const buttonSave = document.querySelector('#salvar-tarefas')
   buttonSave.addEventListener('click',saveTasks)
+  //  Escutador do botão que salva a lista
+  const buttonRemoveSelected = document.querySelector('#remover-selecionado')
+  buttonRemoveSelected.addEventListener('click',removeSelectedTask)
 }
 
 window.onload = function() {
