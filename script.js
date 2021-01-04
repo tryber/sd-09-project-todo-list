@@ -4,7 +4,7 @@ function pushTaskToList() {
     const inputText = document.querySelector('#texto-tarefa').value;
     const taskLine = document.createElement('li');
     const taskList = document.querySelector('#lista-tarefas');
-    document.getElementById('texto-tarefa').value = ';
+    document.getElementById('texto-tarefa').value = '';
     taskLine.innerText = inputText;
     taskLine.className = 'linha';
     taskList.appendChild(taskLine);
