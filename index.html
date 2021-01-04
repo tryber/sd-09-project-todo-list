@@ -11,7 +11,7 @@
     <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
 </header>
 <script src="script.js"></script>
-  <input type='text' id="texto-tarefa" />
+  <input onfocus="this.value='';" type='text' id="texto-tarefa" />
   <button onclick='addText()' id="criar-tarefa">Adicionar</button>
   <ol id="lista-tarefas"></ol>
 </body>
