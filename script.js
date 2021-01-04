@@ -10,4 +10,9 @@ window.onload = function () {
     console.log(document.getElementById('texto-tarefa').value = '');
   }
   btnCreaTask.addEventListener("click", createTasks);
-};
+
+  let listItem = document.querySelectorAll['li'];
+  listItem.addEventListener('click', function (e) {
+
+  })
+}
