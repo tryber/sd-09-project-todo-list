@@ -7,12 +7,15 @@ window.onload = function () {
     let inputBtn = document.getElementById("texto-tarefa").value;
     task.textContent = inputBtn;
     olParent.appendChild(task);
-    console.log(document.getElementById('texto-tarefa').value = '');
+    document.getElementById('texto-tarefa').value = '';
   }
   btnCreaTask.addEventListener("click", createTasks);
 
-  let listItem = document.querySelectorAll['li'];
-  listItem.addEventListener('click', function (e) {
-
-  })
+  let listItem = document.querySelector('li'); 
+  
+  function grayColor () {
+      for (let i = 0; i <= listItem.length; i += 1) {
+        
+      }
+  }
 }
