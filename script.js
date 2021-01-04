@@ -171,26 +171,38 @@ function saveList(list) {
   const btnSave = document.querySelector('#salvar-tarefas');
   const tasks = list.childNodes;
   btnSave.addEventListener('click', function () {
-    let valuesTask = [];
-    tasks.forEach((task) => {
-      valuesTask.push(task.innerText);
-    });
+    let textInnerTask = [];
+    let taskCompleted = [];
+    for (let index = 0; index < tasks.length; index += 1) {
+      textInnerTask.push(tasks[index].innerText);
+      if (tasks[index].classList.contains('completed')) {
+        taskCompleted.push(index);
+      }
+    }
     //Deleta os dados antigos (caso exista) antes de setar novos
     localStorage.removeItem('tasks');
+    localStorage.removeItem('tasksCompletedPosition');
     //Salva as auterações
-    localStorage.setItem('tasks', JSON.stringify(valuesTask));
+    localStorage.setItem('tasks', JSON.stringify(textInnerTask));
+    localStorage.setItem('tasksCompletedPosition', JSON.stringify(taskCompleted));
     feedBackMessage('Lista salva com sucesso!');
   });
 }
 
 // Get Items of Local Storage
-function getItemOfLocalStorage(list) {
+function getItemsOfLocalStorage(list) {
   let valuesTextTask = JSON.parse(localStorage.getItem('tasks'));
-  if (!valuesTextTask) {
+  let positionTaskCompleted = JSON.parse(localStorage.getItem('tasksCompletedPosition'));
+  if (!valuesTextTask || !positionTaskCompleted) {
     return;
   }
   for (let index = 0; index < valuesTextTask.length; index += 1) {
     let taskElemetOld = createTaskElement(valuesTextTask[index]);
+    if (positionTaskCompleted.indexOf(index) >= 0) {
+      taskElemetOld.classList.add('completed');
+      // Chamada da função de remover as completas - Para adcionar o evento inicialmente.
+      removeCompleted();
+    }
     list.appendChild(taskElemetOld);
   }
 }
@@ -224,7 +236,7 @@ window.onload = function () {
   const textTaskInput = document.querySelector('#texto-tarefa');
   const buttonAddTask = document.querySelector('#criar-tarefa');
   const taskList = document.querySelector('#lista-tarefas');
-  getItemOfLocalStorage(taskList);
+  getItemsOfLocalStorage(taskList);
   addTaskInlist(buttonAddTask, textTaskInput, taskList);
   deleteAllTasks(taskList);
   // function move up item selected
