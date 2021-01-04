@@ -1,0 +1,240 @@
+body {
+  background-color: gainsboro;
+  font-family: Roboto, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Header section */
+.header {
+  background-color: white;
+  padding-bottom: 6px;
+  padding-left: 10px;
+  padding-top: 30px;
+  text-align: center;
+}
+
+.main-title {
+  color: rgb(1 , 95 , 159);
+  font-size: 25px;
+  line-height: 0;
+  margin: 0;
+}
+
+.sub-title {
+  margin-bottom: 0;
+  opacity: 0.6;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.section-list {
+  margin: 2em auto;
+  max-width: 300px;
+  padding-top: 10px;
+  position: relative;
+}
+
+.feedback-message {
+  background-color: rgb(21 , 131 , 85);
+  border-radius: 4px;
+  box-sizing: border-box;
+  color: white;
+  font-size: 13px;
+  left: 2em;
+  opacity: 0;
+  padding: 5px;
+  position: absolute;
+  text-align: center;
+  top: -2em;
+  width: 80%;
+}
+
+/* Section List - input */
+.box-input {
+  display: flex;
+  justify-content: center;
+}
+
+.input {
+  border: none;
+  border-radius: 5px 0 0 5px;
+  box-shadow: 0 0 5px 1px rgba(0 , 0 , 0 , 0.2);
+  padding: 10px;
+  width: 200px;
+}
+
+.input:focus {
+  outline: none;
+}
+
+.btn-add {
+  background-color: rgb(1 , 95 , 159);
+  border: none;
+  border-radius: 0 5px 5px 0;
+  box-shadow: 0 0 5px 1px rgba(0 , 0 , 0 , 0.2);
+  color: white;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.btn-add:focus {
+  outline: none;
+}
+
+.btn-add:hover {
+  background-color: rgb(0 , 62 , 104);
+}
+
+/* Section List - Box-list */
+.box-list {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 5px 1px rgba(0 , 0 , 0 , 0.2);
+  box-sizing: border-box;
+  margin-top: 10px;
+  padding: 0.5em;
+  width: 100%;
+}
+
+.box-list header {
+  align-items: center;
+  border-bottom: 1px solid;
+  border-color: rgb(85 , 85 , 85);
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 9px;
+}
+
+.text-header-list {
+  font-size: 15px;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+}
+
+.btn-delete-list {
+  background-color: rgba(0 , 0 , 0 , 0);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-delete-list:hover {
+  color: rgb(27 , 27 , 27);
+}
+
+/* Tasks Section */
+.tasks-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.task {
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px 1px rgba(0 , 0 , 0 , 0.2);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 9px;
+  padding: 10px;
+  user-select: none;
+}
+
+.selected {
+  background-color: gray;
+  color: white;
+}
+
+.completed {
+  background-color: rgb(185 , 25 , 24);
+  color: white;
+  opacity: 0.5;
+  text-decoration: line-through solid black;
+}
+
+.task:hover {
+  background-color: gray;
+  color: white;
+}
+
+/* Actions list icon */
+.actions-list {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.action-btn {
+  background-color: rgba(0 , 0 , 0 , 0);
+  border: none;
+  cursor: pointer;
+  margin: 0;
+}
+
+.action-btn:focus {
+  outline: none;
+}
+
+.action-btn:hover {
+  color: black;
+  opacity: 0.8;
+}
+
+/* Global Class */
+.primary-color {
+  color: rgb(0 , 62 , 104);
+}
+
+.secondary-color {
+  color: rgb(85 , 85 , 85);
+}
+
+.terciary-color {
+  color: rgb(45 , 45 , 45);
+}
+
+.red-color {
+  color: rgb(185 , 25 , 24);
+}
+
+.white-color {
+  color: white;
+}
+
+.hidden {
+  animation-duration: 3s;
+  animation-name: fedeout;
+}
+
+.show {
+  animation-duration: 3s;
+  animation-name: fedein;
+  display: block;
+}
+
+/* Key-Frames */
+@keyframes fedeout {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fedein {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

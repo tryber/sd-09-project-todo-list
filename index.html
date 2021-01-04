@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Tarefas - Project</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/f4de205c5f.js" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header class="header">
+    <h1 class="main-title">Minha Lista de Tarefas</h1>
+    <p id="funcionamento" class="sub-title">
+      <span class="fas fa-info-circle icon primary-color"></span>Clique duas vezes em um item para marcá-lo como completo
+    </p>
+  </header>
+  <main class="main-container">
+    <section class="section-list">
+      <div class="feedback-message"></div>
+      <div class="box-input">
+        <input type="text" name="task" id="texto-tarefa" class="input" placeholder="Nova Tarefa" title="campo de digitar a tarefa">
+        <button id="criar-tarefa" class="btn-add" title="Botão de criar a tarefa">Adicionar</button>
+      </div>
+      <div class="box-list">
+        <header>
+            <h2 class="text-header-list primary-color">Tarefas</h2>
+            <button id="apaga-tudo" class="secondary-color btn-delete-list" title="Apagar toda a lista">Apagar Lista</button>
+        </header>
+        <ol id="lista-tarefas" class="tasks-list"></ol>
+        <nav class="actions-list">
+          <div class="actions-tasks">
+            <button id="remover-finalizados" class="action-btn" title="Remover itens finalizados"><span class="fas fa-trash red-color"></span></button>
+            <button id="mover-cima" class="action-btn" title="Mover Item Selecionado para cima"><span class="fas fa-long-arrow-alt-up terciary-color"></span></button>
+            <button id="mover-baixo" class="action-btn" title="Mover Item Selecionado para baixo"><span class="fas fa-long-arrow-alt-down terciary-color"></span></button>
+          </div>
+          <button id="salvar-tarefas" class="action-btn" title="Salvar Lista de Tarefas"><span class="fas fa-save terciary-color"></span></button>
+        </nav>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
