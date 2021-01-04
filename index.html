@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Vinicius Palenske">
+    <title>Project: To Do List &#128221</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="titulo"><h1>Minha Lista de Tarefas</h1></header>
+    <p id="funcionamento"><em>Clique duas vezes em um item para marcá-lo como completo</em></p>
+    <section class="add-tarefa">
+        <input type="text" name="recebe-tarefa" id="texto-tarefa">
+        <button id="criar-tarefa">Criar tarefa</button>
+    </section>
+    <section class="navegacao">
+        <button id="mover-cima">&#9650</button>
+        <button id="mover-baixo">&#9660</button>
+        <button id="apaga-tudo">Apaga tudo</button>
+        <button id="remover-finalizados">Remover finalizados</button>
+    </section>
+    <section class="tarefas">
+        <ol id="lista-tarefas">
+        </ol>
+    </section>
+</body>
+</html>

@@ -1,0 +1,16 @@
+.titulo {
+  background-color: blanchedalmond;
+  width: fit-content;
+}
+
+.navegacao {
+  margin: 10px 0;
+}
+
+.selecionado {
+  background-color: grey;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
