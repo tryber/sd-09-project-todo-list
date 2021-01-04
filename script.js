@@ -22,6 +22,11 @@ function criarTarefa() {
     taskList.appendChild(newTask);
 
     input.value = '';
+
+    newTask.addEventListener('click', function () {
+      newTask.style.backgroundColor = 'rgb(128, 128, 128)'
+      newTask.style.color = 'rgb(255, 255, 255)'
+    })
   }
 
   addTaskToList()
@@ -30,27 +35,19 @@ function criarTarefa() {
 
 }
 
-function selectTask() {
-
-  
-  
-};
-
-selectTask();
-
-function cleanList () {
+function cleanList() {
 
   // Meu botão
   const btn = document.querySelector('#apaga-tudo');
-  
+
   // Adiciona um evento no botão 
-  btn.addEventListener('click', function() {
+  btn.addEventListener('click', function () {
 
     // Seleciona os elementos com a class task
     const list = document.querySelectorAll('.task');
 
     // Percorre a lista
-    for(index = 0; index < list.length; index += 1) {
+    for (index = 0; index < list.length; index += 1) {
       let taskList = list[index];
 
       // Remove o elemento

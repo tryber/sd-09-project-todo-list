@@ -50,14 +50,13 @@ input {
 
 #criar-tarefa {
   float: right;
-  position: fixed;
-  top: 102px;
-  left: 610px;
-  bottom: 265px;
+  position: relative;
+  right: 190px;
+  bottom: 300px;
   padding: 5px;
   height: 35px;
   font-size: 10px;
-  border-radius: 5px;
+  border-radius: 100px;
   border-style: none;
   background-color: hsl(0, 0%, 98%);
   color: #303030;
@@ -85,6 +84,8 @@ input::placeholder {
   z-index: 100;
   overflow: auto;
 }
+
+
 
 #lista-tarefas {
   font-family: 'Josefin Sans', sans-serif;
