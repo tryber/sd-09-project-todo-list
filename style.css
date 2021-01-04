@@ -63,9 +63,9 @@ ol li {
 }
 
 /* Set all odd list items to a different color (zebra-stripes) */
-ol li:nth-child(odd) {
+/* ol li:nth-child(odd) {
   background: rgb(249, 249, 249);;
-}
+} */
 
 /* Darker background-color on hover */
 ol li:hover {
@@ -75,6 +75,10 @@ ol li:hover {
 /* When clicked on, add a background color and strike out text */
 ol li.completed {
   text-decoration: line-through;
+}
+
+ol li.selected {
+  background: rgb(128, 128, 128);
 }
 
 /* Add a "completed" mark when clicked on */
@@ -102,10 +106,6 @@ ol li.completed {
 .close:hover {
   background-color: rgb(100, 100, 250);
   color: white;
-}
-
-ol li.selected {
-  background: rgb(128, 128, 128);
 }
 
 /* Style the "Add" button */
