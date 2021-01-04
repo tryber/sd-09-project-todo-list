@@ -15,15 +15,15 @@ function completed(textoTarefa) {
 }
 function criarTarefa() {
   if (document.querySelector('#texto-tarefa').value === '') {
-      alert('Input Vazio');
+    alert('Input Vazio');
   } else {
     const textoTarefa = document.createElement('li');
     textoTarefa.innerText = document.querySelector('#texto-tarefa').value;
     document.querySelector('#lista-tarefas').appendChild(textoTarefa);
-    textoTarefa.addEventListener('click', function() {
+    textoTarefa.addEventListener('click', function () {
       selected(textoTarefa);
     });
-    textoTarefa.addEventListener('dblclick', function() {
+    textoTarefa.addEventListener('dblclick', function () {
       completed(textoTarefa);
     });
   }
@@ -31,13 +31,13 @@ function criarTarefa() {
 
 const buttonCriarTarefa = document.querySelector('#criar-tarefa');
 
-buttonCriarTarefa.addEventListener('click', function() {
+buttonCriarTarefa.addEventListener('click', function () {
   criarTarefa();
   document.querySelector('#texto-tarefa').value = '';
 });
 
 const buttonApagarTudo = document.querySelector('#apaga-tudo');
-buttonApagarTudo.addEventListener('click', function() {
+buttonApagarTudo.addEventListener('click', function () {
   const li = document.querySelectorAll('li');
   for (let index = 0; index < li.length; index += 1) {
     document.querySelector('#lista-tarefas').removeChild(li[index]);
@@ -45,11 +45,11 @@ buttonApagarTudo.addEventListener('click', function() {
 });
 
 const buttonApagarFinalizados = document.querySelector('#remover-finalizados');
-buttonApagarFinalizados.addEventListener('click', function() {
+buttonApagarFinalizados.addEventListener('click', function () {
   const li = document.querySelectorAll('li');
-    for (let index = 0; index < li.length; index += 1) {
-      if (li[index].classList.contains('completed')) {
-        document.querySelector('#lista-tarefas').removeChild(li[index]);
-      }
+  for (let index = 0; index < li.length; index += 1) {
+    if (li[index].classList.contains('completed')) {
+      document.querySelector('#lista-tarefas').removeChild(li[index]);
     }
+  }
 });
