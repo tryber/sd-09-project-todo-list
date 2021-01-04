@@ -2,9 +2,9 @@ let task;
 
 let addButton = document.querySelector('#criar-tarefa');
 let taskList = document.querySelector('#lista-tarefas');
-let itemOfList = document.getElementsByTagName('ol li');
+let clearAllBtn = document.querySelector('#apaga-tudo');
 
-addButton.addEventListener('click', (e) => {
+addButton.addEventListener('click', () => {
   task = document.querySelector('#texto-tarefa').value;
     
   let listItem = document.createElement('li');
