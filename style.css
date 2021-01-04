@@ -1,6 +1,7 @@
 .grayClass {
-    background-color: gray;
+  background-color: gray;
 }
+
 .completed {
-    text-decoration: line-through;
+  text-decoration: line-through;
 }
