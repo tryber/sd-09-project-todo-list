@@ -17,6 +17,12 @@ window.onload = function () {
       evento.target.classList.add('grayClass');
     }
     task.addEventListener('click', grayColor);
+    
+    function dBComplete (evento) {
+      evento.target.classList.toggle('completed');
+    }
+    task.addEventListener('dblclick', dBComplete)
+  
   }
   btnCreaTask.addEventListener("click", createTasks)
 }
