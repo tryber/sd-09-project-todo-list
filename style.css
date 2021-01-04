@@ -7,7 +7,7 @@ body {
 button {
   background-color: blueviolet;
   color: white;
-  font-family: 'Gloria Hallelujah', cursive;  
+  font-family: 'Gloria Hallelujah', cursive;
   font-weight: bold;
 }
 
@@ -23,20 +23,22 @@ div {
 }
 
 input {
-    font-family: 'Gloria Hallelujah', cursive;
+  font-family: 'Gloria Hallelujah', cursive;
 }
 
 header {
-    text-align: center;
+  text-align: center;
 }
+
 ol {
   text-align: left;
 }
 
 .selected {
-  background-color: rgb(128 ,128 ,128);
+  background-color: rgb(128,128,128);
   color: white;
 }
+
 .completed {
-  text-decoration: line-through solid rgb(0 ,0 ,0);
+  text-decoration: line-through solid rgb(0,0,0);
 }
