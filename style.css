@@ -1,14 +1,14 @@
 body {
   background-color: aquamarine;
-  font-family: 'Gloria Hallelujah', cursive;
+  font-family: Gloria Hallelujah, cursive;
   text-align: center;
 }
 
 button {
   background-color: blueviolet;
   color: white;
-  font-family: 'Gloria Hallelujah', cursive;
-  font-weight: bold;
+  font-family: Gloria Hallelujah, cursive;
+  font-weight: 600;
 }
 
 div {
@@ -35,10 +35,10 @@ ol {
 }
 
 .selected {
-  background-color: rgb(128 , 128 , 128);
+  background-color:grey;
   color: white;
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0 , 0 , 0);
+  text-decoration: line-through solid black;
 }
