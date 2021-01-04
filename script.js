@@ -86,17 +86,30 @@ buttonRemoveAllCompleted.addEventListener('click', function () {
 });
 
 // Button to create a new list item
-function newElement() {
-  var li = document.createElement('li');
-  var inputValue = document.getElementById('texto-tarefa').value;
-  var t = document.createTextNode(inputValue);
-  li.appendChild(t);
-  if (inputValue === '') {
-    alert('Você precisa digitar alguma coisa para adicionar como uma tarefa.');
-  } else {
-    document.getElementById('lista-tarefas').appendChild(li);
+const buttonCreate = document.querySelector('#criar-tarefa');
+const textTask = document.querySelector('#texto-tarefa');
+buttonCreate.addEventListener('click', function () {
+  if (textTask.value !== '') {
+    const addTask = document.createElement('li');
+    addTask.innerText = textTask.value;
+    addTask.style.marginTop = '3px';
+    taskList.appendChild(addTask);
+    textTask.value = '';
   }
-  document.getElementById('texto-tarefa').value = '';
+});
+
+
+// function newElement() {
+//   var li = document.createElement('li');
+//   var inputValue = document.getElementById('texto-tarefa').value;
+//   var t = document.createTextNode(inputValue);
+//   li.appendChild(t);
+//   if (inputValue === '') {
+//     alert('Você precisa digitar alguma coisa para adicionar como uma tarefa.');
+//   } else {
+//     document.getElementById('lista-tarefas').appendChild(li);
+//   }
+//   document.getElementById('texto-tarefa').value = '';
 
   // var closeButton = document.createElement('BUTTON');
   // var txt = document.createTextNode('\u00D7');
@@ -111,7 +124,7 @@ function newElement() {
   //     return;
   //   }
   // }
-}
+// }
 
 var buttonRemoveChecked = document.querySelector('#remover-finalizados');
 
