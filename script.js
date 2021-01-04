@@ -34,9 +34,13 @@ addKeyTasks();
 
 function itemSelected(){
   const olListaTarefas = document.querySelector('ol#lista-tarefas');
-  olListaTarefas.addEventListener('click', function(event){
+  olListaTarefas.addEventListener('click', function(event){    
     const li = event.target;
-    li.classList.add('selectedList')
+    const list = document.querySelector('.selectedList');
+    if(list){
+      list.classList.remove('selectedList');      
+    }  
+    li.classList.add('selectedList');
   })
 }
 itemSelected();
