@@ -1,4 +1,4 @@
-//===== FUNCTIONS DOS BOTÕES =====
+// ===== FUNCTIONS DOS BOTÕES =====
 function addTask() {
   const newItem = document.createElement('li');
   if (document.getElementById('texto-tarefa').value !== '') {
@@ -21,12 +21,12 @@ function clearCompleted() {
   }
 }
 
-//===== BOTÕES =====
+// ===== BOTÕES =====
 document.getElementById('criar-tarefa').addEventListener('click', addTask);
 document.getElementById('apaga-tudo').addEventListener('click', clearList);
 document.getElementById('remover-finalizados').addEventListener('click', clearCompleted);
 
-//===== FUNCTIONS DA LISTA =====
+// ===== FUNCTIONS DA LISTA =====
 const taskList = document.querySelector('#lista-tarefas');
 
 taskList.addEventListener('click', function (select) {
