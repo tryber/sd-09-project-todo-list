@@ -4,8 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <header>
+        <h1>Minha Lista de Tarefas</h1>
+    </header>
+    <section>
+        <p><em id="funcionamento">Clique duas vezes em um item para marcá-lo como completo:</em></p>
+        <input id="texto-tarefa" placeholder="Input your new task"> <button id="criar-tarefa">Adicionar tarefa</button>
+        <ol id="lista-tarefas">
+        </ol>
+    </section>
+    <section id="control-buttons">
+        <button id="apaga-tudo">Delete all</button>
+        <button id="remover-finalizados">Remove done tasks</button>
+        <button id="remover-selecionado">Remove selected task</button>
+        <button id="mover-cima">Move up</button>
+        <button id="mover-baixo">Move down</button>
+        <button id="salvar-tarefas">Salvar tarefas</button>
+    </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
