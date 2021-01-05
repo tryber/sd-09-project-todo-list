@@ -2,7 +2,7 @@
 <html lang='pt-br'>
 <head>
   <meta charset='UTF-8'>
-  <title>Document</title>
+  <title>To Do List</title>
   <link rel='stylesheet' href='style.css'>
 </head>
 <body>
@@ -11,6 +11,9 @@
   <input type='text' id='texto-tarefa'> <button id='criar-tarefa' onclick='addTask()'>Adicionar</button>
   <ol id='lista-tarefas'>
   </ol>
+  <button id='apaga-tudo' onclick='clearList()'>Limpar Lista
+  </button> <button id='remover-finalizados' onclick='clearCompleted()'>Limpar Completos
+  </button>
   <script src="script.js"></script>
 </body>
 </html>
