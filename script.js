@@ -13,13 +13,15 @@ function backgroundItemSelecionado(event) {
   if (event.target == listaTarefas) {
     return;
   }
-  console.log(event.target.style.backgroundColor)
+  const listaItens = document.querySelectorAll('#lista-tarefas li');
+  for (let index = 0; index < listaItens.length; index += 1) {
+    listaItens[index].style.backgroundColor = '';
+  }
   event.target.style.backgroundColor = 'rgb(128,128,128)';
 }
 
 criarTarefa.addEventListener ('click', adicionarTarefa);
 
 listaTarefas.addEventListener('click', backgroundItemSelecionado);
-
 
 
