@@ -23,13 +23,23 @@ function criarTarefa() {
 
     input.value = '';
 
-    newTask.addEventListener('click', function () {
-      newTask.style.backgroundColor = 'rgb(128, 128, 128)'
-      newTask.style.color = 'rgb(255, 255, 255)'
-    })
+    // Muda a cor do background e da fonte ao receber o click
+    newTask.addEventListener('click', changeBG)
+
+    
   }
 
   addTaskToList()
+
+  function changeBG(event) {
+
+    let selectLi = document.querySelector('li');
+
+    selectLi.classList.remove('bg-task')
+
+    event.target.classList.add('bg-task')
+
+  }
 
   //localStorage.setItem('input', JSON.stringify(task))
 
@@ -62,3 +72,7 @@ function cleanList() {
 };
 
 cleanList();
+
+
+//newTask.style.backgroundColor = 'rgb(128, 128, 128)';
+      //newTask.style.color = 'rgb(255, 255, 255)';

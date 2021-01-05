@@ -101,6 +101,12 @@ input::placeholder {
   cursor: pointer;
 }
 
+.bg-task {
+  background-color: rgb(128, 128, 128);
+  color: rgb(255, 255, 255);
+  padding: 5px;
+}
+
 #buttons {
   margin-left: auto;
   margin-right: auto;
