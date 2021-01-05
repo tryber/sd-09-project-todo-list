@@ -33,24 +33,36 @@ function criarTarefa() {
 
   function changeBG(event) {
 
-    let selectLi = document.querySelector('li');
+    let bgLi = document.querySelector('.bg-task');
+     
+    // verificar se existe a li
 
-    selectLi.classList.remove('bg-task')
+    if( bgLi ) {
+      bgLi.classList.remove('bg-task');
 
-    event.target.classList.add('bg-task')
+    } 
+
+    // muda o bg
+
+    event.target.classList.add('bg-task');
 
   } 
 
   function taskCompleted(event) {
 
-    let selectLi = document.querySelector('li');
-  
-    selectLi.classList.remove('completed');
-  
-    event.classList.add('completed');
+    // propriedade contains verifica se algo contêm uma classe por exemplo
+
+    if (event.target.classList.contains('completed') ){
+
+      event.target.classList.remove('completed');
+
+    } else {
+
+      event.target.classList.add('completed');
+
+    }
 
   }
-
 }
 
 
