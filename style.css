@@ -2,19 +2,6 @@ body {
   font-family: sans-serif;
 }
 
-h1 {
-  color: black;
-  font-size: 60px;
-  text-align: left;
-}
-
-.description {
-  color: white;
-  font-size: 25px;
-  text-align: center;
-  text-shadow: 1px 1px 5px black;
-}
-
 button {
   background-color: darkgrey;
   border: 1px solid black;
@@ -22,8 +9,8 @@ button {
   box-shadow: 1px 1px 1px black;
   display: inline-block;
   font-family: sans-serif;
-  margin: 2px;
   font-size: 12px;
+  margin: 2px;
 }
 
 button:hover {
@@ -36,26 +23,43 @@ button:active {
   border-color: white;
 }
 
+h1 {
+  color: black;
+  font-size: 60px;
+  text-align: left;
+}
+
 input {
   border: 1px solid black;
   border-radius: 5px;
   display: block;
+  font-size: 20px;
   height: 30px;
   margin: 10px auto;
+  margin-left: 10px;
   padding-left: 10px;
   width: 500px;
-  margin-left: 10px;
-  font-size: 20px;
 }
 
 li {
   border-radius: 5px;
   background-color: white;
+  color: black;
   font-size: 30px;
   padding: 1px 15px;
   text-align: left;
   text-shadow: black;
-  color: black;
+}
+
+.description {
+  color: white;
+  font-size: 25px;
+  text-align: center;
+  text-shadow: 1px 1px 5px black;
+}
+
+.completed {
+  text-decoration: line-through solid black;
 }
 
 .main-content {
@@ -75,8 +79,4 @@ li {
 
 .inputs {
   text-align: center;
-}
-
-.completed {
-  text-decoration: line-through solid black;
 }

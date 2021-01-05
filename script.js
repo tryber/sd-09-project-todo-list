@@ -36,7 +36,7 @@ function generateAddTaskButton() {
   });
 }
 
-function completedListItem(item) {
+function (item) {
   const selectedItem = item.target.style.backgroundColor;
   if (selectedItem === 'rgb(128, 128, 128)' && item.target.className !== 'completed') {
     item.target.className = 'completed';
@@ -173,43 +173,20 @@ function generateSelectedTaskButton() {
   });
 }
 
-function completedListItem(item) {
-  const selectedItem = item.target.style.backgroundColor;
-  if (selectedItem === 'rgb(128, 128, 128)' && item.target.className !== 'completed') {
-    item.target.className = 'completed';
-  } else {
-    item.target.className = '';
-  }
+function selectListItem() {
+  const listItem = document.getElementById('lista-tarefas');
+  const items = document.getElementsByTagName('li');
+  listItem.addEventListener('click', function (selectedItem) {
+    if (selectedItem.target.style.backgroundColor !== 'rgb(128, 128, 128)') {
+      for (let i = 0; i < items.length; i += 1) {
+        items[i].style.backgroundColor = '';
+      }
+      selectedItem.target.style.backgroundColor = 'rgb(128, 128, 128)';
+    }
+  });
+  listItem.addEventListener('dblclick', completedListItem);
 }
 
-function selectListItem() {
-  const listItem = document.getElementById('lista-tarefas');
-  const items = document.getElementsByTagName('li');
-  listItem.addEventListener('click', function (selectedItem) {
-    if (selectedItem.target.style.backgroundColor !== 'rgb(128, 128, 128)') {
-      for (let i = 0; i < items.length; i += 1) {
-        items[i].style.backgroundColor = '';
-      }
-      selectedItem.target.style.backgroundColor = 'rgb(128, 128, 128)';
-    }
-  });
-  listItem.addEventListener('dblclick', completedListItem);
-}
-function selectListItem() {
-  const listItem = document.getElementById('lista-tarefas');
-  const items = document.getElementsByTagName('li');
-  listItem.addEventListener('click', function (selectedItem) {
-    if (selectedItem.target.style.backgroundColor !== 'rgb(128, 128, 128)') {
-      for (let i = 0; i < items.length; i += 1) {
-        items[i].style.backgroundColor = '';
-        items[i].id = '';
-      }
-      selectedItem.target.style.backgroundColor = 'rgb(128, 128, 128)';
-      selectedItem.target.id = 'selected';
-    }
-  });
-  listItem.addEventListener('dblclick', completedListItem);
-}
 function loadSavedTasks() {
   const taskList = document.getElementById('lista-tarefas');
   let savedTasksObj = {
