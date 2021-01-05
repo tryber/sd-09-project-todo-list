@@ -30,3 +30,18 @@ function saveToLocalStorage() {
       taskCompleted.classList.add('completed');
     }
   }
+  function getFromLocalStorage() {
+    const objTasks = localStorage.getItem('tasks').split(',');
+    const objClasses = localStorage.getItem('classes').split(',');
+    for (let index = 0; index < objTasks.length; index += 1) {
+      const addTask = document.querySelector('#lista-tarefas');
+      const list = document.createElement('li');
+      list.innerHTML = objTasks[index];
+      list.className = objClasses[index];
+      list.id = 'lista';
+      addTask.appendChild(list);
+      list.addEventListener('click', handleClickTaskElement);
+      list.addEventListener('dblclick', handleDblclickTaskElement);
+    }
+  }
+  
