@@ -42,8 +42,16 @@ const criarTarefa = document.createElement('button');
       });
     }
 
+    function taskRisk() {
+    const taskLine = document.querySelector('#lista-tarefas');
+    taskLine.addEventListener('dblclick',function(event) {
+      event.target.classList.toggle('completed')
+    })
+  }
+
     window.onload = function () {
     taskAdd();
     colorItem();
     dellTasks();
+    taskRisk();
     };
