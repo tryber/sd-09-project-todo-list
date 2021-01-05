@@ -17,7 +17,7 @@ function addSelectedClassToOneItem() {
   organizedList.addEventListener('click', function (event) {
     const selected = document.querySelectorAll('.selected');
     for (let index = 0; index < selected.length; index += 1) {
-      selected[index].classList.remove('selected')
+      selected[index].classList.remove('selected');
     }
     event.target.classList.add('selected');
   });
