@@ -58,4 +58,10 @@ function saveToLocalStorage() {
       li.addEventListener('dblclick', handleDblclickTaskElement);
     }
   }
+  function removeAllTasks() {
+    const allTasks = document.querySelector('#lista-tarefas');
+    while (allTasks.firstChild) {
+      allTasks.removeChild(allTasks.lastChild);
+    }
+  }
   
