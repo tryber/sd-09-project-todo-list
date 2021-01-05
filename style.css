@@ -1,0 +1,82 @@
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+  color: black;
+  font-size: 60px;
+  text-align: left;
+}
+
+.description {
+  color: white;
+  font-size: 25px;
+  text-align: center;
+  text-shadow: 1px 1px 5px black;
+}
+
+button {
+  background-color: darkgrey;
+  border: 1px solid black;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px black;
+  display: inline-block;
+  font-family: sans-serif;
+  margin: 2px;
+  font-size: 12px;
+}
+
+button:hover {
+  background-color: rgb(32, 52, 56);
+  color: white;
+}
+
+button:active {
+  background-color: grey;
+  border-color: white;
+}
+
+input {
+  border: 1px solid black;
+  border-radius: 5px;
+  display: block;
+  height: 30px;
+  margin: 10px auto;
+  padding-left: 10px;
+  width: 500px;
+  margin-left: 10px;
+  font-size: 20px;
+}
+
+li {
+  border-radius: 5px;
+  background-color: white;
+  font-size: 30px;
+  padding: 1px 15px;
+  text-align: left;
+  text-shadow: black;
+  color: black;
+}
+
+.main-content {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.tasks {
+  background-color: whitesmoke;
+  border: 8px solid lightskyblue;
+  border-radius: 15px;
+  box-shadow: 5px 5px 15px;
+  margin: 15px auto;
+  padding: 15px;
+  width: fit-content;
+}
+
+.inputs {
+  text-align: center;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
