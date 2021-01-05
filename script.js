@@ -5,4 +5,13 @@ function addText () {
    let criarElemento = document.createElement('li');
     criarElemento.innerText = text.value;
     add.appendChild(criarElemento);
+    text.value = '';
 }
+   
+
+/*let colorBackground = document.querySelector('.bgColor');
+
+function collor (event) {
+    let adc = document.querySelector('#lista-tarefas');
+}
+    adc.addEventListener('click', collor);*/
