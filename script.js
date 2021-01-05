@@ -57,3 +57,23 @@ function saveToLocalStorage() {
       li.addEventListener('dblclick', handleDblclickTaskElement);
     }
   }
+  function removeAllTasks() {
+    const allTasks = document.querySelector('#lista-tarefas');
+    while (allTasks.firstChild) {
+      allTasks.removeChild(allTasks.lastChild);
+    }
+  }
+  
+  function removeCompletedTasks() {
+    const allCompletedTasks = document.getElementsByClassName('completed');
+    while (allCompletedTasks.length > 0) {
+      allCompletedTasks[0].remove();
+    }
+  }
+  
+  function removeSelectedTask() {
+    const selectedTask = document.getElementsByClassName('selected');
+    while (selectedTask.length > 0) {
+      selectedTask[0].remove();
+    }
+  }
