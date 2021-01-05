@@ -71,7 +71,7 @@ function removeSelectedTask() {
 }
 
 function dontMoveFirstElementUp(index, UpOrDown) {
-  if (index === 0 && UpOrDown === -1) { return; }
+  if (index === 0 && UpOrDown === -1) { return 0; } // Early Return
 }
 function moveTask(UpOrDown) {
   const taskList = document.querySelector('#lista-tarefas');
