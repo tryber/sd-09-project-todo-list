@@ -37,68 +37,64 @@ function removeCompletedElements() {
 }
 
 function loadSavedTasks() {
-  // Pegar cada conjunto chave-valor do Local Storage, e criar uma linha inserindo o texto do valor da chave
-  console.log(localStorage.getItem(`Task `))
+  // Pegar cada chave-valor do Local Storage, e cria uma linha inserindo o texto do valor da chave
+
   const numberTasks = localStorage.getItem('Task count');
   for (let index = 1; index <= numberTasks; index += 1) {
-    const taskText = localStorage.getItem(`Task ${index}`)
-    const line = document.createElement('li')
-    line.textContent = taskText
-    const taskClasses = localStorage.getItem(`Task ${index} - class`)
-    line.classList = taskClasses
-    const taskList = document.querySelector('#lista-tarefas')
-    taskList.appendChild(line)
+    const taskText = localStorage.getItem(`Task ${index}`);
+    const line = document.createElement('li');
+    line.textContent = taskText;
+    const taskClasses = localStorage.getItem(`Task ${index} - class`);
+    line.classList = taskClasses;
+    const taskList = document.querySelector('#lista-tarefas');
+    taskList.appendChild(line);
   }
 }
 
 function saveTasks() {
   const tasks = document.querySelectorAll('#lista-tarefas > li');
   if (tasks === null) {
-    return
+    return;
   }
   localStorage.clear();
-  localStorage.setItem(`Task count`,tasks.length)
-  for (let index = 0; index <= tasks.length -1; index += 1) {
-    localStorage.setItem(`Task ${index + 1}`,tasks[index].textContent)
-    localStorage.setItem(`Task ${index + 1} - class`,tasks[index].classList)
+  localStorage.setItem('Task count', tasks.length);
+  for (let index = 0; index <= tasks.length - 1; index += 1) {
+    localStorage.setItem(`Task ${index + 1}`, tasks[index].textContent);
+    localStorage.setItem(`Task ${index + 1} - class`, tasks[index].classList);
   }
-}
-
-//  https://developer.mozilla.org/pt-BR/docs/Web/API/Node/insertBefore
-function moveList() {
-  const selectedElement = document.querySelector('.completed');
-  const tasksList = document.querySelector('#lista-tarefas');
-  tasksList.insertBefore
 }
 
 function removeSelectedTask() {
-  let list = document.querySelector('#lista-tarefas')
-  let task = document.querySelector('.gray');
+  const list = document.querySelector('#lista-tarefas');
+  const task = document.querySelector('.gray');
   list.removeChild(task);
 }
 
+function dontMoveFirstElementUp(index, UpOrDown) {
+  if (index === 0 && UpOrDown === -1) { return; }
+}
+function moveTask(UpOrDown) {
+  const taskList = document.querySelector('#lista-tarefas');
+  const tasks = document.querySelectorAll('#lista-tarefas > li');
+  const selectedTask = document.querySelector('.gray');
+
+  for (let index = 0; tasks.length >= index; index += 1) {
+    if (tasks[index] === selectedTask) {
+      dontMoveFirstElementUp(index, UpOrDown);
+      taskList.insertBefore(selectedTask, tasks[index + UpOrDown]);
+      return;
+    }
+  }
+}
+
 function moveTaskUp() {
-  let up = -1
-  moveTask(up)
+  const up = -1;
+  moveTask(up);
 }
 
 function moveTaskDown() {
-  let down = +2
-  moveTask(down)
-}
-
-function moveTask(UpOrDown) {
-  let taskList = document.querySelector('#lista-tarefas');
-  let tasks = document.querySelectorAll('#lista-tarefas > li');
-  let selectedTask = document.querySelector('.gray');
-
-  for (let index = 0; tasks.length >= index; index += 1){
-    if (tasks[index] === selectedTask) {
-      if(index === 0 && UpOrDown === -1) {return}
-      taskList.insertBefore(selectedTask,tasks[index + UpOrDown])
-      return
-    }
-  }
+  const down = +2;
+  moveTask(down);
 }
 
 function addEventsListener() {
@@ -116,20 +112,20 @@ function addEventsListener() {
   const buttonRemoveCompleted = document.querySelector('#remover-finalizados');
   buttonRemoveCompleted.addEventListener('click', removeCompletedElements);
   //  Escutador do botão que salva a lista
-  const buttonSave = document.querySelector('#salvar-tarefas')
-  buttonSave.addEventListener('click',saveTasks)
+  const buttonSave = document.querySelector('#salvar-tarefas');
+  buttonSave.addEventListener('click', saveTasks);
   //  Escutador do botão que salva a lista
-  const buttonRemoveSelected = document.querySelector('#remover-selecionado')
-  buttonRemoveSelected.addEventListener('click',removeSelectedTask)
+  const buttonRemoveSelected = document.querySelector('#remover-selecionado');
+  buttonRemoveSelected.addEventListener('click', removeSelectedTask);
   //  Escutador do botão que move para cima
-  const buttonMoveUp = document.querySelector('#mover-cima')
-  buttonMoveUp.addEventListener('click',moveTaskUp)
-   //  Escutador do botão que move para baixo
-   const buttonMoveDown = document.querySelector('#mover-baixo')
-   buttonMoveDown.addEventListener('click',moveTaskDown)
+  const buttonMoveUp = document.querySelector('#mover-cima');
+  buttonMoveUp.addEventListener('click', moveTaskUp);
+  //  Escutador do botão que move para baixo
+  const buttonMoveDown = document.querySelector('#mover-baixo');
+  buttonMoveDown.addEventListener('click', moveTaskDown);
 }
 
-window.onload = function() {
+window.onload = function () {
   addEventsListener();
   loadSavedTasks();
-}
+};
