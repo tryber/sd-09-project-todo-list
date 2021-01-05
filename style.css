@@ -1,4 +1,4 @@
-/** * {
+* {
   margin: 0;
   padding: 0;
 }
@@ -11,4 +11,8 @@
 
 .layout {
   display: inline-block;
-} /
+}
+
+.secoes {
+  display: inline-block;
+}

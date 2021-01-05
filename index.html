@@ -10,20 +10,22 @@
   <div class="container">
     <header><h1>Minha Lista de Tarefas</h1></header>
     <div class="layout">
-      <section>
-      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo.
-      </p>
-        <form>
-          <input id="texto-tarefa" type="text" name="nome" id="nome" autocomplete="off"/>
-          <button id="criar-tarefa">Adicionar</button>
-          <button id="apaga-tudo">Apagar</button>
-          <button id="remover-finalizados">Remover Finalizados</button>
+      <section class="secoes controls">
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo.
+        </p>
+        <form id="formulario">
+          <input id="texto-tarefa" type="text" autocomplete="off" placeholder="Adicione uma tarefa"/>          
         </form>
+        <button id="criar-tarefa" >Adicionar</button>
+        <button id="apaga-tudo">Apagar</button>
+        <button id="remover-finalizados">Remover Finalizados</button>
       </section>
-    <section>
+    <section class="secoes todo-list">
       <ol id="lista-tarefas"></ol>
+      <p id="texto"></p>
     </section>
   </div>
 </div>
+<script src="script.js"></script>
 </body>
 </html>
