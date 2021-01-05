@@ -22,3 +22,11 @@ function saveToLocalStorage() {
     }
     taskBackgroundColor.classList.add('selected');
   }
+  function handleDblclickTaskElement(event) {
+    const taskCompleted = event.target;
+    if (taskCompleted.classList.contains('completed')) {
+      taskCompleted.classList.remove('completed');
+    } else {
+      taskCompleted.classList.add('completed');
+    }
+  }
