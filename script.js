@@ -28,18 +28,10 @@ function clear() {
 }
 clear();
 
-function selected() {
-  const todoList = document.querySelector('#lista-tarefas');
-  todoList.addEventListener('click', function (event) {
-    const allList = document.querySelectorAll('.linha');
-    if (event.target.className.indexOf('selecionado') === -1) {
-      for (let index = 0; index < allList.length; index += 1) {
-        allList[index].classList.remove('selecionado');
-      }
-      event.target.classList.add('selecionado');
-    } else {
-      event.target.classList.remove('selecionado');
-    }
+function completed() {
+  const List = document.querySelector('#lista-tarefas');
+  List.addEventListener('dblclick', function (event) {
+    event.target.classList.toggle('completed');
   });
 }
-selected();
+completed();
