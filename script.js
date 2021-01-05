@@ -64,4 +64,9 @@ function saveToLocalStorage() {
       allTasks.removeChild(allTasks.lastChild);
     }
   }
-  
+  function removeCompletedTasks() {
+    const allCompletedTasks = document.getElementsByClassName('completed');
+    while (allCompletedTasks.length > 0) {
+      allCompletedTasks[0].remove();
+    }
+  }
