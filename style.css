@@ -1,0 +1,9 @@
+.lista-tarefas {
+  border: solid;
+  padding: 50px;
+
+}
+
+.completed {
+  text-decoration: line-through ;
+}
