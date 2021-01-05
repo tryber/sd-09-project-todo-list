@@ -14,3 +14,20 @@ function saveToLocalStorage() {
       document.write('Sem suporte para Web Storage.');
     }
   }
+  function handleClickTaskElement(event) {
+    const taskBackgroundColor = event.target;
+    const removeBackgroundColorTask = document.querySelectorAll('#lista');
+    for (let index = 0; index < removeBackgroundColorTask.length; index += 1) {
+      removeBackgroundColorTask[index].classList.remove('selected');
+    }
+    taskBackgroundColor.classList.add('selected');
+  }
+  
+  function handleDblclickTaskElement(event) {
+    const taskCompleted = event.target;
+    if (taskCompleted.classList.contains('completed')) {
+      taskCompleted.classList.remove('completed');
+    } else {
+      taskCompleted.classList.add('completed');
+    }
+  }
