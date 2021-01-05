@@ -77,3 +77,18 @@ function saveToLocalStorage() {
       selectedTask[0].remove();
     }
   }
+  function moveUpSelectedTask() {
+    const tasksToMoveUp = document.querySelectorAll('#lista');
+    for (let index = 1; index < tasksToMoveUp.length; index += 1) {
+      if (tasksToMoveUp[index].classList.contains('selected')) {
+        const liPrevClass = tasksToMoveUp[index - 1].className;
+        const liPrevTask = tasksToMoveUp[index - 1].innerText;
+        tasksToMoveUp[index - 1].innerText = tasksToMoveUp[index].innerText;
+        tasksToMoveUp[index - 1].className = tasksToMoveUp[index].className;
+        tasksToMoveUp[index].innerText = liPrevTask;
+        tasksToMoveUp[index].className = liPrevClass;
+        break;
+      }
+    }
+  }
+  
