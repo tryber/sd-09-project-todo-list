@@ -90,3 +90,38 @@ function saveToLocalStorage() {
       }
     }
   }
+  function moveDownSelectedTask() {
+    const tasksToMoveDown = document.querySelectorAll('#lista');
+    for (let index = 0; index < tasksToMoveDown.length - 1; index += 1) {
+      if (tasksToMoveDown[index].classList.contains('selected')) {
+        const liNextClass = tasksToMoveDown[index + 1].className;
+        const LiNextTask = tasksToMoveDown[index + 1].innerText;
+        tasksToMoveDown[index + 1].innerText = tasksToMoveDown[index].innerText;
+        tasksToMoveDown[index + 1].className = tasksToMoveDown[index].className;
+        tasksToMoveDown[index].innerText = LiNextTask;
+        tasksToMoveDown[index].className = liNextClass;
+        break;
+      }
+    }
+  }
+  const buttonCreateTask = document.querySelector('#criar-tarefa');
+  buttonCreateTask.addEventListener('click', createTaskElement);
+  
+  const buttonRemoveAllTasks = document.querySelector('#apaga-tudo');
+  buttonRemoveAllTasks.addEventListener('click', removeAllTasks);
+  
+  const buttonRemoveCompletedTasks = document.querySelector('#remover-finalizados');
+  buttonRemoveCompletedTasks.addEventListener('click', removeCompletedTasks);
+  
+  const buttonSaveTasks = document.querySelector('#salvar-tarefas');
+  buttonSaveTasks.addEventListener('click', saveToLocalStorage);
+  
+  const buttonRemoveSelectedTask = document.querySelector('#remover-selecionado');
+  buttonRemoveSelectedTask.addEventListener('click', removeSelectedTask);
+  
+  const buttonMoveUpSelectedTask = document.querySelector('#mover-cima');
+  buttonMoveUpSelectedTask.addEventListener('click', moveUpSelectedTask);
+  
+  const buttonMoveDownSelectedTask = document.querySelector('#mover-baixo');
+  buttonMoveDownSelectedTask.addEventListener('click', moveDownSelectedTask);
+  
