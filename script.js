@@ -1,17 +1,21 @@
+let criarElemento = document.createElement('li');
 function addText () {
   const text = document.getElementById('texto-tarefa');
   const add = document.getElementById('lista-tarefas');
   
-   let criarElemento = document.createElement('li');
+  let criarElemento = document.createElement('li');
     criarElemento.innerText = text.value;
     add.appendChild(criarElemento);
     text.value = '';
 }
-   
 
-/*let colorBackground = document.querySelector('.bgColor');
-
-function collor (event) {
-    let adc = document.querySelector('#lista-tarefas');
-}
-    adc.addEventListener('click', collor);*/
+function changebg(event) {
+    
+    const color = document.querySelector('.bg-color');
+    if (color !== null) {
+        color.classList.remove('bg-color');
+    } event.target.classList.add('bg-color');
+} 
+ const teste = document.querySelector('#lista-tarefas');
+ teste.addEventListener('click', changebg);
+ 
