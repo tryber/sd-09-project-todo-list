@@ -16,7 +16,7 @@ function addTask () {
 
 function listenToCriarTarefaButton () {
     const criarTarefaButton = document.querySelector('#criar-tarefa')
-    
+
     criarTarefaButton.addEventListener('click', addTask)
 }
 
@@ -34,14 +34,14 @@ function addSelectedClass (event) {
     event.target.classList.add('selected')
 }
 
-function toggleLineThroughClass (event) {
-    event.target.classList.toggle('line-through')
+function toggleCompletedClass (event) {
+    event.target.classList.toggle('completed')
 }
 
 function listenToListaTarefasOrderedList () {
     listaTarefasOrderedList.addEventListener('click', removeSelectedClass)
     listaTarefasOrderedList.addEventListener('click', addSelectedClass)
-    listaTarefasOrderedList.addEventListener('dblclick', toggleLineThroughClass)
+    listaTarefasOrderedList.addEventListener('dblclick', toggleCompletedClass)
 }
 
 listenToListaTarefasOrderedList()
