@@ -10,7 +10,6 @@ function addTask () {
     const listItem = document.createElement('li')
 
     listItem.innerText = textoTarefaImput.value
-    listItem.classList.add('pointer')
     listaTarefasOrderedList.appendChild(listItem)
 
     clearTextoTarefaValue()
@@ -34,10 +33,15 @@ function addSelectedClass (event) {
     event.target.classList.add('selected')
 }
 
-function listenTolistaTarefasOrderedList () {
-    listaTarefasOrderedList.addEventListener('click', removeSelectedClass)
-    listaTarefasOrderedList.addEventListener('click', addSelectedClass)
+function toggleLineThroughClass (event) {
+    event.target.classList.toggle('line-through')
 }
 
-listenTolistaTarefasOrderedList()
+function listenToListaTarefasOrderedList () {
+    listaTarefasOrderedList.addEventListener('click', removeSelectedClass)
+    listaTarefasOrderedList.addEventListener('click', addSelectedClass)
+    listaTarefasOrderedList.addEventListener('dblclick', toggleLineThroughClass)
+}
+
+listenToListaTarefasOrderedList()
 

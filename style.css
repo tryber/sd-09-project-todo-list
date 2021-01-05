@@ -2,6 +2,10 @@
     background-color: rgb(128, 128, 128);
 }
 
-.pointer {
+li, button {
     cursor: pointer;
+}
+
+.line-through {
+    text-decoration: line-through;
 }
