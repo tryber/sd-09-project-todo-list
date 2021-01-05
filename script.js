@@ -44,4 +44,16 @@ function saveToLocalStorage() {
       list.addEventListener('dblclick', handleDblclickTaskElement);
     }
   }
-  
+  function createTaskElement() {
+    const addNewTask = document.querySelector('#lista-tarefas');
+    const textToTask = document.querySelector('#texto-tarefa');
+    const li = document.createElement('li');
+    if (textToTask.value !== '') {
+      li.innerHTML = textToTask.value;
+      li.id = 'lista';
+      addNewTask.appendChild(li);
+      textToTask.value = '';
+      li.addEventListener('click', handleClickTaskElement);
+      li.addEventListener('dblclick', handleDblclickTaskElement);
+    }
+  }
