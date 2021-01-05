@@ -11,7 +11,7 @@ function addTask() {
     const todoList = document.querySelector('#lista-tarefas');
     document.getElementById('texto-tarefa').value = '';
     addLine.innerText = textSource;
-    addLine.className = 'li';
+    addLine.className = 'line';
     todoList.appendChild(addLine);
   });
 }
@@ -27,13 +27,30 @@ function clear() {
   });
 }
 clear();
-function paintGray() {
-  const list = document.querySelector('ol');
-  list.addEventListener('click', (event) => {
-    const li = document.querySelectorAll('li');
-    for (let i = 0; i < li.length; i += 1) {
-      li[i].classList.remove('selected');
+function selected() {
+  const list = document.querySelector('#lista-tarefas');
+  list.addEventListener('click', function (event) {
+    const items = document.querySelectorAll('.line');
+    if (event.target.className.indexOf('selected') === -1) {
+      for (let index = 0; index < items.length; index += 1) {
+        items[index].classList.remove('selected');
+      }
+      event.target.classList.add('selected');
+    } else {
+      event.target.classList.remove('selected');
     }
-    event.target.classList.add('selected');
   });
 }
+selected();
+
+function complete() {
+  const list = document.querySelector('#lista-tarefas');
+  list.addEventListener('dblclick', function (event) {
+    if (event.target.className.indexOf('completed') === -1) {
+      event.target.classList.add('completed');
+    } else {
+      event.target.classList.remove('completed');
+    }
+  });
+}
+complete();
