@@ -13,14 +13,13 @@ function backgroundItemSelecionado(event) {
   if (event.target == listaTarefas) {
     return;
   }
-  if (!event.target.style.backgroundColor == "rgb(128,128,128") {
-    event.target.style.backgroundColor = rgb(128,128,128);
-  }
+  console.log(event.target.style.backgroundColor)
+  event.target.style.backgroundColor = 'rgb(128,128,128)';
 }
 
 criarTarefa.addEventListener ('click', adicionarTarefa);
 
-listaTarefas.addEventListener("click", backgroundItemSelecionado);
+listaTarefas.addEventListener('click', backgroundItemSelecionado);
 
 
 
