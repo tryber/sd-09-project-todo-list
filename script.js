@@ -8,9 +8,9 @@ function criarTarefa () {
     novoElemento.innerText = novaTarefa.value;
     listaDeTarefas.appendChild(novoElemento);
     novoElemento.addEventListener('click', function(event) {
-        let teste = document.querySelector('.selected');
-        if (teste){
-            teste.classList.remove("selected");
+        let selected = document.querySelector('.selected');
+        if (selected){
+            selected.classList.remove("selected");
         }
         event.target.classList.add("selected");
     });
