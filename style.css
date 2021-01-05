@@ -49,18 +49,18 @@ input {
 }
 
 #criar-tarefa {
-  float: right;
   position: relative;
-  right: 190px;
+  top: -50px;
+  left: 125px;
   bottom: 300px;
-  padding: 5px;
   height: 35px;
-  font-size: 10px;
-  border-radius: 100px;
+  border-radius: 50px;
   border-style: none;
-  background-color: hsl(0, 0%, 98%);
-  color: #303030;
   cursor: pointer;
+}
+
+img {
+  height: 35px;
 }
 
 input::placeholder {
@@ -85,8 +85,6 @@ input::placeholder {
   overflow: auto;
 }
 
-
-
 #lista-tarefas {
   font-family: 'Josefin Sans', sans-serif;
   font-weight: 400;
@@ -107,7 +105,13 @@ input::placeholder {
   padding: 5px;
 }
 
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+
 #buttons {
+  position: relative;
+  top: 50px;
   margin-left: auto;
   margin-right: auto;
   width: 300px;

@@ -5,8 +5,6 @@ function criarTarefa() {
   const input = document.querySelector('#texto-tarefa');
   const taskList = document.querySelector('#lista-tarefas');
 
-  //let task = input.value;
-
   function addTaskToList() {
 
     // Criando o elemento
@@ -26,8 +24,10 @@ function criarTarefa() {
     // Muda a cor do background e da fonte ao receber o click
     newTask.addEventListener('click', changeBG)
 
-    
+    newTask.addEventListener('dblclick', taskCompleted)
+  
   }
+
 
   addTaskToList()
 
@@ -39,11 +39,21 @@ function criarTarefa() {
 
     event.target.classList.add('bg-task')
 
+  } 
+
+  function taskCompleted(event) {
+
+    let selectLi = document.querySelector('li');
+  
+    selectLi.classList.remove('completed');
+  
+    event.classList.add('completed');
+
   }
 
-  //localStorage.setItem('input', JSON.stringify(task))
-
 }
+
+
 
 function cleanList() {
 
@@ -76,3 +86,7 @@ cleanList();
 
 //newTask.style.backgroundColor = 'rgb(128, 128, 128)';
       //newTask.style.color = 'rgb(255, 255, 255)';
+
+
+       //let task = input.value;
+//localStorage.setItem('input', JSON.stringify(task))
