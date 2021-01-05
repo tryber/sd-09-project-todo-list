@@ -1,6 +1,7 @@
 function addTask() {
-  let newItem = document.createElement('li');
-  let newItemText = document.createTextNode(document.getElementById('texto-tarefa').value);
+  const newItem = document.createElement('li');
+  const newItemText = document.createTextNode(document.getElementById('texto-tarefa').value);
   newItem.appendChild(newItemText);
   document.getElementById('lista-tarefas').appendChild(newItem);
+  document.getElementById('texto-tarefa').value = '';
 }
