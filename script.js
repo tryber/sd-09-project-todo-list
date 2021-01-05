@@ -1,6 +1,7 @@
 //javascripts source
 //https://www.youtube.com/watch?v=XF1_MlZ5l6M&ab_channel=WebDevSimplified
 //https://www.youtube.com/watch?v=y17RuWkWdn8&t=890s&ab_channel=WebDevSimplified
+//https://www.w3schools.com/jsref/met_node_removechild.asp
 function addTask() {
   const addBtn = document.getElementById('criar-tarefa');
   addBtn.addEventListener('click', function () {
@@ -14,3 +15,14 @@ function addTask() {
   });
 }
 addTask();
+
+function clear() {
+  const clearBtn = document.getElementById('apaga-tudo');
+  clearBtn.addEventListener('click', function () {
+    const list = document.querySelector('#lista-tarefas');
+    while (list.firstChild) {
+      list.removeChild(list.firstChild);
+    }
+  });
+}
+clear();
