@@ -1,4 +1,5 @@
 //javascripts source
+//https://developer.mozilla.org/pt-BR/docs/Web/API/Event/target
 //https://www.youtube.com/watch?v=XF1_MlZ5l6M&ab_channel=WebDevSimplified
 //https://www.youtube.com/watch?v=y17RuWkWdn8&t=890s&ab_channel=WebDevSimplified
 //https://www.w3schools.com/jsref/met_node_removechild.asp
@@ -26,3 +27,19 @@ function clear() {
   });
 }
 clear();
+
+function selected() {
+  const todoList = document.querySelector('#lista-tarefas');
+  todoList.addEventListener('click', function (event) {
+    const allList = document.querySelectorAll('.linha');
+    if (event.target.className.indexOf('selecionado') === -1) {
+      for (let index = 0; index < allList.length; index += 1) {
+        allList[index].classList.remove('selecionado');
+      }
+      event.target.classList.add('selecionado');
+    } else {
+      event.target.classList.remove('selecionado');
+    }
+  });
+}
+selected();
