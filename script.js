@@ -70,3 +70,9 @@ function saveToLocalStorage() {
       allCompletedTasks[0].remove();
     }
   }
+  function removeSelectedTask() {
+    const selectedTask = document.getElementsByClassName('selected');
+    while (selectedTask.length > 0) {
+      selectedTask[0].remove();
+    }
+  }
