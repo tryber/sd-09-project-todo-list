@@ -8,7 +8,7 @@ h1 {
   text-align: left;
 }
 
-.funcionamento {
+.description {
   color: white;
   font-size: 25px;
   text-align: center;
@@ -22,8 +22,8 @@ button {
   box-shadow: 1px 1px 1px black;
   display: inline-block;
   font-family: sans-serif;
-  font-size: 12px;
   margin: 2px;
+  font-size: 12px;
 }
 
 button:hover {
@@ -40,22 +40,22 @@ input {
   border: 1px solid black;
   border-radius: 5px;
   display: block;
-  font-size: 20px;
   height: 30px;
   margin: 10px auto;
-  margin-left: 10px;
   padding-left: 10px;
   width: 500px;
+  margin-left: 10px;
+  font-size: 20px;
 }
 
 li {
   border-radius: 5px;
   background-color: white;
-  color: black;
   font-size: 30px;
+  padding: 1px 15px;
   text-align: left;
   text-shadow: black;
-  padding: 1px 15px;
+  color: black;
 }
 
 .main-content {
@@ -77,6 +77,6 @@ li {
   text-align: center;
 }
 
-.funcionamento {
+.completed {
   text-decoration: line-through solid black;
 }
