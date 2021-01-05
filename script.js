@@ -20,8 +20,12 @@ function backgroundItemSelecionado(event) {
   event.target.style.backgroundColor = 'rgb(128,128,128)';
 }
 
+function completarTarefa (event) {
+  event.target.classList.toggle('completed');
+}
+
 criarTarefa.addEventListener ('click', adicionarTarefa);
 
 listaTarefas.addEventListener('click', backgroundItemSelecionado);
 
-
+listaTarefas.addEventListener('dblclick', completarTarefa);
