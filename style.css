@@ -14,7 +14,7 @@ button {
 }
 
 button:hover {
-  background-color: rgb(32, 52, 56);
+  background-color: rgb( 32, 52, 56 );
   color: white;
 }
 
@@ -75,7 +75,6 @@ li {
   margin: 15px auto;
   padding: 15px;
   width: fit-content;
-  /* teste css */
 }
 
 .inputs {

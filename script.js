@@ -173,16 +173,7 @@ function generateSelectedTaskButton() {
   });
 }
 
-function completedListItem(item) {
-  const selectedItem = item.target.style.backgroundColor;
-  if (selectedItem === 'rgb(128, 128, 128)' && item.target.className !== 'completed') {
-    item.target.className = 'completed';
-  } else {
-    item.target.className = '';
-  }
-}
-
-function selectListItem() {
+function selectListItemDoble() {
   const listItem = document.getElementById('lista-tarefas');
   const items = document.getElementsByTagName('li');
   listItem.addEventListener('click', function (selectedItem) {
@@ -193,7 +184,7 @@ function selectListItem() {
       selectedItem.target.style.backgroundColor = 'rgb(128, 128, 128)';
     }
   });
-  listItem.addEventListener('dblclick', completedListItem);
+  listItem.addEventListener('dblclick', selectListItemDoble);
 }
 function selectListItem() {
   const listItem = document.getElementById('lista-tarefas');
