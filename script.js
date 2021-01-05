@@ -11,7 +11,7 @@ function adicionarTarefa() {
 }
 
 function backgroundItemSelecionado(event) {
-  if (event.target == listaTarefas) {
+  if (event.target === listaTarefas) {
     return;
   }
   const listaItens = document.querySelectorAll('#lista-tarefas li');
@@ -25,7 +25,7 @@ function completarTarefa(event) {
   event.target.classList.toggle('completed');
 }
 
-function apagarTudo(event) {
+function apagarTudo() {
   const listaItens = document.querySelectorAll('li');
 
   for (let index = 0; index < listaItens.length; index += 1) {
