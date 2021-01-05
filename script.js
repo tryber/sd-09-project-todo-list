@@ -1,6 +1,5 @@
 const listaTarefasOrderedList = document.querySelector('#lista-tarefas')
 const textoTarefaImput = document.querySelector('#texto-tarefa')
-const criarTarefaButton = document.querySelector('#criar-tarefa')
 
 function clearTextoTarefaValue () {
     textoTarefaImput.value = ''
@@ -16,6 +15,8 @@ function addTask () {
 }
 
 function listenToCriarTarefaButton () {
+    const criarTarefaButton = document.querySelector('#criar-tarefa')
+    
     criarTarefaButton.addEventListener('click', addTask)
 }
 
@@ -45,3 +46,20 @@ function listenToListaTarefasOrderedList () {
 
 listenToListaTarefasOrderedList()
 
+function removeSelected () {
+    const listItemNodeList = document.querySelectorAll('#lista-tarefas li')
+
+    for (let i = 0; i < listItemNodeList.length; i += 1) {
+        if (listItemNodeList[i].className === 'selected') {
+            listaTarefasOrderedList.removeChild(listItemNodeList[i])
+        }
+    }
+}
+
+function listenToRemoverSelecionadoButton () {
+    const removerSelecionadoButton = document.querySelector('#remover-selecionado')
+
+    removerSelecionadoButton.addEventListener('click', removeSelected)
+}
+
+listenToRemoverSelecionadoButton()

@@ -1,9 +1,9 @@
-.selected {
-    background-color: rgb(128, 128, 128);
-}
-
 li, button {
     cursor: pointer;
+}
+
+.selected {
+    background-color: rgb(128, 128, 128);
 }
 
 .line-through {
