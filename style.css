@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
 }
+
 .container {
   border: 5px solid green;
   height: 300px;
@@ -13,9 +14,9 @@
 .layout {
   border: 1px solid black;
   display: inline-block;
+  height: 260px;
   margin: 2px;
   width: 790px;
-  height: 260px;
 }
 
 .lista {
@@ -25,10 +26,10 @@
 .secoes {
   border: 1px solid black;
   display: inline-block;
+  height: 90%;
   margin-left: 5px;
   margin-right: 5px;
   margin-top: 5px;
   vertical-align: top;
   width: 48%;
-  height: 90%;
 }
