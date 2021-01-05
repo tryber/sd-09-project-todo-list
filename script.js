@@ -124,12 +124,4 @@ function saveToLocalStorage() {
   
   const buttonMoveDownSelectedTask = document.querySelector('#mover-baixo');
   buttonMoveDownSelectedTask.addEventListener('click', moveDownSelectedTask);
-  window.onload = function () {
-    if (typeof Storage !== 'undefined') {
-      if (localStorage.tasks !== undefined) {
-        getFromLocalStorage();
-      }
-    } else {
-      document.write('Sem suporte para Web Storage.');
-    }
-  };
+  
