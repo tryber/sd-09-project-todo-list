@@ -7,5 +7,5 @@ li, button {
 }
 
 .completed {
-    text-decoration: line-through;
+    text-decoration: line-through solid rgb(0, 0, 0);
 }
