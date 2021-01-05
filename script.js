@@ -70,9 +70,16 @@ function removeSelectedTask() {
   list.removeChild(task);
 }
 
-function dontMoveFirstElementUp(index, UpOrDown) {
-  if (index === 0 && UpOrDown === -1) { return 0; } // Early Return
+function isFirstElementSelected() {
+  const tasks = document.querySelectorAll('#lista-tarefas > li');
+  const selectedTask = document.querySelector('.gray');
+
+  if (tasks[0] === selectedTask) {
+    return true;
+  }
+  return false;
 }
+
 function moveTask(UpOrDown) {
   const taskList = document.querySelector('#lista-tarefas');
   const tasks = document.querySelectorAll('#lista-tarefas > li');
@@ -80,16 +87,16 @@ function moveTask(UpOrDown) {
 
   for (let index = 0; tasks.length >= index; index += 1) {
     if (tasks[index] === selectedTask) {
-      dontMoveFirstElementUp(index, UpOrDown);
       taskList.insertBefore(selectedTask, tasks[index + UpOrDown]);
-      return;
     }
   }
 }
 
 function moveTaskUp() {
   const up = -1;
-  moveTask(up);
+  if (isFirstElementSelected() === false) {
+    moveTask(up);
+  }
 }
 
 function moveTaskDown() {
