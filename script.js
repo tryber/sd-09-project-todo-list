@@ -22,7 +22,7 @@ function clearCompleted() {
 }
 
 function moveUp() {
-  if(document.querySelector('.selected')) {
+  if (document.querySelector('.selected')) {
     if (document.querySelector('.selected') !== document.getElementById('lista-tarefas').firstChild) {
       const movedUpItem = document.querySelector('.selected');
       const movedDown = document.querySelector('.selected').previousSibling;
@@ -34,7 +34,7 @@ function moveUp() {
 }
 
 function moveDown() {
-  if(document.querySelector('.selected')) {
+  if (document.querySelector('.selected')) {
     if (document.querySelector('.selected') !== document.getElementById('lista-tarefas').lastChild) {
       const movedDownItem = document.querySelector('.selected');
       const movedDownNext = document.querySelector('.selected').nextSibling;
