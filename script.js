@@ -1,53 +1,67 @@
 const botao = document.getElementById("criar-tarefa");
+const list = document.getElementsByTagName('li');
 
-function addONeListener(objeto, func){
-    objeto.addEventListener('click', func);
+function addONeListener(objeto, func) {
+  objeto.addEventListener('click', func);
 }
 
 function addListenerOnLabel(func) {
-    const label = document.getElementsByTagName('label');
+  const label = document.getElementsByTagName('li');
 
-    for (let index = 0; index < label.length; index += 1) {
-      label[index].addEventListener('click', func);
-      //console.log(label[index]);
-    }
+  for (let index = 0; index < label.length; index += 1) {
+    label[index].addEventListener('click', func);
+    //console.log(label[index]);
   }
-
-function addNew(){
-    let label = document.createElement('label');
-    let taskContent = document.getElementById('texto-tarefa').value;
-    let taskElement = document.createElement('li');
-    let lista = document.getElementById('lista-tarefas');
-
-    label.innerText = taskContent;
-    taskElement.appendChild(label);
-    lista.appendChild(taskElement);
-
-    clearInput('texto-tarefa');
-    addListenerOnLabel(changeClassSelected);
 }
 
-function clearInput(classe){
-    document.getElementById(classe).value = '';
+function addDbListener(obj, func) {
+    for (let index = 0; index < obj.length; index += 1) {
+    obj[index].addEventListener('dbclick', func);
+    //console.log(label[index]);
+  }
 }
 
-function onClick(event) {
-    console.log('entrou selected')
-    event.target.classList.add('selected');
+function addNew() {
+  //let label = document.createElement('label');
+  let taskContent = document.getElementById('texto-tarefa').value;
+  let taskElement = document.createElement('li');
+  let lista = document.getElementById('lista-tarefas');
+
+  taskElement.innerText = taskContent;
+  //taskElement.appendChild(label);
+  lista.appendChild(taskElement);
+
+  clearInput('texto-tarefa');
+  addListenerOnLabel(changeClassSelected);
+  addDbListener(list, changeClassDone);
+}
+
+function clearInput(classe) {
+  document.getElementById(classe).value = '';
 }
 
 function changeClassSelected(event) {
-    let selected = document.querySelector('.selected');
-    console.log(selected);
+  let selected = document.querySelector('.selected');
+  //console.log(selected);
 
-    if(!selected){
-        event.target.classList.add('selected');
-    } else {
-        selected.classList.remove('selected');
-        event.target.classList.add('selected');
-    }
-
-    
+  if (!selected) {
+    event.target.classList.add('selected');
+  } else {
+    selected.classList.remove('selected');
+    event.target.classList.add('selected');
   }
+}
+
+function changeClassDone(event){
+    console.log(event);
+    let task = event.classList;
+    for (let index = 0; index < task.classList; inde += 1) {
+        if(task[index] = 'done') {
+            task.remove('done');
+        } else {
+            task.add('done');
+        }
+    }
+}
 
 addONeListener(botao, addNew);
