@@ -57,14 +57,16 @@ function changeClassDone(event) {
   let task = event.target;
   console.log(task.classList[0]);
 
-  if (task[0] = 'selected') {
-    console.log(task.classList)
-    task.classList.add('done');
-  }
   if(task[1] = 'done') {
     task.classList.remove('done');
-}
-
+    console.log('tes')
+  }
+  
+  if (task[0] = 'selected') {
+    task.classList.add('done');
+    console.log(task.classList)
+  }
+  
 }
 
 addONeListener(botao, addNew);
