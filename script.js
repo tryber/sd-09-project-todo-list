@@ -79,3 +79,23 @@ function listenToApagaTudoButton () {
 }
 
 listenToApagaTudoButton()
+
+function removeCompletedTasks () {
+    const listItemNodeList = document.querySelectorAll('#lista-tarefas li')
+    
+    removeSelectedClass()
+
+    for (let i = 0; i < listItemNodeList.length; i += 1) {
+        if (listItemNodeList[i].className === 'completed') {
+            listaTarefasOrderedList.removeChild(listItemNodeList[i])
+        }
+    }
+}
+
+function listenToRemoverFinalizadosButton () {
+    const removerFinalizadoButton = document.querySelector('#remover-finalizados')
+
+    removerFinalizadoButton.addEventListener('click', removeCompletedTasks)
+}
+
+listenToRemoverFinalizadosButton()
