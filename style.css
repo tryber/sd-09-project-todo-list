@@ -6,7 +6,6 @@ body {
   max-width: 100%;
   padding: 0;
   position: relative;
-  text-align: center;
 }
 
 header {
@@ -14,5 +13,4 @@ header {
   margin-bottom: 15px;
   padding-bottom: 10px;
   padding-top: 10px;
-  text-align: center;
 }
