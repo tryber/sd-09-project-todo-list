@@ -87,3 +87,7 @@ function removeCheckedTasks() {
 
 addTask();
 selectedDesativate();
+todoCompleted();
+removeAllTasks();
+removeCheckedTasks();
+
