@@ -65,7 +65,25 @@ function criarTarefa() {
   }
 }
 
+function removeCompleted() {
 
+  const btn = document.querySelector('#remover-finalizados');
+
+  btn.addEventListener('click', function() {
+
+    const list = document.querySelectorAll('.completed');
+
+    for(index = 0; index < list.length; index += 1) {
+      let taskList = list[index];
+
+      taskList.remove('li');
+    };
+
+  });
+
+};
+
+removeCompleted();
 
 function cleanList() {
 
