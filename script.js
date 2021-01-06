@@ -72,6 +72,24 @@ function criarTarefa() {
 
 criarTarefa();
 
+function removeSelectedTask() {
+
+  const btn = document.querySelector('#remover-selecionado')
+
+  btn.addEventListener('click', function() {
+
+    const listItem = document.querySelectorAll('.bg-task')
+
+    for (index = 0; index < listItem.length; index += 1) {
+      let taskList = listItem[index];
+
+      taskList.remove('li');
+    }
+  })
+}
+
+removeSelectedTask();
+
 function removeCompleted() {
 
   const btn = document.querySelector('#remover-finalizados');
