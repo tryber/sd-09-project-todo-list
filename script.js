@@ -63,3 +63,19 @@ function listenToRemoverSelecionadoButton () {
 }
 
 listenToRemoverSelecionadoButton()
+
+function clearOrderedList () {
+    const listItemNodeList = document.querySelectorAll('#lista-tarefas li')
+
+    for (let i = 0; i < listItemNodeList.length; i += 1) {
+        listaTarefasOrderedList.removeChild(listItemNodeList[i])
+    }
+}
+
+function listenToApagaTudoButton () {
+    const apagaTudoButton = document.querySelector('#apaga-tudo')
+
+    apagaTudoButton.addEventListener('click', clearOrderedList)
+}
+
+listenToApagaTudoButton()
