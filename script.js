@@ -4,6 +4,11 @@ const orderedList = document.querySelector('#lista-tarefas');
 const list = document.createElement('li');
 list.className = 'todo-list';
 const buttonsSection = document.querySelector('#buttons');
+const removeTasks = document.createElement('button');
+removeTasks.id = 'apaga-tudo';
+removeTasks.className = 'button remove';
+removeTasks.innerHTML = 'Remove All';
+buttonsSection.appendChild(removeTasks);
 
 // Adiciona as tarefas
 function addTask() {
