@@ -53,3 +53,13 @@ buttonApagarFinalizados.addEventListener('click', function () {
     }
   }
 });
+
+const buttonApagarSelecionado = document.querySelector('#remover-selecionado');
+buttonApagarSelecionado.addEventListener('click', function () {
+  const li = document.querySelectorAll('li');
+  for (let index = 0; index < li.length; index += 1) {
+    if (li[index].classList.contains('selected')) {
+      document.querySelector('#lista-tarefas').removeChild(li[index]);
+    }
+  }
+});
