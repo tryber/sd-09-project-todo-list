@@ -3,6 +3,10 @@
   padding: 0;
 }
 
+.selected {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+
 .container {
   border: 5px solid green;
   height: 300px;
