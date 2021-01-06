@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+header {
+  text-align: center;
+  background-color: rgb(28, 134, 64);
+  border: 1px solid white;
+  width: 80%;
+  margin: 20px 0;
+  padding: 30px;
+  margin-right: auto;
+  margin-left: auto;
+  font-size: 35px;
+}
+
+body {
+  background-color: rgb(74, 116, 124);
+  font-size: 16px;
+  font-family: 'Helvetica', 'Arial', sans-serif;
+  line-height: 1.3;
+  background-color: aliceblue;
+  border: 1px solid rgb(7, 7, 7);
+  width: 80%;
+  padding: 20px;
+  margin: 0 auto 20px auto;
+}
+
+input {
+  border-radius: 25px;
+  width: 400px;
+  height: 30px;
+  background-color: rgb(204, 248, 204);
+  outline: none;
+  margin: 70px auto;
+}
+
+button {
+  background-color: rgba(219, 217, 219, 0.637);
+  border-radius: 25px;
+  height: 30px;
+  outline: none;
+  margin: 10px auto;
+  background-color: white;
+  border: 1px solid rgb(206, 193, 193);
+  width: 30%;
+  padding: 7px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(192, 190, 190);
+}
+
+section {
+  margin: 30px auto;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+.selecao {
+  background-color: rgb(128, 128, 128)
+}
+
+#funcionamento {
+  margin: auto;
+  position: absolute;
+}
