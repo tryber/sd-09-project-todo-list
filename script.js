@@ -57,12 +57,10 @@ function changeClassDone(event) {
   let task = event.target;
   console.log(task.classList.length);
 
-  if(task.classList.contains('done')) {
-    task.classList.remove('done');
-    console.log('remove');
+  if(task.classList.contains('completed')) {
+    task.classList.remove('completed');
   } else {
-    task.classList.add('done');
-    console.log('add');
+    task.classList.add('completed');
   }  
 }
 
