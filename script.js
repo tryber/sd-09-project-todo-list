@@ -63,3 +63,41 @@ buttonApagarSelecionado.addEventListener('click', function () {
     }
   }
 });
+
+const buttonMoverBaixo = document.querySelector('#mover-baixo');
+buttonMoverBaixo.addEventListener('click', function () {
+  const li = document.querySelectorAll('li');
+  for (let index = 0; index < li.length; index += 1) {
+    if (li[index].classList.contains('selected')) {
+      if (index === li.length-1) {
+        alert('O elemento já é o último da lista!');
+      } else {
+        const valor = li[index].innerText;
+        li[index].innerText = li[index+1].innerText;
+        li[index+1].innerText = valor;
+        li[index].classList.remove('selected');
+        li[index+1].classList.add('selected');
+        break;
+      }      
+    }
+  }
+});
+
+const buttonMoverCima = document.querySelector('#mover-cima');
+buttonMoverCima.addEventListener('click', function () {
+  const li = document.querySelectorAll('li');
+  for (let index = 0; index < li.length; index += 1) {
+    if (li[index].classList.contains('selected')) {
+      if (index === 0) {
+        alert('O elemento já é o primeiro da lista!');
+      } else {
+        const valor = li[index].innerText;
+        li[index].innerText = li[index-1].innerText;
+        li[index-1].innerText = valor;
+        li[index].classList.remove('selected');
+        li[index-1].classList.add('selected');
+        break;
+      }      
+    }
+  }
+});
