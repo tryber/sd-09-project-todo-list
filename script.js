@@ -19,9 +19,9 @@ function addNew(){
     let taskElement = document.createElement('li');
     let lista = document.getElementById('lista-tarefas');
 
-    taskElement.innerText = taskContent;
-    label.appendChild(taskElement);
-    lista.appendChild(label);
+    label.innerText = taskContent;
+    taskElement.appendChild(label);
+    lista.appendChild(taskElement);
 
     clearInput('texto-tarefa');
     addListenerOnLabel(changeClassSelected);
