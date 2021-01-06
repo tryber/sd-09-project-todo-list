@@ -72,5 +72,18 @@ function removeAllTasks() {
   });
 }
 
+// Remove as tarefas riscadas
+function removeCheckedTasks() {
+  removeChecked.addEventListener('click', function () {
+    const listUl = document.querySelectorAll('#lista-tarefas>li');
+    for (let index = 0; index < listUl.length; index += 1) {
+      const checked = listUl[index];
+      if (checked.classList.contains('completed')) {
+        checked.parentNode.removeChild(checked);
+      }
+    }
+  });
+}
+
 addTask();
 selectedDesativate();
