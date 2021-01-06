@@ -10,25 +10,25 @@ function createTask() {
 }
 
 function changeColor() {
-  const lista = document.getElementById('lista-tarefas');
-  lista.addEventListener('click', function (e) {
-    const selectedLista = document.getElementsByClassName('selected');
+  const lista = document.getElementById("lista-tarefas");
+  lista.addEventListener("click", function (e) {
+    const selectedLista = document.getElementsByClassName("selected");
     if (selectedLista[0]) {
-      selectedLista[0].classList.remove('selected');
+      selectedLista[0].classList.remove("selected");
     }
-    e.target.classList.add('selected');
+    e.target.classList.add("selected");
   });
 }
 
 function completed() {
-  const lista = document.getElementById('lista-tarefas');
-  lista.addEventListener('dblclick', function (event) {
-      event.target.classList.toggle('completed');
+  const lista = document.getElementById("lista-tarefas");
+  lista.addEventListener("dblclick", function (event) {
+    event.target.classList.toggle("completed");
   });
 }
 
 window.onload = function () {
   createTask();
   changeColor();
-  completed()
+  completed();
 };
