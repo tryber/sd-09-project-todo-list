@@ -9,3 +9,12 @@ function createTask() {
   }
 }
 
+function changeColor() {
+  const li = document.getElementsByTagName('li');
+  for (let index = 0; index < li.length; index++) {
+    li[index].addEventListener('click', function () {
+      li[index].style.backgroundColor = 'rgb(' + 128 + ',' + 128 + ',' + 128 + ')';
+    });
+  }
+}
+
