@@ -1,9 +1,9 @@
 const listElement = document.querySelector('#lista-tarefas');
 const inputElement = document.querySelector('#texto-tarefa');
-const tasks = document.querySelectorAll('#lista-tarefas li');
 
 // TASK SELECIONADA (FUNDO CINZA)
 function colorTask(event) {
+  const tasks = document.querySelectorAll('#lista-tarefas li');
   tasks.forEach((task) => {
     task.style.backgroundColor = '';
   });
