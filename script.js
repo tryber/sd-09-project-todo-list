@@ -52,15 +52,25 @@ function selectedDesativate() {
 
 // Risca as tarefas clicadas duas vezes
 function todoCompleted() {
-    orderedList.addEventListener('dblclick', function (event) {
-      if (event.target.classList.contains('completed')) {
-        event.target.classList.remove('completed');
-      } else {
-        event.target.classList.add('completed');
-      }
-    });
-  }
+  orderedList.addEventListener('dblclick', function (event) {
+    if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed');
+    } else {
+      event.target.classList.add('completed');
+    }
+  });
+}
 
+  // Remove todas as tarefas
+function removeAllTasks() {
+  removeTasks.addEventListener('click', function () {
+    const ulList = document.querySelectorAll('#lista-tarefas>li');
+    for (let index = 0; index < ulList.length; index += 1) {
+      const listTask = ulList[index];
+      listTask.parentNode.removeChild(listTask);
+    }
+  });
+}
 
 addTask();
 selectedDesativate();
