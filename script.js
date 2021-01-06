@@ -170,25 +170,10 @@ saveList();
 function showItemListOnLoad() {
 
   let list = document.querySelector("#lista-tarefas")
-
-
+ 
   let item = JSON.parse(localStorage.getItem('List'))
 
-  if (item != null && item.length < 1) {
-    for (index = 0; index < item.length; index += 1) {
-
-      let element = document.createElement('li');
-
-      element.textContent = item[index].text
-      element.className = item[index].class
-
-      list.appendChild(element)
-      element.addEventListener('click', changeBG)
-
-      element.addEventListener('dblclick', taskCompleted)
-
-    }
-  } else {
+  if(item !== null) {
     for (index = 0; index < item.length; index += 1) {
 
       let element = document.createElement('li');
@@ -203,9 +188,7 @@ function showItemListOnLoad() {
 
     }
   }
-
-
-
+    
 }
 
 showItemListOnLoad()
