@@ -1,5 +1,6 @@
-const botao2 = document.querySelectorAll('button')[1];
 const botao = document.querySelector('button');
+const botao2 = document.querySelectorAll('button')[1];
+const botao3 = document.querySelectorAll('button')[2];
 
 function criaParagrafo(textString) {
   const paragraph = document.querySelector('p');
@@ -60,6 +61,25 @@ function trocaFundoItemLista() {
   }
 }
 
+function removeItemCompleto() {
+  const filhosDeOl = document.querySelector('#lista-tarefas').childNodes;
+  for (let index = 0; index < filhosDeOl.length; index++) {
+    const lis = filhosDeOl[index];
+    if (lis.classList.contains('completed')) {
+      lis.remove();
+    }else{
+      console.log('nada');
+    }
+  }
+}
+
+// cria botao remover item
+function criaBotaoRemove() {
+  botao3.id = 'remover-finalizados';
+  botao3.innerText = 'Remover Item';
+}
+criaBotaoRemove();
+
 // cria uma lista ordenada dentro de ol
 function itemLista() {
   const item = document.querySelector('#lista-tarefas');
@@ -69,6 +89,7 @@ function itemLista() {
   item.appendChild(listaTarefa);
   limpaTexto();
   trocaFundoItemLista();
+  botao3.addEventListener('click', removeItemCompleto);
 }
 botao.addEventListener('click', itemLista);
 
