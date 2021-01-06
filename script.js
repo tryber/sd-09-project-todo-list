@@ -3,12 +3,13 @@
 //https://www.youtube.com/watch?v=XF1_MlZ5l6M&ab_channel=WebDevSimplified
 //https://www.youtube.com/watch?v=y17RuWkWdn8&t=890s&ab_channel=WebDevSimplified
 //https://www.w3schools.com/jsref/met_node_removechild.asp
+const addBtn = document.getElementById('criar-tarefa');
+const clearBtn = document.getElementById('apaga-tudo');
+const todoList = document.querySelector('#lista-tarefas');
 function addTask() {
-  const addBtn = document.getElementById('criar-tarefa');
-  addBtn.addEventListener('click', function () {
+    addBtn.addEventListener('click', function () {
     const textSource = document.querySelector('#texto-tarefa').value;
     const addLine = document.createElement('li');
-    const todoList = document.querySelector('#lista-tarefas');
     document.getElementById('texto-tarefa').value = '';
     addLine.innerText = textSource;
     addLine.className = 'line';
@@ -18,8 +19,7 @@ function addTask() {
 addTask();
 
 function clear() {
-  const clearBtn = document.getElementById('apaga-tudo');
-  clearBtn.addEventListener('click', function () {
+    clearBtn.addEventListener('click', function () {
     const list = document.querySelector('#lista-tarefas');
     while (list.firstChild) {
       list.removeChild(list.firstChild);
@@ -27,9 +27,9 @@ function clear() {
   });
 }
 clear();
+
 function selected() {
-  const list = document.querySelector('#lista-tarefas');
-  list.addEventListener('click', function (event) {
+  todoList.addEventListener('click', function (event) {
     const items = document.querySelectorAll('.line');
     if (event.target.className.indexOf('selected') === -1) {
       for (let index = 0; index < items.length; index += 1) {
@@ -44,8 +44,7 @@ function selected() {
 selected();
 
 function complete() {
-  const list = document.querySelector('#lista-tarefas');
-  list.addEventListener('dblclick', function (event) {
+    todoList.addEventListener('dblclick', function (event) {
     if (event.target.className.indexOf('completed') === -1) {
       event.target.classList.add('completed');
     } else {
