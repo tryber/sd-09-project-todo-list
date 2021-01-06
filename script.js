@@ -31,8 +31,8 @@ document.querySelector('#criar-tarefa').addEventListener('click', addToDo);
 // LIMPA LISTA
 function clearList() {
   while (listElement.firstChild) {
-   listElement.removeChild(listElement.firstChild);
+    listElement.removeChild(listElement.firstChild);
   }
 }
 
-document.querySelector('#apaga-tudo').addEventListener('click', clearList)
+document.querySelector('#apaga-tudo').addEventListener('click', clearList);
