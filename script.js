@@ -1,5 +1,8 @@
-const botao = document.getElementById("criar-tarefa");
-const list = document.getElementsByTagName('li');
+const bnt = document.getElementById("criar-tarefa");
+let listElemnet = document.getElementsByTagName('li');
+let list = document.getElementsByTagName('ol')[0];
+const bntRmvComp = document.getElementById("remover-finalizados");
+const bntRmvAll = document.getElementById("apaga-tudo");
 
 function addONeListener(objeto, func) {
   objeto.addEventListener('click', func);
@@ -25,7 +28,7 @@ function addNew() {
   //let label = document.createElement('label');
   let taskContent = document.getElementById('texto-tarefa').value;
   let taskElement = document.createElement('li');
-  let lista = document.getElementById('lista-tarefas');
+  let lista = document.getElementsByClassName('lista-tarefas')[0];
 
   taskElement.innerText = taskContent;
   //taskElement.appendChild(label);
@@ -33,7 +36,7 @@ function addNew() {
 
   clearInput('texto-tarefa');
   addListenerOnLabel(changeClassSelected);
-  addDbListener(list, changeClassDone);
+  addDbListener(listElemnet, changeClassDone);
 }
 
 function clearInput(classe) {
@@ -57,11 +60,30 @@ function changeClassDone(event) {
   let task = event.target;
   console.log(task.classList.length);
 
-  if(task.classList.contains('completed')) {
+  if (task.classList.contains('completed')) {
     task.classList.remove('completed');
   } else {
     task.classList.add('completed');
-  }  
+  }
 }
 
-addONeListener(botao, addNew);
+function removeComp(event) {
+  for (let index = 0; index < listElemnet.length; index += 1) {
+    if (listElemnet[index].classList.contains('completed')) {
+      listElemnet[index].remove(listElemnet[index]);
+    }
+  }
+}
+
+function removeAll(event) {
+   list.remove('list');
+   let ol = document.createElement('ol');
+   ol.classList.add('lista-tarefas');
+    let principal = document.getElementById('principal');
+    console.log(principal);
+    principal.appendChild(ol);
+}
+
+addONeListener(bnt, addNew);
+addONeListener(bntRmvComp, removeComp);
+addONeListener(bntRmvAll, removeAll);
