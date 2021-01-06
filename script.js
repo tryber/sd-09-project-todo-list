@@ -15,8 +15,8 @@ function addListenerOnLabel(func) {
 }
 
 function addDbListener(obj, func) {
-    for (let index = 0; index < obj.length; index += 1) {
-    obj[index].addEventListener('dbclick', func);
+  for (let index = 0; index < obj.length; index += 1) {
+    obj[index].addEventListener('dblclick', func);
     //console.log(label[index]);
   }
 }
@@ -52,16 +52,19 @@ function changeClassSelected(event) {
   }
 }
 
-function changeClassDone(event){
-    console.log(event);
-    let task = event.classList;
-    for (let index = 0; index < task.classList; inde += 1) {
-        if(task[index] = 'done') {
-            task.remove('done');
-        } else {
-            task.add('done');
-        }
-    }
+function changeClassDone(event) {
+  //event.target.classList.add('done');
+  let task = event.target;
+  console.log(task.classList[0]);
+
+  if (task[0] = 'selected') {
+    console.log(task.classList)
+    task.classList.add('done');
+  }
+  if(task[1] = 'done') {
+    task.classList.remove('done');
+}
+
 }
 
 addONeListener(botao, addNew);
