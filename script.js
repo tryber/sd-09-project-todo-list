@@ -73,12 +73,23 @@ buttonMoverBaixo.addEventListener('click', function () {
         alert('O elemento já é o último da lista!');
       } else {
         const valor = li[index].innerText;
-        li[index].innerText = li[index+1].innerText;
-        li[index+1].innerText = valor;
+        li[index].innerText = li[index + 1].innerText;
+        li[index + 1].innerText = valor;
         li[index].classList.remove('selected');
-        li[index+1].classList.add('selected');
+        li[index + 1].classList.add('selected');
+        if (li[index].classList.contains('completed') && li[index + 1].classList.contains('completed')) {
+          break;
+        }
+        if (li[index].classList.contains('completed')) {
+          li[index].classList.remove('completed');
+          li[index + 1].classList.add('completed');
+        }
+        if (li[index + 1].classList.contains('completed')) {
+          li[index].classList.add('completed');
+          li[index + 1].classList.remove('completed');
+        }
         break;
-      }      
+      }
     }
   }
 });
@@ -92,12 +103,23 @@ buttonMoverCima.addEventListener('click', function () {
         alert('O elemento já é o primeiro da lista!');
       } else {
         const valor = li[index].innerText;
-        li[index].innerText = li[index-1].innerText;
-        li[index-1].innerText = valor;
+        li[index].innerText = li[index - 1].innerText;
+        li[index - 1].innerText = valor;
         li[index].classList.remove('selected');
-        li[index-1].classList.add('selected');
+        li[index - 1].classList.add('selected');
+        if (li[index].classList.contains('completed') && li[index - 1].classList.contains('completed')) {
+          break;
+        }
+        if (li[index].classList.contains('completed')) {
+          li[index].classList.remove('completed');
+          li[index - 1].classList.add('completed');
+        }
+        if (li[index - 1].classList.contains('completed')) {
+          li[index].classList.add('completed');
+          li[index - 1].classList.remove('completed');
+        }
         break;
-      }      
+      }
     }
   }
 });
