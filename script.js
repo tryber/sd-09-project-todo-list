@@ -49,3 +49,7 @@ function selectedDesativate() {
     event.target.classList.add('selected');
   });
 }
+
+
+addTask();
+selectedDesativate();
