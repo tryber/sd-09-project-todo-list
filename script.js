@@ -22,22 +22,26 @@ function clearCompleted() {
 }
 
 function moveUp() {
-  if (document.querySelector('.selected') !== document.getElementById('lista-tarefas').firstChild) {
-    const movedUpItem = document.querySelector('.selected');
-    const movedDown = document.querySelector('.selected').previousSibling;
-    const movedUpItemClone = movedUpItem.cloneNode(true);
-    document.getElementById('lista-tarefas').removeChild(movedUpItem);
-    document.getElementById('lista-tarefas').insertBefore(movedUpItemClone, movedDown);
+  if(document.querySelector('.selected')) {
+    if (document.querySelector('.selected') !== document.getElementById('lista-tarefas').firstChild) {
+      const movedUpItem = document.querySelector('.selected');
+      const movedDown = document.querySelector('.selected').previousSibling;
+      const movedUpItemClone = movedUpItem.cloneNode(true);
+      document.getElementById('lista-tarefas').removeChild(movedUpItem);
+      document.getElementById('lista-tarefas').insertBefore(movedUpItemClone, movedDown);
+    }
   }
 }
 
 function moveDown() {
-  if (document.querySelector('.selected') !== document.getElementById('lista-tarefas').lastChild) {
-    const movedDownItem = document.querySelector('.selected');
-    const movedDownNext = document.querySelector('.selected').nextSibling;
-    const movedDownNextClone = movedDownNext.cloneNode(true);
-    document.getElementById('lista-tarefas').removeChild(movedDownNext);
-    document.getElementById('lista-tarefas').insertBefore(movedDownNextClone, movedDownItem);
+  if(document.querySelector('.selected')) {
+    if (document.querySelector('.selected') !== document.getElementById('lista-tarefas').lastChild) {
+      const movedDownItem = document.querySelector('.selected');
+      const movedDownNext = document.querySelector('.selected').nextSibling;
+      const movedDownNextClone = movedDownNext.cloneNode(true);
+      document.getElementById('lista-tarefas').removeChild(movedDownNext);
+      document.getElementById('lista-tarefas').insertBefore(movedDownNextClone, movedDownItem);
+    }
   }
 }
 
