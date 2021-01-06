@@ -1,11 +1,11 @@
 function createTask() {
-  let input = document.getElementById('texto-tarefa');
-  if (input.value !== "") {
-    let ol = document.getElementById('lista-tarefas');
-    let li = document.createElement("li");
+  const input = document.getElementById('texto-tarefa');
+  if (input.value !== '') {
+    const ol = document.getElementById('lista-tarefas');
+    const li = document.createElement('li');
     li.innerHTML = input.value;
     ol.appendChild(li);
-    input.value = "";
+    input.value = '';
   }
 }
 
