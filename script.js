@@ -117,3 +117,21 @@ removeAllTasks();
 removeCheckedTasks();
 saveAllTasks();
 removeSelectedTasks();
+
+// When reloading the page, the preferences are loaded
+const myTodo = JSON.parse(localStorage.getItem('myTodoList'));
+function loadPage() {
+  for (let index = 0; index < myTodo.mylList.length; index += 1) {
+    const savedList = document.createElement('li');
+    savedList.innerHTML = myTodo.mylList[index];
+    savedList.classList = 'todo-list';
+    if (myTodo.classes[index] === true) {
+      savedList.classList += ' completed';
+    }
+    orderedList.appendChild(savedList);
+  }
+}
+
+if (myTodo !== null && myTodo.mylList.length > 0) {
+  window.onload = loadPage();
+}
