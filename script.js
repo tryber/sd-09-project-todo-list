@@ -19,6 +19,11 @@ removeSelected.id = 'remover-selecionado';
 removeSelected.className = 'button remove';
 removeSelected.innerHTML = 'Remove Selected';
 buttonsSection.appendChild(removeSelected);
+const saveTasks = document.createElement('button');
+saveTasks.id = 'salvar-tarefas';
+saveTasks.className = 'button save';
+saveTasks.innerHTML = '💾';
+buttonsSection.appendChild(saveTasks);
 
 // Adiciona as tarefas
 function addTask() {
