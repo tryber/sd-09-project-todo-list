@@ -116,3 +116,4 @@ todoCompleted();
 removeAllTasks();
 removeCheckedTasks();
 saveAllTasks();
+removeSelectedTasks();
