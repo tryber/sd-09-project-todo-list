@@ -9,6 +9,11 @@ removeTasks.id = 'apaga-tudo';
 removeTasks.className = 'button remove';
 removeTasks.innerHTML = 'Remove All';
 buttonsSection.appendChild(removeTasks);
+const removeChecked = document.createElement('button');
+removeChecked.id = 'remover-finalizados';
+removeChecked.className = 'button remove';
+removeChecked.innerHTML = 'Remove Completed';
+buttonsSection.appendChild(removeChecked);
 
 // Adiciona as tarefas
 function addTask() {
