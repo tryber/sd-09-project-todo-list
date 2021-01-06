@@ -3,11 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>To Do List</title>
 </head>
 <body>
     <header class="title">
-        <h1>Minha Lista de Tarefas</h1>
+      <h1>Minha Lista de Tarefas</h1>
       </header>
+    <section class="center">
+      <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    </section>
+    <section class="center">
+      <input type="text" id="texto-tarefa" class="input text">
+      <button type="submit" id="criar-tarefa" class="input send">Adicionar</button>
+    </section>
+    <section class="center">
+      <ol id="lista-tarefas" class="lista-de-tarefas center">
+      </ol>
+      <section id="buttons" class="center buttons"></section>
+    </section>
+    <footer></footer>
+    <script src="script.js"></script>  
 </body>
 </html>

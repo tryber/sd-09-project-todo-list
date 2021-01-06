@@ -1,8 +1,17 @@
 body {
   background-color: rgb(230 , 227 , 227);
+  font-family: 'Lato', sans-serif;
   margin: 0;
   max-height: 100%;
   max-width: 100%;
   padding: 0;
   position: relative;
+}
+
+header {
+  font-family: 'Ubuntu', sans-serif;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  text-align: center;
 }
