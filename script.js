@@ -28,7 +28,8 @@ textTask.addEventListener('keyup', function(event) {
 taskList.addEventListener('click', function (itemList) {
   const selectedItem = document.querySelector('.selected');
   if (selectedItem != null) {
-    selectedItem.className = '';
+    // selectedItem.className = '';
+    selectedItem.classList.remove('selected');
     selectedItem.style.backgroundColor = 'rgb(255, 255, 255)';
   }
   if (itemList.target.className !== 'completed') {
@@ -54,7 +55,7 @@ function removeItems() {
   const itemsToRemove = document.querySelectorAll('li');
   for (let index = 0; index < itemsToRemove.length; index += 1) {
     itemsToRemove[index].remove(li);
-  }
+  }let buttonRemoveChecked = document.querySelector('#remover-finalizados');
 }
 
 // Button to remove all li
