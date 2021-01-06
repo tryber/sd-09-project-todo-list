@@ -14,6 +14,11 @@ removeChecked.id = 'remover-finalizados';
 removeChecked.className = 'button remove';
 removeChecked.innerHTML = 'Remove Completed';
 buttonsSection.appendChild(removeChecked);
+const removeSelected = document.createElement('button');
+removeSelected.id = 'remover-selecionado';
+removeSelected.className = 'button remove';
+removeSelected.innerHTML = 'Remove Selected';
+buttonsSection.appendChild(removeSelected);
 
 // Adiciona as tarefas
 function addTask() {
