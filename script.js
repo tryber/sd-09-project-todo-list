@@ -22,7 +22,7 @@ buttonsSection.appendChild(removeSelected);
 const saveTasks = document.createElement('button');
 saveTasks.id = 'salvar-tarefas';
 saveTasks.className = 'button save';
-saveTasks.innerHTML = '💾';
+saveTasks.innerHTML = 'Save Selected';
 buttonsSection.appendChild(saveTasks);
 
 // Adiciona as tarefas
