@@ -29,7 +29,7 @@ buttonsSection.appendChild(saveTasks);
 function addTask() {
   button.addEventListener('click', function () {
     if (text.value === '') {
-      alert('[ERRO!] - Digite algum valor!');
+      alert('[ERRO!] - Valor inválido!');
     } else {
       const lists = document.createElement('li');
       lists.className = 'todo-list';
