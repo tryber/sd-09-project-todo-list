@@ -14,3 +14,11 @@ header {
   padding-bottom: 10px;
   padding-top: 10px;
 }
+
+.completed {
+  text-decoration: line-through black;
+}
+
+.selected {
+  background-color: gray;
+}
