@@ -1,7 +1,8 @@
-const criarTarefa = document.querySelector('#criar-tarefa');
+const criaTarefa = document.querySelector('#criar-tarefa');
 const textoTarefa = document.querySelector('#texto-tarefa');
 const listaTarefas = document.querySelector('#lista-tarefas');
 const apagaTudo = document.querySelector('#apaga-tudo');
+const removeFinalizados = document.querySelector('#remover-finalizados');
 
 function adicionarTarefa() {
   const tarefa = document.createElement('li');
@@ -33,10 +34,21 @@ function apagarTudo() {
   }
 }
 
-criarTarefa.addEventListener('click', adicionarTarefa);
+function apagarFinalizados() {
+  const listaItens = document.querySelectorAll('li');
+  for (let index = 0; index < listaItens.length; index += 1) {
+    if (listaItens[index].classList.contains('completed')) {
+      listaItens[index].parentNode.removeChild(listaItens[index]);
+    }
+  }
+}
+
+criaTarefa.addEventListener('click', adicionarTarefa);
 
 listaTarefas.addEventListener('click', backgroundItemSelecionado);
 
 listaTarefas.addEventListener('dblclick', completarTarefa);
 
 apagaTudo.addEventListener('click', apagarTudo);
+
+removeFinalizados.addEventListener('click', apagarFinalizados);
