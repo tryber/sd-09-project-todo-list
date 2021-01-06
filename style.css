@@ -1,3 +1,7 @@
-li {
+/* li {
     background-color: magenta;
+} */
+
+.selected {
+    background-color: rgb(128, 128, 128);
 }
