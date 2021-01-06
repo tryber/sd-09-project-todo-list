@@ -113,7 +113,7 @@ O não cumprimento de um requisito, total ou parcialmente, impactará em sua ava
 
 ---
 
-## Requisitos Obrigatórios:
+<!-- ## Requisitos Obrigatórios:
 
 ### 1 - Sua lista deve possuir o título "Minha Lista de Tarefas" em uma tag `<header>`. Esse título não varia de acordo com o conteúdo da lista. _Não confunda esse título com o título da página, que deve aparecer dentro da tag `head`_.
 ##### As seguintes verificações serão feitas:
@@ -123,7 +123,7 @@ O não cumprimento de um requisito, total ou parcialmente, impactará em sua ava
 ### 2 - Abaixo do título deve haver um pequeno e discreto parágrafo com `id="funcionamento"` e com o texto "Clique duas vezes em um item para marcá-lo como completo" explicando o funcionamento da lista para o usuário.
 ##### As seguintes verificações serão feitas:
 
-- Será verificado que existe na sua página um elemento com o id `funcionamento` com o conteúdo `Clique duas vezes em um item para marcá-lo como completo`
+- Será verificado que existe na sua página um elemento com o id `funcionamento` com o conteúdo `Clique duas vezes em um item para marcá-lo como completo` 
 
 ### 3 - Deve haver um `input` com o `id="texto-tarefa"` onde o usuário poderá digitar o nome do item que deseja adicionar à lista.
 ##### As seguintes verificações serão feitas:
@@ -133,14 +133,14 @@ O não cumprimento de um requisito, total ou parcialmente, impactará em sua ava
 ### 4 - Deve haver uma lista ordenada de tarefas com o `id="lista-tarefas"`.
 ##### As seguintes verificações serão feitas:
 
-- Será verificada a existência de um elemento `ol` com o id `lista-tarefas`.
+- Será verificada a existência de um elemento `ol` com o id `lista-tarefas`. 
 
 ### 5 - Deve haver um botão com `id="criar-tarefa"` e ao clicar nesse botão, um novo item deverá ser criado ao final da lista e o texto do input deve ser limpo.
 ##### As seguintes verificações serão feitas:
 
-- Será verificada a existência de um elemento do tipo `button` com o id `criar-tarefa`
+<!-- - Será verificada a existência de um elemento do tipo `button` com o id `criar-tarefa`
 - No campo de input será digitado o texto de uma tarefa qualquer e, em seguida, clicar-se-á no botão de criar tarefa. Será verificado que, após o clique, o texto digitado aparece na lista e desaparece do input.
-- A adição de elementos na lista será feita algumas vezes, e será checado se todos os itens criados permanecem na lista na medida em que novos são adicionados.
+- A adição de elementos na lista será feita algumas vezes, e será checado se todos os itens criados permanecem na lista na medida em que novos são adicionados. -->
 
 ### 6 - Os itens da lista de tarefas devem ser ordenados por ordem de criação.
 ##### As seguintes verificações serão feitas:
