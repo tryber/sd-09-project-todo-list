@@ -21,10 +21,40 @@ function clearCompleted() {
   }
 }
 
+function moveUp() {
+  if (document.querySelector('.selected') !== document.getElementById('lista-tarefas').firstChild) {
+    const movedUpItem = document.querySelector('.selected');
+    const movedDown = document.querySelector('.selected').previousSibling;
+    const movedUpItemClone = movedUpItem.cloneNode(true);
+    document.getElementById('lista-tarefas').removeChild(movedUpItem);
+    document.getElementById('lista-tarefas').insertBefore(movedUpItemClone, movedDown);
+  }
+}
+
+function moveDown() {
+  if (document.querySelector('.selected') !== document.getElementById('lista-tarefas').lastChild) {
+    const movedDownItem = document.querySelector('.selected');
+    const movedDownNext = document.querySelector('.selected').nextSibling;
+    const movedDownNextClone = movedDownNext.cloneNode(true);
+    document.getElementById('lista-tarefas').removeChild(movedDownNext);
+    document.getElementById('lista-tarefas').insertBefore(movedDownNextClone, movedDownItem);
+  }
+}
+
+function removeSelected() {
+  if (document.querySelector('.selected')) {
+    const selectionToRemove = document.querySelector('.selected');
+    document.getElementById('lista-tarefas').removeChild(selectionToRemove);
+  }
+}
+
 // ===== BOTÕES =====
 document.getElementById('criar-tarefa').addEventListener('click', addTask);
 document.getElementById('apaga-tudo').addEventListener('click', clearList);
 document.getElementById('remover-finalizados').addEventListener('click', clearCompleted);
+document.getElementById('mover-cima').addEventListener('click', moveUp);
+document.getElementById('mover-baixo').addEventListener('click', moveDown);
+document.getElementById('remover-selecionado').addEventListener('click', removeSelected);
 
 // ===== FUNCTIONS DA LISTA =====
 const taskList = document.querySelector('#lista-tarefas');
