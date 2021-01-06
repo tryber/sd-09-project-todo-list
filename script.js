@@ -8,61 +8,61 @@ function criarTarefa() {
 
   const btn = document.querySelector('#criar-tarefa')
 
-  btn.addEventListener('click', function() {
+  btn.addEventListener('click', function () {
     function addTaskToList() {
 
       // Criando o elemento
       const newTask = document.createElement('li');
-  
+
       // Adicionando classe ao elemento
       newTask.className = 'task';
-  
+
       // Adicionando o valor do input
       newTask.innerText = input.value;
-  
+
       // Adicionar o elemento filho ao elemento pai
       taskList.appendChild(newTask);
-  
+
       input.value = '';
-  
+
       // Muda a cor do background e da fonte ao receber o click
       newTask.addEventListener('click', changeBG)
-  
+
       newTask.addEventListener('dblclick', taskCompleted)
-    
+
     }
-  
-  
+
+
     addTaskToList()
-  
-    
+
+
   })
-} 
+}
 
 criarTarefa();
 
 function changeBG(event) {
-  
+
   let bgLi = document.querySelector('.bg-task');
-   
+
   // verificar se existe a li
 
-  if( bgLi ) {
+  if (bgLi) {
     bgLi.classList.remove('bg-task');
 
-  } 
+  }
 
   // muda o bg
 
   event.target.classList.add('bg-task');
 
-} 
+}
 
 function taskCompleted(event) {
-  
+
   // propriedade contains verifica se algo contêm uma classe por exemplo
 
-  if (event.target.classList.contains('completed') ){
+  if (event.target.classList.contains('completed')) {
 
     event.target.classList.remove('completed');
 
@@ -79,7 +79,7 @@ function removeSelectedTask() {
 
   const btn = document.querySelector('#remover-selecionado')
 
-  btn.addEventListener('click', function() {
+  btn.addEventListener('click', function () {
 
     const listItem = document.querySelectorAll('.bg-task')
 
@@ -97,11 +97,11 @@ function removeCompleted() {
 
   const btn = document.querySelector('#remover-finalizados');
 
-  btn.addEventListener('click', function() {
+  btn.addEventListener('click', function () {
 
     const list = document.querySelectorAll('.completed');
 
-    for(index = 0; index < list.length; index += 1) {
+    for (index = 0; index < list.length; index += 1) {
       let taskList = list[index];
 
       taskList.remove('li');
@@ -145,20 +145,20 @@ function saveList() {
 
   let btn = document.querySelector('#salvar-tarefas');
 
-  btn.addEventListener('click', function() {
+  btn.addEventListener('click', function () {
 
     const list = document.querySelectorAll('.task')
 
     let arr = [];
 
-    for(index = 0; index < list.length; index += 1) {
+    for (index = 0; index < list.length; index += 1) {
 
       let obj = {
         text: list[index].textContent,
         class: list[index].className
       }
 
-      arr.push(obj) 
+      arr.push(obj)
     }
     localStorage.setItem('List', JSON.stringify(arr))
 
@@ -172,22 +172,39 @@ function showItemListOnLoad() {
   let list = document.querySelector("#lista-tarefas")
 
 
-    let item = JSON.parse(localStorage.getItem('List'))
+  let item = JSON.parse(localStorage.getItem('List'))
 
-    for(index = 0; index < item.length; index += 1) {
+  if (item != null && item.length < 1) {
+    for (index = 0; index < item.length; index += 1) {
 
-     let element = document.createElement('li');
+      let element = document.createElement('li');
 
-     element.textContent = item[index].text
-     element.className = item[index].class
+      element.textContent = item[index].text
+      element.className = item[index].class
 
-     list.appendChild(element)
-     element.addEventListener('click', changeBG)
-  
-     element.addEventListener('dblclick', taskCompleted)
+      list.appendChild(element)
+      element.addEventListener('click', changeBG)
+
+      element.addEventListener('dblclick', taskCompleted)
+
     }
+  } else {
+    for (index = 0; index < item.length; index += 1) {
 
-    
+      let element = document.createElement('li');
+
+      element.textContent = item[index].text
+      element.className = item[index].class
+
+      list.appendChild(element)
+      element.addEventListener('click', changeBG)
+
+      element.addEventListener('dblclick', taskCompleted)
+
+    }
+  }
+
+
 
 }
 
