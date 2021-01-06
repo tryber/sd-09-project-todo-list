@@ -24,6 +24,16 @@ saveTasks.id = 'salvar-tarefas';
 saveTasks.className = 'button save';
 saveTasks.innerHTML = 'Save Selected';
 buttonsSection.appendChild(saveTasks);
+const moveUp = document.createElement('button');
+moveUp.id = 'mover-cima';
+moveUp.className = 'move';
+moveUp.innerHTML = '⬆';
+buttonsSection.appendChild(moveUp);
+const moveDown = document.createElement('button');
+moveDown.id = 'mover-baixo';
+moveDown.className = 'move';
+moveDown.innerHTML = '⬇';
+buttonsSection.appendChild(moveDown);
 
 // Add tasks
 function addTask() {
@@ -110,6 +120,30 @@ function removeSelectedTasks() {
   });
 }
 
+function moveListUp() {
+  moveUp.addEventListener('click', function () {
+    const lists = document.querySelectorAll('.todo-list');
+    for (let position = 0; position < lists.length; position += 1) {
+      const pos = lists[position];
+      if (pos.classList.contains('selected') && pos.previousElementSibling !== null) {
+        pos.parentNode.insertBefore(pos, lists[position - 1]);
+      }
+    }
+  });
+}
+
+function moveListDown() {
+  moveDown.addEventListener('click', function () {
+    const lists = document.querySelectorAll('.todo-list');
+    for (let position = 0; position < lists.length; position += 1) {
+      const pos = lists[position];
+      if (pos.classList.contains('selected') && pos.nextSibling !== null) {
+        pos.parentNode.insertBefore(lists[position + 1], pos);
+      }
+    }
+  });
+}
+
 addTask();
 selectedDesativate();
 todoCompleted();
@@ -117,6 +151,8 @@ removeAllTasks();
 removeCheckedTasks();
 saveAllTasks();
 removeSelectedTasks();
+moveListUp();
+moveListDown();
 
 // When reloading the page, the preferences are loaded
 const myTodo = JSON.parse(localStorage.getItem('myTodoList'));
