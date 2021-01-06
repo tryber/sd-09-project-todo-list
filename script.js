@@ -1,10 +1,9 @@
 const listElement = document.querySelector('#lista-tarefas');
 const inputElement = document.querySelector('#texto-tarefa');
-const buttonCreateTask = document.querySelector('#criar-tarefa');
+const tasks = document.querySelectorAll('#lista-tarefas li');
 
 // TASK SELECIONADA (FUNDO CINZA)
 function colorTask(event) {
-  const tasks = document.querySelectorAll('#lista-tarefas li');
   tasks.forEach((task) => {
     task.style.backgroundColor = '';
   });
@@ -27,5 +26,12 @@ function addToDo() {
   inputElement.value = '';
 }
 
-buttonCreateTask.addEventListener('click', addToDo);
+document.querySelector('#criar-tarefa').addEventListener('click', addToDo);
 
+// LIMPA LISTA
+function clearList() {
+  while (listElement.firstChild)
+  listElement.removeChild(listElement.firstChild)
+}
+
+document.querySelector('#apaga-tudo').addEventListener('click', clearList)
