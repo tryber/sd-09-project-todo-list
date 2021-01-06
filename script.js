@@ -16,11 +16,6 @@ function criarTarefa () {
         event.target.classList.add("selected");
     });
     novoElemento.addEventListener('dblclick', function(event) {
-        // if (event.target.classList.contains("completed")) {
-        //     event.target.classList.remove("completed");
-        // } else {
-        //     event.target.classList.add("completed");
-        // }
         event.target.classList.toggle("completed");
     })
     novaTarefa.value = '';
