@@ -72,7 +72,7 @@ function removeAllTasks() {
   });
 }
 
-// Removes scratched tasks
+// Remove scratched tasks
 function removeCheckedTasks() {
   removeChecked.addEventListener('click', function () {
     const listUl = document.querySelectorAll('#lista-tarefas>li');
@@ -82,6 +82,24 @@ function removeCheckedTasks() {
         checked.parentNode.removeChild(checked);
       }
     }
+  });
+}
+
+// Save your preferences on localStorage
+function saveAllTasks() {
+  saveTasks.addEventListener('click', function () {
+    const olList = document.querySelectorAll('.todo-list');
+    const mylList = [];
+    const classes = [];
+    const myTasks = {
+      mylList,
+      classes,
+    };
+    for (let index = 0; index < olList.length; index += 1) {
+      mylList.push(olList[index].innerHTML);
+      classes.push(olList[index].classList.contains('completed'));
+    }
+    localStorage.setItem('myTodoList', JSON.stringify(myTasks));
   });
 }
 
