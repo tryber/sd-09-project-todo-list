@@ -52,6 +52,11 @@ function removeSelected() {
   }
 }
 
+function saveList() {
+  const saved = document.getElementById('lista-tarefas').innerHTML;
+  localStorage.setItem('savedList', saved);
+}
+
 // ===== BOTÕES =====
 document.getElementById('criar-tarefa').addEventListener('click', addTask);
 document.getElementById('apaga-tudo').addEventListener('click', clearList);
@@ -59,6 +64,7 @@ document.getElementById('remover-finalizados').addEventListener('click', clearCo
 document.getElementById('mover-cima').addEventListener('click', moveUp);
 document.getElementById('mover-baixo').addEventListener('click', moveDown);
 document.getElementById('remover-selecionado').addEventListener('click', removeSelected);
+document.getElementById('salvar-tarefas').addEventListener('click', saveList);
 
 // ===== FUNCTIONS DA LISTA =====
 const taskList = document.querySelector('#lista-tarefas');
@@ -80,3 +86,10 @@ taskList.addEventListener('dblclick', function (done) {
     done.target.classList.add('completed');
   }
 });
+
+window.onload = function () {
+  const savedListCheck = localStorage.getItem('savedList');
+  if (savedListCheck) {
+    document.getElementById('lista-tarefas').innerHTML = savedListCheck;
+  }
+};
