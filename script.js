@@ -25,7 +25,7 @@ saveTasks.className = 'button save';
 saveTasks.innerHTML = 'Save Selected';
 buttonsSection.appendChild(saveTasks);
 
-// Adiciona as tarefas
+// Add tasks
 function addTask() {
   button.addEventListener('click', function () {
     if (text.value === '') {
@@ -50,7 +50,7 @@ function selectedDesativate() {
   });
 }
 
-// Risca as tarefas clicadas duas vezes
+// Scratch the double-click tasks
 function todoCompleted() {
   orderedList.addEventListener('dblclick', function (event) {
     if (event.target.classList.contains('completed')) {
@@ -61,7 +61,7 @@ function todoCompleted() {
   });
 }
 
-  // Remove todas as tarefas
+  // Removes all tasks
 function removeAllTasks() {
   removeTasks.addEventListener('click', function () {
     const ulList = document.querySelectorAll('#lista-tarefas>li');
@@ -72,7 +72,7 @@ function removeAllTasks() {
   });
 }
 
-// Remove as tarefas riscadas
+// Removes scratched tasks
 function removeCheckedTasks() {
   removeChecked.addEventListener('click', function () {
     const listUl = document.querySelectorAll('#lista-tarefas>li');
