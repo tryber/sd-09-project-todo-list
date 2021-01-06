@@ -20,7 +20,15 @@ function changeColor() {
   });
 }
 
+function completed() {
+  const lista = document.getElementById('lista-tarefas');
+  lista.addEventListener('dblclick', function (event) {
+      event.target.classList.toggle('completed');
+  });
+}
+
 window.onload = function () {
   createTask();
   changeColor();
+  completed()
 };
