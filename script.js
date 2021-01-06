@@ -39,3 +39,13 @@ function addTask() {
     }
   });
 }
+
+function selectedDesativate() {
+  orderedList.addEventListener('click', function (event) {
+    const selectedLi = document.querySelectorAll('.selected');
+    for (let index = 0; index < selectedLi.length; index += 1) {
+      selectedLi[index].classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+  });
+}
