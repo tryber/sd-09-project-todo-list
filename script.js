@@ -18,3 +18,7 @@ function changeColor() {
   }
 }
 
+window.onload = function () {
+  createTask()
+  changeColor()
+};
