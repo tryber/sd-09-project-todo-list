@@ -50,9 +50,8 @@ input {
 
 #criar-tarefa {
   position: relative;
-  top: -50px;
-  left: 125px;
-  bottom: 300px;
+  bottom: 55px;
+  left: 177px;
   width: 35px;
   height: 35px;
   border-radius: 50px;
@@ -62,6 +61,7 @@ input {
 
 img {
   height: 35px;
+  width: 35px;
 }
 
 input::placeholder {
@@ -115,12 +115,13 @@ input::placeholder {
   top: 50px;
   margin-left: auto;
   margin-right: auto;
-  width: 300px;
+  width: 400px;
   margin-top: 10px;
   padding: 5px;
   border-radius: 5px;
   background-color: hsl(0, 0%, 98%);
   z-index: 100;
+  
 }
 
 #criar-tarefa:hover {
@@ -129,7 +130,17 @@ input::placeholder {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
-#remover-finalizados {
+.btn-add {
+  height: 35px;
+  font-size: 10px;
+  border-radius: 5px;
+  border-style: none;
+  background-color: hsl(0, 0%, 98%);
+  color: #303030;
+  cursor: pointer;
+}
+
+.btn {
   padding: 5px;
   height: 35px;
   font-size: 10px;
@@ -140,43 +151,9 @@ input::placeholder {
   cursor: pointer;
 }
 
-#apaga-tudo {
-  padding: 5px;
-  height: 35px;
-  font-size: 10px;
-  border-radius: 5px;
-  border-style: none;
-  background-color: hsl(0, 0%, 98%);
-  color: #303030;
-  cursor: pointer;
-}
-
-#salvar-tarefas {
-  padding: 5px;
-  height: 35px;
-  font-size: 10px;
-  border-radius: 5px;
-  border-style: none;
-  background-color: hsl(0, 0%, 98%);
-  color: #303030;
-  cursor: pointer;
-}
-
-#remover-finalizados:hover {
+.btn:hover {
   color: hsl(220, 98%, 61%);
   background-color: #e4e4e4;  
-  transition: 0.5s;
-}
-
-#apaga-tudo:hover {
-  color: hsl(220, 98%, 61%);
-  background-color: #e4e4e4;
-  transition: 0.5s;
-}
-
-#salvar-tarefas:hover {
-  color: hsl(220, 98%, 61%);
-  background-color: #e4e4e4;
   transition: 0.5s;
 }
 

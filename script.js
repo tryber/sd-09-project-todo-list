@@ -121,54 +121,6 @@ function cleanList() {
 cleanList();
 
 
-//newTask.style.backgroundColor = 'rgb(128, 128, 128)';
-      //newTask.style.color = 'rgb(255, 255, 255)';
-
-
-       //let task = input.value;
-//localStorage.setItem('input', JSON.stringify(task))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
