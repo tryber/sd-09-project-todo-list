@@ -103,9 +103,16 @@ function saveAllTasks() {
   });
 }
 
+function removeSelectedTasks() {
+  removeSelected.addEventListener('click', function () {
+    const selectList = document.querySelector('.selected');
+    orderedList.removeChild(selectList);
+  });
+}
+
 addTask();
 selectedDesativate();
 todoCompleted();
 removeAllTasks();
 removeCheckedTasks();
-
+saveAllTasks();
