@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url(img/bg-desktop-light.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+} 
+
+header h1 {
+  font-family: 'Josefin Sans', sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 5px;
+  text-align: center;
+  color: rgb(253, 244, 244);
+  margin-top: 50px;
+  padding-bottom: 50px;
+  cursor: pointer;
+}
+
+header #funcionamento {
+  font-family: 'Josefin Sans', sans-serif;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 6.5px;
+  text-align: center;
+  margin-top: -40px;
+  padding-bottom: 20px;
+  color: rgb(238, 238, 238);
+  cursor: pointer;
+}
+
+#input-section {
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+}
+
+input {
+  height: 35px;
+  width: 300px;
+  border-radius: 5px;
+  border-style: none;
+  background-color: hsl(0, 0%, 98%);  
+}
+
+#criar-tarefa {
+  position: relative;
+  bottom: 55px;
+  left: 180px;
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  border-style: none;
+  cursor: pointer;
+}
+
+img {
+  height: 35px;
+  width: 35px;
+}
+
+input::placeholder {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+  padding-left: 30px;
+}
+
+#list-section {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+  width: 300px; 
+  height: 250px;
+  border-radius: 5px;
+  box-shadow: 1px 10px 18px #a0a0a0;
+  background-color: hsl(0, 0%, 98%);
+  z-index: 100;
+  overflow: auto;
+}
+
+#lista-tarefas {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  color: #757474;
+  list-style: none;
+}
+
+.task {
+  border-bottom: 1px solid #d8d8d8;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.bg-task {
+  background-color: rgb(128, 128, 128);
+  color: rgb(255, 255, 255);
+  padding: 5px;
+}
+
+.completed {
+  text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+#buttons {
+  position: relative;
+  top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: hsl(0, 0%, 98%);
+  z-index: 100;
+  
+}
+
+#criar-tarefa:hover {
+  color: hsl(220, 98%, 61%);
+  transition: 0.5s;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.btn-add {
+  height: 35px;
+  font-size: 10px;
+  border-radius: 5px;
+  border-style: none;
+  background-color: hsl(0, 0%, 98%);
+  color: #303030;
+  cursor: pointer;
+}
+
+.btn {
+  padding: 5px;
+  height: 35px;
+  font-size: 10px;
+  border-radius: 5px;
+  border-style: none;
+  background-color: hsl(0, 0%, 98%);
+  color: #303030;
+  cursor: pointer;
+}
+
+.btn:hover {
+  color: hsl(220, 98%, 61%);
+  background-color: #e4e4e4;  
+  transition: 0.5s;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background:hsl(220, 86%, 65%);
+  border-radius: 6px;
+}

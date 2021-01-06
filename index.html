@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+  <html lang="pt-br">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>My ToDo</title>
+      <link rel="stylesheet" href="style.css">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+      
+      <main id="main">
+        <header>
+          <h1>Minha Lista de Tarefas</h1>
+          <p id="funcionamento">
+            Clique duas vezes em um item para marcá-lo como completo
+          </p>
+        </header>
+
+        <section id="input-section">
+          <input type="text" id="texto-tarefa" name="Digite uma tarefa" placeholder="Crie uma nova tarefa...">
+        </section>
+
+        <section id="list-section">
+          <ol id="lista-tarefas">
+            <!--<li class="task" >Limpar casa</li>-->
+            
+            
+          </ol>
+        </section>
+
+        <section>
+          <div id="buttons">
+            <button type="button" id="criar-tarefa" class="btn-add"><img src="img/plus.png" alt=""></button>
+            <button type="button" id="remover-selecionado" class="btn">Remover selecionado</button>
+            <button type="button" id="remover-finalizados" class="btn">Limpar completos</button>
+            <button type="button" id="apaga-tudo" class="btn">Limpar lista</button>
+            <button type="button" id="salvar-tarefas" class="btn">Salvar lista</button>
+          </div>
+        </section>
+      </main>
+
+      <script src="script.js"></script>
+    </body>
+
+</html>
