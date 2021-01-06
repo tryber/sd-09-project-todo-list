@@ -41,10 +41,10 @@ document.querySelector('#apaga-tudo').addEventListener('click', clearList);
 function removeCompletedTasks() {
   const tasksCreated = document.querySelectorAll('#lista-tarefas li');
   tasksCreated.forEach((task) => {
-    if(task.classList.contains('completed')) {
+    if (task.classList.contains('completed')) {
       listElement.removeChild(task);
-    };
+    }
   });
 }
 
-document.querySelector('#remover-finalizados').addEventListener('click', removeCompletedTasks)
+document.querySelector('#remover-finalizados').addEventListener('click', removeCompletedTasks);
