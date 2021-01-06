@@ -55,18 +55,15 @@ function changeClassSelected(event) {
 function changeClassDone(event) {
   //event.target.classList.add('done');
   let task = event.target;
-  console.log(task.classList[0]);
+  console.log(task.classList.length);
 
-  if(task[1] = 'done') {
+  if(task.classList.contains('done')) {
     task.classList.remove('done');
-    console.log('tes')
-  }
-  
-  if (task[0] = 'selected') {
+    console.log('remove');
+  } else {
     task.classList.add('done');
-    console.log(task.classList)
-  }
-  
+    console.log('add');
+  }  
 }
 
 addONeListener(botao, addNew);
