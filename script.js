@@ -101,7 +101,7 @@ function salvarDados() {
   let myJSON = JSON.stringify(itensSalvos);
   localStorage.setItem("tasks", myJSON);
 }
-
+/*
 function loadPage() {
   const itensRecuperados = localStorage.getItem("tasks");
   let obj = JSON.parse(itensRecuperados);
@@ -116,3 +116,4 @@ function loadPage() {
 }
 
 loadPage();
+*/
