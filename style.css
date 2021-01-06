@@ -53,6 +53,7 @@ input {
   top: -50px;
   left: 125px;
   bottom: 300px;
+  width: 35px;
   height: 35px;
   border-radius: 50px;
   border-style: none;
