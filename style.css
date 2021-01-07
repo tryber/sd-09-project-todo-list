@@ -8,3 +8,10 @@ body {
   opacity: 1;
 }
 
+main {
+  border-radius: 2em;
+  box-shadow: 2px 2px 5px;
+  margin: auto;
+  padding: 2em;
+  width: 70%;
+}
