@@ -1,8 +1,9 @@
 const listaDeTarefas = document.querySelector('#lista-tarefas');
 const textInput = document.querySelector('#texto-tarefa');
-const botao = document.querySelector('button');
-const botao2 = document.querySelectorAll('button')[1];
-const botao3 = document.querySelectorAll('button')[2];
+const botao = document.querySelector('#criar-tarefa');
+const botao2 = document.querySelector('#remover-finalizados');
+const botao3 = document.querySelector('#apaga-tudo');
+const botao4 = document.querySelector('#remover-selecionados');
 
 // limpa o texto digitado na caixa de texto
 function limpaTexto() {
@@ -67,6 +68,15 @@ function apagaLista() {
     listaDeTarefas.removeChild(listaDeTarefas.firstChild);
   }
 }
+
+// remove item selecionado
+function removeItemCompleto() {
+  const selectedClass = document.querySelector('.color');
+    if (selectedClass) {
+      selectedClass.remove();
+  }
+}
+botao4.addEventListener('click', removeItemCompleto);
 
 window.onload = function () {
   botao.addEventListener('click', itemLista);

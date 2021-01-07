@@ -8,17 +8,14 @@
 
 .botoes {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin: auto;
   width: 50%;
 }
 
 .caixa-texto {
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  margin: auto;
-  width: 50%;
 }
 
 .ol {
@@ -27,6 +24,11 @@
 }
 
 .titulo {
+  display: flex;
+  justify-content: center;
+}
+
+#funcionamento {
   display: flex;
   justify-content: center;
 }
