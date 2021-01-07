@@ -1,0 +1,26 @@
+body{
+    background-color: #231134;
+    font-family: monospace;
+    color: white;
+  }
+  
+  button {
+    background-color:#EA3662;
+    border: none;
+    border-radius: 7px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    margin:10px;
+    padding: 13px 70px 13px 70px;
+    text-align: center;
+  }
+  
+
+.completed {
+    text-decoration: line-through;
+  }
+  
+  .selected {
+    background-color: rgb(128, 128, 128);
+  }
