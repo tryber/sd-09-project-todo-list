@@ -1,6 +1,7 @@
 const list = document.querySelector('#lista-tarefas');
 const selectedTask = document.querySelector('.selected');
 
+
 function removeSelectedClass() {
   const taskArray = document.querySelectorAll('.task');
   for (let index = 0; index < taskArray.length; index += 1) {
@@ -9,7 +10,7 @@ function removeSelectedClass() {
 }
 
   function clickToSelect() {
-    taskList.addEventListener('click', function (event) {
+    list.addEventListener('click', function (event) {
       if (event.target.nodeName === 'LI') {
         removeSelectedClass();
         event.target.classList.toggle('selected');
