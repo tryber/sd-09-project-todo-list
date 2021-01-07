@@ -49,8 +49,7 @@ window.onload = function () {
   const addButton = document.querySelector('#criar-tarefa');
 
   addButton.addEventListener('click', addNewTask);
-
-  // moveUpButton.addEventListener('click', moveUp);
+  moveUpButton.addEventListener('click', moveUp);
   // moveDownButton.addEventListener('click', moveDown);
   // clearSelect.addEventListener('click', selectTask);
 
