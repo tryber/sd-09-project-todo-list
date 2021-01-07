@@ -30,8 +30,6 @@ function moveDown() {
   }
 }
 
-
-
 window.onload = function () {
   const clearSelect = document.querySelector('#remover-selecionado');
   const moveUpButton = document.querySelector('#mover-cima');
