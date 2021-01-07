@@ -70,13 +70,13 @@ function apagaLista() {
 }
 
 // remove item selecionado
-function removeItemCompleto() {
-  const selectedClass = document.querySelector('.color');
-    if (selectedClass) {
-      selectedClass.remove();
+function removeItemSelecionado() {
+const selectedClass = document.querySelector('.color');
+  if (selectedClass) {
+    selectedClass.remove();
   }
 }
-botao4.addEventListener('click', removeItemCompleto);
+botao4.addEventListener('click', removeItemSelecionado);
 
 window.onload = function () {
   botao.addEventListener('click', itemLista);

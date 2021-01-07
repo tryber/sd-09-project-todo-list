@@ -18,17 +18,17 @@
   justify-content: center;
 }
 
+.funcionamento {
+  display: flex;
+  justify-content: center;
+}
+
 .ol {
   display: flex;
   justify-content: center;
 }
 
 .titulo {
-  display: flex;
-  justify-content: center;
-}
-
-#funcionamento {
   display: flex;
   justify-content: center;
 }
