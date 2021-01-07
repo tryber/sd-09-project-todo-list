@@ -1,5 +1,5 @@
 createTask (); 
-//changeBackgroundColor();
+changeBackgroundColor();
 riskTask();
 resetAll();
 removeCompletedTask();
@@ -87,6 +87,3 @@ function removeCompletedTask() {
         //Dessa maneira
     });
 }
-
-
-
