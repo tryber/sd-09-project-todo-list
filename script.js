@@ -1,13 +1,13 @@
 function addTasks() {
-  const olListaTarefas = document.querySelector('#lista-tarefas');
-  const buttonCreateTasks = document.querySelector('#criar-tarefa');
-  buttonCreateTasks.addEventListener('click', function(){
-    const lengthValeu = document.querySelector('#texto-tarefa').value.length
-      if(lengthValeu > 0){
+  const olTaskList = document.querySelector('#lista-tarefas');
+  const buttonTasks = document.querySelector('#criar-tarefa');
+  buttonTasks.addEventListener('click', function(){
+    const lengthValue = document.querySelector('#texto-tarefa').value.length
+      if(lengthValue > 0){
         const textTasks = document.querySelector('#texto-tarefa');
-        const createLi = document.createElement('li');
-        createLi.innerText = textTasks.value;
-        olListaTarefas.appendChild(createLi);
+        const li = document.createElement('li');
+        li.innerText = textTasks.value;
+        olTaskList.appendChild(li);
         textTasks.value = '';
       }
   })
@@ -15,16 +15,16 @@ function addTasks() {
 addTasks();
 
 function addKeyTasks(){
-  const olListaTarefas = document.querySelector('#lista-tarefas');
+  const olTaskList = document.querySelector('#lista-tarefas');
   const input = document.querySelector('#texto-tarefa');
-  input.addEventListener('keyup', function(e){
-    if(e.keyCode === 13){
-      const lengthValeu = document.querySelector('#texto-tarefa').value.length
-      if(lengthValeu > 0){
+  input.addEventListener('keyup', function(event){
+    if(event.keyCode === 13){
+      const lengthValue = document.querySelector('#texto-tarefa').value.length
+      if(lengthValue > 0){
         const textTasks = document.querySelector('#texto-tarefa');
-        const createLi = document.createElement('li');
-        createLi.innerText = textTasks.value;
-        olListaTarefas.appendChild(createLi);
+        const li = document.createElement('li');
+        li.innerText = textTasks.value;
+        olTaskList.appendChild(li);
         textTasks.value = '';
       }
     }
@@ -33,8 +33,8 @@ function addKeyTasks(){
 addKeyTasks();
 
 function itemSelected(){
-  const olListaTarefas = document.querySelector('ol#lista-tarefas');
-  olListaTarefas.addEventListener('click', function(event){    
+  const olTaskList = document.querySelector('ol#lista-tarefas');
+  olTaskList.addEventListener('click', function(event){    
     const li = event.target;
     const list = document.querySelector('.selectedList');
     if(list){
@@ -46,13 +46,13 @@ function itemSelected(){
 itemSelected();
 
 
-const btnLimparLista = document.querySelector('#apaga-tudo');
+const btnClearList = document.querySelector('#apaga-tudo');
 function removeList(){
-btnLimparLista.addEventListener('click', function(){
-  const cleanList = document.querySelectorAll('ol li');
+btnClearList.addEventListener('click', function(){
+  const clearList = document.querySelectorAll('ol li');
   const ol = document.querySelector('ol');
-  for(let indexClean = 0; indexClean < cleanList.length; indexClean +=1){
-    ol.removeChild(cleanList[indexClean]);
+  for(let indexClear = 0; indexClear < clearList.length; indexClear +=1){
+    ol.removeChild(clearList[indexClear]);
   }
 })
 }
