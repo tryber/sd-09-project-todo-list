@@ -31,6 +31,12 @@ function createTaskInputButton() {
   main.appendChild(taskInputButton);
 }
 
+function checkListStatus(retrievedListStatus, index, listItem) {
+  if (retrievedListStatus[index] !== 'false') {
+    listItem.classList.add('completed');
+  }
+}
+
 function createOrderedList() {
   const main = document.querySelector('main');
   const orderedList = document.createElement('ol');
@@ -41,9 +47,7 @@ function createOrderedList() {
     for (let index = 0; index < retrievedList.length; index += 1) {
       const listItem = document.createElement('li');
       listItem.innerText = retrievedList[index];
-      if (retrievedListStatus[index] !== 'false') {
-        listItem.classList.add('completed');
-      }
+      checkListStatus(retrievedListStatus, index, listItem);
       orderedList.appendChild(listItem);
     }
   }
@@ -197,12 +201,7 @@ function removeSelected() {
   }
 }
 
-window.onload = function () {
-  createHeader();
-  createMain();
-  createTaskInput();
-  createTaskInputButton();
-  createOrderedList();
+function addEventListeners() {
   const taskInputButton = document.querySelector('#criar-tarefa');
   taskInputButton.addEventListener('click', addTaskToList);
   const taskInput = document.querySelector('#texto-tarefa');
@@ -210,22 +209,31 @@ window.onload = function () {
   const orderedList = document.querySelector('ol');
   orderedList.addEventListener('click', turnGray);
   orderedList.addEventListener('dblclick', lineThrough);
-  createRemoveButton();
   const removeButton = document.querySelector('#apaga-tudo');
   removeButton.addEventListener('click', removeListItem);
-  createRemoveCompletedButton();
   const removeCompletedButton = document.querySelector('#remover-finalizados');
   removeCompletedButton.addEventListener('click', removeCompleted);
-  createSaveTasksButton();
   const saveTasksButton = document.querySelector('#salvar-tarefas');
   saveTasksButton.addEventListener('click', saveTasks);
-  createMoveUp();
   const moveUpButton = document.querySelector('#mover-cima');
   moveUpButton.addEventListener('click', moveUp);
-  createMoveDown();
   const moveDownButton = document.querySelector('#mover-baixo');
   moveDownButton.addEventListener('click', moveDown);
-  createRemoveSelectedButton();
   const removeSelectedButton = document.querySelector('#remover-selecionado');
   removeSelectedButton.addEventListener('click', removeSelected);
+}
+
+window.onload = function () {
+  createHeader();
+  createMain();
+  createTaskInput();
+  createTaskInputButton();
+  createOrderedList();
+  createRemoveButton();
+  createRemoveCompletedButton();
+  createSaveTasksButton();
+  createMoveUp();
+  createMoveDown();
+  createRemoveSelectedButton();
+  addEventListeners();
 };
