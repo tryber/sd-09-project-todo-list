@@ -1,12 +1,15 @@
-body{ 
+body { 
    background-color: rgb(188, 211, 133); 
 }
-header, div{
+
+header, div {
   text-align: center;
 }
-.selectedList{
+
+.selectedList {
   background-color: rgb(128, 128, 128);
 }
-.completed{
+
+.completed {
   text-decoration: line-through solid rgb(0, 0, 0);
 }
