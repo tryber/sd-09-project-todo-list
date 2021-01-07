@@ -53,28 +53,28 @@ function clearCompleted() {
 }
 
 function saveTasks() {
-    let tasks = document.getElementsByClassName('item-list');
+    let tasks = document.getElementsByTagName('li');
     if (tasks) {
         localStorage.clear();
         for (let i = 0; i < tasks.length; i += 1) {
-            localStorage.setItem(i, tasks[i].innerText);
+            localStorage.setItem(tasks[i].innerText, tasks[i].className);
         }
     }
 }
-
 function checkSavedItems() {
-    if (localStorage) {
-        for (let i = 0; i < localStorage.length; i += 1) {
+    if(localStorage) {
+        for(let i = 0; i < localStorage.length; i += 1) {
             let savedTask = localStorage[i];
             let savedTaskTolist = document.createElement('li');
-            savedTaskTolist.className = 'item-list';
-            savedTaskTolist.innerText = savedTask;
+            savedTaskTolist.className = localStorage.getItem(localStorage.key(i));
+            savedTaskTolist.innerText = localStorage.key(i);
             savedTaskTolist.addEventListener('click', highlight);
             savedTaskTolist.addEventListener('dblclick', taskComplete);
             list.appendChild(savedTaskTolist);
         }
     }
 }
+
 const addButton = document.getElementById('criar-tarefa');
 const clearListButton = document.getElementById('apaga-tudo');
 const clearCompletedButton = document.getElementById('remover-finalizados');
