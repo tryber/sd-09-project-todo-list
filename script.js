@@ -46,8 +46,15 @@ function eraseLi (){
         let lad = document.querySelector("#lista-tarefas").lastChild;
         document.querySelector("ol").removeChild(lad);
     }
-    deleteListGeral.innerHtml
+    deleteListGeral.innerHtml;
 }
+
+const eraseFinished = document.querySelector("#remover-finalizados");
+
+function removeFinished (){
+    let mopFinished = document.querySelectorAll(".completed");
+    
+
     
 
 
