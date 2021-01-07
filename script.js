@@ -44,7 +44,6 @@ function removeItemCompleto() {
 
 // cria uma lista ordenada dentro de ol
 function itemLista() {
-  const textInput = document.querySelector('#texto-tarefa');
   const listaTarefa = document.createElement('li');
   listaTarefa.innerText = textInput.value;
   listaDeTarefas.appendChild(listaTarefa);
@@ -71,8 +70,8 @@ function apagaLista() {
   }
 }
 
-window.onload = function(){
+window.onload = function() {
   botao.addEventListener('click', itemLista);
   botao2.addEventListener('click', apagaLista);
   botao3.addEventListener('click', removeItemCompleto);
-}
+};
