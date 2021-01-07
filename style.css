@@ -2,3 +2,9 @@ body {
   font-family: sans-serif;
   padding: 10px;
 }
+
+.selected {
+  background-color: cyan;
+  opacity: 1;
+}
+
