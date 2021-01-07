@@ -52,8 +52,3 @@ function eventsListenersAll() {
 }
 
 eventsListenersAll();
-createTasks();
-bgTaskColorChange();
-dbClickCompleted();
-delAllTasks();
-rmTasksFinished();
