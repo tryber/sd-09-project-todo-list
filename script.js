@@ -36,7 +36,7 @@ listaTarefas.addEventListener('dblclick', function (event) {
   
 });
   
-
+//função que substitui o botao reset
 function apagarElementos() {
   let apagarElemento = document.querySelectorAll('li');
   for(let index = 0; index < apagarElemento.length; index +=1){
