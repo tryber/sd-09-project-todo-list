@@ -76,5 +76,5 @@ window.onload = function () {
   // moveUpButton.addEventListener('click', moveUp);
   // moveDownButton.addEventListener('click', moveDown);
 
-  clickToSelect();
+  // clickToSelect();
 }
