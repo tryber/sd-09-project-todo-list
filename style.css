@@ -80,12 +80,12 @@ body {
 
 .paragrafo {
   display: flex;
-  justify-content: center;
   font-size: 18px;
+  justify-content: center;
 }
 
 .ol {
-display: flex;
+  display: flex;
   justify-content: center;
 }
 
