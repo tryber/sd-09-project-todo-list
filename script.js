@@ -49,6 +49,8 @@ function eraseLi (){
     deleteListGeral.innerHtml
 }
 
+eraseList.addEventListener("click", eraseLi);
+
 const eraseFinished = document.querySelector("#remover-finalizados");
 
 function removeFinished (){
