@@ -37,7 +37,7 @@ function trocaFundoItemLista() {
 // remove item com a classe completed
 function removeItemCompleto() {
   const selectedClass = document.querySelectorAll('.completed');
-  for (let index = 0; index < selectedClass.length; index++) {
+  for (let index = 0; index < selectedClass.length; index += 1) {
     const element = selectedClass[index];
     if (element) {
       element.remove();
@@ -56,7 +56,6 @@ function itemLista() {
 
 // funcao para riscar um item da lista que ja foi completado
 function riscaItem(event) {
-  const selecionarItem = document.querySelector('.completed');
   const tarefaSelecionada = event.target;
   tarefaSelecionada.classList.toggle('completed');
 }
