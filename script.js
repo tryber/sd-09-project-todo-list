@@ -38,3 +38,16 @@ function makingClass (markLiOne){
 
 duploclick.addEventListener("dblclick", makingClass);
 
+const eraseList = document.querySelector("#apaga-tudo");
+
+function eraseLi (){
+    let deleteListGeral = document.querySelectorAll("li");
+    for (let index = 0; index < deleteListGeral.length; index +=1) {
+        let lad = document.querySelector("#lista-tarefas").lastChild;
+        document.querySelector("ol").removeChild(lad);
+    }
+    deleteListGeral.innerHtml
+}
+    
+
+
