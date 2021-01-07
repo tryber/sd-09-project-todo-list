@@ -3,7 +3,8 @@ const buttonCriarTarefa = document.querySelector("#criar-tarefa");
 function checkInput(){
     let textoTarefa = document.querySelector("#texto-tarefa").value;
     let adicionaTarefa = document.querySelector("#lista-tarefas");
-    let criaTarefa = document.querySelector("li");
+    let criaTarefa = document.createElement("li");
+
 
     adicionaTarefa.appendChild(criaTarefa).innerText = textoTarefa;
     document.querySelector("#texto-tarefa").value = "";
