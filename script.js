@@ -28,8 +28,8 @@ pushColour.addEventListener("click", backgroundColour);
 const duploclick = document.querySelector("#lista-tarefas");
 
 function makingClass (markLiOne){
-    let beautifulText = markLiOne.taget;
-    if (beautifulText.className == "completed"){
+    let beautifulText = markLiOne.target;
+    if (beautifulText.className === "completed"){
         beautifulText.className = "";
     } else {
         beautifulText.className = "completed";
