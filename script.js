@@ -1,13 +1,24 @@
 
-function mudaParaCinza() {
-  let colorList = document.getElementsByClassName('tarefa-from-list');
-  for (let index = 0; index < colorList.length ; index +=1){
-    colorList[index].style.backgroundColor = 'rgb(128, 128, 128)';
+function selectingColor(event) {
+  for (let index = 0; index < paletaCores.length; index += 1) {
+    if (paletaCores[index].classList.contains('selected')) {
+      paletaCores[index].classList.remove('selected');
+    }
+  }
+  event.target.classList.add('selected');
+}
+
+function mudaParaCinza(event) { 
+  if (event.target.classList.contains('selected')) {
+    event.target.style.backgroundColor = null;
+    event.target.classList.remove('selected');
+  }else{
+    event.target.classList.add('selected');
+    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 }
 
 function checkCompleted(event) {
-  //let elemento = document.querySelector('.nova-tarefa');
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
   }else{
