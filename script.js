@@ -85,16 +85,16 @@ function itemLista() {
   item.appendChild(listaTarefa);
   limpaTexto();
   trocaFundoItemLista();
-  botao3.addEventListener('click', removeItemCompleto);
 }
 botao.addEventListener('click', itemLista);
+botao3.addEventListener('click', removeItemCompleto);
 
 // funcao para riscar um item da lista que ja foi completado
 const listaDeTarefas = document.querySelector('#lista-tarefas');
 function riscaItem(event) {
   const selecionarItem = document.querySelector('.completed');
   const tarefaSelecionada = event.target;
-  if (selecionarItem !== null) {
+  if (selecionarItem) {
     tarefaSelecionada.classList.remove('completed');
   } else {
     tarefaSelecionada.classList.add('completed');
