@@ -1,7 +1,7 @@
 const listElement = document.querySelector('#lista-tarefas');
 const inputElement = document.querySelector('#texto-tarefa');
 
-function colorTask(event) {
+function selectTask(event) {
   const tasks = document.querySelectorAll('#lista-tarefas li');
   tasks.forEach((task) => {
     task.style.backgroundColor = '';
@@ -19,7 +19,7 @@ function addToDo() {
   listElement.appendChild(taskElement);
 
   taskElement.addEventListener('dblclick', toggleCompletedTask);
-  taskElement.addEventListener('click', colorTask);
+  taskElement.addEventListener('click', selectTask);
   inputElement.value = '';
 }
 
