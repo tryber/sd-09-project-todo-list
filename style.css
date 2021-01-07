@@ -78,15 +78,15 @@ body {
   justify-content: center;
 }
 
-.ol {
-  display: flex;
-  justify-content: center;
-}
-
 .paragrafo {
   display: flex;
   justify-content: center;
   font-size: 18px;
+}
+
+.ol {
+display: flex;
+  justify-content: center;
 }
 
 .texto-input {

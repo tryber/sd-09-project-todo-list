@@ -3,7 +3,7 @@ const textInput = document.querySelector('#texto-tarefa');
 const botao = document.querySelector('#criar-tarefa');
 const botao2 = document.querySelector('#apaga-tudo');
 const botao3 = document.querySelector('#remover-finalizados');
-const botao4 = document.querySelector('#remover-selecionados');
+const botao4 = document.querySelector('#remover-selecionado');
 
 // limpa o texto digitado na caixa de texto
 function limpaTexto() {
@@ -76,10 +76,10 @@ function removeItemSelecionado() {
     selectedClass.remove();
   }
 }
-botao4.addEventListener('click', removeItemSelecionado);
 
 window.onload = function () {
   botao.addEventListener('click', itemLista);
   botao2.addEventListener('click', apagaLista);
   botao3.addEventListener('click', removeItemCompleto);
+  botao4.addEventListener('click', removeItemSelecionado);
 };
