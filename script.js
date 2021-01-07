@@ -75,6 +75,16 @@ function checkSavedItems() {
     }
 }
 
+function removeSelected() {
+    let fullList = document.getElementsByTagName('li');
+    for (let i = 0; i < fullList.length; i += 1) {
+        if (fullList[i].classList.contains('selected')) {
+            list.removeChild(fullList[i]);
+        }
+    }
+
+}
+
 const addButton = document.getElementById('criar-tarefa');
 const clearListButton = document.getElementById('apaga-tudo');
 const clearCompletedButton = document.getElementById('remover-finalizados');
@@ -84,6 +94,8 @@ clearListButton.addEventListener('click', clearList);
 clearCompletedButton.addEventListener('click', clearCompleted);
 const saveTasksButton = document.querySelector('#salvar-tarefas');
 saveTasksButton.addEventListener('click', saveTasks);
+const removeSelectedButton = document.querySelector('#remover-selecionado');
+removeSelectedButton.addEventListener('click', removeSelected);
 
 window.onload = function() {
     checkSavedItems();
