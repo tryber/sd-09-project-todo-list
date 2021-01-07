@@ -1,0 +1,14 @@
+
+
+.selected {
+    background-color: rgb(128, 128, 128);
+}
+
+.completed {
+    text-decoration: line-through;
+}
+
+button {
+    height: 40px;
+    width: 80px;
+}
