@@ -8,6 +8,23 @@ function removeSelectedClass() {
   }
 }
 
+function addItemButton() {
+  const clickButton = document.querySelector('#criar-tarefa');
+  clickButton.addEventListener('click', function () {
+  let textInBox = document.querySelector('#texto-tarefa');
+  const listTask = document.querySelector('#lista-tarefas');
+
+  if(textInBox.value.length > 0) {
+    const item = document.createElement('li');
+    item.innerText = textInBox.value;
+    item.className = 'item';
+    listTask.appendChild(item);
+    textInBox.value = '';
+}
+});
+}
+addItemButton();
+
   function clickToSelect() {
     list.addEventListener('click', function (event) {
       if (event.target.nodeName === 'LI') {
