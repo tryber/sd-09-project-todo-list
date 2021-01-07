@@ -1,4 +1,13 @@
+function removeBackgroundColor() {
+  const olListaTarefa = document.getElementById('lista-tarefas');
+  const childsOl = olListaTarefa.children;
+  for (let i = 0; i < childsOl.length; i += 1) {
+    childsOl[i].style.backgroundColor = '';
+  }
+}
+
 function changeBackgroundColor(event) {
+  removeBackgroundColor();
   event.target.style.backgroundColor = 'gray';
 }
 
