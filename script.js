@@ -63,19 +63,19 @@ function trocaFundoItemLista() {
 
 function removeItemCompleto() {
   const filhosDeOl = document.querySelector('#lista-tarefas').childNodes;
-  for (let index = 0; index < filhosDeOl.length; index++) {
+  for (let index = 0; index < filhosDeOl.length; index += 1) {
     const lis = filhosDeOl[index];
     if (lis.classList.contains('completed')) {
       lis.remove();
-    }else{
-      console.log('nada');
+    } else {
+      return 'Não possui item completo!';
     }
   }
 }
 
 // cria botao remover item
 function criaBotaoRemove() {
-  botao3.id = 'remover-finalizados';
+  botao3.id = 'remover-selecionado';
   botao3.innerText = 'Remover Item';
 }
 criaBotaoRemove();
@@ -107,8 +107,8 @@ function riscaItem(event) {
 listaDeTarefas.addEventListener('dblclick', riscaItem);
 
 window.onload = function criaBotaoApagar() {
-    botao2.id = 'apaga-tudo';
-    botao2.innerText = 'Apagar Lista';
+  botao2.id = 'apaga-tudo';
+  botao2.innerText = 'Apagar Lista';
 };
 
 // remove itens da lista
