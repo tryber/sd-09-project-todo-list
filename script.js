@@ -4,7 +4,7 @@ function btn() {
   let inputValue = document.getElementById("texto-tarefa").value;
   let t = document.createTextNode(inputValue);
   li.appendChild(t);
-    li.classList.add('corFundo')
+    li.classList.add('corFundo');
     document.getElementById("lista-tarefas").appendChild(li);
     document.getElementById("texto-tarefa").value = "";
 }
@@ -12,8 +12,14 @@ function btn() {
 //Requisito 7 e 8
 let list = document.querySelector('ol');
 list.addEventListener('click', function(param) {
+  let listaOl = document.querySelectorAll('.corFundo');
+
+  for (let index = 0 ; index < listaOl.length; index++) {
+    listaOl[index].style.backgroundColor = "#FFF";
+  }
+
   if (param.target.tagName === 'LI') {
-    param.target.style.backgroundColor = 'rgb(128, 128, 128)'
+    param.target.style.backgroundColor = 'rgb(128, 128, 128)';
   }
 })
 
@@ -27,3 +33,5 @@ function apagaTudo() {
     lista.removeChild(lista.firstChild);
   }
 }
+
+
