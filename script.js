@@ -55,6 +55,7 @@ function clearCompleted() {
 function saveTasks() {
     let tasks = document.getElementsByClassName('item-list');
     if (tasks) {
+        localStorage.clear();
         for (let i = 0; i < tasks.length; i += 1) {
             localStorage.setItem(i, tasks[i].innerText);
         }
@@ -68,6 +69,8 @@ function checkSavedItems() {
             let savedTaskTolist = document.createElement('li');
             savedTaskTolist.className = 'item-list';
             savedTaskTolist.innerText = savedTask;
+            savedTaskTolist.addEventListener('click', highlight);
+            savedTaskTolist.addEventListener('dblclick', taskComplete);
             list.appendChild(savedTaskTolist);
         }
     }
