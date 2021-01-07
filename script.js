@@ -1,3 +1,23 @@
+function createTitle() {
+  const header = document.querySelector('header');
+  const heading = document.createElement('h1');
+  header.appendChild(heading);
+  heading.innerText = 'Minha Lista de Tarefas';
+  heading.style.color = 'red';
+  heading.style.textAlign = 'center';
+  heading.style.border = '1px solid purple';
+}
+
+function createParagraph() {
+  const main = document.querySelector('main');
+  const paragraph = document.createElement('p');
+  paragraph.innerText =
+    'Clique duas vezes em um item para marcá-lo como completo';
+  paragraph.id = 'funcionamento';
+  main.appendChild(paragraph);
+}
+
+
 const list = document.querySelector('#lista-tarefas');
 const inputField = document.querySelector('#texto-tarefa');
 

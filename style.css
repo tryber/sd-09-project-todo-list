@@ -1,21 +1,7 @@
-body {
-  font-family: sans-serif;
-  padding: 10px;
+.selected {
+  background-color: gray;
 }
 
 .completed {
-  text-decoration: line-through;
-}
-
-.selected {
-  background-color: rgb(128, 128, 128);;
-  opacity: 1;
-}
-
-main {
-  border-radius: 2em;
-  box-shadow: 2px 2px 5px;
-  margin: auto;
-  padding: 2em;
-  width: 70%;
+  text-decoration: line-through solid black;
 }
