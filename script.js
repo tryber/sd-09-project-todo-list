@@ -1,11 +1,20 @@
 const list = document.querySelector('#lista-tarefas');
 
-function removeTask() {
-  const selectTask = document.querySelector('.selected');
-  if (selectTask) {
-    list.removeChild(selectTask);
+function removeSelectedClass() {
+  const taskArray = document.querySelectorAll('.task');
+  for (let index = 0; index < taskArray.length; index += 1) {
+    taskArray[index].classList.remove('selected');
   }
 }
+
+  function clickToSelect() {
+    taskList.addEventListener('click', function (event) {
+      if (event.target.nodeName === 'LI') {
+        removeSelectedClass();
+        event.target.classList.toggle('selected');
+      }
+    });
+  }
 
 function moveUp() {
   const selectedTask = document.querySelector('.selected');
@@ -21,6 +30,8 @@ function moveDown() {
   }
 }
 
+
+
 window.onload = function () {
   const clearSelect = document.querySelector('#remover-selecionado');
   const moveUpButton = document.querySelector('#mover-cima');
@@ -29,4 +40,6 @@ window.onload = function () {
   moveUpButton.addEventListener('click', moveUp);
   moveDownButton.addEventListener('click', moveDown);
   clearSelect.addEventListener('click', selectTask);
+
+  clickToSelect();
 }
