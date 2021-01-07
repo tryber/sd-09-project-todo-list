@@ -1,0 +1,132 @@
+body {
+  background-color: limegreen;
+}
+
+hr {
+  border: 1px solid black;
+  box-shadow: 0 4px 6px 1px black;
+}
+
+h1 {
+  margin: 0 0 18px;
+  text-shadow: 20px 20px 20px;
+}
+
+.button-1 {
+  background-color: green;
+  border: 0 solid white;
+  border-radius: 10px;
+  box-shadow: 1px 2px 10px 1px black;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 15px;
+}
+
+.button-2 {
+  background-color: red;
+  border: 0 solid white;
+  border-radius: 15px;
+  box-shadow: 1px 2px 10px 1px black;
+  color: white;
+  font-family: monospace;
+  font-size: 20px;
+  font-weight: 900;
+  margin: 0 2px;
+  padding: 5px 10px;
+}
+
+.button-3 {
+  background-color: dodgerblue;
+  border: 0 solid white;
+  border-radius: 10px;
+  box-shadow: 1px 2px 10px 1px black;
+  color: white;
+  font-weight: 600;
+  margin: 0 5px;
+  padding: 5px 15px;
+}
+
+.button-4 {
+  background-color: orangered;
+  border: 0 solid white;
+  border-radius: 10px;
+  box-shadow: 1px 2px 10px 1px black;
+  color: white;
+  font-weight: 600;
+  margin: 0 5px;
+  padding: 5px 15px;
+}
+
+.button-5 {
+  background-color: green;
+  border: 0 solid white;
+  border-radius: 10px;
+  box-shadow: 1px 2px 10px 1px black;
+  color: white;
+  font-weight: 600;
+  margin: 0 5px;
+  padding: 5px 15px;
+}
+
+.button-1:hover , .button-2:hover , .button-3:hover , .button-4:hover , .button-5:hover {
+  background-color: slateblue;
+}
+
+.color {
+  background-color: gray;
+}
+
+.container {
+  background-color: white;
+  border: 2px solid green;
+  border-radius: 20px;
+  box-shadow: inset 0 0 1em green, 0 0 1em black;
+  margin: 150px auto 0;
+  padding: 40px 0;
+  width: 70%;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+.botoes {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto 0;
+}
+
+.caixa-texto {
+  display: flex;
+  justify-content: center;
+}
+
+.paragrafo {
+  border-radius: 3px;
+  box-shadow: 1px 2px 6px 0 black;
+  display: flex;
+  font-size: 18px;
+  justify-content: center;
+  margin: 30px auto;
+  padding: 3px 0;
+  width: 75%;
+}
+
+.ol {
+  display: flex;
+  justify-content: center;
+}
+
+.texto-input {
+  background-color: snow;
+  border: 1px solid gainsboro;
+  border-radius: 10px;
+  box-shadow: 1px 2px 10px 1px black;
+  margin-right: 10px;
+}
+
+.titulo {
+  display: flex;
+  justify-content: center;
+}
