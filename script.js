@@ -17,28 +17,28 @@ function removeSelectedClass() {
     });
   }
 
-// function moveUp() {
-//   const selectedTask = document.querySelector('.selected');
-//   if (selectedTask && selectedTask.previousElementSibling !== null) {
-//     selectedTask.parentNode.insertBefore(selectedTask, selectedTask.previousElementSibling);
-//   }
-// }
+function moveUp() {
+  const selectedTask = document.querySelector('.selected');
+  if (selectedTask && selectedTask.previousElementSibling !== null) {
+    selectedTask.parentNode.insertBefore(selectedTask, selectedTask.previousElementSibling);
+  }
+}
 
-// function moveDown() {
-//   const selectedTask = document.querySelector('.selected');
-//   if (selectedTask && selectedTask.nextSibling !== null) {
-//     selectedTask.parentNode.insertBefore(selectedTask.nextSibling, selectedTask);
-//   }
-// }
+function moveDown() {
+  const selectedTask = document.querySelector('.selected');
+  if (selectedTask && selectedTask.nextSibling !== null) {
+    selectedTask.parentNode.insertBefore(selectedTask.nextSibling, selectedTask);
+  }
+}
 
 window.onload = function () {
   const clearSelect = document.querySelector('#remover-selecionado');
   const moveUpButton = document.querySelector('#mover-cima');
   const moveDownButton = document.querySelector('#mover-baixo');
 
-  moveUpButton.addEventListener('click', moveUp);
-  moveDownButton.addEventListener('click', moveDown);
-  clearSelect.addEventListener('click', selectTask);
+  // moveUpButton.addEventListener('click', moveUp);
+  // moveDownButton.addEventListener('click', moveDown);
+  // clearSelect.addEventListener('click', selectTask);
 
   clickToSelect();
 }
