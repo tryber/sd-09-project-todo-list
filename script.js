@@ -64,7 +64,7 @@ function resetAll() {
 
     resetAllButton.addEventListener("click" , function() {
 
-        for ( let counter = 0 ; counter < taskList.length ; counter +=1) {
+        for ( let counter = taskList.length-1 ; counter >= 0 ; counter -=1) {
             
             orderList.removeChild(taskList[counter]);
         }
@@ -82,8 +82,15 @@ function removeCompletedTask() {
     clearSelectedButton.addEventListener('click' , function(){
         for ( let counter = completedTask.length-1 ; counter >= 0 ; counter -= 1) {
         orderList.removeChild(completedTask[counter]);
-        }   //corri o array ao contrario para nao alterar o valor conforme vai diminuindo. No começo do carregamento da página as tasks ou as completed Tasks são 0. N tem nenhuma. Então ele executa somente uma vez. 0 < 0 (zero é menor que 0? Não é igual, Então executa e deleta um elemento.)
-        // 1 é menor que 0 ? Não é maior! Então para de executar o código.
-        //Dessa maneira
+        }   //corri o array ao contrario usando o .length-1 (como acabei fazendo tbm no caso anterior). Quando o array tem 4 elementos.     length= 4 [-1] = 3 .:   
+        
+        // 3 >= 0 Sim! Então executa e deleta um elemento.  Na proxima:
+        
+        // 2 >= 0 Sim! Então executa e deleta um elemento.) Na proxima:  
+        
+        // 0 >= 0 Sim tbm! Na proxima:
+
+        // -1 >= 0 ? Não, é menor! Então para de executar o código. e de deletar elementos.
+               
     });
 }
