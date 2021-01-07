@@ -1,5 +1,5 @@
 //Requisito 5
-function newElement() {
+function btn() {
     var li = document.createElement("li");
     var inputValue = document.getElementById("texto-tarefa").value;
     var t = document.createTextNode(inputValue);
