@@ -1,4 +1,5 @@
 const list = document.querySelector('#lista-tarefas');
+const selectedTask = document.querySelector('.selected');
 
 function removeSelectedClass() {
   const taskArray = document.querySelectorAll('.task');
