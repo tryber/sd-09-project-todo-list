@@ -1,16 +1,16 @@
 .color {
-  background-color: rgb(128 , 128 , 128);
+  background-color: gray;
 }
 
 .completed {
-  text-decoration: line-through solid rgb(0 , 0 , 0);
+  text-decoration: line-through solid black;
 }
 
 .botoes {
   display: flex;
   justify-content: space-evenly;
-  width: 50%;
   margin: auto;
+  width: 50%;
 }
 
 .caixa-texto {
