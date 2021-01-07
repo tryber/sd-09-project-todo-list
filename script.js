@@ -4,7 +4,7 @@ const botao = document.querySelector('button');
 const botao2 = document.querySelectorAll('button')[1];
 const botao3 = document.querySelectorAll('button')[2];
 
-// limpa o o texto digitado na caixa de texto
+// limpa o texto digitado na caixa de texto
 function limpaTexto() {
   if (textInput.value) {
     textInput.value = '';
@@ -12,7 +12,7 @@ function limpaTexto() {
 }
 
 // limpa elemento com class color
-function pegaItem() {
+function limpaClassItem() {
   const itensLista = listaDeTarefas.childNodes;
   for (let index = 0; index < itensLista.length; index += 1) {
     const elementoItem = itensLista[index];
@@ -28,7 +28,7 @@ function trocaFundoItemLista() {
   for (let index = 0; index < itensLista.length; index += 1) {
     const elementoItem = itensLista[index];
     elementoItem.addEventListener('click', function (event) {
-      pegaItem();
+      limpaClassItem();
       event.target.classList.toggle('color');
     });
   }
@@ -36,9 +36,12 @@ function trocaFundoItemLista() {
 
 // remove item com a classe completed
 function removeItemCompleto() {
-  const selectedClass = document.querySelector('.completed');
-  if (selectedClass) {
-    listaDeTarefas.removeChild(selectedClass);
+  const selectedClass = document.querySelectorAll('.completed');
+  for (let index = 0; index < selectedClass.length; index++) {
+    const element = selectedClass[index];
+    if (element) {
+      element.remove();
+    }
   }
 }
 
@@ -55,11 +58,7 @@ function itemLista() {
 function riscaItem(event) {
   const selecionarItem = document.querySelector('.completed');
   const tarefaSelecionada = event.target;
-  if (selecionarItem) {
-    tarefaSelecionada.classList.remove('completed');
-  } else {
-    tarefaSelecionada.classList.add('completed');
-  }
+  tarefaSelecionada.classList.toggle('completed');
 }
 listaDeTarefas.addEventListener('dblclick', riscaItem);
 
@@ -70,7 +69,7 @@ function apagaLista() {
   }
 }
 
-window.onload = function() {
+window.onload = function () {
   botao.addEventListener('click', itemLista);
   botao2.addEventListener('click', apagaLista);
   botao3.addEventListener('click', removeItemCompleto);
