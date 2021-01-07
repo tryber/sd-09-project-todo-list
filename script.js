@@ -46,14 +46,21 @@ function eraseLi (){
         let lad = document.querySelector("#lista-tarefas").lastChild;
         document.querySelector("ol").removeChild(lad);
     }
-    deleteListGeral.innerHtml;
+    deleteListGeral.innerHtml
 }
 
 const eraseFinished = document.querySelector("#remover-finalizados");
 
 function removeFinished (){
     let mopFinished = document.querySelectorAll(".completed");
-    
+    for (let index = 0; index < mopFinished.length; index +=1){
+        let picked = mopFinished[index];
+        document.querySelector("ol").removeChild(picked);
+    }
+    mopFinished.innerHtml
+}
+
+eraseFinished.addEventListener("click", removeFinished);
 
     
 
