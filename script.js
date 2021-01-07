@@ -66,27 +66,15 @@ function moveDown() {
   }
 }
 
-function addNewTask() {
-  if (inputField.value !== '') {
-    const task = document.createElement('li');
-    task.innerText = inputField.value;
-    task.className = 'task';
-    taskList.appendChild(task);
-    inputField.value = '';
-  } else {
-    alert('Error: Digite ao menos 1 caractere.');
-  }
-}
-
 window.onload = function () {
   const deleteButton = document.querySelector('#remover-selecionado');
   const moveUpButton = document.querySelector('#mover-cima');
   const moveDownButton = document.querySelector('#mover-baixo');
   const addButton = document.querySelector('#criar-tarefa');
 
-  addButton.addEventListener('click', addNewTask);
-  moveUpButton.addEventListener('click', moveUp);
-  moveDownButton.addEventListener('click', moveDown);
+  // addButton.addEventListener('click', addNewTask);
+  // moveUpButton.addEventListener('click', moveUp);
+  // moveDownButton.addEventListener('click', moveDown);
 
   clickToSelect();
 }
