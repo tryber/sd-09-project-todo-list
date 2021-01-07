@@ -25,14 +25,32 @@ function addItemButton() {
 }
 addItemButton();
 
-  function clickToSelect() {
-    list.addEventListener('click', function (event) {
-      if (event.target.nodeName === 'LI') {
-        removeSelectedClass();
-        event.target.classList.toggle('selected');
-      }
-    });
+function paintElementLi () {
+  const backgroundColorTask = document.querySelector('#lista-tarefas')
+  backgroundColorTask.addEventListener('click', function (event) {
+  const backgroundColorTask = document.querySelector('.selected');
+  if (backgroundColorTask) {
+    backgroundColorTask.classList.remove('selected');
+    backgroundColorTask.style.backgroundColor = '';
   }
+    event.target.className += ' selected';
+
+  });
+};
+paintElementLi()
+
+function taskCompleted () {
+  const completedItem = document.querySelector('#lista-tarefas');
+  completedItem.addEventListener('dblclick', function (event) {
+    
+    if(event.target.className !== 'completed') {
+      event.target.classList.toggle('completed');
+      event.target.style.backgroundColor = '';
+    }
+    
+  })
+}
+taskCompleted();
 
 function moveUp() {
   const selectedTask = document.querySelector('.selected');
@@ -69,7 +87,6 @@ window.onload = function () {
   addButton.addEventListener('click', addNewTask);
   moveUpButton.addEventListener('click', moveUp);
   moveDownButton.addEventListener('click', moveDown);
-  deleteButton.addEventListener('click', removeSelectedTask);
 
   clickToSelect();
 }
