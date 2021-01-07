@@ -9,8 +9,11 @@ function taskCreation() {
 }
 
 function changeTaskColor(originEvent) {
-  originEvent.target.style.backgroundColor = 'rgb(' + [128,128,128].join(',') + ')';
-  console.log(originEvent.target)
+  let taskCollection = document.querySelectorAll('li');
+  for (index = 0; index < taskCollection.length; index += 1) {
+    taskCollection[index].style.backgroundColor = 'white';
+  }
+  originEvent.target.style.backgroundColor = 'gray';
 }
 
 taskCreationButton.addEventListener('click', taskCreation);
