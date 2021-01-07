@@ -67,15 +67,13 @@ function removeItemCompleto() {
     const lis = filhosDeOl[index];
     if (lis.classList.contains('completed')) {
       lis.remove();
-    } else {
-      return 'Não possui item completo!';
-    }
+    } 
   }
 }
 
 // cria botao remover item
 function criaBotaoRemove() {
-  botao3.id = 'remover-selecionado';
+  botao3.id = 'remover-finalizados';
   botao3.innerText = 'Remover Item';
 }
 criaBotaoRemove();
