@@ -15,57 +15,57 @@ function addTasks(event) {
   }
 }
 buttonTasks.addEventListener('click', addTasks);
-input.addEventListener('keyup' , addTasks);
+input.addEventListener('keyup', addTasks);
 
 function itemSelected() {
   const olTaskList = document.querySelector('ol#lista-tarefas');
-  olTaskList.addEventListener('click', function(event) {
+  olTaskList.addEventListener('click', function (event) {
     const li = event.target;
     const list = document.querySelector('.selectedList');
-    if(list) {
+    if (list) {
       list.classList.remove('selectedList');
     }
     li.classList.add('selectedList');
-  })
+  });
 }
 itemSelected();
 
 
 const btnClearList = document.querySelector('#apaga-tudo');
 function removeList() {
-btnClearList.addEventListener('click', function() {
-  const olLi = document.querySelectorAll('ol li');
-  const ol = document.querySelector('ol');
-  for(let indexClear = 0; indexClear < olLi.length; indexClear +=1) {
-    ol.removeChild(olLi[indexClear]);
+  btnClearList.addEventListener('click', function () {
+    const olLi = document.querySelectorAll('ol li');
+    const ol = document.querySelector('ol');
+    for (let indexClear = 0; indexClear < olLi.length; indexClear +=1) {
+      ol.removeChild(olLi[indexClear]);
   }
-})
+});
 }
 removeList();
 
 function DoubleClick() {
   const ol = document.querySelector('ol#lista-tarefas');
-  ol.addEventListener('dblclick', function(event) {
+  ol.addEventListener('dblclick', function (event) {
     const dlb = event.target;
-    if(dlb.className.includes('completed')) {
-      dlb.classList.remove('completed')
+    if (dlb.className.includes('completed')) {
+      dlb.classList.remove('completed');
     } else {
-      dlb.classList.add('completed')
-      }
-  })
+      dlb.classList.add('completed');
+    }
+  });
 }
 DoubleClick();
 
 function removeFinished() {
   const btnRemoveFinished = document.querySelector('#remover-finalizados');
-  btnRemoveFinished.addEventListener('click', function() {
+  btnRemoveFinished.addEventListener('click', function () {
     const olLi = document.querySelectorAll('ol li');
     const ol = document.querySelector('ol');
-    for(let index = 0; index < olLi.length; index += 1) {
-      if(olLi[index].className.includes('completed')) {
+    for (let index = 0; index < olLi.length; index += 1) {
+      if (olLi[index].className.includes('completed')) {
         ol.removeChild(olLi[index]);
       }
     }
-  })
+  });
 }
 removeFinished();
