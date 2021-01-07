@@ -44,15 +44,15 @@ function addNewTask() {
 }
 
 window.onload = function () {
-  const clearSelect = document.querySelector('#remover-selecionado');
+  const deleteButton = document.querySelector('#remover-selecionado');
   const moveUpButton = document.querySelector('#mover-cima');
   const moveDownButton = document.querySelector('#mover-baixo');
   const addButton = document.querySelector('#criar-tarefa');
 
   addButton.addEventListener('click', addNewTask);
   moveUpButton.addEventListener('click', moveUp);
-  // moveDownButton.addEventListener('click', moveDown);
-  // clearSelect.addEventListener('click', selectTask);
+  moveDownButton.addEventListener('click', moveDown);
+  deleteButton.addEventListener('click', removeSelectedTask);
 
   clickToSelect();
 }
