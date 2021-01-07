@@ -54,7 +54,7 @@ function criaItemLista() {
     const listaTarefa = document.createElement('li');
     listaTarefa.innerText = textInput.value;
     listaDeTarefas.appendChild(listaTarefa);
-  } 
+  }
   limpaTexto();
   trocaFundoItemLista();
 }
