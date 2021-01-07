@@ -1,33 +1,26 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <link rel="stylesheet" href="style.css">
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Todo-list</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Todo List</title>
 </head>
 <body>
-  <main>
     <header id="header">
-      <h1>Minha Lista de Tarefas</h1>
+        <h1>Minha Lista de Tarefas</h1>
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
     </header>
-    <section>
-      <p id="funcionamento">
-        <em>Clique duas vezes em um item para marcá-lo como completo</em>
-      </p>
-      <section class="input-container">
-      <input type="text" id="texto-tarefa" name="Texto Tarefa">
-      <button id="criar-tarefa">Adicionar</button>
+
+    <nav class="box-text">
+        <input id="texto-tarefa" type="text">
+    </nav>
+    <main class="task-list">
+        <ol id="lista-tarefas"></ol>
+    </main>
+    <section class="buttons">
+        <button id="criar-tarefa">Adicionar</button>
     </section>
-      <ol id="lista-tarefas" class="task-list"></ol>
-      <section id="buttons-container">
-      <button id="remover-selecionado">☓</button>
-      <button id="mover-cima">↑</button>
-      <button id="mover-baixo">↓</button>
-      <button id="salvar-tarefas">Salvar Lista</button>
-      </section>
-    </section>
-  </main>
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
