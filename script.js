@@ -47,10 +47,14 @@ function removeItemCompleto() {
 }
 
 // cria uma lista ordenada dentro de ol
-function itemLista() {
-  const listaTarefa = document.createElement('li');
-  listaTarefa.innerText = textInput.value;
-  listaDeTarefas.appendChild(listaTarefa);
+function criaItemLista() {
+  if (textInput.value === '' || textInput.value === null) {
+    alert('Digite algo por favor!');
+  } else {
+    const listaTarefa = document.createElement('li');
+    listaTarefa.innerText = textInput.value;
+    listaDeTarefas.appendChild(listaTarefa);
+  } 
   limpaTexto();
   trocaFundoItemLista();
 }
@@ -78,7 +82,7 @@ function removeItemSelecionado() {
 }
 
 window.onload = function () {
-  botao.addEventListener('click', itemLista);
+  botao.addEventListener('click', criaItemLista);
   botao2.addEventListener('click', apagaLista);
   botao3.addEventListener('click', removeItemCompleto);
   botao4.addEventListener('click', removeItemSelecionado);

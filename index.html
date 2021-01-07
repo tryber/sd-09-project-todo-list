@@ -9,13 +9,11 @@
 <body>
   <div class="container">
     <header class="titulo"> <h1>Minha Lista de Tarefas</h1></header>
+    <hr>
     <p id="funcionamento" class="paragrafo">Clique duas vezes em um item para marcá-lo como completo.</p>
     <section class="caixa-texto">
       <input id="texto-tarefa" class="texto-input">
       <button id="criar-tarefa" class="button-1">Adicionar</button>
-    </section>
-    <section class="ol">
-      <ol id="lista-tarefas"></ol>
     </section>
     <section class="botoes">
       <button id="mover-cima" class="move-cima button-2">↑</button>
@@ -24,6 +22,9 @@
       <button id="apaga-tudo" class="button-3">Apagar Lista</button>
       <button id="remover-finalizados" class="button-4">Remover item</button>
       <button id="salvar-tarefas" class="button-5">Salvar item</button>
+    </section>
+    <section class="ol">
+      <ol id="lista-tarefas"></ol>
     </section>
   </div>
   <script src="script.js"></script>
