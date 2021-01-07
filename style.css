@@ -1,0 +1,11 @@
+.selected {
+  background-color: rgb(128, 128, 128);
+}
+
+#lista-tarefas {
+  width: 500px;
+}
+
+.completed {
+  text-decoration: line-through;
+}
