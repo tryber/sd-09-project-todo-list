@@ -6,6 +6,14 @@ function removeBackgroundColor() {
   }
 }
 
+function apagarTarefas() {
+  const olListaTarefa = document.getElementById('lista-tarefas');
+  olListaTarefa.innerHTML = '';
+}
+
+const clearListButton = document.getElementById('apaga-tudo');
+clearListButton.addEventListener('click', apagarTarefas);
+
 function changeBackgroundColor(event) {
   removeBackgroundColor();
   event.target.style.backgroundColor = 'gray';
