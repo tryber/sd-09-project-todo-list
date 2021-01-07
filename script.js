@@ -1,31 +1,30 @@
 const buttonTasks = document.querySelector('#criar-tarefa');
 const input = document.querySelector('#texto-tarefa');
 
-function addTasks(event) {  
+function addTasks(event) {
   const olTaskList = document.querySelector('#lista-tarefas');
-  const lengthValue = document.querySelector('#texto-tarefa').value.length
-  const enter = lengthValue > 0 && event.keyCode === 13
-  const click = lengthValue > 0 && event.target.id === 'criar-tarefa'
-    if(enter || click) {      
-      const textTasks = document.querySelector('#texto-tarefa');
-      const li = document.createElement('li');
-      li.innerText = textTasks.value;
-      olTaskList.appendChild(li);
-      textTasks.value = '';
-    }
+  const lengthValue = document.querySelector('#texto-tarefa').value.length;
+  const enter = lengthValue > 0 && event.keyCode === 13;
+  const click = lengthValue > 0 && event.target.id === 'criar-tarefa';
+  if (enter || click) {
+    const textTasks = document.querySelector('#texto-tarefa');
+    const li = document.createElement('li');
+    li.innerText = textTasks.value;
+    olTaskList.appendChild(li);
+    textTasks.value = '';
+  }
 }
-buttonTasks.addEventListener('click', addTasks)
-input.addEventListener('keyup' , addTasks)
-
+buttonTasks.addEventListener('click', addTasks);
+input.addEventListener('keyup' , addTasks);
 
 function itemSelected() {
   const olTaskList = document.querySelector('ol#lista-tarefas');
-  olTaskList.addEventListener('click', function(event) {    
+  olTaskList.addEventListener('click', function(event) {
     const li = event.target;
     const list = document.querySelector('.selectedList');
     if(list) {
-      list.classList.remove('selectedList');      
-    }  
+      list.classList.remove('selectedList');
+    }
     li.classList.add('selectedList');
   })
 }
