@@ -9,8 +9,17 @@ function btn() {
 }
 
 let list = document.querySelector('ol');
-list.addEventListener('click', function(ev) {
-  if (ev.target.tagName === 'LI') {
-    ev.target.style.backgroundColor = 'rgb(128, 128, 128)'
+list.addEventListener('click', function(param) {
+  if (param.target.tagName === 'LI') {
+    param.target.style.backgroundColor = 'rgb(128, 128, 128)'
   }
 }, false);
+
+let btnApagar = document.getElementById('apaga-tudo');
+btnApagar.addEventListener('click', apagaTudo);
+
+function apagaTudo() {
+  let lista = document.getElementById('lista-tarefas');
+  let tarefas = document.querySelector('li')
+  lista.removeChild(tarefas);
+}
