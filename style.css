@@ -1,8 +1,6 @@
-body {
- background-color:bisque;
-}
 
 #criar-tarefa {
+
   background-color:yellowgreen  ;
   height: 40px;
   border-radius: 20%;
@@ -12,4 +10,8 @@ body {
   background-color: red;
   height: 40px;
   border-radius: 20%;
+}
+
+.corFundo {
+  background-color: white;
 }
