@@ -76,12 +76,12 @@ function removeComp(event) {
 }
 
 function removeAll(event) {
-   list.remove('list');
-   let ol = document.createElement('ol');
-   ol.classList.add('lista-tarefas');
-    let principal = document.getElementById('principal');
-    console.log(principal);
-    principal.appendChild(ol);
+  list.remove('list');
+  let ol = document.createElement('ol');
+  ol.classList.add('lista-tarefas');
+  let principal = document.getElementById('principal');
+  console.log(principal);
+  principal.appendChild(ol);
 }
 
 addONeListener(bnt, addNew);
