@@ -38,7 +38,7 @@ function changeBackgroundColor() {
                   
             });
 
-    }
+}
 
 
 function riskTask() {
