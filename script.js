@@ -66,8 +66,8 @@ function removeItemCompleto() {
   for (let index = 0; index < filhosDeOl.length; index += 1) {
     const lis = filhosDeOl[index];
     if (lis.classList.contains('completed')) {
-      lis.remove();
-    } 
+      lis.remove(lis);
+    }
   }
 }
 

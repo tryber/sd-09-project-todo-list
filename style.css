@@ -5,3 +5,28 @@
 .completed {
   text-decoration: line-through solid rgb(0 , 0 , 0);
 }
+
+.botoes {
+  display: flex;
+  justify-content: space-evenly;
+  width: 50%;
+  margin: auto;
+}
+
+.caixa-texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  margin: auto;
+}
+
+.ol {
+  display: flex;
+  justify-content: center;
+}
+
+.titulo {
+  display: flex;
+  justify-content: center;
+}
