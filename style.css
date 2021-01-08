@@ -1,0 +1,151 @@
+html {
+  background-color: rgb(25, 25, 25);
+  font-family: Share Tech Mono, monospace;
+}
+
+body {
+  margin: 0;
+  min-width: 250px;
+}
+
+/* Style the header */
+header {
+  background-color: rgb(100, 100, 250);
+  color: black;
+  padding: 30px 40px;
+  text-align: center;
+}
+
+/* Clear floats after the header */
+header:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+/* Style the input */
+input {
+  border: none;
+  border-radius: 0;
+  float: left;
+  font-size: 16px;
+  margin: 0;
+  padding: 10px;
+  width: 75%;
+  box-sizing: border-box;
+}
+
+/* Remove margins and padding from the list */
+ol {
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the list items */
+ol li {
+  background: #eee;
+  cursor: pointer;
+  font-size: 18px;
+  list-style-type: none;
+  padding: 12px 8px 12px 40px;
+  position: relative;
+  transition: 0.2s;
+  /* make the list items unselectable */
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Set all odd list items to a different color (zebra-stripes) */
+ol li:nth-child(odd) {
+  background: rgb(249, 249, 249);;
+}
+
+/* Darker background-color on hover */
+ol li:hover {
+  background: rgb(200, 200, 200);
+}
+
+/* When clicked on, add a background color and strike out text */
+ol li .completed {
+  text-decoration: line-through;
+}
+
+ol li .selected {
+  background: rgb(128, 128, 128);
+}
+
+/* Add a "completed" mark when clicked on */
+.completed::before {
+  content: '';
+  position: absolute;
+  border-color: rgb(100, 100, 250);
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+/* Style the close button */
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+  background-color: rgb(100, 100, 250);
+  color: white;
+}
+
+/* Style the "Add" button */
+#criar-tarefa {
+  background: #d9d9d9;
+  border: none;
+  border-radius: 0;
+  color: #555;
+  cursor: pointer;
+  float: left;
+  font-size: 16px;
+  padding: 10px;
+  text-align: center;
+  transition: 0.3s;
+  width: 25%;
+}
+
+#criar-tarefa:hover {
+  background-color: rgb(187, 187, 187);
+}
+
+#remover-selecionado {
+  border: none;
+  height: 100%;
+}
+
+.page-footer {
+  background-color: rgb(10, 10, 10);
+  color: rgb(73, 73, 73);
+  font-size: 1rem;
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
+}
+
+a {
+  color: rgb(100, 100, 250);
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgba(250, 100, 100, 1);
+}
+
+#controlButtons {
+  margin-top: 30px;
+  text-align: center;
+}
