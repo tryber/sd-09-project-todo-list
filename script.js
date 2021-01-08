@@ -55,7 +55,7 @@ function removeItems() {
   const itemsToRemove = document.querySelectorAll('li');
   for (let index = 0; index < itemsToRemove.length; index += 1) {
     itemsToRemove[index].remove(li);
-  }let buttonRemoveChecked = document.querySelector('#remover-finalizados');
+  }
 }
 
 // Button to remove all li
