@@ -84,6 +84,19 @@ function taskSavedButton() {
   main.appendChild(button);
 }
 
+function setListItens() {
+  const button = document.getElementById('salvar-tarefas');
+  button.addEventListener('click', function () {
+    const lineItens = document.getElementsByTagName('li');
+    for (let index = 0; index < lineItens.length; index += 1) {
+      const objeto = {text: lineItens[index].innerText, class: lineItens[index].className,
+      };
+      localStorage.setItem(index, JSON.stringify(objeto));
+    }
+  });
+}
+
+
 window.onload = function () {
   createTitle();
   createParagraph();
