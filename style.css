@@ -40,3 +40,12 @@
 .selected {
     background-color: rgb(128, 128, 128);
 }
+
+#lista-tarefas {
+    display: flex;
+    flex-direction: column;
+}
+
+.completed {
+    text-decoration: line-through;
+}

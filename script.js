@@ -3,6 +3,8 @@ let inputBox = document.getElementById('texto-tarefa');
 let button = document.querySelector('#criar-tarefa');
 let listItens = document.querySelectorAll('li');
 let capturedText = '';
+let orderCount = 0;
+
 
 function captureInputAndCreate() {
     button.addEventListener('click', function() {
@@ -14,9 +16,11 @@ function captureInputAndCreate() {
                 capturedText = captureText;
                 let create = document.createElement('li');
                 create.innerText = capturedText;
+                orderCount += 1;
+                create.style.order = orderCount;
                 list.appendChild(create);
                 document.getElementById('texto-tarefa').value = '';
-                console.log('cliquei');
+
             } else {
                 alert('Digite alguma tarfa primeiro');
             }
@@ -38,11 +42,30 @@ function changeListInputColorSelectUnselect() {
             selected.classList.remove('selected');
         }
         event.target.classList.add('selected');
+
+        return selected;
     })
 }
 
+function completedTask() {
+    list.addEventListener('dblclick', function(event) {
+
+        if (event.target.classList.contains('completed')) {
+            event.target.classList.remove('completed');
+        } else {
+            event.target.classList.add('completed');
+        }
+
+    })
+}
+
+
+
 window.onload = function() {
+
     captureInputAndCreate();
     eraseInputBox();
     changeListInputColorSelectUnselect();
+    completedTask()
+
 }
