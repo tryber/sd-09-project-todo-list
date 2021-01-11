@@ -105,5 +105,6 @@ window.onload = function () {
   orderTask();
   taskSavedButton();
   submitButton();
+  setListItens();
   
 }
