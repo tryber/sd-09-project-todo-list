@@ -22,10 +22,9 @@ function createInput() {
   const input = document.createElement('input');
   input.id = 'texto-tarefa';
   input.type = 'text';
-  input.placeholder = 'Digite o item que deseja adicionar a lista';
+  input.placeholder = 'Digite item para adicionar a lista';
   main.appendChild(input);
 }
-
 
 const list = document.querySelector('#lista-tarefas');
 const inputField = document.querySelector('#texto-tarefa');
@@ -37,9 +36,19 @@ function removeSelectedClass() {
   }
 }
 
+function createButton() {
+  const main = document.querySelector('main');
+  const button = document.createElement('button');
+  button.id = 'criar-tarefa';
+  button.innerText = 'Criar tarefa';
+  main.appendChild(button);
+}
+
+
 window.onload = function () {
   createTitle();
   createParagraph();
   createInput();
- 
+  createButton();
+
 }
