@@ -51,18 +51,6 @@ function orderTask() {
   main.appendChild(orderTask);
 }
 
-function getListItens() {
-  const orderedList = document.getElementById('lista-tarefas');
-
-  for (let index = 0; index < localStorage.length; index += 1) {
-    const listItem = document.createElement('li');
-    const objStorage = JSON.parse(localStorage.getItem(index));
-    listItem.innerText = objStorage.text;
-    listItem.className = objStorage.class;
-    orderedList.appendChild(listItem);
-  }
-}
-
 function submitButton() {
   const orderedList = document.querySelector('#lista-tarefas');
   const button = document.querySelector('#criar-tarefa');
@@ -107,7 +95,6 @@ function setListItens() {
   });
 }
 
-
 window.onload = function () {
   createTitle();
   createParagraph();
@@ -118,5 +105,6 @@ window.onload = function () {
   submitButton();
   setListItens();
   getListItens();
-  
+  removeSelectedClass();
+
 }
