@@ -83,6 +83,14 @@ function getListItens() {
   }
 }
 
+function clearSelectedButton() {
+  const main = document.querySelector('main');
+  const button = document.createElement('button');
+  button.id = 'remover-selecionado';
+  button.innerText = 'Apagar selecionado';
+  main.appendChild(button);
+}
+
 function setListItens() {
   const button = document.getElementById('salvar-tarefas');
   button.addEventListener('click', function () {
@@ -96,6 +104,7 @@ function setListItens() {
 }
 
 window.onload = function () {
+  clearSelectedButton();
   createTitle();
   createParagraph();
   createInput();
@@ -106,5 +115,4 @@ window.onload = function () {
   setListItens();
   getListItens();
   removeSelectedClass();
-
 }
