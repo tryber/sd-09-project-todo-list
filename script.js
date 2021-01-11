@@ -26,9 +26,6 @@ function createInput() {
   main.appendChild(input);
 }
 
-const list = document.querySelector('#lista-tarefas');
-const inputField = document.querySelector('#texto-tarefa');
-
 function removeSelectedClass() {
   const taskArray = document.querySelectorAll('.task');
   for (let index = 0; index < taskArray.length; index += 1) {
@@ -50,6 +47,23 @@ function orderTask() {
   orderTask.id = 'lista-tarefas';
   main.appendChild(orderTask);
 }
+
+function moveUpButton() {
+  const main = document.querySelector('main');
+  const button = document.createElement('button');
+  button.id = 'mover-cima';
+  button.innerText = 'Mover para cima';
+  main.appendChild(button);
+}
+
+function moveDownButton () {
+  const main = document.querySelector('main');
+  const button = document.createElement('button');
+  button.id = 'mover-baixo';
+  button.innerText = 'Mover para baixo';
+  main.appendChild(button);
+}
+
 
 function submitButton() {
   const orderedList = document.querySelector('#lista-tarefas');
@@ -96,7 +110,7 @@ function setListItens() {
   button.addEventListener('click', function () {
     const lineItens = document.getElementsByTagName('li');
     for (let index = 0; index < lineItens.length; index += 1) {
-      const objeto = {text: lineItens[index].innerText, class: lineItens[index].className,
+      const objeto = { text: lineItens[index].innerText, class: lineItens[index].className,
       };
       localStorage.setItem(index, JSON.stringify(objeto));
     }
@@ -104,6 +118,8 @@ function setListItens() {
 }
 
 window.onload = function () {
+  moveDownButton();
+  moveUpButton();
   clearSelectedButton();
   createTitle();
   createParagraph();
@@ -115,4 +131,4 @@ window.onload = function () {
   setListItens();
   getListItens();
   removeSelectedClass();
-}
+};
