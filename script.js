@@ -5,7 +5,7 @@ function createTitle() {
   heading.innerText = 'Minha Lista de Tarefas';
   heading.style.color = 'black';
   heading.style.textAlign = 'center';
-  heading.style.border = '1px solid purple';
+  heading.style.border = '1px solid black';
 }
 
 function createParagraph() {
@@ -49,6 +49,18 @@ function orderTask() {
   const orderTask = document.createElement('ol');
   orderTask.id = 'lista-tarefas';
   main.appendChild(orderTask);
+}
+
+function getListItens() {
+  const orderedList = document.getElementById('lista-tarefas');
+
+  for (let index = 0; index < localStorage.length; index += 1) {
+    const listItem = document.createElement('li');
+    const objStorage = JSON.parse(localStorage.getItem(index));
+    listItem.innerText = objStorage.text;
+    listItem.className = objStorage.class;
+    orderedList.appendChild(listItem);
+  }
 }
 
 function taskSavedButton() {
