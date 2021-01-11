@@ -97,6 +97,33 @@ function getListItens() {
   }
 }
 
+function setListItens() {
+  const button = document.getElementById('salvar-tarefas');
+  button.addEventListener('click', function () {
+    const lineItens = document.getElementsByTagName('li');
+    for (let index = 0; index < lineItens.length; index += 1) {
+      const objeto = {
+        text: lineItens[index].innerText,
+        class: lineItens[index].className,
+      };
+      localStorage.setItem(index, JSON.stringify(objeto));
+    }
+  });
+}
+
+function clearSelectedTasks() {
+  const button = document.getElementById('remover-selecionado');
+  button.addEventListener('click', function () {
+    const liList = document.getElementsByTagName('li');
+    for (let index = 0; index < liList.length; index += 1) {
+      if (liList[index].classList.contains('selected')) {
+        liList[index].remove();
+        index -= 1;
+      }
+    }
+  });
+}
+
 function clearSelectedButton() {
   const main = document.querySelector('main');
   const button = document.createElement('button');
