@@ -44,11 +44,18 @@ function createButton() {
   main.appendChild(button);
 }
 
+function orderTask() {
+  const main = document.querySelector('main');
+  const orderTask = document.createElement('ol');
+  orderTask.id = 'lista-tarefas';
+  main.appendChild(orderTask);
+}
 
 window.onload = function () {
   createTitle();
   createParagraph();
   createInput();
   createButton();
+  orderTask();
 
 }
