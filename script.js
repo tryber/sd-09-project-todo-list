@@ -51,11 +51,20 @@ function orderTask() {
   main.appendChild(orderTask);
 }
 
+function taskSavedButton() {
+  const main = document.querySelector('main');
+  const button = document.createElement('button');
+  button.id = 'salvar-tarefas';
+  button.innerText = 'Salvar Lista';
+  main.appendChild(button);
+}
+
 window.onload = function () {
   createTitle();
   createParagraph();
   createInput();
   createButton();
   orderTask();
+  taskSavedButton();
 
 }
