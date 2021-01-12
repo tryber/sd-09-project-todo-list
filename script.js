@@ -126,11 +126,14 @@ function clearSelectedTasks() {
 }
 
 function clearSelectedButton() {
-  const main = document.querySelector('main');
-  const button = document.createElement('button');
-  button.id = 'remover-selecionado';
-  button.innerText = 'Apagar selecionado';
-  main.appendChild(button);
+  newFunction_1();
+  function newFunction_1() {
+    const main = document.querySelector('main');
+    const button = document.createElement('button');
+    button.id = 'remover-selecionado';
+    button.innerText = 'Apagar selecionado';
+    main.appendChild(button);
+  }
 }
 
 function clearTasksButton() {
@@ -142,11 +145,14 @@ function clearTasksButton() {
 }
 
 function clearCompletedButton() {
-  const main = document.querySelector('main');
-  const button = document.createElement('button');
-  button.id = 'remover-finalizados';
-  button.innerText = 'Apagar completados';
-  main.appendChild(button);
+  newFunction();
+  function newFunction() {
+    const main = document.querySelector('main');
+    const button = document.createElement('button');
+    button.id = 'remover-finalizados';
+    button.innerText = 'Apagar completados';
+    main.appendChild(button);
+  }
 }
 
 function clearAllTasks() {
