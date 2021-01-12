@@ -41,6 +41,15 @@ function createButton() {
   main.appendChild(button);
 }
 
+function saveTasksButton() {
+  const main = document.querySelector('main');
+  const button = document.createElement('button');
+  button.id = 'salvar-tarefas';
+  button.innerText = 'Salvar Lista';
+  main.appendChild(button);
+}
+
+
 function orderedTask() {
   const main = document.querySelector('main');
   const orderTask = document.createElement('ol');
@@ -126,6 +135,15 @@ function clearTasksButton() {
   main.appendChild(button);
 }
 
+function clearCompletedButton() {
+  const main = document.querySelector('main');
+  const button = document.createElement('button');
+  button.id = 'remover-finalizados';
+  button.innerText = 'Apagar completados';
+  main.appendChild(button);
+}
+
+
 function clearAllTasks() {
   const button = document.getElementById('apaga-tudo');
   const orderedList = document.getElementById('lista-tarefas');
@@ -150,6 +168,8 @@ function setListItens() {
 }
 
 window.onload = function () {
+  saveTasksButton();
+  clearCompletedButton();
   moveDownButton();
   moveUpButton();
   clearSelectedButton();
