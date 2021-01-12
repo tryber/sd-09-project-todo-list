@@ -17,6 +17,24 @@ function createParagraph() {
   main.appendChild(paragraph);
 }
 
+function doubleClicked() {
+  const orderedList = document.querySelector('ol');
+  orderedList.addEventListener('dblclick', function (event) {
+    event.target.classList.toggle('completed')});
+}
+
+function clickedItem() {
+  const orderedList = document.querySelector('ol');
+  orderedList.addEventListener('click', function (event) {
+    const selected = document.querySelectorAll('.selected');
+    for (let i = 0; i < selected.length; i += 1) {
+      selected[i].classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+  });
+}
+
+
 function createInput() {
   const main = document.querySelector('main');
   const input = document.createElement('input');
@@ -106,6 +124,13 @@ function getListItens() {
   }
 }
 
+function createOrderedList() {
+  const main = document.querySelector('main');
+  const orderedList = document.createElement('ol');
+  orderedList.id = 'lista-tarefas';
+  main.appendChild(orderedList);
+}
+
 function clearSelectedTasks() {
   const button = document.getElementById('remover-selecionado');
   button.addEventListener('click', function () {
@@ -143,7 +168,6 @@ function clearCompletedButton() {
   main.appendChild(button);
 }
 
-
 function clearAllTasks() {
   const button = document.getElementById('apaga-tudo');
   const orderedList = document.getElementById('lista-tarefas');
@@ -168,6 +192,9 @@ function setListItens() {
 }
 
 window.onload = function () {
+  clickedItem();
+  doubleClicked();
+  createOrderedList();
   saveTasksButton();
   clearCompletedButton();
   moveDownButton();
