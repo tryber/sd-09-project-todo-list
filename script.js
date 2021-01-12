@@ -17,25 +17,6 @@ function createParagraph() {
   main.appendChild(paragraph);
 }
 
-function doubleClicked() {
-  const orderedList = document.querySelector('ol');
-  orderedList.addEventListener('dblclick', function (event) {
-    event.target.classList.toggle('completed')
-  });
-}
-
-function clickedItem() {
-  const orderedList = document.querySelector('ol');
-  orderedList.addEventListener('click', function (event) {
-    const selected = document.querySelectorAll('.selected');
-    for (let i = 0; i < selected.length; i += 1) {
-      selected[i].classList.remove('selected');
-    }
-    event.target.classList.add('selected');
-  });
-}
-
-
 function createInput() {
   const main = document.querySelector('main');
   const input = document.createElement('input');
@@ -92,7 +73,6 @@ function moveDownButton() {
   main.appendChild(button);
 }
 
-
 function submitButton() {
   const orderedList = document.querySelector('#lista-tarefas');
   const button = document.querySelector('#criar-tarefa');
@@ -121,7 +101,10 @@ function getListItens() {
     const objStorage = JSON.parse(localStorage.getItem(index));
     listItem.innerText = objStorage.text;
     listItem.className = objStorage.class;
-    orderedList.ghjhhjh
+    orderedList.appendChild(listItem);
+  }
+}
+
 function createOrderedList() {
   const main = document.querySelector('main');
   const orderedList = document.createElement('ol');
