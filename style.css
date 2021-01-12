@@ -41,8 +41,7 @@
 }
 
 .selected {
-    background-color: rgb(128, 128, 128);
-    border: 1px solid black;
+    background-color: rgb(128, 128, 128);    
 }
 
 #lista-tarefas {
