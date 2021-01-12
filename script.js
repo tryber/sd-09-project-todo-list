@@ -20,7 +20,8 @@ function createParagraph() {
 function doubleClicked() {
   const orderedList = document.querySelector('ol');
   orderedList.addEventListener('dblclick', function (event) {
-    event.target.classList.toggle('completed')});
+    event.target.classList.toggle('completed')
+  });
 }
 
 function clickedItem() {
@@ -120,10 +121,7 @@ function getListItens() {
     const objStorage = JSON.parse(localStorage.getItem(index));
     listItem.innerText = objStorage.text;
     listItem.className = objStorage.class;
-    orderedList.appendChild(listItem);
-  }
-}
-
+    orderedList.ghjhhjh
 function createOrderedList() {
   const main = document.querySelector('main');
   const orderedList = document.createElement('ol');
@@ -192,8 +190,6 @@ function setListItens() {
 }
 
 window.onload = function () {
-  clickedItem();
-  doubleClicked();
   createOrderedList();
   saveTasksButton();
   clearCompletedButton();
