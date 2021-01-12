@@ -126,14 +126,11 @@ function clearSelectedTasks() {
 }
 
 function clearSelectedButton() {
-  newFunction_1();
-  function newFunction_1() {
-    const main = document.querySelector('main');
-    const button = document.createElement('button');
-    button.id = 'remover-selecionado';
-    button.innerText = 'Apagar selecionado';
-    main.appendChild(button);
-  }
+  const main = document.querySelector('main');
+  const button = document.createElement('button');
+  button.id = 'remover-selecionado';
+  button.innerText = 'Apagar selecionado';
+  main.appendChild(button);
 }
 
 function clearTasksButton() {
@@ -145,15 +142,26 @@ function clearTasksButton() {
 }
 
 function clearCompletedButton() {
-  newFunction();
-  function newFunction() {
-    const main = document.querySelector('main');
-    const button = document.createElement('button');
-    button.id = 'remover-finalizados';
-    button.innerText = 'Apagar completados';
-    main.appendChild(button);
-  }
+  const main = document.querySelector('main');
+  const button = document.createElement('button');
+  button.id = 'remover-finalizados';
+  button.innerText = 'Apagar completados';
+  main.appendChild(button);
 }
+
+function clearCompletedTasks() {
+  const button = document.getElementById('remover-finalizados');
+  button.addEventListener('click', function () {
+    const liList = document.getElementsByTagName('li');
+    for (let index = 0; index < liList.length; index += 1) {
+      if (liList[index].classList.contains('completed')) {
+        liList[index].remove();
+        index -= 1;
+      }
+    }
+  });
+}
+
 
 function clearAllTasks() {
   const button = document.getElementById('apaga-tudo');
@@ -187,6 +195,7 @@ window.onload = function () {
   clearSelectedButton();
   clearSelectedTasks();
   clearTasksButton();
+  clearCompletedTasks();
   createTitle();
   createParagraph();
   createInput();
