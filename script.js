@@ -204,6 +204,22 @@ function clearCompletedTasks() {
   });
 }
 
+function clickedItem() {
+  const orderedList = document.querySelector('ol');
+  orderedList.addEventListener('click', function (event) {
+    const selected = document.querySelectorAll('.selected');
+    for (let i = 0; i < selected.length; i += 1) {
+      selected[i].classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+  });
+}
+
+function doubleClicked() {
+  const orderedList = document.querySelector('ol');
+  orderedList.addEventListener('dblclick', function (event) {
+    event.target.classList.toggle('completed')});
+}
 
 function clearAllTasks() {
   const button = document.getElementById('apaga-tudo');
@@ -248,6 +264,8 @@ window.onload = function () {
   setListItens();
   getListItens();
   clearAllTasks();
+  doubleClicked();
+  clickedItem();
   moveSelectedUp();
   moveSelectedDown();
   removeSelectedClass();
