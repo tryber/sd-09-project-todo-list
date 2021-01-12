@@ -126,6 +126,17 @@ function clearSelectedButton() {
   main.appendChild(button);
 }
 
+function clickedItem() {
+  const orderList = document.querySelector('ol');
+  orderList.addEventListener('click', function (event) {
+    const selected = document.querySelectorAll('.selected');
+    for (let i = 0; i < selected.length; i += 1) {
+      selected[i].classList.remove('selected');
+    }
+    event.target.classList.add('selected');
+  });
+}
+
 
 function setListItens() {
   const button = document.getElementById('salvar-tarefas');
@@ -140,6 +151,8 @@ function setListItens() {
 }
 
 window.onload = function () {
+  clearSelectedTasks();
+  clickedItem();
   clearCompletedButton();
   moveDownButton();
   moveUpButton();
