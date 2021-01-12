@@ -86,14 +86,6 @@ function taskSavedButton() {
   main.appendChild(button);
 }
 
-function clearCompletedButton() {
-  const main = document.querySelector('main');
-  const button = document.createElement('button');
-  button.id = 'remover-finalizados';
-  button.innerText = 'Apagar completados';
-  main.appendChild(button);
-}
-
 function getListItens() {
   const orderedList = document.getElementById('lista-tarefas');
   for (let index = 0; index < localStorage.length; index += 1) {
@@ -126,17 +118,6 @@ function clearSelectedButton() {
   main.appendChild(button);
 }
 
-function clickedItem() {
-  const orderList = document.querySelector('ol');
-  orderList.addEventListener('click', function (event) {
-    const selected = document.querySelectorAll('.selected');
-    for (let i = 0; i < selected.length; i += 1) {
-      selected[i].classList.remove('selected');
-    }
-    event.target.classList.add('selected');
-  });
-}
-
 
 function setListItens() {
   const button = document.getElementById('salvar-tarefas');
@@ -151,9 +132,6 @@ function setListItens() {
 }
 
 window.onload = function () {
-  clearSelectedTasks();
-  clickedItem();
-  clearCompletedButton();
   moveDownButton();
   moveUpButton();
   clearSelectedButton();
