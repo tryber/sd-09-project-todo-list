@@ -118,6 +118,16 @@ function clearSelectedButton() {
   main.appendChild(button);
 }
 
+function clearAllTasks() {
+  const button = document.getElementById('apaga-tudo');
+  const orderedList = document.getElementById('lista-tarefas');
+  button.addEventListener('click', function () {
+    const listLength = orderedList.childElementCount;
+    for (let index = 0; index < listLength; index += 1) {
+      orderedList.firstChild.remove();
+    }
+  });
+}
 
 function setListItens() {
   const button = document.getElementById('salvar-tarefas');
@@ -132,6 +142,7 @@ function setListItens() {
 }
 
 window.onload = function () {
+  clearAllTasks();
   moveDownButton();
   moveUpButton();
   clearSelectedButton();
