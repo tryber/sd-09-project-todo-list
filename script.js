@@ -132,7 +132,6 @@ function setListItens() {
 }
 
 window.onload = function () {
-
   moveDownButton();
   moveUpButton();
   clearSelectedButton();
