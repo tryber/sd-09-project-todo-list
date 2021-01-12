@@ -41,7 +41,7 @@ function createButton() {
   main.appendChild(button);
 }
 
-function orderTask() {
+function orderedTask() {
   const main = document.querySelector('main');
   const orderTask = document.createElement('ol');
   orderTask.id = 'lista-tarefas';
@@ -132,9 +132,11 @@ function setListItens() {
 }
 
 window.onload = function () {
+
   moveDownButton();
   moveUpButton();
   clearSelectedButton();
+  clearSelectedTasks();
   createTitle();
   createParagraph();
   createInput();
