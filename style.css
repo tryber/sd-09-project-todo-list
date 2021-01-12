@@ -12,8 +12,6 @@
     background-image: url(background.png);
     background-size: cover;
     font-family: 'MedievalSharp', cursive;
-    font-weight: bold;
-    background-color: ;
 }
 
 .inputContainer {
@@ -33,12 +31,18 @@
     background-color: rgb(182, 242, 136);
 }
 
+#apaga-tudo {
+    border-radius: 8px;
+    background-color: red;
+}
+
 #texto-tarefa {
     border-radius: 8px;
 }
 
 .selected {
     background-color: rgb(128, 128, 128);
+    border: 1px solid black;
 }
 
 #lista-tarefas {
@@ -49,3 +53,14 @@
 .completed {
     text-decoration: line-through solid rgb(0, 0, 0);
 }
+
+
+.task {
+    width: 45%;
+}
+
+.checkedBox {
+    background-image: url(checked.png);
+    background-size: cover;
+}
+
