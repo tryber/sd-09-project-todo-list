@@ -56,7 +56,7 @@ function moveUpButton() {
   main.appendChild(button);
 }
 
-function moveDownButton () {
+function moveDownButton() {
   const main = document.querySelector('main');
   const button = document.createElement('button');
   button.id = 'mover-baixo';
@@ -86,6 +86,14 @@ function taskSavedButton() {
   main.appendChild(button);
 }
 
+function clearCompletedButton() {
+  const main = document.querySelector('main');
+  const button = document.createElement('button');
+  button.id = 'remover-finalizados';
+  button.innerText = 'Apagar completados';
+  main.appendChild(button);
+}
+
 function getListItens() {
   const orderedList = document.getElementById('lista-tarefas');
   for (let index = 0; index < localStorage.length; index += 1) {
@@ -95,20 +103,6 @@ function getListItens() {
     listItem.className = objStorage.class;
     orderedList.appendChild(listItem);
   }
-}
-
-function setListItens() {
-  const button = document.getElementById('salvar-tarefas');
-  button.addEventListener('click', function () {
-    const lineItens = document.getElementsByTagName('li');
-    for (let index = 0; index < lineItens.length; index += 1) {
-      const objeto = {
-        text: lineItens[index].innerText,
-        class: lineItens[index].className,
-      };
-      localStorage.setItem(index, JSON.stringify(objeto));
-    }
-  });
 }
 
 function clearSelectedTasks() {
@@ -132,6 +126,7 @@ function clearSelectedButton() {
   main.appendChild(button);
 }
 
+
 function setListItens() {
   const button = document.getElementById('salvar-tarefas');
   button.addEventListener('click', function () {
@@ -145,6 +140,7 @@ function setListItens() {
 }
 
 window.onload = function () {
+  clearCompletedButton();
   moveDownButton();
   moveUpButton();
   clearSelectedButton();
