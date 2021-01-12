@@ -118,6 +118,14 @@ function clearSelectedButton() {
   main.appendChild(button);
 }
 
+function clearTasksButton() {
+  const main = document.querySelector('main');
+  const button = document.createElement('button');
+  button.id = 'apaga-tudo';
+  button.innerText = 'Apaga tudo';
+  main.appendChild(button);
+}
+
 function clearAllTasks() {
   const button = document.getElementById('apaga-tudo');
   const orderedList = document.getElementById('lista-tarefas');
@@ -146,6 +154,7 @@ window.onload = function () {
   moveUpButton();
   clearSelectedButton();
   clearSelectedTasks();
+  clearTasksButton();
   createTitle();
   createParagraph();
   createInput();
