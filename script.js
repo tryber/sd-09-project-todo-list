@@ -118,6 +118,19 @@ function clearSelectedButton() {
   main.appendChild(button);
 }
 
+function clearCompletedTasks() {
+  const button = document.getElementById('remover-finalizados');
+  button.addEventListener('click', function () {
+    const liList = document.getElementsByTagName('li');
+    for (let index = 0; index < liList.length; index += 1) {
+      if (liList[index].classList.contains('completed')) {
+        liList[index].remove();
+        index -= 1;
+      }
+    }
+  });
+}
+
 function setListItens() {
   const button = document.getElementById('salvar-tarefas');
   button.addEventListener('click', function () {
@@ -144,6 +157,7 @@ function clearAllTasks() {
 }
 
 window.onload = function () {
+  clearCompletedTasks();
   setListItens();
   clearAllTasks();
   moveDownButton();
