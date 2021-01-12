@@ -105,6 +105,48 @@ function getListItens() {
   }
 }
 
+function moveSelectedUp() {
+  const button = document.getElementById('mover-cima');
+  button.addEventListener('click', function () {
+    const selected = document.querySelector('.selected');
+    let previousElement;
+    if (selected) {
+      previousElement = selected.previousElementSibling;
+    }
+    if (previousElement) {
+      const auxiliar = {
+        text: previousElement.innerText,
+        class: previousElement.className,
+      };
+      previousElement.innerText = selected.innerText;
+      previousElement.className = selected.className;
+      selected.innerText = auxiliar.text;
+      selected.className = auxiliar.class;
+    }
+  });
+}
+
+function moveSelectedDown() {
+  const button = document.getElementById('mover-baixo');
+  button.addEventListener('click', function () {
+    const selected = document.querySelector('.selected');
+    let nextElement;
+    if (selected) {
+      nextElement = selected.nextElementSibling;
+    }
+    if (nextElement) {
+      const auxiliar = {
+        text: nextElement.innerText,
+        class: nextElement.className,
+      };
+      nextElement.innerText = selected.innerText;
+      nextElement.className = selected.className;
+      selected.innerText = auxiliar.text;
+      selected.className = auxiliar.class;
+    }
+  });
+}
+
 function createOrderedList() {
   const main = document.querySelector('main');
   const orderedList = document.createElement('ol');
@@ -206,5 +248,7 @@ window.onload = function () {
   setListItens();
   getListItens();
   clearAllTasks();
+  moveSelectedUp();
+  moveSelectedDown();
   removeSelectedClass();
 };
