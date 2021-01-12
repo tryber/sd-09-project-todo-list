@@ -218,7 +218,7 @@ function clickedItem() {
 function doubleClicked() {
   const orderedList = document.querySelector('ol');
   orderedList.addEventListener('dblclick', function (event) {
-    event.target.classList.toggle('completed')
+    event.target.classList.toggle('completed');
   });
 }
 
