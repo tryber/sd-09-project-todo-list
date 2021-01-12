@@ -141,7 +141,7 @@ window.onload = function () {
   createParagraph();
   createInput();
   createButton();
-  orderTask();
+  orderedTask();
   taskSavedButton();
   submitButton();
   setListItens();
