@@ -1,11 +1,28 @@
 const listaTarefasOrderedList = document.querySelector('#lista-tarefas')
-const textoTarefaImput = document.querySelector('#texto-tarefa')
+
+window.onload = () => {
+    const tasksObjectsList = JSON.parse(localStorage.getItem('taskList'))
+
+    for (let i = 0; i < tasksObjectsList.length; i += 1) {
+        const listItem = document.createElement('li')
+
+        listItem.innerText = tasksObjectsList[i].taskInnerText
+        listItem.className = tasksObjectsList[i].taskClassName
+
+        listaTarefasOrderedList.appendChild(listItem)
+    }
+
+    console.log(tasksObjectsList)
+}
 
 function clearTextoTarefaValue () {
+    const textoTarefaImput = document.querySelector('#texto-tarefa')
+
     textoTarefaImput.value = ''
 }
 
 function addTask () {
+    const textoTarefaImput = document.querySelector('#texto-tarefa')
     const listItem = document.createElement('li')
 
     listItem.innerText = textoTarefaImput.value
@@ -50,7 +67,7 @@ function removeSelected () {
     const listItemNodeList = document.querySelectorAll('#lista-tarefas li')
 
     for (let i = 0; i < listItemNodeList.length; i += 1) {
-        if (listItemNodeList[i].className === 'selected') {
+        if (listItemNodeList[i].className === 'selected' || listItemNodeList[i].className === 'completed selected') {
             listaTarefasOrderedList.removeChild(listItemNodeList[i])
         }
     }
@@ -99,3 +116,27 @@ function listenToRemoverFinalizadosButton () {
 }
 
 listenToRemoverFinalizadosButton()
+
+function saveTasks () {
+    const listItemNodeList = document.querySelectorAll('#lista-tarefas li')
+    const tasksObjectsList = []
+
+    for (let i = 0; i < listItemNodeList.length; i += 1) {
+        const taskObject = {
+            taskInnerText: listItemNodeList[i].innerText,
+            taskClassName: listItemNodeList[i].className
+        }
+
+        tasksObjectsList.push(taskObject)
+    }
+
+    localStorage.setItem('taskList', JSON.stringify(tasksObjectsList))
+}
+
+function listenToSalvarTarefasButton () {
+    const salvarTarefasButton = document.querySelector('#salvar-tarefas')
+
+    salvarTarefasButton.addEventListener('click', saveTasks)
+}
+
+listenToSalvarTarefasButton()
