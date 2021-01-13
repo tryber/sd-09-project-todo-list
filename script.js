@@ -77,13 +77,11 @@ function removeSelected() {
       listaTarefasOrderedList.removeChild(listItemNodeList[i]);
     }
   }
-
-  console.log(listItemNodeList);
 }
 
 function listenToRemoverSelecionadoButton() {
   const removerSelecionadoButton = document.querySelector(
-    '#remover-selecionado'
+    '#remover-selecionado',
   );
 
   removerSelecionadoButton.addEventListener('click', removeSelected);
@@ -121,7 +119,7 @@ function removeCompletedTasks() {
 
 function listenToRemoverFinalizadosButton() {
   const removerFinalizadoButton = document.querySelector(
-    '#remover-finalizados'
+    '#remover-finalizados',
   );
 
   removerFinalizadoButton.addEventListener('click', removeCompletedTasks);
