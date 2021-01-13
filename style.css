@@ -1,10 +1,7 @@
-#header {
-    background-color: bisque;
-}
-
-#body {
-    background-color: burlywood;
-}
-
-
-
+.gray {
+    background-color: grey;
+  }
+  
+  .completed {
+    text-decoration: line-through solid black;
+  }
