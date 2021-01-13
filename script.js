@@ -3,16 +3,16 @@ const listaTarefasOrderedList = document.querySelector('#lista-tarefas')
 window.onload = () => {
     const tasksObjectsList = JSON.parse(localStorage.getItem('taskList'))
 
-    for (let i = 0; i < tasksObjectsList.length; i += 1) {
-        const listItem = document.createElement('li')
-
-        listItem.innerText = tasksObjectsList[i].taskInnerText
-        listItem.className = tasksObjectsList[i].taskClassName
-
-        listaTarefasOrderedList.appendChild(listItem)
+    if(localStorage.getItem('taskList') && localStorage.getItem('taskList').length !== 0) {
+        for (let i = 0; i < tasksObjectsList.length; i += 1) {
+            const listItem = document.createElement('li')
+    
+            listItem.innerText = tasksObjectsList[i].taskInnerText
+            listItem.className = tasksObjectsList[i].taskClassName
+    
+            listaTarefasOrderedList.appendChild(listItem)
+        }
     }
-
-    console.log(tasksObjectsList)
 }
 
 function clearTextoTarefaValue () {
@@ -71,6 +71,8 @@ function removeSelected () {
             listaTarefasOrderedList.removeChild(listItemNodeList[i])
         }
     }
+
+    console.log(listItemNodeList)
 }
 
 function listenToRemoverSelecionadoButton () {
@@ -140,4 +142,3 @@ function listenToSalvarTarefasButton () {
 }
 
 listenToSalvarTarefasButton()
-
