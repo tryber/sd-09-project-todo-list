@@ -142,3 +142,48 @@ function listenToSalvarTarefasButton () {
 }
 
 listenToSalvarTarefasButton()
+
+function moveTheTaskUp () {
+    const listItemNodeList = document.querySelectorAll('#lista-tarefas li')
+
+    for (let i = 1; i < listItemNodeList.length; i += 1) {
+        if (listItemNodeList[i].className === 'selected' || listItemNodeList[i].className === 'completed selected') {
+            const tempInnerText = listItemNodeList[i].innerText
+            const tempClassName = listItemNodeList[i].className
+
+            listItemNodeList[i].innerText = listItemNodeList[i - 1].innerText
+            listItemNodeList[i].className = listItemNodeList[i - 1].className
+            listItemNodeList[i - 1].innerText = tempInnerText
+            listItemNodeList[i - 1].className = tempClassName
+        }
+    }
+    
+}
+
+function moveTheTaskDown () {
+    const listItemNodeList = document.querySelectorAll('#lista-tarefas li')
+
+    for (let i = 0; i < listItemNodeList.length - 1; i += 1) {
+        if (listItemNodeList[i].className === 'selected' || listItemNodeList[i].className === 'completed selected') {
+            const tempInnerText = listItemNodeList[i].innerText
+            const tempClassName = listItemNodeList[i].className
+
+            listItemNodeList[i].innerText = listItemNodeList[i + 1].innerText
+            listItemNodeList[i].className = listItemNodeList[i + 1].className
+            listItemNodeList[i + 1].innerText = tempInnerText
+            listItemNodeList[i + 1].className = tempClassName
+
+            break
+        }
+    }
+}
+
+function listenToMoverButtons () {
+    const moverCimaButton = document.querySelector('#mover-cima')
+    const moverBaixoButton = document.querySelector('#mover-baixo')
+
+    moverCimaButton.addEventListener('click', moveTheTaskUp)
+    moverBaixoButton.addEventListener('click', moveTheTaskDown)
+}
+
+listenToMoverButtons()
