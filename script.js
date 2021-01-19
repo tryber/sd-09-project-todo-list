@@ -9,15 +9,15 @@ function removingSelection() {
 // Selecionando item
 function selectingItem(event) {
   removingSelection();
-  event.target.className = 'selected';
+  event.target.classList.toggle('selected');
 }
-
+// ???Esta removendo todas as class e não somente a class pedida???
 // Item completo efeito letra tachada
 function itemComplete(event) {
   if (event.className === 'completed') {
-    event.classList.remove('completed');
+    event.target.classList.remove('completed');
   } else {
-    event.target.className = 'completed';
+    event.target.classList.toggle('completed');
   }
 }
 
