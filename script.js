@@ -11,13 +11,30 @@ function selectingItem(event) {
   removingSelection();
   event.target.classList.toggle('selected');
 }
-// ???Esta removendo todas as class e não somente a class pedida???
+
 // Item completo efeito letra tachada
 function itemComplete(event) {
   if (event.className === 'completed') {
     event.target.classList.remove('completed');
   } else {
     event.target.classList.toggle('completed');
+  }
+}
+
+// Botão apagar lista
+function deletingList() {
+  const retrievesItems = document.querySelectorAll('.item');
+  if (retrievesItems.length !== 0) {
+    let list = document.querySelector('#lista-tarefas');
+    list.innerHTML = '';
+  }
+}
+
+// Botão apagar itens finalizados
+function deletingCompletedItem() {
+  let itemsMade = document.querySelectorAll('.completed');
+  for (let index = 0; index < itemsMade.length; index += 1) {
+    itemsMade[index].remove();
   }
 }
 
@@ -37,7 +54,11 @@ function addingTasks() {
 window.onload = function () {
   // Elementos recuperados
   const creatingTasks = document.querySelector('#criar-tarefa');
+  const clearList = document.querySelector('#apaga-tudo');
+  const deleteCompletedItem = document.querySelector('#remover-finalizados');
 
   // Eventos criados
   creatingTasks.addEventListener('click', addingTasks);
+  clearList.addEventListener('click', deletingList);
+  deleteCompletedItem.addEventListener('click', deletingCompletedItem);
 };
