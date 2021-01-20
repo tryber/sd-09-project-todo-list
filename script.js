@@ -28,7 +28,7 @@ function eraseAll() {
 function removeCompleted() {
   const tasks = document.querySelectorAll('li');
   for (let i = 0; i < tasks.length; i += 1) {
-    if (tasks.className === 'completed') {
+    if (tasks[i].className === 'completed') {
       tasks[i].remove();
     }
   }
