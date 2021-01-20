@@ -11,15 +11,19 @@ function createTask() {
 function selectedTask(newSelected) {
   const selected = document.querySelector('.selected');
   if (selected) {
-    selected.className = '';
-    newSelected.target.className = 'selected';
+    selected.classList.remove('selected');
+    newSelected.target.classList.add('selected');
   } else {
-    newSelected.target.className = 'selected';
+    newSelected.target.classList.add('selected');
   }
 }
 
 function completedTask(completed) {
-  completed.target.className = 'completed';
+  if (completed.target.classList.contains('completed')) {
+    completed.target.classList.remove('completed');
+  } else {
+    completed.target.classList.add('completed');
+  }
 }
 
 function eraseAll() {
@@ -32,7 +36,7 @@ function eraseAll() {
 function removeCompleted() {
   const tasks = document.querySelectorAll('li');
   for (let i = 0; i < tasks.length; i += 1) {
-    if (tasks[i].className === 'completed') {
+    if (tasks[i].classList.contains('completed')) {
       tasks[i].remove();
     }
   }
