@@ -18,6 +18,10 @@ function selectedTask(newSelected) {
   }
 }
 
+function completedTask(completed) {
+  completed.target.className = 'completed';
+}
+
 function eraseAll() {
   const tasks = document.querySelectorAll('li');
   for (let i = 0; i < tasks.length; i += 1) {
@@ -36,5 +40,6 @@ function removeCompleted() {
 
 document.getElementById('criar-tarefa').addEventListener('click', createTask);
 taskList.addEventListener('click', selectedTask);
+taskList.addEventListener('dblclick', completedTask);
 document.getElementById('apaga-tudo').addEventListener('click', eraseAll);
 document.getElementById('remover-finalizados').addEventListener('click', removeCompleted);
