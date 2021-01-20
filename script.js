@@ -21,7 +21,7 @@ function selectedTask(newSelected) {
 function eraseAll() {
   const tasks = document.querySelectorAll('li');
   for (let i = 0; i < tasks.length; i += 1) {
-      tasks[i].remove();
+    tasks[i].remove();
   }
 }
 
