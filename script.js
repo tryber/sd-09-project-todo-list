@@ -69,7 +69,7 @@ function retrievingList() {
 // Movendo item selecionado para cima
 function movingUp() {
   const selectedItem = document.querySelector('.selected');
-  if (selectedItem !== undefined && selectedItem.previousElementSibling !== null) {
+  if (selectedItem && selectedItem.previousElementSibling !== null) {
     selectedItem.parentNode.insertBefore(selectedItem, selectedItem.previousElementSibling);
   }
 }
@@ -77,7 +77,7 @@ function movingUp() {
 // Movendo item selecionado para baixo
 function movingDown() {
   const selectedItem = document.querySelector('.selected');
-  if (selectedItem !== undefined && selectedItem.nextSibling !== null) {
+  if (selectedItem && selectedItem.nextSibling !== null) {
     selectedItem.parentNode.insertBefore(selectedItem.nextSibling, selectedItem);
   }
 }
@@ -88,7 +88,7 @@ function removingSelectedItem() {
   selectedItem.remove();
 }
 
-window.onload = function() {
+window.onload = function () {
   // Elementos recuperados
   const creatingTasks = document.querySelector('#criar-tarefa');
   const clearList = document.querySelector('#apaga-tudo');
@@ -108,5 +108,5 @@ window.onload = function() {
   removeItemButton.addEventListener('click', removingSelectedItem);
 
   // Chamando funções
-  retrievingList ();
+  retrievingList();
 };
