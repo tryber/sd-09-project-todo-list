@@ -1,21 +1,20 @@
+function mudaParaCinza(event) {
 
-function selectingColor(event) {
-  for (let index = 0; index < paletaCores.length; index += 1) {
-    if (paletaCores[index].classList.contains('selected')) {
-      paletaCores[index].classList.remove('selected');
-    }
-  }
-  event.target.classList.add('selected');
-}
-
-function mudaParaCinza(event) { 
-  if (event.target.classList.contains('selected')) {
+  /* if (event.target.classList.contains('selected')) {
     event.target.style.backgroundColor = null;
     event.target.classList.remove('selected');
   }else{
     event.target.classList.add('selected');
     event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  } */
+  const taskSelected = document.querySelector('.selected');
+  if (taskSelected !== null) {
+    taskSelected.style.backgroundColor = null;
+    taskSelected.classList.remove('selected');
   }
+
+  event.target.classList.add('selected');
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
 function checkCompleted(event) {
