@@ -1,18 +1,17 @@
-function mudaParaCinza(event) {
+function removeCompleted() {
+  const completedTasks = document.querySelector('.completed');
+  completedTasks.parentNode.removeChild(completedTasks);
+}
 
-  /* if (event.target.classList.contains('selected')) {
-    event.target.style.backgroundColor = null;
-    event.target.classList.remove('selected');
-  }else{
-    event.target.classList.add('selected');
-    event.target.style.backgroundColor = 'rgb(128, 128, 128)';
-  } */
+const btnRemoveCompleted = document.getElementById('remover-finalizados');
+btnRemoveCompleted.addEventListener('click', removeCompleted);
+
+function checkSelected(event) {
   const taskSelected = document.querySelector('.selected');
   if (taskSelected !== null) {
     taskSelected.style.backgroundColor = null;
     taskSelected.classList.remove('selected');
   }
-
   event.target.classList.add('selected');
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
@@ -20,10 +19,10 @@ function mudaParaCinza(event) {
 function checkCompleted(event) {
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
-  }else{
+  } else {
     event.target.classList.add('completed');
   }
-  }
+}
 
 function saveData() {
   const listaTarefas = document.getElementById('lista-tarefas');
@@ -32,7 +31,7 @@ function saveData() {
   incluiTarefa.innerText = textoTarefa.value;
   incluiTarefa.className = 'tarefa-from-list';
   incluiTarefa.setAttribute('class', 'nova-tarefa');
-  incluiTarefa.addEventListener('click', mudaParaCinza);
+  incluiTarefa.addEventListener('click', checkSelected);
   incluiTarefa.addEventListener('dblclick', checkCompleted);
   listaTarefas.appendChild(incluiTarefa);
   textoTarefa.value = '';
