@@ -1,6 +1,8 @@
 function removeCompleted() {
-  const completedTasks = document.querySelector('.completed');
-  completedTasks.parentNode.removeChild(completedTasks);
+  const completedTasks = document.querySelectorAll('.completed');
+  for (let index = 0; index < completedTasks.length; index += 1 ) {
+    completedTasks[index].parentNode.removeChild(completedTasks[index]);
+  }
 }
 
 const btnRemoveCompleted = document.getElementById('remover-finalizados');
