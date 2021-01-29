@@ -43,15 +43,12 @@ function removeCompleted() {
 }
 
 function saveTasks() {
-
 }
 
 function moveUp() {
-  const selected = document.querySelector('.selected');
 }
 
 function moveDown() {
-  const selected = document.querySelector('.selected');
 }
 
 function removeSelected() {
