@@ -42,8 +42,29 @@ function removeCompleted() {
   }
 }
 
+function saveTasks() {
+
+}
+
+function moveUp() {
+  const selected = document.querySelector('.selected');
+}
+
+function moveDown() {
+  const selected = document.querySelector('.selected');
+}
+
+function removeSelected() {
+  const selected = document.querySelector('.selected');
+  selected.remove();
+}
+
 document.getElementById('criar-tarefa').addEventListener('click', createTask);
 taskList.addEventListener('click', selectedTask);
 taskList.addEventListener('dblclick', completedTask);
 document.getElementById('apaga-tudo').addEventListener('click', eraseAll);
 document.getElementById('remover-finalizados').addEventListener('click', removeCompleted);
+document.getElementById('salvar-tarefas').addEventListener('click', saveTasks);
+document.getElementById('mover-cima').addEventListener('click', moveUp);
+document.getElementById('mover-baixo').addEventListener('click', moveDown);
+document.getElementById('remover-selecionado').addEventListener('click', removeSelected);
