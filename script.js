@@ -18,6 +18,14 @@ function checkSelected(event) {
   event.target.style.backgroundColor = 'rgb(128, 128, 128)';
 }
 
+function removeSelected() {
+  const taskSelected = document.querySelector('.selected');
+  taskSelected.parentNode.removeChild(taskSelected);
+}
+
+const btnRemoveSelected = document.getElementById('remover-selecionado');
+btnRemoveSelected.addEventListener('click', removeSelected);
+
 function checkCompleted(event) {
   if (event.target.classList.contains('completed')) {
     event.target.classList.remove('completed');
