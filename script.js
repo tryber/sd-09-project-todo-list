@@ -8,6 +8,9 @@ const createTasks = () => {
     li.innerText = inputValue;
     listaTarefa.appendChild(li);
     textoTarefa.value = '';
+    li.addEventListener('click', (event) => {
+        event.target.style.backgroundColor = 'rgb(128,128,128)';
+    });
 }
 
 criarTarefa.addEventListener('click', createTasks);
