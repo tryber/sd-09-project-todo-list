@@ -149,6 +149,7 @@ function moverBaixo () {
             if (varTroca2Selected === true) {
               listaTarefas[index].classList.add('completed');
             }
+            index = listaTarefas.length;
           }
         }
       }
