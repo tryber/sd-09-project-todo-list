@@ -81,12 +81,12 @@ function salvarTarefas () {
 function recuperarLista () {
   let listaTarefas = document.querySelector('ol');
   let listaRecuperada = JSON.parse(localStorage.getItem('todoList'));
-  if (listaRecuperada.innerHTML !== null) {
+  if (listaRecuperada !== null) {
     for (index = 0; index < listaRecuperada.itenLista.length; index += 1) {
       let itenRecuperado = document.createElement ('li');
       itenRecuperado.innerHTML = listaRecuperada.itenLista[index];
       if (listaRecuperada.classes[index] === true)
-      itenRecuperado.classList.('completed');
+      itenRecuperado.classList.add('completed');
       listaTarefas.appendChild(itenRecuperado);
     }
   }
@@ -97,4 +97,3 @@ tarefaSelecionada ();
 tarefaConcluida ();
 apagarTarefa ();
 removeTarefaConcluida ();
-salvarTarefas ();
