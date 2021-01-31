@@ -1,0 +1,86 @@
+body {
+  background-color: rgb(64, 173, 64);
+  font-family: 'Montserrat', sans-serif;
+}
+
+#conteudo {
+  background-color: white;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+header {
+  font-weight: bold;
+}
+
+p {
+  font-style: italic;
+  color: rgb(120, 120, 120);
+  font-size: 10px;
+}
+
+input:hover, input:active{
+    border: 2px ridge lightblue;
+}
+
+#criar-tarefa {
+    background-color: rgb(0, 135, 207);
+    border: none;
+    border-radius: 7px;
+    color: white;
+    font-size: small;
+    padding: 2px 8px;
+
+}
+
+.completed {
+    text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+#apaga-tudo {
+    background-color: rgb(144, 25, 27);
+    border: none;
+    border-radius: 7px;
+    color: white;
+    padding: 1px 12px;
+}
+
+#remover-finalizados {
+    background-color: rgb(0, 135, 207);
+    border: none;
+    border-radius: 7px;
+    color: white;
+    padding: 1px 12px;
+}
+
+#salvar-tarefas {
+    background-color: rgb(74, 176, 74);
+    border: none;
+    border-radius: 7px;
+    color: white;
+    padding: 1px 12px;
+}
+
+#mover-cima {
+  background-color: rgb(251, 127, 0);
+  border: none;
+  border-radius: 7px;
+  color: white;
+  padding: 1px 12px;
+}
+
+#mover-baixo {
+  background-color: rgb(251, 127, 0);
+  border: none;
+  border-radius: 7px;
+  color: white;
+  padding: 1px 12px;
+}
+
+#remover-selecionado {
+  background-color: rgb(144, 25, 27);
+  border: none;
+  border-radius: 7px;
+  color: white;
+  padding: 1px 12px;
+}
