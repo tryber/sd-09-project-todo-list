@@ -60,3 +60,19 @@ input:hover, input:active{
     color: white;
     padding: 1px 12px;
 }
+
+#mover-cima {
+  background-color: rgb(251, 127, 0);
+  border: none;
+  border-radius: 7px;
+  color: white;
+  padding: 1px 12px;
+}
+
+#mover-baixo {
+  background-color: rgb(251, 127, 0);
+  border: none;
+  border-radius: 7px;
+  color: white;
+  padding: 1px 12px;
+}

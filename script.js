@@ -92,6 +92,70 @@ function recuperarLista () {
   }
 }
 
+function moverCima () {
+  let botaoCima = document.querySelector('#mover-cima');
+  botaoCima.addEventListener ('click', function () {
+    let listaTarefas = document.getElementsByTagName ('li');
+    if (listaTarefas.length > 0) {
+      for (index = 0; index < listaTarefas.length; index += 1) {
+        if (listaTarefas[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+          let varTroca = listaTarefas[index];
+          if (varTroca.previousElementSibling !== null) {
+            const varTroca2Conteudo = listaTarefas[index].previousElementSibling.innerHTML;
+            const varTroca2Selected = listaTarefas[index].previousElementSibling.classList.contains('completed');
+
+            listaTarefas[index].previousElementSibling.style.backgroundColor = varTroca.style.backgroundColor;
+            listaTarefas[index].style.backgroundColor = '';
+            
+            listaTarefas[index].previousElementSibling.innerHTML = varTroca.innerHTML;
+            listaTarefas[index].innerHTML = varTroca2Conteudo;
+            
+            listaTarefas[index].previousElementSibling.classList = varTroca.classList;
+            if (listaTarefas[index].classList.contains('completed') === true) {
+              listaTarefas[index].classList.remove('completed');
+            }
+            if (varTroca2Selected === true) {
+              listaTarefas[index].classList.add('completed');
+            }
+          }
+        }
+      }
+    }
+  })
+}
+
+function moverBaixo () {
+  let botaoCima = document.querySelector('#mover-baixo');
+  botaoCima.addEventListener ('click', function () {
+    let listaTarefas = document.getElementsByTagName ('li');
+    if (listaTarefas.length > 0) {
+      for (index = 0; index < listaTarefas.length; index += 1) {
+        if (listaTarefas[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+          let varTroca = listaTarefas[index];
+          if (varTroca.nextElementSibling !== null) {
+            const varTroca2Conteudo = listaTarefas[index].nextElementSibling.innerHTML;
+            const varTroca2Selected = listaTarefas[index].nextElementSibling.classList.contains('completed');
+
+            listaTarefas[index].nextElementSibling.style.backgroundColor = varTroca.style.backgroundColor;
+            listaTarefas[index].style.backgroundColor = '';
+            
+            listaTarefas[index].nextElementSibling.innerHTML = varTroca.innerHTML;
+            listaTarefas[index].innerHTML = varTroca2Conteudo;
+            
+            listaTarefas[index].nextElementSibling.classList = varTroca.classList;
+            if (listaTarefas[index].classList.contains('completed') === true) {
+              listaTarefas[index].classList.remove('completed');
+            }
+            if (varTroca2Selected === true) {
+              listaTarefas[index].classList.add('completed');
+            }
+          }
+        }
+      }
+    }
+  })
+}
+
 adicionarTarefa ();
 tarefaSelecionada ();
 tarefaConcluida ();
@@ -99,3 +163,5 @@ apagarTarefa ();
 removeTarefaConcluida ();
 salvarTarefas ();
 recuperarLista ();
+moverCima ();
+moverBaixo ();
