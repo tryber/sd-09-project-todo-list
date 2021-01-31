@@ -24,7 +24,7 @@ input:hover, input:active{
 }
 
 #criar-tarefa {
-    background-color: rgb(0, 135, 205);
+    background-color: rgb(0, 135, 207);
     border: none;
     border-radius: 7px;
     color: white;
@@ -39,6 +39,14 @@ input:hover, input:active{
 
 #apaga-tudo {
     background-color: rgb(144, 25, 27);
+    border: none;
+    border-radius: 7px;
+    color: white;
+    padding: 1px 12px;
+}
+
+#remover-finalizados {
+    background-color: rgb(0, 135, 207);
     border: none;
     border-radius: 7px;
     color: white;
