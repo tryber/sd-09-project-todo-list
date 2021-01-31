@@ -1,10 +1,10 @@
 body {
-  
+  background-color: rgb(64, 173, 64);
   font-family: 'Montserrat', sans-serif;
 }
 
 #conteudo {
-  
+  background-color: white;
   border-radius: 10px;
   padding: 15px;
 }
