@@ -52,3 +52,11 @@ input:hover, input:active{
     color: white;
     padding: 1px 12px;
 }
+
+#salvar-tarefas {
+    background-color: rgb(74, 176, 74);
+    border: none;
+    border-radius: 7px;
+    color: white;
+    padding: 1px 12px;
+}

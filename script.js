@@ -48,12 +48,48 @@ function removeTarefaConcluida () {
   let itensLista = document.getElementsByTagName ('li');
   botaoLimpaConcluidos.addEventListener ('click', function () {
     for (index = 0; index < itensLista.length; index += 1) {
-        if (itensLista[index].classList.contains ('completed')) {
-            listaTarefas.removeChild(itensLista[index]);
-            index -= 1;
-        }
+      if (itensLista[index].classList.contains ('completed')) {
+        listaTarefas.removeChild(itensLista[index]);
+        index -= 1;
+      }
     }
   })
+}
+
+function salvarTarefas () {
+  let botaoSalvaTarefas = document.querySelector('#salvar-tarefas');
+  botaoSalvaTarefas.addEventListener ('click', function () {
+    let itensLista = document.getElementsByTagName ('li');
+    let listaTarefas = document.querySelector ('ol');
+    let itenLista = [];
+    let classes = [];
+    let tarefas = {
+      itenLista,
+      classes,
+    }
+
+    if (itensLista) {
+        for (index = 0; index < itensLista.length; index += 1) {
+          itenLista.push(itensLista[index].innerHTML);
+          classes.push(itensLista[index].classList.contains('completed'));
+        }
+        localStorage.setItem('todoList', JSON.stringify(tarefas));
+    }
+  })
+}
+
+function recuperarLista () {
+  let listaTarefas = document.querySelector('ol');
+  let listaRecuperada = JSON.parse(localStorage.getItem('todoList'));
+  if (listaRecuperada.innerHTML !== null) {
+    for (index = 0; index < listaRecuperada.itenLista.length; index += 1) {
+      let itenRecuperado = document.createElement ('li');
+      itenRecuperado.innerHTML = listaRecuperada.itenLista[index];
+      if (listaRecuperada.classes[index] === true)
+      itenRecuperado.classList.add('completed');
+      listaTarefas.appendChild(itenRecuperado);
+    }
+  }
 }
 
 adicionarTarefa ();
@@ -61,3 +97,5 @@ tarefaSelecionada ();
 tarefaConcluida ();
 apagarTarefa ();
 removeTarefaConcluida ();
+salvarTarefas ();
+recuperarLista ();
