@@ -7,6 +7,7 @@ function adicionarItem () {
     let itenLista = document.createElement ('li');
     itenLista.innerText = textoInput.value;
     listaTarefas.appendChild (itenLista);
+    textoInput.value = '';
   })
 }
 
