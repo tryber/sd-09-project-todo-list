@@ -76,3 +76,11 @@ input:hover, input:active{
   color: white;
   padding: 1px 12px;
 }
+
+#remover-selecionado {
+  background-color: rgb(144, 25, 27);
+  border: none;
+  border-radius: 7px;
+  color: white;
+  padding: 1px 12px;
+}

@@ -156,6 +156,18 @@ function moverBaixo () {
   })
 }
 
+function apagaSelecionado () {
+  let buttonRemoveSelected = document.querySelector('#remover-selecionado');
+  buttonRemoveSelected.addEventListener ('click', function () {
+    let itemSelecionado = document.getElementsByTagName('li');
+    for (index = 0; index < itemSelecionado.length; index += 1) {
+      if (itemSelecionado[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+        itemSelecionado[index].parentNode.removeChild(itemSelecionado[index]);
+      }
+    }
+  })
+}
+
 adicionarTarefa ();
 tarefaSelecionada ();
 tarefaConcluida ();
@@ -165,3 +177,4 @@ salvarTarefas ();
 recuperarLista ();
 moverCima ();
 moverBaixo ();
+apagaSelecionado ();
