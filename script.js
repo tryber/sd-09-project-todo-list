@@ -50,6 +50,7 @@ function removeTarefaConcluida () {
     for (index = 0; index < itensLista.length; index += 1) {
         if (itensLista[index].classList.contains ('completed')) {
             listaTarefas.removeChild(itensLista[index]);
+            index -= 1;
         }
     }
   })
