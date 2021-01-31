@@ -11,4 +11,12 @@ function adicionarItem () {
   })
 }
 
+function corItemLista () {
+  let listaTarefas = document.querySelector ('#lista-tarefas');
+  listaTarefas.addEventListener ('click', function (event) {
+      event.target.style.backgroundColor = 'rgb(128, 128, 128)';
+  })
+}
+
 adicionarItem ();
+corItemLista ();
