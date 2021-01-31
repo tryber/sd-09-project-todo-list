@@ -98,3 +98,4 @@ tarefaConcluida ();
 apagarTarefa ();
 removeTarefaConcluida ();
 salvarTarefas ();
+recuperarLista ();
