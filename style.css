@@ -19,7 +19,7 @@ p {
   font-size: 10px;
 }
 
-input:focus {
+input:hover, input:active{
     border: 2px ridge lightblue;
 }
 
@@ -35,4 +35,12 @@ input:focus {
 
 .completed {
     text-decoration: line-through solid rgb(0, 0, 0);
+}
+
+#apaga-tudo {
+    background-color: rgb(144, 25, 27);
+    border: none;
+    border-radius: 7px;
+    color: white;
+    padding: 1px 12px;
 }

@@ -4,10 +4,15 @@ function adicionarTarefa () {
   let textoInput = document.querySelector('#texto-tarefa');
 
   botaoAdd.addEventListener ('click', function () {
-    let itenLista = document.createElement ('li');
-    itenLista.innerText = textoInput.value;
-    listaTarefas.appendChild (itenLista);
-    textoInput.value = '';
+    if (textoInput.value) {
+      let itenLista = document.createElement ('li');
+      itenLista.innerText = textoInput.value;
+      listaTarefas.appendChild (itenLista);
+      textoInput.value = '';
+    }
+    else {
+        alert('Digite uma tarefa');
+    }
   })
 }
 
@@ -23,12 +28,21 @@ function tarefaSelecionada () {
 }
 
 function tarefaConcluida () {
-    let listaTarefas = document.querySelector('#lista-tarefas');
+    let listaTarefas = document.querySelector ('#lista-tarefas');
     listaTarefas.addEventListener ('dblclick', function (event) {
         event.target.classList.toggle ('completed');
+    })
+}
+
+function apagarTarefa () {
+    let listaTarefas = document.querySelector ('#lista-tarefas');
+    let botaoApaga = document.querySelector ('#apaga-tudo');
+    botaoApaga.addEventListener ('click', function () {
+        listaTarefas.innerText = '';
     })
 }
 
 adicionarTarefa ();
 tarefaSelecionada ();
 tarefaConcluida ();
+apagarTarefa ();
