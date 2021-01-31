@@ -1,4 +1,4 @@
-function adicionarItem () {
+function adicionarTarefa () {
   let botaoAdd = document.querySelector('#criar-tarefa');
   let listaTarefas = document.querySelector('#lista-tarefas');
   let textoInput = document.querySelector('#texto-tarefa');
@@ -11,7 +11,7 @@ function adicionarItem () {
   })
 }
 
-function corItemLista () {
+function tarefaSelecionada () {
   let listaTarefas = document.querySelector ('#lista-tarefas');
   listaTarefas.addEventListener ('click', function (event) {
       let itensLista = document.getElementsByTagName ('li');
@@ -22,5 +22,13 @@ function corItemLista () {
   })
 }
 
-adicionarItem ();
-corItemLista ();
+function tarefaConcluida () {
+    let listaTarefas = document.querySelector('#lista-tarefas');
+    listaTarefas.addEventListener ('dblclick', function (event) {
+        event.target.classList.toggle ('completed');
+    })
+}
+
+adicionarTarefa ();
+tarefaSelecionada ();
+tarefaConcluida ();
