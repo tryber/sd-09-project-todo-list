@@ -86,7 +86,7 @@ function recuperarLista () {
       let itenRecuperado = document.createElement ('li');
       itenRecuperado.innerHTML = listaRecuperada.itenLista[index];
       if (listaRecuperada.classes[index] === true)
-      itenRecuperado.classList.add('completed');
+      itenRecuperado.classList.('completed');
       listaTarefas.appendChild(itenRecuperado);
     }
   }
@@ -98,4 +98,3 @@ tarefaConcluida ();
 apagarTarefa ();
 removeTarefaConcluida ();
 salvarTarefas ();
-recuperarLista ();
