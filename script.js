@@ -68,7 +68,7 @@ function salvarTarefas () {
       classes,
     }
 
-    if (itensLista) {
+    if (itensLista !== null) {
         for (index = 0; index < itensLista.length; index += 1) {
           itenLista.push(itensLista[index].innerHTML);
           classes.push(itensLista[index].classList.contains('completed'));
@@ -97,3 +97,4 @@ tarefaSelecionada ();
 tarefaConcluida ();
 apagarTarefa ();
 removeTarefaConcluida ();
+salvarTarefas ();
