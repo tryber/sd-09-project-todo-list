@@ -27,9 +27,11 @@ function captureInputAndCreate() {
                     let selected = document.querySelector('.selected');
                     if (selected && event.target.classList.contains('task')) {
                         selected.classList.remove('selected');
+                        selected.style.backgroundColor = '';
                     }
                     if (event.target.classList.contains('task')) {
                         event.target.classList.add('selected');
+                        event.target.style.backgroundColor = 'rgb(128, 128, 128)';
                     }
                 })
                 ul.appendChild(create);
