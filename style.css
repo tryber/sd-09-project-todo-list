@@ -61,5 +61,6 @@
 .checkedBox {
     background-image: url(checked.png);
     background-size: cover;
+    pointer-events: none
 }
 
