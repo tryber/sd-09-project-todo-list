@@ -23,6 +23,15 @@ function captureInputAndCreate() {
                 create.style.order = orderCount;                
                 create.style.alignItems = 'center';
                 create.classList.add('task');
+                create.addEventListener('click', function(event) {
+                    let selected = document.querySelector('.selected');
+                    if (selected && event.target.classList.contains('task')) {
+                        selected.classList.remove('selected');
+                    }
+                    if (event.target.classList.contains('task')) {
+                        event.target.classList.add('selected');
+                    }
+                })
                 ul.appendChild(create);
                 create.appendChild(createBox);
                 document.getElementById('texto-tarefa').value = '';
@@ -40,19 +49,6 @@ function eraseInputBox() {
     })
 }
 
-function changeListInputColorSelectUnselect() {
-    let list = document.querySelector('#lista-tarefas');
-    list.addEventListener('click', function(event) {
-        let selected = document.querySelector('.selected');
-        if (selected && event.target.classList.contains('task')) {
-            selected.classList.remove('selected');
-        }
-        if (event.target.classList.contains('task')) {
-            event.target.classList.add('selected');
-        }
-
-    })
-}
 
 function completedTask() {
     let list = document.querySelector('#lista-tarefas');
@@ -80,8 +76,7 @@ function eraseButtom () {
 
 window.onload = function() {
     captureInputAndCreate();
-    eraseInputBox();
-    changeListInputColorSelectUnselect();
+    eraseInputBox();    
     completedTask();
     eraseButtom ();
 }
