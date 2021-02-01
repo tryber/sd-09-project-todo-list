@@ -7,8 +7,8 @@ let orderCount = 0;
 function captureInputAndCreate() {
     button.addEventListener('click', function() {
         let captureText = document.getElementById('texto-tarefa').value;
-        let list = document.querySelector('#lista-tarefas');
-        if (capturedText == captureText && capturedText != '') {
+        let ul = document.querySelector('#lista-tarefas');
+        if (capturedText === captureText && capturedText != '') {
             alert('Você já tem esta tarefa na lista.');
         } else {
             if (captureText != '' && captureText != 'escreva uma tarefa...' && capturedText != captureText) {
@@ -23,7 +23,7 @@ function captureInputAndCreate() {
                 create.style.order = orderCount;                
                 create.style.alignItems = 'center';
                 create.classList.add('task');
-                list.appendChild(create);
+                ul.appendChild(create);
                 create.appendChild(createBox);
                 document.getElementById('texto-tarefa').value = '';
             } else {
