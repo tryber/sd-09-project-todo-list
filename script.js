@@ -11,7 +11,7 @@ let text = document.querySelector('#texto-tarefa');
 
 
 const createTask = () =>{
-    createTaskButton.addEventListener('click', function(){ 
+    createTaskButton.addEventListener('click',  function(){ 
         let createElementLi = document.createElement('li');       
         AddTaskStyle(createElementLi);
         listaOl.appendChild(createElementLi); 
