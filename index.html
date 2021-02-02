@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Projeto-ToDo-List</title>
+</head>
+<body>
+  <div class="container">
+    <header><h1>Minha Lista de Tarefas</h1></header>
+    <div class="layout">
+      <section class="secoes controls">
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo.
+        </p>
+        <form id="formulario">
+          <input id="texto-tarefa" type="text" autocomplete="off" placeholder="Adicione uma tarefa"/>
+        </form>
+        <button id="criar-tarefa" type="submit">Adicionar</button>
+        <button id="apaga-tudo">Apagar tudo</button>
+        <button id="remover-finalizados">Remover Finalizados</button>
+        <button id="salvar-tarefas">Salvar tarefas</button>
+        <button id="remover-selecionado" >Remover selecionado</button>
+        <button id="mover-cima">Mover item p/ cima</button>
+        <button id="mover-baixo">Mover item p/ baixo</button>
+      </section>
+    <section class="secoes todo-list">
+      <span>Lista de tarefas:</span>
+      <ol class="lista" id="lista-tarefas"></ol>
+    </section>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
