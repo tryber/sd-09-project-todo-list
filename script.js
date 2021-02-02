@@ -68,7 +68,7 @@ const moveTaskUp = () => {
         let taskList = document.querySelectorAll('li');
         for (let index = 0; index < taskList.length; index +=1) {
             let pos = taskList[index];
-            if(pos.classList.contains('selected') && pos.previousSibling !== null){
+            if(pos.classList.contains('selected') && pos.previousElementSibling !== null){
                 listaOl.insertBefore(pos, taskList[index - 1]);
             }
         }
@@ -80,7 +80,7 @@ const moveTaskDown = () => {
         let taskList = document.querySelectorAll('li');
         for (let index = 0; index < taskList.length; index +=1) {
             let pos = taskList[index];
-            if(pos.classList.contains('selected') && pos.nextSibling !== null){
+            if(pos.classList.contains('selected') && pos.nextElementSibling !== null){
                 listaOl.insertBefore(taskList[index + 1], pos);
             }
         }
