@@ -16,14 +16,27 @@ const createTask = () =>{
     })
 }
 
-const selectTask = () => { 
+const addSelectTask = () => { 
     let listaOl = document.querySelector('#lista-tarefas');   
     listaOl.addEventListener('click', function(event) {
     let selectedList = document.querySelector('.selected');
-        if(selectedList) {
+        if(selectedList && event.target.classList.contains('task')) {
             selectedList.classList.remove('selected');
         }
-        event.target.classList.add('selected');
+        if(event.target.classList.contains('task')) {
+            event.target.classList.add('selected');
+        }
+        
+    })
+}
+
+const addCompletedTask = () => {    
+    listaOl.addEventListener('dblclick', function(event){    
+        if (event.target.classList.contains('completed')){
+            event.target.classList.remove('completed')            
+        } else {
+            event.target.classList.add('completed');
+        }        
     })
 }
 
@@ -34,6 +47,7 @@ const clearList = () => {
 const liStyle = (createElementLi) => {
     orderCount += 1;
     createElementLi.style.order = orderCount;
+    createElementLi.classList.add('task');
        
     
 }
@@ -41,6 +55,7 @@ const liStyle = (createElementLi) => {
 
 window.onload = () => {
     createTask();
-    selectTask();
+    addSelectTask();
+    addCompletedTask();
     
 }
