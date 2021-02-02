@@ -5,6 +5,8 @@ const eraseAllButtom = document.querySelector('#apaga-tudo');
 const eraseCompletedButtom = document.querySelector('#remover-finalizados');
 const buttomUp = document.querySelector('#up-buttom');
 const buttomDown = document.querySelector('#down-buttom');
+const buttomRemoveSelected = document.querySelector('#remover-selecionado');
+
 let text = document.querySelector('#texto-tarefa');
 
 
@@ -85,6 +87,15 @@ const moveTaskDown = () => {
     })
 }
 
+const clearSelectedTask = () => {
+    buttomRemoveSelected.addEventListener('click', function() {
+        let selected = document.querySelectorAll('li.selected');
+        selected.forEach((key) => {
+            listaOl.removeChild(key);
+        }) 
+    })
+}
+
 window.onload = () => {
     createTask();
     addSelectTask();
@@ -93,4 +104,5 @@ window.onload = () => {
     clearCompletedTasks();  
     moveTaskUp();
     moveTaskDown();
+    clearSelectedTask();
 }
