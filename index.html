@@ -15,18 +15,17 @@
         <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
     </header>
 
-    <main class="box">
+    <main class="box">        
+        <div class="inputContainer">
+            <input id="texto-tarefa" type="text" value="" placeholder="escreva uma tarefa...">
+            <button id="criar-tarefa" type="submit">Criar-Tarefa</button>
+            <button id="apaga-tudo" type="button">Limpar</button>
+        </div>
         <div class="listContainer">
             <ol id="lista-tarefas"> 
                                
             </ol>
         </div>
-        <div class="inputContainer">
-            <input id="texto-tarefa" type="text" value="escreva uma tarefa...">
-            <button id="criar-tarefa" type="submit">Criar-Tarefa</button>
-            <button id="apaga-tudo" type="button">Limpar</button>
-        </div>
-
     </main>
     <script src="script.js"></script>
 </body>
