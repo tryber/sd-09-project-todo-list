@@ -1,6 +1,7 @@
 let createElementLi = document.createElement('li');
 let listaOl = document.querySelector('#lista-tarefas');
 const createTaskButton = document.querySelector('#criar-tarefa');
+const eraseAllButtom = document.querySelector('#apaga-tudo');
 let text = document.querySelector('#texto-tarefa');
 let orderCount = 0;
 
@@ -41,7 +42,10 @@ const addCompletedTask = () => {
 }
 
 const clearList = () => {
-
+    eraseAllButtom.addEventListener('click', function(){
+        listaOl.innerHTML = '';
+    })
+    
 }
 
 const liStyle = (createElementLi) => {
@@ -57,5 +61,6 @@ window.onload = () => {
     createTask();
     addSelectTask();
     addCompletedTask();
+    clearList();
     
 }
