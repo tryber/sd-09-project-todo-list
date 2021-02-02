@@ -3,23 +3,23 @@ let listaOl = document.querySelector('#lista-tarefas');
 const createTaskButton = document.querySelector('#criar-tarefa');
 const eraseAllButtom = document.querySelector('#apaga-tudo');
 const eraseCompletedButtom = document.querySelector('#remover-finalizados');
+const buttomUp = document.querySelector('#up-buttom');
+const buttomDown = document.querySelector('#down-buttom');
 let text = document.querySelector('#texto-tarefa');
-let orderCount = 0;
+
 
 const createTask = () =>{
     createTaskButton.addEventListener('click', function(){ 
-        let createElementLi = document.createElement('li');      
-        createElementLi.innerText = text.value;
-        taskStyle(createElementLi);
+        let createElementLi = document.createElement('li');       
+        AddTaskStyle(createElementLi);
         listaOl.appendChild(createElementLi); 
         text.value= '';       
     })
 }
 
-const taskStyle = (createElementLi) => {
-    orderCount += 1;
-    createElementLi.style.order = orderCount;
-    createElementLi.classList.add('task');    
+const AddTaskStyle = (createElementLi) => { 
+    createElementLi.innerText = text.value;   
+    createElementLi.classList.add('task');      
 }
 
 const addSelectTask = () => { 
@@ -60,7 +60,30 @@ const clearCompletedTasks = () => {
         })
     })
 }
-document.get
+
+const moveTaskUp = () => {
+    buttomUp.addEventListener('click', function(){
+        let taskList = document.querySelectorAll('li');
+        for (let index = 0; index < taskList.length; index +=1) {
+            let pos = taskList[index];
+            if(pos.classList.contains('selected') && pos.previousSibling !== null){
+                listaOl.insertBefore(pos, taskList[index - 1]);
+            }
+        }
+    })
+}
+
+const moveTaskDown = () => {
+    buttomDown.addEventListener('click', function(){
+        let taskList = document.querySelectorAll('li');
+        for (let index = 0; index < taskList.length; index +=1) {
+            let pos = taskList[index];
+            if(pos.classList.contains('selected') && pos.nextSibling !== null){
+                listaOl.insertBefore(taskList[index + 1], pos);
+            }
+        }
+    })
+}
 
 window.onload = () => {
     createTask();
@@ -68,4 +91,6 @@ window.onload = () => {
     addCompletedTask();
     clearList();  
     clearCompletedTasks();  
+    moveTaskUp();
+    moveTaskDown();
 }

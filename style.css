@@ -10,3 +10,7 @@
 .completed {
     text-decoration: line-through;
 }
+
+span {
+    font-size: 15px;    
+}
