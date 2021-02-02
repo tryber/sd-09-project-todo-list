@@ -3,8 +3,8 @@ let listaOl = document.querySelector('#lista-tarefas');
 const createTaskButton = document.querySelector('#criar-tarefa');
 const eraseAllButtom = document.querySelector('#apaga-tudo');
 const eraseCompletedButtom = document.querySelector('#remover-finalizados');
-const buttomUp = document.querySelector('#up-buttom');
-const buttomDown = document.querySelector('#down-buttom');
+const buttomUp = document.querySelector('#mover-cima');
+const buttomDown = document.querySelector('#mover-baixo');
 const buttomRemoveSelected = document.querySelector('#remover-selecionado');
 
 let text = document.querySelector('#texto-tarefa');
