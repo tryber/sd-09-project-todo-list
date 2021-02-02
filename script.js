@@ -1,6 +1,31 @@
+/*
+function saveTasks() {
+  localStorage.setItem('dia','sexta-feira');
+}
+
+const btnSaveTask = document.getElementById('salvar-tarefas');
+btnSaveTask.addEventListener('click', saveTasks);*/
+function moveUpTask() {
+  const itemToMove = document.querySelector('.selected');
+  if (itemToMove && itemToMove.previousElementSibling !== null) {
+    itemToMove.parentNode.insertBefore(itemToMove, itemToMove.previousElementSibling);
+  }
+}
+const btnMoveUp = document.getElementById('mover-cima');
+btnMoveUp.addEventListener('click', moveUpTask);
+
+ function moveDownTask() {
+  const itemToMove = document.querySelector('.selected');
+  if (itemToMove && itemToMove.nextSibling !== null) {
+    itemToMove.parentNode.insertBefore(itemToMove.nextSibling, itemToMove);
+  }
+ }
+const btnMoveDown = document.getElementById('mover-baixo');
+btnMoveDown.addEventListener('click', moveDownTask);
+
 function removeCompleted() {
   const completedTasks = document.querySelectorAll('.completed');
-  for (let index = 0; index < completedTasks.length; index += 1 ) {
+  for (let index = 0; index < completedTasks.length; index += 1) {
     completedTasks[index].parentNode.removeChild(completedTasks[index]);
   }
 }
