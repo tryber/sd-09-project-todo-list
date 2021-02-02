@@ -2,19 +2,24 @@ let createElementLi = document.createElement('li');
 let listaOl = document.querySelector('#lista-tarefas');
 const createTaskButton = document.querySelector('#criar-tarefa');
 const eraseAllButtom = document.querySelector('#apaga-tudo');
+const eraseCompletedButtom = document.querySelector('#remover-finalizados');
 let text = document.querySelector('#texto-tarefa');
 let orderCount = 0;
-
-
 
 const createTask = () =>{
     createTaskButton.addEventListener('click', function(){ 
         let createElementLi = document.createElement('li');      
         createElementLi.innerText = text.value;
-        liStyle(createElementLi);
+        taskStyle(createElementLi);
         listaOl.appendChild(createElementLi); 
         text.value= '';       
     })
+}
+
+const taskStyle = (createElementLi) => {
+    orderCount += 1;
+    createElementLi.style.order = orderCount;
+    createElementLi.classList.add('task');    
 }
 
 const addSelectTask = () => { 
@@ -26,8 +31,7 @@ const addSelectTask = () => {
         }
         if(event.target.classList.contains('task')) {
             event.target.classList.add('selected');
-        }
-        
+        }        
     })
 }
 
@@ -48,19 +52,20 @@ const clearList = () => {
     
 }
 
-const liStyle = (createElementLi) => {
-    orderCount += 1;
-    createElementLi.style.order = orderCount;
-    createElementLi.classList.add('task');
-       
-    
+const clearCompletedTasks = () => {
+    eraseCompletedButtom.addEventListener('click', function(){
+        let completeds = document.querySelectorAll('li.completed');
+        completeds.forEach((key) => {
+            listaOl.removeChild(key);
+        })
+    })
 }
-
+document.get
 
 window.onload = () => {
     createTask();
     addSelectTask();
     addCompletedTask();
-    clearList();
-    
+    clearList();  
+    clearCompletedTasks();  
 }
