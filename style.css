@@ -1,0 +1,39 @@
+body {
+  background-color: lime;
+  box-sizing: content-box;
+  font-family: 'Indie Flower', cursive;
+}
+
+header {
+  align-content: center;
+  background-color: aliceblue;
+  border-radius: 2ch;
+  text-align: center;
+}
+
+.salut {
+  margin: 0;
+}
+
+h6 {
+  border: 0;
+  height: 0;
+  line-height: 0;
+  padding: 0;
+}
+
+.schedule-forms {
+  padding-top: 40px;
+}
+
+ol {
+  align-content: center;
+  background-color: aliceblue;
+  border-radius: 2ch;
+  max-width: 70%;
+  min-height: 300px;
+  min-width: 200px;
+  overflow: auto;
+  text-align: left;
+  width: fit-content;
+}
