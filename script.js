@@ -7,15 +7,25 @@ const eraseCompletedButtom = document.querySelector('#remover-finalizados');
 const buttomUp = document.querySelector('#mover-cima');
 const buttomDown = document.querySelector('#mover-baixo');
 const buttomRemoveSelected = document.querySelector('#remover-selecionado');
+const buttomSaveTask = document.querySelector('#salvar-tarefas');
 
+function saveTask() {
+    const listaOl = document.querySelector('#lista-tarefas').innerHTML;
+    buttomSaveTask.addEventListener('click', () => {
+        localStorage.setItem('tarefas', listaOl);
+    });
+    
+}
 
 const createTask = () =>{
     createTaskButton.addEventListener('click',  function(){   
         let createElementLi = document.createElement('li');    
         AddTaskStyle(createElementLi);
         listaOl.appendChild(createElementLi); 
-        text.value= '';       
+        text.value= '';
+        saveTask();   
     })
+    
 }
 
 const AddTaskStyle = (createElementLi) => { 
@@ -42,8 +52,10 @@ const addCompletedTask = () => {
             event.target.classList.remove('completed')            
         } else {
             event.target.classList.add('completed');
-        }        
+        }
+        saveTask();       
     })
+    
 }
 
 const clearList = () => {
@@ -59,7 +71,9 @@ const clearCompletedTasks = () => {
         completeds.forEach((element) => {
             listaOl.removeChild(element);
         })
+        saveTask();
     })
+    
 }
 
 const moveTaskUp = () => {
@@ -71,7 +85,9 @@ const moveTaskUp = () => {
                 listaOl.insertBefore(pos, taskList[index - 1]);
             }
         }
+        saveTask();
     })
+    
 }
 
 const moveTaskDown = () => {
@@ -83,7 +99,9 @@ const moveTaskDown = () => {
                 listaOl.insertBefore(taskList[index + 1], pos);
             }
         }
+        saveTask();
     })
+    
 }
 
 const clearSelectedTask = () => {
@@ -91,12 +109,21 @@ const clearSelectedTask = () => {
         let selected = document.querySelectorAll('li.selected');
         selected.forEach((element) => {
             listaOl.removeChild(element);
-        }) 
+        })
+        saveTask(); 
     })
+    
 }
 
 
+function loadTask() {
+    const itensStorage = localStorage.getItem('tarefas');
+    const listaOl = document.querySelector('#lista-tarefas');
+    listaOl.innerHTML = itensStorage;
+}
+
 window.onload = () => {
+    loadTask();
     createTask();
     addSelectTask();
     addCompletedTask();
