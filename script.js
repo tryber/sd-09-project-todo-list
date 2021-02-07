@@ -56,8 +56,8 @@ const clearList = () => {
 const clearCompletedTasks = () => {
     eraseCompletedButtom.addEventListener('click', function(){
         let completeds = document.querySelectorAll('li.completed');
-        completeds.forEach((key) => {
-            listaOl.removeChild(key);
+        completeds.forEach((element) => {
+            listaOl.removeChild(element);
         })
     })
 }
@@ -89,8 +89,8 @@ const moveTaskDown = () => {
 const clearSelectedTask = () => {
     buttomRemoveSelected.addEventListener('click', function() {
         let selected = document.querySelectorAll('li.selected');
-        selected.forEach((key) => {
-            listaOl.removeChild(key);
+        selected.forEach((element) => {
+            listaOl.removeChild(element);
         }) 
     })
 }
