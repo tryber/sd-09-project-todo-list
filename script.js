@@ -1,18 +1,37 @@
-const textoTarefa = document.querySelector('#texto-tarefa');
-const criarTarefa = document.querySelector('#criar-tarefa');
-const listaTarefa = document.querySelector('#lista-tarefas');
+let text = document.querySelector('#texto-tarefa');
+let createElementLi = document.createElement('li');
+let listaOl = document.querySelector('#lista-tarefas');
+const createTaskButton = document.querySelector('#criar-tarefa');
 
 
-const createTasks = () => {
-    let inputValue = textoTarefa.value;
-    const li = document.createElement('li');
-    li.innerText = inputValue;
-    listaTarefa.appendChild(li);
-    textoTarefa.value = '';
-    listaTarefa.addEventListener('click', (event) => {
-        
-    });
+const createTask = () =>{
+    createTaskButton.addEventListener('click',  function(){   
+        let createElementLi = document.createElement('li');    
+        AddTaskStyle(createElementLi);
+        listaOl.appendChild(createElementLi); 
+        text.value= '';       
+    })
 }
 
-criarTarefa.addEventListener('click', createTasks);
+const AddTaskStyle = (createElementLi) => { 
+    createElementLi.innerText = text.value;   
+    createElementLi.classList.add('task');      
+}
 
+const addSelectTask = () => { 
+    let listaOl = document.querySelector('#lista-tarefas');   
+    listaOl.addEventListener('click', function(event) {
+    let selectedList = document.querySelector('.selected');
+        if(selectedList && event.target.classList.contains('task')) {
+            selectedList.classList.remove('selected');
+        }
+        if(event.target.classList.contains('task')) {
+            event.target.classList.add('selected');
+        }        
+    })
+}
+
+window.onload = () => {
+    createTask();
+    addSelectTask();
+}
