@@ -7,15 +7,17 @@ function lineMark(markTask) {
 
 function line() {
   const scheduleList = document.querySelectorAll('li');
-  scheduleList.forEach((element) => { element.addEventListener('dblclick', lineMark)} );
+  scheduleList.forEach((element) => {
+    element.addEventListener('dblclick', lineMark);
+  })
 }
 
 //  Seleção de tarefa
 
 function deselect() {
   document.querySelectorAll('.selected').forEach((element) => {
-    element.classList.remove('selected')
-  });
+    element.classList.remove('selected');
+  })
 }
 
 function greyMark(focusTask) {
@@ -26,7 +28,9 @@ function greyMark(focusTask) {
 
 function select() {
   const scheduleList = document.querySelectorAll('li');
-  scheduleList.forEach((element) => {element.addEventListener('click', greyMark)});
+  scheduleList.forEach((element) => {
+    element.addEventListener('click', greyMark);
+  })
 }
 
 //  Iniciando a pagina
@@ -85,8 +89,8 @@ function clear() {
   const btnClear = document.getElementById('apaga-tudo');
   btnClear.addEventListener('click', () => {
     document.querySelectorAll('li').forEach((element) => {
-      element.remove()
-    });
+      element.remove();
+    })
   })
 }
 
@@ -97,7 +101,8 @@ clear();
 function removeFinished() {
   document.querySelector('#remover-finalizados').addEventListener('click', () => {
     document.querySelectorAll('.completed').forEach((element) => {
-      element.remove()})
+      element.remove();
+    })
   })
 }
 
@@ -108,7 +113,8 @@ removeFinished();
 function removeSelected() {
   document.querySelector('#remover-marcados').addEventListener('click', () => {
     document.querySelectorAll('.selected').forEach((element) => {
-      element.remove()})
+      element.remove();
+    })
   })
 }
 

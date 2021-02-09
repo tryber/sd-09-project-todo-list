@@ -1,7 +1,7 @@
 body {
   background-color: lime;
   box-sizing: content-box;
-  font-family: 'Indie Flower', cursive;
+  font-family: Indie Flower, cursive;
 }
 
 header {
@@ -39,7 +39,7 @@ ol {
 }
 
 .selected {
-  background-color: rgb(128 , 128, 128);
+  background-color: rgb(128 , 128 , 128);
 }
 
 .completed {
