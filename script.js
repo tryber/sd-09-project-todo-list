@@ -40,6 +40,7 @@ function creatSchedule() {
     document.getElementById('texto-tarefa').value = '';
   }
   select();
+  line();
 }
 
 const btnTask = document.getElementById('criar-tarefa');
@@ -62,7 +63,18 @@ function select(){
   const scheduleList = document.querySelectorAll('li');
   scheduleList.forEach((element) => {element.addEventListener('click', greyMark)});
 }
+//Marcar como feito
+function lineMark(markTask) {
+  const taskselected = markTask.target;
+  taskselected.classList.toggle('task-complete');
+}
 
-//
+function line(){
+  const scheduleList = document.querySelectorAll('li');
+  scheduleList.forEach((element) => {element.addEventListener('dblclick', lineMark)});
+}
+
+//Limpar lista
+
 
 
