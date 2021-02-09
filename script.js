@@ -15,15 +15,15 @@ function line() {
 //  Seleção de tarefa
 
 function deselect() {
-  document.querySelectorAll('.selected').forEach((element) => {
-    element.classList.remove('selected');
+  document.querySelectorAll('.gray').forEach((element) => {
+    element.classList.remove('gray');
   });
 }
 
 function greyMark(focusTask) {
   deselect();
   const taskselected = focusTask.target;
-  taskselected.classList.add('selected');
+  taskselected.classList.add('gray');
 }
 
 function select() {
@@ -112,7 +112,7 @@ removeFinished();
 
 function removeSelected() {
   document.querySelector('#remover-selecionado').addEventListener('click', () => {
-    document.querySelectorAll('.selected').forEach((element) => {
+    document.querySelectorAll('.gray').forEach((element) => {
       element.remove();
     });
   });
