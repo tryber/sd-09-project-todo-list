@@ -42,6 +42,6 @@ ol {
   background-color: rgb(128 , 128, 128);
 }
 
-.task-complete {
+.completed {
   text-decoration: line-through;
 }

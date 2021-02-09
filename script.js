@@ -66,7 +66,7 @@ function select(){
 //Marcar como feito
 function lineMark(markTask) {
   const taskselected = markTask.target;
-  taskselected.classList.toggle('task-complete');
+  taskselected.classList.toggle('completed');
 }
 
 function line(){
@@ -86,3 +86,14 @@ function clear() {
 
 clear();
 
+//Remover finalizados
+function removeFinished() {
+  document.querySelector('#remover-finalizados').addEventListener('click', () => {
+    document.querySelectorAll('.completed').forEach((element) => {
+    element.remove()})
+  })
+}
+
+removeFinished();
+
+//
