@@ -37,3 +37,7 @@ ol {
   text-align: left;
   width: fit-content;
 }
+
+.selected {
+  background-color: rgb(128 , 128, 128);
+}
