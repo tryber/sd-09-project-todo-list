@@ -76,5 +76,13 @@ function line(){
 
 //Limpar lista
 
+function clear() {
+  const btnClear = document.getElementById('apaga-tudo');
+  btnClear.addEventListener('click', () => {
+    document.querySelectorAll('li').forEach((element) => {
+    element.remove()})
+  })
+}
 
+clear();
 
