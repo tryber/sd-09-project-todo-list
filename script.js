@@ -7,7 +7,7 @@ function lineMark(markTask) {
 
 function line() {
   const scheduleList = document.querySelectorAll('li');
-  scheduleList.forEach((element) => {element.addEventListener('dblclick', lineMark)});
+  scheduleList.forEach((element) => { element.addEventListener('dblclick', lineMark)} );
 }
 
 //  Seleção de tarefa
