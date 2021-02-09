@@ -105,11 +105,12 @@ removeFinished();
 
 //  Remover marcados
 
-function removeFinished() {
+function removeSelected() {
   document.querySelector('#remover-marcados').addEventListener('click', () => {
     document.querySelectorAll('.selected').forEach((element) => {
       element.remove()})
   })
 }
 
+removeSelected();
 //
