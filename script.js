@@ -1,4 +1,5 @@
-//Iniciando a pagina
+//  Iniciando a pagina
+
 function coachStart() {
   const hello = document.querySelector('#hello');
   hello.innerText = `Não seja vagabundo,
@@ -7,7 +8,7 @@ function coachStart() {
   return hello;
 }
 
-function coach(){
+function coach() {
   const hello = document.querySelector('#hello');
   hello.innerText = `Criou coragem e escreveu!
   agora, é deixar de corpo mole!`;
@@ -46,8 +47,8 @@ function creatSchedule() {
 const btnTask = document.getElementById('criar-tarefa');
 btnTask.addEventListener('click', creatSchedule);
 
+//  Seleção de tarefa
 
-//Seleção de tarefa
 function deselect() {
   document.querySelectorAll('.selected').forEach((element) => {
   element.classList.remove('selected')});
@@ -59,22 +60,23 @@ function greyMark(focusTask) {
   taskselected.classList.add('selected');
 }
 
-function select(){
+function select() {
   const scheduleList = document.querySelectorAll('li');
   scheduleList.forEach((element) => {element.addEventListener('click', greyMark)});
 }
-//Marcar como feito
+//  Marcar como feito
+
 function lineMark(markTask) {
   const taskselected = markTask.target;
   taskselected.classList.toggle('completed');
 }
 
-function line(){
+function line() {
   const scheduleList = document.querySelectorAll('li');
   scheduleList.forEach((element) => {element.addEventListener('dblclick', lineMark)});
 }
 
-//Limpar lista
+//  Limpar lista
 
 function clear() {
   const btnClear = document.getElementById('apaga-tudo');
@@ -86,9 +88,10 @@ function clear() {
 
 clear();
 
-//Remover finalizados
+//  Remover finalizados
+
 function removeFinished() {
-  document.querySelector('#remover-finalizados').addEventListener('click', () => {
+  document.querySelector('#remover-selecionados').addEventListener('click', () => {
     document.querySelectorAll('.completed').forEach((element) => {
     element.remove()})
   })
