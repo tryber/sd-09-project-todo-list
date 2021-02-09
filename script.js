@@ -9,7 +9,7 @@ function line() {
   const scheduleList = document.querySelectorAll('li');
   scheduleList.forEach((element) => {
     element.addEventListener('dblclick', lineMark);
-  })
+  });
 }
 
 //  Seleção de tarefa
@@ -17,7 +17,7 @@ function line() {
 function deselect() {
   document.querySelectorAll('.selected').forEach((element) => {
     element.classList.remove('selected');
-  })
+  });
 }
 
 function greyMark(focusTask) {
@@ -30,7 +30,7 @@ function select() {
   const scheduleList = document.querySelectorAll('li');
   scheduleList.forEach((element) => {
     element.addEventListener('click', greyMark);
-  })
+  });
 }
 
 //  Iniciando a pagina
@@ -90,8 +90,8 @@ function clear() {
   btnClear.addEventListener('click', () => {
     document.querySelectorAll('li').forEach((element) => {
       element.remove();
-    })
-  })
+    });
+  });
 }
 
 clear();
@@ -102,8 +102,8 @@ function removeFinished() {
   document.querySelector('#remover-finalizados').addEventListener('click', () => {
     document.querySelectorAll('.completed').forEach((element) => {
       element.remove();
-    })
-  })
+    });
+  });
 }
 
 removeFinished();
@@ -111,13 +111,13 @@ removeFinished();
 //  Remover marcados
 
 function removeSelected() {
-  document.querySelector('#remover-marcados').addEventListener('click', () => {
+  document.querySelector('#remover-selecionado').addEventListener('click', () => {
     document.querySelectorAll('.selected').forEach((element) => {
       element.remove();
-    })
-  })
+    });
+  });
 }
 
 removeSelected();
 
-//Em um futuro
+//  Em um futuro
