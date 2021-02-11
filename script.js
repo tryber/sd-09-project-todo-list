@@ -63,6 +63,7 @@ function clear() {
       element.remove();
     });
   });
+  localStorage.clear();
 }
 
 clear();
@@ -91,4 +92,18 @@ function removeSelected() {
 
 removeSelected();
 
-//  Em um futuro
+//  Salvalista no LocalStorage
+
+function saveList() {
+  document.querySelector('#salvar-tarefas').addEventListener('click', () => {
+   localStorage.setItem('savedList', document.getElementById('lista-tarefas').innerHTML);
+  });
+}
+
+saveList();
+
+window.onload = () => {
+  if (localStorage.length > 0) {
+    document.getElementById('lista-tarefas').appendChild(localStorage.getItem('savedList'));
+  }
+}
