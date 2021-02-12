@@ -62,8 +62,8 @@ function clear() {
     document.querySelectorAll('li').forEach((element) => {
       element.remove();
     });
+    localStorage.clear();
   });
-  localStorage.clear();
 }
 
 clear();
@@ -96,7 +96,7 @@ removeSelected();
 
 function saveList() {
   document.querySelector('#salvar-tarefas').addEventListener('click', () => {
-   localStorage.setItem('savedList', document.getElementById('lista-tarefas').innerHTML);
+    localStorage.setItem('savedList', document.getElementById('lista-tarefas').innerHTML);
   });
 }
 
@@ -104,6 +104,8 @@ saveList();
 
 window.onload = () => {
   if (localStorage.length > 0) {
-    document.getElementById('lista-tarefas').appendChild(localStorage.getItem('savedList'));
+    document.getElementById('lista-tarefas').innerHTML = localStorage.getItem('savedList');
+    select();
+    line();
   }
 }
