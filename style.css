@@ -1,13 +1,16 @@
 body {
-  background-color: lime;
+  background-color: #00ced1;
+  background-image: url(image.jpg);
+  background-size: auto;
   box-sizing: content-box;
-  font-family: Indie Flower, cursive;
 }
 
 header {
   align-content: center;
-  background-color: aliceblue;
+  background-color: rgba(255 , 255 , 255 , 0.7);
+  border: 1px solid black;
   border-radius: 2ch;
+  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
 }
 
@@ -23,13 +26,16 @@ h6 {
 }
 
 .schedule-forms {
-  padding-top: 40px;
+  padding: 40px 0 5px;
 }
 
 ol {
   align-content: center;
-  background-color: aliceblue;
+  background-color: rgba(255 , 255 , 255 , 0.7);
+  border: 1px solid black;
   border-radius: 2ch;
+  font-family: 'Satisfy', cursive;
+  font-size: larger;
   max-width: 70%;
   min-height: 300px;
   min-width: 200px;
@@ -44,4 +50,17 @@ ol {
 
 .completed {
   text-decoration: line-through;
+}
+
+.contrast-font {
+  font-weight: bold;
+  color: orange;
+}
+
+button {
+  border-radius: 5ch;
+}
+
+button:focus {
+  border-radius: 0;
 }

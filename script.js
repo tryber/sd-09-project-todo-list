@@ -16,14 +16,14 @@ function line() {
 
 function deselect() {
   document.querySelectorAll('.gray').forEach((element) => {
-    element.classList.remove('gray');
+    element.classList.remove('gray', 'contrast-font');
   });
 }
 
 function greyMark(focusTask) {
   deselect();
   const taskselected = focusTask.target;
-  taskselected.classList.add('gray');
+  taskselected.classList.add('gray', 'contrast-font');
 }
 
 function select() {
@@ -42,6 +42,7 @@ function creatSchedule() {
     const write = document.getElementById('texto-tarefa').value;
     const orderedList = document.getElementById('lista-tarefas');
     const listItem = document.createElement('li');
+    listItem.className = 'list-item';
     listItem.innerText = write;
     orderedList.appendChild(listItem);
     document.getElementById('texto-tarefa').value = '';
@@ -108,4 +109,50 @@ window.onload = () => {
     select();
     line();
   }
+};
+
+// Mover para cima elemento de lita
+
+function upStairs() {
+ const btnUp = document.getElementById('mover-cima');
+ btnUp.addEventListener('click', () => {
+   const list = document.querySelectorAll('li');
+   for (let index = 0; index < list.length; index += 1) {
+     if (list[index].className.includes('gray') && index > 0) {
+       const up = list[index].innerHTML;
+       const upClass = list[index].className
+       const down = list[index - 1].innerHTML;
+       const downClass = list[index - 1].className;
+       list[index - 1].innerHTML = up;
+       list[index - 1].className = upClass;
+       list[index].innerHTML = down;
+       list[index].className = downClass;
+      }
+    }
+  });
 }
+
+upStairs();
+
+//  Mover para baixo elemento de lista
+
+function downStairs() {
+  const btnDown = document.getElementById('mover-baixo');
+  btnDown.addEventListener('click', () => {
+    const list = document.querySelectorAll('li');
+    for (let index = (list.length - 1); index >= 0; index -= 1) {
+      if (list[index].className.includes('gray') && index < (list.length - 1)) {
+        const up = list[index + 1].innerHTML;
+        const upClass = list[index + 1].className;
+        const down = list[index].innerHTML;
+        const downClass = list[index].className;
+        list[index].innerHTML = up;
+        list[index].className = upClass;
+        list[index + 1].innerHTML = down;
+        list[index + 1].className = downClass;
+      }
+    }
+  });
+}
+
+ downStairs();
