@@ -1,0 +1,66 @@
+body {
+  background-color: #00ced1;
+  background-image: url(image.jpg);
+  background-size: auto;
+  box-sizing: content-box;
+}
+
+header {
+  align-content: center;
+  background-color: rgba(255 , 255 , 255 , 0.7);
+  border: 1px solid black;
+  border-radius: 2ch;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+
+.salut {
+  margin: 0;
+}
+
+h6 {
+  border: 0;
+  height: 0;
+  line-height: 0;
+  padding: 0;
+}
+
+.schedule-forms {
+  padding: 40px 0 5px;
+}
+
+ol {
+  align-content: center;
+  background-color: rgba(255 , 255 , 255 , 0.7);
+  border: 1px solid black;
+  border-radius: 2ch;
+  font-family: 'Satisfy', cursive;
+  font-size: larger;
+  max-width: 70%;
+  min-height: 300px;
+  min-width: 200px;
+  overflow: auto;
+  text-align: left;
+  width: fit-content;
+}
+
+.gray {
+  background-color: gray;
+}
+
+.completed {
+  text-decoration: line-through solid black;
+}
+
+.contrast-font {
+  color: orange;
+  font-weight: bold;
+}
+
+button {
+  border-radius: 5ch;
+}
+
+button:focus {
+  border-radius: 0;
+}

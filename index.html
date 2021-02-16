@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>e-schedule</title>
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+
+    <h1 class="salut"><strong>Minha Lista de Tarefas</strong></h1>
+    <h6 id="funcionamento" class="salut">Clique duas vezes em um item para marcá-lo como completo</h6>
+
+    <div class="schedule-forms">
+      <input type="text" id="texto-tarefa">
+      <button id="criar-tarefa">Adicionar Tarefa</button>
+      <button id="mover-cima">&#8657;</button>
+      <button id="mover-baixo">&#8659;</button>
+      <button id="apaga-tudo">Limpar</button>
+      <button id="remover-finalizados" id="remover-selecionado">Remover Finalizados</button>
+      <button id="remover-selecionado">Remover Selecionado</button>
+      <button id="salvar-tarefas">Salvar Tarefas</button>
+    </div>
+
+  </header>
+
+    <ol id="lista-tarefas"></ol>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
