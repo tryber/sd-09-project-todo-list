@@ -114,19 +114,19 @@ window.onload = () => {
 // Mover para cima elemento de lita
 
 function upStairs() {
- const btnUp = document.getElementById('mover-cima');
- btnUp.addEventListener('click', () => {
-   const list = document.querySelectorAll('li');
-   for (let index = 0; index < list.length; index += 1) {
-     if (list[index].className.includes('gray') && index > 0) {
-       const up = list[index].innerHTML;
-       const upClass = list[index].className
-       const down = list[index - 1].innerHTML;
-       const downClass = list[index - 1].className;
-       list[index - 1].innerHTML = up;
-       list[index - 1].className = upClass;
-       list[index].innerHTML = down;
-       list[index].className = downClass;
+  const btnUp = document.getElementById('mover-cima');
+  btnUp.addEventListener('click', () => {
+  const list = document.querySelectorAll('li');
+    for (let index = 0; index < list.length; index += 1) {
+      if (list[index].className.includes('gray') && index > 0) {
+        const up = list[index].innerHTML;
+        const upClass = list[index].className
+        const down = list[index - 1].innerHTML;
+        const downClass = list[index - 1].className;
+        list[index - 1].innerHTML = up;
+        list[index - 1].className = upClass;
+        list[index].innerHTML = down;
+        list[index].className = downClass;
       }
     }
   });
@@ -139,7 +139,7 @@ upStairs();
 function downStairs() {
   const btnDown = document.getElementById('mover-baixo');
   btnDown.addEventListener('click', () => {
-    const list = document.querySelectorAll('li');
+  const list = document.querySelectorAll('li');
     for (let index = (list.length - 1); index >= 0; index -= 1) {
       if (list[index].className.includes('gray') && index < (list.length - 1)) {
         const up = list[index + 1].innerHTML;
