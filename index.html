@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MarcosMantovani - TodoList</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header class="title">
+        <h1>Minha Lista de Tarefas</h1>
+        <p id="funcionamento">Clique duas vezes em um item para marcá-lo como completo</p>
+    </header>
+
+    <main class="box">        
+        <div class="inputContainer">
+            <input id="texto-tarefa" type="text" value="" placeholder="escreva uma tarefa...">
+            <button id="criar-tarefa" type="submit">Criar-Tarefa</button>            
+        </div>
+        <div class="config-container">
+            <button id="apaga-tudo" type="button">Limpar Lista</button>
+            <button id="remover-finalizados" type="button">Limpar Finalizados</button>
+            <button id="remover-selecionado" type="button">Remover-Selecionado</button>
+            <button id="salvar-tarefas" type="button">Salvar</button>
+        </div>
+        <button id="mover-cima" type="button"><span>↑</span></button>
+        <button id="mover-baixo" type="button"><span>↓</span></button>
+        <div class="listContainer">
+            <ol id="lista-tarefas"> 
+                               
+            </ol>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
