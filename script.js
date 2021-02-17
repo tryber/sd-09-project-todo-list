@@ -25,9 +25,20 @@ function createContainer() {
   container.className = 'container';
 }
 
+function createButtonSaveStorage() {
+  const button = document.createElement('button');
+  button.id = 'salvar-tarefas';
+  button.innerHTML = 'Salvar Tarefas';
+  document.body.appendChild(button);
+}
+
 function savedStorage() {
   const list = document.querySelector('#lista-tarefas');
-  localStorage.setItem('list', list.innerHTML);
+  const buttonSaved = document.querySelector('#salvar-tarefas');
+
+  buttonSaved.addEventListener('click', function () {
+    localStorage.setItem('list', list.innerHTML);
+  });
 }
 
 function addNewTodo() {
@@ -55,7 +66,6 @@ function addNewTodo() {
       list.appendChild(newList);
       input.value = '';
     }
-    savedStorage();
   });
 }
 
@@ -94,7 +104,6 @@ function removeList() {
     for (let index = 0; index < itemsList.length; index += 1) {
       taskList.removeChild(itemsList[index]);
     }
-    savedStorage();
   })
 }
 
@@ -115,7 +124,6 @@ function removeItemFinalized() {
     for (let index = 0; index < itemsList.length; index += 1) {
       taskList.removeChild(itemsList[index]);
     }
-    savedStorage();
   })
 }
 
@@ -136,7 +144,6 @@ function removeItemSelected() {
     for (let index = 0; index < itemsList.length; index += 1) {
       taskList.removeChild(itemsList[index]);
     }
-    savedStorage();
   })
 }
 
@@ -167,7 +174,6 @@ function moveUp() {
         taskList.insertBefore(itemSelected, itemsList[index - 1])
       }
     }
-    savedStorage();
   })
 }
 
@@ -188,7 +194,6 @@ function moveDown() {
         taskList.insertBefore(itemsList[index + 1], itemSelected)
       }
     }
-    savedStorage();
   })
 }
 
@@ -212,6 +217,8 @@ window.onload = function () {
   doubleClickList();
   moveUp();
   moveDown();
+  createButtonSaveStorage();
+  savedStorage();
   recovery();
 };
 
