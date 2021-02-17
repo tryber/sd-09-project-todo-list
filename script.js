@@ -6,6 +6,7 @@ const eraseCompletedButtom = document.querySelector('#remover-finalizados');
 const buttomUp = document.querySelector('#mover-cima');
 const buttomDown = document.querySelector('#mover-baixo');
 const buttomRemoveSelected = document.querySelector('#remover-selecionado');
+const buttomSave = document.querySelector('#salvar-tarefas');
 
 let text = document.querySelector('#texto-tarefa');
 
@@ -96,6 +97,22 @@ const clearSelectedTask = () => {
     })
 }
 
+const saveTasks = () => {
+    buttomSave.addEventListener('click', function() {
+        localStorageSave();
+        
+    })
+}
+
+const localStorageSave = () => {
+    let tasks = document.getElementById('lista-tarefas').innerHTML;
+    localStorage.list = tasks;
+    window.alert('Lista Salva Com sucesso!');
+}
+const loadTasks = () => {
+    document.getElementById('lista-tarefas').innerHTML = localStorage.list;
+}
+
 window.onload = () => {
     createTask();
     addSelectTask();
@@ -105,4 +122,7 @@ window.onload = () => {
     moveTaskUp();
     moveTaskDown();
     clearSelectedTask();
+    saveTasks();
+    loadTasks();
+    
 }
