@@ -66,35 +66,17 @@ function saveTasks() {
   const btnsaveTasks = document.querySelector('#salvar-tarefas');
   btnsaveTasks.addEventListener('click', () => {
     const taskList = document.querySelector('#lista-tarefas');
-    const tasks = [];
-    for (let index = 0; index < taskList.childElementCount; index += 1) {
-      const task = [];
-      task.push(taskList.children[index].innerText);
-
-      if (taskList.children[index].className) {
-        task.push(taskList.children[index].className);
-      }
-      tasks.push(task);
-    }
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    localStorage.setItem('tasklist', taskList.innerHTML);
   });
 }
 saveTasks();
 
-// function loadTasks() {
-//   const taskList = document.querySelector('#lista-tarefas');
-
-//   const tasks = JSON.parse(localStorage.getItem('tasks'));
-//   for (let index = 0; index < tasks.length; index += 1) {
-//     const listItem = document.createElement('li');
-//     listItem.innerText = tasks[index][0];
-//     if (tasks[index][1]) {
-//       listItem.className = tasks[index][1];
-//     }
-//     taskList.appendChild(listItem);
-//   }
-// }
-// loadTasks();
+function loadTasks() {
+  const storageList = localStorage.getItem('tasklist');
+  const taskList = document.querySelector('#lista-tarefas');
+  taskList.innerHTML = storageList;
+}
+loadTasks();
 
 function moveToUp() {
   const btnMoveToUp = document.querySelector('#mover-cima');
@@ -110,3 +92,18 @@ function moveToUp() {
   });
 }
 moveToUp();
+
+function moveToDown() {
+  const btnMoveToUp = document.querySelector('#mover-baixo');
+  btnMoveToUp.addEventListener('click', () => {
+    const taskList = document.querySelector('#lista-tarefas');
+    for (let index = 0; index < taskList.childElementCount; index += 1) {
+      if (taskList.children[index].style.backgroundColor === 'rgb(128, 128, 128)') {
+        if (taskList.children[index].nextSibling) {
+          taskList.insertBefore(taskList.children[index], taskList.children[index].nextElementSibling);
+        }
+      }
+    }
+  });
+}
+moveToDown();
