@@ -100,7 +100,8 @@ function moveToDown() {
     for (let i = 0; i < taskList.childElementCount; i += 1) {
       if (taskList.children[i].style.backgroundColor === 'rgb(128, 128, 128)') {
         if (taskList.children[i].nextSibling) {
-          taskList.insertBefore(taskList.children[i +1], taskList.children[i +1].previousSibling);
+          taskList.insertBefore(taskList.children[i +1],
+            taskList.children[i +1 ].previousSibling);
         }
       }
     }
