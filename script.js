@@ -63,8 +63,8 @@ function removeFinishedTasks() {
 removeFinishedTasks();
 
 function saveTasks() {
-  const btnsaveTasks = document.querySelector('#salvar-tarefas');
-  btnsaveTasks.addEventListener('click', () => {
+  const btnSaveTasks = document.querySelector('#salvar-tarefas');
+  btnSaveTasks.addEventListener('click', () => {
     const taskList = document.querySelector('#lista-tarefas');
     localStorage.setItem('tasklist', taskList.innerHTML);
   });
@@ -82,10 +82,10 @@ function moveToUp() {
   const btnMoveToUp = document.querySelector('#mover-cima');
   btnMoveToUp.addEventListener('click', () => {
     const taskList = document.querySelector('#lista-tarefas');
-    for (let index = 0; index < taskList.childElementCount; index += 1) {
-      if (taskList.children[index].style.backgroundColor === 'rgb(128, 128, 128)') {
-        if (taskList.children[index].previousSibling) {
-          taskList.insertBefore(taskList.children[index], taskList.children[index].previousSibling);
+    for (let i = 0; i < taskList.childElementCount; i += 1) {
+      if (taskList.children[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+        if (taskList.children[i].previousSibling) {
+          taskList.insertBefore(taskList.children[i], taskList.children[i].previousSibling);
         }
       }
     }
@@ -94,14 +94,13 @@ function moveToUp() {
 moveToUp();
 
 function moveToDown() {
-  const btnMoveToUp = document.querySelector('#mover-baixo');
-  btnMoveToUp.addEventListener('click', () => {
+  const btnMoveToDown = document.querySelector('#mover-baixo');
+  btnMoveToDown.addEventListener('click', () => {
     const taskList = document.querySelector('#lista-tarefas');
-    for (let index = 0; index < taskList.childElementCount; index += 1) {
-      if (taskList.children[index].style.backgroundColor === 'rgb(128, 128, 128)') {
-        if (taskList.children[index].nextSibling) {
-          taskList.insertBefore(taskList.children[index],
-              taskList.children[index].nextElementSibling);
+    for (let i = 0; i < taskList.childElementCount; i += 1) {
+      if (taskList.children[i].style.backgroundColor === 'rgb(128, 128, 128)') {
+        if (taskList.children[i].nextSibling) {
+          taskList.insertBefore(taskList.children[i+1], taskList.children[i+1].previousSibling);
         }
       }
     }
